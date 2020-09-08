@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 553fd4e49d274fcf4c25356764182d54b91149e4
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 79bf5f0d6b7e3fa4735d94c7b26c1736ab25113e
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036647"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88817007"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Creación de una oferta de Dynamics 365 for Operations
 
@@ -21,7 +21,7 @@ En este tema se explica cómo crear una nueva oferta de Dynamics 365 for Operati
 Antes de comenzar, [cree una cuenta de Marketplace comercial en el Centro de partners](create-account.md), si aún no lo ha hecho. Asegúrese de que su cuenta está inscrita en el programa marketplace comercial.
 
 >[!NOTE]
-> Una vez publicada una oferta, las modificaciones de esta realizadas en el Centro de partners solo se actualizarán en el sistema y en los escaparates después de volver a publicarla. Asegúrese de enviar la oferta para su publicación después de realizar los cambios.
+> Una vez publicada la oferta, las modificaciones de la oferta solo se actualizarán en el Centro de partners y en la tienda en línea después de volver a enviar la oferta para su publicación.
 
 ## <a name="create-a-new-offer"></a>Crear una nueva oferta
 
@@ -32,7 +32,7 @@ Antes de comenzar, [cree una cuenta de Marketplace comercial en el Centro de par
     ![Muestra el menú de navegación izquierdo.](./media/new-offer-dynamics-365-operations.png)
 
 > [!NOTE]
-> Después de publicar una oferta, las modificaciones que se realicen en el Centro de partners solo aparecen en los escaparates cuando la oferta se vuelve a publicar. Asegúrese de volver a realizar la publicación siempre después de realizar cambios.
+> Después de publicar una oferta, las modificaciones que se realicen en el Centro de partners solo aparecen en las tiendas en línea cuando la oferta se vuelve a publicar. Asegúrese de volver a realizar la publicación siempre después de realizar cambios.
 
 ## <a name="new-offer"></a>Nueva oferta
 
@@ -193,12 +193,16 @@ En esta sección, puede proporcionar logotipos e imágenes que se usarán al mos
 
 #### <a name="store-logos"></a>Logotipos de Store
 
-Proporcione el logotipo de la oferta en dos tamaños de píxel:
+Proporcione un archivo PNG para el logotipo de tamaño **Grande**. El Centro de partners lo usará para crear un logotipo **Pequeño**. Opcionalmente, puede reemplazarlo por una imagen diferente.
 
-- **Pequeño (48 x 48)**
-- **Grande (216 x 216)**
+- **Grande** (de 216 x 216 a 350 x 350 píxeles, obligatorio)
+- **Pequeño** (48 x 48 píxeles, opcional)
+
+Estos logotipos se usan en distintos lugares de la publicación:
 
 [!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Capturas de pantalla
 

@@ -3,13 +3,13 @@ title: 'Tutorial: Desencadenamiento de un grupo de contenedores mediante una fun
 description: Creación de una función de PowerShell sin servidor desencadenada por HTTP para automatizar la creación de instancias de contenedor de Azure
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.custom: ''
-ms.openlocfilehash: 298cf1452e514ede540e23d4e64f6dd1059cceab
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ec4b2273f6be6ea4aabed2b660e0b7553f861d0d
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259745"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89072050"
 ---
 # <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>Tutorial: Uso de una función de Azure desencadenada por HTTP para crear un grupo de contenedores
 

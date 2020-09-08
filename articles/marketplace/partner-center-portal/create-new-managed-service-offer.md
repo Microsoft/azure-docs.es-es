@@ -3,16 +3,16 @@ title: Creación de una nueva oferta de servicio administrado en el Marketplace 
 description: Cómo crear una oferta de servicio administrado para la lista de Azure Marketplace mediante el portal de Marketplace comercial en el Centro de partners.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.date: 07/07/2020
-ms.openlocfilehash: ae079fce02f58d6c6457d7fe6401526f4002662f
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.date: 08/07/2020
+ms.openlocfilehash: 9ff11312b6d231927f5053868b64e0b825df371e
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798195"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816990"
 ---
 # <a name="create-a-managed-service-offer"></a>Creación de una oferta de servicio administrado
 
@@ -29,7 +29,7 @@ Debe tener un [nivel de competencia de plataforma en la nube Silver o Gold](http
     ![Muestra el menú de navegación izquierdo.](./media/new-offer-managed-service.png)
 
 >[!NOTE]
->Después de publicar una oferta, las modificaciones que se realicen en el Centro de partners solo aparecen en los escaparates cuando la oferta se vuelve a publicar. Asegúrese de volver a realizar la publicación siempre después de realizar cambios.
+>Después de publicar una oferta, las modificaciones que se realicen en el Centro de partners solo aparecen en las tiendas en línea cuando la oferta se vuelve a publicar. Asegúrese de volver a realizar la publicación siempre después de realizar cambios.
 
 ## <a name="new-offer"></a>Nueva oferta
 
@@ -130,20 +130,24 @@ Si tiene sitios web de soporte técnico para **clientes globales de Azure** o **
 
 En esta sección, puede proporcionar logotipos e imágenes que se usarán al mostrar la oferta al cliente. Todas las imágenes deben estar en formato .PNG.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!NOTE]
 >Si tiene un problema al cargar archivos, asegúrese de que la red local no bloquee el servicio https://upload.xboxlive.com que usa el Centro de partners.
 
 #### <a name="store-logos"></a>Logotipos de Store
 
-Proporcione un archivo PNG para el logotipo de tamaño **grande** (entre 216 x 216 y 350 x 350 píxeles). El Centro de partners lo utilizará para crear un logotipo de tamaño **pequeño** (48 x 48 píxeles) y un logotipo de tamaño **medio** (90 x 90 píxeles). Opcionalmente, puede reemplazarlos por imágenes diferentes.
+Proporcione un archivo PNG para el logotipo de tamaño **Grande**. El Centro de partners lo usará para crear un logotipo **Pequeño** y un logotipo **Mediano**. Opcionalmente, puede reemplazarlos por imágenes diferentes más adelante.
 
-Se requieren los tres tamaños de logotipo para su uso en distintos lugares de la lista:
+- **Grande** (de 216 x 216 a 350 x 350 píxeles, obligatorio)
+- **Mediano** (90 x 90 píxeles, opcional)
+- **Pequeño** (48 x 48 píxeles, opcional)
 
-- **Pequeño (48 x 48)**
-- **Medio (90 x 90)**
-- **Grande** (entre 216 x 216 y 350 x 350)
+Estos logotipos se usan en distintos lugares de la publicación:
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
+
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Capturas de pantalla
 
@@ -172,6 +176,8 @@ Seleccione **Guardar borrador** antes de continuar.
 ## <a name="plan-overview"></a>Información general del plan
 
 Cada oferta tiene que tener uno o más planes (anteriormente denominados SKU). Puede agregar varios planes para admitir diferentes conjuntos de características a precios diferentes o para personalizar un plan específico para un público limitado de clientes específicos. Los clientes pueden ver los planes disponibles para ellos en la oferta principal.
+
+Puede crear hasta 100 planes para cada oferta, de los cuales hasta 45 pueden ser privados. Más información sobre los planes privados en [Ofertas privadas en el marketplace comercial de Microsoft](../private-offers.md).
 
 En la página **Información general del plan**, seleccione **+ Crear nuevo plan**. A continuación, escriba un **Id. de plan** y un **nombre de plan**. Ambos valores solo puede contener caracteres alfanuméricos en minúsculas, guiones y guiones bajos, con un máximo de 50 caracteres. Estos valores pueden ser visibles para los clientes y no se pueden cambiar después de publicar la oferta.
 

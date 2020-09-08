@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Veracode | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Veracode.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 4fe78050-cb6d-4db9-96ec-58cc0779167f
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/10/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcec326ddab1e74f43e1bb7ef446998a40799fd0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a8c7c70e7956868bf069704eb5fe34db014dd135
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73043555"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88532473"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-veracode"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Veracode
 

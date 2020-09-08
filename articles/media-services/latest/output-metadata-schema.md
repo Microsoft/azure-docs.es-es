@@ -1,7 +1,7 @@
 ---
 title: Esquema de metadatos de salida de Azure Media Services | Microsoft Docs
 description: En este artículo se proporciona información general sobre el esquema de metadatos de salida de Azure Media Services.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -10,17 +10,19 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/03/2020
-ms.author: juliako
-ms.openlocfilehash: ce3d0a5beb5903d29b1deec345cf4673e3492e5d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: reference
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 66f4e426ee6d77b9faa1efab3deb3d7ee4baf47d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080931"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89289379"
 ---
 # <a name="output-metadata"></a>Metadatos de salida
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Un trabajo de codificación está asociado a un recurso (o recursos) de entrada donde desea realizar algunas tareas de codificación. Por ejemplo, codificar un archivo MP4 en conjuntos MP4 de velocidad de bits adaptable H.264; crear una miniatura; crear superposiciones. Tras la finalización de una tarea, se produce un recurso de salida.  El recurso de salida contiene vídeo, audio, miniaturas y otros archivos. El recurso de salida también contiene un archivo con metadatos sobre el recurso de salida. El nombre del archivo JSON de metadatos tiene el siguiente formato: `<source_file_name>_manifest.json` (por ejemplo, `BigBuckBunny_manifest.json`). Deberá buscar cualquier archivo *_metadata.json y consultar la cadena de ruta de acceso que contiene para encontrar el nombre de archivo de origen (sin truncamiento).
 

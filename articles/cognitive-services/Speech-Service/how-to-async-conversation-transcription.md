@@ -10,13 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: amishu
+ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-twenty-one
-ms.openlocfilehash: 65a6fd7e0e1e64a459a46c0f97a2afdbc03573a9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4b2dfa8d474f10d6b4ca1c46ac2b575e8d8407ff
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284235"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934655"
 ---
 # <a name="asynchronous-conversation-transcription"></a>Transcripción de conversaciones asincrónica
 

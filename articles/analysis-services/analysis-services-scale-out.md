@@ -4,15 +4,15 @@ description: Replique servidores de Azure Analysis Services con la escalabilidad
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 08/20/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3ea304d038618fc428f20e7ad72b398f593d09a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ceed2a287fb210a421972e9c9f9e6c77c6cb1879
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78247990"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716935"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escalabilidad horizontal de Azure Analysis Services
 
@@ -50,7 +50,7 @@ Al realizar una operación de escalado horizontal posterior, por ejemplo, aument
 
 ### <a name="synchronization-mode"></a>Modo de sincronización
 
-De forma predeterminada, las réplicas de consultas se rehidratan en su totalidad, no de forma incremental. La rehidratación tiene lugar en fases. Las réplicas se desasocian y se asocian de dos en dos (suponiendo que haya al menos tres réplicas) para garantizar que, en un momento dado, hay al menos una réplica que se mantiene en línea para las consultas. En algunos casos, es posible que los clientes necesiten volver a conectarse a una de las réplicas en línea mientras se está llevando a cabo este proceso. Con la opción **ReplicaSyncMode** (en versión preliminar), ahora puede especificar que la sincronización de réplicas de consulta se realice en paralelo. La sincronización paralela brinda las siguientes ventajas: 
+De forma predeterminada, las réplicas de consultas se rehidratan en su totalidad, no de forma incremental. La rehidratación tiene lugar en fases. Las réplicas se desasocian y se asocian de dos en dos (suponiendo que haya al menos tres réplicas) para garantizar que, en un momento dado, hay al menos una réplica que se mantiene en línea para las consultas. En algunos casos, es posible que los clientes necesiten volver a conectarse a una de las réplicas en línea mientras se está llevando a cabo este proceso. Con la opción **ReplicaSyncMode**, ahora puede especificar que la sincronización de réplicas de consulta se realice en paralelo. La sincronización paralela brinda las siguientes ventajas: 
 
 - Una reducción significativa del tiempo de sincronización. 
 - Es más fácil que los datos de las diferentes réplicas mantengan la coherencia durante el proceso de sincronización. 

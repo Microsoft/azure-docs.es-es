@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: af19b72846c78ef80ba170b6d6e0cec97fa2b96e
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 0e44280c0a6c0d39c98e3aeecd5e9a3707332e81
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533366"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236580"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Novedades de Azure SQL Database e Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -52,7 +52,7 @@ En esta tabla se proporciona una comparación rápida del cambio en la terminolo
 | ---| --- |
 | Recuperación de base de datos acelerada con bases de datos únicas y grupos elásticos | Para más información, consulte [Recuperación de base de datos acelerada](../accelerated-database-recovery.md).|
 | Clasificación y detección de datos  |Para obtener información, vea [Detección y clasificación de datos de Azure SQL Database y Azure Synapse Analytics](data-discovery-and-classification-overview.md).|
-| Trabajos de base de datos elástica | Para más información, consulte [Creación, configuración y administración de trabajos elásticos](elastic-jobs-overview.md). |
+| Trabajos de bases de datos elásticas (versión preliminar) | Para más información, consulte [Creación, configuración y administración de trabajos elásticos](elastic-jobs-overview.md). |
 | Consultas elásticas | Para más información, consulte [Introducción a la consulta elástica](elastic-query-overview.md). |
 | Transacciones elásticas | [Transacciones distribuidas en bases de datos en la nube](elastic-transactions-overview.md). |
 | Editor de consultas de Azure Portal |Para más información, consulte [Uso del editor de consultas SQL de Azure Portal para conectarse a datos y consultarlos](connect-query-portal.md).|
@@ -97,6 +97,7 @@ Las características siguientes están habilitadas en el modelo de implementaci�
 
 |Incidencia  |Fecha de detección  |Estado  |Fecha de resolución  |
 |---------|---------|---------|---------|
+|[La entidad de servicio no puede acceder a Azure AD y AKV](#service-principal-cannot-access-azure-ad-and-akv)|Agosto de 2020|Tiene solución alternativa||
 |[La restauración de la copia de seguridad manual sin CHECKSUM puede devolver un error](#restoring-manual-backup-without-checksum-might-fail)|Mayo de 2020|Resuelto|Junio de 2020|
 |[El agente deja de responder al modificar, deshabilitar o habilitar los trabajos existentes](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Mayo de 2020|Resuelto|Junio de 2020|
 |[Permisos en el grupo de recursos no aplicados a Instancia administrada de SQL](#permissions-on-resource-group-not-applied-to-sql-managed-instance)|Febrero de 2020|Tiene solución alternativa||
@@ -124,6 +125,11 @@ Las características siguientes están habilitadas en el modelo de implementaci�
 |Característica Correo electrónico de base de datos con servidores de correo externos (que no son de Azure) mediante una conexión segura||Resuelto|Octubre de 2019|
 |Las bases de datos independientes no se admiten en la Instancia administrada de SQL||Resuelto|Agosto de 2019|
 
+### <a name="service-principal-cannot-access-azure-ad-and-akv"></a>La entidad de servicio no puede acceder a Azure AD y AKV
+
+En algunas circunstancias, puede existir un problema con la entidad de servicio que se utiliza para acceder a los servicios de Azure AD y Azure Key Vault (AKV). En consecuencia, este problema afecta al uso de la autenticación de Azure AD y al cifrado de datos transparente (TDE) con Instancia administrada de SQL. Esto podría experimentarse como un problema de conectividad intermitente o no podría ejecutar instrucciones como CREATE LOGIN/USER FROM EXTERNAL PROVIDER o EXECUTE AS LOGIN/USER. La configuración de TDE con clave administrada por el cliente en una nueva Instancia administrada de SQL de Azure también podría no funcionar en algunas circunstancias.
+
+**Solución alternativa**: Para evitar que se produzca este problema en la Instancia administrada de SQL antes de ejecutar cualquier comando de actualización, o en caso de que ya se haya experimentado este problema después de actualizar los comandos, vaya a Azure Portal y acceda a la hoja del [Administrador de Active Directory](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#azure-portal) de la Instancia administrada de SQL. Compruebe si puede ver el mensaje de error "Instancia administrada necesita una entidad de seguridad para acceder a Azure Active Directory. Haga clic aquí para crear una." En caso de que aparezca este mensaje de error, haga clic en él y siga las instrucciones paso a paso que se proporcionan hasta que se resuelva el error.
 
 ### <a name="restoring-manual-backup-without-checksum-might-fail"></a>La restauración de la copia de seguridad manual sin CHECKSUM puede devolver un error
 

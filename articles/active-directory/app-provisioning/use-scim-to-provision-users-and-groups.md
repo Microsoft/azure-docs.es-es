@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/07/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: a8138f125c55e3b2d76cb680ea48366c5a3e05fd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: be33841206fa30a5b4975a604af1b5d9e38551a8
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051525"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690262"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Creación de un punto de conexión SCIM y configuración del aprovisionamiento de usuarios con Azure AD
 
@@ -153,6 +153,7 @@ Dentro de la [especificación del protocolo SCIM 2.0](http://www.simplecloud.inf
 * Admitir la consulta de usuarios por identificador y por administrador, según la sección 3.4.2 del protocolo SCIM.  
 * Admitir la consulta de grupos por Id. y miembro, según la sección 3.4.2 del protocolo SCIM.  
 * Acepta un token de portador único para la autenticación y autorización de Azure AD para la aplicación.
+* Admite la eliminación temporal de un usuario `active=false` y la restauración del usuario `active=true`.
 
 Siga estas directrices generales al implementar un punto de conexión SCIM para garantizar la compatibilidad con Azure AD:
 
@@ -745,13 +746,13 @@ Barra mínima de conjuntos de cifrado TLS 1.2:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>Intervalos IP
-Actualmente, el servicio de aprovisionamiento de Azure AD puede funcionar con cualquier intervalo de direcciones IP de Azure. Estamos trabajando para consolidar el conjunto de intervalos IP en los que opera el servicio. Este documento se actualizará una vez que la lista de intervalos IP esté consolidada. 
+El servicio de aprovisionamiento de Azure AD actualmente opera en los intervalos IP de AzureActiveDirectory y AzureActiveDirectoryDomainServices, tal y como se muestra [aquí](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Se está trabajando para consolidar solo los intervalos IP de AzureActiveDirectory. 
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Paso 3: Cree un punto de conexión SCIM
 
 Ahora que ha diseñado el esquema y comprendido la implementación de SCIM de Azure AD, puede empezar a desarrollar el punto de conexión de SCIM. En lugar de comenzar desde cero y compilar la implementación totalmente por su cuenta, puede confiar en una serie de bibliotecas de SCIM de código abierto publicadas por la comunidad de SCIM.
 
-El [código de referencia](https://aka.ms/SCIMReferenceCode) de .NET Core de código abierto publicado por el equipo de aprovisionamiento de Azure AD es uno de esos recursos que puede iniciar su desarrollo. Una vez que haya creado el punto de conexión de SCIM, querrá probarlo. Puede usar la colección de [pruebas de Postman](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) proporcionadas como parte del código de referencia o ejecutar las solicitudes o respuestas de ejemplo proporcionadas [anteriormente](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#user-operations).  
+El [código de referencia](https://aka.ms/SCIMReferenceCode) de .NET Core de código abierto publicado por el equipo de aprovisionamiento de Azure AD es uno de esos recursos que puede iniciar su desarrollo. Una vez que haya creado el punto de conexión de SCIM, querrá probarlo. Puede usar la colección de [pruebas de Postman](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) proporcionadas como parte del código de referencia o ejecutar las solicitudes o respuestas de ejemplo proporcionadas [anteriormente](#user-operations).  
 
    > [!Note]
    > El código de referencia está pensado para ayudarle a empezar a crear el punto de conexión de SCIM y se proporciona "tal cual". Las contribuciones de la comunidad le ayudarán a crear y mantener el código.
@@ -799,7 +800,7 @@ El SDK de .NET Core incluye un certificado de desarrollo HTTPS que se puede usar
 * Microsoft.SCIM.WebHostSample: https://localhost:5001
 * IIS Express: https://localhost:44359/
 
-Para obtener más información sobre HTTPS en ASP.NET Core, use el siguiente vínculo: [Aplicar HTTPS en ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl)
+Para obtener más información sobre HTTPS en ASP.NET Core, use el siguiente vínculo: [Aplicar HTTPS en ASP.NET Core](/aspnet/core/security/enforcing-ssl)
 
 ### <a name="handling-endpoint-authentication"></a>Control de la autenticación de puntos de conexión
 
@@ -1168,12 +1169,12 @@ Una vez que haya empezado el ciclo inicial, puede seleccionar **Registros de apr
 
 ## <a name="step-5-publish-your-application-to-the-azure-ad-application-gallery"></a>Paso 5: Publique la aplicación en la galería de aplicaciones de Azure AD
 
-Si va a crear una aplicación que usará más de un inquilino, puede hacer que esté disponible en la galería de aplicaciones de Azure AD. De este modo, facilitará a las organizaciones la detección de la aplicación y la configuración del aprovisionamiento. Publicar la aplicación en la galería de Azure AD y hacer que el aprovisionamiento esté disponible para otros usuarios es fácil. Consulte los pasos [aquí](../develop/howto-app-gallery-listing.md). Microsoft colaborará con usted a fin de integrar su aplicación en nuestra galería, probar su punto de conexión y publicar la [documentación](../saas-apps/tutorial-list.md) de incorporación de versiones para que los clientes la usen. 
+Si va a crear una aplicación que usará más de un inquilino, puede hacer que esté disponible en la galería de aplicaciones de Azure AD. De este modo, facilitará a las organizaciones la detección de la aplicación y la configuración del aprovisionamiento. Publicar la aplicación en la galería de Azure AD y hacer que el aprovisionamiento esté disponible para otros usuarios es fácil. Consulte los pasos [aquí](../azuread-dev/howto-app-gallery-listing.md). Microsoft colaborará con usted a fin de integrar su aplicación en nuestra galería, probar su punto de conexión y publicar la [documentación](../saas-apps/tutorial-list.md) de incorporación de versiones para que los clientes la usen. 
 
 ### <a name="gallery-onboarding-checklist"></a>Lista de comprobación de la incorporación a la galería
 Siga la lista de comprobación siguiente para asegurarse de que la aplicación se incorpora con rapidez y que los clientes tienen una experiencia de implementación sin problemas. La información se recopilará en el momento en que se incorpore a la galería. 
 > [!div class="checklist"]
-> * Compatibilidad con un punto de conexión de grupo y de usuario de [SCIM 2.0 ](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-2-understand-the-azure-ad-scim-implementation) (solo se requiere uno, pero se recomiendan los dos)
+> * Compatibilidad con un punto de conexión de grupo y de usuario de [SCIM 2.0 ](#step-2-understand-the-azure-ad-scim-implementation) (solo se requiere uno, pero se recomiendan los dos)
 > * Admisión de al menos 25 solicitudes por segundo por inquilino (obligatorio)
 > * Establecimiento de contactos de ingeniería y soporte técnico para guiar la incorporación de clientes a la galería (obligatorio)
 > * Tres credenciales de prueba sin expiración para la aplicación (obligatorio)

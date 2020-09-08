@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Tidemark | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Tidemark.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 5cf80d4e-6e8b-48ec-81c8-27872af5e5d5
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 2fd26acfd857ab868c003d0de901f6d168d63078
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 85f1d59205f218b903e547692ed346cec07d340b
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86167528"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544832"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tidemark"></a>Tutorial: integración de Azure Active Directory con Tidemark
 

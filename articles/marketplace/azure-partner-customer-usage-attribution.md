@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/14/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: ab729d34219c05ee76a2a14832f41342d29eab21
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c5fc239c32037354547c6818fd507a7a8cfd3657
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065797"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031445"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Atribución de uso de partners y clientes de marketplace comercial
 
@@ -61,7 +61,7 @@ Los GUID deben estar registrados en el Centro de partners para permitir la atrib
 Después de agregar un GUID a la plantilla o en el agente de usuario, y registrarlo en el Centro de partners, se realizará un seguimiento de las futuras implementaciones.
 
 > [!NOTE]
-> Si va a publicar la oferta de [Aplicación de Azure](./partner-center-portal/create-new-azure-apps-offer.md) en Azure Marketplace a través del Centro de partners, cualquier GUID nuevo que se use dentro de la plantilla se registrará de forma automática en el perfil del Centro de partners al cargar la plantilla.  
+> Si va a publicar la oferta de [Aplicación de Azure](./partner-center-portal/create-new-azure-apps-offer.md) en Azure Marketplace a través del Centro de partners, cualquier GUID nuevo que se use dentro de la plantilla se registrará de forma automática en el perfil del Centro de partners al cargar esta.  
 
 1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard).
 
@@ -82,13 +82,13 @@ Después de agregar un GUID a la plantilla o en el agente de usuario, y registra
 1. Seleccione **Guardar**.
 
 ## <a name="use-resource-manager-templates"></a>Uso de plantillas de Resource Manager
-Muchas soluciones de partners se implementan mediante plantillas de Azure Resource Manager. Si tiene una plantilla de Resource Manager disponible en Azure Marketplace, en GitHub o como Inicio rápido, el proceso de modificación de esta para habilitar la atribución de uso de clientes debe ser sencillo.
+Muchas soluciones de partners se implementan mediante plantillas de Azure Resource Manager. Si tiene una plantilla de Resource Manager disponible en Azure Marketplace, en GitHub o como Inicio rápido, el proceso de modificación de esta para habilitar la atribución de uso de clientes es sencillo.
 
 > [!NOTE]
 > Para más información sobre la creación y publicación de plantillas de solución, consulte
 > * [Creación e implementación de plantillas de Resource Manager](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 >* [Oferta de aplicación de Azure](./partner-center-portal/create-new-azure-apps-offer.md).
->* Vídeo: [Building Solution Templates, and Managed Applications for the Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) (Creación de plantillas de soluciones y aplicaciones administradas para Azure Marketplace).
+>* Vídeo: [Creación de plantillas de soluciones y aplicaciones administradas para Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
 
 
 Para agregar un identificador único global (GUID), se realizas una modificación única en el archivo de plantilla principal:
@@ -269,7 +269,7 @@ Si necesita ayuda para la atribución de uso de del cliente o la incorporación 
 1. En **Category** (Categoría), elija la categoría del problema:
 
    - Para problemas de asociación de uso, seleccione **Other** (Otros).
-   - Para problemas de acceso a Azure Marketplace, seleccione **Access Problem** (Problema de acceso).
+   - Si tiene problemas de acceso a Azure Marketplace, seleccione **Problema de acceso**.
 
      ![Elegir la categoría de problema](media/marketplace-publishers-guide/lu-article-incident.png)
 

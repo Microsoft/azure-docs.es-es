@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: kenwith
-ms.openlocfilehash: 1193e6f9ed637f6bd28b2fef6488b2d4902ec67b
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: be6a8a58f1d66df9d0fe557584c4731e42ae9c59
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87459392"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640555"
 ---
 # <a name="configure-password-based-single-sign-on"></a>Configuración del inicio de sesión único basado en contraseña
 
@@ -29,7 +29,7 @@ El SSO basado en contraseña representa una excelente manera de empezar a integr
 
 - Admitir aplicaciones que requieren varios campos de inicio de sesión para aplicaciones que no solo requieren los campos de nombre de usuario y contraseña para iniciar sesión
 
-- Personalizar las etiquetas de los campos de nombre de usuario y contraseña que los usuarios ven en el [panel de acceso de la aplicación](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) cuando escriben sus credenciales
+- Personalizar las etiquetas de los campos de nombre de usuario y contraseña que los usuarios ven en la página [Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) cuando escriben sus credenciales
 
 - Permitir a los usuarios proporcionar sus propios nombres de usuario y contraseñas para las cuentas de aplicación existentes que están escribiendo manualmente
 
@@ -71,7 +71,7 @@ Si se produce un error en el intento de análisis de Azure AD, puede configurar 
    ![Configuración manual del inicio de sesión único con contraseña](./media/configure-password-single-sign-on/password-configure-sign-on.png)
 3. Seleccione **Capturar campos de inicio de sesión**. Se abre una página de estado de la captura en una nueva pestaña, que muestra el mensaje **Actualmente la captura de metadatos está en curso**.
 
-4. Si la casilla que indica que se **requiere una extensión del panel de acceso** aparece en una nueva pestaña, seleccione **Instalar ahora** para instalar la extensión del explorador **Extensión de inicio de sesión seguro de mis aplicaciones**. (La extensión del explorador requiere Microsoft Edge, Chrome o Firefox). A continuación, instale, inicie y active la extensión, y actualice la página de estado de la captura.
+4. Si aparece la casilla **My Apps Extension Required** (Se requiere la extensión Aplicaciones) en una nueva pestaña, seleccione **Instalar ahora** para instalar la extensión del explorador **Extensión de inicio de sesión seguro de mis aplicaciones**. (La extensión del explorador requiere Microsoft Edge, Chrome o Firefox). A continuación, instale, inicie y active la extensión, y actualice la página de estado de la captura.
 
    La extensión del explorador abre otra pestaña que muestra la dirección URL especificada.
 5. En la pestaña con la dirección URL especificada, recorra el proceso de inicio de sesión. Rellene los campos de nombre de usuario y contraseña e intente iniciar sesión. (No es necesario proporcionar la contraseña correcta).

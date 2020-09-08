@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con JOBHUB | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y JOBHUB.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: d2162cab-c5d4-4207-ad59-b75b48c7f799
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/16/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc5f7bf299465b6af272c9b417a62f121b9a4d82
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1623d4501a89e3614e694b57f6cae1eee28062da
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67164932"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547044"
 ---
 # <a name="tutorial-integrate-jobhub-with-azure-active-directory"></a>Tutorial: Integración de JOBHUB con Azure Active Directory
 

@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.custom: devx-track-python
-ms.openlocfilehash: a33a739014b33303389b4f880da3687db852633e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell
+ms.openlocfilehash: 98cec9fc30b4840a763358c0b3cd76659ff865d7
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850277"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89070367"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Cómo usar identidades administradas para App Service y Azure Functions
 
@@ -52,7 +52,7 @@ Para configurar una identidad administrada mediante la CLI de Azure, deberá usa
 
 - Usar [Azure Cloud Shell](../cloud-shell/overview.md) desde Azure Portal.
 - Use Azure Cloud Shell integrado mediante el botón "Pruébelo", situado en la esquina superior derecha de cada bloque de código.
-- [Instale la versión más reciente de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 o posterior) si prefiere usar una consola de CLI local. 
+- [Instale la versión más reciente de la CLI de Azure](/cli/azure/install-azure-cli) (2.0.31 o posterior) si prefiere usar una consola de CLI local. 
 
 Los siguientes pasos le guiarán por la creación de una aplicación web y la asignación a la misma de una identidad mediante la CLI:
 
@@ -109,7 +109,7 @@ Los siguientes pasos le guiarán por la creación de una aplicación y la asigna
 
 1. Si es necesario, instale Azure PowerShell con las instrucciones que se encuentra en la [guía de Azure PowerShell](/powershell/azure/) y luego ejecute `Login-AzAccount` para crear una conexión con Azure.
 
-2. Cree una aplicación de funciones con Azure PowerShell. Para obtener más ejemplos de cómo usar Azure PowerShell con Azure Functions, vea la [referencia de Az.Functions](https://docs.microsoft.com/powershell/module/az.functions/?view=azps-4.1.0#functions):
+2. Cree una aplicación de funciones con Azure PowerShell. Para obtener más ejemplos de cómo usar Azure PowerShell con Azure Functions, vea la [referencia de Az.Functions](/powershell/module/az.functions/?view=azps-4.1.0#functions):
 
     ```azurepowershell-interactive
     # Create a resource group.
@@ -219,7 +219,7 @@ Los siguientes pasos le guiarán por la creación de una aplicación y la asigna
 
 1. Si es necesario, instale Azure PowerShell con las instrucciones que se encuentra en la [guía de Azure PowerShell](/powershell/azure/) y luego ejecute `Login-AzAccount` para crear una conexión con Azure.
 
-2. Cree una aplicación de funciones con Azure PowerShell. Para obtener más ejemplos de cómo usar Azure PowerShell con Azure Functions, vea la [referencia de Az.Functions](https://docs.microsoft.com/powershell/module/az.functions/?view=azps-4.1.0#functions). El siguiente script también utiliza `New-AzUserAssignedIdentity`, que se debe instalar por separado según el procedimiento de [Crear, enumerar y eliminar una identidad administrada que haya asignado el usuario mediante Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
+2. Cree una aplicación de funciones con Azure PowerShell. Para obtener más ejemplos de cómo usar Azure PowerShell con Azure Functions, vea la [referencia de Az.Functions](/powershell/module/az.functions/?view=azps-4.1.0#functions). El siguiente script también utiliza `New-AzUserAssignedIdentity`, que se debe instalar por separado según el procedimiento de [Crear, enumerar y eliminar una identidad administrada que haya asignado el usuario mediante Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
 
     ```azurepowershell-interactive
     # Create a resource group.
@@ -347,7 +347,7 @@ Una respuesta 200 OK incluye un cuerpo JSON con las siguientes propiedades:
 > | resource      | El recurso para el que se solicitó el token de acceso, que coincide con el parámetro de la cadena de consulta `resource` de la solicitud.                                                                                                                               |
 > | token_type    | Indica el valor de tipo de token. El único tipo que admite Azure AD es FBearer. Para más información sobre los tokens de portador, consulte [The OAuth2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) (Marco de autorización de OAuth2.0: uso del token de portador [RFC 6750]). |
 
-Esta respuesta es la misma que la [respuesta para la solicitud de token de acceso de servicio a servicio de Azure AD](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
+Esta respuesta es la misma que la [respuesta para la solicitud de token de acceso de servicio a servicio de Azure AD](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
 
 ### <a name="rest-protocol-examples"></a>Ejemplos de protocolo de REST
 

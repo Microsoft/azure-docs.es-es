@@ -1,6 +1,6 @@
 ---
 title: Aplicación de la directiva de nomenclatura de grupos en Azure Active Directory | Microsoft Docs
-description: Configuración de una directiva de nomenclatura para grupos de Office 365 en Azure Active Directory
+description: Configuración de una directiva de nomenclatura para grupos de Microsoft 365 en Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -9,28 +9,28 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 08/13/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 380962b71d6829b8a217a5d3038e2ae4dd7264fd
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9ff525eab42d69ded33381fefc83076f9aa94f05
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497093"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213748"
 ---
-# <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Aplicación de una directiva de nomenclatura en los grupos de Office 365 en Azure Active Directory
+# <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Aplicación de una directiva de nomenclatura en los grupos de Microsoft 365 en Azure Active Directory
 
-Para aplicar convenciones de nomenclatura coherentes a los grupos de Office 365 creados o editados por los usuarios, configure una directiva de nomenclatura de grupos para sus organizaciones en Azure Active Directory (Azure AD). Por ejemplo, podría usar la directiva de nomenclatura para comunicar la función de un grupo, la pertenencia, la región geográfica o quién creó el grupo. También puede usarla para ayudar a clasificar los grupos en la libreta de direcciones. O, para impedir que palabras específicas se usen en los nombres y alias de grupo.
+Para aplicar convenciones de nomenclatura coherentes a los grupos de Microsoft 365 creados o editados por los usuarios, configure una directiva de nomenclatura de grupos para sus organizaciones en Azure Active Directory (Azure AD). Por ejemplo, podría usar la directiva de nomenclatura para comunicar la función de un grupo, la pertenencia, la región geográfica o quién creó el grupo. También puede usarla para ayudar a clasificar los grupos en la libreta de direcciones. O, para impedir que palabras específicas se usen en los nombres y alias de grupo.
 
 > [!IMPORTANT]
-> Para usar la directiva de nomenclatura de Azure AD para los grupos de Office 365, es necesario que posea una licencia P1 de Azure Active Directory Premium o una licencia EDU de Azure AD Basic para cada usuario que sea miembro de uno o varios grupos de Office 365.
+> Para usar la directiva de nomenclatura de Azure AD para los grupos de Microsoft 365, es necesario que posea una licencia P1 de Azure Active Directory Premium o una licencia EDU de Azure AD Basic para cada usuario que sea miembro de uno o varios grupos de Microsoft 365.
 
 La directiva de nomenclatura se aplica a la creación o edición de grupos creados en cargas de trabajo (por ejemplo, Outlook, Microsoft Teams, SharePoint, Exchange o Planner). Se aplica tanto al nombre como al alias del grupo. Si configuró su directiva de nomenclatura en Azure AD y tiene una directiva de nomenclatura de grupos de Exchange existente, se aplica la directiva de nomenclatura de Azure AD.
 
-Cuando se configure la directiva de nomenclatura de grupos, se aplicará a los nuevos grupos de Office 365 creados por los usuarios finales. La directiva de nomenclatura no se aplica a ciertos roles de directorio, como Administrador global o Administrador de usuarios (consulte a continuación la lista completa de los roles exentos de la directiva de nomenclatura de grupos). En el caso de los grupos existentes de Office 365, la directiva no se aplicará de inmediato en el momento de la configuración. Una vez que el propietario del grupo edite el nombre de estos grupos, se aplicará la directiva de nomenclatura.
+Cuando se configure la directiva de nomenclatura de grupos, se aplicará a los nuevos grupos de Microsoft 365 creados por los usuarios finales. La directiva de nomenclatura no se aplica a ciertos roles de directorio, como Administrador global o Administrador de usuarios (consulte a continuación la lista completa de los roles exentos de la directiva de nomenclatura de grupos). En el caso de los grupos existentes de Microsoft 365, la directiva no se aplicará de inmediato en el momento de la configuración. Una vez que el propietario del grupo edite el nombre de estos grupos, se aplicará la directiva de nomenclatura.
 
 ## <a name="naming-policy-features"></a>Características de la directiva de nomenclatura
 
@@ -253,7 +253,7 @@ Outlook Customer Manager (OCM) | Outlook Customer Manager es compatible con la d
 Aplicación Aula | Los grupos creados en la aplicación Aula cumplen la directiva de nomenclatura, pero esta no se aplica automáticamente y los usuarios no tienen una vista previa de ella al escribir el nombre de un grupo del aula. Los usuarios deben escribir el nombre de grupo del aula aplicado con prefijos y sufijos. Si no, las operaciones para crear o editar el grupo del aula producirán error.
 Power BI | Las áreas de trabajo de Power BI son compatibles con la directiva de nomenclatura.    
 Yammer | Cuando un usuario que ha iniciado sesión en Yammer con su cuenta de Azure Active Directory crea un grupo o edita un nombre de grupo, el nombre del grupo cumplirá la directiva de nomenclatura. Esto se aplica tanto a los grupos conectados de Office 365 como a todos los demás grupos de Yammer.<br>Si se ha creado un grupo conectado de Office 365 antes de aplicar la directiva de nomenclatura, el nombre del grupo no seguirá automáticamente las directivas de nomenclatura. Cuando un usuario edita el nombre del grupo, se le pedirá que agregue el prefijo y el sufijo.
-StaffHub  | Los equipos de StaffHub no siguen la directiva de nomenclatura, pero el grupo de Office 365 subyacente sí lo hace. El nombre de equipo de StaffHub no aplica los prefijos y sufijos y no busca palabras bloqueadas personalizadas. Sin embargo, StaffHub aplica los prefijos y sufijos y quita las palabras bloqueadas del grupo de Office 365 subyacente.
+StaffHub  | Los equipos de StaffHub no siguen la directiva de nomenclatura, pero el grupo de Microsoft 365 subyacente sí lo hace. El nombre de equipo de StaffHub no aplica los prefijos y sufijos y no busca palabras bloqueadas personalizadas. Sin embargo, StaffHub aplica los prefijos y sufijos y quita las palabras bloqueadas del grupo de Microsoft 365 subyacente.
 Exchange PowerShell | Los cmdlets de Exchange PowerShell son compatibles con la directiva de nomenclatura. Los usuarios reciben los correspondientes mensajes de error con sugerencias de prefijos y sufijos y con las palabras bloqueadas personalizadas si no siguen la directiva de nomenclatura en el nombre o alias del grupo (mailNickname).
 Cmdlets de PowerShell para Azure Active Directory | Los cmdlets de PowerShell para Azure Active Directory son compatibles con la directiva de nomenclatura. Los usuarios reciben los correspondientes mensajes de error con sugerencias de prefijos y sufijos y con las palabras bloqueadas personalizadas si no siguen la convención de nomenclatura tanto en los nombres de grupo como en los alias de grupo.
 Centro de administración de Exchange | El centro de administración de Exchange es compatible con la directiva de nomenclatura. Los usuarios reciben los correspondientes mensajes de error con sugerencias de prefijos y sufijos y con las palabras bloqueadas personalizadas si no siguen la convención de nomenclatura en el nombre o alias del grupo.
@@ -264,7 +264,7 @@ Centro de administración de Microsoft 365 | El centro de administración de Mi
 En estos artículos se proporciona información adicional sobre los grupos de Azure AD.
 
 - [Consulta de los grupos existentes](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [Directiva de caducidad para grupos de Office 365](groups-lifecycle.md)
+- [Directiva de caducidad para grupos de Microsoft 365](groups-lifecycle.md)
 - [Administración de la configuración de un grupo](../fundamentals/active-directory-groups-settings-azure-portal.md)
 - [Administrar miembros de un grupo](../fundamentals/active-directory-groups-members-azure-portal.md)
 - [Administrar la pertenencia a grupos](../fundamentals/active-directory-groups-membership-azure-portal.md)

@@ -6,36 +6,36 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 06/09/2020
-ms.openlocfilehash: 850879675d4554329f24c86f2ac28660b303084c
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.custom: references_regions
+ms.date: 08/12/2020
+ms.openlocfilehash: ad3fa9db5a15f68f0538b5de29d9a89858c472e9
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475573"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212047"
 ---
-# <a name="what-are-mapping-data-flows"></a>¿Qué son los flujos de datos de asignación?
+# <a name="mapping-data-flows-in-azure-data-factory"></a>Flujos de datos de asignación en Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-La asignación de flujos de datos es una transformación de datos diseñada visualmente en Azure Data Factory. Los flujos de datos permiten a los ingenieros de datos desarrollar una lógica de transformación de datos gráfica sin necesidad de escribir código. Los flujos de datos resultantes se ejecutan como actividades en las canalizaciones de Azure Data Factory que usan clústeres de Apache Spark con escalabilidad horizontal. Las actividades de flujo de datos se pueden captar mediante las funcionalidades de programación, control, flujo y supervisión existentes en Data Factory.
+## <a name="what-are-mapping-data-flows"></a>¿Qué son los flujos de datos de asignación?
 
-Los flujos de datos de asignación proporcionan una experiencia completamente visual que no requiere programación. Los flujos de datos se ejecutan en el clúster de ejecución durante el procesamiento de datos de escalabilidad horizontal. Asimismo, Azure Data Factory controla toda la traducción de código, la optimización de rutas de acceso y la ejecución de los trabajos de flujo de datos.
+La asignación de flujos de datos es una transformación de datos diseñada visualmente en Azure Data Factory. Los flujos de datos permiten a los ingenieros de datos desarrollar lógica de transformación de datos sin necesidad de escribir código. Los flujos de datos resultantes se ejecutan como actividades en las canalizaciones de Azure Data Factory que usan clústeres de Apache Spark con escalabilidad horizontal. Las actividades de flujo de datos pueden ponerse en marcha mediante las capacidades de programación, control, flujo y supervisión existentes de Azure Data Factory.
 
-![Architecture](media/data-flow/adf-data-flows.png "Architecture")
+Los flujos de datos de asignación proporcionan una experiencia completamente visual que no requiere programación. Los flujos de datos se ejecutan en clústeres de ejecución administrados por ADF durante el procesamiento de datos de escalabilidad horizontal. Asimismo, Azure Data Factory controla toda la traducción de código, la optimización de rutas de acceso y la ejecución de los trabajos de flujo de datos.
 
 ## <a name="getting-started"></a>Introducción
 
-Para crear un flujo de datos, seleccione el signo más en **Factory Resources** (Recursos de fábrica) y, a continuación, seleccione **Data Flow**. 
+Los flujos de datos se crean desde el panel Factory Resources (Recursos de fábrica) como canalizaciones y conjuntos de datos. Para crear un flujo de datos, seleccione el signo más junto a **Factory Resources** (Recursos de fábrica) y luego **Data Flow**. 
 
-![Nuevo flujo de datos](media/data-flow/newdataflow2.png "nuevo flujo de datos")
+![Nuevo flujo de datos](media/data-flow/new-data-flow.png "nuevo flujo de datos")
 
 Con esta acción, accederá al lienzo de flujo de datos, donde podrá crear la lógica de transformación. Seleccione **Agregar origen** para comenzar a configurar la transformación de origen. Para más información, consulte [Transformación de origen](data-flow-source.md).
 
-## <a name="data-flow-canvas"></a>Lienzo de flujo de datos
+## <a name="authoring-data-flows"></a>Creación de flujos de datos
 
-El lienzo de flujo de datos está dividido en tres partes: la barra superior, el gráfico y el panel de configuración. 
+El flujo de datos de asignación tiene un lienzo de creación único diseñado para facilitar la creación de lógica de transformación. El lienzo de flujo de datos está dividido en tres partes: la barra superior, el gráfico y el panel de configuración. 
 
 ![Lienzo](media/data-flow/canvas1.png "Lienzo")
 
@@ -44,40 +44,6 @@ El lienzo de flujo de datos está dividido en tres partes: la barra superior, el
 En el gráfico se muestra el flujo de transformación. Muestra el linaje de los datos de origen a medida que fluyen hacia uno o varios receptores. Para agregar un nuevo origen, seleccione **Agregar origen**. Para agregar una nueva transformación, seleccione el signo más situado en la parte inferior derecha de una transformación existente.
 
 ![Lienzo](media/data-flow/canvas2.png "Lienzo")
-
-### <a name="azure-integration-runtime-data-flow-properties"></a>Propiedades de flujo de datos de Azure Integration Runtime
-
-![Botón Depurar](media/data-flow/debugbutton.png "Botón Depurar")
-
-Al empezar a trabajar con flujos de datos en ADF, querrá activar el modificador "Depurar" para los flujos de datos en la parte superior de la interfaz de usuario del explorador. Esto pone a punto un clúster de Spark que se usa para la depuración interactiva, las vistas previas de datos y las ejecuciones de depuración de canalizaciones. Para establecer el tamaño del clúster que se está usando, elija una opción de [Azure Integration Runtime](concepts-integration-runtime.md) personalizada. La sesión de depuración permanece activa hasta 60 minutos después de la última ejecución de la canalización de depuración o la última vista previa de datos.
-
-Al poner en marcha las canalizaciones con actividades de flujo de datos, ADF usa las instancias de Azure Integration Runtime asociadas a la [actividad](control-flow-execute-data-flow-activity.md) de la propiedad "Ejecutar el".
-
-La instancia predeterminada de Azure Integration Runtime es un único clúster de nodos de trabajo de 4 núcleos diseñado para permitirle obtener una vista previa de los datos y ejecutar rápidamente las canalizaciones de depuración con unos costos mínimos. Establezca una configuración de Azure IR mayor si va a realizar operaciones en conjuntos de datos de gran tamaño.
-
-Puede indicar a ADF que mantenga un grupo de recursos de clúster (VM). Para ello, establezca un TTL en las propiedades de flujo de datos de Azure IR. Esta acción dará lugar a una ejecución más rápida del trabajo en las actividades posteriores.
-
-#### <a name="azure-integration-runtime-and-data-flow-strategies"></a>Estrategias de Azure Integration Runtime y flujos de datos
-
-##### <a name="execute-data-flows-in-parallel"></a>Ejecutar flujos de datos en paralelo
-
-Si ejecuta flujos de datos en una canalización en paralelo, ADF pone a punto clústeres de Spark independientes para cada ejecución de actividad en función de la configuración de la instancia de Azure Integration Runtime asociada a cada actividad. Para diseñar ejecuciones en paralelo en canalizaciones de ADF, agregue sus actividades de flujo de datos sin restricciones de precedencia en la interfaz de usuario.
-
-De estas tres opciones, esta es la que probablemente se ejecuta en menos tiempo. Sin embargo, cada flujo de datos paralelo se ejecuta al mismo tiempo en clústeres diferentes, por lo que el orden de los eventos no es determinista.
-
-Si está ejecutando las actividades de flujo de datos en paralelo dentro de las canalizaciones, se recomienda no utilizar TTL. Esta acción se debe a que las ejecuciones paralelas del flujo de datos que usan simultáneamente la misma instancia de Azure Integration Runtime da como resultado varias instancias de grupo semiactivas para la factoría de datos.
-
-##### <a name="overload-single-data-flow"></a>Sobrecargar un flujo de datos único
-
-Si coloca toda la lógica dentro de un flujo de datos único, ADF se ejecuta íntegramente en ese mismo contexto de ejecución de trabajo en una única instancia de clúster de Spark.
-
-Es posible que el seguimiento y la solución de problemas de esta opción sean más difíciles, ya que las reglas de negocio y la lógica de negocios se pueden mezclar. Esta opción tampoco proporciona mucha capacidad de reutilización.
-
-##### <a name="execute-data-flows-sequentially"></a>Ejecución secuencial de flujos de datos
-
-Si ejecuta las actividades de flujo de datos en secuencia en la canalización y ha establecido un TTL en la configuración de Azure IR, ADF volverá a usar los recursos de proceso (VM), lo que dará lugar a tiempos de ejecución posteriores más rápidos. Seguirá recibiendo un nuevo contexto de Spark para cada ejecución.
-
-De estas tres opciones, esta acción es la que probablemente tarda más tiempo en ejecutarse de un extremo a otro. Pero proporciona una separación limpia de las operaciones lógicas en cada paso del flujo de datos.
 
 ### <a name="configuration-panel"></a>Panel de configuración
 
@@ -111,13 +77,85 @@ Si el modo de depuración está activado, en la pestaña **Vista previa de los d
 
 ### <a name="top-bar"></a>Barra superior
 
-La barra superior contiene acciones que afectan a todo el flujo de datos, como la operación de guardar y la validación. Puede alternar entre el modo de gráfico y el modo de configuración con los botones **Mostrar gráfico** y **Ocultar gráfico**.
+La barra superior contiene acciones que afectan a todo el flujo de datos, como la operación de guardar y la validación. También puede ver el código JSON subyacente y el script de flujo de datos de la lógica de transformación. Para obtener más información, vea el [script de flujo de datos](data-flow-script.md).
 
-![Ocultar gráfico](media/data-flow/hideg.png "Hide graph (Ocultar gráfico)")
+## <a name="available-transformations"></a>Transformaciones disponibles
 
-Si oculta el gráfico, puede navegar lateralmente por los nodos de transformación con los botones **Anterior** y **Siguiente**.
+Vea [Introducción a las transformaciones en el flujo de datos de asignación](data-flow-transformation-overview.md) para obtener una lista de las transformaciones disponibles.
 
-![Botones Anterior y Siguiente](media/data-flow/showhide.png "Botones Anterior y Siguiente")
+## <a name="data-flow-activity"></a>Actividad de los flujos de datos
+
+Los flujos de datos de asignación se ponen en marcha en canalizaciones de ADF mediante la [actividad de flujo de datos](control-flow-execute-data-flow-activity.md). Todo lo que tiene que hacer el usuario es especificar qué entorno de ejecución de integración usar y pasar valores de parámetro. Para obtener más información, vea el [entorno de ejecución de integración de Azure](concepts-integration-runtime.md#azure-integration-runtime).
+
+## <a name="debug-mode"></a>Modo de depuración
+
+El modo de depuración permite ver de forma interactiva los resultados de cada paso de transformación mientras compila y depura flujos de datos. La sesión de depuración se puede usar al compilar la lógica de flujo de datos y al ejecutar series de depuración de canalización con actividades de flujo de datos. Para obtener más información, vea la [documentación del modo de depuración](concepts-data-flow-debug-mode.md).
+
+## <a name="monitoring-data-flows"></a>Supervisión de flujos de datos
+
+El flujo de datos de asignación se integra con las capacidades de supervisión existentes de Azure Data Factory. Para obtener información para comprender la salida de la supervisión de flujos de datos, vea [Supervisión de flujos de datos de asignación](concepts-data-flow-monitoring.md).
+
+El equipo de Azure Data Factory ha creado una [Guía para la optimización del rendimiento](concepts-data-flow-performance.md) para ayudar a optimizar el tiempo de ejecución de los flujos de datos después de compilar la lógica de negocios.
+
+## <a name="available-regions"></a>Regiones disponibles
+
+Los flujos de datos de asignación están disponibles en las regiones siguientes:
+
+| Región de Azure | Flujos de datos de ADF | Flujos de datos de Synapse Studio |
+| ------------ | ----------------- | ---------------------------- |
+|  Centro de Australia | | |  
+| Centro de Australia 2 | | |
+| Este de Australia | ✓ |  ✓ |
+| Sudeste de Australia   | ✓ | ✓ |
+| Sur de Brasil  | ✓ |  |
+| Centro de Canadá | ✓ |  |
+| Centro de la India | ✓ |   ✓ |
+| Centro de EE. UU.    | ✓ |   ✓ |
+| Este de China |      | ✓ |
+| Este de China 2  |   |    |
+| China no regional | | |
+| Norte de China |     | |
+| Norte de China 2 | |  |
+| Este de Asia | ✓ | |
+| Este de EE. UU.   | ✓ | ✓ |
+| Este de EE. UU. 2 | ✓ | ✓ |
+| Centro de Francia | ✓ | ✓ |
+| Sur de Francia  | | |
+| Centro de Alemania (soberana) | | |
+| Alemania no regional (soberana) | | |
+| Norte de Alemania (pública) | | |
+| Nordeste de Alemania (soberana) | | |
+| Centro-oeste de Alemania (soberana) |  | ✓ |
+| Japón Oriental | ✓ |  |
+| Japón Occidental |  | |
+| Centro de Corea del Sur | ✓ |  |
+| Corea del Sur | | |
+| Centro-Norte de EE. UU  | ✓ | ✓ |
+| Norte de Europa  | ✓ |    |
+| Este de Noruega | | |
+| Oeste de Noruega | | |
+| Norte de Sudáfrica    | ✓ | |
+| Oeste de Sudáfrica |  |    |
+| Centro-sur de EE. UU.  | | ✓ |
+| Sur de la India | | |
+| Sudeste de Asia    | ✓ | ✓ |
+| Norte de Suiza |   |  |
+| Oeste de Suiza | | |
+| Centro de Emiratos Árabes Unidos | | |
+| Norte de Emiratos Árabes Unidos |  |    |
+| Sur de Reino Unido  | ✓ |   | ✓ |
+| Oeste de Reino Unido |     | ✓ |
+| US DoD (centro) | |  |
+| US DoD (este) | |  |
+| US Gov: Arizona |      |  |
+| US Gov no regional | |  |
+| US Gov Texas | |  |
+| US Gov - Virginia |     |  |
+| Centro-Oeste de EE. UU. |     | ✓ |
+| Oeste de Europa   | ✓ |   ✓ |
+| Oeste de la India | | |
+| Oeste de EE. UU.   | ✓ |   |
+| Oeste de EE. UU. 2 | ✓ |   ✓ | 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

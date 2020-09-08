@@ -3,12 +3,12 @@ title: Configurar un dispositivo de Azure Migrate para VMware
 description: Obtenga información sobre cómo configurar un dispositivo de Azure Migrate para evaluar y migrar VM de VMware.
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 24ba978d776da375b417fb67823651727836cb22
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: c9a9f1567f984fc5770b47d3998610cb69643360
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386748"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923637"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configuración de un dispositivo para máquinas virtuales de VMware
 
@@ -27,17 +27,28 @@ Una vez creada la aplicación, compruebe que se puede conectar a Azure Migrate:S
 ## <a name="appliance-deployment-ova"></a>Implementación del dispositivo (OVA)
 
 Para configurar el dispositivo mediante una plantilla de OVA:
+- Proporcione un nombre de dispositivo y genere una clave del proyecto de Azure Migrate en el portal.
 - Descargue una plantilla OVA e impórtela en vCenter Server.
 - Crear el dispositivo y comprobar que se puede conectar a Azure Migrate Server Assessment.
-- Configurar el dispositivo por primera vez y registrarlo en el proyecto de Azure Migrate.
+- Configure el dispositivo por primera vez y regístrelo en el proyecto de Azure Migrate mediante la clave del proyecto de Azure Migrate.
 
-## <a name="download-the-ova-template"></a>Descarga de la plantilla OVA
+### <a name="generate-the-azure-migrate-project-key"></a>Generación de la clave del proyecto de Azure Migrate
 
-1. En **Objetivos de migración** > **Servidores** > **Azure Migrate: Server Assessment**, haga clic en **Detectar**.
+1. En **Objetivos de migración** > **Servidores** > **Azure Migrate: Server Assessment**, seleccione **Detectar**.
 2. En **Detectar máquinas** >  **¿Las máquinas están virtualizadas?** , haga clic en **Sí, con VMware vSphere Hypervisor**.
-3. Haga clic en **Descargar** para descargar el archivo de plantilla .OVA.
+3. En **1: Generar la clave del proyecto de Azure Migrate**, proporcione un nombre para el dispositivo de Azure Migrate que configurará para la detección de máquinas virtuales de VMware. El nombre debe ser alfanumérico con 14 caracteres como máximo.
+1. Haga clic en **Generar clave** para iniciar la creación de los recursos de Azure necesarios. No cierre la página Detectar máquinas durante la creación de recursos.
+1. Después de la creación correcta de los recursos de Azure, se genera una **clave del proyecto Azure Migrate**.
+1. Copie la clave, ya que la necesitará para completar el registro del dispositivo durante su configuración.
 
-  ![Selecciones para descargar un archivo de OVA](./media/tutorial-assess-vmware/download-ova.png)
+### <a name="download-the-ova-template"></a>Descarga de la plantilla OVA
+En **2: Descargar dispositivo de Azure Migrate**, seleccione el archivo .OVA y haga clic en **Descargar**. 
+
+
+   ![Selecciones para Detectar máquinas](./media/tutorial-assess-vmware/servers-discover.png)
+
+
+   ![Selecciones para Generar clave](./media/tutorial-assess-vmware/generate-key-vmware.png)
 
 ### <a name="verify-security"></a>Comprobación de la seguridad
 
@@ -72,63 +83,65 @@ Importe el archivo descargado y cree una máquina virtual.
 Asegúrese de que la VM del dispositivo pueda conectarse a las direcciones URL de Azure para las nubes [públicas](migrate-appliance.md#public-cloud-urls) y [gubernamentales](migrate-appliance.md#government-cloud-urls).
 
 
-## <a name="configure-the-appliance"></a>Configuración del dispositivo
+### <a name="configure-the-appliance"></a>Configuración del dispositivo
 
-Configure el dispositivo por primera vez. Si se implementa el dispositivo mediante un script en lugar de una plantilla de OVA, se tienen que omitir los dos primeros pasos del procedimiento.
+Configure el dispositivo por primera vez.
 
-1. En la consola del cliente de vSphere, haga clic con el botón derecho en VM > **Open Console** (Abrir consola).
+> [!NOTE]
+> Si configura la aplicación mediante un [script de PowerShell](deploy-appliance-script.md) en lugar de la OVA descargada, los dos primeros pasos de este procedimiento no son pertinentes.
+
+1. En la consola de cliente de vSphere, haga clic con el botón derecho en la máquina virtual y, luego, seleccione **Open Console** (Abrir consola).
 2. Especifique el idioma, la zona horaria y la contraseña del dispositivo.
 3. Abra un explorador en cualquier equipo que pueda conectarse a la máquina virtual y abra la dirección URL de la aplicación web del dispositivo: **https://*nombre o dirección IP del dispositivo*: 44368**.
 
-   Como alternativa, puede abrir la aplicación desde el escritorio del dispositivo, para lo que debe hacer clic en el acceso directo de la aplicación.
-4. En la aplicación web > **Set up prerequisites** (Configurar los requisitos previos ), realice las siguientes operaciones:
-    - **License** (Licencia): Acepte los términos de licencia y lea la información de terceros.
-    - **Connectivity** (Conectividad): la aplicación comprueba que la máquina virtual tiene acceso a Internet. Si la máquina virtual usa un proxy:
-        - Haga clic en **Configuración de proxy** y especifique el puerto de escucha y la dirección del proxy con los formatos http://ProxyIPAddress o http://ProxyFQDN.
-        - Especifique las credenciales si el proxy requiere autenticación.
-        - Solo se admite un proxy HTTP.
-    - **Time sync** (Sincronización de hora): Se comprueba la hora. Para que la detección funcione correctamente, la hora del dispositivo debe estar sincronizada con la hora de Internet.
-    - **Instalación de actualizaciones**: Azure Migrate comprueba si están instaladas las últimas actualizaciones del dispositivo.
-    - **Install VDDK** (Instalar VDDK): Azure Migrate comprueba si VMware vSphere Virtual Disk Development Kit (VDDK) está instalado.
-        - Azure Migrate usa VDDK para replicar las máquinas durante la migración a Azure.
-        - Descargue VDDK 6.7 de VMware y extraiga el contenido del archivo zip descargado en la ubicación especificada del dispositivo.
+   Como alternativa, puede abrir la aplicación desde el escritorio del dispositivo, para lo que debe seleccionar el acceso directo de la aplicación.
+1. Acepte los **términos de licencia** y lea la información de terceros.
+1. En la aplicación web > **Set up prerequisites** (Configurar los requisitos previos ), realice las siguientes operaciones:
+   - **Connectivity** (Conectividad): la aplicación comprueba que la máquina virtual tiene acceso a Internet. Si la máquina virtual usa un proxy:
+     - Haga clic en **Configurar el proxy** y especifique la dirección del proxy (con los formatos http://ProxyIPAddress o http://ProxyFQDN) ) y el puerto de escucha.
+     - Especifique las credenciales si el proxy requiere autenticación.
+     - Solo se admite un proxy HTTP.
+     - Si ha agregado detalles del proxy o ha deshabilitado el proxy o la autenticación, haga clic en **Guardar** para desencadenar la comprobación de conectividad.
+   - **Time sync** (Sincronización de hora): Para que la detección funcione correctamente, la hora del dispositivo debe estar sincronizada con la hora de Internet.
+   - **Instalación de actualizaciones**: el dispositivo garantiza que se instalan las actualizaciones más recientes. Una vez finalizada la comprobación, puede hacer clic en **Ver servicios del dispositivo** para ver el estado y las versiones de los componentes que se ejecutan en el dispositivo.
+   - **Install VDDK** (Instalar VDDK): El dispositivo comprueba si VMware vSphere Virtual Disk Development Kit (VDDK) está instalado. Si no está instalado, descargue VDDK 6.7 de VMware y extraiga el contenido del archivo ZIP descargado en la ubicación especificada del dispositivo, tal como se indica en las **instrucciones de instalación**.
 
-## <a name="register-the-appliance-with-azure-migrate"></a>Registro del dispositivo en Azure Migrate
+     Server Migration de Azure Migrate usa VDDK para replicar las máquinas durante la migración a Azure. 
+1. Si quiere, puede **volver a ejecutar los requisitos previos** en cualquier momento durante la configuración del dispositivo para comprobar si el dispositivo cumple todos los requisitos previos.
 
-1. Haga clic en **Iniciar sesión**. Si no aparece, asegúrese de que ha deshabilitado el bloqueador de elementos emergentes en el explorador.
-2. En la pestaña nueva, inicie sesión con sus credenciales de Azure.
-    - Inicie sesión con su nombre de usuario y contraseña.
-    - No se admite el inicio de sesión con un PIN.
-3. Después de iniciar sesión correctamente, vuelva a la aplicación web.
-2. Seleccione la suscripción en la que se creó el proyecto de Azure Migrate. Seleccione el proyecto.
-3. Escriba un nombre para el dispositivo. Este nombre debe ser alfanumérico y no puede tener más de 14 caracteres.
-4. Haga clic en **Registrar**.
+### <a name="register-the-appliance-with-azure-migrate"></a>Registro del dispositivo en Azure Migrate
+
+1. Pegue la **clave del proyecto de Azure Migrate** copiada desde el portal. Si no tiene la clave, vaya a **Server Assessment > Detectar > Administrar los dispositivos existentes**, seleccione el nombre del dispositivo que proporcionó en el momento de la generación de la clave y copie la clave correspondiente.
+1. Haga clic en **Iniciar sesión**. Se abrirá un mensaje de inicio de sesión de Azure en una nueva pestaña del explorador. Si no aparece, asegúrese de que ha deshabilitado el bloqueador de elementos emergentes en el explorador.
+1. En la nueva pestaña, inicie sesión con su nombre de usuario y contraseña de Azure.
+   
+   No se admite el inicio de sesión con un PIN.
+3. Después de iniciar sesión correctamente, vuelva a la aplicación web. 
+4. Si la cuenta de usuario de Azure que se usa para el registro tiene los [permisos](tutorial-prepare-vmware.md#prepare-azure) adecuados en los recursos de Azure creados durante la generación de la clave, se iniciará el registro del dispositivo.
+1. Una vez que el dispositivo se ha registrado correctamente, puede ver los detalles de registro haciendo clic en **Ver detalles**.
 
 
-## <a name="start-continuous-discovery-by-providing-vcenter-server-and-vm-credential"></a>Inicio de la detección continua con la credencial de máquina virtual y vCenter Server proporcionada
+## <a name="start-continuous-discovery"></a>Inicio de detección continua
 
 El dispositivo necesita conectarse a vCenter Server para detectar los datos de configuración y rendimiento de las máquinas virtuales.
 
-### <a name="specify-vcenter-server-details"></a>Especificar los detalles de vCenter Server
-1. En **Specify vCenter Server details** (Especificar detalles de vCenter Server), especifique el nombre (nombre de dominio completo) o la dirección IP de vCenter Server. Puede dejar el puerto predeterminado o especificar un puerto personalizado en el que vCenter Server escuche.
-2. En **User name** (Nombre de usuario) y **Password** (Contraseña), especifique las credenciales de la cuenta de solo lectura que el dispositivo utilizará para detectar las máquinas virtuales en vCenter Server. Puede establecer el ámbito de la detección si limita el acceso a la cuenta de vCenter. [Más información](set-discovery-scope.md).
-3. Haga clic en **Validate connection** (Validar conexión) para asegurarse de que el dispositivo puede conectarse a vCenter Server.
+1. En **Paso 1: Proporcionar las credenciales de vCenter Server**, haga clic en **Agregar credenciales** para especificar un nombre descriptivo para las credenciales, agregue un **nombre de usuario** y una **contraseña** para la cuenta de vCenter Server que utilizará el dispositivo para detectar máquinas virtuales en la instancia de vCenter Server.
+    - Debe haber configurado una cuenta con los permisos necesarios en el [tutorial anterior](tutorial-prepare-vmware.md#set-up-permissions-for-assessment).
+    - Si desea limitar el ámbito de la detección a objetos específicos de VMware (centros de datos de vCenter Server, clústeres, una carpeta de clústeres, hosts, una carpeta de hosts o máquinas virtuales individuales), consulte las instrucciones de [este artículo](set-discovery-scope.md) para restringir la cuenta usada por Azure Migrate.
+1. En el **Paso 2: Proporcionar los detalles de vCenter Server**, haga clic en **Agregar origen de detección** para seleccionar el nombre descriptivo de las credenciales en la lista desplegable, especifique la **dirección IP o el FQDN** de la instancia de vCenter Server. Puede dejar el **puerto** en el valor predeterminado (443) o especificar un puerto personalizado en el que vCenter Server escuche y hacer clic en **Guardar**.
+1. Al hacer clic en Guardar, el dispositivo intentará validar la conexión a vCenter Server con las credenciales proporcionadas y mostrar el **estado de validación** en la tabla con la dirección IP o el FQDN de vCenter Server.
+1. Puede **volver a validar** la conectividad a vCenter Server en cualquier momento antes de iniciar la detección.
+1. En **Paso 3: Proporcionar las credenciales de la máquina virtual para detectar las aplicaciones instaladas y para realizar la asignación de dependencias sin agente**, haga clic en **Agregar credenciales** y especifique el sistema operativo para el que se proporcionan las credenciales, el nombre descriptivo de las credenciales y el **nombre de usuario** y la **contraseña**. A continuación, haga clic en **Guardar**.
 
-### <a name="specify-vm-credentials"></a>Especificación de las credenciales de máquina virtual
-Para la detección de aplicaciones, roles y características y la visualización de las dependencias de las máquinas virtuales, puede proporcionar una credencial de máquina virtual que tenga acceso a las máquinas virtuales de VMware. Puede agregar una credencial para máquinas virtuales Windows y otra para máquinas virtuales Linux. [Más información](./migrate-support-matrix-vmware.md) sobre los privilegios de acceso necesarios.
+    - Si lo desea, agregue las credenciales aquí si ha creado una cuenta para utilizarla en la [característica de detección de aplicaciones](how-to-discover-applications.md) o [en la característica de análisis de dependencias sin agente](how-to-create-group-machine-dependencies-agentless.md).
+    - Si no quiere usar estas características, puede hacer clic en el control deslizante para omitir el paso. Puede invertir la intención en cualquier momento más tarde.
+    - Consulte cuáles son las credenciales necesarias para la [detección de aplicaciones](migrate-support-matrix-vmware.md#application-discovery-requirements) o para el [análisis de dependencias sin agente](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless).
 
-> [!NOTE]
-> Esta entrada es opcional y es necesaria para habilitar la detección de aplicaciones y la visualización de dependencias sin agente.
+5. Haga clic en **Iniciar detección** para iniciar la detección de máquinas virtuales. Una vez que la detección se ha iniciado correctamente, puede comprobar el estado de detección de la dirección IP o el FQDN de vCenter en la tabla.
 
-1. En **Discover applications and dependencies on VMs** (Detectar aplicaciones y dependencias en máquinas virtuales) haga clic en **Agregar credenciales**.
-2. En **Operating System** (Sistema operativo) seleccione el sistema operativo.
-3. Proporcione un nombre descriptivo para la credencial.
-4. En **Username** (Nombre de usuario) y **Password** (Contraseña), especifique una cuenta que tenga al menos acceso de invitado en las máquinas virtuales.
-5. Haga clic en **Agregar**.
-
-Cuando haya especificado las credenciales de las máquinas virtuales y de vCenter Server (este paso es opcional), haga clic en **Save and start discovery** (Guardar e iniciar la detección) para iniciar la detección del entorno local.
-
-Los metadatos de las máquinas virtuales detectadas tardan unos 15 minutos en aparecer en el portal. La detección de las aplicaciones, las características y los roles instalados lleva tiempo, que depende del número de máquinas virtuales que se detectan. En el caso de 500 máquinas virtuales, el inventario de la aplicación tarda aproximadamente 1 hora en aparecer en el portal de Azure Migrate.
+La detección funciona como se indica a continuación:
+- Los metadatos de las máquinas virtuales detectadas tardan unos 15 minutos en aparecer en el portal.
+- La detección de las aplicaciones, los roles y las características instaladas tarda un rato. Todo depende del número de máquinas virtuales que se detectan. En el caso de 500 máquinas virtuales, el inventario de la aplicación tarda aproximadamente una hora en aparecer en el portal de Azure Migrate.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

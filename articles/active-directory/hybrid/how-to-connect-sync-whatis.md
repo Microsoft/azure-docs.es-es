@@ -16,12 +16,12 @@ ms.date: 11/08/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dc1754eb8818df894e67c1748517b2e2f4356d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf014feb9ef08b7a24c9640679c7c0baadf298c0
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356872"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277160"
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Sincronización de Azure AD Connect: comprender y personalizar la sincronización
 Los servicios de sincronización de Azure Active Directory Connect (sincronización de Azure AD Connect) es un componente principal de Azure AD Connect. Se encargan de todas las operaciones relacionadas con la sincronización de datos de identidad entre el entorno local y Azure AD. Sincronización de Azure AD Connect es el sucesor de DirSync, Sincronización de Azure AD y Forefront Identity Manager con Conector Azure Active Directory configurado.
@@ -58,7 +58,7 @@ El servicio de sincronización consta de dos componentes, el componente de **sin
 | [Resistencia de atributos duplicados](how-to-connect-syncservice-duplicate-attribute-resiliency.md) |En él se describe cómo habilitar y usar la resistencia de valores de atributos duplicados de **userPrincipalName** y **proxyAddresses**. |
 | **Operaciones e interfaz de usuario** | |
 | [Synchronization Service Manager](how-to-connect-sync-service-manager-ui.md) |En él se describe la interfaz de usuario de Synchronization Service Manager, incluidas las pestañas [Operations](how-to-connect-sync-service-manager-ui-operations.md) (Operaciones), [Connectors](how-to-connect-sync-service-manager-ui-connectors.md) (Conectores), [Metaverse Designer](how-to-connect-sync-service-manager-ui-mvdesigner.md) (Diseñador de metaverso) y [Metaverse Search](how-to-connect-sync-service-manager-ui-mvsearch.md) (Búsqueda de metaverso). |
-| [Tareas y consideraciones operativas](how-to-connect-sync-operations.md) |Describe las preocupaciones operativas, como la recuperación ante desastres. |
+| [Tareas y consideraciones operativas](./how-to-connect-sync-staging-server.md) |Describe las preocupaciones operativas, como la recuperación ante desastres. |
 | **Procedimiento para:** | |
 | [Restablecer la cuenta de Azure AD](how-to-connect-azureadaccount.md) |Procedimiento para restablecer las credenciales de la cuenta de servicio usada para conectarse desde el servicio de sincronización de Azure AD Connect a Azure AD. |
 | **Más información y referencias** | |

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 9fe084d931ee735f9eaecc58ca5445ae56a951cc
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 717b6ed7e711b4db4cb15e55282cfcdea4659178
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121058"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051345"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Configuración de una aplicación móvil que llama a las API web
 
@@ -47,12 +47,12 @@ PublicClientApplication sampleApp = new PublicClientApplication(
 
 ### <a name="ios"></a>iOS
 
-Las aplicaciones móviles de iOS necesitan crear una instancia de la clase `MSALPublicClientApplication`. Para crear una instancia de la clase, use el código siguiente. 
+Las aplicaciones móviles de iOS necesitan crear una instancia de la clase `MSALPublicClientApplication`. Para crear una instancia de la clase, use el código siguiente.
 
 ```objc
 NSError *msalError = nil;
-     
-MSALPublicClientApplicationConfig *config = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<your-client-id-here>"];    
+
+MSALPublicClientApplicationConfig *config = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<your-client-id-here>"];
 MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] initWithConfiguration:config error:&msalError];
 ```
 
@@ -61,7 +61,7 @@ let config = MSALPublicClientApplicationConfig(clientId: "<your-client-id-here>"
 if let application = try? MSALPublicClientApplication(configuration: config){ /* Use application */}
 ```
 
-Las [propiedades MSALPublicClientApplicationConfig adicionales](https://azuread.github.io/microsoft-authentication-library-for-objc/Classes/MSALPublicClientApplicationConfig.html#/Configuration%20options) pueden invalidar la autoridad predeterminada, especificar un URI de redirección o cambiar el comportamiento del almacenamiento en caché del token de MSAL. 
+Las [propiedades MSALPublicClientApplicationConfig adicionales](https://azuread.github.io/microsoft-authentication-library-for-objc/Classes/MSALPublicClientApplicationConfig.html#/Configuration%20options) pueden invalidar la autoridad predeterminada, especificar un URI de redirección o cambiar el comportamiento del almacenamiento en caché del token de MSAL.
 
 ### <a name="xamarin-or-uwp"></a>Xamarin o UWP
 
@@ -76,7 +76,7 @@ var app = PublicClientApplicationBuilder.Create(clientId)
                                         .Build();
 ```
 
-Otros métodos `With<Parameter>` establecen el elemento primario de la interfaz de usuario, invalidan la autoridad predeterminada, especifican un nombre de cliente y una versión para la telemetría, especifican un URI de redirección y especifican el generador HTTP que se va a usar. El generador HTTP podría usarse, por ejemplo, para controlar los servidores proxy y para especificar la telemetría y el registro. 
+Otros métodos `With<Parameter>` establecen el elemento primario de la interfaz de usuario, invalidan la autoridad predeterminada, especifican un nombre de cliente y una versión para la telemetría, especifican un URI de redirección y especifican el generador HTTP que se va a usar. El generador HTTP podría usarse, por ejemplo, para controlar los servidores proxy y para especificar la telemetría y el registro.
 
 En las secciones siguientes se proporciona más información sobre la creación de instancias de la aplicación.
 
@@ -132,7 +132,7 @@ Si usa Xamarin.Android, realice las tareas siguientes:
 - [Devolución del control a MSAL al finalizar la parte interactiva del flujo de autenticación](msal-net-xamarin-android-considerations.md#ensure-that-control-returns-to-msal)
 - [Actualización del manifiesto de Android](msal-net-xamarin-android-considerations.md#update-the-android-manifest)
 - [Uso de la vista web incrustada (opcional)](msal-net-xamarin-android-considerations.md#use-the-embedded-web-view-optional)
-- [Solución de problemas según sea necesario](msal-net-xamarin-android-considerations.md#troubleshoot)
+- [Solución de problemas según sea necesario](msal-net-xamarin-android-considerations.md#troubleshooting)
 
 Para obtener más información, consulte [Consideraciones sobre Xamarin.Android](msal-net-xamarin-android-considerations.md).
 
@@ -154,17 +154,17 @@ En Android e iOS, los agentes permiten:
 
 ### <a name="enable-the-broker-on-xamarin"></a>Habilitación del agente en Xamarin
 
-Para habilitar el agente en Xamarin, use el parámetro `WithBroker()` al llamar al método `PublicClientApplicationBuilder.CreateApplication`. De manera predeterminada, `.WithBroker()` se establece en true. 
+Para habilitar el agente en Xamarin, use el parámetro `WithBroker()` al llamar al método `PublicClientApplicationBuilder.CreateApplication`. De manera predeterminada, `.WithBroker()` se establece en true.
 
 Para habilitar la autenticación asincrónica para Xamarin.iOS, siga los pasos de la [sección Xamarin.iOS](#enable-brokered-authentication-for-xamarin-ios) de este artículo.
 
 ### <a name="enable-the-broker-for-msal-for-android"></a>Habilitación del agente para MSAL para Android
 
-Consulte [Autenticación asincrónica en Android](brokered-auth.md) para obtener información sobre cómo habilitar un agente en Android. 
+Consulte [Autenticación asincrónica en Android](brokered-auth.md) para obtener información sobre cómo habilitar un agente en Android.
 
 ### <a name="enable-the-broker-for-msal-for-ios-and-macos"></a>Habilitación del agente para MSAL para iOS y macOS
 
-La autenticación asincrónica está habilitada de forma predeterminada para los escenarios de Azure AD en MSAL para iOS y macOS. 
+La autenticación asincrónica está habilitada de forma predeterminada para los escenarios de Azure AD en MSAL para iOS y macOS.
 
 En las secciones siguientes se proporcionan instrucciones para configurar la aplicación para la compatibilidad con la autenticación asincrónica para MSAL para Xamarin.iOS o MSAL para iOS y macOS. En los dos conjuntos de instrucciones, algunos de los pasos difieren.
 
@@ -235,23 +235,23 @@ Para establecer la ventana de objeto, siga estos pasos:
                  .WithParentActivityOrWindow(App.RootViewController)
                  .ExecuteAsync();
     ```
-    
+
 #### <a name="step-4-register-a-url-scheme"></a>Paso 4: Registrar un esquema de dirección URL
 
-MSAL.NET usa direcciones URL para invocar al agente y devolver la respuesta del agente a la aplicación. Para finalizar el recorrido de ida y vuelta, registre el esquema de dirección URL de la aplicación en el archivo `Info.plist`. 
+MSAL.NET usa direcciones URL para invocar al agente y devolver la respuesta del agente a la aplicación. Para finalizar el recorrido de ida y vuelta, registre el esquema de dirección URL de la aplicación en el archivo `Info.plist`.
 
 Para registrar el esquema de dirección URL de la aplicación, siga estos pasos:
 
-1. Agregue a `CFBundleURLSchemes` el prefijo `msauth`. 
-1. Agregue `CFBundleURLName` al final. Siga este patrón: 
+1. Agregue a `CFBundleURLSchemes` el prefijo `msauth`.
+1. Agregue `CFBundleURLName` al final. Siga este patrón:
 
    `$"msauth.(BundleId)"`
 
    Aquí, `BundleId` identifica su dispositivo de manera exclusiva. Por ejemplo, si `BundleId` es `yourcompany.xforms`, el esquema de dirección URL es `msauth.com.yourcompany.xforms`.
-    
+
    > [!NOTE]
    > Este esquema de dirección URL se convertirá en parte del URI de redirección que se usa para identificar de forma única la aplicación cuando recibe la respuesta del agente.
-    
+
    ```XML
     <key>CFBundleURLTypes</key>
        <array>
@@ -267,14 +267,14 @@ Para registrar el esquema de dirección URL de la aplicación, siga estos pasos:
          </dict>
        </array>
    ```
-    
+
 #### <a name="step-5-add-to-the-lsapplicationqueriesschemes-section"></a>Paso 5: Agregarlo a la sección LSApplicationQueriesSchemes
 
 MSAL usa `–canOpenURL:` para comprobar si el agente está instalado en el dispositivo. En iOS 9, Apple ha bloqueado los esquemas que puede consultar una aplicación.
 
 Agregue `msauthv2` a la sección `LSApplicationQueriesSchemes` del archivo `Info.plist`, como en el ejemplo de código siguiente:
 
-```XML 
+```XML
 <key>LSApplicationQueriesSchemes</key>
     <array>
       <string>msauthv2</string>
@@ -294,18 +294,18 @@ Cuando MSAL para iOS y macOS llama al agente, este a su vez vuelve a llamar a la
             openURL:(NSURL *)url
             options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
 {
-    return [MSALPublicClientApplication handleMSALResponse:url 
+    return [MSALPublicClientApplication handleMSALResponse:url
                                          sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]];
 }
 ```
 
 ```swift
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        
+
         guard let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String else {
             return false
         }
-        
+
         return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApplication)
     }
 ```
@@ -319,19 +319,19 @@ Cuando MSAL para iOS y macOS llama al agente, este a su vez vuelve a llamar a la
 
 MSAL para iOS y macOS usa direcciones URL para invocar al agente y devolver su respuesta a la aplicación. Para finalizar el recorrido de ida y vuelta, registre un esquema de dirección URL para la aplicación en el archivo `Info.plist`.
 
-Para registrar un esquema para la aplicación: 
+Para registrar un esquema para la aplicación:
 
-1. Prefije el esquema de la dirección URL personalizada con `msauth`. 
+1. Prefije el esquema de la dirección URL personalizada con `msauth`.
 
-1. Agregue el identificador del paquete al final del esquema. Siga este patrón: 
+1. Agregue el identificador del paquete al final del esquema. Siga este patrón:
 
    `$"msauth.(BundleId)"`
 
    Aquí, `BundleId` identifica su dispositivo de manera exclusiva. Por ejemplo, si `BundleId` es `yourcompany.xforms`, el esquema de dirección URL es `msauth.com.yourcompany.xforms`.
-  
+
    > [!NOTE]
    > Este esquema de dirección URL se convertirá en parte del URI de redirección que se usa para identificar de forma única la aplicación cuando recibe la respuesta del agente. Asegúrese de que el URI de redirección con el formato `msauth.(BundleId)://auth` está registrado para la aplicación en [Azure Portal](https://portal.azure.com).
-  
+
    ```XML
    <key>CFBundleURLTypes</key>
    <array>
@@ -349,11 +349,11 @@ Para registrar un esquema para la aplicación:
 Agregue `LSApplicationQueriesSchemes` para permitir llamadas a la aplicación Microsoft Authenticator, si está instalada.
 
 > [!NOTE]
-> El esquema `msauthv3` es necesario si la aplicación se ha compilado con Xcode 11 y versiones posteriores. 
+> El esquema `msauthv3` es necesario si la aplicación se ha compilado con Xcode 11 y versiones posteriores.
 
 Este es un ejemplo sobre cómo agregar `LSApplicationQueriesSchemes`:
 
-```XML 
+```XML
 <key>LSApplicationQueriesSchemes</key>
 <array>
   <string>msauthv2</string>

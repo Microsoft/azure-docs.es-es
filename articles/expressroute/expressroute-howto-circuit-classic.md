@@ -2,17 +2,18 @@
 title: 'Azure ExpressRoute: Modificar un circuito: PowerShell: clásico'
 description: En este artículo encontrará los pasos para comprobar el estado, actualizar o eliminar y desaprovisionar el circuito de modelo de implementación clásica de ExpressRoute.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/05/2019
-ms.author: cherylmc
-ms.openlocfilehash: 2f2aac6dd7e073634d4114d33fae6bebd51fe176
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: be45d49d3f445810c7ac6a38e3e12abe178a4bed
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736329"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89396291"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Modificación de un circuito ExpressRoute mediante PowerShell (clásica)
 

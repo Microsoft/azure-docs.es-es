@@ -2,25 +2,21 @@
 title: 'Tutorial: Configuración de Oracle Cloud Infrastructure Console para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
 description: Aprenda a aprovisionar y cancelar el aprovisionamiento de forma automática de las cuentas de usuario de Azure AD en Oracle Cloud Infrastructure Console.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: e22c8746-7638-4a0f-ae08-7db0c477cf52
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2020
 ms.author: Zhchia
-ms.openlocfilehash: 94f5be93d95cc1c524e6db464cac68879ed0b0e7
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 0c3d68698621fe963074c7216e4636208d93deca
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926797"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543880"
 ---
 # <a name="tutorial-configure-oracle-cloud-infrastructure-console-for-automatic-user-provisioning"></a>Tutorial: Configuración de Oracle Cloud Infrastructure Console para el aprovisionamiento automático de usuarios
 

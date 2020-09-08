@@ -1,35 +1,39 @@
 ---
-title: Inicio rápido de Azure - Ejecución de un trabajo de Batch - CLI
-description: Aprenda rápidamente a ejecutar un trabajo de Batch con la CLI de Azure. Cree y administre los recursos de Azure desde la línea de comandos o en scripts.
+title: 'Inicio rápido: Ejecución del primer trabajo de Batch con la CLI de Azure'
+description: Aprenda rápidamente a crear una cuenta de Batch y a ejecutar un trabajo de Batch con la CLI de Azure.
 ms.topic: quickstart
-ms.date: 07/03/2018
+ms.date: 08/13/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 4c56695180f8f07384f31b750cec03f9d14fb9da
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 8824d4485167955dd1b928bc57381b2e6b672c5d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504167"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213092"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Inicio rápido: Ejecución del primer trabajo de Batch con la CLI de Azure
 
-La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. Esta guía de inicio rápido muestra cómo utilizar la CLI de Azure para crear una cuenta de Batch, un *grupo* de nodos de proceso (máquinas virtuales) y un *trabajo* que ejecuta *tareas* en el grupo. Cada tarea del ejemplo ejecuta un comando básico en uno de los nodos del grupo. Tras completar esta guía de inicio rápido, entenderá los conceptos clave del servicio Batch y estará listo para probar dicho servicio con cargas de trabajo más realistas y a mayor escala.
+Para empezar a trabajar con Azure Batch, utilice la CLI de Azure para crear una cuenta de Batch, un grupo de nodos de proceso (máquinas virtuales) y un trabajo que ejecute tareas en el grupo. Cada tarea del ejemplo ejecuta un comando básico en uno de los nodos del grupo.
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. Tras completar esta guía de inicio rápido, entenderá los conceptos clave del servicio Batch y estará listo para probar dicho servicio con cargas de trabajo más realistas y a mayor escala.
+
+## <a name="prerequisites"></a>Requisitos previos
+
+- Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- Si decide instalar y usar la CLI en un entorno local, para este inicio rápido es preciso que ejecute la versión 2.0.20 de la CLI de Azure, o cualquier versión posterior. Para encontrar la versión, ejecute `az --version`. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI en un entorno local, para esta guía de inicio rápido es preciso que ejecute la versión 2.0.20 de la CLI de Azure o una versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). 
-
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group#az-group-create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
+Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group#az-group-create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
 
-En el ejemplo siguiente se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus2*.
+En el ejemplo siguiente se crea un grupo de recursos denominado *QuickstartBatch-rg* en la ubicación *eastus2*.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create \
-    --name myResourceGroup \
+    --name QuickstartBatch-rg \
     --location eastus2
 ```
 
@@ -39,7 +43,7 @@ Puede vincular una cuenta de Azure Storage con su cuenta de Batch. Aunque no es 
 
 ```azurecli-interactive
 az storage account create \
-    --resource-group myResourceGroup \
+    --resource-group QuickstartBatch-rg \
     --name mystorageaccount \
     --location eastus2 \
     --sku Standard_LRS
@@ -49,22 +53,22 @@ az storage account create \
 
 Cree una cuenta de Batch con el comando [az batch account create](/cli/azure/batch/account#az-batch-account-create). Para crear los recursos de proceso (grupos de nodos de proceso) y trabajos de Batch se necesita una cuenta.
 
-En el ejemplo siguiente se crea una cuenta de Batch llamada *mybatchaccount* en *myResourceGroup* y se vincula a la cuenta de almacenamiento que ha creado.  
+En el ejemplo siguiente se crea una cuenta de Batch llamada *mybatchaccount* en *QuickstartBatch-rg* y se vincula a la cuenta de almacenamiento que ha creado.  
 
-```azurecli-interactive 
+```azurecli-interactive
 az batch account create \
     --name mybatchaccount \
     --storage-account mystorageaccount \
-    --resource-group myResourceGroup \
+    --resource-group QuickstartBatch-rg \
     --location eastus2
 ```
 
 Para crear y administrar grupos de proceso y trabajos, es preciso autenticarse en Batch. Inicie sesión en la cuenta con el comando [az batch account login](/cli/azure/batch/account#az-batch-account-login). Tras iniciar sesión, los comandos `az batch` usan este contexto de la cuenta.
 
-```azurecli-interactive 
+```azurecli-interactive
 az batch account login \
     --name mybatchaccount \
-    --resource-group myResourceGroup \
+    --resource-group QuickstartBatch-rg \
     --shared-key-auth
 ```
 
@@ -77,7 +81,7 @@ az batch pool create \
     --id mypool --vm-size Standard_A1_v2 \
     --target-dedicated-nodes 2 \
     --image canonical:ubuntuserver:16.04-LTS \
-    --node-agent-sku-id "batch.node.ubuntu 16.04" 
+    --node-agent-sku-id "batch.node.ubuntu 16.04"
 ```
 
 Batch crea el grupo inmediatamente, pero tarda unos minutos en asignar e iniciar los nodos de proceso. Durante este tiempo, el grupo está en estado `resizing`. Para ver el estado del grupo, ejecute el comando [az batch pool show](/cli/azure/batch/pool#az-batch-pool-show). Este comando muestra todas las propiedades del grupo y puede consultar propiedades concretas. El siguiente comando obtiene el estado de asignación del grupo:
@@ -87,13 +91,13 @@ az batch pool show --pool-id mypool \
     --query "allocationState"
 ```
 
-Realice los pasos siguientes para crear un trabajo y tareas mientras cambia el estado del grupo. El grupo está listo para ejecutar tareas cuando el estado de asignación es `steady` y todos los nodos están en ejecución. 
+Realice los pasos siguientes para crear un trabajo y tareas mientras cambia el estado del grupo. El grupo está listo para ejecutar tareas cuando el estado de asignación es `steady` y todos los nodos están en ejecución.
 
 ## <a name="create-a-job"></a>Creación de un trabajo
 
-Ahora que tiene un grupo, cree un trabajo para que se ejecute en él.  Un trabajo de Batch es un grupo lógico de una o varias tareas. Un trabajo incluye valores comunes para las tareas, como la prioridad y el grupo en el que se ejecutan las tareas. Cree un trabajo de Batch mediante el comando [az batch job create](/cli/azure/batch/job#az-batch-job-create). En el ejemplo siguiente se crea un trabajo, *myjob*, en el grupo de *mypool*. Inicialmente, el trabajo no tiene tareas.
+Ahora que tiene un grupo, cree un trabajo para que se ejecute en él. Un trabajo de Batch es un grupo lógico de una o varias tareas. Un trabajo incluye valores comunes para las tareas, como la prioridad y el grupo en el que se ejecutan las tareas. Cree un trabajo de Batch mediante el comando [az batch job create](/cli/azure/batch/job#az-batch-job-create). En el ejemplo siguiente se crea un trabajo, *myjob*, en el grupo de *mypool*. Inicialmente, el trabajo no tiene tareas.
 
-```azurecli-interactive 
+```azurecli-interactive
 az batch job create \
     --id myjob \
     --pool-id mypool
@@ -105,7 +109,7 @@ Ahora use el comando [az batch task create](/cli/azure/batch/task#az-batch-task-
 
 El siguiente script de Bash crea cuatro tareas paralelas (*mytask1* a *mytask4*).
 
-```azurecli-interactive 
+```azurecli-interactive
 for i in {1..4}
 do
    az batch task create \
@@ -123,7 +127,7 @@ Después de crear una tarea, Batch la pone en cola para ejecutarla en el grupo. 
 
 Use el comando [az batch task show](/cli/azure/batch/task#az-batch-task-show) para ver el estado de las tareas de Batch. En el ejemplo siguiente se muestran detalles acerca de *mytask1*, que se ejecuta en uno de los nodos de grupo.
 
-```azurecli-interactive 
+```azurecli-interactive
 az batch task show \
     --job-id myjob \
     --task-id mytask1
@@ -133,9 +137,9 @@ La salida del comando incluye muchos detalles, pero anote el `exitCode` de la l�
 
 ## <a name="view-task-output"></a>Visualización de la salida de la tarea
 
-Para enumerar los archivos que ha creado una tarea en un nodo de proceso, use el comando [az batch task file list](/cli/azure/batch/task). El comando siguiente enumera los archivos que ha creado *mytask1*: 
+Para enumerar los archivos que ha creado una tarea en un nodo de proceso, use el comando [az batch task file list](/cli/azure/batch/task). El comando siguiente enumera los archivos que ha creado *mytask1*:
 
-```azurecli-interactive 
+```azurecli-interactive
 az batch task file list \
     --job-id myjob \
     --task-id mytask1 \
@@ -154,7 +158,7 @@ stderr.txt  https://mybatchaccount.eastus2.batch.azure.com/jobs/myjob/tasks/myta
 
 ```
 
-Para descargar uno de los archivos de salida en un directorio local, use el comando [az batch task file download](/cli/azure/batch/task). En este ejemplo, la salida de la tarea está en `stdout.txt`. 
+Para descargar uno de los archivos de salida en un directorio local, use el comando [az batch task file download](/cli/azure/batch/task). En este ejemplo, la salida de la tarea está en `stdout.txt`.
 
 ```azurecli-interactive
 az batch task file download \
@@ -183,10 +187,12 @@ AZ_BATCH_TASK_ID=mytask1
 AZ_BATCH_ACCOUNT_NAME=mybatchaccount
 AZ_BATCH_TASK_USER_IDENTITY=PoolNonAdmin
 ```
+
 ## <a name="clean-up-resources"></a>Limpieza de recursos
+
 Si desea continuar con los ejemplos y tutoriales de Batch, utilice la cuenta de Batch y la cuenta de almacenamiento vinculada que se ha creado en esta guía de inicio rápido. Por la propia cuenta de Batch no se cobra nada.
 
-Se cobran los grupos mientras que los nodos estén en ejecución, aunque no haya trabajos programados. Cuando deje de necesitar alguno de los grupos, elimínelo con el comando [az batch pool delete](/cli/azure/batch/pool#az-batch-pool-delete). Al eliminar el grupo, las salidas de tarea de los nodos también se eliminan. 
+Se cobran los grupos mientras que los nodos estén en ejecución, aunque no haya trabajos programados. Cuando deje de necesitar alguno de los grupos, elimínelo con el comando [az batch pool delete](/cli/azure/batch/pool#az-batch-pool-delete). Al eliminar el grupo, las salidas de tarea de los nodos también se eliminan.
 
 ```azurecli-interactive
 az batch pool delete --pool-id mypool
@@ -194,14 +200,13 @@ az batch pool delete --pool-id mypool
 
 Cuando no necesite el grupo de recursos, la cuenta de Batch, los grupos y todos los recursos relacionados, puede usar el comando [az group delete](/cli/azure/group#az-group-delete) para quitarlos. Los recursos se eliminan como se indica a continuación:
 
-```azurecli-interactive 
-az group delete --name myResourceGroup
+```azurecli-interactive
+az group delete --name QuickstartBatch-rg
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, ha creado una cuenta de Batch, un grupo de Batch y un trabajo de Batch. El trabajo ha ejecutado tareas de ejemplo y se ha visto la salida que se ha creado en uno de los nodos. Ahora que conoce los conceptos clave del servicio Batch, ya esta listo para probar dicho servicio con cargas de trabajo más realistas y a mayor escala. Para más información acerca de Azure Batch, continúe con los tutoriales de Azure Batch. 
-
+En esta guía de inicio rápido, ha creado una cuenta de Batch, un grupo de Batch y un trabajo de Batch. El trabajo ha ejecutado tareas de ejemplo y se ha visto la salida que se ha creado en uno de los nodos. Ahora que conoce los conceptos clave del servicio Batch, ya esta listo para probar dicho servicio con cargas de trabajo más realistas y a mayor escala. Para más información acerca de Azure Batch, continúe con los tutoriales de Azure Batch.
 
 > [!div class="nextstepaction"]
 > [Tutoriales de Azure Batch](./tutorial-parallel-dotnet.md)

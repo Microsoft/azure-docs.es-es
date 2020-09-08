@@ -13,14 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 622f14beabb1f2f109dff5d28c1591ffdd5aa000
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 35f79702b7aad51b764ce2edb37c3c76d1fe98e8
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74901448"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89261519"
 ---
 # <a name="media-encoder-standard-schema"></a>Esquema de Media Encoder Standard
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 En este artículo se describen algunos de los elementos y tipos del esquema XML en los que se basan los [valores preestablecidos de Media Encoder Standard](media-services-mes-presets-overview.md). En el artículo se proporciona una explicación de los elementos y sus valores válidos.  
 
 ## <a name="preset-root-element"></a><a name="Preset"></a> Preset (elemento raíz)

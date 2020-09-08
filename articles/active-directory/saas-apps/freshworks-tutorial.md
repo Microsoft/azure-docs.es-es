@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Freshworks | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Freshworks.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 697c3509-0e3a-4b05-9d5b-9ded4269eb60
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/11/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ca1e794449f41a7ab0c9b129105f2324401b3c1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eb59d7ecd6183d144fd275a50f3682a2b961df98
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034234"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550973"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshworks"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Freshworks
 

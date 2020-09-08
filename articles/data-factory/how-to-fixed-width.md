@@ -8,16 +8,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 8/18/2019
 ms.author: makromer
-ms.openlocfilehash: d629a9031f032a77efc953311a45b55996568191
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 23b812da8c84ebf055ac4eabdc4649828c139a7f
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81414369"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051022"
 ---
 # <a name="process-fixed-length-text-files-by-using-data-factory-mapping-data-flows"></a>Procesamiento de archivos de texto de longitud fija mediante flujos de datos de asignación de Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Mediante el uso de flujos de datos de asignación en Microsoft Azure Data Factory, puede transformar datos de archivos de texto de ancho fijo. En la tarea siguiente, definiremos un conjunto de datos para un archivo de texto sin un delimitador y, a continuación, configuraremos divisiones de subcadenas basadas en la posición ordinal.
 

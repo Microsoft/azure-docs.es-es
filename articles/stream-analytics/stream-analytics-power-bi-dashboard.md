@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/05/2019
-ms.openlocfilehash: 4d0ee48a42814ab2c4229c5f8f239aa1a1c28544
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 8/6/2020
+ms.openlocfilehash: 4c6d1d3877629150493ee2a57a04573760d2772a
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87314227"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870024"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics y Power BI: panel de análisis en tiempo real de flujo de datos
 
@@ -39,7 +39,10 @@ En el tutorial de detección de fraudes en tiempo real, la salida se envía a Az
 
 2. En el menú izquierdo, seleccione **Salidas** en **Topología de trabajo**. Luego, seleccione **+ Agregar** y elija **Power BI** en el menú desplegable.
 
-3. Seleccione **+ Agregar** > **Power BI**. Luego, rellene el formulario con los siguientes detalles y seleccione **Autorizar**:
+3. Seleccione **+ Agregar** > **Power BI**. A continuación, rellene el formulario con los detalles siguientes y seleccione **Autorizar** para usar su propia identidad de usuario para conectarse a Power BI (el token es válido durante 90 días). 
+
+>[!NOTE]
+>Para trabajos de producción, le recomendamos que se conecte a [Uso de la identidad administrada para autenticar el trabajo de Azure Stream Analytics en Power BI](https://docs.microsoft.com/azure/stream-analytics/powerbi-output-managed-identity).
 
    |**Configuración**  |**Valor sugerido**  |
    |---------|---------|
@@ -230,3 +233,4 @@ Después de que la autorización se haya actualizado con Power BI, se mostrará 
 * [Salidas de Stream Analytics](stream-analytics-define-outputs.md)
 * [Referencia del lenguaje de consulta de Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Uso de la identidad administrada para autenticar el trabajo de Azure Stream Analytics en Power BI](https://docs.microsoft.com/azure/stream-analytics/powerbi-output-managed-identity)

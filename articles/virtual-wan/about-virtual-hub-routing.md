@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 3d680fb105b6bde26e5b02544359009f316647bb
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: f29a7e48fc1872f83b5a6ce127f38c1a559b2691
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513730"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762324"
 ---
 # <a name="about-virtual-hub-routing"></a>Acerca del enrutamiento de centros virtuales
 
@@ -25,10 +25,6 @@ Para configurar el enrutamiento, vea [Configuración del enrutamiento de centro 
 ## <a name="routing-concepts"></a><a name="concepts"></a>Conceptos de enrutamiento
 
 En las secciones siguientes se describen los conceptos clave del enrutamiento de centros virtuales.
-
-> [!NOTE]
-> Es posible que aún se estén implementando algunos de estos nuevos conceptos para la tabla de rutas del centro, la asociación, la propagación y las rutas estáticas de una conexión de red virtual. Está previsto que dicha implementación se complete la semana del 17 de agosto.
->
 
 ### <a name="hub-route-table"></a><a name="hub-route"></a>Tabla de rutas del centro de conectividad
 
@@ -77,9 +73,9 @@ Las tablas de rutas ahora tienen características para la asociación y propagac
 
 * **Clientes de la versión Estándar de Virtual WAN con rutas preexistentes en un centro virtual**:
 
-Para usar las nuevas funcionalidades de la tabla de rutas, espere hasta la semana del 17 de agosto, que es cuando se completa la implementación en Azure. Si tiene rutas preexistentes en la sección Enrutamiento del centro de Azure Portal, primero debe eliminarlas y, luego, intentar crear tablas de rutas nuevas (disponibles en la sección Tablas de rutas del centro de Azure Portal).
+Si tiene rutas preexistentes en la sección Enrutamiento del centro de Azure Portal, primero debe eliminarlas y, luego, intentar crear tablas de rutas nuevas (disponibles en la sección Tablas de rutas del centro de Azure Portal).
 
-* **Clientes de la versión Básica de Virtual WAN con rutas preexistentes en un centro virtual**: Para usar las nuevas funcionalidades de la tabla de rutas, espere hasta la semana del 17 de agosto, que es cuando se completa la implementación en Azure. Si tiene rutas preexistentes en la sección de enrutamiento del centro de conectividad en Azure Portal, debe eliminarlas primero y, después, **actualizar** la versión Básica de Virtual WAN a la versión Estándar. Consulte [Actualización de una virtual WAN de Básica a Estándar](upgrade-virtual-wan.md).
+* **Clientes de la versión Básica de Virtual WAN con rutas preexistentes en un centro virtual**: Si tiene rutas preexistentes en la sección Enrutamiento del centro de Azure Portal, primero debe eliminarlas y, después, **actualizar** la versión Básica de Virtual WAN a la versión Estándar. Consulte [Actualización de una virtual WAN de Básica a Estándar](upgrade-virtual-wan.md).
 
 ## <a name="virtual-wan-routing-considerations"></a><a name="considerations"></a>Consideraciones sobre el enrutamiento Virtual WAN
 
@@ -89,6 +85,8 @@ Tenga en cuenta lo siguiente al configurar el enrutamiento Virtual WAN:
 * Todas las conexiones de rama deben propagar sus rutas al mismo conjunto de tablas de rutas. Por ejemplo, si decide que las rama deben propagarse a la tabla de rutas predeterminada, esta configuración debe ser coherente en todas las ramas. Como resultado, todas las conexiones asociadas a la tabla de rutas predeterminada podrán llegar a todas las ramas.
 * De momento no se admite el flujo de rama a rama a través de Azure Firewall.
 * Al usar Azure Firewall en varias regiones, todas las redes virtuales de radios deben estar asociadas a la misma tabla de rutas. Por ejemplo, no es posible tener un subconjunto de redes virtuales que pasen por Azure Firewall mientras otras redes virtuales se saltan Azure Firewall en el mismo centro virtual.
+* Se puede configurar una única dirección IP de próximo salto por cada conexión de red virtual.
+* El centro de conectividad virtual no admite la ruta estática para 0.0.0.0/0 ni la conexión de red virtual del próximo salto (o una IP de un dispositivo en la conexión de red virtual)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,19 +3,21 @@ title: Documentación de Azure Migrate
 summary: Encuentre artículos que le ayudarán a detectar, evaluar y migrar su entorno local mediante las herramientas del centro de Azure Migrate.
 metadata:
   title: Documentación de Azure Migrate
-  description: Aprenda a usar las herramientas del centro de Azure Migrate para detectar, evaluar y migrar un entorno local a Azure.
+  description: Busque tutoriales de migración de Azure, recursos y herramientas de valoración de la migración. Aprenda a usar las herramientas del centro de Azure Migrate para detectar, evaluar y migrar un entorno local a Azure.
   ms.service: azure-migrate
   ms.topic: landing-page
   ms.collection: collection
   author: rayne-wiselman
   ms.author: raynew
   ms.date: 07/08/2020
-  ms.openlocfilehash: a3c9be5e123892d5d1b8d8e4a0677eb520e34dc6
-  ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+  ms.custom: seo-azure-migrate
+  keywords: azure migrate, azure migration, azure migrate assessment tool, azure migrate tool, azure migrate documentation, azure migration documentation
+  ms.openlocfilehash: b38df4b4a9c9cd0741e9bc4d69e42ebaf2feefb7
+  ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/08/2020
-  ms.locfileid: "86112670"
+  ms.lasthandoff: 09/01/2020
+  ms.locfileid: "89228348"
 landingContent:
 - title: Acerca de Azure Migrate
   linkLists:

@@ -31,6 +31,8 @@
           href: manage-user-access-with-access-reviews.md
         - name: Administración de usuarios excluidos del acceso condicional
           href: conditional-access-exclusion.md
+    - name: Examen y eliminación de usuarios de las organizaciones externas
+      href: access-reviews-external-users.md
 - name: Guías paso a paso
   expanded: true
   items:
@@ -86,6 +88,8 @@
               href: entitlement-management-request-access.md
     - name: Revisiones de acceso
       items:
+        - name: Planeamiento de la implementación de las revisiones del acceso
+          href: deploy-access-reviews.md
         - name: Paquetes de acceso
           items:
             - name: Creación de una revisión de acceso
@@ -124,6 +128,6 @@
   expanded: true
   items:
     - name: 'Revisiones de acceso: Graph API'
-      href: 'https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta'
+      href: /graph/api/resources/accessreviews-root?view=graph-rest-beta
     - name: 'Administración de derechos: Graph API'
-      href: 'https://docs.microsoft.com/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta'
+      href: /graph/api/resources/entitlementmanagement-root?view=graph-rest-beta

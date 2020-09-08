@@ -11,12 +11,12 @@ ms.date: 06/05/2020
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd63e82788856624c3babe078de52e698f190ce0
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: db14e4e47cce1822404561d33bd8e0d3f224e037
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87796632"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321113"
 ---
 # <a name="what-is-azure-active-directory"></a>¿Qué es Azure Active Directory?
 
@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) es un servicio de administración de identidad
 
 - Recursos internos, como las aplicaciones de la red corporativa y la intranet, junto con todas las aplicaciones en la nube desarrolladas por su propia organización. Para más información sobre la creación de un inquilino para su organización, consulte [Guía de inicio rápido: Creación de un inquilino en Azure Active Directory](active-directory-access-create-new-tenant.md).
 
-Para obtener información sobre la diferencia entre Azure AD y Active Directory Domain Services, consulte [Comparación de Active Directory y Azure Active Directory](active-directory-compare-azure-ad-to-ad.md). Puede utilizar los diversos pósteres de la [Serie de Microsoft Cloud para arquitectos empresariales](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources#identity) para conocer mejor los servicios de identidad principales de Azure, Azure AD y Office 365.
+Para obtener información sobre la diferencia entre Azure AD y Active Directory Domain Services, consulte [Comparación de Active Directory y Azure Active Directory](active-directory-compare-azure-ad-to-ad.md). Puede utilizar los diversos pósteres de la [Serie de Microsoft Cloud para arquitectos empresariales](/microsoft-365/solutions/cloud-architecture-models?view=o365-worldwide) para conocer mejor los servicios de identidad principales de Azure, Azure AD y Office 365.
 
 ## <a name="who-uses-azure-ad"></a>¿Quién usa Azure AD?
 
@@ -68,7 +68,7 @@ Después de elegir su licencia de Azure AD, obtendrá acceso a algunas de las ca
 |Administración de aplicaciones|Administre las aplicaciones en la nube y locales mediante el proxy de aplicación, el inicio de sesión único, el portal Mis aplicaciones (también conocido como Panel de acceso) y aplicaciones de software como servicio (SaaS). Para más información, consulte [Provisión de acceso remoto seguro a aplicaciones locales](../manage-apps/application-proxy.md) y [Documentación sobre la administración de aplicaciones](../manage-apps/index.yml).|
 |Authentication|Administre el restablecimiento de contraseñas de autoservicio de Azure Active Directory, Multi-Factor Authentication, la lista personalizada de contraseñas prohibidas y el bloqueo inteligente. Para más información, consulte la [documentación de Autenticación de Azure AD](../authentication/index.yml).|
 |Azure Active Directory para desarrolladores|Cree aplicaciones que inicie sesión en todas las identidades de Microsoft, obtenga tokens para llamar a Microsoft Graph, otras API de Microsoft API o API personalizadas. Para más información, consulte [Plataforma de identidad de Microsoft (Azure Active Directory para desarrolladores)](../develop/index.yml).|
-|Negocio a negocio (B2B)|Administre los usuarios invitados y los asociados externos sin perder el control sobre sus propios datos corporativos. Para más información, consulte [Documentación de Azure Active Directory B2B](../b2b/index.yml).|
+|Negocio a negocio (B2B)|Administre los usuarios invitados y los asociados externos sin perder el control sobre sus propios datos corporativos. Para más información, consulte [Documentación de Azure Active Directory B2B](../external-identities/index.yml).|
 |Negocio a cliente (B2C)|Personalice y controle la forma en que los usuarios se suscriben, inician sesión y administran sus perfiles al usar sus aplicaciones. Para más información, consulte [Documentación de Azure Active Directory B2C](../../active-directory-b2c/index.yml).|
 |Acceso condicional|Administre el acceso a sus aplicaciones en la nube. Para más información, consulte [Documentación sobre el acceso condicional de Azure AD](../conditional-access/index.yml).|
 |Administración de dispositivos|Administre la forma en que los dispositivos en la nube o locales acceden a los datos corporativos. Para más información, consulte la [documentación de Azure AD Device Management](../devices/index.yml).|
@@ -92,7 +92,7 @@ Para conocer mejor Azure AD y su documentación, es aconsejable revisar los tér
 |Cuenta de Azure AD| Una identidad que se crean mediante Azure AD u otro servicio en la nube de Microsoft, como Office 365. Las identidades se almacenan en Azure AD y pueden acceder a ellas las suscripciones de servicio en la nube de su organización. Esta cuenta se denomina a veces también cuenta profesional o educativa.|
 |Administrador de cuenta|Este rol de administrador de suscripción clásica conceptualmente es el propietario de facturación de una suscripción. Este rol tiene acceso al [centro de cuentas de Azure](https://account.azure.com/Subscriptions) y permite administrar todas las suscripciones de una cuenta. Para más información, consulte [Roles de administrador de suscripciones clásico, de Azure y de administrador de Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Administrador de servicios|Este rol de administrador de suscripciones clásico permite administrar todos los recursos de Azure, incluido el acceso. Tiene el acceso equivalente a un usuario al que se le ha asignado la función de propietario en el ámbito de la suscripción. Para más información, consulte [Roles de administrador de suscripciones clásico, de Azure y de administrador de Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
-|Propietario|Este rol ayuda a administrar todos los recursos de Azure, incluido el acceso. Este rol se basa en un sistema de autorización más reciente denominado control de acceso basado en rol (RBAC) que proporciona una administración detallada del acceso a recursos de Azure. Para más información, consulte [Roles de administrador de suscripciones clásico, de Azure y de administrador de Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
+|Propietario|Este rol ayuda a administrar todos los recursos de Azure, incluido el acceso. Este rol se basa en un sistema de autorización más reciente llamado control de acceso basado en rol de Azure (RBAC de Azure) que proporciona una administración detallada del acceso a los recursos de Azure. Para más información, consulte [Roles de administrador de suscripciones clásico, de Azure y de administrador de Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Administrador global de Azure AD|Este rol de administrador se asigna automáticamente a quien haya creado el inquilino de Azure AD. Los administradores globales pueden realizar todas las funciones administrativas de Azure AD y los servicios que se federan con Azure AD, como Exchange Online, SharePoint Online y Skype Empresarial Online. Puede tener varios administradores globales, pero estos administradores son los únicos que pueden asignar roles de administrador (lo que incluye la asignación de otros administradores globales) a los usuarios. Tenga en cuenta que este rol de administrador se denomina Administrador global en Azure Portal, pero **Administrador de empresa** en la API de Microsoft Graph y Azure AD PowerShell. Para obtener más información acerca de los distintos roles de administrador, consulte [Permisos de roles de administrador en Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).|
 |Suscripción de Azure| Se usa para pagar los servicio en la nube de Azure. Puede tener muchas suscripciones y están vinculadas a una tarjeta de crédito.|
 |Inquilino de Azure| Es una instancia dedicada y de confianza de Azure AD que se crea automáticamente cuando una organización se suscribe a un servicio en la nube de Microsoft, como Microsoft Azure, Microsoft Intune u Office 365. Un inquilino de Azure representa una organización individual.|

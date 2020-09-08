@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dbfca54227895de53b984dcf5c7a1f8c5fbf51d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf2e3f98bd96c09fe741a24a1332443c876e2e61
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83647400"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89225917"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Introducción a la API de generación informes de Azure Active Directory
 
@@ -32,7 +32,7 @@ Mediante Microsoft Graph API para informes de Azure AD, puede acceder mediante p
 
 En este artículo se proporciona información general de la API de informes, como las maneras de obtener acceso a ella.
 
-Si tiene problemas, consulte [Obtención de soporte técnico para Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto).
+Si tiene problemas, consulte [Obtención de soporte técnico para Azure Active Directory](../fundamentals/active-directory-troubleshooting-support-howto.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -47,9 +47,9 @@ Para obtener instrucciones detalladas, consulte [Requisitos previos para acceder
 
 ## <a name="api-endpoints"></a>Puntos de conexión de API 
 
-El punto de conexión de Microsoft Graph API para registros de auditoría es `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits` y el punto de conexión de Microsoft Graph API para inicios de sesión es `https://graph.microsoft.com/v1.0/auditLogs/signIns`. Para más información, consulte la [referencia de API de auditoría](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/directoryaudit) y la [referencia de API de inicio de sesión](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/signIn).
+El punto de conexión de Microsoft Graph API para registros de auditoría es `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits` y el punto de conexión de Microsoft Graph API para inicios de sesión es `https://graph.microsoft.com/v1.0/auditLogs/signIns`. Para más información, consulte la [referencia de API de auditoría](/graph/api/resources/directoryaudit?view=graph-rest-1.0) y la [referencia de API de inicio de sesión](/graph/api/resources/signIn?view=graph-rest-1.0).
 
-Además, puede utilizar la [API de detecciones de riesgos Identity Protection](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) para acceder mediante programación a las detecciones de seguridad con Microsoft Graph. Para obtener más información, consulte [Introducción a Azure Active Directory Identity Protection y Microsoft Graph](../identity-protection/graph-get-started.md). 
+Además, puede utilizar la [API de detecciones de riesgos Identity Protection](/graph/api/resources/identityriskevent?view=graph-rest-beta) para acceder mediante programación a las detecciones de seguridad con Microsoft Graph. Para obtener más información, consulte [Introducción a Azure Active Directory Identity Protection y Microsoft Graph](../identity-protection/howto-identity-protection-graph-api.md). 
   
 ## <a name="apis-with-microsoft-graph-explorer"></a>API con el Probador de Microsoft Graph
 
@@ -70,5 +70,3 @@ Para instrucciones detalladas, consulte [Obtención de datos mediante la API de 
  * [Requisitos previos para acceder a la API de informes](howto-configure-prerequisites-for-reporting-api.md) 
  * [Obtención de datos mediante la API de informes de Azure AD con certificados](tutorial-access-api-with-certificates.md)
  * [Solución de errores de la API de generación de informes de Azure AD](troubleshoot-graph-api.md)
-
-

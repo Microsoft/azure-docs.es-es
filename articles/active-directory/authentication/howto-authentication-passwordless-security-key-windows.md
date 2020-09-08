@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acf7f89ab7c84d74dcd6e3dff2c2c688da1cefea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d70fe8a1fbaee285843bfd76ad2a8076df96b49b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550613"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717972"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Habilitar el inicio de sesión con una clave de seguridad sin contraseña en dispositivos Windows 10 con Azure Active Directory (versión preliminar)
 
@@ -37,7 +37,7 @@ Este documento se centra en la habilitación de la autenticación sin contraseñ
 | [Los dispositivos unidos a Azure AD híbrido](../devices/concept-azure-ad-join-hybrid.md) requieren Windows 10 versión 2004 o superior |   | X |
 | Controladores de dominio de Windows Server 2016/2019 totalmente revisados |   | X |
 | [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect), versión 1.4.32.0 o posterior |   | X |
-| [Microsoft Intune](https://docs.microsoft.com/intune/fundamentals/what-is-intune) (opcional) | X | X |
+| [Microsoft Intune](/intune/fundamentals/what-is-intune) (opcional) | X | X |
 | Paquete de aprovisionamiento (opcional) | X | X |
 | Directiva de grupo (opcional) |   | X |
 
@@ -100,7 +100,7 @@ Para dirigirse a grupos de dispositivos específicos a fin de habilitar el prove
       - OMA-URI: ./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
       - Tipo de datos: Entero
       - Valor: 1
-1. Esta directiva se puede asignar a usuarios, dispositivos o grupos específicos. Para más información, consulte [Asignación de perfiles de usuario y de dispositivo en Microsoft Intune](https://docs.microsoft.com/intune/device-profile-assign).
+1. Esta directiva se puede asignar a usuarios, dispositivos o grupos específicos. Para más información, consulte [Asignación de perfiles de usuario y de dispositivo en Microsoft Intune](/intune/device-profile-assign).
 
 ![Creación de directiva de configuración de dispositivos personalizada de Intune](./media/howto-authentication-passwordless-security-key/intune-custom-profile.png)
 
@@ -122,10 +122,10 @@ En el caso de los dispositivos no administrados por Intune, se puede instalar un
 1. Anote o cambie la ruta de acceso de la ventana **Compilar** en **Selecciona el lugar donde guardar el paquete de aprovisionamiento** y seleccione **Siguiente**.
 1. Seleccione **Compilar** en la página **Compilar el paquete de aprovisionamiento**.
 1. Guarde los dos archivos creados (*ppkg* y *cat*) en una ubicación donde pueda aplicarlos a los equipos más adelante.
-1. Consulte [Aplicación de un paquete de aprovisionamiento](https://docs.microsoft.com/windows/configuration/provisioning-packages/provisioning-apply-package) para aplicar el paquete de aprovisionamiento que ha creado.
+1. Consulte [Aplicación de un paquete de aprovisionamiento](/windows/configuration/provisioning-packages/provisioning-apply-package) para aplicar el paquete de aprovisionamiento que ha creado.
 
 > [!NOTE]
-> Los dispositivos que ejecutan Windows 10 versión 1809 también deben habilitar el modo de PC compartido (*EnableSharedPCMode*). Para más información sobre cómo habilitar esta funcionalidad, consulte [Configuración de un equipo compartido o invitado con Windows 10](https://docs.microsoft.com/windows/configuration/set-up-shared-or-guest-pc).
+> Los dispositivos que ejecutan Windows 10 versión 1809 también deben habilitar el modo de PC compartido (*EnableSharedPCMode*). Para más información sobre cómo habilitar esta funcionalidad, consulte [Configuración de un equipo compartido o invitado con Windows 10](/windows/configuration/set-up-shared-or-guest-pc).
 
 ### <a name="enable-with-group-policy"></a>Habilitación con directiva de grupo
 

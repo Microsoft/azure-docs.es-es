@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 08/26/2020
 ms.author: aahi
-ms.openlocfilehash: b3cec783b43d0169a3d0d56ca040e1397701102e
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: e2c6fc739fa81e6eb7c98073e3575e4143d317b2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986175"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932974"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Idiomas admitidos en Text Analytics API v3 
 
@@ -39,13 +39,13 @@ ms.locfileid: "87986175"
 | Italiano               |     `it`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Japonés              |     `ja`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Coreano                |     `ko`      |            |     ✓      |         2019-10-01         |                    |
-| Noruego (Bokmål)   |     `no`      |     ✓      |            |                            |                    |
+| Noruego (Bokmål)   |     `no`      |     ✓      |     ✓       |        01-07-2020         |                    |
 | Polaco                |     `pl`      |     ✓      |            |                            |                    |
 | Portugués (Portugal) |    `pt-PT`    |     ✓      |     ✓      |         2019-10-01         | También se acepta `pt` |
 | Ruso               |     `ru`      |     ✓      |            |                            |                    |
 | Español               |     `es`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Sueco               |     `sv`      |     ✓      |            |                            |                    |
-| Turco               |     `tr`      |     ✓      |            |                            |                    |
+| Turco               |     `tr`      |     ✓      |     ✓       |         01-07-2020        |                    |
 
 ### <a name="opinion-mining-v31-preview-only"></a>Minería de opiniones (solo v3.1-preview)
 

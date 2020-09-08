@@ -1,14 +1,14 @@
 ---
 title: Cumplimiento normativo en las definiciones de iniciativa
 description: Describe cómo usar una definición de iniciativa para agrupar directivas por dominio normativo, como Access Control, Administración de configuración, etc.
-ms.date: 05/11/2020
+ms.date: 08/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3bcc876cf8fd608d700e39bda11c94395beace80
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: 296febc1aad62d06c8e9dfcf4f285b16cacf0a40
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84205906"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544628"
 ---
 # <a name="regulatory-compliance-in-azure-policy"></a>Cumplimiento normativo de Azure Policy
 

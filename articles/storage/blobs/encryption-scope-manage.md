@@ -4,23 +4,25 @@ description: Aprenda a crear un ámbito de cifrado para aislar los datos de blob
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 08/04/2020
+ms.date: 08/25/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: d4dd3f3ced8aac6852fe8516a4a5cadca2ebdc49
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 32b46d21228bcd84fc3da11cc6ed42c740fece39
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87564153"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870262"
 ---
 # <a name="create-and-manage-encryption-scopes-preview"></a>Creación y administración de ámbitos de cifrado (versión preliminar)
 
 Los ámbitos de cifrado (versión preliminar) permiten administrar el cifrado en un blob o contenedor individual. Un ámbito de cifrado aísla los datos de blobs en un enclave protegido dentro de una cuenta de almacenamiento. Se pueden usar ámbitos de cifrado para crear límites seguros entre los datos que residen en la misma cuenta de almacenamiento, pero que pertenecen a clientes distintos. Para obtener más información sobre los ámbitos de cifrado, vea [Ámbitos de cifrado para almacenamiento de blobs (versión preliminar)](../common/storage-service-encryption.md#encryption-scopes-for-blob-storage-preview).
 
 En este artículo se muestra cómo crear un ámbito de cifrado. También se muestra cómo especificar un ámbito de cifrado al crear un blob o un contenedor.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="create-an-encryption-scope"></a>Creación de un ámbito de cifrado
 

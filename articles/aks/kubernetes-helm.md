@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 06/24/2020
 ms.author: zarhoads
-ms.openlocfilehash: 6ee99eee02e874208106d39c6442f54f59f95dad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d05d0166724e586fa79e58e2e74fb583b45d0cc6
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361615"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852868"
 ---
 # <a name="install-existing-applications-with-helm-in-azure-kubernetes-service-aks"></a>Instalación de aplicaciones existentes con Helm en Azure Kubernetes Service (AKS)
 
@@ -46,12 +46,13 @@ version.BuildInfo{Version:"v3.0.0", GitCommit:"e29ce2a54e96cd02ccfce88bee4f58bb6
 
 ## <a name="install-an-application-with-helm-v3"></a>Instalación de una aplicación con Helm v3
 
-### <a name="add-the-official-helm-stable-charts-repository"></a>Incorporación del repositorio oficial estable de gráficos de Helm
+### <a name="add-helm-repositories"></a>Adición de repositorios de Helm
 
-Use el comando [helm repo][helm-repo-add] para agregar el repositorio oficial estable de gráficos de Helm.
+Use el comando [helm repo][helm-repo-add] para agregar los gráficos estables de Helm oficiales y los repositorios *ingress-nginx*.
 
 ```console
 helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 ```
 
 ### <a name="find-helm-charts"></a>Búsqueda de gráficos de Helm
@@ -123,6 +124,7 @@ El ejemplo siguiente muestra una actualización de repositorio correcta:
 $ helm repo update
 
 Hang tight while we grab the latest from your chart repositories...
+...Successfully got an update from the "ingress-nginx" chart repository
 ...Successfully got an update from the "stable" chart repository
 Update Complete. ⎈ Happy Helming!⎈
 ```
@@ -132,7 +134,7 @@ Update Complete. ⎈ Happy Helming!⎈
 Para instalar los gráficos con Helm, use el comando [helm install][helm-install-command] y especifique un nombre de versión y el nombre del gráfico que se va a instalar. Para ver cómo funciona la instalación de un gráfico de Helm, vamos a instalar una implementación básica de nginx mediante un gráfico de Helm.
 
 ```console
-helm install my-nginx-ingress stable/nginx-ingress \
+helm install my-nginx-ingress ingress-nginx/ingress-nginx \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
@@ -140,7 +142,7 @@ helm install my-nginx-ingress stable/nginx-ingress \
 En la siguiente salida de ejemplo condensada se muestra el estado de implementación de los recursos de Kubernetes creados mediante el gráfico de Helm:
 
 ```console
-$ helm install my-nginx-ingress stable/nginx-ingress \
+$ helm install my-nginx-ingress ingress-nginx/ingress-nginx \
 >     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
 >     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 
@@ -153,23 +155,23 @@ TEST SUITE: None
 NOTES:
 The nginx-ingress controller has been installed.
 It may take a few minutes for the LoadBalancer IP to be available.
-You can watch the status by running 'kubectl --namespace default get services -o wide -w my-nginx-ingress-controller'
+You can watch the status by running 'kubectl --namespace default get services -o wide -w my-nginx-ingress-ingress-nginx-controller'
 ...
 ```
 
 Use el comando `kubectl get services` para obtener el valor de *EXTERNAL-IP* del servicio.
 
 ```console
-kubectl --namespace default get services -o wide -w my-nginx-ingress-controller
+kubectl --namespace default get services -o wide -w my-nginx-ingress-ingress-nginx-controller
 ```
 
-Por ejemplo, el siguiente comando muestra el valor de *EXTERNAL-IP* para el servicio *my-nginx-ingress-controller*:
+Por ejemplo, el siguiente comando muestra el valor de *EXTERNAL-IP* para el servicio *my-nginx-ingress-ingress-nginx-controller*:
 
 ```console
-$ kubectl --namespace default get services -o wide -w my-nginx-ingress-controller
+$ kubectl --namespace default get services -o wide -w my-nginx-ingress-ingress-nginx-controller
 
-NAME                          TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)                      AGE   SELECTOR
-my-nginx-ingress-controller   LoadBalancer   10.0.123.1     <EXTERNAL-IP>   80:31301/TCP,443:31623/TCP   96s   app=nginx-ingress,component=controller,release=my-nginx-ingress
+NAME                                        TYPE           CLUSTER-IP   EXTERNAL-IP      PORT(S)                      AGE   SELECTOR
+my-nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.2.237   <EXTERNAL-IP>    80:31380/TCP,443:32239/TCP   72s   app.kubernetes.io/component=controller,app.kubernetes.io/instance=my-nginx-ingress,app.kubernetes.io/name=ingress-nginx
 ```
 
 ### <a name="list-releases"></a>Lista de versiones

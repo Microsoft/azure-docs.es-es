@@ -4,15 +4,16 @@ description: Explica por qué se deshabilitó la suscripción a Azure for Studen
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 7f1c1aa8729640acdb0d3e468c46d049a0d82a4d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d2ccfcb26c66d936d474cd5bd4f830d03a8b0002
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283884"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88682920"
 ---
 # <a name="why-is-my-azure-for-students-subscription-disabled-and-how-do-i-reactivate-it"></a>¿Por qué está deshabilitada mi suscripción a Azure for Students y cómo reactivarla?
 

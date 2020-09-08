@@ -1,17 +1,17 @@
 ---
 title: Habilitar la compatibilidad con Avere vFXT - Azure
-description: Cómo habilitar las cargas de soporte desde Avere vFXT for Azure
+description: Obtenga información sobre cómo habilitar la carga automática de datos de soporte técnico sobre el clúster desde Avere vFXT for Azure para ayudar al servicio al cliente a proporcionar soporte técnico.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 12/14/2019
 ms.author: rohogue
-ms.openlocfilehash: fc86cca1b73eb58a038a0a6da109e86b995709c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93b99aa624a21d9312297e4279b1dcf053c79ae3
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505484"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272735"
 ---
 # <a name="enable-support-uploads"></a>Habilitación de cargas de soporte
 

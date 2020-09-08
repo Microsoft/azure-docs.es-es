@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con OU Campus | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y OU Campus.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 09315212-3731-4ae1-bcc2-b8b5f2ac6087
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 2ef934c691fab5b0b3c2462bca150c3df3f01fd4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ec3609c631ba356a68ac62bb3a3ea672508a5f5d
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73160245"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88518639"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ou-campus"></a>Tutorial: Integración de Azure Active Directory con OU Campus
 

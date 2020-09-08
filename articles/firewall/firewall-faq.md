@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/30/2020
+ms.date: 08/13/2020
 ms.author: victorh
-ms.openlocfilehash: 3f2b844163abce0946dc5df29c3121691e83035b
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: 75435155ba1dad798d301006a30a5d5b6e96226a
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439220"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611184"
 ---
 # <a name="azure-firewall-faq"></a>Preguntas frecuentes sobre Azure Firewall
 
@@ -95,8 +95,10 @@ Set-AzFirewall -AzureFirewall $azfw
 
 $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
 $vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
-$publicip = Get-AzPublicIpAddress -Name "Public IP Name" -ResourceGroupName " RG Name"
-$azfw.Allocate($vnet,$publicip)
+$publicip1 = Get-AzPublicIpAddress -Name "Public IP1 Name" -ResourceGroupName "RG Name"
+$publicip2 = Get-AzPublicIpAddress -Name "Public IP2 Name" -ResourceGroupName "RG Name"
+$azfw.Allocate($vnet,@($publicip1,$publicip2))
+
 Set-AzFirewall -AzureFirewall $azfw
 ```
 
@@ -121,7 +123,7 @@ Azure Firewall no aplica SNAT cuando la dirección IP de destino es un interval
 
 ## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>¿Se admite la tunelización o encadenamiento forzados a una aplicación virtual de red?
 
-La tunelización forzada se admite cuando se crea un nuevo Firewall. No se puede configurar un firewall existente para la tunelización forzada. Para más información, consulte [Tunelización forzada de Azure Firewall](forced-tunneling.md). 
+La tunelización forzada se admite cuando se crea un nuevo Firewall. No se puede configurar un firewall existente para la tunelización forzada. Para más información, consulte [Tunelización forzada de Azure Firewall](forced-tunneling.md).
 
 Azure Firewall debe tener conectividad directa a Internet. Si AzureFirewallSubnet aprende una ruta predeterminada a la red local mediante BGP, debe reemplazarla por una UDR 0.0.0.0/0 con el valor **NextHopType** establecido como **Internet** para mantener la conectividad directa a Internet.
 
@@ -136,6 +138,8 @@ Sí. El firewall, la red virtual y la dirección IP pública deben estar en el m
 No. Las reglas NAT agregan de forma implícita una regla de red correspondiente implícita para permitir el tráfico traducido. Para invalidar este comportamiento, agregue explícitamente una colección de reglas de red con reglas de denegación que coinciden con el tráfico traducido. Para más información acerca de la lógica de procesamiento de reglas Azure Firewall, consulte [Lógica de procesamiento de reglas de Azure Firewall](rule-processing.md).
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>¿Cómo funcionan los caracteres comodín en un FQDN de destino de la regla de aplicación?
+
+Actualmente, solo se pueden usar caracteres comodín en el lado izquierdo del nombre de dominio completo. Por ejemplo, * **.contoso.com** y ***contoso.com**.
 
 Si configura * **.contoso.com**, permite *cualquiervalor*.contoso.com, pero no contoso.com (el vértice de dominio). Si desea permitir el vértice de dominio, debe configurarlo explícitamente como un FQDN de destino.
 
@@ -181,9 +185,9 @@ No. Azure Firewall bloquea el acceso a Active Directory de forma predeterminada
 Sí, puede usar Azure PowerShell para ello:
 
 ```azurepowershell
-# Add a Threat Intelligence Whitelist to an Existing Azure Firewall
+# Add a Threat Intelligence allow list to an Existing Azure Firewall
 
-## Create the Whitelist with both FQDN and IPAddresses
+## Create the allow list with both FQDN and IPAddresses
 
 $fw = Get-AzFirewall -Name "Name_of_Firewall" -ResourceGroupName "Name_of_ResourceGroup"
 $fw.ThreatIntelWhitelist = New-AzFirewallThreatIntelWhitelist `
@@ -192,7 +196,7 @@ $fw.ThreatIntelWhitelist = New-AzFirewallThreatIntelWhitelist `
 ## Or Update FQDNs and IpAddresses separately
 
 $fw = Get-AzFirewall -Name $firewallname -ResourceGroupName $RG
-$fw.ThreatIntelWhitelist.IpAddresses = @($fw.ThreatIntelWhitelist.IpAddresses + $ipaddresses )
+$fw.ThreatIntelWhitelist.IpAddresses = @($fw.ThreatIntelWhitelist.IpAddresses + $ipaddresses)
 $fw.ThreatIntelWhitelist.fqdns = @($fw.ThreatIntelWhitelist.fqdns + $fqdns)
 
 

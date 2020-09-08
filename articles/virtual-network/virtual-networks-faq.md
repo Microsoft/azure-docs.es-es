@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 0f277661ab61e7292fbb81d96c26c7d48c6d03ef
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c242b08c598b04c84ab330e846704eace23c4858
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087057"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205480"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) acerca de Azure Virtual Network
 
@@ -109,7 +109,7 @@ Sí. Se pueden agregar subredes a redes virtuales en cualquier momento siempre y
 ### <a name="can-i-modify-the-size-of-my-subnet-after-i-create-it"></a>¿Puedo modificar el tamaño de la subred después de crearla?
 Sí. Puede agregar, quitar, expandir o contraer una subred si no hay máquinas virtuales ni servicios implementados en ella.
 
-### <a name="can-i-modify-subnets-after-i-created-them"></a>¿Puedo modificar subredes después de crearlas?
+### <a name="can-i-modify-vnet-after-i-created-them"></a>¿Puedo modificar subredes después de crearlas?
 Sí. Puede agregar, quitar y modificar los bloques CIDR usados por una red virtual.
 
 ### <a name="if-i-am-running-my-services-in-a-vnet-can-i-connect-to-the-internet"></a>¿Puedo conectarme a Internet si ejecuto mis servicios en una red virtual?
@@ -356,7 +356,7 @@ No hay ningún cargo adicional para el uso de puntos de conexión de servicio.
 Sí, es posible. Las redes virtuales y los recursos del servicio de Azure pueden estar en la misma o en diferentes suscripciones. El único requisito es que tanto la red virtual como los recursos del servicio de Azure deben estar bajo el mismo inquilino de Active Directory (AD).
 
 ### <a name="can-i-turn-on-vnet-service-endpoints-and-set-up-vnet-acls-if-the-virtual-network-and-the-azure-service-resources-belong-to-different-ad-tenants"></a>¿Puedo activar los puntos de conexión de servicio de la red virtual y configurar las ACL de red virtual si esta y los recursos del servicio de Azure pertenecen a diferentes inquilinos de AD?
-No, los puntos de conexión de servicio de la red virtual y las ACL de red virtual no son compatibles con los inquilinos de AD.
+Sí, es posible cuando se usan puntos de conexión de servicio para Azure Storage y Azure Key Vault. Para el resto de servicio, los puntos de conexión de servicio de la red virtual y las ACL de red virtual no se admiten con los inquilinos de AD.
 
 ### <a name="can-an-on-premises-devices-ip-address-that-is-connected-through-azure-virtual-network-gateway-vpn-or-expressroute-gateway-access-azure-paas-service-over-vnet-service-endpoints"></a>¿La dirección IP de un dispositivo local que está conectada mediante la puerta de enlace de Azure Virtual Network (VPN) o la puerta de enlace de ExpressRoute puede obtener acceso al servicio de Azure PaaS mediante los puntos de conexión de servicio de la red virtual?
 De forma predeterminada, los recursos de servicio de Azure protegidos para las redes virtuales no son accesibles desde redes locales. Si quiere permitir el tráfico desde el entorno local, también debe permitir las direcciones IP públicas (normalmente NAT) desde el entorno local o ExpressRoute. Estas direcciones IP se pueden agregar a través de la configuración del firewall de IP para los recursos de los servicios de Azure.
@@ -412,7 +412,7 @@ No hay límite en el número total de puntos de conexión de servicio de la red 
 |Azure SQL| 128|
 |Azure SQL Data Warehouse|  128|
 |Azure KeyVault|    127|
-|Azure Cosmos DB|   64|
+|Azure Cosmos DB|   64|
 |Centro de eventos de Azure|   128|
 |Azure Service Bus| 128|
 |Azure Data Lake Store V1|  100|

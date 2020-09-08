@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-javascript
-ms.openlocfilehash: a482b860ae13e817727ca0c3848a598fe3632136
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b094f63c075bdb8af225ff366343c60bc6818224
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87277594"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816769"
 ---
 # <a name="read-and-write-spatial-data"></a>Lectura y escritura de datos espaciales
 
@@ -153,6 +153,12 @@ GML es una especificación de archivo XML espacial que se suele usar como extens
 - La opción `propertyTypes`: esta opción es una tabla de búsqueda de valores clave donde la clave es el nombre de una propiedad del conjunto de datos. El valor es el tipo de objeto al que se va a convertir el valor al analizar. Los valores de tipo admitidos son: `string`, `number`, `boolean` y `date`. Si una propiedad no está en la tabla de búsqueda o el tipo no está definido, la propiedad se analizará como una cadena.
 
 La función `atlas.io.read` tomará como valor predeterminado la función `atlas.io.core.GmlReader.read` cuando detecte que los datos de entrada son XML, pero los datos no sean uno de los demás formatos XML espaciales admitidos.
+
+`GmlReader` analizará las coordenadas que tenga uno de los siguientes SRID:
+
+- EPSG:4326 (preferido)
+- EPSG:4269, EPSG:4283, EPSG:4258, EPSG:4308, EPSG:4230, EPSG:4272, EPSG:4271, EPSG:4267, EPSG:4608, EPSG:4674 posiblemente con un pequeño margen de error.
+- EPSG:3857, EPSG:102100, EPSG:3785, EPSG:900913, EPSG:102113, EPSG:41001, EPSG:54004
 
 ## <a name="next-steps"></a>Pasos siguientes
 

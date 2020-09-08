@@ -1,19 +1,19 @@
 ---
 title: 'Arquitectura: Arquitectura de red de tránsito global'
 titleSuffix: Azure Virtual WAN
-description: Obtenga información sobre la arquitectura de red de tránsito global de Virtual WAN.
+description: Conozca cómo permite Azure Virtual WAN una arquitectura de red de tránsito global al habilitar una conectividad universal ubicua entre cargas de trabajo en la nube.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 78656b4789ea03601bc12579c391292e2f9ead9a
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 63a9c3a6c23d78411c04250359dac3c3aacde2ba
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856375"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212713"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Arquitectura de red de tránsito global y Virtual WAN
 
@@ -132,6 +132,9 @@ Los centros de Azure Virtual WAN interconectan todos los puntos de conexión de 
 ![centro virtual protegido con Azure Firewall](./media/virtual-wan-global-transit-network-architecture/figure5.png)
 
 **Ilustración 5: Centro virtual protegido con Azure Firewall**
+
+> [!NOTE]
+> Actualmente no se admite el tráfico entre centros con el firewall. El tráfico entre centros se desplazará directamente por Azure Firewall en cada centro.
 
 Azure Firewall a la WAN virtual admite las siguientes rutas de conectividad de tránsito seguro global. Las letras entre paréntesis hacen referencia a la figura 5.
 

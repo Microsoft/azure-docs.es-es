@@ -1,18 +1,18 @@
 ---
 title: Controles de seguridad de Azure API Management
-description: Lista de comprobación de los controles de seguridad que se utilizan para evaluar API Management
+description: Consulte una lista de comprobación de los controles de seguridad que se utilizan para evaluar API Management. Estos incluyen controles de protección de datos, identidades y redes.
 services: api-management
 author: vladvino
 ms.service: api-management
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: vlvinogr
-ms.openlocfilehash: 670050efe01fb658fab52a43914f193e9798b828
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a147179f7b55e43379b3c3fa3a7a0767cc97b198
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75751126"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902582"
 ---
 # <a name="security-controls-for-api-management"></a>Controles de seguridad de API Management
 

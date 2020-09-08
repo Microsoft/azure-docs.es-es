@@ -7,15 +7,15 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/24/2020
-ms.openlocfilehash: d529e4e4b79f0c34eb8f95b028cca730b316d5f6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2caf4c66cdbb11ed42c4131ef1584c372ec10332
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87060302"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935116"
 ---
 # <a name="visualize-azure-cognitive-search-logs-and-metrics-with-power-bi"></a>Visualización de registros y métricas de Azure Cognitive Search con Power BI
-[Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-what-is-azure-search) permite almacenar registros de operaciones y métricas de servicio sobre su servicio de búsqueda en una cuenta de Azure Storage. En esta página se proporcionan instrucciones sobre cómo puede visualizar esa información a través de una aplicación de plantilla de Power BI. La aplicación proporciona información detallada sobre su servicio de búsqueda, incluida información acerca de las métricas de búsqueda, indexación, operaciones y servicio.
+[Azure Cognitive Search](./search-what-is-azure-search.md) permite almacenar registros de operaciones y métricas de servicio sobre su servicio de búsqueda en una cuenta de Azure Storage. En esta página se proporcionan instrucciones sobre cómo puede visualizar esa información a través de una aplicación de plantilla de Power BI. La aplicación proporciona información detallada sobre su servicio de búsqueda, incluida información acerca de las métricas de búsqueda, indexación, operaciones y servicio.
 
 Puede buscar la aplicación de plantilla de Power BI **Azure Cognitive Search: Análisis de registros y métricas** en [Marketplace de aplicaciones de Power BI](https://appsource.microsoft.com/marketplace/apps).
 
@@ -23,7 +23,7 @@ Puede buscar la aplicación de plantilla de Power BI **Azure Cognitive Search: A
 
 1. Habilite el registro de métricas y recursos en el servicio de búsqueda:
 
-    1. Cree o identifique una [cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) existente donde pueda archivar los registros.
+    1. Cree o identifique una [cuenta de Azure Storage](../storage/common/storage-account-create.md) existente donde pueda archivar los registros.
     1. Vaya al servicio Azure Cognitive Search en Azure Portal.
     1. En la sección Supervisión de la columna izquierda, seleccione **Configuración de diagnóstico**.
 
@@ -98,8 +98,8 @@ Si ve que no puede ver sus datos, siga estos pasos para solucionar problemas:
 1. Compruebe si sigue actualizándose el conjunto de datos. El indicador de estado de actualización se muestra en el paso 8 anterior. Si se sigue actualizando, espere a que se haya completado la actualización para abrir y actualizar el informe.
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Más información sobre Azure Cognitive Search](https://docs.microsoft.com/azure/search/)
+[Más información sobre Azure Cognitive Search](./index.yml)
 
-[¿Qué es Power BI?](https://docs.microsoft.com/power-bi/fundamentals/power-bi-overview)
+[¿Qué es Power BI?](/power-bi/fundamentals/power-bi-overview)
 
-[Conceptos básicos para diseñadores en el servicio Power BI](https://docs.microsoft.com/power-bi/service-basic-concepts)
+[Conceptos básicos para diseñadores en el servicio Power BI](/power-bi/service-basic-concepts)

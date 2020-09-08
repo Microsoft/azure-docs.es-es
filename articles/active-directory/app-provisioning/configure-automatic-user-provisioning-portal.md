@@ -12,19 +12,19 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 7e7f8ded24e71fec8ed6bfbc78f9057ddb98dacc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c42a83b4f7f3c6b5ff501525a04ebd96c2a692a
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781997"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234846"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales en el portal de Azure
 
 En este artículo se describen los pasos generales para administrar el aprovisionamiento y el desaprovisionamiento automáticos de cuentas de usuario en aplicaciones que lo admitan. El *aprovisionamiento de cuentas de usuario* es el acto de crear, actualizar o deshabilitar registros de cuenta de usuario en el almacén de perfiles de usuario local de una aplicación. La mayoría de las aplicaciones SaaS y en la nube almacenan el rol y los permisos de los usuarios en el propio almacén local de perfiles de usuario del usuario y la presencia de tal registro de usuario en el almacén local del usuario es *necesaria* para que funcionen el inicio de sesión único y el acceso. Para más información sobre el aprovisionamiento automático de cuentas de usuario, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones con Azure Active Directory](user-provisioning.md).
 
 > [!IMPORTANT]
-> Azure Active Directory (Azure AD) dispone de una galería con miles de aplicaciones previamente integradas que están habilitadas para el aprovisionamiento automático con Azure AD. Para comenzar, busque el tutorial de configuración del aprovisionamiento específico de su aplicación en [Tutoriales para integrar aplicaciones SaaS con Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/). Probablemente encontrará instrucciones paso a paso para configurar tanto la aplicación como Azure AD para crear la conexión de aprovisionamiento.
+> Azure Active Directory (Azure AD) dispone de una galería con miles de aplicaciones previamente integradas que están habilitadas para el aprovisionamiento automático con Azure AD. Para comenzar, busque el tutorial de configuración del aprovisionamiento específico de su aplicación en [Tutoriales para integrar aplicaciones SaaS con Azure Active Directory](../saas-apps/tutorial-list.md). Probablemente encontrará instrucciones paso a paso para configurar tanto la aplicación como Azure AD para crear la conexión de aprovisionamiento.
 
 ## <a name="finding-your-apps-in-the-portal"></a>Búsqueda de aplicaciones en el portal
 
@@ -85,4 +85,4 @@ Si el aprovisionamiento se habilita por primera vez para una aplicación, active
 
 Cambie **Estado de aprovisionamiento** a **Desactivado** para pausar el servicio de aprovisionamiento. En este estado, Azure no crea, actualiza ni quita ningún objeto de grupo o usuario en la aplicación. Cambie el estado de nuevo a **Activado** y el servicio vuelve adonde lo dejó.
 
-**Borrar el estado actual y reiniciar la sincronización** desencadena un ciclo inicial. Después, el servicio evaluará de nuevo todos los usuarios del sistema de origen y determinará si están en el ámbito del aprovisionamiento. Esto puede ser útil si la aplicación está en cuarentena actualmente o si necesita realizar un cambio en las asignaciones de atributos. Tenga en cuenta que el ciclo inicial tarda más tiempo en completarse que el ciclo incremental típico debido al número de objetos que deben evaluarse. Se puede obtener más información sobre el rendimiento de los ciclos inicial e incremental [aquí](application-provisioning-when-will-provisioning-finish-specific-user.md). 
+**Borrar el estado actual y reiniciar la sincronización** desencadena un ciclo inicial. Después, el servicio evaluará de nuevo todos los usuarios del sistema de origen y determinará si están en el ámbito del aprovisionamiento. Esto puede ser útil si la aplicación está en cuarentena actualmente o si necesita realizar un cambio en las asignaciones de atributos. Tenga en cuenta que el ciclo inicial tarda más tiempo en completarse que el ciclo incremental típico debido al número de objetos que deben evaluarse. Se puede obtener más información sobre el rendimiento de los ciclos inicial e incremental [aquí](application-provisioning-when-will-provisioning-finish-specific-user.md).

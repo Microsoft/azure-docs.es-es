@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 05/28/2020
 ms.custom: mvc
-ms.openlocfilehash: 7bc2da2043c6607cfff62ff524be88efb79c6f18
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: d38a4ba04529e70ecfd772eef7f60179041f0273
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148266"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927375"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Creación y uso compartido de paneles de datos de Log Analytics
 
@@ -54,7 +54,7 @@ Al crear un panel, será privado de forma predeterminada, lo que significa que u
 
 ![Uso compartido de un nuevo panel en Azure Portal](media/tutorial-logs-dashboards/log-analytics-share-dashboard.png) 
 
-Se le pedirá que elija una suscripción y un grupo de recursos en el que se vaya a publicar el panel. Para mayor comodidad, la experiencia de publicación del portal lo guiará por un patrón donde colocará paneles en un grupo de recursos denominado " **paneles**".  Compruebe la suscripción seleccionada y, después, haga clic en **Publicar**.  El acceso a la información mostrada en el panel se controla con el [control de acceso basado en recursos de Azure](../../role-based-access-control/role-assignments-portal.md).   
+Se le pedirá que elija una suscripción y un grupo de recursos en el que se vaya a publicar el panel. Para mayor comodidad, la experiencia de publicación del portal lo guiará por un patrón donde colocará paneles en un grupo de recursos denominado " **paneles**".  Compruebe la suscripción seleccionada y, después, haga clic en **Publicar**.  El acceso a la información mostrada en el panel se controla con el [control de acceso basado en rol (Azure RBAC) de Azure](../../role-based-access-control/role-assignments-portal.md).   
 
 ## <a name="visualize-a-log-query"></a>Visualización de una consulta de registro
 [Log Analytics](../log-query/get-started-portal.md) es un portal dedicado que se usa para trabajar con consultas de registro y sus resultados. Las características incluyen la capacidad para editar una consulta en varias líneas, ejecutar código de forma selectiva, Intellisense sensible al contexto y análisis inteligente. En este tutorial, usará Log Analytics para crear una vista de rendimiento en formato gráfico, la guardará para una consulta futura y la anclará al panel compartido creado anteriormente.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 19fcde522c5cb0355e53a5616145f27fada7dad9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aea29cfff6b3827cfb9169722e48120e3a5a3709
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78302192"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794316"
 ---
 # <a name="replicate-azure-cosmos-db"></a>REPLICATE (Azure Cosmos DB)
  Repite un valor de cadena un número especificado de veces.
@@ -36,7 +36,8 @@ REPLICATE(<str_expr>, <num_expr>)
   Devuelve una expresión de cadena.
   
 ## <a name="remarks"></a>Observaciones
-  La longitud máxima del resultado es de 10 000 caracteres, es decir, (length(*str_expr*)  *  *num_expr*) <= 10 000.
+
+  La longitud máxima del resultado es de 10 000 caracteres, es decir, (length(*str_expr*)  *  *num_expr*) <= 10 000. Esta función del sistema no usará el índice.
 
 ## <a name="examples"></a>Ejemplos
   
@@ -51,10 +52,6 @@ SELECT REPLICATE("a", 3) AS replicate
 ```json
 [{"replicate": "aaa"}]
 ```  
-
-## <a name="remarks"></a>Observaciones
-
-Esta función del sistema no usará el índice.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,25 +9,25 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 5f6a198445f9c9bd8e02cd8b6df3405431263e0b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8648347eb48081389cf360fa949b31bbd0b8c71e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076415"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936714"
 ---
 # <a name="upgrading-versions-of-the-azure-search-net-management-sdk"></a>Actualización de las versiones del SDK de administración de .NET para Azure Search
 
 En este artículo se explica cómo migrar a versiones sucesivas del SDK de administración de .NET para Azure Search, que se usa para el aprovisionamiento o desaprovisionamiento de servicios de búsqueda, el ajuste de capacidad y la administración de claves de API.
 
-Los SDK de administración están destinados a una versión específica de la API de REST de administración. Para obtener más información sobre los conceptos y las operaciones, vea [Administración de búsquedas (REST)](https://docs.microsoft.com/rest/api/searchmanagement/).
+Los SDK de administración están destinados a una versión específica de la API de REST de administración. Para obtener más información sobre los conceptos y las operaciones, vea [Administración de búsquedas (REST)](/rest/api/searchmanagement/).
 
 ## <a name="versions"></a>Versiones
 
 | Versión del SDK | Versión correspondiente de la API de REST | Adición de características o cambio de comportamiento |
 |-------------|--------------------------------|-------------------------------------|
 | [3.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/3.0.0) | api-version=2020-30-20 | Agrega seguridad de punto de conexión (firewalls de IP e integración con [Azure Private Link](../private-link/private-endpoint-overview.md)) |
-| [2.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/2.0.0) | api-version=2019-10-01 | Mejoras de la facilidad de uso. Cambio importante en las [claves de consulta de la lista](https://docs.microsoft.com/rest/api/searchmanagement/querykeys/listbysearchservice) (GET ya no está disponible). |
+| [2.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/2.0.0) | api-version=2019-10-01 | Mejoras de la facilidad de uso. Cambio importante en las [claves de consulta de la lista](/rest/api/searchmanagement/querykeys/listbysearchservice) (GET ya no está disponible). |
 | [1.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/1.0.1) | api-version=2015-08-19  | Primera versión |
 
 ## <a name="how-to-upgrade"></a>Procedimiento de actualización
@@ -48,15 +48,15 @@ La versión 3.0 agrega protección de punto de conexión privada mediante la res
 
 | API | Category| Detalles |
 |-----|--------|------------------|
-| [NetworkRuleSet](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate#networkruleset) | Firewall de dirección IP | Restrinja el acceso a un punto de conexión de servicio a una lista de direcciones IP permitidas. Consulte [Configuración de un firewall de IP](service-configure-firewall.md) para obtener información sobre los conceptos y las instrucciones del portal. |
-| [Recurso compartido de Private Link](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources) | Private Link | Cree un recurso compartido de Private Link para que lo use un servicio de búsqueda.  |
-| [Conexiones de punto de conexión privado](https://docs.microsoft.com/rest/api/searchmanagement/privateendpointconnections) | Private Link | Establezca y administre las conexiones a un servicio de búsqueda a través de un punto de conexión privado. Consulte [Creación de un punto de conexión privado](service-create-private-endpoint.md) para información sobre los conceptos y las instrucciones del portal.|
-| [Recursos de Private Link](https://docs.microsoft.com/rest/api/searchmanagement/privatelinkresources/) | Private Link | En el caso de un servicio de búsqueda que tenga una conexión de punto de conexión privado, obtenga una lista de todos los servicios usados en la misma red virtual. Si la solución de búsqueda incluye indexadores que extraen orígenes de datos de Azure (Azure Storage, Cosmos DB, Azure SQL) o usa Cognitive Services o Key Vault, todos esos recursos deben tener puntos de conexión en la red virtual y esta API debe devolver una lista. |
-| [PublicNetworkAccess](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate#publicnetworkaccess)| Private Link | Se trata de una propiedad de las solicitudes de servicio de creación o actualización. Cuando está deshabilitada, el vínculo privado es la única modalidad de acceso. |
+| [NetworkRuleSet](/rest/api/searchmanagement/services/createorupdate#networkruleset) | Firewall de dirección IP | Restrinja el acceso a un punto de conexión de servicio a una lista de direcciones IP permitidas. Consulte [Configuración de un firewall de IP](service-configure-firewall.md) para obtener información sobre los conceptos y las instrucciones del portal. |
+| [Recurso compartido de Private Link](/rest/api/searchmanagement/sharedprivatelinkresources) | Private Link | Cree un recurso compartido de Private Link para que lo use un servicio de búsqueda.  |
+| [Conexiones de punto de conexión privado](/rest/api/searchmanagement/privateendpointconnections) | Private Link | Establezca y administre las conexiones a un servicio de búsqueda a través de un punto de conexión privado. Consulte [Creación de un punto de conexión privado](service-create-private-endpoint.md) para información sobre los conceptos y las instrucciones del portal.|
+| [Recursos de Private Link](/rest/api/searchmanagement/privatelinkresources/) | Private Link | En el caso de un servicio de búsqueda que tenga una conexión de punto de conexión privado, obtenga una lista de todos los servicios usados en la misma red virtual. Si la solución de búsqueda incluye indexadores que extraen orígenes de datos de Azure (Azure Storage, Cosmos DB, Azure SQL) o usa Cognitive Services o Key Vault, todos esos recursos deben tener puntos de conexión en la red virtual y esta API debe devolver una lista. |
+| [PublicNetworkAccess](/rest/api/searchmanagement/services/createorupdate#publicnetworkaccess)| Private Link | Se trata de una propiedad de las solicitudes de servicio de creación o actualización. Cuando está deshabilitada, el vínculo privado es la única modalidad de acceso. |
 
 ### <a name="breaking-changes"></a>Últimos cambios
 
-Ya no puede usar GET en una solicitud [Enumerar claves de consulta](https://docs.microsoft.com/rest/api/searchmanagement/querykeys/listbysearchservice). En las versiones anteriores podía usar GET o POST, en esta versión y en todas las versiones posteriores, solo se admite POST. 
+Ya no puede usar GET en una solicitud [Enumerar claves de consulta](/rest/api/searchmanagement/querykeys/listbysearchservice). En las versiones anteriores podía usar GET o POST, en esta versión y en todas las versiones posteriores, solo se admite POST. 
 
 ## <a name="upgrade-to-20"></a>Actualización a 2.0
 

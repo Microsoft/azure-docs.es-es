@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Settling music | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Settling music.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 6f86a8a2-4bd0-40cc-b1b4-752fce123328
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08f084bc0231bceeaf2c7d87dc0a160cdf188978
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d8c1f8c9d3ecdd7cda33e358c2b0de99123be5ae
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67090977"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88539970"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-settling-music"></a>Tutorial: Integración de Azure Active Directory con Settling music
 

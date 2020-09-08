@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
-ms.openlocfilehash: 13e4c7a981124aba22dcb324d60e075d1d552bf8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1bf080ad4c4dc665e61d1075cf22c84d4cd66648
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526807"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121398"
 ---
 # <a name="how-to-use-perfinsights"></a>Cómo usar PerfInsights
 
@@ -99,6 +99,7 @@ Se recopila información sobre la máquina virtual Linux, el sistema operativo, 
   - /var/log/boot.log
   - /var/log/yum.log
   - /var/log/dpkg.log
+  - /var/log/sysstat o /var/log/sa [`**`]
   - /var/log/cloud-init.log
   - /var/log/cloud-init-output.log
   - /var/log/gpu-manager.log
@@ -113,6 +114,8 @@ Se recopila información sobre la máquina virtual Linux, el sistema operativo, 
 
 >[!Note]
 >[`*`] La información de PCI todavía no se recopila en las distribuciones Debian y SLES.
+> 
+>[`**`] /var/log/sysstat o/var/log/sa contiene los archivos de informe de actividad del sistema (SAR) recopilados por el paquete sysstat. Si el paquete sysstat no está instalado en la VM, la herramienta PerfInsights proporciona una recomendación para instalarlo.
 
 ## <a name="run-the-perfinsights-linux-on-your-vm"></a>Ejecución de PerfInsights Linux en la máquina virtual
 
@@ -121,7 +124,7 @@ Se recopila información sobre la máquina virtual Linux, el sistema operativo, 
 #### <a name="tool-requirements"></a>Requisitos de la herramienta
 
 - Esta herramienta se debe ejecutar en la máquina virtual que tiene el problema de rendimiento.
-- En la máquina virtual debe estar instalado Python 2.7.
+- Python 3.x o Python 2.7 debe estar instalado en la VM.
 
 - Actualmente se admiten las siguientes distribuciones:
 
@@ -211,7 +214,7 @@ Una vez completada la ejecución, aparecerá un nuevo archivo tar en la misma ca
 
 En el archivo **PerformanceDiagnostics\_aaaa-MM-dd\_hh-mm-ss-fff.tar.gz** puede encontrar un informe HTML en el que se detallan las conclusiones de PerfInsights. Para revisar el informe, expanda el archivo **PerformanceDiagnostics\_aaaa-MM-dd\_hh-mm-ss-fff.tar.gz** y después abra el archivo **PerfInsights Report.html**.
 
-### <a name="overview-tab"></a>Pestaña de información general
+### <a name="overview-tab"></a>Pestaña Información general
 
 La pestaña **Overview** (Información general) proporciona detalles básicos sobre la ejecución e información sobre la máquina virtual. La pestaña **Findings** (Resultados) muestra un resumen de las recomendaciones de las distintas secciones del informe de PerfInsights.
 

@@ -1,19 +1,20 @@
 ---
-title: Conocimiento de la factura de Azure | Microsoft Docs
+title: Conocimiento de la factura de Azure
 description: Aprenda a leer y entender el uso y la factura de la suscripción de Azure
 author: bandersmsft
 ms.reviewer: jureid
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: a3bf55bef0f6fc25f98b362b4a22e22471a031f1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b7b115f909c57470bfbdab9cc44e6a258f85b8f1
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199065"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88685925"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Descripción de los términos en su factura de Microsoft Azure
 

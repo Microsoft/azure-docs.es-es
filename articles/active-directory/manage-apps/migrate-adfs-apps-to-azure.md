@@ -14,12 +14,12 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33b67c836be3395061e33b5988a4bb06fa5ee20f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c9d2f295394d89432f3c6dd99585cc4363d4ff74
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608558"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641371"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Traslado de la autenticación de las aplicaciones de los Servicios de federación de Active Directory (AD FS) a Azure Active Directory
 
@@ -483,7 +483,7 @@ Aunque la ventana de interrupción planeada misma puede ser mínima, de todos mo
 
 Una vez completada la implementación, puede enviar la comunicación que informa a los usuarios de la implementación correcta y recordarles los pasos nuevos que deben seguir.
 
-* Indique a los usuarios que use el [Panel de acceso](https://myapps.microsoft.com) para acceder a todas las aplicaciones migradas. 
+* Indique a los usuarios que usen la página [Aplicaciones](https://myapps.microsoft.com) para acceder a todas las aplicaciones migradas. 
 
 * Recuerde a los usuarios que es posible que necesiten actualizar la configuración de MFA. 
 

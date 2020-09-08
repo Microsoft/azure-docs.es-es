@@ -3,12 +3,13 @@ title: 'Script de PowerShell: recuperación de un recurso compartido de archivos
 description: Obtenga información sobre cómo usar un script de Azure PowerShell para recuperar un recurso compartido de archivos eliminado accidentalmente.
 ms.topic: sample
 ms.date: 02/02/2020
-ms.openlocfilehash: d3a3ad3c2904b98f7a3350d3672b51f3a1e9415e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 99cd980e13b3b9b9a7a450520218c76ccf26fd69
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87007639"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079870"
 ---
 # <a name="powershell-script-to-undelete-an-accidentally-deleted-file-share"></a>Script de PowerShell para recuperar un recurso compartido de archivos eliminado accidentalmente
 

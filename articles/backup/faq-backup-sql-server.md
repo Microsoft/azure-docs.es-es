@@ -4,12 +4,12 @@ description: Busque las respuestas a preguntas habituales sobre la copia de segu
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 2781646e548f4f530b26ca41466f158597e817d9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d69a2aff900dc3185aafbcb2d655a29d2fff06e3
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090984"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890563"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Preguntas más frecuentes sobre las bases de datos de SQL Server que se ejecutan en una copia de seguridad de máquina virtual de Azure
 
@@ -30,7 +30,7 @@ En algunas circunstancias, el servicio de Azure Backup desencadena copias de seg
 - Si decide sobrescribir la base de datos durante la restauración, se produce un error en la siguiente copia de seguridad diferencial o de registro y en su lugar se desencadena una copia de seguridad completa.
 - En los casos en los que se requiera una copia de seguridad completa para restablecer las cadenas de registro debido a un cambio en el modelo de recuperación de la base de datos, se desencadena una completa automáticamente en la siguiente programación.
 
-La reparación automática como funcionalidad está habilitada para todos los usuarios de forma predeterminada. Sin embargo, si elige deshabilitarla realice los las siguientes acciones:
+La reparación automática como capacidad está habilitada para todos los usuarios de manera predeterminada. Sin embargo, si decide no participar en ella, siga estos pasos:
 
 - En la instancia de SQL Server, en la carpeta *C:\Archivos de programa\Azure Workload Backup\bin*, cree o edite el archivo **ExtensionSettingsOverrides.json**.
 - En **ExtensionSettingsOverrides.json**, establezca *{"EnableAutoHealer": false}* .
@@ -52,7 +52,7 @@ El valor predeterminado de DefaultBackupTasksThreshold es **20**.
  Aunque este método resulta útil si la aplicación está consumiendo muchos recursos, [Resource Governor](/sql/relational-databases/resource-governor/resource-governor) de SQL Server es una forma más genérica de especificar límites en la cantidad de CPU, E/S física y memoria que las solicitudes entrantes de la aplicación pueden utilizar.
 
 > [!NOTE]
-> En la experiencia del usuario todavía puede programar varias copias de seguridad en un momento dado, pero se procesarán en una ventana deslizante de, por ejemplo, 5, según el ejemplo anterior.
+> En la experiencia de usuario puede seguir avanzando y programando tantas copias de seguridad como quiera en un momento dado. Sin embargo, se procesarán en una ventana deslizante de, por ejemplo, cinco, según el ejemplo anterior.
 
 ## <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>¿Puedo ejecutar una copia de seguridad completa desde una réplica secundaria?
 
@@ -68,7 +68,7 @@ El almacén de Azure Backup Recovery Services puede detectar y proteger todos lo
 
 ## <a name="do-successful-backup-jobs-create-alerts"></a>¿Generan alertas los trabajos de copia de seguridad que se han realizado correctamente?
 
-No. Los trabajos de copia de seguridad correctos no generan alertas. Las alertas se envían únicamente para los trabajos de copia de seguridad con errores. El comportamiento detallado para alertas del portal está documentado [aquí](backup-azure-monitoring-built-in-monitor.md). Sin embargo, en caso de que está interesado en las alertas incluso para trabajos realizados correctamente, puede usar la [Supervisión mediante Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
+No. Los trabajos de copia de seguridad correctos no generan alertas. Las alertas se envían únicamente para los trabajos de copia de seguridad con errores. El comportamiento detallado para alertas del portal está documentado [aquí](backup-azure-monitoring-built-in-monitor.md). Sin embargo, si le interesa recibir alertas incluso para trabajos realizados correctamente, puede usar [Supervisión mediante Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>¿Se pueden ver los trabajos de copia de seguridad programados en el menú de Trabajos de copia de seguridad?
 
@@ -92,9 +92,9 @@ Si realiza una acción **Detener copia de seguridad con eliminación de datos**,
 
 ## <a name="if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior"></a>Si se cambia el nombre de la base de datos después de haberla protegido, ¿cuál será su comportamiento?
 
-Una base de datos después de un cambio de nombre se trata como una nueva base de datos. Por tanto, el servicio tratará esta situación como si no se encontrara la base de datos y producirá un error en las copias de seguridad.
+Una base de datos después de un cambio de nombre se trata como una nueva base de datos. Por lo tanto, el servicio trata esta situación como si no se encontrara la base de datos y producirá un error en las copias de seguridad.
 
-Puede seleccionar la base de datos, que ahora tiene un nuevo nombre y configurar la protección para la misma. En caso de que la protección automática esté habilitada en la instancia, la base de datos con un nuevo nombre se detectará y protegerá automáticamente.
+Puede seleccionar la base de datos, que ahora tiene un nuevo nombre y configurar la protección para la misma. Si la protección automática está habilitada en la instancia, la base de datos con un nuevo nombre se detectará y protegerá automáticamente.
 
 ## <a name="why-cant-i-see-an-added-database-for-an-autoprotected-instance"></a>¿Por qué no puedo ver una base de datos agregada para una instancia protegida automáticamente?
 

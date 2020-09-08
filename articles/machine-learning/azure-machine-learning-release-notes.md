@@ -9,18 +9,65 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: b1f45cad5def0e7d9a576a05299b065705ff3e30
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: b6a060f4487bed5b820126d7a886cf68fa76868a
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553451"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652073"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de la versión de Azure Machine Learning
 
 En este artículo conocerá las versiones de Azure Machine Learning.  Para obtener el contenido completo de referencia del SDK, visite la página de referencia del [**SDK principal para Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) de Azure Machine Learning.
 
 Para obtener información acerca de errores conocidos y soluciones alternativas, consulte [la lista de problemas conocidos](resource-known-issues.md).
+
+## <a name="2020-08-17"></a>17-08-2020
+
+### <a name="azure-machine-learning-sdk-for-python-v1120"></a>SDK de Azure Machine Learning para Python v1.12.0
+
++ **Mejoras y correcciones de errores**
+  + **azure-cli-ml**
+    + Se agregaron los parámetros image_name e image_label a Model.package() para habilitar el cambio de nombre de la imagen de paquete compilada.
+  + **azureml-automl-core**
+    + AutoML genera un nuevo código de error en la preparación de datos cuando se modifica el contenido mientras se lee.
+  + **azureml-automl-runtime**
+    + Se agregaron alertas para el usuario cuando los datos contienen valores que faltan, pero la caracterización está desactivada.
+    + Se corrigieron errores de ejecución secundarios cuando los datos contienen NaN y la caracterización está desactivada.
+    + AutoML genera un nuevo código de error en la preparación de datos cuando se modifica el contenido mientras se lee.
+    + Se actualizó la normalización de las métricas de previsión que tienen lugar por grano.
+    + Se mejoró el cálculo de cuantiles de previsión cuando se deshabilitan las características de lookback.
+    + Se corrigió la administración de matrices dispersas booleanas al calcular las explicaciones después de AutoML.
+  + **azureml-core**
+    + Un nuevo método `run.get_detailed_status()` ahora muestra la explicación detallada del estado de ejecución actual. Actualmente solo se muestra la explicación del estado de `Queued`.
+    + Se agregaron los parámetros image_name e image_label a Model.package() para habilitar el cambio de nombre de la imagen de paquete compilada.
+    + Hay un método `set_pip_requirements()` nuevo para establecer la sección de PIP completa en [`CondaDependencies`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py) a la vez.
+    + Se habilitó el registro del almacén datos ADLS Gen2 de credenciales.
+    + Se mejoró el mensaje de error al intentar descargar o montar un tipo de conjunto de datos incorrecto.
+    + Se actualizó el ejemplo de notebook del filtro de conjunto de datos de series temporales con más ejemplos de partition_timestamp que permite la optimización de los filtros.
+    + Se cambia el SDK y la CLI para que acepten como parámetros a subscriptionId, resourceGroup, workspaceName, peConnectionName, en lugar de ArmResourceId al eliminar la conexión del punto de conexión privado.
+    + Experimental Decorator muestra el nombre de clase para facilitar la identificación.
+    + Las descripciones de los recursos que se encuentran dentro de los modelos ya no se generan automáticamente en función de una ejecución.
+  + **azureml-datadrift**
+    + Se marcó la API create_from_model en DataDriftDetector para indicar que está en desuso.
+  + **azureml-dataprep**
+    + Se mejoró el mensaje de error al intentar descargar o montar un tipo de conjunto de datos incorrecto.
+  + **azureml-pipeline-core**
+    + Se corrigió el error al deserializar el grafo de canalizaciones que contiene los conjuntos de datos registrados.
+  + **azureml-pipeline-steps**
+    + RScriptStep admite RSection desde azureml.core.environment.
+    + Se quitó el parámetro passthru_automl_config de la API pública de `AutoMLStep` y se convirtió en un parámetro solamente interno.
+  + **azureml-train-automl-client**
+    + Se quitaron de AutoML las ejecuciones locales de entornos administrados asincrónicos. Todas las ejecuciones locales se ejecutarán en el entorno desde el que se iniciara la ejecución.
+    + Se corrigieron problemas de instantáneas al enviar ejecuciones de AutoML sin scripts proporcionados por el usuario.
+    + Se corrigieron errores de ejecución secundarios cuando los datos contienen NaN y la caracterización está desactivada.
+  + **azureml-train-automl-runtime**
+    + AutoML genera un nuevo código de error en la preparación de datos cuando se modifica el contenido mientras se lee.
+    + Se corrigieron problemas de instantáneas al enviar ejecuciones de AutoML sin scripts proporcionados por el usuario.
+    + Se corrigieron errores de ejecución secundarios cuando los datos contienen NaN y la caracterización está desactivada.
+  + **azureml-train-core**
+    + Se agregó compatibilidad para especificar opciones de PIP (por ejemplo,--extra-index-url) en el archivo de requisitos de PIP que se pasó a un [`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) mediante el parámetro `pip_requirements_file`.
+
 
 ## <a name="2020-08-03"></a>03-08-2020
 
@@ -1033,7 +1080,7 @@ Azure Machine Learning es ahora un proveedor de recursos para Event Grid, puede 
 ### <a name="azure-machine-learning-sdk-for-python-v1072"></a>SDK de Azure Machine Learning para Python v1.0.72
 
 + **Nuevas características:**
-  + Se han agregado supervisores de conjuntos de datos mediante el paquete [**azureml-datadrift**](https://docs.microsoft.com/python/api/azureml-datadrift), que permite supervisar a lo largo del tiempo el desfase de datos u otros cambios estadísticos en los conjuntos de datos de serie temporal. Se pueden desencadenar alertas y eventos si se detecta un desfase o se cumplen otras condiciones en los datos. Consulte [nuestra documentación](https://aka.ms/datadrift) para más información.
+  + Se han agregado supervisores de conjuntos de datos mediante el paquete [**azureml-datadrift**](https://docs.microsoft.com/python/api/azureml-datadrift), que permite supervisar a lo largo del tiempo el desfase de datos u otros cambios estadísticos en los conjuntos de datos de serie temporal. Se pueden desencadenar alertas y eventos si se detecta un desfase o se cumplen otras condiciones en los datos. Consulte [nuestra documentación](how-to-monitor-datasets.md) para más información.
   + Anuncio de dos nuevas ediciones (también denominadas SKU indistintamente) en Azure Machine Learning. Con esta versión, puede crear un área de trabajo con el nivel Básico o Enterprise de Azure Machine Learning. Todas las áreas de trabajo existentes se establecerán de forma predeterminada en la edición Basic y puede ir a Azure Portal o Studio para actualizar el área de trabajo en cualquier momento. Puede crear un área de trabajo Basic o Enterprise desde Azure Portal. Lea [nuestra documentación](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace) para obtener más información. Desde el SDK, se puede determinar la edición del área de trabajo mediante la propiedad "sku" del objeto de área de trabajo.
   + También hemos mejorado el proceso de Azure Machine Learning: ahora se pueden ver las métricas de los clústeres (como el total de nodos, los nodos en ejecución o la cuota total del núcleo) en Azure Monitor, además de ver los registros de diagnóstico para la depuración. Además, también puede ver las ejecuciones activas o en cola actualmente en el clúster y los detalles, como las direcciones IP de los distintos nodos del clúster. Puede verlos en el portal o mediante las funciones correspondientes en el SDK o la CLI.
 
@@ -1281,7 +1328,7 @@ La pestaña Experimento del [nuevo portal de áreas de trabajo](https://ml.azure
   + **azureml-core**
     + Incorporación de la capacidad de recuperar la dirección URL de SAS para el modelo en el almacenamiento mediante el objeto de modelo. Ejemplo: model.get_sas_url()
     + Introducción de `run.get_details()['datasets']` para obtener los conjuntos de datos asociados a la ejecución enviada
-    + Incorporación de la API `Dataset.Tabular.from_json_lines_files` para crear un TabularDataset a partir de archivos de líneas JSON. Para más información sobre estos datos tabulares en archivos de líneas JSON en TabularDataset, acuda a https://aka.ms/azureml-data para obtener documentación.
+    + Incorporación de la API `Dataset.Tabular.from_json_lines_files` para crear un TabularDataset a partir de archivos de líneas JSON. Para más información sobre estos datos tabulares en archivos de líneas JSON en TabularDataset, consulte la documentación de [este artículo](how-to-create-register-datasets.md).
     + Incorporación de campos de tamaño de máquina virtual adicionales (disco del sistema operativo, número de los GPU) a la función supported_vmsizes ()
     + Incorporación de campos adicionales a la función list_nodes () para mostrar la ejecución, las direcciones IP privada y pública, el puerto, etc.
     + Posibilidad de especificar un campo nuevo durante el aprovisionamiento de clústeres: remotelogin_port_public_access, que se puede establecer en habilitado o deshabilitado,dependiendo de si desea dejar el puerto SSH abierto o cerrado en el momento de crear el clúster. Si no lo especifica, el servicio abrirá o cerrará el puerto de forma inteligente, en función de si va a implementar el clúster dentro de una red virtual.
@@ -1320,8 +1367,8 @@ La pestaña Experimento del [nuevo portal de áreas de trabajo](https://ml.azure
 ### <a name="azure-machine-learning-sdk-for-python-v1062"></a>SDK de Azure Machine Learning para Python v1.0.62
 
 + **Nuevas características:**
-  + Introducción del rasgo de `timeseries` en TabularDataset. Este rasgo permite filtrar fácilmente los datos de un objeto TabularDataset por las marcas de tiempo; por ejemplo, tomar todos los datos de un intervalo de tiempo o los datos más recientes. Para información sobre este rasgo de `timeseries` de TabularDataset, visite https://aka.ms/azureml-data para encontrar documentación o https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb para encontrar un cuaderno de ejemplo.
-  + Se ha habilitado el entrenamiento con TabularDataset y FileDataset. Visite https://aka.ms/dataset-tutorial para ver un cuaderno de ejemplo.
+  + Introducción del rasgo de `timeseries` en TabularDataset. Este rasgo permite filtrar fácilmente los datos de un objeto TabularDataset por las marcas de tiempo; por ejemplo, tomar todos los datos de un intervalo de tiempo o los datos más recientes.  https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb para un cuaderno de ejemplo.
+  + Se ha habilitado el entrenamiento con TabularDataset y FileDataset. 
 
   + **azureml-train-core**
       + Agregación de compatibilidad con `Nccl` y `Gloo` en el estimador de PyTorch
@@ -1399,7 +1446,7 @@ En el momento en que se publica este artículo, se admiten los siguientes explor
 ### <a name="azure-machine-learning-sdk-for-python-v1060"></a>SDK de Azure Machine Learning para Python v1.0.60
 
 + **Nuevas características:**
-  + Incorporó FileDataset, que hace referencia a uno o varios archivos de sus almacenes de archivos o direcciones URL públicas. Los archivos pueden tener cualquier formato. FileDataset proporciona la capacidad de descargar o montar los archivos en el proceso. Para obtener información sobre FileDataset, visite https://aka.ms/file-dataset.
+  + Incorporó FileDataset, que hace referencia a uno o varios archivos de sus almacenes de archivos o direcciones URL públicas. Los archivos pueden tener cualquier formato. FileDataset proporciona la capacidad de descargar o montar los archivos en el proceso. 
   + Se agregó compatibilidad de canalización con YAML para PythonScript Step, Adla Step, Databricks Step, DataTransferStep y AzureBatch Step.
 
 + **Mejoras y correcciones de errores**

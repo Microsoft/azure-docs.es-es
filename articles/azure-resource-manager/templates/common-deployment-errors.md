@@ -3,21 +3,19 @@ title: Solución de errores de implementación comunes
 description: Describe cómo solucionar errores comunes al implementar recursos en Azure con Azure Resource Manager.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 06/25/2020
-ms.openlocfilehash: dad80cf4230c3c6b4d7d97b21d155f6e755c2ab9
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 08/07/2020
+ms.openlocfilehash: 1ab493b0ba2199d8e6778252cf50d963fbd2f387
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446610"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008175"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solución de errores comunes de implementación de Azure con Azure Resource Manager
 
 En este artículo se describen algunos errores comunes de implementación de Azure y se proporciona información sobre cómo resolverlos. Si no encuentra el código del error de implementación, consulte [Búsqueda de códigos de error](#find-error-code).
 
 Si busca información sobre un código de error y esa información no se proporciona en este artículo, háganoslo saber. En la parte inferior de esta página, puede dejar comentarios. Se realiza un seguimiento de los comentarios con problemas de GitHub.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="error-codes"></a>Códigos de error
 
@@ -76,6 +74,7 @@ Si busca información sobre un código de error y esa información no se proporc
 | StorageAccountAlreadyTaken | Proporcione un nombre único para la cuenta de almacenamiento. | [Resolución del nombre de la cuenta de almacenamiento](error-storage-account-name.md) |
 | StorageAccountNotFound | Compruebe la suscripción, el grupo de recursos y el nombre de la cuenta de almacenamiento que intenta utilizar. | |
 | SubnetsNotInSameVnet | Una máquina virtual solo puede tener una red virtual. Al implementar varias NIC, asegúrese de que pertenecen a la misma red virtual. | [Varias NIC](../../virtual-machines/windows/multiple-nics.md) |
+| SubscriptionNotFound | No se puede acceder a una suscripción especificada para la implementación. Podría deberse a que el identificador de la suscripción sea incorrecto, a que el usuario que implemente la plantilla carezca de los permisos adecuados para implementar en la suscripción o a que el identificador de la suscripción tenga un formato incorrecto. Al usar implementaciones anidadas para [implementar entre ámbitos](cross-scope-deployment.md), proporcione el GUID de la suscripción. | |
 | SubscriptionNotRegistered | Al implementar recursos de red, el proveedor de recursos Microsoft.Network se registra automáticamente en la suscripción. A veces, el registro automático no se completa a tiempo. Para evitar este error intermitente, registre el proveedor de recursos Microsoft.Network antes de la implementación. | [Resolución de registros](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | Quite las dependencias innecesarias. | [Resolver dependencias circulares](error-invalid-template.md#circular-dependency) |
 | TooManyTargetResourceGroups | Reduzca el número de grupos de recursos de una sola implementación. | [Implementaciones entre ámbitos](cross-scope-deployment.md) |

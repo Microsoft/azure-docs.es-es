@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: 38db681655a839983ebf38e94ec28eb05ed65d1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 317f6a73812b0e4284564ca9b5593e09e22edf12
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808574"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048744"
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Modificación de la configuración de tiempo de espera de inactividad de TCP para Azure Load Balancer
 
@@ -69,6 +69,6 @@ $lb | Set-AzLoadBalancerRuleConfig -Name myLBrule -IdleTimeoutInMinutes 15
 
 [Información general sobre el equilibrador de carga interno](load-balancer-internal-overview.md)
 
-[Introducción a la creación de un equilibrador de carga orientado a Internet](quickstart-create-standard-load-balancer-powershell.md)
+[Introducción a la creación de un equilibrador de carga orientado a Internet](quickstart-load-balancer-standard-public-powershell.md)
 
 [Configuración de un modo de distribución del equilibrador de carga](load-balancer-distribution-mode.md)

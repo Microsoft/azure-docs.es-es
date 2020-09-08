@@ -1,6 +1,6 @@
 ---
 title: 'Solución de problemas de puntos de conexión de Azure CDN: código de estado 404'
-description: Solucione problemas de los códigos de error 404 con los puntos de conexión de Azure CDN.
+description: Aprenda a solucionar problemas relacionados con los puntos de conexión de Azure Content Delivery Network (CDN) que devuelven códigos de estado de respuesta HTTP 404.
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 6476993627708670a210cce50072f1b183d90a8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6ad0b8b37bd4f04c22ed52d4ac6717202f22889
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888679"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192486"
 ---
 # <a name="troubleshooting-azure-cdn-endpoints-that-return-a-404-status-code"></a>Solución de problemas de puntos de conexión de Azure CDN que devuelven un código de estado 404
 La información de este artículo le permite solucionar problemas relacionados con los puntos de conexión de Azure Content Delivery Network (CDN) que devuelven códigos de estado de respuesta HTTP 404.

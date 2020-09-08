@@ -17,19 +17,19 @@ ms.date: 05/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce4c64f0be61c2fe28a102674929333235ee29c8
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 31c76b78d4ab7a3f305b52526b7e4ce14f3b1ede
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385099"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278044"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>Cambiar la contraseña de la cuenta de servicio de ADSync
 Si cambia la contraseña de la cuenta de servicio de ADSync, el servicio de sincronización no podrá iniciarse correctamente hasta que haya abandonado la clave de cifrado y reinicializado la contraseña de la cuenta de servicio de ADSync. 
 
 Azure AD Connect, como parte de los servicios de sincronización, usa una clave de cifrado para almacenar las contraseñas de las cuentas de los servicios de conector de AD DS y la cuenta de servicio de ADSync.  Estas cuentas se cifran antes de almacenarse en la base de datos. 
 
-La clave de cifrado usada se protege mediante la [API de protección de datos de Windows (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx). Para proteger la clave de cifrado, DPAPI usa la **cuenta de servicio ADSync**. 
+La clave de cifrado usada se protege mediante la [API de protección de datos de Windows (DPAPI)](/previous-versions/ms995355(v=msdn.10)). Para proteger la clave de cifrado, DPAPI usa la **cuenta de servicio ADSync**. 
 
 Si tiene que cambiar la contraseña de la cuenta de servicio, puede seguir para ello los procedimientos descritos en [Abandonar la clave de cifrado de la cuenta de servicio de ADSync](#abandoning-the-adsync-service-account-encryption-key).  También debe seguir estos procedimientos si por algún motivo tiene que abandonar la clave de cifrado.
 

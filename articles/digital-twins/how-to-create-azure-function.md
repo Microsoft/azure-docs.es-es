@@ -2,17 +2,17 @@
 title: Configuración de una función de Azure para procesar datos
 titleSuffix: Azure Digital Twins
 description: Vea cómo crear una función de Azure a la que se pueda acceder y que se desencadene mediante gemelos digitales.
-author: cschormann
-ms.author: cschorm
+author: baanders
+ms.author: baanders
 ms.date: 3/17/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3e284bc76da9ca40341d72f772aa7ee947a11638
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 66f514f4c5d299ef11efda541f16f4ef2fe61aed
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124313"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930169"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Conexión de aplicaciones de Azure Functions para el procesamiento de datos
 
@@ -95,8 +95,8 @@ En función de las herramientas que elija, puede hacerlo con el administrador de
 Agregue las siguientes instrucciones using a la función de Azure.
 
 ```csharp
-using Azure.Identity;
 using Azure.DigitalTwins.Core;
+using Azure.Identity;
 using System.Net.Http;
 using Azure.Core.Pipeline;
 ```
@@ -157,7 +157,7 @@ Use el siguiente comando para crear la identidad administrada por el sistema. An
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
-Use el valor de *principalId* en el siguiente comando para asignar la identidad de la aplicación de funciones al rol *Propietario* de su instancia de Azure Digital Twins:
+Use el valor de *principalId* en el siguiente comando para asignar la identidad de la aplicación de funciones al rol *Propietario de Azure Digital Twins (versión preliminar)* en la instancia de Azure Digital Twins. Esto proporcionará el permiso de la aplicación de funciones en la instancia para realizar actividades del plano de datos.
 
 ```azurecli
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"

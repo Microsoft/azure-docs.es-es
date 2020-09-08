@@ -1,6 +1,6 @@
 ---
 title: 'Ejemplo de script de Azure PowerShell: eliminación de contenedores por prefijo | Microsoft Docs'
-description: Elimine contenedores de blobs de Azure Storage según un prefijo de nombre de contenedor.
+description: Lea un ejemplo en el que se muestra cómo eliminar el almacenamiento de blobs de Azure en función de un prefijo en el nombre del contenedor, mediante Azure PowerShell.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,12 +9,13 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 06/13/2017
 ms.author: tamram
-ms.openlocfilehash: 6069c51b27d7f8f11155a72613c04566d1c7b64d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b95c5ab243fbd938e8a7eb1d3b9619b0d46fb046
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87006099"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89072963"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>Eliminación de contenedores según el prefijo del nombre de contenedor
 

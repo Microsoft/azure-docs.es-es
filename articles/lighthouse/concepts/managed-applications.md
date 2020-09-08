@@ -1,24 +1,27 @@
 ---
 title: Azure Lighthouse y Azure Managed Applications
-description: Azure Lighthouse y Azure Managed Applications...
-ms.date: 05/01/2020
+description: Información sobre cómo Azure Lighthouse y las aplicaciones administradas de Azure pueden ayudar a habilitar distintos escenarios y cómo se pueden usar juntos.
+ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3e1477de18b24cf5099cd4479a82169e3ecada26
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 81ff61a6d1b7487d3da0643bac3987589de46c1e
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121612"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163431"
 ---
 # <a name="azure-lighthouse-and-azure-managed-applications"></a>Azure Lighthouse y Azure Managed Applications
 
 Tanto Azure Managed Applications como Azure Lighthouse funcionan habilitando un proveedor de servicios para acceder a los recursos que residen en el inquilino del cliente. Puede ser útil comprender las diferencias en cuanto a su modo de funcionamiento y los escenarios que ayudan a habilitar, así como la forma en que se pueden usar conjuntamente.
 
+> [!TIP]
+> Aunque en este tema nos referiremos a los proveedores de servicios y clientes, las [empresas que administren varios inquilinos](enterprise.md) pueden usar el mismo proceso y herramientas.
+
 ## <a name="comparing-azure-lighthouse-and-azure-managed-applications"></a>Comparación de Azure Lighthouse y Azure Managed Applications
 
 ### <a name="azure-lighthouse"></a>Azure Lighthouse
 
-Con [Azure Lighthouse](../overview.md), un proveedor de servicios para realizar una amplia variedad de tareas de administración directamente en la suscripción de un cliente (o en el grupo de recursos). Este acceso se logra a través de una proyección lógica, lo que permite a los proveedores de servicios iniciar sesión en su propio inquilino y acceder a los recursos que pertenecen al inquilino del cliente. El cliente puede determinar qué suscripciones o grupos de recursos se van a delegar en el proveedor de servicios. Además, este mantiene el acceso completo a esos recursos. También pueden quitar el acceso del proveedor de servicios en cualquier momento.
+Con [Azure Lighthouse](../overview.md), un proveedor de servicios puede realizar una amplia variedad de tareas de administración directamente en la suscripción de un cliente (o en el grupo de recursos). Este acceso se logra a través de una proyección lógica, lo que permite a los proveedores de servicios iniciar sesión en su propio inquilino y acceder a los recursos que pertenecen al inquilino del cliente. El cliente puede determinar qué suscripciones o grupos de recursos se van a delegar en el proveedor de servicios. Además, este mantiene el acceso completo a esos recursos. También pueden quitar el acceso del proveedor de servicios en cualquier momento.
 
 Para usar Azure Lighthouse, los clientes se incorporan para la [administración de recursos delegados de Azure](azure-delegated-resource-management.md) mediante la [implementación de plantillas de ARM](../how-to/onboard-customer.md) o a través de una [oferta de servicio administrado en Azure Marketplace](managed-services-offers.md). Puede realizar un seguimiento del impacto en las interacciones con los clientes [vinculando el id. de partner](../../cost-management-billing/manage/link-partner-id.md).
 

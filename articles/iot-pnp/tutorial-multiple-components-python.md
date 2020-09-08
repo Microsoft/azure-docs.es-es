@@ -7,12 +7,12 @@ ms.date: 7/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 0cde9caa2f2b68b1e75eac635a81865cc4b6b33c
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 571f0e0ceff0adfbf1814abc627fcab6b23acbe1
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87351937"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905863"
 ---
 # <a name="tutorial-connect-a-sample-iot-plug-and-play-preview-multiple-component-device-application-to-iot-hub-python"></a>Tutorial: Conexión de una aplicación de dispositivo de varios componentes de ejemplo de la versión preliminar de IoT Plug and Play a IoT Hub (Python)
 
@@ -86,26 +86,26 @@ Abra el archivo *pnp_temp_controller_with_thermostats.py* en el editor de su ele
 
 1. Importa `pnp_helper_preview_refresh.py` para obtener acceso a los métodos auxiliares.
 
-1. Define dos identificadores del modelo de gemelos digitales (DTMI) que representan de manera exclusiva dos interfaces diferentes, definidas en el modelo DTDL. Los componentes de un controlador de temperatura real deben implementar estas dos interfaces. Estas dos interfaces ya están publicadas en un repositorio central. El usuario debe conocer estos DTMI, que varía en función del escenario de implementación del dispositivo. En el ejemplo actual, estas dos interfaces representan:
+2. Define dos identificadores del modelo de gemelos digitales (DTMI) que representan de manera exclusiva dos interfaces diferentes, definidas en el modelo DTDL. Los componentes de un controlador de temperatura real deben implementar estas dos interfaces. Estas dos interfaces ya están publicadas en un repositorio central. El usuario debe conocer estos DTMI, que varía en función del escenario de implementación del dispositivo. En el ejemplo actual, estas dos interfaces representan:
 
   - Un termostato
   - Información del dispositivo desarrollada por Azure
 
-. Define el `model_id` de DTMI para el dispositivo que se está implementando. El DTMI está definido por el usuario y debe coincidir con el DTMI en el archivo del modelo DTDL.
+3. Define el `model_id` de DTMI para el dispositivo que se esté implementando. El DTMI está definido por el usuario y debe coincidir con el DTMI en el archivo del modelo DTDL.
 
-1. Define los nombres asignados a los componentes en el archivo DTDL. Hay dos termostatos en el DTDL y un componente de información del dispositivo. También se define una constante denominada `serial_number` en la interfaz raíz. No se puede cambiar `serial_number` de un dispositivo.
+4. Define los nombres asignados a los componentes en el archivo DTDL. Hay dos termostatos en el DTDL y un componente de información del dispositivo. También se define una constante denominada `serial_number` en la interfaz raíz. No se puede cambiar `serial_number` de un dispositivo.
 
-1. Define las implementaciones del controlador de comandos. Estas definen lo que hace el dispositivo cuando recibe solicitudes de comandos.
+5. Define las implementaciones del controlador de comandos. Estas definen lo que hace el dispositivo cuando recibe solicitudes de comandos.
 
-1. Define las funciones para crear una respuesta de comandos. Estas definen lo que responde el dispositivo a las solicitudes de comandos. Puede crear funciones de respuesta de comandos si un comando tiene que devolver una respuesta personalizada al centro de IoT. Si no se proporciona una función de respuesta para un comando, se envía una respuesta genérica. En este ejemplo, solo el comando **getMaxMinReport** tiene una respuesta personalizada.
+6. Define las funciones para crear una respuesta de comandos. Estas definen lo que responde el dispositivo a las solicitudes de comandos. Puede crear funciones de respuesta de comandos si un comando tiene que devolver una respuesta personalizada al centro de IoT. Si no se proporciona una función de respuesta para un comando, se envía una respuesta genérica. En este ejemplo, solo el comando **getMaxMinReport** tiene una respuesta personalizada.
 
-1. Define una función para enviar datos de telemetría desde este dispositivo. Ambos termostatos y la interfaz raíz envían datos de telemetría. Esta función toma un parámetro de nombre de componente opcional para que pueda identificar qué componente envió los datos de telemetría.
+7. Define una función para enviar datos de telemetría desde este dispositivo. Ambos termostatos y la interfaz raíz envían datos de telemetría. Esta función toma un parámetro de nombre de componente opcional para que pueda identificar qué componente envió los datos de telemetría.
 
-1. Define un agente de escucha para las solicitudes de comandos.
+8. Define un agente de escucha para las solicitudes de comandos.
 
-1. Define un agente de escucha para las actualizaciones de propiedades deseadas.
+9. Define un agente de escucha para las actualizaciones de propiedades deseadas.
 
-1. Tiene una función `main` que:
+10. Tiene una función `main` que:
 
     1. Usa el SDK de dispositivo para crear un cliente de dispositivo y conectarse a su centro de IoT. El dispositivo envía el `model_id` para que el centro de IoT pueda identificar el dispositivo como dispositivo IoT Plug and Play.
 

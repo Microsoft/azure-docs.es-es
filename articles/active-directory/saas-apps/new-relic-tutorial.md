@@ -2,24 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con New Relic by Account | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y New Relic by Account.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 3186b9a8-f4d8-45e2-ad82-6275f95e7aa6
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 9fdcec5b55f52b7b6b824bf2ba25c14541b2a3c6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 19a471b9339828250baa190b1de57c86eb22b30c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82186573"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88554471"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-new-relic-by-account"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con New Relic by Account
 

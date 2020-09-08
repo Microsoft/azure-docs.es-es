@@ -4,8 +4,6 @@
   items:
     - name: Acerca de las puertas de enlace de aplicaciones
       href: overview.md
-    - name: Novedades
-      href: whats-new.md
 - name: Guías de inicio rápido
   expanded: true
   items:
@@ -92,6 +90,8 @@
       href: application-gateway-web-app-overview.md
     - name: Compatibilidad con WebSocket
       href: application-gateway-websocket.md
+    - name: Descripción de los precios
+      href: understanding-pricing.md
     - name: Preguntas más frecuentes
       href: application-gateway-faq.md
 - name: Guías paso a paso
@@ -104,7 +104,7 @@
           href: tutorial-manage-web-traffic-cli.md
     - name: Configuración del equilibrador de carga interno
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: configure-application-gateway-with-private-frontend-ip.md
         - name: Azure PowerShell
           href: application-gateway-ilb-arm.md
@@ -184,7 +184,7 @@
               href: redirect-external-site-cli.md
         - name: HTTP a HTTPS
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: redirect-http-to-https-portal.md
             - name: Azure PowerShell
               href: redirect-http-to-https-powershell.md

@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con TurboRater | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y TurboRater.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: abb116b8-8024-4cc6-bc81-f32ef490ea17
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 3/8/2019
 ms.author: jeedes
-ms.openlocfilehash: 3777cf09ec669fe3df6bca13f6960f53c689767c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0c22993baa6a9095bddba67bdc9d18a40021db6c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67088274"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546396"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-turborater"></a>Tutorial: Integración de Azure Active Directory con TurboRater
 
@@ -151,7 +147,7 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en Azure Por
 
     1. En el cuadro **Nombre**, escriba **BSimon**.
   
-    1. En el cuadro **Nombre de usuario**, escriba **BSimon\@\<dominiodeempresa>.\<extensión>** . Por ejemplo, **BSimon\@contoso.com**.
+    1. En el cuadro **Nombre de usuario**, escriba **BSimon\@\<yourcompanydomain>.\<extension>** . Por ejemplo, **BSimon\@contoso.com**.
 
     1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
 

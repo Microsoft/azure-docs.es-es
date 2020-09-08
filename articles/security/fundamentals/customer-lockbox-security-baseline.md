@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 1e8fd08a22d5d243f404a12ff96c1a8797b97f70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 70bc667fcfa352be7283773e752a798875bf3d01
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485588"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231272"
 ---
 # <a name="azure-security-baseline-for-customer-lockbox-for-microsoft-azure"></a>Base de referencia de seguridad de Azure para Caja de seguridad del cliente para Microsoft Azure
 
@@ -222,13 +222,13 @@ Incorporación de los registros de actividad generados por la Caja de seguridad 
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Mantenga un inventario de cuentas administrativas
 
-**Guía**: Mantenga un inventario de las cuentas de usuario que tienen acceso administrativo a las solicitudes de la Caja de seguridad del cliente. Puede usar el panel de identidades y control de acceso (IAM) en el Azure Portal para que su suscripción configure el control de acceso basado en rol (RBAC). Los roles se aplican a usuarios, grupos, entidades de servicio e identidades administradas en Azure Active Directory.
+**Guía**: Mantenga un inventario de las cuentas de usuario que tienen acceso administrativo a las solicitudes de la Caja de seguridad del cliente. Puede usar el panel Administración de identidad y acceso (IAM) de Azure Portal para la suscripción a fin de configurar el control de acceso basado en rol de Azure (Azure RBAC). Los roles se aplican a usuarios, grupos, entidades de servicio e identidades administradas en Azure Active Directory.
 
 En la organización del cliente, el usuario que tiene el rol de propietario de la suscripción de Azure recibe un correo electrónico de Microsoft para notificarle las solicitudes de acceso pendientes. Para las solicitudes de la Caja de seguridad del cliente, esta persona es el aprobador designado.
 
 * [Descripción de los roles personalizados](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
 
-* [Configuración de RBAC en libros](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)
+* [Procedimiento para configurar Azure RBAC en libros](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)
 
 * [Descripción de los permisos de solicitud de acceso en la Caja de seguridad del cliente](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
 
@@ -527,7 +527,7 @@ Aunque los recursos clásicos de Azure se pueden detectar a través de Azure Res
 
 * [Visualización de las suscripciones de Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-* [Información sobre los controles de acceso basado en rol de Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Descripción del control de acceso basado en rol de Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 **Supervisión de Azure Security Center**: No aplicable
 

@@ -4,12 +4,12 @@ description: En este tutorial aprenderá a hacer una copia de seguridad de las b
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4113ba75f007bfa03fed5cfeaed7737797e37ed9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: eb6b9f4d58a94cc8a4b9f70b5ead7d319a0d51b5
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489527"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007594"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutorial: Copia de seguridad de las bases de datos de SAP HANA en una máquina virtual de Azure con la CLI de Azure
 
@@ -19,7 +19,7 @@ En este documento se supone que ya tiene una base de datos de SAP HANA instalada
 
 > [!div class="checklist"]
 >
-> * Creación de un almacén de Servicios de recuperación
+> * Creación de un almacén de Recovery Services
 > * Registrar la instancia de SAP HANA y detectar bases de datos en ella
 > * Habilitar la copia de seguridad de una base de datos de SAP HANA
 > * Desencadenamiento de una copia de seguridad a petición
@@ -30,7 +30,7 @@ Consulte los [escenarios admitidos actualmente](./sap-hana-backup-support-matrix
 
 Para instalar y usar la CLI localmente, debe ejecutar la versión xx.xxx.x de la CLI de Azure o una posterior. Para averiguar la versión de la CLI, ejecute `az --version`. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
-## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Servicios de recuperación
+## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
 
 Un almacén de Recovery Services es un contenedor lógico que almacena los datos de copia de seguridad de los recursos protegidos, como las máquinas virtuales de Azure o las cargas de trabajo que se ejecutan en estas (como las bases de datos de SQL o de HANA). Cuando se ejecuta el trabajo de copia de seguridad para un recurso protegido, crea un punto de recuperación en el almacén de Recovery Services. Posteriormente, se puede usar uno de estos puntos de recuperación para restaurar los datos a un momento dado en el tiempo.
 
@@ -141,7 +141,7 @@ Name                                  Operation         Status     Item Name   S
 e0f15dae-7cac-4475-a833-f52c50e5b6c3  ConfigureBackup   Completed  hxe         2019-12-03T03:09:210831+00:00  
 ```
 
-El cmdlet [az backup job list](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) enumera todos los trabajos de copia de seguridad (programados o a petición) que se han ejecutado o que se están ejecutando actualmente en la base de datos protegida, además de otras operaciones como el registro, la configuración de la copia de seguridad, la eliminación de datos de la copia de seguridad, etc.
+El cmdlet [az backup job list](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) enumera todos los trabajos de copia de seguridad (programados o a petición) que se han ejecutado o que se están ejecutando actualmente en la base de datos protegida, además de otras operaciones como el registro, la configuración de la copia de seguridad y la eliminación de datos de la copia de seguridad.
 
 >[!NOTE]
 >Azure Backup no se ajusta automáticamente a los cambios del horario de verano cuando realiza la copia de seguridad de una base de datos SAP HANA en una máquina virtual de Azure.

@@ -15,12 +15,12 @@ ms.date: 03/02/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b81e792d3b3bf491b281e09c00f48a7ad56fa47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8ce3819ff1f9b0c61f7738f90ff17c2798fe888b
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763642"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642119"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Centralización de la administración de aplicaciones con Azure AD
 
@@ -43,7 +43,7 @@ Ya no más administración de contraseñas. Obtenga acceso de forma segura a tod
 |Característica  | Descripción | Recomendación |
 |---------|---------|---------|
 |SSO|SSO federado basado en estándares con estándares de confianza del sector.|Use siempre [SAML/OIDC](https://docs.microsoft.com/azure/active-directory/manage-apps/isv-choose-multi-tenant-federation) para habilitar SSO cuando la aplicación lo admita.|
-|Panel de acceso|Proporcione a sus usuarios un lugar centralizado y sencillo desde el que puedan acceder a todas las aplicaciones. Favorezca la productividad con funcionalidades de autoservicio, como la solicitud de acceso a aplicaciones y grupos, o la administración del acceso a recursos en nombre de otros usuarios.| Implemente el [panel de acceso](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-deployment-plan) en su organización una vez que haya integrado las aplicaciones en Azure AD para SSO.|
+|Mis aplicaciones|Proporcione a sus usuarios un lugar centralizado y sencillo desde el que puedan acceder a todas las aplicaciones. Favorezca la productividad con funcionalidades de autoservicio, como la solicitud de acceso a aplicaciones y grupos, o la administración del acceso a recursos en nombre de otros usuarios.| Implemente [Mis aplicaciones](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-deployment-plan) en la organización una vez que haya integrado las aplicaciones con Azure AD para el inicio de sesión único.|
 
 ## <a name="scenario-2-automate-provisioning-and-deprovisioning"></a>Escenario 2: Automatización de aprovisionamiento y desaprovisionamiento 
 

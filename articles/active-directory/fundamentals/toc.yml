@@ -35,8 +35,6 @@
           href: identity-secure-score.md
         - name: Protección de trabajos remotos
           href: concept-secure-remote-workers.md
-        - name: Evaluación continua de acceso
-          href: concept-fundamentals-continuous-access-evaluation.md
     - name: Grupos y usuarios
       items:
         - name: Grupos y administración de accesos

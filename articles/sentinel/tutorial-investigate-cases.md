@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 564041da0be6874acae1bec69e4ab2d744d89323
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4ef08ac8d386bd8a28dce38cb53aed31d79b37a2
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565237"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566342"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Tutorial: Investigación de incidentes con Azure Sentinel
 
@@ -37,10 +37,12 @@ En este artículo se describe:
 > * Uso del gráfico de investigación
 > * Respuesta a amenazas
 
-Un incidente puede incluir varias alertas, a modo de agregado de todas las pruebas relevantes en una investigación en concreto. Los incidentes se crearán en función de las reglas de análisis que haya creado en la página **Analytics** (Análisis). Las propiedades relacionadas con alertas, como la gravedad y el estado, se establecen en el nivel de incidente. Después de indicar a Azure Sentinel qué tipos de amenazas está buscando y cómo detectarlas, puede supervisar las amenazas que se detecten investigando cada incidente.
+Un incidente puede incluir varias alertas, a modo de agregado de todas las pruebas relevantes en una investigación en concreto. Los incidentes se crearán en función de las reglas de análisis que haya creado en la página **Análisis**. Las propiedades relacionadas con alertas, como la gravedad y el estado, se establecen en el nivel de incidente. Después de indicar a Azure Sentinel qué tipos de amenazas está buscando y cómo detectarlas, puede supervisar las amenazas que se detecten investigando cada incidente.
 
 ## <a name="prerequisites"></a>Requisitos previos
-Solo podrá investigar el incidente si ha usado los campos de asignación de entidades al configurar la regla de análisis. El gráfico de investigación requiere que el incidente original incluya entidades.
+- Solo podrá investigar el incidente si ha usado los campos de asignación de entidades al configurar la regla de análisis. El gráfico de investigación requiere que el incidente original incluya entidades.
+
+- Si tiene un usuario invitado que necesita asignar incidentes, al usuario se le debe asignar el rol [Lector de directorio](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) en el inquilino de Azure AD. Los usuarios normales (no invitados) tienen asignado este rol de forma predeterminada.
 
 ## <a name="how-to-investigate-incidents"></a>Investigación de incidentes
 

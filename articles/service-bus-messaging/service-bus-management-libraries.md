@@ -4,12 +4,13 @@ description: En este artículo se explica cómo usar las bibliotecas de administ
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 63a8f0f8ef299f9d27d3c1be2746052536c4e5e8
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 915606bffc2037c8fcd1a7d33218143f40c78f2c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066175"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008053"
 ---
 # <a name="service-bus-management-libraries"></a>Bibliotecas de administración de Service Bus
 

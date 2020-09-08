@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 03/12/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 8fd670104a04229ed688b365de89e2ffc22b5429
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d1c4f62f19a36867ebc85a98b0cd38bbbf8ce757
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499388"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660689"
 ---
 # <a name="what-are-durable-functions"></a>¿Qué es Durable Functions?
 
@@ -25,6 +25,7 @@ Durable Functions admite actualmente los siguientes idiomas:
 * **JavaScript**: solo es compatible con la versión 2.x del entorno de ejecución de Azure Functions. Requiere la versión 1.7.0 de la extensión Durable Functions, o una posterior. 
 * **Python**: requiere la versión 1.8.5 de la extensión Durable Functions, o cualquier versión posterior. 
 * **F#** : tanto las bibliotecas de clases precompiladas como script F#. El script F# solo es compatible con la versión 1.x del entorno de ejecución de Azure Functions.
+* **PowerShell**: la compatibilidad con Durable Functions está actualmente en versión preliminar pública. Solo es compatible con la versión 3.x del entorno de ejecución de Azure Functions y PowerShell 7. Requiere la versión 2.2.2 de la extensión Durable Functions, o cualquier versión posterior. Actualmente, solo se admiten los siguientes patrones: [Encadenamiento de funciones](#chaining), [distribución ramificada de entrada o salida](#fan-in-out), [API de HTTP asincrónico](#async-http).
 
 Durable Functions tiene el objetivo de admitir todos los [idiomas de Azure Functions](../supported-languages.md). Consulte en la [lista de problemas de Durable Functions](https://github.com/Azure/azure-functions-durable-extension/issues) en qué punto se encuentra la compatibilidad con idiomas adicionales.
 
@@ -119,6 +120,19 @@ Puede usar el objeto `context` para invocar otras funciones por nombre, pasar pa
 > [!NOTE]
 > El objeto `context` en Python representa el contexto de la orquestación. Acceda al contexto de Azure Functions principal mediante la propiedad `function_context` en el contexto de la orquestación.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+```PowerShell
+param($Context)
+
+$X = Invoke-ActivityFunction -FunctionName 'F1'
+$Y = Invoke-ActivityFunction -FunctionName 'F2' -Input $X
+$Z = Invoke-ActivityFunction -FunctionName 'F3' -Input $Y
+Invoke-ActivityFunction -FunctionName 'F4' -Input $Z
+```
+
+Puede usar el comando `Invoke-ActivityFunction` para invocar otras funciones por nombre, pasar parámetros y devolver la salida de la función. Cada vez que el código llama a `Invoke-ActivityFunction` sin el modificador `NoWait`, el marco de Durable Functions establece un punto de control en el progreso de la instancia actual de la función. Si el proceso o la máquina virtual se reciclan a mitad de la ejecución, la instancia de la función se reanuda desde la llamada a `Invoke-ActivityFunction` anterior. Para obtener más información, consulte la siguiente sección, Patrón 2: Distribución ramificada de entrada y salida.
+
 ---
 
 ### <a name="pattern-2-fan-outfan-in"></a><a name="fan-in-out"></a>Patrón 2: distribución ramificada de entrada y salida
@@ -211,6 +225,30 @@ main = df.Orchestrator.create(orchestrator_function)
 El trabajo de distribución ramificada se distribuye en varias instancias de la función `F2`. Se realiza un seguimiento del trabajo mediante una lista dinámica de las tareas. Se llama a `context.task_all` API para esperar a que todas las funciones llamadas finalicen. Después, los resultados de la función `F2` se agregan desde la lista de tareas dinámica y se pasan a la función `F3`.
 
 La creación automática de puntos de control que se produce en la llamada a `yield` en `context.task_all` garantiza que cualquier posible bloqueo o reinicio a mitad del proceso no requiera que se reinicien las tareas ya completadas.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+```PowerShell
+param($Context)
+
+# Get a list of work items to process in parallel.
+$WorkBatch = Invoke-ActivityFunction -FunctionName 'F1'
+
+$ParallelTasks =
+    foreach ($WorkItem in $WorkBatch) {
+        Invoke-ActivityFunction -FunctionName 'F2' -Input $WorkItem -NoWait
+    }
+
+$Outputs = Wait-ActivityFunction -Task $ParallelTasks
+
+# Aggregate all outputs and send the result to F3.
+$Total = ($Outputs | Measure-Object -Sum).Sum
+Invoke-ActivityFunction -FunctionName 'F3' -Input $Total
+```
+
+El trabajo de distribución ramificada se distribuye en varias instancias de la función `F2`. Observe el uso del modificador `NoWait` en la invocación de la función `F2`: este modificador permite que el orquestador invoque a `F2` sin que finalice la actividad. Se realiza un seguimiento del trabajo mediante una lista dinámica de las tareas. Se llama al comando `Wait-ActivityFunction` para esperar a que finalicen todas las funciones llamadas. Después, los resultados de la función `F2` se agregan desde la lista de tareas dinámica y se pasan a la función `F3`.
+
+La creación automática de puntos de control que se produce en la llamada a `Wait-ActivityFunction` garantiza que cualquier posible bloqueo o reinicio en mitad del proceso no requiera que se reinicien las tareas ya completadas.
 
 ---
 
@@ -357,6 +395,10 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 main = df.Orchestrator.create(orchestrator_function)
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Actualmente, la supervisión no se admite en PowerShell.
+
 ---
 
 Cuando se recibe una solicitud, se crea una nueva instancia de orquestación para ese identificador de trabajo. La instancia sondea un estado hasta que se cumple una condición y se cierra el bucle. Un temporizador durable controla el intervalo de sondeo. Después, se puede realizar trabajo adicional o puede finalizar la orquestación. Cuando el valor de `nextCheck` supera el de `expiryTime`, el monitor finaliza.
@@ -455,6 +497,10 @@ main = df.Orchestrator.create(orchestrator_function)
 
 Para crear el temporizador durable, llame a `context.create_timer`. `context.wait_for_external_event` recibe la notificación. Después, se realiza una llamada a `context.task_any` para decidir si la aprobación se escala (primero se agota el tiempo de expiración) o se procesa (la aprobación antes se recibe de que se agote el tiempo de expiración).
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Actualmente, la interacción humana no se admite en PowerShell.
+
 ---
 
 Un cliente externo puede enviar la notificación de eventos a una función de orquestador en espera mediante las [API HTTP integradas](durable-functions-http-api.md#raise-event):
@@ -501,6 +547,10 @@ async def main(client: str):
     is_approved = True
     await durable_client.raise_event(instance_id, "ApprovalEvent", is_approved)
 ```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Actualmente, la interacción humana no se admite en PowerShell.
 
 ---
 
@@ -583,6 +633,10 @@ module.exports = df.entity(function(context) {
 
 Las entidades duraderas no se admiten actualmente en Python.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Actualmente, las entidades duraderas no se admiten en PowerShell.
+
 ---
 
 Los clientes pueden poner en cola las *operaciones* (también conocidas como "señalización") de una función de entidad mediante el [enlace del cliente de la entidad](durable-functions-bindings.md#entity-client).
@@ -623,6 +677,10 @@ module.exports = async function (context) {
 
 Las entidades duraderas no se admiten actualmente en Python.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Actualmente, las entidades duraderas no se admiten en PowerShell.
+
 ---
 
 Las funciones de entidad están disponibles en [Durable Functions 2.0](durable-functions-versions.md) y versiones posteriores para C# y JavaScript.
@@ -646,8 +704,9 @@ Puede empezar a trabajar con Durable Functions en menos de 10 minutos completand
 * [C# con Visual Studio 2019](durable-functions-create-first-csharp.md)
 * [JavaScript con Visual Studio Code](quickstart-js-vscode.md)
 * [Python mediante Visual Studio Code](quickstart-python-vscode.md)
+* [PowerShell con Visual Studio Code](quickstart-powershell-vscode.md)
 
-En ambos inicios rápidos, podrá crear y probar localmente una función durable de "hello world". Luego, publicará el código de función en Azure. La función que crea organiza y encadena llamadas a otras funciones.
+En estos inicios rápidos, creará y probará localmente una función durable de "hello world". Luego, publicará el código de función en Azure. La función que crea organiza y encadena llamadas a otras funciones.
 
 ## <a name="learn-more"></a>Más información
 

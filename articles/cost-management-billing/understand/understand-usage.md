@@ -1,19 +1,20 @@
 ---
-title: Descripción del uso y los cargos detallados | Microsoft Docs
+title: Descripción del uso y los cargos detallados
 description: Aprenda a leer y comprender el archivo de uso y cargos detallados. Consulte una lista de términos y descripciones que se usan en el archivo.
 author: bandersmsft
 ms.reviewer: micflan
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/20/2020
+ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 1b53869c9ef90dd0edf3ab9a3120e65db8f16e8a
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: d113ad7d3de3478fbbdcce32363e048b7a8a75ce
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460293"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88681743"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Comprenda los términos en el archivo de uso y cargos de Azure
 

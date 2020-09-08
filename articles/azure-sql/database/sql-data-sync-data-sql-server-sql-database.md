@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 08/20/2019
-ms.openlocfilehash: 0e6229e38674651f3db068d30f68ef4c7e293c0a
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 7f5ce25edfc4c3afd8a30528396f1f285b9af571
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386850"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080701"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>¿Qué es SQL Data Sync para Azure?
 
@@ -131,6 +131,7 @@ El aprovisionamiento y desaprovisionamiento durante la creación, actualización
 ### <a name="general-limitations"></a>Limitaciones generales
 
 - Una tabla no puede tener una columna de identidad que no sea la clave principal.
+- Una tabla debe tener un índice clúster para usar la sincronización de datos.
 - Una clave principal no puede tener los siguientes tipos de datos: sql_variant, binary, varbinary, image, xml.
 - Tenga cuidado al usar los siguientes tipos de datos como clave principal, porque la precisión admitida solo llega al segundo: time, datetime, datetime2, datetimeoffset.
 - Los nombres de objetos (bases de datos, tablas y columnas) no pueden contener los caracteres imprimibles punto (.), corchete de apertura ([) o corchete de cierre (]).

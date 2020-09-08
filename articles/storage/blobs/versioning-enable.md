@@ -1,24 +1,28 @@
 ---
 title: Habilitación y administración del control de versiones de blob (versión preliminar)
 titleSuffix: Azure Storage
-description: Aprenda a habilitar el control de versiones de blob desde Azure Portal o con una plantilla de Azure Resource Manager.
+description: Aprenda a habilitar el control de versiones de blob (versión preliminar) desde Azure Portal o con una plantilla de Azure Resource Manager.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/15/2020
+ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 7ff0bb6d593a199bd249441cf484d1f0580774ac
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 85e8ccd03bd20ed9bb572d482dbc7a06b8af725c
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086054"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067280"
 ---
-# <a name="enable-and-manage-blob-versioning"></a>Habilitación y administración del control de versiones de blob
+# <a name="enable-and-manage-blob-versioning-preview"></a>Habilitación y administración del control de versiones de blob (versión preliminar)
 
-Puede habilitar o deshabilitar el control de versiones de blob (versión preliminar) para la cuenta de almacenamiento en cualquier momento mediante Azure Portal o una plantilla de Azure Resource Manager.
+Puede habilitar el control de versiones de Blob Storage (versión preliminar) para conservar automáticamente las versiones anteriores de un objeto.  Cuando el control de versiones de blobs está habilitado, puede restaurar una versión anterior de un blob para recuperar los datos si se modifican o eliminan por error.
+
+En este artículo se muestra cómo habilitar o deshabilitar el control de versiones de blobs para la cuenta de almacenamiento mediante Azure Portal o una plantilla de Azure Resource Manager.
+
+Antes de habilitar el control de versiones de blobs, debe registrarse en la versión preliminar. Para más información sobre el control de versiones de blobs, incluida la forma de registrarse en la versión preliminar, consulte [Control de versiones de blobs (versión preliminar)](versioning-overview.md).
 
 ## <a name="enable-blob-versioning"></a>Habilitación del control de versiones de blob
 

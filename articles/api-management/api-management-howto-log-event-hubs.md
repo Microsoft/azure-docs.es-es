@@ -1,6 +1,6 @@
 ---
 title: Registro de eventos en Azure Event Hubs en API Management de Azure
-description: Aprenda a registrar eventos en Azure Event Hubs en Azure API Management.
+description: Aprenda a registrar eventos en Azure Event Hubs en Azure API Management. Event Hubs es un servicio de entrada de datos muy escalable.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: e2bf63558b4bbd55262aa16f70bfba934a42c3ac
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4909dde8efd7125a60509bb86b28f069bf6dbb24
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024969"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903401"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Cómo registrar eventos en Azure Event Hubs en Azure API Management
 Azure Event Hubs es un servicio de introducción de datos altamente escalable que permite la introducción de millones de eventos por segundo para que pueda procesar y analizar grandes cantidades de datos generados por los dispositivos y aplicaciones conectados. Event Hubs actúa como la "puerta principal" de una canalización de eventos y, una vez que los datos se recopilan en un centro de eventos, se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes/almacenamiento. Event Hubs desacopla la producción de un flujo de eventos desde el consumo de los eventos, para que los consumidores de eventos pueden tener acceso a los eventos según su propia programación.
@@ -63,7 +63,7 @@ Una vez que el registrador está configurado en API Management, puede configurar
 ```
 Reemplace `logger-id` con el valor que utilizó para `{loggerId}` en la dirección URL de la solicitud para crear el registrador en el paso anterior.
 
-Puede usar cualquier expresión que devuelva una cadena como valor para el elemento `log-to-eventhub`. En este ejemplo, se registra una cadena en formato JSON que contiene la fecha y la hora, el nombre del servicio, el identificador de la solicitud, la dirección IP de la solicitud y el nombre de la operación.
+Puede usar cualquier expresión que devuelva una cadena como valor para el elemento `log-to-eventhub`. En este ejemplo, se registra una cadena en formato JSON que contiene la fecha y hora, el nombre del servicio, el identificador de la solicitud, la dirección IP de la solicitud y el nombre de la operación.
 
 Haga clic en **Guardar** para guardar la configuración de la directiva actualizada. En el momento de guardarla, la directiva se activa y los eventos se registran en el centro de eventos designado.
 

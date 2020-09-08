@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Helper Helper | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Helper Helper.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-ms.assetid: 5f42e4d7-4d92-4096-a0d5-02fa438a5dfd
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/31/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d70cdade93b028c90c9f62374cd6b997556dd52
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 89467dcca75c72c3a868478cc3e46b9cb474ed19
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67101283"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88540105"
 ---
 # <a name="tutorial-integrate-helper-helper-with-azure-active-directory"></a>Tutorial: Integración de Helper Helper con Azure Active Directory
 

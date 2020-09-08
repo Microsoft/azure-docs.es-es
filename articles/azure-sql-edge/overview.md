@@ -9,18 +9,18 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 1c70950426b2f34d94bd66d2287550e19253874c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c96e4b7baa2c463c42db9440cadb3cb396fde1b
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84233167"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642476"
 ---
 # <a name="what-is-azure-sql-edge-preview"></a>¿Qué es Azure SQL Edge (versión preliminar)?
 
 Azure SQL Edge (versión preliminar) es un motor de base de datos relacional optimizado y orientado a implementaciones de IoT e IoT Edge. Proporciona funcionalidades para crear una capa de procesamiento y almacenamiento de datos de alto rendimiento para las aplicaciones y soluciones de IoT. Azure SQL Edge proporciona funcionalidades para transmitir, procesar y analizar datos relacionales y no relacionales como JSON, gráficos y datos de series temporales, lo que hace que sea la opción adecuada para una variedad de aplicaciones de IoT modernas.
 
-Azure SQL Edge se basa en las versiones más recientes del [Motor de base de datos de Microsoft SQL Server](/sql/sql-server/sql-server-technical-documentation?toc=/azure/azure-sql-edge/toc.json), que proporciona funcionalidades de rendimiento, seguridad y procesamiento de consultas líderes en el sector. Dado que Azure SQL Edge se basa en el mismo motor que SQL Server y Azure SQL Database, proporciona la misma área expuesta de programación de T-SQL, la cual hace que el desarrollo de aplicaciones o soluciones sea más fácil y rápido, y al mismo tiempo hace que la portabilidad de las aplicaciones entre los dispositivos IoT Edge, los centros de datos y la nube sea más directa.
+Azure SQL Edge se basa en las versiones más recientes del Motor de base de datos de Microsoft SQL Server (/sql/sql-server/sql-server-technical-documentation?toc=/azure/azure-sql-edge/toc.json), que ofrece funcionalidades de rendimiento, seguridad y procesamiento de consultas líderes en el sector. Dado que Azure SQL Edge se basa en el mismo motor que [SQL Server](/sql/sql-server/sql-server-technical-documentation?toc=/azure/azure-sql-edge/toc.json) y [Azure SQL](https://docs.microsoft.com/azure/azure-sql/), proporciona la misma área expuesta de programación de T-SQL, la cual hace que el desarrollo de aplicaciones o soluciones sea más fácil y rápido, y al mismo tiempo hace que la portabilidad de las aplicaciones entre los dispositivos IoT Edge, los centros de datos y la nube sea más directa.
 
 > [!NOTE]
 > Azure SQL Edge está actualmente en versión preliminar y NO debe usarse en entornos de producción.

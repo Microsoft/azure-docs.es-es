@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 496d99b3d871c66e2557e1f384bb4480cd8b0831
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 13b3d483e271ac220ae254891fe362e932746e87
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423157"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279506"
 ---
 # <a name="azure-operational-security-best-practices"></a>Procedimientos recomendados de seguridad operativa de Azure
 En este artículo se proporciona un conjunto de procedimientos recomendados operativos para proteger los datos, aplicaciones y otros recursos en Azure.
@@ -116,7 +116,7 @@ La puntuación segura, que se basa en controles del Centro de seguridad de Inter
 **Detalles**: Siga las [recomendaciones de seguridad](../../security-center/security-center-recommendations.md) de Security Center, empezando con los elementos de mayor prioridad.
 
 **Procedimiento recomendado**: Integre las alertas de Security Center en la solución de administración de eventos e información de seguridad (SIEM).   
-**Detalles**: La mayoría de las organizaciones con una solución SIEM la usan como un centro de enrutamiento para las alertas de seguridad que requieren la respuesta de un analista. Los eventos procesados generados por Azure Security Center se publican en el Registro de actividad de Azure, uno de los registros disponibles a través de Azure Monitor. Azure Monitor ofrece una canalización consolidada para el enrutamiento de cualquiera de los datos supervisados en una herramienta SIEM. Consulte [Exportación de alertas y recomendaciones de seguridad](../../security-center/continuous-export.md#configuring-siem-integration-via-azure-event-hubs) para obtener instrucciones. Si usa Azure Sentinel, vea [Conexión de Azure Security Center](../../sentinel/connect-azure-security-center.md).
+**Detalles**: La mayoría de las organizaciones con una solución SIEM la usan como un centro de enrutamiento para las alertas de seguridad que requieren la respuesta de un analista. Los eventos procesados generados por Azure Security Center se publican en el Registro de actividad de Azure, uno de los registros disponibles a través de Azure Monitor. Azure Monitor ofrece una canalización consolidada para el enrutamiento de cualquiera de los datos supervisados en una herramienta SIEM. Consulte [Exportación de alertas y recomendaciones de seguridad](../../security-center/continuous-export.md#configure-siem-integration-via-azure-event-hubs) para obtener instrucciones. Si usa Azure Sentinel, vea [Conexión de Azure Security Center](../../sentinel/connect-azure-security-center.md).
 
 **Procedimiento recomendado**: Integre los registros de Azure con la solución SIEM.   
 **Detalles**: Use [Azure Monitor para recopilar y exportar datos](/azure/azure-monitor/overview#integrate-and-export-data). Este procedimiento es fundamental para habilitar la investigación de incidentes de seguridad, y la retención de registro en línea es limitada. Si usa Azure Sentinel, vea [Conexión de orígenes de datos](../../sentinel/connect-data-sources.md).

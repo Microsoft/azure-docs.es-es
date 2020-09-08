@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 512688345c03ea9d5da0e4933cd6a794eaaf597b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4223e3bc572a689472dce136b60599034566b274
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84660765"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654266"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migración a recursos compartidos de archivos de Azure
 
@@ -26,7 +26,7 @@ Azure tiene varios tipos de almacenamiento en la nube disponibles. Un aspecto fu
 
 Los [recursos compartidos de archivos de Azure](storage-files-introduction.md) son excelentes para los datos de archivos de uso general. Estos datos incluyen cualquier contenido para el que use un recurso compartido de SMB o NFS local. Con [Azure File Sync](storage-sync-files-planning.md), puede copiar en caché el contenido de varios recursos compartidos de archivos de Azure en servidores que ejecuten Windows Server en el entorno local.
 
-En el caso de una aplicación que se ejecute actualmente en un servidor local, el almacenamiento de archivos en un recurso compartido de archivos de Azure puede ser una buena opción. Puede trasladar la aplicación a Azure y usar los recursos compartidos de archivos de Azure como almacenamiento compartido. También puede considerar los [discos de Azure](../../virtual-machines/windows/managed-disks-overview.md) para este escenario.
+En el caso de una aplicación que se ejecute actualmente en un servidor local, el almacenamiento de archivos en un recurso compartido de archivos de Azure puede ser una buena opción. Puede trasladar la aplicación a Azure y usar los recursos compartidos de archivos de Azure como almacenamiento compartido. También puede considerar los [discos de Azure](../../virtual-machines/managed-disks-overview.md) para este escenario.
 
 Algunas aplicaciones en la nube no dependen de SMB ni del acceso compartido o a datos locales de la máquina. Para estas, el almacenamiento de objetos como [blobs de Azure](../blobs/storage-blobs-overview.md) suele ser la mejor opción.
 
@@ -81,7 +81,7 @@ Un escenario sin un vínculo aún no tiene ninguna guía de migración publicada
 | Source | Destino: </br>Implementación híbrida | Destino: </br>Implementación solo en la nube |
 |:---|:--|:--|
 | | Combinación de herramientas:| Combinación de herramientas: |
-| Windows Server 2012 R2 y versiones posteriores | <ul><li>[Azure File Sync](storage-sync-files-deployment-guide.md)</li><li>[Azure File Sync y Azure Data Box](storage-sync-offline-data-transfer.md)</li><li>Azure File Sync y servicio de migración de almacenamiento</li></ul> | <ul><li>Azure File Sync</li><li>Azure File Sync y Data Box</li><li>Azure File Sync y servicio de migración de almacenamiento</li><li>RoboCopy</li></ul> |
+| Windows Server 2012 R2 y versiones posteriores | <ul><li>[Azure File Sync](storage-sync-files-deployment-guide.md)</li><li>[Azure File Sync y Azure Data Box](storage-sync-offline-data-transfer.md)</li><li>[Azure File Sync y archivos previamente inicializados en la nube](storage-sync-offline-data-transfer.md#azure-file-sync-and-pre-seeded-files-in-the-cloud)</li><li>Azure File Sync y servicio de migración de almacenamiento</li></ul> | <ul><li>Azure File Sync</li><li>Azure File Sync y Data Box</li><li>Azure File Sync y servicio de migración de almacenamiento</li><li>RoboCopy</li></ul> |
 | Windows Server 2012 y versiones anteriores | <ul><li>Azure File Sync y Data Box</li><li>Azure File Sync y servicio de migración de almacenamiento</li></ul> | <ul><li>Azure File Sync y servicio de migración de almacenamiento</li><li>RoboCopy</li></ul> |
 | Almacenamiento conectado a la red (NAS) | <ul><li>[Azure File Sync y RoboCopy](storage-files-migration-nas-hybrid.md)</li></ul> | <ul><li>RoboCopy</li></ul> |
 | Linux o Samba | <ul><li>[Azure File Sync y RoboCopy](storage-files-migration-linux-hybrid.md)</li></ul> | <ul><li>RoboCopy</li></ul> |

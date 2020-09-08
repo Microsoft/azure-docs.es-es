@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: 9a2ec2e60ae38506d716a244872baddbbdf570e7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 956e3e83686677f3eb9895354a008783df5f7dcd
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184980"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003707"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Configuración de replicación geográfica para Azure Cache for Redis
 
@@ -24,7 +24,7 @@ Replicación geográfica proporciona un mecanismo para vincular dos instancias d
 
 Para configurar la replicación geográfica entre dos cachés, se deben cumplir los siguientes requisitos previos:
 
-- Ambas deben ser cachés de [nivel Premium](cache-premium-tier-intro.md).
+- Ambas deben ser cachés de [nivel Premium](cache-overview.md#service-tiers).
 - Ambas cachés deben estar en la misma suscripción de Azure.
 - La caché vinculada secundaria debe tener el mismo tamaño de caché o un tamaño de caché mayor que la caché vinculada principal.
 - Ambas cachés deben estar creadas y en ejecución.
@@ -186,5 +186,6 @@ No se admite la conmutación automática por error entre regiones de Azure para 
 Para ejecutar una conmutación por error iniciada por el cliente, desvincule primero las cachés. A continuación, cambie el cliente de Redis para utilizar el punto de conexión de la caché secundaria (anteriormente vinculada). Cuando se desvinculan las dos cachés, la réplica secundaria se vuelve a convertir en una caché normal de lectura y escritura, y acepta solicitudes directamente de los clientes de Redis.
 
 ## <a name="next-steps"></a>Pasos siguientes
+Más información sobre las características de Azure Cache for Redis.
 
-Más información sobre el [nivel Premium de Azure Cache for Redis](cache-premium-tier-intro.md).
+* [Niveles de servicio de Azure Cache for Redis](cache-overview.md#service-tiers)

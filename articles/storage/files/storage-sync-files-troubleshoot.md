@@ -1,18 +1,18 @@
 ---
 title: Solución de problemas de Azure File Sync | Microsoft Docs
-description: Solución de problemas comunes con Azure File Sync.
+description: Solucione los problemas comunes de una implementación en Azure File Sync, que puede usar para transformar Windows Server en una caché rápida del recurso compartido de archivos de Azure.
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 17c8f846201553d3cfa9a2d68b8b4a7ab655c378
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: d266583a2bd73c92a58fad1882a1c572ed4f3769
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232385"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056268"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solución de problemas de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -47,7 +47,7 @@ Después de crear un punto de conexión de servidor en Windows Server 2012 R2,
 No se puede acceder a letraDeUnidad:\.  
 El parámetro no es correcto.
 
-Para resolverlo, instale las actualizaciones más recientes de Windows Server 2012 R2 y reinicie el servidor.
+Para resolver este problema, instale [KB2919355](https://support.microsoft.com/help/2919355/windows-rt-8-1-windows-8-1-windows-server-2012-r2-update-april-2014) y reinicie el servidor. Si esta actualización no se instala porque ya hay instalada una actualización posterior, vaya a Windows Update, instale las actualizaciones más recientes para Windows Server 2012 R2 y reinicie el servidor.
 
 <a id="server-registration-missing-subscriptions"></a>**ServerRegistration no muestra todas las suscripciones de Azure**  
 Al registrar un servidor con ServerRegistration.exe, no aparecen las suscripciones cuando hace clic en la lista desplegable de suscripciones de Azure.
@@ -311,7 +311,7 @@ Para ver estos errores, ejecute el script de PowerShell **FileSyncErrorsReport.p
 #### <a name="troubleshooting-per-filedirectory-sync-errors"></a>Solución de errores de sincronización de archivo o directorio
 **Registro de ItemResults: errores de sincronización por elemento**  
 
-| HRESULT | HRESULT (decimal) | Cadena de error | Incidencia | Corrección |
+| HRESULT | HRESULT (decimal) | Cadena de error | Problema | Corrección |
 |---------|-------------------|--------------|-------|-------------|
 | 0x80070043 | -2147942467 | ERROR_BAD_NET_NAME | No se puede acceder al archivo en niveles en el servidor. Este problema se produce si no se ha recuperado el archivo en niveles antes de eliminar un punto de conexión de servidor. | Para resolver este problema, consulte [No se puede acceder a los archivos en niveles en el servidor después de eliminar un punto de conexión de servidor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint). |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | El cambio de archivo o de directorio no se puede sincronizar todavía porque una carpeta dependiente aún no se ha sincronizado. Este elemento se sincronizará después de sincronizar los cambios dependientes. | No es necesaria ninguna acción. Si el error persiste durante varios días, use el script de PowerShell FileSyncErrorsReport.ps1 para determinar por qué la carpeta dependiente todavía no se ha sincronizado. |
@@ -338,7 +338,7 @@ Para ver estos errores, ejecute el script de PowerShell **FileSyncErrorsReport.p
 | 0x80c80200 | -2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | No se puede sincronizar el archivo porque se ha alcanzado el número máximo de archivos de conflicto. Azure File Sync admite 100 archivos de conflicto por archivo. Para más información sobre los archivos de conflicto, consulte las [preguntas más frecuentes](https://docs.microsoft.com/azure/storage/files/storage-files-faq#afs-conflict-resolution) sobre Azure File Sync. | Para resolver este problema, reduzca el número de archivos de conflicto. El archivo se sincronizará una vez que el número de archivos de conflicto sea inferior a 100. |
 
 #### <a name="handling-unsupported-characters"></a>Tratamiento de caracteres no admitidos
-Si el script de PowerShell **FileSyncErrorsReport.ps1** muestra errores debido a caracteres no admitidos (código de error 0x8007007b o 0x80c80255), debe quitar los caracteres erróneos de los nombres de los archivos afectados o cambiarles el nombre. PowerShell probablemente imprimirá estos caracteres como signos de interrogación o rectángulos vacíos, ya que la mayoría de estos caracteres no tienen codificación visual estándar. Puede usar la [herramienta de evaluación](storage-sync-files-planning.md#evaluation-cmdlet) para identificar los caracteres que no son compatibles.
+Si el script de PowerShell **FileSyncErrorsReport.ps1** muestra errores de sincronización por elemento debido a caracteres no admitidos (código de error 0x8007007b o 0x80c80255), debe quitar los caracteres erróneos de los nombres de los archivos afectados o cambiarles el nombre. PowerShell probablemente imprimirá estos caracteres como signos de interrogación o rectángulos vacíos, ya que la mayoría de estos caracteres no tienen codificación visual estándar. Puede usar la [herramienta de evaluación](storage-sync-files-planning.md#evaluation-cmdlet) para identificar los caracteres que no son compatibles. Si el conjunto de datos tiene varios archivos con caracteres no válidos, utilice el script [ScanUnsupportedChars](https://github.com/Azure-Samples/azure-files-samples/tree/master/ScanUnsupportedChars) para cambiar el nombre de los archivos que contienen caracteres no admitidos.
 
 La siguiente tabla contiene todos los caracteres Unicode que Azure File Sync aún no admite.
 
@@ -1092,7 +1092,7 @@ Si no se pueden apilar archivos en Azure Files:
 
 ### <a name="tiering-errors-and-remediation"></a>Establecimiento en capas de errores y corrección
 
-| HRESULT | HRESULT (decimal) | Cadena de error | Incidencia | Corrección |
+| HRESULT | HRESULT (decimal) | Cadena de error | Problema | Corrección |
 |---------|-------------------|--------------|-------|-------------|
 | 0x80c86045 | -2134351803 | ECS_E_INITIAL_UPLOAD_PENDING | El archivo se pudo organizar en niveles debido a que la carga inicial está en curso. | No es necesaria ninguna acción. El archivo se almacenarán en capas una vez que se complete la carga inicial. |
 | 0x80c86043 | -2134351805 | ECS_E_GHOSTING_FILE_IN_USE | No se pudo establecer en capas el archivo porque está en uso. | No es necesaria ninguna acción. El archivo se establecerá en capas cuando ya no esté en uso. |
@@ -1135,7 +1135,7 @@ Si no se pueden recuperar archivos:
 
 ### <a name="recall-errors-and-remediation"></a>Errores de coincidencia y corrección
 
-| HRESULT | HRESULT (decimal) | Cadena de error | Incidencia | Corrección |
+| HRESULT | HRESULT (decimal) | Cadena de error | Problema | Corrección |
 |---------|-------------------|--------------|-------|-------------|
 | 0x80070079 | -2147942521 | ERROR_SEM_TIMEOUT | El archivo no se recuperó debido a un tiempo de expiración de E/S. Este problema puede aparecer por varias razones: las restricciones de recursos del servidor, una conectividad de red deficiente o un problema de Azure Storage (por ejemplo, la limitación). | No es necesaria ninguna acción. Si el error persiste durante varias horas, abra una incidencia de soporte técnico. |
 | 0x80070036 | -2147024842 | ERROR_NETWORK_BUSY | El archivo no se recuperó debido a una incidencia en la red.  | Si el error no desaparece, compruebe la conectividad de red con el recurso compartido de archivos de Azure. |

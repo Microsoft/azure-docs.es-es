@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/22/2020
+ms.date: 08/25/2020
 ms.assetid: 3cd520fd-eaf7-4ef9-b4d3-4827057e5028
-ms.openlocfilehash: 944abc62f25473ea52836af7dc1fdcd1e16d9269
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 15ece836e172b8316222ea606ca638650795d5d7
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82120615"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852607"
 ---
 # <a name="issues-using-vm-extensions-in-python-3-enabled-linux-azure-virtual-machines-systems"></a>Problemas al usar extensiones de VM en los sistemas de Azure Virtual Machines para Linux habilitados para Python 3
 
@@ -28,7 +28,7 @@ ms.locfileid: "82120615"
 >
 > Antes de instalar **Python 2.x** en producción, tenga en cuenta la cuestión de la compatibilidad a largo plazo con Python 2.x, especialmente su capacidad para recibir actualizaciones de seguridad. Respecto a los productos, incluida parte de la extensión mencionada, actualización con compatibilidad para **Python 3.8**, debe dejar de usar Python 2.x.
 
-Algunas distribuciones de Linux han pasado a Python 3.8 y han quitado el punto de entrada de `/usr/bin/python` heredado para Python por completo. Esta transición afecta a la implementación automatizada e integrada de ciertas extensiones de máquina virtual (VM) con las siguientes condiciones:
+Algunas distribuciones de Linux han pasado a Python 3.8 y han quitado el punto de entrada de `/usr/bin/python` heredado para Python por completo. Esta transición afecta a la implementación automatizada e integrada de ciertas extensiones de máquina virtual (VM) con estas dos condiciones:
 
 - Extensiones en transición a la compatibilidad con Python 3.x
 - Extensiones que usan el punto de entrada `/usr/bin/python` heredado
@@ -43,50 +43,52 @@ Las actualizaciones locales, como la actualización de **Ubuntu 18.04 LTS** a *
 
 ## <a name="resolution"></a>Solución
 
-Tenga en cuenta las siguientes recomendaciones generales antes de implementar extensiones en los escenarios afectados conocidos que se han descrito anteriormente en el Resumen:
+Tenga en cuenta estas recomendaciones generales antes de implementar extensiones en los escenarios afectados conocidos que se han descrito anteriormente en el Resumen:
 
-1.  Antes de implementar la extensión, restablezca el vínculo simbólico `/usr/bin/python` mediante el método de distribución de Linux proporcionado por el proveedor.
+1. Antes de implementar la extensión, restablezca el vínculo simbólico `/usr/bin/python` mediante el método de distribución de Linux proporcionado por el proveedor.
 
-    - Por ejemplo, para **Python 2.7**, use: `sudo apt update && sudo apt install python-is-python2`
+   - Por ejemplo, para **Python 2.7**, use: `sudo apt update && sudo apt install python-is-python2`
 
-2.  Si ya ha implementado una instancia que presenta este problema, use la funcionalidad del **comando de ejecución** en la **hoja de VM** para ejecutar los comandos mencionados anteriormente. La propia extensión del comando de ejecución no se ve afectada por la transición a Python 3.8.
+1. Esta recomendación es para los clientes de Azure y no se admite en Azure Stack:
 
-3.  Si va a implementar una nueva instancia y necesita establecer una extensión en el momento del aprovisionamiento, use los datos de usuario de **cloud-init** para instalar los paquetes mencionados anteriormente.
+   - Si ya ha implementado una instancia que presenta este problema, use la funcionalidad del comando Ejecutar en la hoja de VM para ejecutar los comandos mencionados anteriormente. La propia extensión del comando de ejecución no se ve afectada por la transición a Python 3.8.
 
-    Por ejemplo, para Python 2.7:
+1. Si va a implementar una nueva instancia y necesita establecer una extensión en el momento del aprovisionamiento, use los datos de usuario de **cloud-init** para instalar los paquetes mencionados anteriormente.
 
-    ```
-    # create cloud-init config
-    cat > cloudinitConfig.json <<EOF
-    #cloud-config
-    package_update: true
+   Por ejemplo, para Python 2.7:
+
+   ```python
+   # create cloud-init config
+   cat > cloudinitConfig.json <<EOF
+   #cloud-config
+   package_update: true
     
-    runcmd:
-    - sudo apt update
-    - sudo apt install python-is-python2 
-    EOF
-    
-    # create VM
-    az vm create \
-        --resource-group <resourceGroupName> \
-        --name <vmName> \
-        --image <Ubuntu 20.04 Image URN> \
-        --admin-username azadmin \
-        --ssh-key-value "<sshPubKey>" \
-        --custom-data ./cloudinitConfig.json
-    ```
+   runcmd:
+   - sudo apt update
+   - sudo apt install python-is-python2 
+   EOF
 
-4.  si los administradores de directivas de la organización determinan que las extensiones no se deben implementar en VM, puede deshabilitar la compatibilidad con las extensiones en el momento del aprovisionamiento:
+   # create VM
+   az vm create \
+       --resource-group <resourceGroupName> \
+       --name <vmName> \
+       --image <Ubuntu 20.04 Image URN> \
+       --admin-username azadmin \
+       --ssh-key-value "<sshPubKey>" \
+       --custom-data ./cloudinitConfig.json
+   ```
 
-    - API DE REST
+1. si los administradores de directivas de la organización determinan que las extensiones no se deben implementar en VM, puede deshabilitar la compatibilidad con las extensiones en el momento del aprovisionamiento:
 
-      Para deshabilitar y habilitar las extensiones cuando se puede implementar una VM con esta propiedad:
+   - API DE REST
 
-      ```
-        "osProfile": {
-          "allowExtensionOperations": false
-        },
-      ```
+     Para deshabilitar y habilitar las extensiones cuando se puede implementar una VM con esta propiedad:
+
+     ```python
+       "osProfile": {
+         "allowExtensionOperations": false
+       },
+     ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

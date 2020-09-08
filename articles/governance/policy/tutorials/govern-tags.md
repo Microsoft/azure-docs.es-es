@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Administración de gobernanza de etiquetas'
 description: En este tutorial, usará el efecto Modify de Azure Policy para crear y aplicar un modelo de gobernanza de etiquetas en los recursos nuevos y existentes.
-ms.date: 04/21/2020
+ms.date: 08/17/2020
 ms.topic: tutorial
-ms.openlocfilehash: 8b3d0db100a601950ec82824897a3ba3e5145b79
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: f49eedb00c98d3c362140fdca9b195a086903f10
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142272"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545512"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Tutorial: Administración de la gobernanza de etiquetas con Azure Policy
 
@@ -45,7 +45,7 @@ Al igual que cualquier implementación adecuada de controles de gobernanza, los 
 
 ## <a name="configure-the-costcenter-tag"></a>Configuración de la etiqueta CostCenter
 
-En lo que respecta específicamente a un entorno de Azure administrado por Azure Policy, los requisitos de la etiqueta _CostCenter_ exigen lo siguiente:
+En lo que respecta específicamente a un entorno de Azure administrado por Azure Policy, los requisitos de la etiqueta _CostCenter_ exigen los siguientes resultados:
 
 - La denegación de grupos de recursos en los que falte la etiqueta _CostCenter_.
 - La modificación de los recursos para agregar la etiqueta _CostCenter_ del grupo de recursos primario cuando falte.
@@ -107,7 +107,7 @@ Esta regla de directiva usa la operación **add** en lugar de **addOrReplace** y
 
 ## <a name="configure-the-env-tag"></a>Configuración de la etiqueta Env
 
-En lo que respecta específicamente a un entorno de Azure administrado por Azure Policy, los requisitos de la etiqueta _Env_ exigen lo siguiente:
+En lo que respecta específicamente a un entorno de Azure administrado por Azure Policy, los requisitos de la etiqueta _Env_ exigen los siguientes resultados:
 
 - La modificación de la etiqueta _Env_ en el grupo de recursos en función del esquema de nomenclatura del grupo de recursos.
 - La modificación de la etiqueta _Env_ en todos los recursos del grupo de recursos al mismo valor que el grupo de recursos primario.

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc, devx-track-javascript
 ms.date: 06/16/2020
-ms.openlocfilehash: ff4af372fa0ec1b6b24698184eb3f52449e28d46
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 6540b35925a92ebd6a8bcced427b5457785603db
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430816"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056914"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Funciones definidas por el usuario de JavaScript en Azure Stream Analytics
  
@@ -132,7 +132,61 @@ FROM
     input PARTITION BY PARTITIONID
 ```
 
+### <a name="cast-string-to-json-object-to-process"></a>Conversión de una cadena en un objeto JSON para procesar
+
+Si tiene un campo de cadena que sea JSON y desea convertirlo en un objeto JSON para procesarlo en una UDF de JavaScript, puede usar la función **JSON.parse()** a fin de crear un objeto JSON que se pueda usar.
+
+**Definición de funciones definidas por el usuario en JavaScript:**
+
+```javascript
+function main(x) {
+var person = JSON.parse(x);  
+return person.name;
+}
+```
+
+**Consulta de ejemplo:**
+```SQL
+SELECT
+    UDF.getName(input) AS Name
+INTO
+    output
+FROM
+    input
+```
+
+### <a name="use-trycatch-for-error-handling"></a>Uso de try/catch para el control de errores
+
+Los bloques try/catch pueden ayudarle a identificar problemas con los datos de entrada incorrectos que se pasan a una UDF de JavaScript.
+
+**Definición de funciones definidas por el usuario en JavaScript:**
+
+```javascript
+function main(input, x) {
+    var obj = null;
+
+    try{
+        obj = JSON.parse(x);
+    }catch(error){
+        throw input;
+    }
+    
+    return obj.Value;
+}
+```
+
+**Consulta de ejemplo: Pase el registro completo como primer parámetro para que se pueda devolver si se produce un error.**
+```SQL
+SELECT
+    A.context.company AS Company,
+    udf.getValue(A, A.context.value) as Value
+INTO
+    output
+FROM
+    input A
+```
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [UDF de Machine Learning](https://docs.microsoft.com/azure/stream-analytics/machine-learning-udf)
-* [UDF DE C#](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf-methods)
+* [UDF de C#](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf-methods)

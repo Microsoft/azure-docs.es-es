@@ -8,12 +8,12 @@ ms.topic: conceptual
 manager: gwallace
 description: Aprenda a configurar la integración y la implementación continuas mediante Azure DevOps con Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, contenedores
-ms.openlocfilehash: 3a5f232111bd01f707080cc1638970f8dc51e6fa
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: c7b3eba0bea85082dbb4e39d108af9471d5dc45e
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229336"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080273"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Uso de CI/CD con Azure Dev Spaces
 
@@ -24,7 +24,7 @@ En este artículo se le guía a través de la implementación continua y la inte
 Aunque en este artículo se le guiará por Azure DevOps, son de aplicación los mismos conceptos a sistemas de CI/CD como Jenkins, TeamCity, etc.
 
 ## <a name="prerequisites"></a>Requisitos previos
-* [Clúster de Azure Kubernetes Service (AKS) con Azure Dev Spaces habilitado](../get-started-netcore.md)
+* Clúster de Azure Kubernetes Service (AKS) con Azure Dev Spaces habilitado
 * [CLI de Azure Dev Spaces instalada](upgrade-tools.md)
 * [Organización de Azure DevOps con un proyecto](/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
 * [Azure Container Registry (ACR)](../../container-registry/container-registry-get-started-azure-cli.md)
@@ -185,5 +185,7 @@ Este es un ejemplo de estructura de espacio de nombres que admite el desarrollo 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+Más información sobre cómo funciona Azure Dev Spaces.
+
 > [!div class="nextstepaction"]
-> [Obtenga información sobre el desarrollo en equipo con Azure Dev Spaces](../team-development-netcore.md)
+> [Funcionamiento de Azure Dev Spaces](../how-dev-spaces-works.md)

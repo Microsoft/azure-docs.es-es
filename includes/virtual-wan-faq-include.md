@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 06/26/2020
+ms.date: 08/18/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: dececd066597682e240e737727d3bcaf8f8f3619
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: fab36a538cd9dfa17852c513974af062fa7a0ec2
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87375267"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89303989"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>¿El usuario necesita disponer de una topología radial con los dispositivos SD-WAN/VPN para usar Azure Virtual WAN?
 
@@ -119,7 +119,7 @@ Las soluciones de conectividad definidas por software suelen administrar sus dis
 
 ### <a name="what-if-a-device-i-am-using-is-not-in-the-virtual-wan-partner-list-can-i-still-use-it-to-connect-to-azure-virtual-wan-vpn"></a>¿Qué ocurre si el dispositivo que uso no está en la lista de partners de Virtual WAN? ¿Lo puedo usar a pesar de todo para conectarme a una VPN de Azure Virtual WAN?
 
-Sí, siempre que el dispositivo admita IPsec IKEv1 o IKEv2. Los asociados de Virtual WAN automatizan la conectividad desde el dispositivo hasta los puntos de conexión de VPN de Azure. Esto implica la automatización de pasos como la carga de la información de rama, IPsec y configuración y conectividad. Puesto que el dispositivo no procede del ecosistema de un asociado de Virtual WAN, deberá realizar el trabajo pesado de tomar manualmente la configuración de Azure y actualizar el dispositivo para configurar la conectividad IPsec.
+Sí, siempre que el dispositivo admita IPsec IKEv1 o IKEv2. Los asociados de Virtual WAN automatizan la conectividad desde el dispositivo hasta los puntos de conexión de VPN de Azure. Esto supone automatizar pasos como "carga de información de la rama", "IPsec y configuración" y "conectividad". Dado que el dispositivo no es del ecosistema de un asociado de Virtual WAN, tendrá que realizar el pesado trabajo de configurar manualmente Azure y actualizar el dispositivo para configurar la conectividad de IPsec.
 
 ### <a name="how-do-new-partners-that-are-not-listed-in-your-launch-partner-list-get-onboarded"></a>¿Cómo consiguen los nuevos asociados que no aparecen en la lista de asociados de partida ser incluidos en ella?
 
@@ -187,7 +187,7 @@ No. Virtual WAN no requiere ExpressRoute desde cada sitio. Los sitios pueden est
 
 ### <a name="is-there-a-network-throughput-or-connection-limit-when-using-azure-virtual-wan"></a>¿Hay un límite en el rendimiento o la conexión de la red al utilizar Azure Virtual WAN?
 
-El rendimiento de red es por servicio en un centro de conectividad de Virtual WAN. Aunque puede tener tantas instancias de Virtual WAN como desee, cada una permite un centro de conectividad por región. En cada centro de conectividad, el rendimiento agregado de VPN es de hasta 20 Gbps, el rendimiento agregado de ExpressRoute es hasta 20 Gbps y el rendimiento agregado de VPN de punto a sitio o VPN de usuario es de hasta 20 Gbps. El enrutador del centro de conectividad virtual admite hasta 50 Gbps para los flujos de tráfico de red virtual a red virtual y supone una carga total de 2000 VM en todas las redes virtuales de los centros de conectividad de Virtual WAN.
+El rendimiento de red es por servicio en un centro de conectividad de Virtual WAN. Aunque puede tener tantas instancias de Virtual WAN como desee, cada una permite un centro de conectividad por región. En cada centro de conectividad, el rendimiento agregado de VPN es de hasta 20 Gbps, el rendimiento agregado de ExpressRoute es hasta 20 Gbps y el rendimiento agregado de VPN de punto a sitio o VPN de usuario es de hasta 20 Gbps. El enrutador del centro de conectividad virtual admite hasta 50 Gbps en los flujos de tráfico de red virtual a red virtual y supone una carga de trabajo total de 2000 máquinas virtuales en todas las redes virtuales conectadas a un solo centro de conectividad virtual.
 
 Cuando los sitios VPN se conectan a un centro de conectividad, lo hacen con conexiones. Virtual WAN admite hasta 1000 conexiones o 2000 túneles IPsec por centro de conectividad virtual. Cuando los usuarios remotos se conectan a un centro de conectividad virtual, se conectan a la instancia de VPN Gateway P2S, que admite hasta 10 000 usuarios en función de la unidad de escalado (ancho de banda) elegida para la instancia de VPN Gateway P2S en el centro de conectividad virtual.
 
@@ -215,7 +215,7 @@ El tráfico sigue el patrón: dispositivo de rama -> ISP -> perímetro de red de
 
 Sí. Una conexión a Internet y un dispositivo físico que admita IPsec, preferiblemente de nuestros [asociados de Virtual WAN](../articles/virtual-wan/virtual-wan-locations-partners.md) integrados. De forma opcional, puede administrar manualmente la configuración y la conectividad a Azure desde su dispositivo preferido.
 
-### <a name="how-do-i-enable-default-route-00000-in-a-connection-vpn-expressroute-or-virtual-network"></a>¿Cómo habilito la ruta predeterminada (0.0.0.0/0) de una conexión? (VPN, ExpressRoute o Virtual Network):
+### <a name="how-do-i-enable-default-route-00000-in-a-connection-vpn-expressroute-or-virtual-network"></a>¿Cómo habilito la ruta predeterminada (0.0.0.0/0) de una conexión (VPN, ExpressRoute o Virtual Network)?
 
 Un centro de conectividad virtual puede propagar una ruta predeterminada aprendida en una red virtual, una VPN de sitio a sitio y una conexión ExpressRoute si la marca está "habilitada" en la conexión. Esta marca está visible cuando el usuario edita una conexión de red virtual, una conexión VPN o una conexión ExpressRoute. De forma predeterminada, esta marca está deshabilitada cuando un sitio o circuito de ExpressRoute se conecta a un centro. Está habilitada de forma predeterminada cuando se agrega una conexión de red virtual para conectar una red virtual a un centro de conectividad virtual. La ruta predeterminada no se origina en el centro de conectividad de Virtual WAN; la ruta se propaga si ya la ha aprendido el centro de Virtual WAN como resultado de la implementación de un firewall en el centro o en caso de que otro sitio conectado tenga habilitada la tunelización forzada.
 
@@ -239,23 +239,30 @@ Cuando varios circuitos ExpressRoute están conectados a un centro de conectivid
 
 ### <a name="does-virtual-wan-prefer-expressroute-over-vpn-for-traffic-egressing-azure"></a>¿Virtual WAN prefiere ExpressRoute antes que una VPN para el tráfico que sale de Azure?
 
-Sí 
+Sí.
 
-### <a name="when-a-virtual-wan-hub-has-an-expressroute-circuit-and-a-vpn-site-connected-to-it-what-would-cause-a-vpn-connection-route-to-be-prefered-over-expressroute"></a>Cuando un concentrador de Virtual WAN tiene un circuito ExpressRoute y un sitio VPN conectados a él, ¿qué haría que una ruta de conexión VPN fuera preferida antes que ExpressRoute?
+### <a name="when-a-virtual-wan-hub-has-an-expressroute-circuit-and-a-vpn-site-connected-to-it-what-would-cause-a-vpn-connection-route-to-be-preferred-over-expressroute"></a>Cuando un centro de conectividad de Virtual WAN tiene un circuito ExpressRoute y un sitio VPN conectados a él, ¿qué haría que una ruta de conexión VPN se prefiriera por encima de ExpressRoute?
 
-Cuando un circuito ExpressRoute se conecta a un concentrador virtual, los enrutadores perimetrales de Microsoft son el primer nodo para la comunicación entre el entorno local y Azure. Estos enrutadores perimetrales se comunican con las puertas de enlace de ExpressRoute de Virtual WAN que, a su vez, aprenden las rutas del enrutador del concentrador virtual que controla todas las rutas entre todas las puertas de enlace en Virtual WAN. Los enrutadores perimetrales de Microsoft procesan las rutas de ExpressRoute del concentrador virtual con mayor preferencia sobre las rutas aprendidas del entorno local. Si la conexión VPN se convierte por cualquier motivo en el medio principal para que el concentrador virtual aprenda las rutas (por ejemplo, escenarios de conmutación por error entre ExpressRoute y VPN), a menos que el sitio VPN tenga una longitud de ruta AS mayor, el concentrador virtual seguirá compartiendo las rutas de VPN aprendidas con la puerta de enlace de ExpressRoute, lo que hará que los enrutadores perimetrales de Microsoft prefieran las rutas VPN antes que las rutas locales. 
+Cuando un circuito ExpressRoute se conecta a un centro de conectividad virtual, los enrutadores perimetrales de Microsoft son el primer nodo para la comunicación entre el entorno local y Azure. Estos enrutadores perimetrales se comunican con las puertas de enlace de ExpressRoute de Virtual WAN que, a su vez, aprenden las rutas del enrutador del centro de conectividad virtual que controla todas las rutas entre todas las puertas de enlace de Virtual WAN. Los enrutadores perimetrales de Microsoft prefieren procesar mejor las rutas de ExpressRoute del centro de conectividad virtual antes que las rutas aprendidas del entorno local. Si, por algún motivo, la conexión VPN se convierte en el medio principal por el que el centro de conectividad virtual aprenda las rutas (por ejemplo, escenarios de conmutación por error entre ExpressRoute y VPN), a menos que el sitio VPN tenga una longitud de ruta AS mayor, el centro de conectividad virtual seguirá compartiendo las rutas de VPN aprendidas con la puerta de enlace de ExpressRoute, lo que hará que los enrutadores de Microsoft Edge prefieran las rutas VPN antes que las rutas locales.
 
 ### <a name="when-two-hubs-hub-1-and-2-are-connected-and-there-is-an-expressroute-circuit-connected-as-a-bow-tie-to-both-the-hubs-what-is-the-path-for-a-vnet-connected-to-hub-1-to-reach-a-vnet-connected-in-hub-2"></a>Cuando dos centros de conectividad (1 y 2) están conectados y hay un circuito ExpressRoute conectado como un lazo para ambos centros de conectividad, ¿cuál es la ruta de acceso de una red virtual conectada al centro de conectividad 1 para llegar a una red virtual conectada en el centro de conectividad 2?
 
-El comportamiento actual es preferir la ruta de acceso del circuito ExpressRoute frente a una conexión entre centros para la conectividad de red virtual a red virtual. Sin embargo, esto no se recomienda en una configuración de Virtual WAN. El equipo de Virtual WAN está trabajando en una corrección para habilitar la preferencia de centro de conectividad a centro de conectividad frente a la ruta de acceso de ExpressRoute. La recomendación es para que varios circuitos ExpressRoute (proveedores distintos) se conecten a un centro de conectividad y usen la conectividad entre centros de conectividad que proporciona Virtual WAN para los flujos de tráfico entre regiones.
+El comportamiento actual es preferir la ruta de acceso del circuito ExpressRoute frente a una conexión entre centros para la conectividad de red virtual a red virtual. Sin embargo, esto no se recomienda en una configuración de Virtual WAN. El equipo de Virtual WAN está trabajando en una corrección para permitir la preferencia de centro de conectividad a centro de conectividad frente a la ruta de acceso de ExpressRoute. La recomendación es para que varios circuitos ExpressRoute (proveedores distintos) se conecten a un centro de conectividad y usen la conectividad entre centros de conectividad que proporciona Virtual WAN para los flujos de tráfico entre regiones.
+
+### <a name="can-hubs-be-created-in-different-resource-group-in-virtual-wan"></a>¿Se pueden crear concentradores en un grupo de recursos diferente en Virtual WAN?
+Sí. Esta opción solo está disponible actualmente mediante PowerShell. El portal de Virtual WAN asigna los concentradores en el mismo grupo de recursos que el propio recurso de Virtual WAN.
 
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>¿Hay compatibilidad con IPv6 en un Virtual WAN?
 
-IPv6 no se admite en el centro de conectividad de Virtual WAN y sus puertas de enlace. Si tiene una red virtual compatible con IPv6 y quiere conectarla a Virtual WAN, este escenario tampoco se admite.
+IPv6 no se admite en el centro de conectividad de Virtual WAN y sus puertas de enlace. Si tiene una red virtual que tiene compatibilidad con IPv4 e IPv6 y desea conectar la red virtual a Virtual WAN, este escenario no se admite actualmente. 
 
-### <a name="what-is-the-recommended-api-version-to-be-used-by-scripts-automating-various-virtual-wan-functionality-"></a>¿Cuál es la versión de API recomendada para utilizar en los scripts que automatizan varias funcionalidades de Virtual WAN?
+### <a name="what-is-the-recommended-api-version-to-be-used-by-scripts-automating-various-virtual-wan-functionalities"></a>¿Cuál es la versión de API recomendada para utilizar en los scripts que automatizan varias funcionalidades de Virtual WAN?
 
 Se requiere una versión mínima de 05-01-2020 (1 de mayo de 2020). 
+
+### <a name="are-there-any-virtual-wan-limits"></a>¿Hay algún límite de Virtual WAN?
+
+Consulte la sección [Límites de Virtual WAN](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#virtual-wan-limits) en la página de límites de suscripciones y servicios.
 
 ### <a name="what-are-the-differences-between-the-virtual-wan-types-basic-and-standard"></a>¿Cuáles son las diferencias entre los tipos de instancias de Virtual WAN (básico y estándar)?
 

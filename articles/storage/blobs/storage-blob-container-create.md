@@ -8,12 +8,13 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: abf4cb33fa953ec9a257397551b3d17752fe67f5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a17ab97dbfa1819154695f4c287b59db90f34334
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070729"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019001"
 ---
 # <a name="create-or-delete-a-container-in-azure-storage-with-net"></a>Creación o eliminación de un contenedor en Azure Storage con .NET
 

@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 297ef15cbf2b8e261d38dabe3a91cb26f3b449d2
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 5bdb09acf9adeaf0165512b144de0348ad4df743
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85250747"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959717"
 ---
 # <a name="connect-an-app-service-app-to-sql-database-using-cli"></a>Conexión de una aplicación de App Service a SQL Database mediante la CLI
 
@@ -48,6 +48,6 @@ Este script usa los siguientes comandos para crear un grupo de recursos, una apl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure).
+Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](/cli/azure).
 
 Puede encontrar ejemplos de script adicionales de la CLI de App Service en la [documentación de Azure App Service](../samples-cli.md).

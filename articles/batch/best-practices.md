@@ -1,14 +1,14 @@
 ---
 title: Procedimientos recomendados
 description: Obtenga información sobre los procedimientos recomendados y sugerencias útiles para desarrollar su solución de Azure Batch.
-ms.date: 07/30/2020
+ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 535deebd0ba683d9387408ad081d165a504c91d1
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 8f557403426fe4e37287acb681c91069e90fb926
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87474910"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191811"
 ---
 # <a name="azure-batch-best-practices"></a>Procedimientos recomendados de Azure Batch
 
@@ -56,6 +56,10 @@ Los errores de asignación de grupos pueden producirse en cualquier momento dura
 Los grupos de Batch pueden experimentar eventos de tiempo de inactividad en Azure. Tenga esto en cuenta al planear y desarrollar el escenario o el flujo de trabajo para Batch.
 
 En caso de que se produzca un error en un nodo, Batch intentará recuperar automáticamente estos nodos de proceso en su nombre. De esta forma se puede desencadenar la reprogramación de cualquier tarea en ejecución en el nodo que se recupera. Consulte [Diseño de reintentos](#design-for-retries-and-re-execution) para obtener más información sobre las tareas interrumpidas.
+
+### <a name="custom-image-pools"></a>Grupos de imágenes personalizados
+
+Al crear un grupo en Azure Batch con Configuración de máquina virtual, se especifica una imagen de máquina virtual (VM) que proporciona el sistema operativo para cada nodo de proceso en el grupo. Puede crear el grupo con una imagen de Azure Marketplace compatible o [crear una imagen personalizada con una imagen de Shared Image Gallery](batch-sig-images.md). Aunque también puede usar una [imagen administrada](batch-custom-images.md) para crear un grupo de imágenes personalizadas, se recomienda crear imágenes personalizadas mediante Shared Image Gallery siempre que sea posible. Shared Image Gallery le ayuda a aprovisionar grupos más rápido, escalar cantidades más grandes de VM y mejorar la confiabilidad al aprovisionar las VM.
 
 ### <a name="third-party-images"></a>Imágenes de terceros
 

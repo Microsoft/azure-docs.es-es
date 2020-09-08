@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 5782f07167f72be2ea7b148ad1b0a61d8cb710e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f24a04db9317083fb47c0956174e649b5bd7ae10
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77048907"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815698"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Comunidad de Azure Maps: proyectos de código abierto
 
@@ -22,16 +22,41 @@ El equipo de Azure Maps crea y mantiene estas iniciativas basadas en la comunida
 
 A continuación se muestra una lista de algunos de los proyectos y ejemplos más populares de Azure Maps de código abierto.
 
+**Bots**
+
+| Nombre de proyecto | Descripción |
+|-|-|
+| [Bot Framework: aptitud de punto de interés](https://github.com/microsoft/botframework-solutions/tree/488093ac2fddf16096171f6a926315aa45e199e7/skills/csharp/pointofinterestskill) | La aptitud Punto de interés proporciona capacidades relacionadas con puntos de interés a un asistente virtual mediante Azure Maps con Azure Bot Service y Bot Framework. |
+| [Ubicación de BotBuilder](https://github.com/Microsoft/BotBuilder-Location) | Un control selector de ubicación de código abierto para Microsoft Bot Framework basado en los servicios REST de Mapas de Bing. |
+
+**Módulos del SDK web abiertos**
+
+A continuación se muestra una lista de proyectos de código abierto que amplían las funcionalidades del SDK web de Azure Maps.
+
+| Nombre de proyecto | Descripción |
+|-|-|
+| [Módulo de animación de Azure Maps](https://github.com/Azure-Samples/azure-maps-animations)| Una biblioteca enriquecida de animaciones para uso con el SDK web de Azure Maps. |
+| [Módulo de interfaz de usuario de los servicios de Azure Maps](https://github.com/Azure-Samples/azure-maps-services-ui) | Un conjunto de controles de interfaz de usuario web que encapsulan los servicios REST de Azure Maps. |
+
+**Muestras**
+
 | Nombre de proyecto | Descripción |
 |-|-|
 | [Ejemplos de código de Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples) | Colección de ejemplos de código para usar Azure Maps en aplicaciones basadas en web. |
 | [Ejemplos de código de Azure Maps Gov en la nube](https://github.com/Azure-Samples/AzureMapsCodeSamples) | Colección de ejemplos de código para usar Azure Maps en la nube de Azure Government. |
 | [Muestras de Azure Maps y Azure Active Directory](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples) | Colección de ejemplos que muestran cómo usar Azure Active Directory con Azure Maps. | 
-| [Implementación del análisis espacial de IoT mediante Azure Maps](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing) | El seguimiento y la captura de eventos pertinentes que se producen en el espacio y en el tiempo es un escenario común de IoT. |
 | [Ejemplos de Jupyter Notebook en Azure Maps](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook) | Colección de ejemplos de Python con los servicios REST de Azure Maps. |
-| [Bot Framework: aptitud de punto de interés](https://github.com/microsoft/botframework-solutions/tree/488093ac2fddf16096171f6a926315aa45e199e7/skills/csharp/pointofinterestskill) | La aptitud Punto de interés proporciona funcionalidades relacionadas con puntos de interés a un asistente virtual mediante Azure Maps con Azure Bot Service y Bot Framework. |
+| [Control remoto de IoT para .NET UWP en Azure Maps](https://github.com/Azure-Samples/azure-maps-dotnet-webgl-uwp-iot-remote-control) | Se trata de una aplicación de ejemplo que muestra cómo crear un mapa controlado de forma remota con los servicios de Azure Maps y IoT Hub. |
+| [Implementación del análisis espacial de IoT mediante Azure Maps](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing) | El seguimiento y la captura de eventos pertinentes que se producen en el espacio y en el tiempo es un escenario común de IoT. |
 
-Una lista más extensa de proyectos de código abierto creados por la comunidad se encuentra disponible [aquí](https://github.com/microsoft/Maps/blob/master/AzureMaps.md).
+**Herramientas y recursos**
+
+| Nombre de proyecto | Descripción |
+|-|-|
+| [Documentación de Azure Maps](https://github.com/MicrosoftDocs/azure-docs/tree/master/articles/azure-maps) | Origen de datos de toda la documentación de Azure Location Based Services. |
+| [Azure Maps Creator Tools](https://github.com/Azure-Samples/AzureMapsCreator) | Herramientas de Python para Azure Maps Creator Tools. |
+
+Una lista más extensa de proyectos de código abierto para Azure Maps creados por la comunidad está disponible [aquí](https://github.com/microsoft/Maps/blob/master/AzureMaps.md).
 
 ## <a name="supportability-of-open-source-projects"></a>Compatibilidad de proyectos de código abierto
 

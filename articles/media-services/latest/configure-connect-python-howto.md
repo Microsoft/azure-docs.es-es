@@ -3,25 +3,27 @@ title: 'Conexión a la API de Azure Media Services v3: Python'
 description: En este artículo se muestra cómo conectarse a la API de Media Services v3 con Python.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/15/2019
-ms.author: juliako
+ms.topic: how-to
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-python
-ms.openlocfilehash: 834d87f607ca65a9d9e0ebee12d2772f5baf7949
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 68620b644ef85f7b627b7b6380c16959b25299f0
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849648"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297338"
 ---
 # <a name="connect-to-media-services-v3-api---python"></a>Conexión a la API de Media Services v3: Python
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 En este artículo se muestra cómo conectarse al SDK de Python de Azure Media Services v3 con el método de inicio de sesión de la entidad de servicio.
 

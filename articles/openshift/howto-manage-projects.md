@@ -8,14 +8,14 @@ ms.author: gwallace
 ms.date: 07/19/2019
 ms.topic: conceptual
 ms.service: container-service
-ms.openlocfilehash: d4f53238951784a74e6e3fc8a73d1f112ce75608
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 35474df96254b158a39b6d913171c553bf30aea4
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79139120"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816446"
 ---
-# <a name="manage-projects-templates-image-streams-in-an-azure-red-hat-openshift-cluster"></a>Administración de proyectos, plantillas y secuencias de imágenes en un clúster de Red Hat OpenShift en Azure 
+# <a name="manage-projects-templates-image-streams-in-an-azure-red-hat-openshift-cluster"></a>Administración de proyectos, plantillas y secuencias de imágenes en un clúster de Red Hat OpenShift en Azure
 
 En una plataforma de contenedores de OpenShift, se usan proyectos para agrupar y aislar los objetos relacionados. Como administrador, puede proporcionar a los desarrolladores acceso a proyectos específicos, permitirles crear sus propios proyectos y concederles derechos administrativos a proyectos individuales.
 

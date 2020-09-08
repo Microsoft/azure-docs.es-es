@@ -13,12 +13,12 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a0677603f02b429c269c0f93ef348b2b1d717a9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c757f3e067aeac5d8145ca47b2eac145daba574
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82689779"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272457"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Flujo de concesión de autorización de dispositivo de OAuth 2.0 y la Plataforma de identidad de Microsoft
 
@@ -55,7 +55,7 @@ scope=user.read%20openid%20profile
 | --- | --- | --- |
 | `tenant` | Obligatorio | Puede ser /common, /consumers u /organizations.  También puede ser el inquilino de directorio al que desea solicitar permiso en el formato de nombre descriptivo o GUID.  |
 | `client_id` | Obligatorio | El **identificador de aplicación (cliente)** que la experiencia [Azure Portal: Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) asignó a la aplicación. |
-| `scope` | Recomendado | Una lista separada por espacios de [ámbitos](v2-permissions-and-consent.md) que desea que el usuario consienta.  |
+| `scope` | Obligatorio | Una lista separada por espacios de [ámbitos](v2-permissions-and-consent.md) que desea que el usuario consienta.  |
 
 ### <a name="device-authorization-response"></a>Respuesta de autorización de dispositivo
 

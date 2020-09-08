@@ -9,17 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/02/2018
+ms.date: 08/28/2020
 ms.author: rogardle
-ms.openlocfilehash: ca40fcb6a2e483e656058835f187dc50bf7bc9ab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fb4403747a3681abd6023cdb9b5e62fd50af12c3
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074070"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179647"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Creación de una base de datos Oracle en una VM de Azure
 
@@ -82,7 +82,7 @@ ssh azureuser@<publicIpAddress>
 
 El software de Oracle ya está instalado en la imagen de Marketplace. Cree una base de datos de ejemplo de la manera siguiente: 
 
-1.  Cambie al superusuario *oracle* e inicialice el agente de escucha para el registro:
+1.  Cambie al usuario *oracle* y, a continuación, inicie el cliente de escucha de Oracle:
 
     ```bash
     $ sudo -su oracle
@@ -116,8 +116,13 @@ El software de Oracle ya está instalado en la imagen de Marketplace. Cree una b
     The listener supports no services
     The command completed successfully
     ```
+2. Creación de un directorio de datos para los archivos de datos de Oracle
 
-2.  Cree la base de datos:
+    ```bash
+        mkdir /u01/app/oracle/oradata
+    ```
+
+3.  Cree la base de datos:
 
     ```bash
     dbca -silent \
@@ -136,28 +141,58 @@ El software de Oracle ya está instalado en la imagen de Marketplace. Cree una b
            -databaseType MULTIPURPOSE \
            -automaticMemoryManagement false \
            -storageType FS \
+           -datafileDestination "/u01/app/oracle/oradata/"
            -ignorePreReqs
     ```
 
     La operación de creación de la base de datos tarda unos minutos.
 
-3. Establecimiento de las variables de Oracle
+    Verá una salida similar a la siguiente:
 
-Antes de conectarse, tiene que definir dos variables de entorno: *ORACLE_HOME* y *ORACLE_SID*.
+    ```output
+        Copying database files
+        1% complete
+        2% complete
+        8% complete
+        13% complete
+        19% complete
+        27% complete
+        Creating and starting Oracle instance
+        29% complete
+        32% complete
+        33% complete
+        34% complete
+        38% complete
+        42% complete
+        43% complete
+        45% complete
+        Completing Database Creation
+        48% complete
+        51% complete
+        53% complete
+        62% complete
+        70% complete
+        72% complete
+        Creating Pluggable Databases
+        78% complete
+        100% complete
+        Look at the log file "/u01/app/oracle/cfgtoollogs/dbca/cdb1/cdb1.log" for further details.
+    ```
 
-```bash
-ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
-ORACLE_SID=cdb1; export ORACLE_SID
-```
+4. Establecimiento de las variables de Oracle
 
-También puede agregar ORACLE_HOME y ORACLE_SID al archivo .bashrc. De este modo, las variables de entorno se guardarían para futuros inicios de sesión. Confirme que las instrucciones siguientes se han agregado al archivo `~/.bashrc` mediante el editor que elija.
+    Antes de conectarse, tiene que definir dos variables de entorno: *ORACLE_HOME* y *ORACLE_SID*.
 
-```bash
-# Add ORACLE_HOME. 
-export ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1 
-# Add ORACLE_SID. 
-export ORACLE_SID=cdb1 
-```
+    ```bash
+        ORACLE_SID=cdb1; export ORACLE_SID
+    ```
+
+    También puede agregar ORACLE_HOME y ORACLE_SID al archivo .bashrc. De este modo, las variables de entorno se guardarían para futuros inicios de sesión. Confirme que las instrucciones siguientes se han agregado al archivo `~/.bashrc` mediante el editor que elija.
+
+    ```bash
+    # Add ORACLE_SID. 
+    export ORACLE_SID=cdb1 
+    ```
 
 ## <a name="oracle-em-express-connectivity"></a>Conectividad con Oracle EM Express
 

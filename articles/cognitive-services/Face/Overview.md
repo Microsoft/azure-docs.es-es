@@ -7,16 +7,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 08/05/2020
+ms.date: 9/01/2020
 ms.author: pafarley
-ms.openlocfilehash: 061d6d1088358e5da0cb590fad5ed0a4cd9e422a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e1b5ca8cfb9a6bc0fec7d85f609c411f38d1bbbc
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87834225"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280081"
 ---
 # <a name="what-is-the-azure-face-service"></a>¿Qué es el servicio Azure Face?
+<!--
+> [!IMPORTANT]
+> On June 11, 2020, Microsoft announced that it will not sell facial recognition technology to police departments in the United States until strong regulation, grounded in human rights, has been enacted. As such, customers may not use facial recognition features or features included in Azure Services, such as Face or Video Indexer, if a customer is, or is allowing use of such services by or for, a police department in the United States.
+-->
+![Información legal ](./media/overview/banner.png)
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 

@@ -7,10 +7,10 @@ ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: fe06da759a1ad42ef5cef888f98c440cdfb9569c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "78252781"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Tutorial: Creación de imágenes de contenedor en un clúster de Service Fabric de Linux
@@ -98,7 +98,7 @@ Para crear un grupo de recursos, use el comando **az group create**. En este eje
 az group create --name <myResourceGroup> --location westus
 ```
 
-Cree una instancia de Azure Container Registry con el comando **az acr create**. Reemplace \<acrName> con el nombre del registro de contenedor que quiere crear en su suscripción. Este nombre debe ser alfanumérico y único.
+Cree una instancia de Azure Container Registry con el comando **az acr create**. Reemplace \<acrName> por el nombre del registro de contenedor que quiere crear en la suscripción. Este nombre debe ser alfanumérico y único.
 
 ```azurecli
 az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --admin-enabled true

@@ -1,6 +1,6 @@
 ---
 title: Formato de datos GeoJSON para geovalla | Microsoft Azure Maps
-description: En este artículo, obtendrá información sobre cómo preparar los datos de geovalla para que se usen en las API GET Geofence y POST Geofence de Microsoft Azure Maps.
+description: Obtenga información acerca de los datos de geovalla de Azure Maps. Consulte cómo usar las API GET Geofence y POST Geofence al recuperar la posición de las coordenadas con respecto a una geovalla.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 02/14/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 924c23f0fb0156ff585872dded72932a1574a12d
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 27a2fee04afc559a8564aea5e112de07e9c0dcf6
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131312"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037412"
 ---
 # <a name="geofencing-geojson-data"></a>Datos GeoJSON de geovallas
 

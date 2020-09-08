@@ -1,18 +1,18 @@
 ---
 title: Notas de la versión de la serie StorSimple 8000 Update 5.1
 description: Describe las nuevas características, problemas y soluciones alternativas de la serie StorSimple 8000 Update 5.1.
-author: priestlg
+author: twooley
 ms.assetid: ''
 ms.service: storsimple
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.author: v-grpr
-ms.openlocfilehash: 27778ea232353dcaa6a38fa19abbd64b11c809e2
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.author: twooley
+ms.openlocfilehash: b706d702ad496d0526d02c4158123cc883505ddf
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657868"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782352"
 ---
 # <a name="storsimple-8000-series-update-51-release-notes"></a>Notas de la versión de la serie StorSimple 8000 Update 5.1
 

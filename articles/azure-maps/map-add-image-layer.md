@@ -1,6 +1,6 @@
 ---
 title: Adición de una capa de imagen a un mapa | Microsoft Azure Maps
-description: En este artículo, obtendrá información sobre cómo superponer una capa de imagen en un mapa mediante el SDK web de Microsoft Azure Maps.
+description: Aprenda a agregar imágenes a un mapa. Vea cómo usar el SDK web de Azure Maps para personalizar las capas de imagen y superponer imágenes en conjuntos fijos de coordenadas.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 6ffec1afc44c6b920a64b4b92b384b6ce3829488
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4a804272a92d98156122397ee7427dcb467fbdf0
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286959"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010232"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Adición de una capa de imagen a un mapa
 
@@ -53,7 +53,7 @@ map.layers.add(new atlas.layer.ImageLayer({
 }));
 ```
 
-A continuación se muestra el código de ejemplo de ejecución completo del código anterior.
+A continuación, se muestra el código de ejemplo de ejecución completo del código anterior.
 
 <br/>
 

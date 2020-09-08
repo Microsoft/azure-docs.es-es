@@ -8,12 +8,12 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 69fec93c2426f4274e0c890d76bdcbbb4678fa7d
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: ea0dac74d4f995e41513b3451dd28d177040e672
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86230764"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935031"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Modelos de diseño para aplicaciones SaaS multiinquilino y Azure Cognitive Search
 
@@ -119,7 +119,7 @@ En los patrones de diseño anteriores para modelar escenarios muliinquilino en A
 
 Si los modelos de servicio por inquilino o índice por inquilino no son ámbitos lo suficientemente pequeños, es posible modelar un índice para lograr un grado de granularidad más fino si cabe.
 
-Para que un único índice se comporte de forma diferente para diferentes puntos de conexión de cliente, se puede agregar un campo a un índice para designar un determinado valor para cada posible cliente. Cada vez que un cliente llama a Azure Cognitive Search para consultar o modificar un índice, el código de la aplicación cliente especifica el valor adecuado para ese campo mediante la funcionalidad de [filtro](https://msdn.microsoft.com/library/azure/dn798921.aspx) de Azure Cognitive Search durante la consulta.
+Para que un único índice se comporte de forma diferente para diferentes puntos de conexión de cliente, se puede agregar un campo a un índice para designar un determinado valor para cada posible cliente. Cada vez que un cliente llama a Azure Cognitive Search para consultar o modificar un índice, el código de la aplicación cliente especifica el valor adecuado para ese campo mediante la funcionalidad de [filtro](./query-odata-filter-orderby-syntax.md) de Azure Cognitive Search durante la consulta.
 
 Este método puede usarse para lograr la funcionalidad de cuentas de usuario independientes, niveles de permisos independientes e incluso aplicaciones completamente independientes.
 
@@ -132,4 +132,3 @@ Este método puede usarse para lograr la funcionalidad de cuentas de usuario ind
 Azure Cognitive Search es una opción atractiva para muchas aplicaciones. Al evaluar los diversos patrones de diseño para aplicaciones multiinquilino, tenga en cuenta los [distintos planes de tarifa](https://azure.microsoft.com/pricing/details/search/) y sus respectivos [límites de servicio](search-limits-quotas-capacity.md) para adaptar mejor Azure Cognitive Search de forma que encaje en cargas de trabajo de aplicaciones y arquitecturas de todos los tamaños.
 
 Las preguntas sobre Azure Cognitive Search y los escenarios multiinquilino se pueden dirigir a azuresearch_contact@microsoft.com.
-

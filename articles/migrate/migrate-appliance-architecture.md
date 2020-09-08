@@ -3,12 +3,12 @@ title: Arquitectura del dispositivo de Azure Migrate
 description: Proporciona información general sobre el dispositivo de Azure Migrate usado en la evaluación y migración del servidor.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 0752f7afa7ff8d25f938084fd9e6e863d885f9aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a83e044acc329572a5f3bfd4856f90379319ba1d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770907"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919750"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Arquitectura del dispositivo de Azure Migrate
 
@@ -31,7 +31,7 @@ El dispositivo tiene una serie de componentes.
 
 - **Aplicación de administración**: una aplicación web para la entrada del usuario durante la implementación del dispositivo. Se usa a la hora de evaluar las máquinas para su migración a Azure.
 - **Agente de detección**: un agente que reúne los datos de configuración de la máquina. Se usa a la hora de evaluar las máquinas para su migración a Azure. 
-- **Agente de evaluación**: un agente que recopila datos de rendimiento. Se usa a la hora de evaluar las máquinas para su migración a Azure.
+- **Agente recopilador**: un agente que recopila datos de rendimiento. Se usa a la hora de evaluar las máquinas para su migración a Azure.
 - **Agente de recuperación de datos (DRA)** : organiza la replicación de VM y coordina la comunicación entre las máquinas replicadas y Azure. Solo se usa al replicar máquinas virtuales de VMware en Azure mediante la migración sin agentes.
 - **Puerta de enlace**: Envía los datos replicados a Azure. Solo se usa al replicar máquinas virtuales de VMware en Azure mediante la migración sin agentes.
 - **Servicio de actualización automática**: actualiza los componentes del dispositivo (se ejecuta cada 24 horas).

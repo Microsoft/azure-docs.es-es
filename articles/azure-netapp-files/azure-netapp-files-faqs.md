@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 08/18/2020
 ms.author: b-juche
-ms.openlocfilehash: 7c792ee9c56a044942bb2249a57f2615c72badee
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: eeb22672829dca9ba342079183dcc5ed7c35393c
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533145"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590377"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Preguntas más frecuentes acerca de Azure NetApp Files
 
@@ -54,7 +54,9 @@ No. La asignación de direcciones IP a volúmenes de Azure NetApp Files es diná
 
 ### <a name="can-the-network-traffic-between-the-azure-vm-and-the-storage-be-encrypted"></a>¿Se puede cifrar el tráfico de red entre la máquina virtual de Azure y el almacenamiento?
 
-El tráfico de datos (el tráfico desde el cliente de NFSv3, NFSv4.1 o SMBv3 a los volúmenes de Azure NetApp Files) no está cifrado. Sin embargo, el tráfico desde una máquina virtual de Azure (que ejecuta un cliente SMB o NFS) a Azure NetApp Files es tan seguro como cualquier otro tráfico de máquina virtual a máquina virtual de Azure. Se trata de tráfico local a la red del centro de datos de Azure. 
+El tráfico de datos entre los clientes de NFSv 4.1 y los volúmenes de Azure NetApp Files se puede cifrar mediante Kerberos con el cifrado AES-256. Para más información, consulte [Configuración del cifrado Kerberos de NFSv4.1 para Azure NetApp Files](configure-kerberos-encryption.md).   
+
+El tráfico de datos entre los clientes de NFSv3 o SMBv3 y los volúmenes de Azure NetApp Files no se cifra. Sin embargo, el tráfico desde una máquina virtual de Azure (que ejecuta un cliente SMB o NFS) a Azure NetApp Files es tan seguro como cualquier otro tráfico de máquina virtual a máquina virtual de Azure. Se trata de tráfico local a la red del centro de datos de Azure. 
 
 ### <a name="can-the-storage-be-encrypted-at-rest"></a>¿Se puede cifrar el almacenamiento en reposo?
 
@@ -125,7 +127,7 @@ Azure NetApp Files admite NFSv3 y NFSv4.1. Se pueden [crear volúmenes](azure-ne
 
 ### <a name="how-do-i-enable-root-squashing"></a>¿Cómo se puede habilitar root squashing?
 
-Actualmente no se admite root squashing.
+El usuario puede especificar si la cuenta raíz tendrá o no acceso al volumen por medio de la directiva de exportación del volumen. Para más información, consulte [Configuración de la directiva de exportación para un volumen NFS](azure-netapp-files-configure-export-policy.md).
 
 ## <a name="smb-faqs"></a>Preguntas más frecuentes de SMB
 
@@ -177,6 +179,11 @@ Un volumen de protocolo dual admite los protocolos NFS y SMB.  Al intentar obten
 
 Para evitar el problema de tipo "Permiso denegado", asegúrese de que Active Directory para Windows incluya `pcuser` antes de obtener acceso al punto de montaje. Si agrega `pcuser` después de encontrar el problema "Permiso denegado", espere 24 horas para que la entrada de caché se borre antes de volver a intentar el acceso.
 
+### <a name="when-i-try-to-create-a-dual-protocol-volume-why-does-the-creation-process-fail-with-the-error-failed-to-validate-ldap-configuration-try-again-after-correcting-ldap-configuration"></a>Cuando intento crear un volumen de protocolo dual, ¿por qué se produce un error en el proceso de creación con el error "no se pudo validar la configuración de LDAP, inténtelo de nuevo después de corregir la configuración de LDAP"?  
+
+Es posible que falte el registro de puntero (PTR) del equipo host de AD en el servidor DNS. Tiene que crear una zona de búsqueda inversa en el servidor DNS y luego agregar un registro de puntero (PTR) del equipo host de AD a esa zona de búsqueda inversa.
+
+Por ejemplo, supongamos que la dirección IP de la máquina de AD es `1.1.1.1`, que el nombre de host de la máquina de AD (que se encuentra mediante el comando `hostname`) es `AD1` y el nombre de dominio es `myDomain.com`.  El registro PTR agregado a la zona de búsqueda inversa debe ser `1.1.1.1` -> `AD1.myDomain.com`.
 
 ## <a name="capacity-management-faqs"></a>Preguntas más frecuentes sobre la administración de la capacidad
 

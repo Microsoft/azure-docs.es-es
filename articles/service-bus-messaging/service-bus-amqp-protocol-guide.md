@@ -3,12 +3,12 @@ title: Guía del protocolo AMQP 1.0 en Azure Service Bus y Event Hubs | Microsof
 description: Guía del protocolo para expresiones y la descripción de AMQP 1.0 en Azure Service Bus y Event Hubs
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 5957e2d36b57be7db1af279736e8859d1a69b66b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ffccd49d37dbf2a8fc404e9895b648e53007675c
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511320"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064543"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guía del protocolo AMQP 1.0 Azure Service Bus y Event Hubs
 
@@ -73,7 +73,7 @@ Las conexiones, los canales y las sesiones son efímeros. Si la conexión subyac
 
 ### <a name="amqp-outbound-port-requirements"></a>Requisitos de puertos de salida de AMQP
 
-Los clientes que usan conexiones AMQP a través de TCP requieren que se abran los puertos 5671 y 5672 en el firewall local. Junto con estos puertos, podría ser necesario abrir puertos adicionales si está habilitada la característica [EnableLinkRedirect](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet). `EnableLinkRedirect` es una nueva característica de mensajería que ayuda a omitir un salto al recibir mensajes, lo que ayuda a mejorar el rendimiento. El cliente comenzará a comunicarse directamente con el servicio back-end a través del intervalo de puertos 104XX como se muestra en la siguiente imagen. 
+Los clientes que usan conexiones AMQP a través de TCP requieren que se abran los puertos 5671 y 5672 en el firewall local. Junto con estos puertos, podría ser necesario abrir puertos adicionales si está habilitada la característica [EnableLinkRedirect](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet). `EnableLinkRedirect` es una nueva característica de mensajería que ayuda a omitir un salto al recibir mensajes, lo que ayuda a mejorar el rendimiento. El cliente comenzará a comunicarse directamente con el servicio back-end a través del intervalo de puertos 104XX como se muestra en la siguiente imagen. 
 
 ![Lista de puertos de destino][4]
 
@@ -419,5 +419,5 @@ Para aprender más sobre AMQP, visite los siguientes vínculos:
 [4]: ./media/service-bus-amqp-protocol-guide/amqp4.png
 
 [Información general sobre AMQP para Service Bus]: service-bus-amqp-overview.md
-[Compatibilidad de AMQP 1.0 con los temas y las colas con particiones de Service Bus]: service-bus-partitioned-queues-and-topics-amqp-overview.md
-[AMQP de Service Bus para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
+[Compatibilidad de AMQP 1.0 con los temas y las colas con particiones de Service Bus]: 
+[AMQP in Service Bus for Windows Server]: /previous-versions/service-bus-archive/dn574799(v=azure.100)

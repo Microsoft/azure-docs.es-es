@@ -3,12 +3,12 @@ title: Uso de PowerShell para hacer una copia de seguridad de Windows Server en 
 description: En este artículo aprenderá a usar PowerShell para configurar Azure Backup en Windows Server o una versión cliente de Windows y para administrar copias de seguridad y recuperaciones.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: 0deccc49b82d4a8b81889c35174c3efa81b6d74d
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 47c8fc39626d3bca3355c1d1e46f1634327748a8
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87564034"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892378"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implementación y administración de copias de seguridad en Azure para Windows Server o cliente de Windows mediante PowerShell
 
@@ -20,7 +20,7 @@ En este artículo se muestra cómo usar PowerShell para configurar Azure Backup 
 
 Para empezar, [instale la versión más reciente de PowerShell](/powershell/azure/install-az-ps).
 
-## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Servicios de recuperación
+## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
 
 Los siguientes pasos le guiarán por el proceso de creación de un almacén de Recovery Services. Un almacén de Recovery Services no es lo mismo que un almacén de copia de seguridad.
 
@@ -42,7 +42,7 @@ Los siguientes pasos le guiarán por el proceso de creación de un almacén de R
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
     ```
 
-4. Especifique el tipo de redundancia de almacenamiento que se va a usar: [almacenamiento con redundancia local (LRS)](../storage/common/storage-redundancy.md) o [almacenamiento con redundancia geográfica (GRS)](../storage/common/storage-redundancy.md). En el ejemplo siguiente se muestra que la opción **-BackupStorageRedundancy** para *testVault* está establecida en **GeoRedundant**.
+4. Especifique el tipo de redundancia de almacenamiento que se usará. Puede usar [almacenamiento con redundancia local (LRS)](../storage/common/storage-redundancy.md) o [almacenamiento con redundancia geográfica (GRS)](../storage/common/storage-redundancy.md). En el ejemplo siguiente se muestra que la opción **-BackupStorageRedundancy** para *testVault* está establecida en **GeoRedundant**.
 
    > [!TIP]
    > Muchos de los cmdlets de Azure Backup requieren el objeto de almacén de Recovery Services como entrada. Por este motivo, es conveniente almacenar el objeto de almacén de Recovery Services de Backup en una variable.

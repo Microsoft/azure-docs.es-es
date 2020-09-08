@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 4a925fb4352ac81e5879bb925ee1d743a77ffd5c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3992bbe466241eb388874905237dbe00f07b3752
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290290"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88812992"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: Predicción del precio de un automóvil con el diseñador (versión preliminar)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -104,13 +104,7 @@ Se incluyen varios conjuntos de datos de ejemplo en el diseñador para que exper
 
 Puede visualizar los datos para comprender el conjunto de datos que va a usar.
 
-1. Seleccione el módulo **Automobile price data (RAW)** .
-
-1. En el panel de detalles del módulo, situado a la derecha del lienzo, seleccione **Outputs + logs** (Salidas y registros).
-
-1. Seleccione el icono de gráfico para visualizar los datos.
-    
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/visualize-data.png"alt-text="Texto alternativo aquí.":::
+1. Haga clic con el botón derecho en **Automobile price data (Raw)** (Datos de precio del automóvil [sin procesar]) y seleccione **Visualizar**.
 
 1. Seleccione las diferentes columnas de la ventana de datos para ver información sobre cada una.
 
@@ -285,15 +279,13 @@ Ahora que ya ha configurado la canalización, puede enviar una ejecución de can
     
     Puede ver el estado y los detalles de la ejecución en la parte superior derecha del lienzo.
     
-    Si es la primera ejecución, la canalización puede tardar hasta 20 minutos en finalizar. La configuración del proceso predeterminada tiene un tamaño de nodo mínimo de 0, lo que significa que el diseñador debe asignar recursos después de estar inactivo. Las ejecuciones de canalización repetidas tardarán menos en terminar, dado que los recursos del proceso ya están asignados. Además, el diseñador usa resultados almacenados en la caché en cada módulo para mejorar aún más la eficiencia.
+    Si es la primera ejecución, la canalización puede tardar hasta 20 minutos en finalizar. La configuración del proceso predeterminada tiene un tamaño de nodo mínimo de 0, lo que significa que el diseñador debe asignar recursos después de estar inactivo. Las ejecuciones de canalización repetidas tardarán menos en terminar, dado que los recursos del proceso ya están asignados. Además, el diseñador usa resultados almacenados en la caché en cada módulo para mejorar aún más la eficiencia.
 
 ### <a name="view-scored-labels"></a>Visualización de etiquetas con puntuación
 
 Una vez finalizada la ejecución, puede ver los resultados de la ejecución de la canalización. En primer lugar, examine las predicciones generadas por el modelo de regresión.
 
-1. Seleccione el módulo **Score Model** (Puntuar modelo) para ver su salida.
-
-1. En el panel de detalles del módulo, que se encuentra a la derecha del lienzo, seleccione **Outputs + logs** (Salidas y registros) > icono de gráfico ![icono visualizar ](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para ver los resultados.
+1. Haga clic con el botón derecho en el módulo **Score Model** (Puntuar modelo) y seleccione **Visualizar** para ver el resultado.
 
     Aquí puede ver los precios previstos y los precios reales de los datos de prueba.
 
@@ -303,9 +295,7 @@ Una vez finalizada la ejecución, puede ver los resultados de la ejecución de l
 
 Use **Evaluate Model** (Evaluar modelo) para ver el rendimiento del modelo entrenado en el conjunto de datos de prueba.
 
-1. Seleccione el módulo **Evaluate Model** (Evaluar modelo) para ver su salida.
-
-1. En el panel de detalles del módulo, que se encuentra a la derecha del lienzo, seleccione **Outputs + logs** (Salidas y registros) > icono de gráfico ![icono visualizar ](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para ver los resultados.
+1. Haga clic con el botón derecho en el módulo **Evaluate Model** (Evaluar modelo) y seleccione **Visualizar** para ver el resultado.
 
 Se muestran las siguientes estadísticas de su modelo:
 

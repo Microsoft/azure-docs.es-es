@@ -1,6 +1,6 @@
 ---
 title: 'Ejemplo de script de Azure PowerShell: descarga de la plantilla de configuración de dispositivos | Microsoft Docs'
-description: Descarga de la plantilla de configuración de dispositivos
+description: Obtenga información sobre cómo usar un script de PowerShell para descargar la plantilla de configuración de dispositivos VPN para una conexión.
 services: vpn-gateway
 documentationcenter: vpn-gateway
 author: yushwang
@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 01/09/2020
 ms.author: yushwang
-ms.openlocfilehash: 8c0be71f5ffe82f6b6e1cb607baf070c499bd46f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 283ddb12e497c242f1843840fe1f1ff208712626
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077236"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031717"
 ---
 # <a name="download-vpn-device-template-using-powershell"></a>Descarga de la plantilla de dispositivos VPN mediante PowerShell
 

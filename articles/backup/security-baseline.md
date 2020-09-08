@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d0a6b6561b5d0995d7794993608a4991b1da2718
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 7b48ac1621c5c8788a4ecdb9ceb3af78f8e82a37
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810146"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890508"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Línea de base de seguridad de Azure para Backup
 
@@ -350,7 +350,7 @@ Además, use las detecciones de riesgo de Azure AD para ver alertas e informes 
 
 - [Configuración de Azure Backup para usar el inicio de sesión de Azure AD](../app-service/configure-authentication-provider-aad.md)
 
-- [Creación y configuración de una instancia de AAD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [Procedimiento para crear y configurar una instancia de Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -580,7 +580,7 @@ Plataforma subyacente examinada y revisada por Microsoft. Revise los controles d
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1: Uso de la detección de recursos de Azure
 
-**Guía**: Use Azure Resource Graph para consultar o detectar todos los recursos (por ejemplo, proceso, almacenamiento, red, puertos y protocolos, etc.) dentro de las suscripciones.  Asegúrese de que tiene los permisos adecuados (lectura) en el inquilino y enumere todas las suscripciones de Azure, así como los recursos de las suscripciones.
+**Guía**: Use Azure Resource Graph para consultar o detectar todos los recursos (por ejemplo, proceso, almacenamiento, red, puertos y protocolos) dentro de las suscripciones.  Asegúrese de que tiene los permisos adecuados (lectura) en el inquilino y enumere todas las suscripciones de Azure, así como los recursos de las suscripciones.
 
 Aunque los recursos clásicos de Azure se pueden detectar a través de Resource Graph, se recomienda encarecidamente crear y usar los recursos de Azure Resource Manager que figuran a continuación.
 
@@ -860,7 +860,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 **Guía**: Microsoft Antimalware está habilitado en el host subyacente que admite los servicios de Azure (por ejemplo, Azure Backup), pero no se ejecuta en el contenido.
 
-Examine previamente los archivos que se cargan en recursos de Azure que no son de proceso, como App Service, Data Lake Storage, Blob Storage, etc.
+Examine previamente los archivos que se cargan en recursos de Azure que no son de proceso, como App Service, Data Lake Storage y Blob Storage.
 
 Use la detección de amenazas de Azure Security Center para los servicios de datos para detectar malware cargado en cuentas de almacenamiento.
 
@@ -902,7 +902,7 @@ Realice una copia de seguridad de las claves administradas del cliente con Azure
 
 - [Creación de una copia de seguridad de las claves del almacén de claves en Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
-- [Descripción del cifrado en Azure Backup](./backup-encryption.md#encryption-of-backup-data-using-customer-managed-keys)
+- [Descripción del cifrado en Azure Backup](./backup-encryption.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 

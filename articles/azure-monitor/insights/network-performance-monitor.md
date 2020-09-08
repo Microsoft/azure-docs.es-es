@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 720a768679cdbd45224e5c9a05b8f8d0c9b9ea81
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 34e81076c27086ad838cca23de0e150a3c1b076c
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326093"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798914"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solución Network Performance Monitor en Azure
 
@@ -38,7 +38,9 @@ Hay más información sobre las diferentes funcionalidades compatibles con [Netw
 NPM puede supervisar la conectividad entre redes y aplicaciones en cualquier parte del mundo, desde un área de trabajo que se hospede en una de las siguientes regiones:
 * Norte de Europa
 * Oeste de Europa
+* Norte de Suiza
 * Centro de Francia
+* Norte de Sudáfrica
 * Centro de Canadá
 * Oeste de EE. UU.
 * Centro-Oeste de EE. UU.
@@ -58,6 +60,7 @@ NPM puede supervisar la conectividad entre redes y aplicaciones en cualquier par
 * Centro de Corea del Sur
 * Centro de la India
 * US Gov Virginia
+* US Gov Arizona
 * Este de China 2
 
 

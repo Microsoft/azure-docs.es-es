@@ -2,17 +2,17 @@
 title: Conexión de Azure a nubes públicas | Microsoft Docs
 description: Descripción de varias formas de conectar Azure a otras nubes públicas
 services: expressroute
-author: osamazia
+author: duongau
 ms.service: expressroute
 ms.topic: article
 ms.date: 07/24/2019
-ms.author: osamaz
-ms.openlocfilehash: 80863b56334b0d2d76cdf505dcd15c5cc4c14c52
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: duau
+ms.openlocfilehash: f413b6100fb2a7d1c8bc06d787468cc3e79c0169
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081107"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397481"
 ---
 # <a name="connecting-azure-with-public-clouds"></a>Conexión de Azure a nubes públicas
 

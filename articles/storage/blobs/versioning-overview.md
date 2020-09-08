@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2085f0e8a148e27914b517f25e48894009592dd2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 494c1fc1c1c91538240258ab0517c7ff79bdfa74
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498606"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056540"
 ---
 # <a name="blob-versioning-preview"></a>Control de versiones de blobs (versión preliminar)
 
@@ -24,6 +24,8 @@ Puede habilitar el control de versiones de Blob Storage (versión preliminar) pa
 El control de versiones de blobs está habilitado en la cuenta de almacenamiento y se aplica a todos los blobs de dicha cuenta. Después de habilitar el control de versiones de blobs para una cuenta de almacenamiento, Azure Storage conserva automáticamente las versiones de todos los blobs de la cuenta de almacenamiento.
 
 Microsoft recomienda usar el control de versiones de blobs para conservar las versiones anteriores de un blob a fin de mejorar la protección de datos. Cuando sea posible, use el control de versiones de blobs en lugar de las instantáneas de blobs para conservar las versiones anteriores. Las instantáneas de blobs proporcionan una funcionalidad similar, ya que también conservan las versiones anteriores de los blobs, sin embargo, en este caso, la aplicación debe mantener las instantáneas manualmente.
+
+Para obtener información sobre cómo habilitar el control de versiones de blobs, consulte [Habilitación y administración del control de versiones de blobs](versioning-enable.md).
 
 > [!IMPORTANT]
 > El control de versiones de blobs no puede ayudarle a recuperar una eliminación accidental de una cuenta de almacenamiento o un contenedor. Para evitar dicha eliminación, configure el bloqueo **CannotDelete** en el recurso de la cuenta de almacenamiento. Para obtener más información sobre el bloqueo de recursos de Azure, vea [Bloqueo de recursos para impedir cambios inesperados](../../azure-resource-manager/management/lock-resources.md).
@@ -204,7 +206,8 @@ El control de versiones de blobs está disponible en versión preliminar en las 
 - Este de Canadá
 - Centro de Canadá
 
-La versión preliminar está pensada para usos distintos del de producción.
+> [!IMPORTANT]
+> La versión preliminar del control de versiones de blobs está pensada para entornos que no son el de producción. En este momento no hay contratos de nivel de servicio de producción disponibles.
 
 La versión 2019-10-10 y las posteriores de la API REST de Azure Storage admiten el control de versiones de blobs.
 
@@ -226,7 +229,7 @@ Para inscribirse para obtener la versión preliminar del control de versiones de
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Para registrarse con PowerShell, llame al comando [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature).
+Para registrarse con PowerShell, llame al comando [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature).
 
 ```powershell
 # Register for blob versioning (preview)
@@ -242,8 +245,8 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 Para registrarse con la CLI de Azure, llame al comando [az feature register](/cli/azure/feature#az-feature-register).
 
 ```azurecli
-az feature register --namespace Microsoft.Storage \
-    --name Versioning
+az feature register --namespace Microsoft.Storage --name Versioning
+az provider register --namespace 'Microsoft.Storage'
 ```
 
 ---
@@ -266,8 +269,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
 Para comprobar el estado del registro con la CLI de Azure, llame al comando [az feature](/cli/azure/feature#az-feature-show).
 
 ```azurecli
-az feature show --namespace Microsoft.Storage \
-    --name Versioning
+az feature show --namespace Microsoft.Storage --name Versioning
 ```
 
 ---

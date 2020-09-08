@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35669a7d80907e2335c68b1da9010f5879aa6c7c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d9510bd564ced2f458a9a78ff23200bb32358c3e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87274092"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268543"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Preguntas más frecuentes sobre itinerancia de datos y configuración
 
@@ -37,7 +37,7 @@ Este artículo responde a algunas preguntas que los administradores de TI podrí
 > [!NOTE]
 > Este artículo se aplica al explorador basado en HTML heredado de Microsoft Edge que se publicó con Windows 10 en julio de 2015. No se aplica al nuevo explorador Microsoft Edge basado en Chromium, publicado el 15 de enero de 2020. Para obtener más información sobre el comportamiento de sincronización del nuevo Microsoft Edge, consulte el artículo [Sincronización de Microsoft Edge](/deployedge/microsoft-edge-enterprise-sync).
 
-**Datos de la aplicación**: las aplicaciones universales de Windows pueden escribir los datos de configuración en una carpeta de itinerancia y todos los datos escritos en esta carpeta se sincronizarán automáticamente. Depende del desarrollador de las aplicaciones individuales el diseñar una aplicación para sacar partido a esta funcionalidad. Para más información sobre cómo desarrollar una aplicación universal de Windows que use la itinerancia, consulte [Almacenar y recuperar la configuración y otros datos de aplicación](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) y el [blog para desarrolladores de itinerancia de datos de aplicación de Windows 8](https://blogs.windows.com/windowsdeveloper/2016/05/04/roaming-app-data-and-the-user-experience/).
+**Datos de la aplicación**: las aplicaciones universales de Windows pueden escribir los datos de configuración en una carpeta de itinerancia y todos los datos escritos en esta carpeta se sincronizarán automáticamente. Depende del desarrollador de las aplicaciones individuales el diseñar una aplicación para sacar partido a esta funcionalidad. Para más información sobre cómo desarrollar una aplicación universal de Windows que use la itinerancia, consulte [Almacenar y recuperar la configuración y otros datos de aplicación](/windows/uwp/design/app-settings/store-and-retrieve-app-data) y el [blog para desarrolladores de itinerancia de datos de aplicación de Windows 8](https://blogs.windows.com/windowsdeveloper/2016/05/04/roaming-app-data-and-the-user-experience/).
 
 ## <a name="what-account-is-used-for-settings-sync"></a>¿Qué cuenta se usa para la sincronización de configuración?
 
@@ -86,9 +86,9 @@ Cuando varias cuentas de Azure AD de distintos inquilinos de Azure AD se encuent
 La itinerancia solo funciona en las aplicaciones universales de Windows. Hay dos opciones disponibles para habilitar la itinerancia en aplicaciones de escritorio de Windows existentes:
 
 * [Desktop Bridge](https://aka.ms/desktopbridge) le ayuda transferir fácilmente sus aplicaciones de escritorio de Windows a la plataforma universal de Windows. A partir de aquí, habrá que realizar cambios mínimos en el código para aprovechar las ventajas de la itinerancia de datos de la aplicación de Azure AD. Desktop Bridge proporciona a las aplicaciones una identidad de aplicación, que se requiere para habilitar la itinerancia de datos de las aplicaciones de escritorio existentes.
-* [User Experience Virtualization (UE-V)](https://technet.microsoft.com/library/dn458947.aspx) le permite crear una plantilla de configuración personalizada para aplicaciones de escritorio de Windows existentes y habilitar la itinerancia para las aplicaciones de Win32. Esta opción no precisa que el desarrollador cambie el código de la aplicación. Solo los clientes que han comprado el paquete de optimización de escritorio de Microsoft pueden utilizar UE-V para habilitar la itinerancia de Active Directory local.
+* [User Experience Virtualization (UE-V)](/previous-versions//dn458947(v=vs.85)) le permite crear una plantilla de configuración personalizada para aplicaciones de escritorio de Windows existentes y habilitar la itinerancia para las aplicaciones de Win32. Esta opción no precisa que el desarrollador cambie el código de la aplicación. Solo los clientes que han comprado el paquete de optimización de escritorio de Microsoft pueden utilizar UE-V para habilitar la itinerancia de Active Directory local.
 
-Los administradores pueden configurar UE-V para usar un perfil itinerante en los datos de aplicación de escritorio de Windows cambiando la itinerancia de la configuración de sistema operativo Windows y de los datos de aplicación universal mediante las [directivas de grupo de UE-V](https://technet.microsoft.com/itpro/mdop/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2), entre ellas:
+Los administradores pueden configurar UE-V para usar un perfil itinerante en los datos de aplicación de escritorio de Windows cambiando la itinerancia de la configuración de sistema operativo Windows y de los datos de aplicación universal mediante las [directivas de grupo de UE-V](/microsoft-desktop-optimization-pack/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2), entre ellas:
 
 * La directiva de grupo "Roam Windows settings" (Usar un perfil itinerante en la configuración de Windows)
 * La directiva de grupo "Do not synchronize Windows Apps" (No sincronizar aplicaciones de Windows)

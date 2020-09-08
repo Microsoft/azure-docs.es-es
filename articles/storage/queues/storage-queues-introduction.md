@@ -1,6 +1,6 @@
 ---
 title: Introducción a Azure Queues en Azure Storage
-description: Introducción a Azure Queues
+description: Consulte esta introducción a las colas de Azure, un servicio que permite almacenar grandes cantidades de mensajes. Un servicio de cola contiene un formato de dirección URL, una cuenta de almacenamiento, una cola y un mensaje.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 03/18/2020
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: overview
 ms.reviewer: dineshm
-ms.openlocfilehash: 678ab8a3f3dace17671c242939c20cb5499b2e39
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: c16f02922b2e815ddd4986ab07bf260b20d871ee
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84805126"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826507"
 ---
 # <a name="what-are-azure-queues"></a>¿Qué son las colas de Azure?
 
@@ -25,7 +25,7 @@ El servicio Cola contiene los siguientes componentes:
 
 ![Diagrama que muestra la relación entre una cuenta de almacenamiento, las colas y los mensajes](./media/storage-queues-introduction/queue1.png)
 
-* **Formato de dirección URL**: Las colas son direccionables mediante el siguiente formato de dirección URL:
+* **Formato URL:** las colas son direccionables mediante el formato de dirección URL siguiente:
 
     `https://<storage account>.queue.core.windows.net/<queue>`
   
@@ -35,9 +35,9 @@ El servicio Cola contiene los siguientes componentes:
 
 * **Cuenta de almacenamiento**: Todo el acceso a Azure Storage se realiza a través de una cuenta de almacenamiento. Para más información sobre la capacidad de la cuenta de almacenamiento, consulte [Objetivos de escalabilidad y rendimiento para cuentas de almacenamiento estándar](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).
 
-* **Cola**: una cola contiene un conjunto de mensajes. El nombre de la cola **debe** escribirse en minúsculas. Para más información, consulte [Asignar nombres a colas y metadatos](https://msdn.microsoft.com/library/azure/dd179349.aspx).
+* **Cola:** una cola contiene un conjunto de mensajes. El nombre de la cola **debe** escribirse en minúsculas. Para más información, consulte [Asignar nombres a colas y metadatos](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 
-* **Mensaje**: un mensaje, en cualquier formato, de hasta 64 KB. Antes de la versión 2017-07-29, el máximo tiempo de vida permitido es de siete días. A partir de la versión del 2017-07-29, inclusive, el tiempo de vida máximo puede ser cualquier número positivo o -1, lo que indica que el mensaje no expira. Si se omite este parámetro, el tiempo de vida predeterminado es siete días.
+* **Mensaje:** un mensaje, en cualquier formato, de hasta 64 KB. Antes de la versión 2017-07-29, el máximo tiempo de vida permitido es de siete días. A partir de la versión del 2017-07-29, inclusive, el tiempo de vida máximo puede ser cualquier número positivo o -1, lo que indica que el mensaje no expira. Si se omite este parámetro, el tiempo de vida predeterminado es siete días.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

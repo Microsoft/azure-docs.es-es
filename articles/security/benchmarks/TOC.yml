@@ -59,10 +59,18 @@
       href: ../../postgresql/postgresql-hyperscale-security-baseline.md
     - name: Base de referencia de seguridad de Azure Databricks
       href: ../../azure-databricks/security-baseline.md
+    - name: Línea de base de seguridad de Azure DNS
+      href: ../../dns/security-baseline.md
     - name: Línea de base de seguridad de Azure Firewall
       href: ../../firewall/security-baseline.md
     - name: Base de referencia de seguridad de Azure Functions
       href: ../../azure-functions/security-baseline.md
+    - name: Base de referencia de seguridad de Azure IoT Hub
+      href: ../../iot-hub/security-baseline.md
+    - name: Línea base de seguridad de Azure Monitor
+      href: ../../azure-monitor/security-baseline.md
+    - name: Línea de base de seguridad de Azure Machine Learning
+      href: ../../machine-learning/security-baseline.md
     - name: Base de referencia de seguridad de Azure Policy
       href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
     - name: Base de referencia de seguridad de Azure Resource Graph
@@ -87,6 +95,8 @@
       href: ../../data-lake-analytics/security-baseline.md
     - name: Línea de base de seguridad de DDOS Protection
       href: ../fundamentals/ddos-protection-security-baseline.md
+    - name: Línea de base de seguridad de Event Grid
+      href: ../../event-grid/security-baseline.md
     - name: Base de referencia de seguridad de Event Hubs
       href: ../../event-hubs/security-baseline.md
     - name: Línea de base de seguridad de ExpressRoute

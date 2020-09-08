@@ -3,12 +3,13 @@ title: Estado de las operaciones asincrónicas de Event Grid
 description: Describe cómo realizar un seguimiento de las operaciones asincrónicas de Event Grid en Azure. Muestra los valores que se usan para obtener el estado de una operación de larga ejecución.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 621490a9f56e88baaf343c1c2a072ab84aa7d3ef
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: baae7b097a0b696d405c0e7ea3d3bdeb326f23b1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103337"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011691"
 ---
 # <a name="track-event-grid-asynchronous-azure-operations"></a>Seguimiento de las operaciones asincrónicas de Event Grid en Azure
 Algunas operaciones de REST de Azure se ejecutan asincrónicamente porque la operación no se puede completar rápidamente. En este artículo se describe cómo realizar un seguimiento del estado de las operaciones asincrónicas a través de los valores devueltos en la respuesta.  

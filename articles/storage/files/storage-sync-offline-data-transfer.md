@@ -1,18 +1,18 @@
 ---
 title: Migración de datos a Azure File Sync con Azure Data Box
-description: Migración masiva de datos con un procedimiento compatible con Azure File Sync.
+description: Migración masiva de datos sin conexión que es compatible con Azure File Sync. Evite conflictos de archivos y mantenga las marcas de tiempo y las listas de control de acceso de archivos y carpetas después de habilitar la sincronización.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 438fe490bb241cbc42e53d8502e9065454ebcc4c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae9404d366b24c0cc1bcf01ecffc71a427f949d4
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514384"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034352"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync-with-azure-databox"></a>Migración de datos en masa a Azure File Sync con Azure DataBox
 Puede migrar datos de forma masiva a Azure File Sync de dos maneras:
@@ -88,6 +88,13 @@ Deshabilite el modo de transferencia de datos sin conexión solo si el estado es
 
 > [!IMPORTANT]
 > Después de deshabilitar la transferencia de datos sin conexión no puede habilitarla de nuevo, incluso si el recurso compartido de almacenamiento provisional de la migración masiva sigue estando disponible.
+
+## <a name="azure-file-sync-and-pre-seeded-files-in-the-cloud"></a>Azure File Sync y archivos preinicializados en la nube
+
+Si ha inicializado archivos en un recurso compartido de archivos de Azure por cualquier método que no sea DataBox (por ejemplo, a través de AzCopy, RoboCopy desde una copia de seguridad en la nube o cualquier otro método) debe seguir la información del apartado [Proceso de transferencia de datos sin conexión](#process-for-offline-data-transfer) que se describe en este artículo. Solo tiene que omitir DataBox como método que los archivos pasan a la nube. Sin embargo, es primordial asegurarse de seguir el proceso de inicialización de los archivos en un *recurso compartido de almacenamiento provisional* y no del recurso compartido conectado de Azure File Sync final.
+
+> [!WARNING]
+> **Siga el proceso de inicialización de archivos en un recurso compartido de almacenamiento provisional, no en el recurso compartido conectado de Azure File Sync final**. Si no lo hace, no solo pueden producirse conflictos de archivos (se almacenarán las dos versiones del archivo), sino que también pueden volver los archivos eliminados en el servidor en directo, en caso de que aún existan en el antiguo conjunto de archivos inicializado. Además, los cambios en las carpetas se combinarán entre sí, lo que dificultará considerablemente la separación del espacio de nombres después de un error.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Planeamiento de una implementación de Azure Files Sync](storage-sync-files-planning.md)

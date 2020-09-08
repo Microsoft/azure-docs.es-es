@@ -16,12 +16,12 @@ ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6a61a4a26176ee353d1f182579e1f8d80a95aab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ca5361d8500ecd4ea22a577d0a4dc7ced606eab
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356005"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89275909"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Recuperación del límite de 10 GB de LocalDB
 Azure AD Connect requiere una base de datos de SQL Server para almacenar datos de identidad. Puede usar la instancia predeterminada de Local DB incluida en SQL Server 2012 Express que se instala con Azure AD Connect o utilizar la versión completa de SQL Server. SQL Server Express impone un límite en el tamaño de 10 GB. Si usa LocalDB y se alcanza este límite, el servicio Azure AD Connect Synchronization no podrá iniciarse ni sincronizarse correctamente. En este artículo se detallan los pasos de recuperación.
@@ -55,7 +55,7 @@ En primer lugar, deberá determinar si el servicio de sincronización sigue en e
 5. Si el servicio no está en ejecución, intente iniciarlo. Si se inicia correctamente, omita el paso [Reducción de la base de datos](#shrink-the-database) y salte directamente a [Eliminación de los datos del historial de ejecución](#delete-run-history-data). De lo contrario, continúe en el paso [Reducción de la base de datos](#shrink-the-database).
 
 ### <a name="shrink-the-database"></a>Reducción de la base de datos
-Utilice la operación de reducción para liberar el suficiente espacio en la base de datos como para iniciar el servicio de sincronización. Esto se consigue eliminando espacios en blanco de la base de datos. Aunque este paso es el más indicado, no garantiza que se pueda recuperar espacio en todos los casos. Para más información sobre esta operación, consulte el artículo [Reducir una base de datos](https://msdn.microsoft.com/library/ms189035.aspx).
+Utilice la operación de reducción para liberar el suficiente espacio en la base de datos como para iniciar el servicio de sincronización. Esto se consigue eliminando espacios en blanco de la base de datos. Aunque este paso es el más indicado, no garantiza que se pueda recuperar espacio en todos los casos. Para más información sobre esta operación, consulte el artículo [Reducir una base de datos](/sql/relational-databases/databases/shrink-a-database?view=sql-server-ver15).
 
 > [!IMPORTANT]
 > Omita este paso si consigue ejecutar el servicio de sincronización. No resulta recomendable reducir la base de datos SQL, ya que, al aumentar la fragmentación, el rendimiento podría verse afectado.
@@ -100,8 +100,8 @@ Este paso está diseñado para reducir la probabilidad de que el límite de 10 G
 
 ## <a name="long-term-solution--migrate-to-full-sql"></a>Solución a largo plazo: migración a la versión completa de SQL Server
 En líneas generales, este problema indica que los 10 GB de tamaño de la base de datos ya no resultan suficientes para que Azure AD Connect pueda sincronizar la instancia local de Active Directory con Azure AD. Por tanto, se recomienda utilizar la versión completa de SQL Server. La instancia de LocalDB de una implementación existente de Azure AD Connect no se puede sustituir directamente por la base de datos de la versión completa de SQL Server. En su lugar, es necesario implementar un nuevo servidor de Azure AD Connect con la versión completa de SQL Server. Le recomendamos que realice una migración alterna en la que el nuevo servidor de Azure AD Connect (con la base de datos SQL) se implemente como servidor provisional, junto con el servidor existente de Azure AD Connect (con la instancia de LocalDB). 
-* Para obtener instrucciones acerca de cómo configurar una instancia remota de SQL con Azure AD Connect, consulte el artículo [Instalación personalizada de Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-custom).
-* Para instrucciones sobre la migración oscilante para la actualización de Azure AD Connect, consulte el artículo[Azure AD Connect: actualización de una versión anterior a la versión más reciente](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#swing-migration)
+* Para obtener instrucciones acerca de cómo configurar una instancia remota de SQL con Azure AD Connect, consulte el artículo [Instalación personalizada de Azure AD Connect](./how-to-connect-install-custom.md).
+* Para instrucciones sobre la migración oscilante para la actualización de Azure AD Connect, consulte el artículo[Azure AD Connect: actualización de una versión anterior a la versión más reciente](./how-to-upgrade-previous-version.md#swing-migration)
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](whatis-hybrid-identity.md).

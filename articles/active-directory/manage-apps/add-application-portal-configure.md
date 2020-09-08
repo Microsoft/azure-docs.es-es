@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: a1a99e9f02a25f5e1d57ea485930a4f26149b53f
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 1cc7d7755d22568b9b66216709dc0c3765d58657
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808412"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300160"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Inicio rápido: Configuración de las propiedades de una aplicación en el inquilino de Azure Active Directory (Azure AD)
 
@@ -31,7 +31,7 @@ Para configurar las propiedades de una aplicación en el inquilino de Azure AD,
 - Opcional: Haber finalizado el inicio rápido de [Incorporación de una aplicación](add-application-portal.md).
 
 >[!IMPORTANT]
->Para probar los pasos de este inicio rápido, use un entorno que no sea de producción.
+>Use un entorno que no sea de producción para probar los pasos de esta guía de inicio rápido.
 
 ## <a name="configure-app-properties"></a>Configuración de las propiedades de una aplicación
 
@@ -47,38 +47,25 @@ Para editar las propiedades de la aplicación:
 3. Dedique un momento a comprender las opciones disponibles para su configuración:
     - La opción **¿Habilitado para que los usuarios inicien sesión?** determina si los usuarios asignados a la aplicación pueden iniciar sesión.
     - La opción **¿Asignación de usuarios?** determina si los usuarios que no están asignados a la aplicación pueden iniciar sesión.
-    - La opción **¿Es visible para los usuarios?** determina si los usuarios asignados a una aplicación pueden verla en el [panel de acceso](https://myapps.microsoft.com) y en el iniciador de Office 365. (Vea el menú de gofres en la esquina superior izquierda de un sitio web de Office 365 o Microsoft 365).
-4. Use las siguientes tablas para ayudarle a elegir las opciones que más se ajusten a sus necesidades.
+    - La opción **¿Es visible para los usuarios?** determina si los usuarios asignados a una aplicación pueden verla en [Mis aplicaciones](https://myapps.microsoft.com) y en el iniciador de aplicaciones de Office 365. (Vea el menú de gofres en la esquina superior izquierda de un sitio web de Office 365 o Microsoft 365).
+    
+    > [!TIP]
+    > La asignación de usuarios se produce en la sección **Usuarios y grupos** de la navegación.
 
-   - Comportamiento para los usuarios *asignados*:
+    Las tres opciones se pueden alternar de forma independiente entre sí y el comportamiento resultante no siempre resulta obvio. La siguiente es una tabla que podría servir de ayuda:
+    
+    | ¿Está habilitado para que los usuarios inicien sesión? | ¿Se requiere la asignación de usuarios? | ¿Es visible para los usuarios? | Comportamiento de los usuarios que se han asignado o no a la aplicación. |
+    |---|---|---|---|
+    | Sí | Sí | Sí | Los usuarios asignados pueden ver la aplicación e iniciar sesión.<br>Los usuarios sin asignar no pueden ver la aplicación y no pueden iniciar sesión. |
+    | Sí | Sí | No  | Los usuarios asignados no pueden ver la aplicación, pero pueden iniciar sesión.<br>Los usuarios sin asignar no pueden ver la aplicación y no pueden iniciar sesión. |
+    | Sí | No  | Sí | Los usuarios asignados pueden ver la aplicación e iniciar sesión.<br>Los usuarios sin asignar no pueden ver la aplicación, pero pueden iniciar sesión. |
+    | Sí | No  | No  | Los usuarios asignados no pueden ver la aplicación, pero pueden iniciar sesión.<br>Los usuarios sin asignar no pueden ver la aplicación, pero pueden iniciar sesión. |
+    | No  | Sí | Sí | Los usuarios asignados no pueden ver la aplicación y no pueden iniciar sesión.<br>Los usuarios sin asignar no pueden ver la aplicación y no pueden iniciar sesión. |
+    | No  | Sí | No  | Los usuarios asignados no pueden ver la aplicación y no pueden iniciar sesión.<br>Los usuarios sin asignar no pueden ver la aplicación y no pueden iniciar sesión. |
+    | No  | No  | Sí | Los usuarios asignados no pueden ver la aplicación y no pueden iniciar sesión.<br>Los usuarios sin asignar no pueden ver la aplicación y no pueden iniciar sesión. |
+    | No  | No  | No  | Los usuarios asignados no pueden ver la aplicación y no pueden iniciar sesión.<br>Los usuarios sin asignar no pueden ver la aplicación y no pueden iniciar sesión. |
 
-       | Propiedad de la aplicación | Propiedad de la aplicación | Propiedad de la aplicación | Experiencia del usuario asignado | Experiencia del usuario asignado |
-       |---|---|---|---|---|
-       | ¿Está habilitado para que los usuarios inicien sesión? | ¿Se requiere la asignación de usuarios? | ¿Es visible para los usuarios? | ¿Pueden los usuarios asignados iniciar sesión? | ¿Pueden ver los usuarios asignados la aplicación?* |
-       | Sí | Sí | Sí | Sí | Sí  |
-       | Sí | Sí | No  | Sí | No   |
-       | Sí | No  | Sí | Sí | Sí  |
-       | Sí | No  | No  | Sí | No   |
-       | No  | Sí | Sí | No  | No   |
-       | No  | Sí | No  | No  | No   |
-       | No  | No  | Sí | No  | No   |
-       | No  | No  | No  | No  | No   |
-
-   - Comportamiento para los usuarios *no asignados*:
-
-       | Propiedad de la aplicación | Propiedad de la aplicación | Propiedad de la aplicación | Experiencia del usuario no asignado | Experiencia del usuario no asignado |
-       |---|---|---|---|---|
-       | ¿Está habilitado para que los usuarios inicien sesión? | ¿Se requiere la asignación de usuarios? | ¿Es visible para los usuarios? | ¿Pueden iniciar sesión los usuarios no asignados? | ¿Pueden ver la aplicación los usuarios no asignados?* |
-       | Sí | Sí | Sí | No  | No   |
-       | Sí | Sí | No  | No  | No   |
-       | Sí | No  | Sí | Sí | No   |
-       | Sí | No  | No  | Sí | No   |
-       | No  | Sí | Sí | No  | No   |
-       | No  | Sí | No  | No  | No   |
-       | No  | No  | Sí | No  | No   |
-       | No  | No  | No  | No  | No   |
-
-     ¿*Puede el usuario ver la aplicación en el panel de acceso y el iniciador de aplicaciones de Office 365?
+4. Cuando haya terminado, seleccione **Guardar**.
 
 ## <a name="use-a-custom-logo"></a>Uso de un logotipo personalizado
 
@@ -106,6 +93,6 @@ Si no va a continuar con la serie de inicios rápidos, considere la posibilidad 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Pase al siguiente artículo, donde aprenderá a configurar el inicio de sesión único en una aplicación.
+Avance al siguiente artículo para aprender a asignar usuarios a la aplicación.
 > [!div class="nextstepaction"]
-> [Configuración del inicio de sesión único](add-application-portal-setup-sso.md)
+> [Asignación de usuarios a una aplicación](add-application-portal-assign-users.md)

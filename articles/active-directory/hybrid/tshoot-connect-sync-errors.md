@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ca2600101c302cee1da4d22a3f098436ecb71e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1279ef9b8767ba05f329678429dff40f9bfed640
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85355903"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280120"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Solución de errores durante la sincronización
 Pueden producirse errores cuando se sincronizan datos de identidad de Windows Server Active Directory (AD DS) con Azure Active Directory (Azure AD). En este artículo se proporciona información general sobre los distintos tipos de errores de sincronización, algunos de los posibles escenarios que provocan dichos errores y las posibles maneras de corregirlos. También se incluyen los tipos de error comunes, pero puede que no cubra todos los posibles errores.
@@ -246,5 +246,5 @@ Para resolver este problema, haga lo siguiente:
 >Puede asignar el rol administrativo al objeto de usuario existente después de que se haya completado la coincidencia parcial entre el objeto de usuario local y el objeto de usuario de Azure AD.
 
 ## <a name="related-links"></a>Vínculos relacionados
-* [Buscar objetos de Active Directory en el centro de administración de Active Directory](https://technet.microsoft.com/library/dd560661.aspx)
-* [Consulta en Azure Active Directory un objeto mediante PowerShell de Azure Active Directory](https://msdn.microsoft.com/library/azure/jj151815.aspx)
+* [Buscar objetos de Active Directory en el centro de administración de Active Directory](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560661(v=ws.10))
+* [Consulta en Azure Active Directory un objeto mediante PowerShell de Azure Active Directory](/previous-versions/azure/jj151815(v=azure.100))

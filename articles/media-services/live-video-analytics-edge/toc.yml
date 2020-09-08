@@ -17,11 +17,27 @@
     - name: Detección de movimiento y grabación de vídeo en Media Services
       href: detect-motion-record-video-clips-media-services-quickstart.md
     - name: Detección de movimiento y emisión de eventos
-      href: detect-motion-emit-events-quickstart.md
+      items:
+        - name: Uso de llamadas al método directo
+          displayName: 'detect motion, emit events'
+          href: detect-motion-emit-events-quickstart.md
     - name: Detección de movimiento y grabación de vídeo en dispositivos perimetrales
-      href: detect-motion-record-video-clips-edge-devices-quickstart.md
-    - name: Ejecución de Live Video Analytics con su propio modelo
-      href: use-your-model-quickstart.md
+      items:
+        - name: Uso de llamadas al método directo
+          displayName: 'detect motion, record video on edge devices'
+          href: detect-motion-record-video-clips-edge-devices-quickstart.md
+    - name: Análisis de vídeo en directo con su propio modelo
+      items:
+        - name: con extensión HTTP
+          items:
+            - name: Uso de llamadas al método directo
+              displayName: 'analyze, your own model, http'
+              href: use-your-model-quickstart.md
+        - name: con extensión gRPC
+          items:
+            - name: Uso de llamadas al método directo
+              displayName: 'analyze, your own model, grpc'
+              href: analyze-live-video-use-your-grpc-model-quickstart.md
 - name: Tutoriales
   items:
     - name: Grabación de vídeo continua
@@ -30,14 +46,23 @@
       href: event-based-video-recording-tutorial.md
     - name: Reproducción de las grabaciones de varios días
       href: playback-multi-day-recordings-tutorial.md
+    - name: Análisis de vídeo en directo
+      items:
+        - name: Con OVMS a través de la extensión HTTP
+          displayName: 'intel, OpenVINO'
+          href: use-intel-openvino-tutorial.md
 - name: Ejemplos
   items:
-    - name: Ejemplos de Live Video Analytics on IoT Edge en C#
+    - name: "Ejemplos del método directo de\_C#"
       href: 'https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp'
+    - name: Ejemplos del método directo de Python
+      href: 'https://github.com/Azure-Samples/live-video-analytics-iot-edge-python'
 - name: Conceptos
   items:
     - name: Grafo multimedia
       href: media-graph-concept.md
+    - name: Extensión de grafos multimedia
+      href: media-graph-extension-concept.md
     - name: Grabación de vídeo
       href: video-recording-concept.md
     - name: Reproducción de vídeo
@@ -62,14 +87,18 @@
       href: playback-recordings-how-to.md
     - name: Administración de la directiva de grabación
       href: manage-recording-policy-how-to.md
-    - name: Análisis de vídeo en directo con la inteligencia artificial preferida
-      href: analyze-with-ai-your-choice-how-to.md
     - name: Invocación de métodos directos con el portal
       href: use-azure-portal-to-invoke-direct-methods.md
     - name: Solución de problemas
       href: troubleshoot-how-to.md
 - name: Referencia
   items:
+    - name: Protocolo de la extensión HTTP
+      href: http-extension-protocol.md
+    - name: Protocolo de la extensión gRPC
+      href: grpc-extension-protocol.md
+    - name: Esquema de metadatos de inferencia
+      href: inference-metadata-schema.md
     - name: Métodos directos
       href: direct-methods.md
     - name: Esquema de configuración de módulos gemelos

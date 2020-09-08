@@ -5,12 +5,12 @@ author: spelluru
 ms.author: spelluru
 ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: ef469eb74c3dd7d82dec908dba8c53136df206e4
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 4f3b67794d1a7f3935c79c70f18b8bd4a1e0d7ef
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423429"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716629"
 ---
 # <a name="allow-access-to-azure-service-bus-namespaces-via-private-endpoints"></a>Permiso para acceder a los espacios de nombres de Azure Service Bus a través de puntos de conexión privados
 
@@ -40,7 +40,7 @@ Para más información, consulte [¿Qué es Azure Private Link?](../private-link
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Incorporación de un punto de conexión privado mediante Azure Portal
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 
 Para integrar un espacio de nombres de Service Bus con Azure Private Link, necesitará las siguientes entidades o permisos:
 
@@ -61,7 +61,7 @@ Si ya tiene un espacio de nombres existente, puede crear un punto de conexión p
 2. En el menú de la izquierda, seleccione la opción **Redes** en **Configuración**. 
 
     > [!NOTE]
-    > Puede ver la pestaña **Redes** solo para los espacios de nombres **premium**.  
+    > Puede ver la pestaña **Redes** solo para los espacios de nombres **prémium**.  
     
     De forma predeterminada, está seleccionada la opción **Redes seleccionadas**. Si no agrega al menos una regla de firewall de IP o una red virtual en esta página, se podrá acceder al espacio de nombres desde la red pública de Internet (mediante la clave de acceso).
 
@@ -234,7 +234,7 @@ Hay cuatro estados de aprovisionamiento:
 
 ## <a name="validate-that-the-private-link-connection-works"></a>Validación de que la conexión de vínculo privado funciona
 
-Debe comprobar que los recursos de la misma subred del recurso de punto de conexión privado se conectan al espacio de nombres de Service Bus mediante una dirección IP privada y que tienen la integración correcta de la zona DNS privada.
+Debe comprobar que los recursos de la red virtual del punto de conexión privado se conectan al espacio de nombres de Service Bus mediante una dirección IP privada y que tienen la integración correcta de la zona DNS privada.
 
 En primer lugar, cree una máquina virtual siguiendo los pasos que encontrará en [Creación de una máquina virtual Windows en Azure Portal](../virtual-machines/windows/quick-create-portal.md).
 

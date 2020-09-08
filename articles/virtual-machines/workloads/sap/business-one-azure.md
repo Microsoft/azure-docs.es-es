@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 293a0fcd1211739be07e58f414bd6861bf47eb76
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: ccec58f012dcd4b6371c15e79fa964600e775f54
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831114"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654657"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One en Azure Virtual Machines
 En este documento se ofrecen instrucciones para implementar SAP Business One en Azure Virtual Machines. La documentación no es un sustituto de la documentación de instalación de Business One para SAP. La documentación debe cubrir las instrucciones básicas de planeación e implementación de la infraestructura de Azure en la que se ejecutan las aplicaciones de Business One.
@@ -118,7 +118,7 @@ Estos documentos le ayudarán a decidir la selección de los tipos de almacenami
 
 En principio, debería:
 
-- Usar discos SSD Premium a través de unidades de disco duro estándar. Para más información acerca de los tipos de disco disponibles, consulte nuestro artículo [Selección de un tipo de disco](../../windows/disks-types.md).
+- Usar discos SSD Premium a través de unidades de disco duro estándar. Para más información acerca de los tipos de disco disponibles, consulte nuestro artículo [Selección de un tipo de disco](../../disks-types.md).
 - Usar Azure Managed Disks antes que discos no administrados.
 - Asegurarse de que tiene suficiente rendimiento de IOPS y E/S configurado con la configuración de discos.
 - Combinar el volumen /hana/data y /hana/log para disponer de una configuración de almacenamiento rentable.

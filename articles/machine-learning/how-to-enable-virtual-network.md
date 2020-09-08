@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: 16065b45a6afea25615b985d3c89445dee48bd1d
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 0a7a5f21ee868da2b9c3a6c7dc8bb5968531d0d0
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167732"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824209"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Aislamiento de red durante el entrenamiento e inferencia con redes virtuales privadas
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,6 +32,13 @@ Una __red virtual__ actúa como un límite de seguridad, aislando los recursos d
 + Conocimientos prácticos generales sobre el [servicio Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) y las [redes IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm).
 
 + Una red virtual y una subred preexistentes que se usarán con los recursos de proceso.
+
++ Para implementar recursos en una red virtual o subred, la cuenta de usuario debe tener permisos para realizar las siguientes acciones en los controles de acceso basados en rol (RBAC) de Azure:
+
+    - "Microsoft.Network/virtualNetworks/join/action" en el recurso de red virtual.
+    - "Microsoft.Network/virtualNetworks/subnet/join/action" en el recurso de subred.
+
+    Para obtener más información sobre RBAC con redes, vea los [roles integrados de redes](/azure/role-based-access-control/built-in-roles#networking).
 
 ## <a name="private-endpoints"></a>Puntos de conexión privados
 
@@ -85,7 +92,7 @@ Studio admite la lectura de datos de los siguientes tipos de almacén de datos e
 
 Agregue el área de trabajo y la cuenta de almacenamiento a la misma red virtual para que puedan acceder entre sí.
 
-1. Para conectar el área de trabajo a la red virtual, [habilite Azure Private Link](how-to-configure-private-link.md). Esta funcionalidad está actualmente en versión preliminar y está disponible en las regiones Este de EE. UU., Oeste de EE. UU. 2 y Centro y Sur de EE. UU.
+1. Para conectar el área de trabajo a la red virtual, [habilite Azure Private Link](how-to-configure-private-link.md). Esta funcionalidad está actualmente en versión preliminar y está disponible en las regiones Este de EE. UU. y Oeste de EE. UU. 2.
 
 1. Para conectar la cuenta de almacenamiento a la red virtual, [configure las opciones de firewalls y redes virtuales](#use-a-storage-account-for-your-workspace).
 
@@ -359,6 +366,12 @@ Hay dos maneras en que puede lograrlo:
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='eastus2']"
         ```
+
+        > [!TIP]
+        > Si usa las regiones US-Virginia o US-Arizona, o las regiones China-East-2, estos comandos no devuelven direcciones IP. Use mejor uno de los siguientes vínculos para descargar una lista de direcciones IP:
+        >
+        > * [Intervalos de direcciones IP y etiquetas de servicio de Azure para Azure Government](https://www.microsoft.com/download/details.aspx?id=57063)
+        > * [Intervalos de direcciones IP y etiquetas de servicio de Azure para Azure China](https://www.microsoft.com//download/details.aspx?id=57062)
     
     Cuando agregue las rutas definidas por el usuario, defina la ruta del prefijo de cada dirección IP de Batch relacionada y en __Tipo del próximo salto__, seleccione __Internet__. En la imagen siguiente se muestra un ejemplo de esta UDR en Azure Portal:
 

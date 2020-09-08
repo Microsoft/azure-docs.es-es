@@ -4,12 +4,12 @@ description: Traiga sus propias claves (BYOK) para cifrar el sistema operativo y
 services: container-service
 ms.topic: article
 ms.date: 07/17/2020
-ms.openlocfilehash: d4f7842330862013644cf961f5bd8e079d097069
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 5725bc9a4d16b93ba36ac800d25e3c30f090c2df
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87985857"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796891"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Traiga sus propias claves (BYOK) con discos de Azure en Azure Kubernetes Service (AKS)
 
@@ -92,7 +92,7 @@ Cree una **nuevo grupo de recursos** y el clúster de AKS y luego use la clave p
 
 ```azurecli-interactive
 # Retrieve the DiskEncryptionSet value and set a variable
-diskEncryptionSetId=$(az resource show -n mydiskEncryptionSetName -g myResourceGroup --resource-type "Microsoft.Compute/diskEncryptionSets" --query [id] -o tsv)
+diskEncryptionSetId=$(az disk-encryption-set show -n mydiskEncryptionSetName -g myResourceGroup --query [id] -o tsv)
 
 # Create a resource group for the AKS cluster
 az group create -n myResourceGroup -l myAzureRegionName

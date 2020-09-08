@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/19/2019
 ms.author: allensu
-ms.openlocfilehash: 82c203322f1a417fa006c5228d957c178a706b3a
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d6995073ba7d283a30f7580456cd61573752f7cc
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961020"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051396"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Configuración del modo de distribución de Azure Load Balancer
 
@@ -202,5 +202,5 @@ Date: Thu, 16 Oct 2014 22:49:21 GMT
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Información general sobre el equilibrador de carga interno de Azure](load-balancer-internal-overview.md)
-* [Introducción a la configuración de un equilibrador de carga accesible desde Internet](quickstart-create-standard-load-balancer-powershell.md)
+* [Introducción a la configuración de un equilibrador de carga accesible desde Internet](quickstart-load-balancer-standard-public-powershell.md)
 * [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)

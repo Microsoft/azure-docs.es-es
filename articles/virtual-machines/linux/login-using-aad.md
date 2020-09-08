@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: sandeo
-ms.openlocfilehash: 96fb914b5dafe5eb818f2b491bbe2d856763bd02
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: fef1870c396055cb9121aa5d8c7859440d107f98
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534743"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002318"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Vista previa: Inicio de sesión en una máquina virtual Linux en Azure mediante la autenticación de Azure Active Directory
 
@@ -35,7 +35,7 @@ Usar la autenticación de Azure AD para iniciar sesión en máquinas virtuales L
   - Para proteger aún más el inicio de sesión en máquinas virtuales de Azure, puede configurar la autenticación multifactor.
   - La capacidad de iniciar sesión en máquinas virtuales Linux con Azure Active Directory también funciona con clientes que usan [Servicios de federación](../../active-directory/hybrid/how-to-connect-fed-whatis.md).
 
-- **Colaboración sin complicaciones**: con el control de acceso basado en rol (RBAC), puede especificar quién puede iniciar sesión en una máquina virtual determinada como usuario habitual o con privilegios de administrador. Cuando los usuarios se unen o dejan el equipo, puede actualizar la directiva de RBAC de la máquina virtual para conceder acceso según corresponda. Esta experiencia es mucho más simple que limpiar las máquinas virtuales para quitar las claves SSH públicas innecesarias. Cuando los empleados dejan la organización y su cuenta de usuario se deshabilita o quita de Azure AD, dejan de tener acceso a los recursos.
+- **Colaboración sin complicaciones**: con el control de acceso basado en rol de Azure (RBAC de Azure), puede especificar quién puede iniciar sesión en una máquina virtual determinada como usuario habitual o con privilegios de administrador. Cuando los usuarios se unen o dejan el equipo, puede actualizar la directiva de RBAC de Azure de la máquina virtual para conceder acceso según corresponda. Esta experiencia es mucho más simple que limpiar las máquinas virtuales para quitar las claves SSH públicas innecesarias. Cuando los empleados dejan la organización y su cuenta de usuario se deshabilita o quita de Azure AD, dejan de tener acceso a los recursos.
 
 ## <a name="supported-azure-regions-and-linux-distributions"></a>Regiones de Azure y distribuciones de Linux compatibles
 
@@ -121,7 +121,7 @@ La directiva de control de acceso basado en rol (Azure RBAC) de Azure determina 
 > [!NOTE]
 > Para permitir que un usuario inicie sesión en la máquina virtual a través de SSH, debe asignar el rol *Inicio de sesión de administrador de Virtual Machine* o *Inicio de sesión de usuario de Virtual Machine*. Un usuario de Azure con los roles de *Propietario* o *Colaborador* asignados para una máquina virtual no tienen automáticamente privilegios para iniciar sesión en la máquina virtual a través de SSH.
 
-En el ejemplo siguiente se usa [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) para asignar el rol *Inicio de sesión de administrador de Virtual Machine* a la máquina virtual para el usuario de Azure actual. El nombre de usuario de la cuenta de Azure activa se obtiene con [az account show](/cli/azure/account#az-account-show) y el *ámbito* se establece en la máquina virtual que se creó en un paso anterior con [az vm show](/cli/azure/vm#az-vm-show). El ámbito también se podría asignar en el nivel de un grupo de recursos o de suscripción y se aplican los permisos de herencia de RBAC normales. Para más información, consulte la información sobre los [controles de acceso basado en rol](../../role-based-access-control/overview.md).
+En el ejemplo siguiente se usa [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) para asignar el rol *Inicio de sesión de administrador de Virtual Machine* a la máquina virtual para el usuario de Azure actual. El nombre de usuario de la cuenta de Azure activa se obtiene con [az account show](/cli/azure/account#az-account-show) y el *ámbito* se establece en la máquina virtual que se creó en un paso anterior con [az vm show](/cli/azure/vm#az-vm-show). El ámbito también se podría asignar en el nivel de un grupo de recursos o de suscripción, y se aplican los permisos de herencia de RBAC de Azure normales. Para más información, consulte [RBAC de Azure](../../role-based-access-control/overview.md).
 
 ```azurecli-interactive
 username=$(az account show --query user.name --output tsv)
@@ -136,7 +136,7 @@ az role assignment create \
 > [!NOTE]
 > Si su dominio de AAD y el dominio del nombre de usuario de inicio de sesión no coinciden, debe especificar el identificador de objeto de su cuenta de usuario mediante *--assignee-object-id* y no solo el nombre de usuario para *--assignee*. Puede obtener el identificador de objeto para su cuenta de usuario mediante [az ad user list](/cli/azure/ad/user#az-ad-user-list).
 
-Para más información sobre cómo usar RBAC para administrar el acceso a los recursos de suscripción de Azure, consulte cómo usar la [CLI de Azure](../../role-based-access-control/role-assignments-cli.md), [Azure Portal](../../role-based-access-control/role-assignments-portal.md) o [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+Para más información sobre cómo usar RBAC de Azure para administrar el acceso a los recursos de la suscripción de Azure, consulte cómo hacerlo con la [CLI de Azure](../../role-based-access-control/role-assignments-cli.md), [Azure Portal](../../role-based-access-control/role-assignments-portal.md) o [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 También puede configurar Azure AD para que requiera la autenticación multifactor para que un usuario específico inicie sesión en la máquina virtual Linux. Para más información, consulte [Introducción a Azure Multi-Factor Authentication en la nube](../../active-directory/authentication/howto-mfa-getstarted.md).
 
@@ -185,7 +185,7 @@ Algunos errores comunes que se producen al intentar establecer SSH con las crede
 
 ### <a name="access-denied-azure-role-not-assigned"></a>Acceso denegado: no hay ningún rol de Azure asignado
 
-Si ve el error siguiente en el aviso de SSH, compruebe que ha configurado directivas de RBAC configuradas para la máquina virtual que concede al usuario los roles de *Inicio de sesión de administrador de máquina virtual* o *Inicio de sesión de usuario de máquina virtual*:
+Si observa el error siguiente en el aviso de SSH, compruebe que ha configurado directivas de RBAC de Azure para la máquina virtual que concede al usuario los roles de *Inicio de sesión de administrador de máquina virtual* o *Inicio de sesión de usuario de máquina virtual*:
 
 ```output
 login as: azureuser@contoso.onmicrosoft.com

@@ -1,14 +1,14 @@
 ---
 title: Agregar etiquetas a un laboratorio de Azure DevTest Labs | Microsoft Docs
-description: Obtenga información sobre cómo agregar una etiqueta a un laboratorio de Azure DevTest Labs
+description: Obtenga información sobre cómo crear etiquetas personalizadas en Azure DevTest Labs y usar etiquetas para clasificar los recursos. Puede ver todos los recursos de la suscripción que tengan una etiqueta.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 30f0f2ed4b8cc98985326db652371b8ceb16bfb4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a4d2b328626f0d0f096082fa88bb170894ccf3e4
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287588"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270740"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Agregar etiquetas a un laboratorio de Azure DevTest Labs
 

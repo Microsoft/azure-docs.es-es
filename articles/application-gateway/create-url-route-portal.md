@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 11/14/2019
+ms.date: 08/13/2020
 ms.author: victorh
-ms.openlocfilehash: 8d48ea133aaabbe9fd44bda545d672e68c93c08d
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 02332e190def7770fa57977461d57766f3dee13a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312193"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205581"
 ---
 # <a name="tutorial-create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Tutorial: Creación de una puerta de enlace de aplicaciones con reglas de enrutamiento basadas en rutas de dirección URL con Azure Portal
 
@@ -33,7 +33,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+## <a name="prerequisites"></a>Requisitos previos
 
 Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 
@@ -204,7 +204,11 @@ Revise la configuración en la pestaña **Revisar y crear** y seleccione **Crear
 
    El agente de escucha del puerto 8080 enruta esta solicitud al grupo de back-end *Video*.
 
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Cuando ya no los necesite, elimine el grupo de recursos y todos los recursos relacionados. Para ello, seleccione el grupo de recursos y, después, **Eliminar grupo de recursos**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Habilitación de TLS de extremo a extremo en Azure Application Gateway](application-gateway-backend-ssl.md)
+> [!div class="nextstepaction"]
+> [Habilitación de TLS de extremo a extremo en Azure Application Gateway](application-gateway-backend-ssl.md)

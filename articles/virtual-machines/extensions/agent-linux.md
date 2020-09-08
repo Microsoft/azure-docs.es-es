@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fda228f6a24e981bb848fbb106709aaa3d8e8613
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2237b0b0d0c1f6e95e100743b377f9c04f57210f
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87269128"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279710"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Información y uso del agente de Linux de Azure
 
@@ -92,6 +92,9 @@ El agente de Linux depende de algunos paquetes de sistema para funcionar correct
 * Herramientas de procesamiento de texto: sed, grep
 * Herramientas de red: ip-route
 * Compatibilidad de kernel para el montaje de sistemas de archivos UDF.
+
+Asegúrese de que la máquina virtual tenga acceso a la dirección IP 168.63.129.16. Para más información, vea [¿Qué es la dirección IP 168.63.129.16?](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16)
+
 
 ## <a name="installation"></a>Instalación
 La instalación con RPM o un paquete de DEB del repositorio de paquetes de su distribución es el método preferido para instalar y actualizar el agente Linux de Azure. Todos los [proveedores de distribución aprobada](../linux/endorsed-distros.md) integran el paquete de agente Linux de Azure en sus imágenes y repositorios.

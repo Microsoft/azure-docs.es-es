@@ -4,22 +4,22 @@ description: Obtenga información sobre el cifrado en reposo de una instancia de
 ms.topic: article
 ms.date: 05/01/2020
 ms.custom: ''
-ms.openlocfilehash: 393e51e687e95c1ff4c6a50429dd342005aad296
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 67fb58d0e11709b3d801a81f15d856e9b3db922b
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84509549"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225893"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Cifrado del registro con una clave administrada por el cliente
 
-Cuando se almacenan imágenes y otros artefactos en una instancia de Azure Container Registry, Azure cifra automáticamente el contenido del registro en reposo con [claves administradas por el servicio](../security/fundamentals/encryption-atrest.md#data-encryption-models). Puede complementar el cifrado predeterminado con una capa de cifrado adicional mediante una clave que se crea y administra en Azure Key Vault. Este artículo le guía a través del proceso mediante la CLI de Azure y Azure Portal.
+Cuando se almacenan imágenes y otros artefactos en una instancia de Azure Container Registry, Azure cifra automáticamente el contenido del registro en reposo con [claves administradas por el servicio](../security/fundamentals/encryption-models.md). Puede complementar el cifrado predeterminado con una capa de cifrado adicional mediante una clave que se crea y administra en Azure Key Vault. Este artículo le guía a través del proceso mediante la CLI de Azure y Azure Portal.
 
 Se admite el cifrado de lado servidor con claves administradas por el cliente por medio de la integración con [Azure Key Vault](../key-vault/general/overview.md). Puede crear claves de cifrado propias y almacenarlas en un almacén de claves, o puede usar API de Azure Key Vault para generar claves. Con Azure Key Vault, también puede auditar el uso de claves.
 
 Esta característica está disponible en el nivel de servicio de un registro de contenedor **Premium**. Para obtener información sobre los límites y los niveles de servicio de los registros, vea [Niveles de servicio de Azure Container Registry](container-registry-skus.md).
 
-   
+
 ## <a name="things-to-know"></a>Cosas que debe saber
 
 * De momento, solo se puede habilitar una clave administrada por el cliente al crear un registro.
@@ -48,7 +48,7 @@ Cree una [identidad administrada para recursos de Azure](../active-directory/man
 ```azurecli
 az identity create \
   --resource-group <resource-group-name> \
-  --name <managed-identity-name> 
+  --name <managed-identity-name>
 ```
 
 En el resultado del comando, anote los siguientes valores: `id` y `principalId`. Los va a necesitar en pasos posteriores para configurar el acceso del registro al almacén de claves.
@@ -78,9 +78,9 @@ identityPrincipalID=$(az identity show --resource-group <resource-group-name> --
 
 ### <a name="create-a-key-vault"></a>Creación de un Almacén de claves
 
-Cree un almacén de claves con [az keyvault create][az-keyvault-create] para almacenar una clave administrada por el cliente para el cifrado del registro. 
+Cree un almacén de claves con [az keyvault create][az-keyvault-create] para almacenar una clave administrada por el cliente para el cifrado del registro.
 
-Para evitar la pérdida de datos causada por eliminaciones accidentales de la clave o el almacén de claves, debe habilitar los valores siguientes: **Eliminación temporal** y **Protección de purga**. En el ejemplo siguiente se incluyen parámetros para estos valores: 
+Para evitar la pérdida de datos causada por eliminaciones accidentales de la clave o el almacén de claves, debe habilitar los valores siguientes: **Eliminación temporal** y **Protección de purga**. En el ejemplo siguiente se incluyen parámetros para estos valores:
 
 ```azurecli
 az keyvault create --name <key-vault-name> \
@@ -98,7 +98,7 @@ az keyvault set-policy \
   --resource-group <resource-group-name> \
   --name <key-vault-name> \
   --object-id $identityPrincipalID \
-  --key-permissions get unwrapKey wrapKey 
+  --key-permissions get unwrapKey wrapKey
 ```
 
 ### <a name="create-key-and-get-key-id"></a>Creación de clave y obtención de su identificador
@@ -161,7 +161,7 @@ az acr create \
 Para mostrar si está habilitado el cifrado del registro con una clave administrada por el cliente, ejecute el comando [az acr encryption show][az-acr-encryption-show]:
 
 ```azurecli
-az acr encryption show --name <registry-name> 
+az acr encryption show --name <registry-name>
 ```
 
 La salida es parecida a esta:
@@ -232,7 +232,7 @@ Para ver el estado de cifrado del registro en el portal, vaya al registro. En **
 
 ## <a name="enable-customer-managed-key---template"></a>Habilitación de una clave administrada por el cliente: plantilla
 
-También puede usar una plantilla de Resource Manager para crear un registro y habilitar el cifrado con una clave administrada por el cliente. 
+También puede usar una plantilla de Resource Manager para crear un registro y habilitar el cifrado con una clave administrada por el cliente.
 
 La siguiente plantilla crea un nuevo registro de contenedor y una identidad administrada asignada por el usuario. Copie el siguiente contenido en un archivo nuevo y guárdelo con un nombre de archivo como `CMKtemplate.json`.
 
@@ -345,7 +345,7 @@ Siga los pasos de las secciones anteriores para crear los siguientes recursos:
 * Almacén de claves, identificado por nombre
 * Clave del almacén de claves, identificada por identificador de clave
 
-Ejecute el siguiente comando [az group deployment create][az-group-deployment-create] para crear el registro con el archivo de plantilla anterior. Donde se indique, proporcione un nuevo nombre de registro y un nombre de identidad administrada, así como el nombre del almacén de claves y el identificador de clave que ha creado. 
+Ejecute el siguiente comando [az group deployment create][az-group-deployment-create] para crear el registro con el archivo de plantilla anterior. Donde se indique, proporcione un nuevo nombre de registro y un nombre de identidad administrada, así como el nombre del almacén de claves y el identificador de clave que ha creado.
 
 ```bash
 az group deployment create \
@@ -363,7 +363,7 @@ az group deployment create \
 Para mostrar el estado de cifrado del registro, ejecute el comando [az acr encryption show][az-acr-encryption-show]:
 
 ```azurecli
-az acr encryption show --name <registry-name> 
+az acr encryption show --name <registry-name>
 ```
 
 ## <a name="use-the-registry"></a>Uso del registro
@@ -377,7 +377,7 @@ Gire una clave administrada por el cliente que se use para el cifrado del regist
 Al girar una clave, normalmente se especifica la misma identidad usada al crear el registro. Opcionalmente, configure una nueva identidad asignada por el usuario para el acceso a la clave o habilite y especifique la identidad asignada por el sistema del registro.
 
 > [!NOTE]
-> Establezca la [directiva de acceso al almacén de claves](#add-key-vault-access-policy) necesaria para la identidad que configure para el acceso a claves. 
+> Establezca la [directiva de acceso al almacén de claves](#add-key-vault-access-policy) necesaria para la identidad que configure para el acceso a claves.
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -387,12 +387,12 @@ Use comandos [az keyvault key][az-keyvault-key] para crear o administrar las cla
 # Create new version of existing key
 az keyvault key create \
   –-name <key-name> \
-  --vault-name <key-vault-name> 
+  --vault-name <key-vault-name>
 
 # Create new key
 az keyvault key create \
   –-name <new-key-name> \
-  --vault-name <key-vault-name> 
+  --vault-name <key-vault-name>
 ```
 
 Luego, ejecute el comando [az acr encryption rotate-key][az-acr-encryption-rotate-key] y pase el nuevo identificador de la clave y la identidad que quiere configurar:
@@ -413,14 +413,14 @@ az acr encryption rotate-key \
 
 ### <a name="portal"></a>Portal
 
-Use la configuración **Cifrado** del registro para actualizar la versión de la clave, la clave, el almacén de claves o la configuración de identidad usados para la clave administrada por el cliente. 
+Use la configuración **Cifrado** del registro para actualizar la versión de la clave, la clave, el almacén de claves o la configuración de identidad usados para la clave administrada por el cliente.
 
 Por ejemplo, para generar una versión de clave y configurarla:
 
-1. En el portal, vaya al registro. 
+1. En el portal, vaya al registro.
 1. En **Configuración**, seleccione **Cifrado** > **Cambiar clave**.
 1. Seleccione **Seleccionar clave**.
-    
+
     ![Giro de clave en Azure Portal](./media/container-registry-customer-managed-keys/rotate-key.png)
 1. En la ventana **Seleccione clave de Azure Key Vault**, seleccione el almacén de claves y la clave configurados anteriormente y, en **Versión**, seleccione **Crear nueva**.
 1. En la ventana **Crear una clave**, seleccione **Generar** y luego **Crear**.
@@ -447,7 +447,7 @@ Puede configurar una identidad administrada asignada por el sistema del registro
 
 Para habilitar la identidad asignada por el sistema del registro en el portal:
 
-1. En el portal, vaya al registro. 
+1. En el portal, vaya al registro.
 1. Seleccione **Configuración** >  **Identidad**.
 1. En **Asignado por el sistema**, establezca **Estado** en **Activado**. Seleccione **Guardar**.
 1. Copie el **Identificador de objeto** de la identidad.
@@ -462,7 +462,7 @@ Para conceder acceso a la identidad al almacén de claves:
 
 Para actualizar la configuración de cifrado del registro a fin de usar la identidad:
 
-1. En el portal, vaya al registro. 
+1. En el portal, vaya al registro.
 1. En **Configuración**, seleccione **Cifrado** > **Cambiar clave**.
 1. En **Identidad**, seleccione **Asignado por el sistema** y luego **Guardar**.
 
@@ -471,9 +471,9 @@ Para actualizar la configuración de cifrado del registro a fin de usar la ident
 Si el almacén de claves de Azure está implementado en una red virtual con un firewall de Key Vault, realice los pasos siguientes:
 
 1. Configure el cifrado del registro para usar la identidad asignada por el sistema del registro. Vea la sección anterior.
-2. Configure el almacén de claves para permitir el acceso de cualquier [servicio de confianza](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). 
+2. Configure el almacén de claves para permitir el acceso de cualquier [servicio de confianza](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services).
 
-Para conocer los pasos detallados, vea [Configuración de firewalls y redes virtuales de Azure Key Vault](../key-vault/general/network-security.md). 
+Para conocer los pasos detallados, vea [Configuración de firewalls y redes virtuales de Azure Key Vault](../key-vault/general/network-security.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

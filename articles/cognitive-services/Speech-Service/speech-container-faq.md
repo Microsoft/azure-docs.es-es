@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/24/2020
 ms.author: aahi
-ms.openlocfilehash: e6b90e17c96f7636fa509e31354f9413b312803f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b13a6944290f58f5ede239dee60610d67fff8b1c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289033"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918475"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Preguntas frecuentes sobre los contenedores del servicio de voz
 
@@ -305,7 +306,7 @@ Carbon corrigió esto en la versión 1.8.
 - Carbon que desencadena las aserciones en las versiones de lanzamiento (terminado el proceso).
 
 La solución es cambiar al uso del reconocimiento continuo en el código o (más rápido) conectarse a los puntos de conexión interactivos o continuos del contenedor.
-En el código, establezca el punto de conexión en <host:port>/speech/recognition/interactive/cognitiveservices/v1.
+En el código, establezca el punto de conexión en `host:port`/speech/recognition/interactive/cognitiveservices/v1.
 
 Para los distintos modos, consulte los modos de voz a continuación:
 

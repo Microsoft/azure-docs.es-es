@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 11/08/2019
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbdebd8d59034bd16a3199c1304606ccf12ab2c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 937c5dbf3417e5914a0b4285c3bb114d7499e0fb
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727677"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799067"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Escenarios, limitaciones y problemas conocidos del uso de grupos para administrar las licencias en Azure Active Directory
 
@@ -205,13 +205,13 @@ Si usa licencias basadas en grupo, se recomienda que se familiarice con la sigui
 
 - Actualmente, las licencias basadas en grupos no admiten grupos anidados que contengan otros grupos. Si aplica una licencia a un grupo anidado, solo se aplican a los usuarios miembros del primer nivel inmediato del grupo.
 
-- La característica solo se puede usar con grupos de seguridad y grupos de Office 365 que tengan securityEnabled=TRUE.
+- La característica solo se puede usar con grupos de seguridad y grupos de Microsoft 365 que tengan securityEnabled=TRUE.
 
 - El [Centro de administración de Microsoft 365](https://admin.microsoft.com) no admite actualmente licencias basadas en grupo. Si un usuario hereda una licencia de un grupo, esta licencia aparece en el portal de administración de Office como una licencia de usuario normal. Si intenta modificar esa licencia o quitarla, el portal devuelve un mensaje de error. Las licencias de grupo heredadas no se pueden modificar directamente en un usuario.
 
 - Cuando se asignan o modifican licencias para un grupo grande (por ejemplo, con más de 100 000 usuarios), podría afectar el rendimiento. En concreto, el volumen de cambios generado por la automatización de Azure AD podría afectar negativamente el rendimiento de la sincronización de directorios entre Azure AD y los sistemas locales.
 
-- Si usa grupos dinámicos para administrar la pertenencia de los usuarios, compruebe que el usuario forma parte del grupo, lo cual es necesario para la asignación de licencias. De lo contrario, [compruebe el estado de procesamiento de la regla de pertenencia](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule) del grupo dinámico.
+- Si usa grupos dinámicos para administrar la pertenencia de los usuarios, compruebe que el usuario forma parte del grupo, lo cual es necesario para la asignación de licencias. De lo contrario, [compruebe el estado de procesamiento de la regla de pertenencia](./groups-create-rule.md) del grupo dinámico.
 
 - En determinadas situaciones de carga elevada, los cambios en los grupos o en la pertenencia a grupos con las licencias existentes pueden tardar mucho tiempo en procesarse. Si observa que los cambios tardan más de 24 horas en procesar un tamaño de grupo de 60 000 usuarios o menos, [abra una incidencia de soporte técnico](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest) para que podamos investigar lo que ocurre. 
 

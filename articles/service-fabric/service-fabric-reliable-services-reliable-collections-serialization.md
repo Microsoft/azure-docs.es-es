@@ -3,12 +3,13 @@ title: Serialización de objetos de colección de confianza
 description: Obtenga información sobre la serialización de objetos de colección de confianza de Azure Service Fabric, incluida la estrategia predeterminada y cómo definir la serialización personalizada.
 ms.topic: conceptual
 ms.date: 5/8/2017
-ms.openlocfilehash: f7a0dc56c181ddd6a98ab0e263180c222368dafb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 1d29f5d3391bdea0b21997a392d4d2e053b7ec65
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246000"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018627"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Serialización de objetos de Reliable Collections en Azure Service Fabric
 Reliable Collections replica y conserva sus elementos para garantizar su durabilidad en casos de errores de equipos e interrupciones del suministro eléctrico.

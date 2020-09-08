@@ -1,19 +1,17 @@
 ---
 title: 'Creación de un grupo de hosts de Windows Virtual Desktop con PowerShell: Azure'
 description: Cómo crear un grupo de hosts en Windows Virtual Desktop con cmdlets de PowerShell.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2a4ba5494cb65738f5443915c013571b98854a91
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 1275eab36e21ea6befdda13e14759a30ef5398a3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543425"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121160"
 ---
 # <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>Creación de un grupo de hosts de Windows Virtual Desktop con PowerShell
 
@@ -118,6 +116,32 @@ Para registrar los agentes de Windows Virtual Desktop, realice los siguientes pa
 
 >[!IMPORTANT]
 >Para ayudar a proteger su entorno de Windows Virtual Desktop en Azure, se recomienda no abrir el puerto de entrada 3389 en las máquinas virtuales. Windows Virtual Desktop no requiere un puerto de entrada abierto 3389 para que los usuarios accedan a máquinas virtuales del grupo host. Si debe abrir el puerto 3389 para solucionar problemas, se recomienda usar [acceso de máquina virtual Just-in-Time](../security-center/security-center-just-in-time.md). También se recomienda no asignar las máquinas virtuales a una dirección IP pública.
+
+## <a name="update-the-agent"></a>Actualización del agente
+
+Es necesario actualizar el agente en cualquiera de estas situaciones:
+
+- Quiere migrar una sesión registrada previamente a un nuevo grupo de hosts
+- El host de sesión no aparece en el grupo de hosts tras una actualización
+
+Para actualizar el agente:
+
+1. Inicie sesión en la máquina virtual como administrador.
+2. Vaya a **Servicios** y detenga los procesos **Rdagent** y **Remote Desktop Agent Loader**.
+3. Luego busque los MSI del agente y el cargador de arranque. Se encuentran en la carpeta **C:\DeployAgent** o en aquella ubicación en la que los haya guardado al instalar.
+4. Busque los siguientes archivos y desinstálelos:
+     
+     - Microsoft.RDInfra.RDAgent.Installer-x64-verx.x.x
+     - Microsoft.RDInfra.RDAgentBootLoader.Installer-x64
+
+   Para desinstalar estos archivos, haga clic con el botón derecho en cada nombre de archivo y seleccione **Desinstalar**.
+5. También puede quitar los siguientes valores del registro:
+     
+     - Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDInfraAgent
+     - Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDAgentBootLoader
+
+6. Una vez desinstalados estos elementos, se deberían quitar todas las asociaciones con el grupo de hosts anterior. Si quiere volver a registrar este host en el servicio, siga las instrucciones de [Registro de las máquinas virtuales en el grupo de hosts de Windows Virtual Desktop](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

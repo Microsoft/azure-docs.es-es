@@ -10,26 +10,23 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
-ms.custom: how-to, tracking-python
-ms.openlocfilehash: 23ec12daa2e5c236da482615228b7c44037282fb
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: 581feff516e0f0cd820c94290d4aaa729cc4d3a4
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808123"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88889947"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Uso de áreas de trabajo detrás de un firewall en Azure Machine Learning
 
-En este artículo, aprenderá a configurar Azure Firewall para usarlo con un área de trabajo de Azure Machine Learning.
+En este artículo, aprenderá a configurar Azure Firewall para controlar el acceso al área de trabajo de Azure Machine Learning y a la red pública de Internet.   Para obtener más información sobre la protección de Azure Machine Learning, consulte [Seguridad de empresa para Azure Machine Learning](concept-enterprise-security.md).
 
-> [!IMPORTANT]
-> Aunque la información de este documento se basa en el uso de Azure Firewall, sirve también para otros productos de firewall. Si tiene alguna pregunta sobre cómo permitir la comunicación a través del firewall, consulte la documentación del firewall que usa.
+Aunque la información de este documento se basa en el uso de [Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md), sirve también para otros productos de firewall. Si tiene alguna pregunta sobre cómo permitir la comunicación a través del firewall, consulte la documentación del firewall que usa.
 
-Azure Firewall puede usarse para controlar el acceso al área de trabajo de Azure Machine Learning y a la red pública de Internet. Si no está configurado correctamente, el firewall puede provocar problemas al usar el área de trabajo. Hay una serie de nombres de host que se usan en el área de trabajo de Azure Machine Learning, que se describen en este artículo.
+## <a name="application-rules"></a>Reglas de aplicación
 
-## <a name="network-rules"></a>Reglas de red
-
-En el firewall, cree una regla de red que permita el tráfico entrante y saliente de las direcciones de este artículo.
+En el firewall, cree una _regla de aplicación_ que permita el tráfico entrante y saliente de las direcciones de este artículo.
 
 > [!TIP]
 > Al agregar la regla de red, establezca __Protocolo__ en cualquiera y los puertos en `*`.
@@ -37,6 +34,8 @@ En el firewall, cree una regla de red que permita el tráfico entrante y salient
 > Para más información sobre la configuración de Azure Firewall, consulte [Implementación y configuración de Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule).
 
 ## <a name="microsoft-hosts"></a>Hosts de Microsoft
+
+Si no está configurado correctamente, el firewall puede provocar problemas al usar el área de trabajo. Hay una serie de nombres de host que se usan en el área de trabajo de Azure Machine Learning.
 
 Los hosts de esta sección son propiedad de Microsoft y proporcionan servicios necesarios para que el área de trabajo funcione correctamente.
 
@@ -58,6 +57,8 @@ Los hosts de esta sección son propiedad de Microsoft y proporcionan servicios n
 | **mcr.microsoft.com** | Microsoft Container Registry para imágenes de Docker base |
 | **your-acr-server-name.azurecr.io** | Solo es necesario si Azure Container Registry está detrás de la red virtual. En esta configuración, se crea un vínculo privado desde el entorno de Microsoft hasta la instancia de ACR de la suscripción. Use el nombre del servidor de ACR para el área de trabajo de Azure Machine Learning. |
 | **\*.notebooks.azure.net** | Se necesita en los cuadernos de Azure Machine Learning Studio. |
+| **graph.windows.net** | Necesario para cuadernos |
+
 ## <a name="python-hosts"></a>Hosts de Python
 
 Los hosts de esta sección se usan para instalar paquetes de Python. Son necesarios durante el desarrollo, el entrenamiento y la implementación. 
@@ -79,7 +80,16 @@ Los hosts de esta sección se usan para instalar paquetes de R. Son necesarios d
 | ---- | ---- |
 | **cloud.r-project.org** | Usado al instalar paquetes CRAN |
 
-Pasos siguientes
+## <a name="azure-government-region"></a>Región de Azure Government
 
-* [[Implementación y configuración de Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)]
+Direcciones URL necesarias para regiones Azure Government.
+
+| **Nombre de host** | **Propósito** |
+| ---- | ---- |
+| **usgovarizona.api.ml.azure.us** | Región EE.UU.: Arizona |
+| **usgovvirginia.api.ml.azure.us** | Región EE.UU.: Virginia |
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* [Tutorial: Implementación y configuración de Azure Firewall mediante Azure Portal](../firewall/tutorial-firewall-deploy-portal.md)
 * [Protección de los trabajos de experimentación e inferencia de ML en una instancia de Azure Virtual Network](how-to-enable-virtual-network.md)

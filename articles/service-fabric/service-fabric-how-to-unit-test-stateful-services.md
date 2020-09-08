@@ -3,12 +3,13 @@ title: Desarrollo de pruebas unitarias para servicios con estado
 description: Más información sobre las pruebas unitarias en Azure Service Fabric para servicios con estado y consideraciones especiales que debe tener en cuenta durante el desarrollo.
 ms.topic: conceptual
 ms.date: 09/04/2018
-ms.openlocfilehash: 9c657bd8295d01a4e0fa4e44e969b33946684bfa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 287c0544daa3c44d91fd336b502c496b9b4bb266
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75639843"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011402"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>Creación de pruebas unitarias para servicios con estado
 Las pruebas unitarias para los servicios con estado de Service Fabric detectan errores comunes que no necesariamente detectaría una prueba unitaria convencional específica para dominios o aplicaciones. Durante el desarrollo de pruebas unitarias para los servicios con estado, hay algunas consideraciones especiales que deben tenerse en cuenta.

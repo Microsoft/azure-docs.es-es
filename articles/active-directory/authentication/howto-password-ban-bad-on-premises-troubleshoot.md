@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79ebf543a3880a4f2c8ee8c0d706c268ef3f08d2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 25199aeb7a3ed6332e74ad05835a8c4fca763c00
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035492"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116468"
 ---
 # <a name="troubleshoot-on-premises-azure-ad-password-protection"></a>Solución de problemas: Protección con contraseña de Azure AD local
 
@@ -64,7 +64,7 @@ Protección con contraseña de Azure AD tiene una dependencia crítica en la fu
 
    Si el modo de inicio del servicio KDS se ha configurado como Deshabilitado, esta configuración debe corregirse para que Protección de contraseñas de Azure AD funcione correctamente.
 
-   Una prueba sencilla para este problema consiste en iniciar manualmente el servicio KDS, ya sea a través de la consola MMC de administración de servicios, o con otras herramientas de administración (por ejemplo, ejecute "net start kdssvc" desde una consola de línea de comandos). Se espera que el servicio KDS se inicie correctamente y permanezca en ejecución.
+   Una prueba sencilla para este problema consiste en iniciar manualmente el servicio KDS, ya sea mediante la consola MMC de administración de servicios o con otras herramientas de administración (por ejemplo, ejecute "net start kdssvc" desde una consola de línea de comandos). Se espera que el servicio KDS se inicie correctamente y permanezca en ejecución.
 
    La causa más común de que el servicio KDS no se pueda iniciar es que el objeto de controlador de dominio de Active Directory se encuentra fuera de la unidad organizativa controladores de dominio predeterminada. Esta configuración no es compatible con el servicio KDS y no es una limitación impuesta por Protección con contraseña de Azure AD. La solución para esta condición consiste en mover el objeto del controlador de dominio a una ubicación en la unidad organizativa de controladores de dominio predeterminada.
 
@@ -72,7 +72,20 @@ Protección con contraseña de Azure AD tiene una dependencia crítica en la fu
 
    En Windows Server 2016 se presentó una corrección de seguridad KDS que modifica el formato de los búferes cifrados de KDS; en ocasiones, estos búferes no se descifrarán en Windows Server 2012 y Windows Server 2012 R2. La dirección inversa es correcta: los búferes que están cifrados con KDS en Windows Server 2012 y Windows Server 2012 R2 siempre se descifrarán correctamente en Windows Server 2016 y versiones posteriores. Si los controladores de dominio de los dominios de Active Directory ejecutan una combinación de estos sistemas operativos, es posible que se notifiquen los errores ocasionales del descifrado de la protección con contraseña de Azure AD. No es posible predecir con precisión el tiempo o los síntomas de estos errores debido a la naturaleza de la corrección de seguridad, ya que no es determinista qué agente del controlador de dominio de protección con contraseña de Azure AD cifrará los datos en un momento dado.
 
-   Microsoft está investigando una corrección para este problema, pero no hay ninguna fecha estimada disponible todavía. Mientras tanto, no hay ninguna solución alternativa para este problema que no sea ejecutar una combinación de estos sistemas operativos incompatibles en los dominios de Active Directory. En otras palabras, solo debe ejecutar los controladores de dominio de Windows Server 2012 y Windows Server 2012 R2, o solo ejecutar los controladores de dominio de Windows Server 2016 y versiones posteriores.
+   No hay ninguna solución alternativa para este problema que no sea no ejecutar una combinación de estos sistemas operativos incompatibles en los dominios de Active Directory. En otras palabras, solo debe ejecutar los controladores de dominio de Windows Server 2012 y Windows Server 2012 R2, o solo ejecutar los controladores de dominio de Windows Server 2016 y versiones posteriores.
+
+## <a name="dc-agent-thinks-the-forest-has-not-been-registered"></a>El agente del DC considera que el bosque no se ha registrado
+
+El síntoma de este problema son los eventos 30016 que se registran en el canal del agente o el administrador del DC, que indican en parte:
+
+```text
+The forest has not been registered with Azure. Password policies cannot be downloaded from Azure unless this is corrected.
+```
+
+Hay dos causas posibles para este problema.
+
+1. Realmente no se ha registrado el bosque. Para resolver el problema, ejecute el comando Register-AzureADPasswordProtectionForest, como se describe en [Requisitos de implementación](howto-password-ban-bad-on-premises-deploy.md).
+1. El bosque se ha registrado, pero el agente del DC no puede descifrar los datos de registro del bosque. Este caso tiene la misma causa principal que el problema número 2 indicado anteriormente en [El agente del DC no puede cifrar o descifrar los archivos de directivas de contraseñas](howto-password-ban-bad-on-premises-troubleshoot.md#dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files). Una manera sencilla de confirmar esta teoría es que solo verá este error en los agentes del DC que se ejecutan en los controladores de dominio de Windows Server 2012 o de Windows Server 2012R2, mientras que los agentes del DC que se ejecutan en los controladores de dominio de Windows Server 2016 y posteriores funcionan correctamente. La solución alternativa es la misma: actualizar todos los controladores de dominio a Windows Server 2016 o posterior.
 
 ## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>Las contraseñas débiles se aceptan, pero no debería ser así
 

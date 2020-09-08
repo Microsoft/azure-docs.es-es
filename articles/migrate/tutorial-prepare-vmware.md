@@ -4,12 +4,12 @@ description: Aprenda a prepararse para la evaluación y migración de máquinas 
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: mvc
-ms.openlocfilehash: 8b812924c0922d460c631baec8b0e13a9f45cd76
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 8d4d6ac1149c397442a8ca7dd01f46f04ffc89b4
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109583"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927313"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Preparación de máquinas virtuales de VMware para la evaluación y migración a Azure
 
@@ -36,8 +36,8 @@ En la tabla se resumen las tareas que debe completar en Azure. Hay instrucciones
 --- | --- | ---
 **Crear un proyecto de Azure Migrate** | Un proyecto de Azure Migrate proporciona una ubicación central para orquestar y administrar las evaluaciones y migraciones con herramientas de Azure Migrate, herramientas de Microsoft y otras ofertas de terceros. | La cuenta de Azure necesita permisos de colaborador o propietario en el grupo de recursos en el que reside el proyecto.
 **Registrar dispositivo** | Azure Migrate usa un dispositivo Azure Migrate ligero para detectar máquinas virtuales, para evaluarlas con la herramienta Server Assessment y para migrarlas mediante la migración sin agente con la herramienta Server Migration. [Más información](migrate-appliance-architecture.md#appliance-registration) sobre el registro. | Para registrar el dispositivo, la cuenta de Azure necesita permisos de colaborador o propietario en la suscripción de Azure.
-**Crear aplicaciones de Azure AD** | Al registrar un dispositivo, Azure Migrate crea aplicaciones de Azure Active Directory (Azure AD). <br/><br/> - La primera aplicación se usa para la comunicación entre los agentes que se ejecutan en el dispositivo y Azure Migrate. <br/><br/> - La segunda aplicación se usa exclusivamente para acceder a la instancia de KeyVault creada en la suscripción del usuario para la migración de la máquina virtual de VMware sin agente.   | La cuenta de Azure necesita permisos para crear aplicaciones de Azure AD.
-**Crear un almacén de claves** | Para migrar máquinas virtuales VMware mediante la migración sin agente, Azure Migrate crea un almacén de claves para administrar las claves de acceso a la cuenta de replicación de la suscripción. | Para permitir que Azure Migrate cree el almacén de claves, debe establecer permisos (propietario, colaborador y administrador de acceso de usuario) en el grupo de recursos en el que reside el proyecto de Azure Migrate.
+**Crear aplicaciones de Azure AD** | Al registrar un dispositivo, Azure Migrate crea dos aplicaciones de Azure Active Directory (Azure AD). <br/><br/> - La primera aplicación se usa para la comunicación entre los agentes que se ejecutan en el dispositivo y Azure Migrate. <br/><br/> - La segunda aplicación se usa exclusivamente para acceder a la instancia de KeyVault creada en la suscripción del usuario para la migración de la máquina virtual de VMware sin agente.   | La cuenta de Azure necesita estos [permisos](https://docs.microsoft.com/azure/migrate/tutorial-prepare-vmware#assign-permissions-to-create-azure-ad-apps) para crear aplicaciones de Azure AD.
+**Crear un almacén de claves** | - La primera instancia de Key Vault se crea como parte del registro del dispositivo y se usa para la administración del certificado que se descargó en el dispositivo durante su configuración. <br/><br/> \- Para migrar máquinas virtuales VMware mediante la migración sin agente, Azure Migrate crea otra instancia de Key Vault para administrar las claves de acceso a la cuenta de replicación de la suscripción.| Para permitir que Azure Migrate cree el almacén de claves, debe establecer permisos (propietario, colaborador y administrador de acceso de usuario) en el grupo de recursos en el que reside el proyecto de Azure Migrate.
 
 
 ### <a name="assign-permissions-to-create-project"></a>Asignación de permisos para crear un proyecto

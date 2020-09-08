@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 8553a809173d955a21e6730de35c70de5b69e81b
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: e3316b4a2255652972a0b9deef813f894f993589
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87136026"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836078"
 ---
 # <a name="azure-monitor-insights-for-virtual-wan-preview"></a>Azure Monitor Insights para Virtual WAN (versión preliminar)
 
@@ -21,7 +21,7 @@ ms.locfileid: "87136026"
 Las métricas de nivel de recurso de Virtual WAN se recopilan y presentan mediante un libro de métricas de Virtual WAN previamente empaquetado que muestra las métricas en los niveles de una WAN virtual, centro, puerta de enlace y conexión. Este artículo le guiará por los pasos para usar Azure Monitor Insights para Virtual WAN, a fin de ver la topología de Virtual WAN y las métricas en un solo lugar.
 
 > [!NOTE]
-> El menú Insights está en proceso de implementación para esta versión preliminar.
+> La opción de menú Insights del portal de Virtual WAN está en proceso de implementación. Mientras se implementa el menú Insights de Virtual WAN, se puede acceder directamente al libro de métricas y la topología de Virtual WAN mediante Azure Monitor para redes. Consulte [Azure Monitor Insights](../azure-monitor/insights/network-insights-overview.md) para más información. 
 >
 
 ## <a name="before-you-begin"></a>Antes de empezar

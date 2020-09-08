@@ -7,36 +7,36 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.openlocfilehash: 1e5269333de27c146d4b9e2040801c4b14564125
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/26/2020
+ms.openlocfilehash: 0f1050bf58e0cd8d9a601d60a4c5dc22a5420483
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562624"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949038"
 ---
-# <a name="upgrade-to-the-latest-azure-cognitive-search-service-rest-api-version"></a>Actualización a la versión más reciente de la API de REST del servicio Búsqueda cognitiva de Azure
+# <a name="upgrade-to-the-latest-rest-api-in-azure-cognitive-search"></a>Actualización a la API de REST más reciente de Azure Cognitive Search
 
-Si usa una versión anterior de la [API REST de Search](https://docs.microsoft.com/rest/api/searchservice/), este artículo lo ayudará a actualizar la aplicación para que use la versión más reciente de la API disponible con carácter general, 2020-06-30.
+Si usa una versión anterior de la [**API de REST de Search**](/rest/api/searchservice/), este artículo le ayuda a actualizar la aplicación a la versión más reciente de la API disponible con carácter general, **2020-06-30**.
 
-La versión 2020-06-30 de la API REST contiene algunos cambios con respecto a versiones anteriores. Se trata principalmente de cambios compatibles con versiones anteriores, por lo que cambiar el código apenas debe exigir esfuerzo, según la versión que utilizaba antes. En [Pasos para la actualización](#UpgradeSteps) se describen los cambios de código necesarios para usar nuevas características.
+La versión 2020-06-30 incluye una característica nueva importante ([almacén de conocimiento](knowledge-store-concept-intro.md)) y presenta varios cambios de comportamiento secundarios. Como tal, esta versión es, en general, compatible con versiones anteriores, por lo que los cambios de código deben ser mínimos si va a actualizar desde la versión anterior (2019-05-06).
 
 > [!NOTE]
-> Una instancia del servicio Búsqueda cognitiva de Azure admite varias versiones de la API de REST, incluidas las anteriores. Puede seguir usando esas versiones de API, pero se recomienda migrar el código a la versión más reciente, para poder acceder a las funciones nuevas.
+> Un servicio de búsqueda admite una serie de versiones de la API de REST, incluidas versiones anteriores. Puede seguir usando esas versiones de API, pero se recomienda migrar el código a la versión más reciente, para poder acceder a las funciones nuevas. Con el tiempo, las versiones más obsoletas de la API de REST van a quedar en desuso y [ya no se van a admitir](search-api-versions.md#unsupported-versions).
 
 <a name="UpgradeSteps"></a>
 
 ## <a name="how-to-upgrade"></a>Procedimiento de actualización
 
-Al actualizar a versiones nuevas, es probable que no tenga que hacer ningún cambio en el código, excepto para cambiar el número de versión. Las únicas situaciones en las que puede que tenga que modificar el código ocurren si:
+Al actualizar a una versión nueva, es probable que no tenga que hacer ningún cambio en el código, excepto cambiar el número de versión. Las únicas situaciones en las que puede que tenga que modificar el código ocurren si:
 
 * Se produce un error en el código cuando se devuelven propiedades no reconocidas en una respuesta de la API. De forma predeterminada, la aplicación debe omitir propiedades que no comprende.
 
-* El código conserva las solicitudes de API e intenta volver a enviarlas a la nueva versión de API. Por ejemplo, esto podría suceder si la aplicación conserva tokens de continuación devueltos por la API de búsqueda (para más información, busque `@search.nextPageParameters` en la [referencia de la API de búsqueda](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)).
+* El código conserva las solicitudes de API e intenta volver a enviarlas a la nueva versión de API. Por ejemplo, esto podría suceder si la aplicación conserva tokens de continuación devueltos por la API de búsqueda (para más información, busque `@search.nextPageParameters` en la [referencia de la API de búsqueda](/rest/api/searchservice/Search-Documents)).
 
 * El código hace referencia a una versión de API anterior a la versión 2019-05-06 y que está sujeta a uno o varios de los cambios importantes de esa versión. La sección [Actualización a 2019-05-06](#upgrade-to-2019-05-06) proporciona más detalles. 
 
-Si alguna de estas situaciones se le presenta, debe cambiar el código en consecuencia. De lo contrario, no será necesario hacer ningún cambio a menos que quiera empezar a usar las características agregadas a la versión nueva.
+Si alguna de estas situaciones se le presenta, debe cambiar el código en consecuencia. Si no, no debería ser necesario ningún cambio, aunque puede que quiera empezar a usar características incorporadas en la versión nueva.
 
 ## <a name="upgrade-to-2020-06-30"></a>Actualización a 2020-06-30
 
@@ -63,7 +63,7 @@ La versión 2019-05-06 es la versión disponible con carácter general anterior 
 
 ### <a name="breaking-changes"></a>Últimos cambios
 
-El código existente escrito en versiones anteriores de la API se interrumpirá en la versión de la API 2019-05-06 si el código contiene esta funcionalidad:
+El código existente escrito en versiones anteriores de la API se interrumpirá en api-version=2019-05-06 y posterior si contiene la siguiente funcionalidad:
 
 #### <a name="indexer-for-azure-cosmos-db---datasource-is-now-type-cosmosdb"></a>Ahora el indizador del origen de datos de Azure Cosmos DB es "type": "cosmosdb"
 
@@ -146,4 +146,4 @@ Puede actualizar índices "planos" al formato nuevo mediante los pasos siguiente
 Revise la documentación de referencia de la API de REST del servicio Search. Si tiene algún problema, puede solicitar ayuda en [Stack Overflow](https://stackoverflow.com/) o [ponerse en contacto con el servicio de soporte técnico](https://azure.microsoft.com/support/community/?product=search).
 
 > [!div class="nextstepaction"]
-> [Referencia de la API de REST del servicio Search](https://docs.microsoft.com/rest/api/searchservice/)
+> [Referencia de la API de REST del servicio Search](/rest/api/searchservice/)

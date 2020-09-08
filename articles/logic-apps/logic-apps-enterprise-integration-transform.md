@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 07/08/2016
-ms.openlocfilehash: 500769a39ba7658b35c1abb80101f6234170c941
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: da583a1c884ddcae0815849c43dc0eb335005e53
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74792380"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832746"
 ---
 # <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>Creación de asignaciones para transformar XML de un formato a otro en Azure Logic Apps con Enterprise Integration Pack
 
@@ -36,13 +36,13 @@ Cuando cargue la transformación o la asignación en la cuenta de integración, 
 
 Ahora que ha tenido en cuenta los requisitos previos, tendrá que crear la Aplicación lógica:  
 
-1. Cree una aplicación lógica y [vincúlela a su cuenta de integración](../logic-apps/logic-apps-enterprise-integration-accounts.md "Aprenda a vincular una cuenta de integración a una aplicación lógica.") que contiene la asignación.
+1. Cree una aplicación lógica y [vincúlela a su cuenta de integración](./logic-apps-enterprise-integration-create-integration-account.md "Aprenda a vincular una cuenta de integración a una aplicación lógica.") que contiene la asignación.
 2. Agregue un desencadenador de tipo **Solicitud** a su aplicación lógica.  
-   ![](./media/logic-apps-enterprise-integration-transforms/transform-1.png)    
+   ![Captura de pantalla de la lista desplegable "Mostrar las API administradas por Microsoft" con el desencadenador de solicitud seleccionado. La lista desplegable está en una aplicación lógica creada con el SDK de integración de Visual Studio Enterprise.](./media/logic-apps-enterprise-integration-transforms/transform-1.png)    
 3. Agregue la acción **Transform XML** (Transformar XML), pero seleccione antes **Agregar una acción**   
-   ![](./media/logic-apps-enterprise-integration-transforms/transform-2.png)   
+   ![Captura de pantalla que muestra el botón "Agregar una acción" seleccionado en la pantalla del desencadenador de solicitud.](./media/logic-apps-enterprise-integration-transforms/transform-2.png)   
 4. Escriba la palabra *transform* en el cuadro de búsqueda para filtrar todas las acciones por la que desee usar.  
-   ![](./media/logic-apps-enterprise-integration-transforms/transform-3.png)  
+   ![Captura de pantalla que muestra cómo buscar la acción Transformar XML en la lista desplegable "Mostrar las API administradas por Microsoft" para que se pueda agregar al desencadenador de solicitud.](./media/logic-apps-enterprise-integration-transforms/transform-3.png)  
 5. Seleccione la acción **Transform XML** (Transformar XML)   
 6. Agregue el **CONTENIDO** XML que vaya a transformar. Puede usar cualquier dato XML que reciba en la solicitud HTTP como valor de **CONTENIDO**. En este ejemplo, seleccione el cuerpo de la solicitud HTTP que desencadenó la Aplicación lógica.
 
@@ -51,9 +51,9 @@ Ahora que ha tenido en cuenta los requisitos previos, tendrá que crear la Aplic
  
 
 7. Seleccione el nombre de la **ASIGNACIÓN** que quiera usar para realizar la transformación. La asignación ya debe estar en la cuenta de integración. En el paso anterior, ya concedió a la Aplicación lógica acceso a la cuenta de integración que contiene la asignación.      
-   ![](./media/logic-apps-enterprise-integration-transforms/transform-4.png) 
+   ![Captura de pantalla que muestra los campos de contenido y de asignación en la pantalla Transformar XML para el desencadenador de solicitud.](./media/logic-apps-enterprise-integration-transforms/transform-4.png) 
 8. Guarde el trabajo  
-    ![](./media/logic-apps-enterprise-integration-transforms/transform-5.png) 
+    ![Captura de pantalla que muestra el botón Guardar en el Diseñador de aplicaciones lógicas.](./media/logic-apps-enterprise-integration-transforms/transform-5.png) 
 
 En este momento, ya ha terminado de configurar su asignación. En una aplicación real, puede almacenar los datos transformados en una aplicación LOB como SalesForce. Puede agregar fácilmente una acción para enviar el resultado de la transformación a Salesforce. 
 
@@ -136,4 +136,3 @@ De forma predeterminada, la respuesta de la transformación se inicia con la mar
 ## <a name="learn-more"></a>Más información
 * [Más información acerca de Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack")  
 * [Más información sobre las asignaciones](../logic-apps/logic-apps-enterprise-integration-maps.md "Información sobre las asignaciones de integración empresarial")  
-

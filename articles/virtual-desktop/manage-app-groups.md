@@ -3,15 +3,15 @@ title: 'Administración de grupos de aplicaciones para Windows Virtual Desktop: 
 description: Cómo administrar grupos de aplicaciones de Windows Virtual Desktop con Azure Portal.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 04/30/2020
+ms.date: 08/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6baada4c3b376b936f693d45e39e5887e77ef54b
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 21dba3c9beeefa2b25b8038f6cbd0ec77f947774
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010096"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226733"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>Tutorial: Administración de grupos de aplicaciones con Azure Portal
 
@@ -31,14 +31,20 @@ En este tutorial, aprenderá a:
 Si ya ha creado un grupo de hosts y máquinas virtuales de host de sesión mediante Azure Portal o PowerShell, puede agregar grupos de aplicaciones desde Azure Portal con el siguiente proceso:
 
 1.  Inicie sesión en [Azure Portal](https://portal.azure.com/).
+   
+   >![NOTA] Si va a iniciar sesión en el portal de US Gov, vaya a [https://portal.azure.us/](https://portal.azure.us/) en su lugar.
 
 2.  Busque y seleccione **Windows Virtual Desktop**.
 
-3.  Seleccione **Application Groups** (Grupos de aplicaciones) en el lado izquierdo de la página y, luego, elija **+ Add** (+ Agregar).
+3. Puede agregar un grupo de aplicaciones directamente o puede agregarlo desde un grupo de hosts existente. Elija una de las siguientes opciones:
 
-4. En la pestaña **Basics** (Aspectos básicos), seleccione el grupo de suscripciones y el grupo de recursos en el que quiere crear el grupo de aplicaciones. También puede optar por crear un grupo de recursos en lugar de seleccionar uno existente.
+    - Seleccione **Application groups** (Grupos de aplicaciones) en el lado izquierdo de la página y, luego, elija **+ Add** (+ Agregar).
 
-5. Seleccione el grupo de hosts que se asociará con el grupo de aplicaciones en el menú desplegable situado junto a **Host pool** (Grupo de hosts).
+    - Seleccione **Host pools** (Grupos de hosts) en el menú de la izquierda de la pantalla, seleccione el nombre del grupo de hosts, seleccione **Application groups** (Grupos de aplicaciones) en el menú de la izquierda y, a continuación, seleccione **+ Add** (+ Agregar). En este caso, el grupo host ya estará seleccionado en la pestaña Basics (Básica).
+
+4. En la pestaña **Basics** (Básica), seleccione la **suscripción** y el **grupo de recursos** en el que quiere crear el grupo de aplicaciones. También puede optar por crear un grupo de recursos en lugar de seleccionar uno existente.
+
+5. Seleccione el **grupo de hosts** que se va a asociar con el grupo de aplicaciones en el menú desplegable.
 
     >[!NOTE]
     >Debe seleccionar el grupo de hosts asociado con el grupo de aplicaciones. Los grupos de aplicaciones tienen aplicaciones o escritorio que se suministran desde un host de sesión y los hosts de sesión forman parte de los grupos de hosts. El grupo de aplicaciones debe estar asociado con un grupo de hosts durante la creación.
@@ -46,41 +52,27 @@ Si ya ha creado un grupo de hosts y máquinas virtuales de host de sesión media
     > [!div class="mx-imgBorder"]
     > ![Captura de pantalla de la pestaña "Basics" (Aspectos básicos) en Azure Portal.](media/basics-tab.png)
 
-6. Si quiere agregar grupos de aplicaciones al grupo de hosts, seleccione **Host pools** (Grupos de hosts) en el menú del lado izquierdo de la pantalla.
-
-    Luego, seleccione el nombre del grupo de hosts al que quiere agregar grupos de aplicaciones.
-
-    Después, seleccione **Application groups** (Grupos de aplicaciones) en el lado izquierdo de la pantalla y elija **+ Add** (+ Agregar).
-
-    Por último, seleccione el grupo de suscripción y el grupo de recursos en el que quiere crear el grupo de aplicaciones. Puede seleccionar el nombre de un grupo de recursos existente en el menú desplegable o elegir **Create new** (Crear nuevo) para crear uno.
-
-      >[!NOTE]
-      >Al agregar grupos de aplicaciones al grupo de hosts, el grupo de hosts relacionado con el grupo de aplicaciones ya está seleccionado porque se ha desplazado desde él.
-      >
-      > [!div class="mx-imgBorder"]
-      >![Captura de pantalla de la pestaña Basics (Aspectos básicos) con el grupo de hosts preseleccionado.](media/host-pool-selected.png)
-
-7. Seleccione **RemoteApp** en "Application group type" (Tipo de grupo de aplicaciones) y, luego, escriba un nombre para su instancia de RemoteApp.
+6. Select **RemoteApp** under **Application group type** (Tipo de grupo de aplicaciones) y escriba un nombre para la aplicación remota.
 
       > [!div class="mx-imgBorder"]
       > ![Captura de pantalla de los campos "Application group type" (Tipo de grupo de aplicaciones). "RemoteApp" está resaltado.](media/remoteapp-button.png)
 
-8.  Seleccione la pestaña **Assignments** (Asignaciones).
+7.  Seleccione **Siguiente: Assignments >** (Asignaciones).
 
-9.  Para publicar usuarios o grupos de usuarios en el grupo de aplicaciones, seleccione **+Add Azure AD users or user groups** (+ Agregar usuarios o grupos de usuarios de Azure AD).
+8.  Para asignar usuarios individuales o grupos de usuarios al grupo de aplicaciones, seleccione **+Add Azure AD users or user groups** (+ Agregar usuarios o grupos de usuarios de Azure AD).
 
-10.  Seleccione el número de usuarios a los que quiere agregar las aplicaciones. Puede seleccionar uno o varios usuarios y grupos de usuarios.
+9.  Seleccione los usuarios que desea que tengan acceso a las aplicaciones. Puede seleccionar uno o varios usuarios y grupos de usuarios.
 
      > [!div class="mx-imgBorder"]
      > ![Captura de pantalla del menú de selección de usuarios.](media/select-users.png)
 
-11.  Elija **Seleccionar**.
+10.  Elija **Seleccionar**.
 
-12.  Seleccione la pestaña **Applications** (Aplicaciones) y, luego, elija **+Add applications** (+ Agregar aplicaciones).
+11.  Seleccione **Siguiente: Applications >** (Aplicaciones) y, a continuación, seleccione **+Add applications** (+Agregar aplicaciones).
 
-13.  Para agregar una aplicación desde el menú Inicio:
+12.  Para agregar una aplicación desde el menú Inicio:
 
-      - Vaya a **Application source** (Origen de aplicación) y seleccione **Start menu** (Menú Inicio) en el menú desplegable. Luego, vaya a **Application** (Aplicación) y elija la aplicación en el menú desplegable.
+      - En **Application source** (Origen de aplicación), seleccione **Start menu** (Menú Inicio) en el menú desplegable. A continuación, en **Application** (Aplicación), elija la aplicación en el menú desplegable.
 
      > [!div class="mx-imgBorder"]
      > ![Captura de pantalla de "Add application" (Agregar aplicación) con "Start Menu" (Menú Inicio) seleccionado.](media/add-app-start.png)
@@ -89,11 +81,11 @@ Si ya ha creado un grupo de hosts y máquinas virtuales de host de sesión media
 
       - Deje las demás opciones como están y seleccione **Save** (Guardar).
 
-14. Para agregar una aplicación desde una ruta de acceso de archivo específica:
+13.  Para agregar una aplicación desde una ruta de acceso de archivo específica:
 
-      - Vaya a **Application source** (Origen de aplicación) y seleccione **File path** (Ruta de acceso al archivo) en el menú desplegable.
+      - En **Application source** (Origen de aplicación), seleccione **File path** (Ruta de acceso al archivo) en el menú desplegable.
 
-      - Escriba la ruta de acceso a la aplicación en el host de sesión, registrada con el grupo de hosts asociado.
+      - In **Application path** (Ruta de acceso de la aplicación), escriba la ruta de acceso a la aplicación en el host de sesión registrado con el grupo de hosts asociado.
 
       - Escriba los detalles de la aplicación en los campos **Application name** (Nombre de la aplicación), **Display name** (Nombre para mostrar), **Icon path** (Ruta del icono) e **Icon index** (Índice de icono).
 
@@ -102,11 +94,11 @@ Si ya ha creado un grupo de hosts y máquinas virtuales de host de sesión media
      > [!div class="mx-imgBorder"]
      > ![Captura de pantalla de la página "Add application" (Agregar aplicación) con la ruta de acceso al archivo seleccionada.](media/add-app-file.png)
 
-     Repita este proceso con cada aplicación que quiera agregar al grupo de aplicaciones.
+14.  Repita este proceso con cada aplicación que quiera agregar al grupo de aplicaciones.
 
-15.  A continuación, seleccione la pestaña **Workspace** (Área de trabajo).
+15.  A continuación, seleccione **Next: Workspace >** (Siguiente: Área de trabajo).
 
-16.  Si quiere registrar el grupo de aplicaciones en un área de trabajo, vaya a **Register application group** (Registrar grupo de aplicaciones) y seleccione **Yes** (Sí). Si prefiere registrar el grupo de aplicaciones en otro momento, seleccione **No**.
+16.  Si quiere registrar el grupo de aplicaciones en un área de trabajo, seleccione **Yes** (Sí) para **Register application group** (Registrar grupo de aplicaciones). Si prefiere registrar el grupo de aplicaciones en otro momento, seleccione **No**.
 
 17.  Si selecciona **Yes** (Sí), puede seleccionar un área de trabajo existente en la que registrar el grupo de aplicaciones.
 
@@ -116,11 +108,11 @@ Si ya ha creado un grupo de hosts y máquinas virtuales de host de sesión media
      > [!div class="mx-imgBorder"]
      > ![Captura de pantalla de la página "Register application group" (Registrar grupo de aplicaciones) en un área de trabajo ya existente. El grupo de hosts está preseleccionado.](media/register-existing.png)
 
-18. Opcionalmente, si quiere crear etiquetas para facilitar la organización del área de trabajo, seleccione la pestaña **Tags** (Etiquetas) y escriba los nombres de las etiquetas.
+18.  Opcionalmente, si quiere crear etiquetas para facilitar la organización del área de trabajo, seleccione **Next: Tags >** (Siguiente: Etiquetas) y escriba los nombres de las etiquetas.
 
-19. Cuando termine, seleccione la pestaña **Review + create** (Revisar y crear).
+19.  Seleccione **Revisar y crear** cuando haya terminado.
 
-20. Espere un poco a que se complete el proceso de validación. Cuando haya terminado, seleccione **Create** (Crear) para implementar el grupo de aplicaciones.
+20.  Espere un poco a que se complete el proceso de validación. Cuando haya terminado, seleccione **Create** (Crear) para implementar el grupo de aplicaciones.
 
 El proceso de implementación realizará las siguientes tareas automáticamente:
 

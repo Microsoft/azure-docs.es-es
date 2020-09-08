@@ -7,25 +7,22 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 2f8f1cceb5cfee4bf910674ecd50c7fba1d5c021
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 720a0e25f3486f32ffed897e54033fd4b68dace4
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318375"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87848132"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Alertas y supervisión unificadas de Azure Monitor reemplaza a alertas y supervisión clásicas
 
-Azure Monitor se ha convertido en un servicio de supervisión completo y unificado que ahora admite "One Metrics" (métricas unificadas) y "One Alerts" (alertas unificadas) en los recursos; para más información, consulte nuestra [entrada de blog acerca del nuevo servicio Azure Monitor](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/). Las nuevas plataformas de supervisión y generación de alertas de Azure se han creado para que sean más rápidas, inteligentes y extensibles (con lo que se sigue el ritmo de la creciente expansión de la informática en la nube y está en línea con la filosofía de Microsoft Intelligent Cloud). 
+Azure Monitor se ha convertido en un servicio de supervisión completo y unificado que ahora admite "One Metrics" (métricas unificadas) y "One Alerts" (alertas unificadas) en los recursos; para más información, consulte nuestra [entrada de blog acerca del nuevo servicio Azure Monitor](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/). Las nuevas plataformas de supervisión y generación de alertas de Azure se han creado para que sean más rápidas, inteligentes y extensibles (con lo que se sigue el ritmo de la creciente expansión de la informática en la nube y está en línea con la filosofía de Microsoft Intelligent Cloud).
 
-Con la implantación de la nueva plataforma de supervisión y generación de alertas de Azure, se retirará la plataforma "clásica" de supervisión y alertas (hospedada en la sección *Ver alertas clásicas* de las alertas de Azure y **dejará de usarse en agosto de 2019 en las nubes públicas de Azure**). La [nube de Azure Government](../../azure-government/documentation-government-welcome.md) y [Azure China 21Vianet](https://docs.azure.cn/) no se verán afectadas.
-
-> [!NOTE]
-> Debido a un retraso en la implementación de la herramienta de migración, la fecha de retirada para la migración de alertas clásicas se [extendió hasta el 31 de agosto de 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/), desde la fecha anunciada originalmente del 30 de junio de 2019.
+Con la nueva plataforma de supervisión y alertas de Azure, se retiran las alertas clásicas de Azure Monitor, aunque se siguen usando de forma limitada para los recursos que aún no admiten las nuevas alertas. La fecha de retirada de esas alertas se ha ampliado. Pronto se va a anunciar una nueva fecha para la migración de las alertas restantes, la [nube de Azure Government](../../azure-government/documentation-government-welcome.md) y [Azure China 21Vianet](https://docs.azure.cn/).
 
  ![Alerta clásica en Azure Portal](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 
-Le animamos a volver a crear las alertas en la nueva plataforma. Los clientes que tienen un gran número de alertas, estamos [implementando en fases](alerts-understand-migration.md#rollout-phases) una [herramienta de migración voluntaria](alerts-using-migration-tool.md) para mover las alertas clásicas existentes al nuevo sistema de alertas sin interrupciones ni costes adicionales.
+Le animamos a volver a crear las alertas en la nueva plataforma.
 
 > [!IMPORTANT]
 > Las reglas de alerta clásicas creadas en el registro de actividad no caerán en desuso ni se migrarán. Puede acceder a todas las reglas de alerta clásicas creadas en el registro de actividad y usarlas tal cual, desde la nueva Azure Monitor: Alertas. Para más información, vea [Crear, ver y administrar las alertas del registro de actividad mediante Azure Monitor](./alerts-activity-log.md). De forma similar, puede acceder a alertas en Service Health y usarlas tal cual desde la nueva sección Service Health. Para más información, consulte las [alertas en las notificaciones de Service Health](../../service-health/alerts-activity-log-service-notifications-portal.md).
@@ -51,25 +48,22 @@ Las métricas más recientes de los recursos de Azure están disponibles como:
 
 ## <a name="retirement-of-classic-monitoring-and-alerting-platform"></a>Retirada de la plataforma de alertas y supervisión clásica
 
-Como se indicó anteriormente, la plataforma de alertas y supervisión clásica que se puede usar actualmente desde la [sección Alertas (clásico)](./alerts-classic.overview.md) de Azure Portal se retirará el portal en los próximos meses, ya que se ha reemplazado por el nuevo sistema.
-El 31 de agosto de 2019 se retirará la funcionalidad clásica de supervisión y alertas anterior, lo que incluye el cierre de las API relacionadas, la interfaz de Azure Portal y los servicios que contiene. En concreto, estas características quedarán en desuso:
+Como se ha indicado anteriormente, se retira la plataforma de alertas y supervisión clásicas más antiguas, lo que incluye la clausura de las API relacionadas, la interfaz de Azure Portal y los servicios que contiene, aunque sigue en uso limitado para los recursos que aún no admiten las nuevas alertas. En concreto, estas características quedarán en desuso:
 
 - Métricas y alertas anteriores (clásicas) para recursos de Azure están actualmente disponibles en la [sección Alertas (clásico)](./alerts-classic.overview.md) de Azure Portal y se puede acceder a ellas como el recurso [microsoft.insights/alertrules](/rest/api/monitor/alertrules).
 - Métricas personalizadas y de la plataforma anteriores (clásicas) para Application Insights, así como la generación de alertas sobre ellos, que actualmente está disponible en la [sección Alertas (clásico)](./alerts-classic.overview.md) de Azure Portal y se puede acceder a ellas como el recurso [microsoft.insights/alertrules](/rest/api/monitor/alertrules).
 - Alerta de anomalías en los errores anteriores (clásicas), que actualmente están disponibles como [Detección inteligente en Application Insights](../app/proactive-diagnostics.md) en Azure Portal, con las alertas configuradas que se muestran en la sección [Alertas (clásico)](./alerts-classic.overview.md) de Azure Portal.
 
-Todos los sistemas clásicos de supervisión y generación de alertas, incluidos la [API](/rest/api/monitor/alertrules) correspondiente, [PowerShell](./alerts-classic-portal.md), la [CLI](./alerts-classic-portal.md), la [página de Azure Portal](./alerts-classic-portal.md) y la [plantilla de recursos](./alerts-enable-template.md), se podrán usar hasta finales de agosto de 2019. 
-
-Al finales de agosto de 2019, en Azure Monitor:
+Esto significa:
 
 - El servicio de alertas y supervisión clásico se retirará y dejará de estar disponible para la creación de nuevas reglas de alerta.
-- Todas las reglas de alertas que sigan en Alertas (clásico) después de agosto de 2019 seguirán ejecutándose y enviando notificaciones, pero no estarán disponibles para su modificación.
-- A partir de septiembre de 2019, Microsoft trasladará las reglas de alertas en la supervisión y generación de alertas clásicas que se pueden migrar a su equivalente en la nueva plataforma de Azure Monitor, en las fases que abarcarán varias semanas. El proceso será ininterrumpido, no habrá tiempo de inactividad y garantizará que los clientes no pierden cobertura de supervisión.
+- Todas las reglas de alerta que sigan en Alertas (clásicas) continuarán ejecutándose y enviando notificaciones.
+- Microsoft trasladará las reglas de alertas de la supervisión y las alertas clásicas que se pueden migrar a su equivalente en la nueva plataforma de Azure Monitor, en fases que abarcan varias semanas. El proceso será ininterrumpido, no habrá tiempo de inactividad y garantizará que los clientes no pierden cobertura de supervisión.
 - Las reglas de alertas migradas a la nueva plataforma de alertas proporcionarán cobertura de supervisión como antes, pero activarán notificaciones con las nuevas cargas útiles. Todas las direcciones de correo electrónico, puntos de conexión de webhook o vínculos a aplicaciones lógicas asociados con la regla de alertas clásica se traspasarán al realizar la migración, pero puede que su comportamiento no sea correcto, ya que la carga útil de la alerta será distinta en la nueva plataforma.
-- Algunas [reglas de alertas clásicas que no se pueden migrar automáticamente](alerts-understand-migration.md#classic-alert-rules-that-will-not-be-migrated) y requieren una acción manual de los usuarios seguirán ejecutándose hasta junio de 2020.
+- Algunas [reglas de alertas clásicas que no se pueden migrar automáticamente](alerts-understand-migration.md#manually-migrating-classic-alerts-to-newer-alerts) y requieren una acción manual por parte de los usuarios seguirán ejecutándose.
 
 > [!IMPORTANT]
-> Microsoft Azure Monitor ha implantado en fases una [herramienta para migrar voluntariamente](alerts-using-migration-tool.md) sus reglas de alertas clásicas a la nueva plataforma. La ha ejecutado a la fuerza para todas las reglas de alertas clásicas que aún existen y se pueden migrar, a partir de septiembre de 2019. Los clientes deberán garantizar la adaptación de la automatización que consume la carga útil de reglas de alertas clásicas para poder controlar la nueva carga útil siguiendo los procedimientos descritos en [Métricas y alertas unificadas en Application Insights](#unified-metrics-and-alerts-in-application-insights) o [Métricas y alertas unificadas para otros recursos de Azure](#unified-metrics-and-alerts-for-other-azure-resources) después de la migración de las reglas de alertas clásicas. Para más información, consulte [Preparar sus aplicaciones lógicas y los runbooks para la migración de las reglas de alertas clásicas](alerts-prepare-migration.md).
+> Microsoft Azure Monitor ha implantado en fases una [herramienta para migrar voluntariamente](alerts-using-migration-tool.md) sus reglas de alertas clásicas a la nueva plataforma. Además, la ha ejecutado obligatoriamente para todas las reglas de alertas clásicas que aún existen y se pueden migrar. Los clientes deberán garantizar la adaptación de la automatización que consume la carga útil de reglas de alertas clásicas para poder controlar la nueva carga útil siguiendo los procedimientos descritos en [Métricas y alertas unificadas en Application Insights](#unified-metrics-and-alerts-in-application-insights) o [Métricas y alertas unificadas para otros recursos de Azure](#unified-metrics-and-alerts-for-other-azure-resources) después de la migración de las reglas de alertas clásicas. Para más información, consulte [Preparar sus aplicaciones lógicas y los runbooks para la migración de las reglas de alertas clásicas](alerts-prepare-migration.md).
 
 Este artículo se actualizará constantemente con vínculos y detalles relativos a la nueva funcionalidad de supervisión y generación de alertas de Azure, así como con la disponibilidad de las herramientas que ayudan a los usuarios a adoptar la nueva plataforma de Azure Monitor.
 

@@ -7,19 +7,20 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/03/2020
-ms.openlocfilehash: cc02890cb5293e48a8065b63f4f9c799c5dda7f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/01/2020
+ms.custom: references_regions
+ms.openlocfilehash: c9f0f496bfdb31e0c7cb45a07c87ea238d031e34
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85081047"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928775"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Seguridad en Azure Cognitive Search: información general
 
-En este artículo se describen las principales características de seguridad de Azure Cognitive Search que pueden proteger el contenido y las operaciones. 
+En este artículo se describen las principales características de seguridad de Azure Cognitive Search que pueden proteger el contenido y las operaciones.
 
-+ En la capa de almacenamiento, el cifrado en reposo viene dado en el nivel de plataforma, pero Cognitive Search también ofrece una opción de "cifrado doble" para los clientes que quieren la protección dual de las claves administradas por el usuario y por Microsoft.
++ En la capa de almacenamiento, el cifrado en reposo está integrado en todo el contenido administrado por el servicio guardado en el disco, incluidos los índices, los mapas de sinónimos y las definiciones de indizadores, orígenes de datos y conjuntos de aptitudes. Azure Cognitive Search también admite la incorporación de claves administradas por el cliente (CMK) para el cifrado complementario del contenido indizado. En el caso de los servicios creados después del 1 de agosto de 2020, el cifrado de CMK se extiende a los datos de los discos temporales, para el cifrado doble completo del contenido indizado.
 
 + La seguridad de entrada protege el punto de conexión del servicio de búsqueda en niveles crecientes de seguridad: desde las claves de API de la solicitud hasta las reglas de entrada del firewall o los puntos de conexión privados que protegen totalmente el servicio de la red pública de Internet.
 
@@ -29,29 +30,41 @@ Vea este vídeo de resumen para obtener información general sobre la arquitectu
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Azure-Cognitive-Search-Whats-new-in-security/player]
 
+<a name="encryption"></a>
+
 ## <a name="encrypted-transmissions-and-storage"></a>Transmisiones y almacenamiento cifrados
 
-El cifrado es generalizado en Azure Cognitive Search: empieza por las conexiones y las transmisiones y se extiende hasta el contenido almacenado en disco. En el caso de los servicios de búsqueda en la red pública de Internet, Azure Cognitive Search escucha en el puerto HTTPS 443. Todas las conexiones de cliente a servicio usan el cifrado TLS 1.2. Las versiones anteriores (1.0 o 1.1) no se admiten.
+En Azure Cognitive Search, el cifrado empieza por las conexiones y las transmisiones y se extiende al contenido almacenado en el disco. En el caso de los servicios de búsqueda en la red pública de Internet, Azure Cognitive Search escucha en el puerto HTTPS 443. Todas las conexiones de cliente a servicio usan el cifrado TLS 1.2. Las versiones anteriores (1.0 o 1.1) no se admiten.
 
-### <a name="data-encryption-at-rest"></a>Cifrado de datos en reposo
+En el caso de los datos que administra internamente el servicio de búsqueda, en la tabla siguiente se describen los [modelos de cifrado de datos](../security/fundamentals/encryption-models.md). Algunas características, como el almacén de conocimiento, el enriquecimiento incremental y la indización basada en indizador, leen o escriben en estructuras de datos de otros servicios de Azure. Esos servicios tienen sus propios niveles de compatibilidad de cifrado independientes de Azure Cognitive Search.
 
-Azure Cognitive Search almacena las definiciones de índice y el contenido, las definiciones de orígenes de datos, las definiciones de indexador, las definiciones del conjunto de aptitudes y los mapas de sinónimos.
+| Modelo | Claves&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Requisitos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Restricciones | Se aplica a |
+|------------------|-------|-------------|--------------|------------|
+| Cifrado del servidor | Claves administradas por Microsoft | Ninguno (integrados) | Ninguna, disponible en todos los niveles, en todas las regiones, para el contenido creado después del 24 de enero de 2018. | Contenido (índices y mapas de sinónimos) y definiciones (indizadores, orígenes de datos, conjuntos de aptitudes) |
+| Cifrado del servidor | Claves administradas por el cliente | Azure Key Vault | Disponible en niveles facturables, en todas las regiones, para el contenido creado después de enero de 2019. | Contenido (índices y mapas de sinónimos) en discos de datos |
+| Cifrado doble del servidor | Claves administradas por el cliente | Azure Key Vault | Disponible en niveles facturables, en regiones seleccionadas, en servicios de búsqueda después del 1 de agosto de 2020. | Contenido (índices y mapas de sinónimos) en discos de datos y discos temporales |
 
-En la capa de almacenamiento, los datos se cifran en el disco mediante claves administradas por Microsoft. No se puede activar ni desactivar el cifrado ni ver la configuración de cifrado en el portal o mediante programación. El cifrado se internaliza totalmente, sin impacto cuantificable a la hora de indexar el tiempo que tarda en completarse ni el tamaño de indexación. Se produce automáticamente en todas las indexaciones, incluidas las actualizaciones incrementales a un índice que no esté totalmente cifrado (creado antes de enero de 2018).
+### <a name="service-managed-keys"></a>Claves administradas por el servicio
 
-Internamente, el cifrado se basa en el [cifrado del servicio de Azure Storage](../storage/common/storage-service-encryption.md), que usa [cifrado AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits.
+El cifrado administrado por el servicio es una operación interna de Microsoft que se basa en [Azure Storage Service Encryption](../storage/common/storage-service-encryption.md) con [cifrado AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits. Se produce automáticamente en todas las indizaciones, incluidas las actualizaciones incrementales a índices que no están totalmente cifrados (creados antes de enero de 2018).
 
-> [!NOTE]
-> El cifrado en reposo se anunció el 24 de enero de 2018 y se aplica a todos los niveles de servicio, incluido el nivel Gratis, en todas las regiones. Para el cifrado completo, los índices creados antes de esa fecha deben quitarse y volver a generarse para que se produzca el cifrado. En caso contrario, solo se cifrarán los datos nuevos a partir del 24 de enero.
+### <a name="customer-managed-keys-cmk"></a>Claves administradas por el cliente (CMK)
 
-### <a name="customer-managed-key-cmk-encryption"></a>Cifrado mediante claves administradas por el cliente
+Las claves administradas por el cliente requieren un servicio facturable adicional, Azure Key Vault, que puede estar en otra región, pero en la misma suscripción que Azure Cognitive Search. Al habilitar el cifrado de CMK aumenta el tamaño de los índices y empeora el rendimiento de las consultas. Según las observaciones hechas hasta la fecha, puede esperar un aumento del 30 al 60% en los tiempos de consultas, aunque el rendimiento real variará según la definición del índice y los tipos de consultas. Debido a este impacto en el rendimiento, se recomienda habilitar esta característica solo en los índices que realmente la necesitan. Para obtener más información, vea [Configuración de claves administradas por el cliente para el cifrado de datos en Azure Cognitive Search](search-security-manage-encryption-keys.md).
 
-Los clientes que quieren una protección de almacenamiento adicional pueden cifrar los datos y los objetos antes de que se almacenen y cifren en el disco. Este enfoque se basa en una clave propiedad del usuario, administrada y almacenada a través de Azure Key Vault, independientemente de Microsoft. El cifrado del contenido antes de que se cifre en el disco se conoce como "cifrado doble". Actualmente, puede aplicar cifrado doble en los índices y los mapas de sinónimos de forma selectiva. Para obtener más información, consulte [Claves de cifrado administradas por el cliente en Azure Cognitive Search](search-security-manage-encryption-keys.md).
+<a name="double-encryption"></a>
 
-> [!NOTE]
-> El cifrado CMK está disponible con carácter general para los servicios de búsqueda creados después de enero de 2019. No se admite en servicios Gratis (compartidos). 
->
->Si habilita esta característica, aumentará el tamaño del índice y reducirá el rendimiento de las consultas. Según las observaciones hechas hasta la fecha, puede esperar un aumento del 30 al 60% en los tiempos de consultas, aunque el rendimiento real variará según la definición del índice y los tipos de consultas. Debido a este impacto en el rendimiento, se recomienda habilitar esta característica solo en los índices que realmente la necesitan.
+### <a name="double-encryption"></a>Cifrado doble
+
+En Azure Cognitive Search, el cifrado doble es una extensión de CMK. Se entiende que se trata de un cifrado doble (una vez mediante CMK y otra mediante claves administradas por el servicio) y de ámbito general, que engloba el almacenamiento a largo plazo que se escribe en un disco de datos y el almacenamiento a corto plazo escrito en discos temporales. La diferencia entre CMK antes del 1 de agosto de 2020 y después, y lo que convierte a CMK en una característica de cifrado doble en Azure Cognitive Search, es el cifrado adicional de datos en reposo en discos temporales.
+
+El cifrado doble está disponible actualmente en los nuevos servicios creados en estas regiones después del 1 de agosto:
+
++ Oeste de EE. UU. 2
++ Este de EE. UU.
++ Centro-sur de EE. UU.
++ US Gov - Virginia
++ US Gov: Arizona
 
 <a name="service-access-and-authentication"></a>
 
@@ -61,7 +74,7 @@ Las características de seguridad de entrada protegen el punto de conexión del 
 
 ### <a name="public-access-using-api-keys"></a>Acceso público mediante claves de API
 
-De forma predeterminada, se tiene acceso a un servicio de búsqueda a través de la nube pública mediante la autenticación basada en claves para el acceso de administrador o de consulta al punto de conexión del servicio de búsqueda. Una clave de API es una cadena que se compone de letras y números generados aleatoriamente. El tipo de clave (administrador o consulta) determina el nivel de acceso. El envío de una clave válida se considera una prueba de que la solicitud se origina desde una entidad de confianza. 
+De forma predeterminada, se tiene acceso a un servicio de búsqueda a través de la nube pública mediante la autenticación basada en claves para el acceso de administrador o de consulta al punto de conexión del servicio de búsqueda. Una clave de API es una cadena que se compone de letras y números generados aleatoriamente. El tipo de clave (administrador o consulta) determina el nivel de acceso. El envío de una clave válida se considera una prueba de que la solicitud se origina desde una entidad de confianza.
 
 Hay dos niveles de acceso al servicio de búsqueda, habilitados por las siguientes claves API:
 
@@ -79,15 +92,15 @@ Se requiere autenticación en cada solicitud, y cada solicitud se compone de una
 
 Para controlar aún más el acceso al servicio de búsqueda, puede crear reglas de firewall de entrada que permitan el acceso a una dirección IP específica o a un intervalo de direcciones IP. Todas las conexiones de cliente deben realizarse a través de una dirección IP permitida, o la conexión se denegará.
 
-Puede usar el portal para [configurar el acceso de entrada](service-configure-firewall.md). 
+Puede usar el portal para [configurar el acceso de entrada](service-configure-firewall.md).
 
-Como alternativa, puede usar las API REST de administración. La versión de API 2020-03-13, con el parámetro [IpRule](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule), le permite restringir el acceso a su servicio mediante la identificación (de forma individual o en un intervalo) de las direcciones IP a las que quiera otorgar acceso a su servicio de búsqueda. 
+Como alternativa, puede usar las API REST de administración. La versión de API 2020-03-13, con el parámetro [IpRule](/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule), le permite restringir el acceso a su servicio mediante la identificación (de forma individual o en un intervalo) de las direcciones IP a las que quiera otorgar acceso a su servicio de búsqueda.
 
 ### <a name="private-endpoint-no-internet-traffic"></a>Punto de conexión privado (sin tráfico de Internet)
 
-Los [puntos de conexión privados](../private-link/private-endpoint-overview.md) para Azure Cognitive Search permiten a un cliente de una [red virtual](../virtual-network/virtual-networks-overview.md) obtener acceso de forma segura a los datos de un índice de búsqueda a través de un [vínculo privado](../private-link/private-link-overview.md). 
+Los [puntos de conexión privados](../private-link/private-endpoint-overview.md) para Azure Cognitive Search permiten a un cliente de una [red virtual](../virtual-network/virtual-networks-overview.md) obtener acceso de forma segura a los datos de un índice de búsqueda a través de un [vínculo privado](../private-link/private-link-overview.md).
 
-El punto de conexión privado usa una dirección IP del espacio de direcciones de la red virtual para las conexiones al servicio de búsqueda. El tráfico de red entre el cliente y el servicio de búsqueda atraviesa la red virtual y un vínculo privado de la red troncal de Microsoft, lo que elimina la exposición a la red pública de Internet. Una red virtual permite establecer una comunicación segura entre recursos, con su red local y con Internet. 
+El punto de conexión privado usa una dirección IP del espacio de direcciones de la red virtual para las conexiones al servicio de búsqueda. El tráfico de red entre el cliente y el servicio de búsqueda atraviesa la red virtual y un vínculo privado de la red troncal de Microsoft, lo que elimina la exposición a la red pública de Internet. Una red virtual permite establecer una comunicación segura entre recursos, con su red local y con Internet.
 
 Aunque esta solución es la más segura, el uso de servicios adicionales supone un costo adicional, por lo que debe comprender claramente las ventajas antes de profundizar en ella. Para más información sobre los costos, consulte la [página de precios](https://azure.microsoft.com/pricing/details/private-link/). Para obtener más información sobre cómo funcionan conjuntamente estos componentes, vea el vídeo que se encuentra en la parte superior de este artículo. La opción de punto de conexión privado se trata a partir del minuto 5:48 del vídeo. Para obtener instrucciones sobre cómo configurar el punto de conexión, consulte [Creación de un punto de conexión privado para una conexión segura a Azure Cognitive Search](service-create-private-endpoint.md).
 
@@ -114,7 +127,7 @@ Si necesita tener un control por usuario pormenorizado de los resultados de la b
 
 ## <a name="administrative-rights"></a>Derechos administrativos
 
-El [acceso basado en rol (RBAC)](../role-based-access-control/overview.md) es un sistema de autorización basado en [Azure Resource Manager](../azure-resource-manager/management/overview.md) para el aprovisionamiento de recursos de Azure. En Azure Cognitive Search, Resource Manager se usa para crear o eliminar el servicio, administrar las claves de API y escalar el servicio. Como tal, las asignaciones de roles de RBAC determinarán quién puede realizar esas tareas, independientemente de si usan el [portal](search-manage.md), [PowerShell](search-manage-powershell.md) o las [API REST de administración](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
+El [control de acceso basado en rol de Azure (Azure RBAC)](../role-based-access-control/overview.md) es un sistema de autorización basado en [Azure Resource Manager](../azure-resource-manager/management/overview.md) para el aprovisionamiento de recursos de Azure. En Azure Cognitive Search, Resource Manager se usa para crear o eliminar el servicio, administrar las claves de API y escalar el servicio. Como tal, las asignaciones de roles de Azure determinan quién puede realizar esas tareas, independientemente de si se usa el [portal](search-manage.md), [PowerShell](search-manage-powershell.md) o las [API de REST de administración](/rest/api/searchmanagement/search-howto-management-rest-api).
 
 En cambio, los derechos de administrador sobre el contenido hospedado en el servicio, como la capacidad de crear o eliminar un índice, se confieren a través de las claves de API, tal como se describe en la [sección anterior](#index-access).
 
@@ -124,6 +137,12 @@ En cambio, los derechos de administrador sobre el contenido hospedado en el serv
 ## <a name="certifications-and-compliance"></a>Certificaciones y cumplimiento
 
 Azure Cognitive Search tiene la certificación compatible con varios estándares globales, regionales y específicos del sector para la nube pública y Azure Government. Para obtener la lista completa, descargue las notas del producto de las [**ofertas de cumplimiento de** Microsoft Azure](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/).
+
+En el caso del cumplimiento, puede usar [Azure Policy](../governance/policy/overview.md) para implementar los procedimientos recomendados de alta seguridad de [Azure Security Benchmark](../security/benchmarks/introduction.md). Azure Security Benchmark es una colección de recomendaciones de seguridad codificadas en controles de seguridad que se asignan a acciones clave que se deben realizar para mitigar las amenazas a los servicios y los datos. Actualmente hay 11 controles de seguridad, entre los que se incluyen [Seguridad de red](../security/benchmarks/security-control-network-security.md), [Registro y supervisión](../security/benchmarks/security-control-logging-monitoring.md) y [Protección de datos](../security/benchmarks/security-control-data-protection.md), por nombrar algunos.
+
+Azure Policy es una capacidad integrada en Azure que ayuda a administrar el cumplimiento de varios estándares, incluidos los de Azure Security Benchmark. En el caso de los bancos de pruebas conocidos, Azure Policy proporciona definiciones integradas que ofrecen tanto criterios como una respuesta accionable que aborda el no cumplimiento.
+
+En Azure Cognitive Search, actualmente hay una definición integrada. Es para el registro de diagnóstico. Con ella integrada, puede asignar una directiva que identifique cualquier servicio de búsqueda que no tenga registro de diagnóstico y lo active. Para obtener más información, vea [Controles de Cumplimiento normativo de Azure Policy para Azure Cognitive Search](security-controls-policy.md).
 
 ## <a name="see-also"></a>Consulte también
 

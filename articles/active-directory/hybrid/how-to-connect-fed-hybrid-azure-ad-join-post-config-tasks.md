@@ -16,12 +16,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a0ee226fcddb3bfc216e1e160b5571fde59a41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da5cefbacbd3851d2609a687c1948d9bcba5ffae
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807594"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612476"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Tareas posteriores a la configuración de la combinación de Azure AD híbrido
 
@@ -87,9 +87,6 @@ El instalador crea una tarea programada en el sistema del dispositivo que se eje
 ## <a name="10-configure-group-policy-to-allow-device-registration"></a>10. Configurar la directiva de grupo para permitir el registro de dispositivos
 
 Para obtener información sobre cómo permitir la unión a Azure AD híbrido para dispositivos individuales, consulte [Validación controlada de la unión a Azure AD híbrido](../devices/hybrid-azuread-join-control.md).
-
-> [!NOTE]
-> La configuración de directivas para 2012 R2 se encuentra en **Configuración del equipo > Directivas > Plantillas administrativas > Componentes de Windows > Unirse al área de trabajo > Automatically workplace join client computers** (Unión automática al área de trabajo de equipos cliente).
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Configurar la escritura diferida de dispositivos](how-to-connect-device-writeback.md)

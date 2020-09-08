@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: a13a8b2eef9fa1bd9c7281ac6b7c7dba40105428
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: d8a1b2192784c26ed17b31be262b22efbf935d84
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497331"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89225611"
 ---
 # <a name="azure-security-baseline-for-azure-data-box"></a>Base de referencia de seguridad de Azure para Azure Data Box
 
@@ -44,7 +44,7 @@ Para más información, consulte [Introducción a la línea de base de seguridad
 
 ### <a name="13-protect-critical-web-applications"></a>1.3: Proteja las aplicaciones web críticas
 
-**Guía**: No aplicable; esta recomendación está pensada para las aplicaciones web que se ejecutan en Azure App Service o en recursos de proceso.
+**Instrucciones**: No aplicable; esta recomendación está pensada para las aplicaciones web que se ejecutan en Azure App Service o en recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -216,11 +216,11 @@ Para más información, consulte [Introducción a la línea de base de seguridad
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Mantenga un inventario de cuentas administrativas
 
-**Guía**: mantenga un inventario de las cuentas de usuario que tienen acceso administrativo a las solicitudes de Azure Data Box. Puede usar el panel Administración de identidad y acceso (IAM) de Azure Portal para la suscripción a fin de configurar el control de acceso basado en rol (RBAC). Los roles se aplican a los usuarios, grupos, entidades de servicio e identidades administradas en Active Directory. Puede controlar quién puede acceder a su pedido la primera vez que se cree. Configure los roles de Azure en los distintos ámbitos para controlar el acceso al pedido de Data Box. Un rol de Azure determina el tipo de acceso: lectura y escritura, solo lectura, o lectura y escritura para un subconjunto de operaciones.
+**Guía**: mantenga un inventario de las cuentas de usuario que tienen acceso administrativo a las solicitudes de Azure Data Box. Puede usar el panel Administración de identidad y acceso (IAM) de Azure Portal para la suscripción a fin de configurar el control de acceso basado en rol de Azure (Azure RBAC). Los roles se aplican a los usuarios, grupos, entidades de servicio e identidades administradas en Active Directory. Puede controlar quién puede acceder a su pedido la primera vez que se cree. Configure los roles de Azure en los distintos ámbitos para controlar el acceso al pedido de Data Box. Un rol de Azure determina el tipo de acceso: lectura y escritura, solo lectura, o lectura y escritura para un subconjunto de operaciones.
 
 * [Descripción de los roles personalizados](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
 
-* [Procedimiento para configurar RBAC en libros](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)
+* [Procedimiento para configurar Azure RBAC en libros](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)
 
 * [Procedimiento para configurar el control de acceso en el pedido](https://docs.microsoft.com/azure/databox/data-box-logs#set-up-access-control-on-the-order)
 
@@ -427,7 +427,7 @@ Durante la carga de datos en Azure, la aplicación Data Box y el servicio usado 
 
 **Responsabilidad**: No aplicable
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Uso del control de acceso basado en rol para controlar el acceso a los recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Uso de RBAC de Azure para controlar el acceso a los recursos
 
 **Guía**: Asegúrese de que tiene acceso de propietario o colaborador a la suscripción para crear un pedido de Data Box. También puede definir los roles de lector y colaborador de Data Box el recurso.
 

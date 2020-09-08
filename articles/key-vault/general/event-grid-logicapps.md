@@ -7,15 +7,15 @@ manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 53e8586486d9a9ebf870de350d5607f58977c0f5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c0121c42c5d498aa79109c874981b9de0f8f4b7c
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81426334"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88588881"
 ---
 # <a name="use-logic-apps-to-receive-email-about-status-changes-of-key-vault-secrets"></a>Uso de Logic Apps para recibir correo electrónico sobre los cambios de estado de los secretos en el almacén de claves
 
@@ -28,6 +28,7 @@ Para información general sobre la integración de Azure Key Vault y Azure Event
 - Una cuenta de correo electrónico de cualquier proveedor de correo electrónico que sea compatible con Azure Logic Apps (como, por ejemplo, Office 365 Outlook). Esta cuenta de correo electrónico se usa para enviar las notificaciones de eventos. Para obtener una lista completa de los conectores compatibles de Logic Apps, consulte la [información general sobre los conectores](/connectors).
 - Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 - Un almacén de claves en la suscripción de Azure. Puede crear rápidamente un almacén de claves si sigue los pasos descritos en [Establecimiento y recuperación de un secreto desde Azure Key Vault mediante la CLI de Azure](../secrets/quick-create-cli.md).
+- Event Grid registrado como proveedor de recursos; consulte los [registros de los proveedores de recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)
 
 ## <a name="create-a-logic-app-via-event-grid"></a>Creación de una aplicación lógica mediante Event Grid
 
@@ -53,13 +54,13 @@ Para crear una suscripción de Azure Event Grid, siga estos pasos:
 
 1. Seleccione **+ Nuevo paso**. Se abrirá una ventana para elegir una acción.
 1. Busque **Correo electrónico**. En función de su proveedor de correo electrónico, busque y seleccione el conector correspondiente. Este tutorial usa **Office 365 Outlook**. Los pasos para otros proveedores de correo electrónico son similares.
-1. Seleccione la acción **Enviar correo electrónico (V2)** .
+1. Seleccione la acción **Enviar correo electrónico (V2)**.
 
    ![Diseñador de aplicaciones lógicas: agregar correo electrónico](../media/eventgrid-logicappdesigner3.png)
 
 1. Cree la plantilla de correo electrónico:
-    - **Para**: escriba la dirección de correo electrónico en la que desea recibir los correos electrónicos de notificación. Para este tutorial, use una cuenta de correo electrónico a la que pueda acceder para las pruebas.
-    - **Asunto** y **Cuerpo**: escriba el texto del correo electrónico. Seleccione las propiedades JSON de la herramienta del selector para incluir contenido dinámico basado en los datos de los eventos. Puede recuperar los datos del evento mediante `@{triggerBody()?['Data']}`.
+    - **Para**: escriba la dirección de correo electrónico en la que desea recibir los correos electrónicos de notificación. En este tutorial, use una cuenta de correo electrónico a la que pueda acceder para realizar pruebas.
+    - **Asunto** y **Cuerpo**: escriba el texto del correo electrónico. Seleccione propiedades JSON en la herramienta de selección para incluir contenido dinámico en función de los datos del evento. Puede recuperar los datos del evento mediante `@{triggerBody()?['Data']}`.
 
     La plantilla de correo electrónico puede tener un aspecto similar al de este ejemplo.
 

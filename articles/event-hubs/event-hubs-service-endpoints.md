@@ -3,12 +3,12 @@ title: puntos de conexión de servicio de red virtual - Azure Event Hubs | Micro
 description: En este artículo se proporciona información sobre cómo agregar el punto de conexión de servicio de Microsoft.EventHub a una red virtual.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 8c798efc21f5b846965f2247d7e76249177ef946
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: cb0d9a9c4d5e2503e68620ec4e6386d8e05d471c
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554080"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185081"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>Permitir el acceso al espacio de nombres de Event Hubs desde redes virtuales específicas 
 
@@ -18,24 +18,20 @@ Una vez realizada la configuración para enlazarse con al menos un punto de cone
 
 El resultado es una relación privada y aislada entre las cargas de trabajo enlazadas a la subred y el espacio de nombres respectivo de Event Hubs, a pesar de que la dirección de red que se puede observar en el punto de conexión de servicio de mensajería esté en un intervalo IP público. Hay una excepción a este comportamiento. Al habilitar un punto de conexión de servicio, de forma predeterminada, se habilita la regla `denyall` en el [firewall de IP](event-hubs-ip-filtering.md) asociado a la red virtual. Puede agregar direcciones IP específicas en el firewall de IP para habilitar el acceso al punto de conexión público del centro de eventos. 
 
->[!WARNING]
-> La implementación de la integración de instancias de Virtual Network puede evitar que otros servicios de Azure interactúen con Event Hubs.
+>[!IMPORTANT]
+> Las redes virtuales se admiten en los niveles **estándar** y **dedicado** de Event Hubs. No se admiten en el nivel **básico**.
 >
-> Los servicios de confianza de Microsoft no se admiten cuando se implementan instancias de Virtual Network.
+> La activación de las reglas de firewall en el espacio de nombres de Event Hubs bloquea las solicitudes entrantes de forma predeterminada, a menos que las solicitudes se originen en un servicio que funciona desde redes virtuales permitidas. Las solicitudes que bloquean incluyen aquellas de otros servicios de Azure, desde Azure Portal, desde los servicios de registro y de métricas, etc. 
 >
-> Estos son los escenarios comunes de Azure que no funcionan con instancias de Virtual Network (tenga en cuenta que la lista **NO** está completa).
+> Estos son algunos de los servicios que no pueden tener acceso a los recursos de Event Hubs cuando están habilitadas las redes virtuales. Tenga en cuenta que **NO** es una lista exhaustiva.
+>
 > - Azure Stream Analytics
 > - Enrutamientos de Azure IoT Hub
 > - Azure IoT Device Explorer
->
-> Los siguientes servicios de Microsoft deben estar en una red virtual
-> - Azure Web Apps
-> - Azure Functions
+> - Azure Event Grid
 > - Azure Monitor (configuración de diagnósticos)
-
-
-> [!IMPORTANT]
-> Las redes virtuales se admiten en los niveles **estándar** y **dedicado** de Event Hubs. No se admiten en el nivel **básico**.
+>
+> Como excepción, puede permitir el acceso a los recursos de Event Hubs desde determinados servicios de confianza, incluso cuando las redes virtuales están habilitadas. Para ver una lista de servicios de confianza, consulte [Servicios de confianza](#trusted-microsoft-services).
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Escenarios de seguridad avanzados que habilita la integración de VNet 
 
@@ -57,14 +53,12 @@ La regla de red virtual es una asociación del espacio de nombres de Event Hubs 
 En esta sección se muestra cómo usar Azure Portal para agregar un punto de conexión de servicio de red virtual. Para limitar el acceso, debe integrar el punto de conexión de servicio de red virtual para este espacio de nombres de Event Hubs.
 
 1. Vaya a su **espacio de nombres de Event Hubs** en [Azure Portal](https://portal.azure.com).
-4. Seleccione **Redes** en **Configuración** en el menú de la izquierda. 
+4. Seleccione **Redes** en **Configuración** en el menú de la izquierda. La pestaña **Redes** solo se muestra para espacios de nombres **estándar** o **dedicados**. 
 
     > [!NOTE]
-    > La pestaña **Redes** solo se muestra para espacios de nombres **estándar** o **dedicados**. 
+    > De forma predeterminada, se elige la opción **Redes seleccionadas**, como se muestra en la siguiente imagen. Si no se especifica una regla de firewall de IP ni se agrega una red virtual en esta página, se puede acceder al espacio de nombres desde la **red pública de Internet** (mediante la clave de acceso). 
 
-    De forma predeterminada, está seleccionada la opción **Redes seleccionadas**. Si no especifica una regla de firewall de IP ni agrega una red virtual en esta página, se podrá acceder al espacio de nombres desde todas las redes, incluida la red pública de Internet (mediante la clave de acceso). 
-
-    :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Pestaña Redes: opción de redes seleccionadas" lightbox="./media/event-hubs-firewall/selected-networks.png":::    
+    :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Pestaña Redes: opción redes seleccionadas" lightbox="./media/event-hubs-firewall/selected-networks.png":::    
 
     Si selecciona la opción **Todas las redes**, el centro de eventos aceptará conexiones procedentes de cualquier dirección IP (mediante la tecla de acceso). Esta configuración equivale a una regla que acepta el intervalo de direcciones IP 0.0.0.0/0. 
 
@@ -83,12 +77,15 @@ En esta sección se muestra cómo usar Azure Portal para agregar un punto de con
 
     > [!NOTE]
     > Si no puede habilitar el punto de conexión de servicio, puede ignorar el punto de conexión de servicio de red virtual que falta mediante la plantilla de Resource Manager. Esta funcionalidad no está disponible en Azure Portal.
+5. Especifique si quiere **permitir que los servicios de confianza de Microsoft omitan este firewall**. Consulte [Servicios de Microsoft de confianza](#trusted-microsoft-services) para más información. 
 6. Seleccione **Guardar** en la barra de herramientas para guardar la configuración. Espere unos minutos hasta que la confirmación se muestre en las notificaciones de Azure Portal.
 
     ![Guardar red](./media/event-hubs-tutorial-vnet-and-firewalls/save-vnet.png)
 
     > [!NOTE]
     > Para restringir el acceso a intervalos o direcciones concretos, consulte [Permitir el acceso desde intervalos o direcciones IP específicos](event-hubs-ip-filtering.md).
+
+[!INCLUDE [event-hubs-trusted-services](../../includes/event-hubs-trusted-services.md)]
 
 ## <a name="use-resource-manager-template"></a>Uso de plantillas de Resource Manager
 

@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Panorama9 | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Panorama9.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 5e28d7fa-03be-49f3-96c8-b567f1257d44
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: c88088b804f90769512d33a5e96fdedc5ce6fba8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7bf3afef81c70355326ed9341f2dd8a39d542b54
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67094924"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88554114"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>Tutorial: Integración de Azure Active Directory con Panorama9
 

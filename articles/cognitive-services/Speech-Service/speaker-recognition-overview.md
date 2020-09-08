@@ -1,25 +1,27 @@
 ---
-title: Servicio Azure Speaker Recognition
+title: 'Introducción a Speaker Recognition: servicio de voz'
 titleSuffix: Azure Cognitive Services
-description: Speaker Recognition de Azure Cognitive Services proporciona algoritmos que comprueban e identifican a los hablantes por sus características de voz únicas. Speaker Recognition se usa para responder a la pregunta "¿quién está hablando?".
+description: Speaker Recognition proporciona algoritmos que comprueban e identifican a los hablantes por sus características de voz únicas mediante la biometría de la voz. Speaker Recognition se usa para responder a la pregunta "¿quién está hablando?". En este artículo encontrará información general sobre las ventajas y las funcionalidades del servicio Speaker Recognition.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 09/02/2020
 ms.author: trbye
-ms.openlocfilehash: a333a61a28fabddc2e8101fdf3290c52f3db59ae
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.custom: cog-serv-seo-aug-2020
+keywords: speaker recognition, reconocimiento del hablante, biometría de voz
+ms.openlocfilehash: 2c5b73b93c22ef27d7b68455f5e1e5108f25c984
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84780892"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397266"
 ---
-# <a name="what-is-the-azure-speaker-recognition-service"></a>¿Qué es el servicio Azure Speaker Recognition?
+# <a name="what-is-speaker-recognition"></a>¿Qué es Speaker Recognition?
 
-El servicio Speaker Recognition proporciona algoritmos que comprueban e identifican a los hablantes por sus características de voz únicas. Speaker Recognition se usa para responder a la pregunta "¿quién está hablando?". Proporciona datos de entrenamiento de audio para un solo hablante, que crea un perfil de inscripción basado en las características únicas de la voz del hablante. Después, puede realizar una comprobación cruzada de los ejemplos de voz de audio con respecto a este perfil para comprobar que el hablante es la misma persona (verificación del hablante) o muestras de voz de audio de una consulta cruzada en un *grupo* de perfiles de altavoz inscritos, para ver si coincide con algún perfil del grupo (identificación del hablante). Por el contrario, [Speaker Diarization](batch-transcription.md#speaker-separation-diarization) agrupa segmentos de audio por hablante en una operación por lotes.
+El servicio Speaker Recognition proporciona algoritmos que comprueban e identifican a los hablantes por sus características de voz únicas mediante la biometría de la voz. Speaker Recognition se usa para responder a la pregunta "¿quién está hablando?". Proporciona datos de entrenamiento de audio para un solo hablante, que crea un perfil de inscripción basado en las características únicas de la voz del hablante. Después, puede realizar una comprobación cruzada de los ejemplos de voz de audio con respecto a este perfil para comprobar que el hablante es la misma persona (verificación del hablante) o muestras de voz de audio de una consulta cruzada en un *grupo* de perfiles de altavoz inscritos, para ver si coincide con algún perfil del grupo (identificación del hablante). Por el contrario, [Speaker Diarization](batch-transcription.md#speaker-separation-diarization) agrupa segmentos de audio por hablante en una operación por lotes.
 
 ## <a name="speaker-verification"></a>Verificación del hablante
 

@@ -3,16 +3,16 @@ title: Conexión a Azure Event Hubs
 description: Cree tareas y flujos de trabajo automatizados que supervisen y administren eventos mediante Azure Event Hubs y Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
-ms.openlocfilehash: 7dab9753334a1f071d85d0d2bccbd88340e37634
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 198a5da63ed90937c53f7f12f3559f15100e8f19
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284105"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031426"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Supervisión, recepción y envío de eventos con Azure Event Hubs y Azure Logic Apps
 
@@ -20,7 +20,7 @@ En este artículo se muestra cómo puede supervisar y administrar eventos enviad
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/). 
+* Una cuenta y una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/). 
 
 * Un [espacio de nombres de Azure Event Hubs y un centro de eventos](../event-hubs/event-hubs-create.md)
 
@@ -62,6 +62,9 @@ En Azure Logic Apps, cada aplicación lógica debe comenzar con un [desencadenad
 
 En este ejemplo se muestra cómo puede iniciar un flujo de trabajo de aplicaciones lógicas cuando se envían nuevos eventos al centro de eventos. 
 
+> [!NOTE]
+> Todos los desencadenadores de Event Hub son de *sondeo largo*, lo que significa que el desencadenador procesa todos los eventos y espera 30 segundos por partición a que aparezcan más eventos en la instancia de Event Hubs. Por lo tanto, si el desencadenador está configurado con cuatro particiones, este retraso podría ser de hasta dos minutos antes de que el desencadenador termine de sondear todas las particiones. Si no se recibe ningún evento dentro de este retraso, se omite la ejecución del desencadenador. De lo caso contrario, el desencadenador sigue leyendo eventos hasta que su instancia de Event Hubs está vacía. El siguiente sondeo del desencadenador ocurre en función del intervalo de periodicidad especificado en las propiedades del desencadenador.
+
 1. En Azure Portal o Visual Studio, cree una aplicación lógica en blanco, con lo que se abre el diseñador de Logic Apps. En este ejemplo se usa Azure Portal.
 
 1. En el cuadro de búsqueda, escriba "event hubs" como filtro. En la lista de desencadenadores, seleccione este desencadenador: **When events are available in Event Hub - Event Hubs** (Cuando los eventos estén disponibles en el centro de eventos - Event Hubs)
@@ -100,11 +103,6 @@ En este ejemplo se muestra cómo puede iniciar un flujo de trabajo de aplicacion
 1. Ahora, agregue a la aplicación lógica una o varias acciones, en función de las tareas que desea realizar con los resultados del desencadenador. 
 
    Por ejemplo, para filtrar eventos basándose en un valor específico, (como una categoría), puede agregar una condición para que la acción **Send event** (Enviar evento) envíe solo los eventos que cumplan la condición. 
-
-> [!NOTE]
-> Todos los desencadenadores de Event Hub son de *sondeo largo*, lo que significa que, cuando se activa cualquiera de ellos, procesa todos los eventos y espera 30 segundos a que aparezcan más eventos en la instancia de Event Hubs.
-> Si no se recibe ningún evento en 30 segundos, se omite la ejecución del desencadenador. De lo caso contrario, el desencadenador sigue leyendo eventos hasta que su instancia de Event Hubs está vacía.
-> El siguiente sondeo del desencadenador ocurre en función del intervalo de periodicidad especificado en las propiedades del desencadenador.
 
 <a name="add-action"></a>
 

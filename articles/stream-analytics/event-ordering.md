@@ -6,13 +6,13 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/12/2019
-ms.openlocfilehash: e9617018b06d4f62b49946ae5593bd51805355e0
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 08/06/2020
+ms.openlocfilehash: b4e34befbf28de2b985ff49ce17a87a25842015e
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044573"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87901698"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Configuración de las directivas de ordenación de eventos para Azure Stream Analytics
 
@@ -75,6 +75,11 @@ Cuando se combinan varias particiones del mismo flujo de entrada, la tolerancia 
 Este mensaje es para informarle de que al menos una partición de entrada está vacía y retrasará la salida de acuerdo con el umbral de llegada tardía. Para solucionar este problema, se recomienda que opte por una de estas opciones:  
 1. Asegurarse de que todas las particiones del centro de eventos o IoT Hub reciben una entrada. 
 2. Utilizar la cláusula Partition by PartitionId en la consulta. 
+
+## <a name="why-do-i-see-a-delay-of-5-seconds-even-when-my-late-arrival-policy-is-set-to-0"></a>¿Por qué veo un retraso de 5 segundos incluso cuando mi directiva de llegada tardía está establecida en 0?
+Esto sucede si hay una partición de entrada que nunca ha recibido ninguna entrada. Puede comprobar las métricas de entrada por partición para validar este comportamiento. 
+
+Cuando una partición no tiene ningún dato durante más tiempo del umbral de llegada tardía configurado, Stream Analytics adelanta la marca de tiempo de la aplicación como se explica en la sección consideraciones de ordenación de eventos. Esto requiere una duración de llegada estimada. Si la partición nunca tenía datos, Stream Analytics calcula la hora de llegada como *hora local: 5 segundos*. Debido a las particiones que nunca tenían datos, podría mostrar un retraso de marca de agua de 5 segundos.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Consideraciones sobre el control de tiempo](stream-analytics-time-handling.md)

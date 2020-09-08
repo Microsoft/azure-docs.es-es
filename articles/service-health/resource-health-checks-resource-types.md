@@ -3,12 +3,12 @@ title: Tipos de recursos que compatibles con Azure Resource Health | Microsoft D
 description: Tipos de recursos que se admiten a través de Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: f4d622ac6d37059731b51a679e13f824670b9dc8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2c002ab89b1cae4db6d3337908bb401039cb2295
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071288"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611949"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos y comprobaciones de estado en Azure Resource Health
 A continuación se muestra una lista completa de todas las comprobaciones que se ejecutan a través de Resource Health por tipos de recursos.
@@ -42,6 +42,11 @@ A continuación se muestra una lista completa de todas las comprobaciones que se
 |Comprobaciones ejecutadas|
 |---|
 |<ul><li>¿Está el servidor en funcionamiento?</li><li>¿Se ha completado el arranque del sistema operativo host?</li><li>¿Está l contenedor de la máquina virtual aprovisionado y encendido?</li><li>¿Hay conectividad de red entre el host y la cuenta de almacenamiento?</li><li>¿Se ha completado el arranque del SO invitado?</li><li>¿Hay mantenimiento planeado en curso?</li><li>¿Se degrada el hardware del host y se prevé que produzca un error pronto?</li></ul>|
+
+## <a name="microsoftclassiccomputedomainnames"></a>Microsoft.classiccompute/domainnames
+|Comprobaciones ejecutadas|
+|---|
+|<ul><li>¿La implementación de la ranura de producción es correcta en todas las instancias de rol?</li><li>¿El rol es correcto en todas sus instancias de máquina virtual?</li><li>¿Cuál es el estado de mantenimiento de cada máquina virtual dentro de un rol de un servicio en la nube?</li><li>¿Se cambió el estado de la máquina virtual debido a una operación iniciada por el cliente o plataforma?</li><li>¿Se ha completado el arranque del SO invitado?</li><li>¿Hay mantenimiento planeado en curso?</li><li>¿Se degrada el hardware del host y se prevé que produzca un error pronto?</li></ul>|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.cognitiveservices/accounts
 |Comprobaciones ejecutadas|

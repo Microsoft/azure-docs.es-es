@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con RENRAKU | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y RENRAKU.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: af7f63a0-816f-4049-af35-a3db8a52117d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/12/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b43a811ed09545357bdc7f7fac652a69ef06b532
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a04dd8dff95f394c397eb55d8e23fb3fa1f5796e
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "71106820"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88534502"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-renraku"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con RENRAKU
 

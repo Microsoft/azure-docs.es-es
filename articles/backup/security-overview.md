@@ -3,12 +3,12 @@ title: Introducción a las características de seguridad
 description: Obtenga información sobre las funcionalidades de seguridad de Azure Backup que le ayudan a proteger los datos de copia de seguridad y a satisfacer las necesidades de seguridad de su negocio.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 944ef2e86ad8e56501692b29d0958bc4fc19bf0a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f9a505723b40df61665a99e898d59ecfb8c03fd5
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319310"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890474"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Introducción a las características de seguridad de Azure Backup
 
@@ -16,7 +16,7 @@ Una de las medidas más importantes que puede adoptar para proteger los datos es
 
 ## <a name="management-and-control-of-identity-and-user-access"></a>Administración y control de identidades y del acceso de usuarios
 
-Las cuentas de almacenamiento usadas por los almacenes de Recovery Services están aisladas y son inaccesibles para usuarios con fines malintencionados. Solo se permite el acceso mediante operaciones de administración de Azure Backup, como la restauración. Azure Backup le permite controlar las operaciones administradas mediante acceso específico con [control de acceso basado en rol (RBAC) de Azure](./backup-rbac-rs-vault.md). RBAC permite repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo.
+Las cuentas de almacenamiento empleadas por los almacenes de Recovery Services están aisladas, y los usuarios no pueden acceder a ellas con fines malintencionados. Solo se permite el acceso mediante operaciones de administración de Azure Backup, como la restauración. Azure Backup le permite controlar las operaciones administradas mediante acceso específico con [control de acceso basado en rol (RBAC) de Azure](./backup-rbac-rs-vault.md). RBAC permite repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo.
 
 Azure Backup proporciona tres [roles integrados](../role-based-access-control/built-in-roles.md) para controlar las operaciones de administración de copia de seguridad:
 
@@ -48,15 +48,15 @@ Mediante el cifrado, se protegen los datos y es más fácil cumplir los compromi
 
 * Dentro de Azure, los datos en tránsito entre Azure Storage y el almacén [se protegen mediante HTTPS](backup-support-matrix.md#network-traffic-to-azure). Estos datos permanecen en la red troncal de Azure.
 
-* Los datos de copia de seguridad se cifran automáticamente mediante [claves administradas por Microsoft](backup-encryption.md#encryption-of-backup-data-using-platform-managed-keys) y no es necesario realizar ninguna acción explícita para habilitarlos. También puede cifrar los datos de copia de seguridad con [claves administradas por el cliente](encryption-at-rest-with-cmk.md) almacenadas en Azure Key Vault. Se aplica a todas las cargas de trabajo de las que se realiza una copia de seguridad en el almacén de Recovery Services.
+* Los datos de copia de seguridad se cifran automáticamente mediante [claves administradas por la plataforma](backup-encryption.md) y no es necesario realizar ninguna acción explícita para habilitarlos. También puede cifrar los datos de copia de seguridad con [claves administradas por el cliente](encryption-at-rest-with-cmk.md) almacenadas en Azure Key Vault. Se aplica a todas las cargas de trabajo de las que se realiza una copia de seguridad en el almacén de Recovery Services.
 
-* Azure Backup admite la copia de seguridad y la restauración de máquinas virtuales de Azure que tengan cifrados sus discos del sistema operativo o de datos con [Azure Disk Encryption (ADE)](backup-encryption.md#backup-of-vms-encrypted-using-ade) y [máquinas virtuales con discos cifrados con CMK](backup-encryption.md#backup-of-managed-disk-vms-encrypted-using-customer-managed-keys). Obtenga más información sobre las [máquinas virtuales de Azure cifradas y Azure Backup](./backup-azure-vms-encryption.md).
+* Azure Backup admite la copia de seguridad y la restauración de máquinas virtuales de Azure que tengan cifrados sus discos del sistema operativo o de datos con [Azure Disk Encryption (ADE)](backup-azure-vms-encryption.md#encryption-support-using-ade) y [máquinas virtuales con discos cifrados con CMK](backup-azure-vms-encryption.md#encryption-using-customer-managed-keys). Obtenga más información sobre las [máquinas virtuales de Azure cifradas y Azure Backup](./backup-azure-vms-encryption.md).
 
 * Cuando se realiza una copia de seguridad de los datos desde servidores locales con el agente de MARS, los datos se cifran con una frase de contraseña antes de cargarse en Azure Backup y se descifran solo después de descargarse de Azure Backup. Obtenga más información sobre las [características de seguridad que ayudan a proteger las copias de seguridad híbridas](#security-features-to-help-protect-hybrid-backups).
 
 ## <a name="protection-of-backup-data-from-unintentional-deletes"></a>Protección de los datos de copia de seguridad ante eliminaciones accidentales
 
-Azure Backup proporciona características de seguridad que ayudan a proteger los datos de copia de seguridad incluso después de su eliminación. Con la eliminación temporal, si un usuario elimina la copia de seguridad de una máquina virtual, los datos de copia de seguridad se conservan durante 14 días más, lo que permite la recuperación de ese elemento de copia de seguridad sin pérdida de datos. Esta retención adicional de 14 días de los datos de copia de seguridad en el estado de "eliminación temporal" no supone ningún costo para el cliente. [Más información sobre la eliminación temporal](backup-azure-security-feature-cloud.md).
+Azure Backup proporciona características de seguridad que ayudan a proteger los datos de copia de seguridad incluso después de su eliminación. Con la eliminación temporal, si un usuario elimina la copia de seguridad de una máquina virtual, los datos de copia de seguridad se conservan durante 14 días más, lo que permite la recuperación de ese elemento de copia de seguridad sin pérdida de datos. Esta retención adicional de 14 días de los datos de copia de seguridad en el estado de "eliminación temporal" no le supone ningún costo. [Más información sobre la eliminación temporal](backup-azure-security-feature-cloud.md).
 
 ## <a name="monitoring-and-alerts-of-suspicious-activity"></a>Supervisión y alertas por actividad sospechosa
 

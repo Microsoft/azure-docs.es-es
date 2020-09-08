@@ -16,19 +16,19 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdc7c9dba49bf37db1f039d43b0450c65884c74b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 02490839a9e35695ae2e8b3f750e139ad7413aa4
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60245500"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280220"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Sincronización de Azure AD Connect: conocimiento de expresiones de aprovisionamiento declarativo
 La sincronización de Azure AD Connect se basa en el aprovisionamiento declarativo, que se introdujo en Forefront Identity Manager 2010. Permite implementar la lógica de negocios de integración de identidades completa sin necesidad de escribir código compilado.
 
 Una parte esencial del aprovisionamiento declarativo es el lenguaje de expresiones que se usa en flujos de atributos. El lenguaje usado es un subconjunto de Microsoft® Visual Basic® para Aplicaciones. Este lenguaje se usa en Microsoft Office, y los usuarios con experiencia en VBScript también lo reconocerán. El lenguaje de expresiones de aprovisionamiento declarativo solo utiliza funciones y no es un lenguaje estructurado. No hay métodos ni instrucciones. En su lugar, las funciones se anidan al flujo de programa rápido.
 
-Para más información, vea [Referencia del lenguaje VBA para Office 2013](https://msdn.microsoft.com/library/gg264383.aspx).
+Para más información, vea [Referencia del lenguaje VBA para Office 2013](/office/vba/api/overview/language-reference).
 
 Los atributos están fuertemente tipados. Las funciones solo aceptan atributos del tipo correcto. También distinguen mayúsculas de minúsculas. Es preciso usar correctamente las mayúsculas y minúsculas tanto en los nombres de función como en los nombres de atributo deben tener o se producirá un error.
 
@@ -100,4 +100,3 @@ Por ejemplo:
 **Temas de referencia**
 
 * [Azure AD Connect Sync: referencia de funciones](reference-connect-sync-functions-reference.md)
-

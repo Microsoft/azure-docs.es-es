@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/22/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: c6964a28956230dabad007d60d84dcdd1cffab23
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9b8432a54aa90b7d500898b2f6959d075ac89460
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319922"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245339"
 ---
 # <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Panel Uso de los análisis de Marketplace comercial de Microsoft
 
@@ -111,6 +111,8 @@ En la pestaña **Uso de facturación medido** se muestra información de uso de 
 - **Overage trend by plan** (Tendencia superior al límite por plan): Representa la tendencia de la cantidad de uso de la dimensión de medidor seleccionada por plan. Los planes que se muestran representan los cinco planes principales con la mayor cantidad de uso de la oferta seleccionada.
 - **Tendencia superior al límite por primeros 50 clientes**: Las 50 ofertas principales con las horas de uso más alto se muestran en una ***tabla de clasificación*** y se clasifican por el uso más alto del medidor personalizado. Seleccione un cliente en la tabla de clasificación para ver la tendencia de uso de una dimensión de medidor seleccionada.
 - **Tendencia superior al límite por clientes principales**: presenta los percentiles de cliente principales que contribuyen al porcentaje del uso general. El percentil de cliente principal se muestra en el eje X y está determinado por la cantidad de uso del cliente. En el eje Y se muestra la cantidad de uso. Puede mostrar detalles manteniendo el puntero sobre los puntos del gráfico de líneas.
+
+Si tiene varias ofertas que usan medidores personalizados, el informe de uso de facturación medido muestra información de uso de todas las ofertas, de acuerdo con sus dimensiones de medidor personalizadas.
 
 > [!NOTE]
 > Los detalles de uso y todos los gráficos de esta página se muestran para cualquier dimensión de medidor seleccionada para el filtro de página.

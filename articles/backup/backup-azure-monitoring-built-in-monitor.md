@@ -4,16 +4,16 @@ description: En este artículo se obtiene información sobre las funcionalidades
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 645bf701a8f8561b2cb4f19378036ada82c4bedd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d04f57c19e31b946f7c360edb796bc4f0f5fcf71
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054547"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377410"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Supervisión de cargas de trabajo de Azure Backup
 
-Azure Backup proporciona varias soluciones de copia de seguridad según los requisitos de copia de seguridad y la topología de la infraestructura (local o en Azure). Cualquier usuario o administrador de copias de seguridad debería poder ver lo que está ocurriendo en todas las soluciones y espera recibir notificaciones en los escenarios importantes. En este artículo se detallan las capacidades de supervisión y notificación que presta el servicio de Azure Backup.
+Azure Backup proporciona varias soluciones de copia de seguridad según los requisitos de copia de seguridad y la topología de la infraestructura (local o en Azure). Cualquier usuario o administrador de copias de seguridad debería poder ver lo que está ocurriendo en todas las soluciones y esperar recibir notificaciones en los escenarios importantes. En este artículo se detallan las capacidades de supervisión y notificación que presta el servicio de Azure Backup.
 
 ## <a name="backup-jobs-in-recovery-services-vault"></a>Trabajos de copia de seguridad en el almacén de Recovery Services
 
@@ -30,10 +30,10 @@ Aquí se muestran los trabajos de las siguientes soluciones de Azure Backup:
 - Copia de seguridad de cargas de trabajo de Azure, como SQL y SAP HANA
 - Agente de Microsoft Azure Recovery Services (MARS)
 
-Los trabajos procedentes de System Center Data Protection Manager (SC-DPM) y Microsoft Azure Backup Server (MABS) NO se muestran.
+Los trabajos procedentes de System Center Data Protection Manager (SC-DPM) y Microsoft Azure Backup Server (MABS) no se muestran.
 
 > [!NOTE]
-> Las cargas de trabajo de Azure, como las copias de seguridad de SQL y SAP HANA en VM de Azure, tienen gran número de trabajos de copia de seguridad. Por ejemplo, se pueden ejecutar copias de seguridad de los registros cada 15 minutos. Por lo tanto, en el caso de estas cargas de trabajo de base de datos, solamente se muestran las operaciones desencadenadas por el usuario. NO se muestran las operaciones de copia de seguridad programadas.
+> Las cargas de trabajo de Azure, como las copias de seguridad de SQL y SAP HANA en VM de Azure, tienen gran número de trabajos de copia de seguridad. Por ejemplo, se pueden ejecutar copias de seguridad de los registros cada 15 minutos. Por lo tanto, en el caso de estas cargas de trabajo de base de datos, solamente se muestran las operaciones desencadenadas por el usuario. No se muestran las operaciones de copia de seguridad programadas.
 
 ## <a name="backup-alerts-in-recovery-services-vault"></a>Supervisión de alertas de copia de seguridad en el almacén de Recovery Services
 
@@ -52,10 +52,10 @@ El servicio define los siguientes escenarios como escenarios susceptibles de gen
 - Copias de seguridad de máquinas virtuales de Azure
 - Copias de seguridad de archivos de Azure
 - Copias de seguridad de cargas de trabajo de Azure, como SQL y SAP HANA
-- Agente de Microsoft Azure Recovery Services (MARS) 
+- Agente de Microsoft Azure Recovery Services (MARS)
 
 > [!NOTE]
-> Las alertas procedentes de System Center Data Protection Manager (SC-DPM) y Microsoft Azure Backup Server (MABS) NO se muestran aquí.
+> Las alertas procedentes de System Center Data Protection Manager (SC-DPM) y Microsoft Azure Backup Server (MABS) no se muestran aquí.
 
 ### <a name="consolidated-alerts"></a>Alertas consolidadas
 
@@ -70,7 +70,7 @@ Hay algunas excepciones en las que no se genera una alerta en caso de error. Son
 - Se ha producido un error en el trabajo de copia de seguridad de máquina virtual porque la máquina virtual de Azure de la que se está haciendo la copia de seguridad ya no existe.
 - [Alertas consolidadas](#consolidated-alerts)
 
-Estas excepciones están diseñadas bajo el supuesto de que el resultado de estas operaciones (desencadenadas principalmente por el usuario) se muestra inmediatamente en los clientes de Portal/PowerShell/CLI. Por lo tanto, el usuario es consciente de ello de inmediato y no necesita que se le notifique.
+Las excepciones están diseñadas bajo el supuesto de que el resultado de estas operaciones (desencadenadas principalmente por el usuario) se muestra inmediatamente en los clientes de Portal/PowerShell/CLI. Por lo tanto, el usuario es consciente de ello de inmediato y no necesita que se le notifique.
 
 ### <a name="alert-types"></a>Tipos de alerta
 
@@ -95,12 +95,12 @@ Si la frecuencia se ha establecido en un resumen cada hora y una alerta se gener
 
 > [!NOTE]
 >
-> - Si se lleva a cabo una operación de destrucción, como **Detener la protección con eliminación de datos**, se generará una alerta y se enviará un correo electrónico a los propietarios de suscripciones, administradores y coadministradores, aun cuando las notificaciones NO estén configuradas en el almacén de Recovery Services.
+> - Si se lleva a cabo una operación de destrucción, como la **detención de la protección con eliminación de datos**, se generará una alerta y se enviará un correo electrónico a los propietarios de la suscripción, los administradores y los coadministradores, aun cuando las notificaciones no estén configuradas en el almacén de Recovery Services.
 > - Para configurar notificaciones que informen de los trabajos realizados correctamente, use [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
 
 ## <a name="inactivating-alerts"></a>Desactivación de alertas
 
-Para desactivar o resolver una alerta activa, puede hacer clic en el elemento de lista correspondiente a la alerta que desea desactivar. Se abre una pantalla en la que se muestra información detallada sobre la alerta, con un botón "Desactivar" en la parte superior. Al hacer clic en este botón el estado de la alerta cambia a "Inactivo". También puede desactivar una alerta si hace clic con el botón derecho en el elemento de lista correspondiente a esa alerta y selecciona "Desactivar".
+Para desactivar o resolver una alerta activa, puede seleccionar el elemento de lista correspondiente a la alerta que desea desactivar. Se abre una pantalla en la que se muestra información detallada sobre la alerta, con un botón **Desactivar** en la parte superior. Al seleccionar este botón, el estado de la alerta cambiará a **Inactivo**. También puede desactivar una alerta si hace clic con el botón derecho en el elemento de lista correspondiente a esa alerta y selecciona **Desactivar**.
 
 ![Inactivación de alertas de un depósito de RS](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
 

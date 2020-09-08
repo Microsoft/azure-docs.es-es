@@ -3,18 +3,18 @@ title: Documentación de Azure CDN
 summary: Azure Content Delivery Network (CDN) es una solución global de CDN para la entrega de contenido de ancho de banda alto. Se puede hospedar en Azure o en cualquier otra ubicación. Con Azure CDN, puede almacenar en caché objetos estáticos cargados desde Azure Blob Storage, una aplicación web o cualquier servidor web de acceso público, mediante el servidor de punto de presencia (POP) más cercano. Azure CDN también puede acelerar el contenido dinámico, que no puede almacenarse en caché, aprovechando para ello varias optimizaciones de red y de enrutamiento.
 metadata:
   title: 'Documentación de Azure CDN: tutoriales y referencia de API'
-  description: Azure Content Delivery Network (CDN) es una solución global de CDN para la entrega de contenido de ancho de banda alto. Se puede hospedar en Azure o en cualquier otra ubicación. Con Azure CDN, puede almacenar en caché objetos estáticos cargados desde Azure Blob Storage, una aplicación web o cualquier servidor web de acceso público, mediante el servidor de punto de presencia (POP) más cercano. Azure CDN también puede acelerar el contenido dinámico, que no puede almacenarse en caché, aprovechando para ello varias optimizaciones de red y de enrutamiento.
+  description: Obtenga información acerca de Azure Content Delivery Network, que es una solución para ofrecer contenido con un ancho de banda alto y que se puede hospedar en Azure o en cualquier otra ubicación.
   ms.service: azure-cdn
   ms.topic: landing-page
   author: asudbring
   ms.author: allensu
   ms.date: 02/24/2020
-  ms.openlocfilehash: c3c9cd72a85744ac6b609b178ac4e7c2413b4080
-  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+  ms.openlocfilehash: ed3c4f1794407ccdb841ea3c6ca35ff4d8e1a808
+  ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/30/2020
-  ms.locfileid: "85554303"
+  ms.lasthandoff: 08/13/2020
+  ms.locfileid: "88192456"
 landingContent:
 - title: Acerca de Azure CDN
   linkLists:

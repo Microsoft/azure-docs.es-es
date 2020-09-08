@@ -9,12 +9,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 719b96c9186d463ca3ee41c6fb401a8f22c4c11c
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: b4f3733806eb810cff7722e6432bb274b6d46a37
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431970"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854822"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Introducción a Azure Machine Learning Studio (clásico) en R
 
@@ -225,7 +225,7 @@ load("src/yourData.rdata") # Reads a zipped R data file
 
 Ya se ha explicado el proceso de carga de conjuntos de datos en [Carga del conjunto de datos](#loading). Una vez creado y probado el script de código R que se muestra en la sección anterior, haga lo siguiente:
 
-1. Guarde el script de código R en un archivo .R. Llamaré a mi archivo de script "simpleplot.R". Este es el contenido.
+1. Guarde el script de código R en un archivo .R. Llamaré a mi archivo de script "simpleplot.R". Aquí se muestra el contenido del archivo:
 
    ```r
    ## Only one of the following two lines should be used
@@ -570,7 +570,7 @@ Parece que todo funciona correctamente. Tenemos la nueva columna con los valores
 
 En esta sección se realizarán algunas transformaciones simples en los valores de algunas de las columnas de nuestra trama de datos. El lenguaje R admite las transformaciones de valores casi arbitrarias. Las referencias de las [Lecturas adicionales](#appendixb) contienen ejemplos extensos.
 
-Si examinamos los valores de los resúmenes de nuestra trama de datos deberíamos ver algo extraño. ¿Se produce más de helado que leche en California? Por supuesto que no. Esto no tiene sentido, por desgracia para los amantes del helado. Las unidades son diferentes. El precio se especifica en unidades de libras, la leche se especifica en unidades de millones de libras y el helado en unidades de mil galones. Asimismo, el requesón se proporciona en unidades de miles de libras. Suponiendo que el peso del helado sea de 6,5 libras por galón, podemos realizar fácilmente la multiplicación para convertir estos valores para que se expresen en las mismas unidades de miles de libras.
+Si examinamos los valores de los resúmenes de nuestra trama de datos deberíamos ver algo extraño. ¿Se produce más de helado que leche en California? Por supuesto que no. Esto no tiene sentido, por desgracia para los amantes del helado. Las unidades son diferentes. El precio se especifica en unidades de libras, la leche se especifica en unidades de millones de libras y el helado en unidades de mil galones. Asimismo, el requesón se proporciona en unidades de miles de libras. Suponiendo que el peso del helado sea de 6,5 libras por galón, podemos realizar fácilmente la multiplicación a fin de convertir estos valores para que se expresen en las mismas unidades de miles de libras.
 
 Para nuestro modelo de pronóstico, utilizaremos un modelo de multiplicación de tendencia y de ajuste de temporada de estos datos. Una transformación de registro permite usar un modelo lineal, lo que simplifica este proceso. Podemos aplicar la transformación de registro en la misma función en la que se aplica el multiplicador.
 
@@ -828,7 +828,7 @@ Ya hemos analizado un ejemplo de programación defensiva en Transformaciones de 
 
 Tenga en cuenta que la regresión lineal usada para anular las tendencias es una regresión de la serie temporal. La variable de predicción es un objeto de la serie temporal.  
 
-Una vez definida la función `ts.detrend()` , se aplica a las variables de interés en nuestra trama de datos. Es necesario forzar la lista resultante creada con la función `lapply()` en los datos de la trama de datos mediante la función `as.data.frame()`. Debido a los aspectos defensivos de la función `ts.detrend()`, si no se procesa alguna de las variables, no se impedirá el correcto procesamiento de las demás.  
+Una vez definida la función `ts.detrend()`, se aplica a las variables de interés en nuestra trama de datos. Es necesario forzar la lista resultante creada con la función `lapply()` en los datos de la trama de datos mediante la función `as.data.frame()`. Debido a los aspectos defensivos de la función `ts.detrend()`, si no se procesa alguna de las variables, no se impedirá el correcto procesamiento de las demás.  
 
 La última línea de código crea un trazado de dispersión en pares. Después de ejecutar el código R, se mostrarán los resultados del trazado de dispersión en la ilustración 17.
 
@@ -1338,7 +1338,7 @@ RStudio cuenta con una documentación bastante extensa. Estos son algunos víncu
 Este tutorial de programación de R cubre los aspectos básicos de lo que necesita para usar el lenguaje R con Azure Machine Learning Studio (clásico). Si no está familiarizado con el código R, encontrará dos introducciones disponibles en CRAN:
 
 * [R for Beginners](https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf) (R para principiantes) de Emmanuel Paradis es un buen lugar para comenzar.  
-* [An Introduction to R](https://cran.r-project.org/doc/manuals/R-intro.html) (Introducción a R) de W. N. Venables et. al. profundiza un poco más en el tema.
+* [An Introduction to R](https://cran.r-project.org/doc/manuals/R-intro.html) (Introducción a R) de W. N. Venables et al. profundiza un poco más en el tema.
 
 Existen muchas obras sobre el código R que pueden servirle como punto de partida. Estas son algunas que considero más útiles:
 
@@ -1355,7 +1355,8 @@ El libro **Introductory Time Series with R** (Series temporales básicas con R) 
 Los siguientes algunos recursos excelentes en Internet:
 
 * DataCamp enseña R desde la comodidad del explorador con lecciones en vídeo y ejercicios de codificación. Existen tutoriales interactivos sobre los paquetes y las técnicas más recientes de R. Siga el [tutorial interactivo de R](https://www.datacamp.com/courses/introduction-to-r) gratuito.
-* [Learn R Programming, The Definitive Guide](https://www.programiz.com/r-programming) (La guía definitiva para aprender programación en R) de Programiz.
+* [Learn R Programming, The Definitive Guide](https://www.datamentor.io/r-programming/) de DataMentor.
+* [R CODER](https://r-coder.com/). Tutoriales de R detallados y un curso gratuito sobre R para principiantes.
 * Un [tutorial rápido de R](https://www.cyclismo.org/tutorial/R/) de Kelly Black de la Universidad de Clarkson.
 * Hay más de 60 recursos de R en la lista [Top R language resources to improve your data skills](https://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html) (Los mejores recursos del lenguaje R para mejorar sus habilidades de datos).
 

@@ -7,13 +7,13 @@ author: kromerm
 manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 04/27/2020
-ms.openlocfilehash: 2edd5b661240b6156cf8a02059b2b9a668c402f3
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.date: 08/16/2020
+ms.openlocfilehash: 0a691b562ebf030712eb0c13a688ea9a52fdb164
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83829127"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263476"
 ---
 # <a name="troubleshoot-data-flows-in-azure-data-factory"></a>Solución de problemas de flujos de datos en Azure Data Factory
 
@@ -70,6 +70,13 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
 - **Causas**: Se trata de un error del servicio de back-end. Puede volver a intentar la operación y reiniciar la sesión de depuración.
 - **Recomendación:** Si reintentar y reiniciar no resuelven el problema, póngase en contacto con el soporte al cliente.
 
+### <a name="error-code-debug-data-preview-no-output-data-on-join"></a>Código de error: Debug data preview No Output Data on Join (Vista previa de datos de depuración: sin datos de salida en la combinación)
+
+- **Mensaje**: hay un gran número de valores NULL o valores que faltan, lo que puede deberse a que no se han muestreado suficientes filas. Pruebe a actualizar el límite de filas de depuración y los datos.
+- **Causas**: la condición de combinación no coincidía con ninguna fila o dio como resultado un número elevado de valores NULL durante la vista previa de los datos.
+- **Recomendación:** vaya a Configuración de depuración y aumente el número de filas del límite de filas de origen. Asegúrese de que ha seleccionado una instancia de Azure IR con un clúster de flujo de datos lo suficientemente grande como para administrar más datos.
+
+
 ## <a name="general-troubleshooting-guidance"></a>Guía de solución de problemas generales
 
 1. Compruebe el estado de las conexiones del conjunto de datos. En cada transformación de origen y de receptor, visite el servicio vinculado para cada conjunto de datos que use y pruebe las conexiones.
@@ -79,9 +86,9 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener ayuda para solucionar problemas, pruebe estos recursos:
-*  [Blog de Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+*  [Blog de Data Factory](https://techcommunity.microsoft.com/t5/azure-data-factory/bg-p/AzureDataFactoryBlog)
 *  [Solicitud de características de Data Factory](https://feedback.azure.com/forums/270578-data-factory)
-*  [Vídeos de Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+*  [Vídeos de Azure](https://www.youtube.com/channel/UC2S0k7NeLcEm5_IhHUwpN0g/videos)
 *  [Página de preguntas y respuestas de Microsoft](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
 *  [Foro de Stack Overflow para Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Información de Twitter sobre Data Factory](https://twitter.com/hashtag/DataFactory)

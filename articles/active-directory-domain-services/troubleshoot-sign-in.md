@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: d48c5f94de7aa663f618401e13fdc19777d42095
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 91c42e391d1a23e9ac494af9271c92e3e9b5d6c4
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039660"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88722660"
 ---
 # <a name="troubleshoot-account-sign-in-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Solución de problemas del inicio de sesión de cuentas con un dominio administrado de Azure Active Directory Domain Services
 
@@ -76,7 +76,7 @@ Si sigue teniendo problemas para unir la máquina virtual al dominio administrad
 
 <!-- INTERNAL LINKS -->
 [troubleshoot-account-lockout]: troubleshoot-account-lockout.md
-[azure-ad-connect-phs]: active-directory-ds-getting-started-password-sync-synced-tenant.md
+[azure-ad-connect-phs]: ./tutorial-configure-password-hash-sync.md
 [enable-user-accounts]:  tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds
 [phs-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
 [azure-ad-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 644e29c3b5e37cd95280cfd2261e644b20bbda98
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6b8b7c0dbdce160a19b5bb5ecb67bf2fb0a204ee
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82203274"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295269"
 ---
 # <a name="add-an-api-manually"></a>Adición manual de una API
 
@@ -45,7 +45,7 @@ Complete el siguiente inicio rápido: [Creación de una instancia de Azure API M
 En este momento, no tiene ninguna operación en API Management que se asigne a las operaciones en la API de back-end. Si llama a una operación que se expone a través del back-end, pero no a través de API Management, obtendrá una respuesta **404**.
 
 >[!NOTE] 
-> De forma predeterminada, cuando agrega una API, aunque esté conectado a algún servicio back-end, APIM no expondrá ninguna operación hasta que incorpore a la lista blanca. Para incluir en la lista blanca una operación del servicio de back-end, cree una operación de APIM que se asigne a la operación de back-end.
+> De manera predeterminada, cuando agrega una API, aunque esté conectado a algún servicio back-end, APIM no expondrá ninguna operación hasta que la permita. Para permitir una operación del servicio de back-end, cree una operación de APIM que se asigne a la operación de back-end.
 
 ## <a name="add-and-test-an-operation"></a>Adición y prueba de una operación
 

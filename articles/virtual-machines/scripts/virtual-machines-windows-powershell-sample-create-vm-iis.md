@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: cd10beb52a4bee4161d3bb608d203769cdba0df4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 63789f79dee2e7a7ed95608631d24069c6111ac8
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082354"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077479"
 ---
 # <a name="create-an-iis-vm-with-powershell"></a>Creación de una máquina virtual IIS con PowerShell
 

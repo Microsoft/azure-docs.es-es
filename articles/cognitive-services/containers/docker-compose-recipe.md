@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 458cda927a6a123fcd9962efc6ab705e13f43286
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 740311226a662ea3d3f8bba3ee5156e14f74516b
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80878789"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244302"
 ---
 # <a name="use-docker-compose-to-deploy-multiple-containers"></a>Uso de Docker Compose para implementar varios contenedores
 
@@ -29,7 +29,7 @@ Puede ser útil coordinar varias imágenes de contenedor en un solo equipo host.
 
 Este procedimiento requiere varias herramientas que se deben instalar y ejecutar localmente:
 
-* Suscripción a Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+* Suscripción a Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services) antes de empezar.
 * [Motor de Docker](https://www.docker.com/products/docker-engine). Confirme que la CLI de Docker funciona en una ventana de consola.
 * Un recurso de Azure con el plan de tarifa correcto. Solo los siguientes planes de tarifa funcionan con este contenedor:
   * El recurso **Computer Vision** solo con el plan de tarifa estándar o F0.

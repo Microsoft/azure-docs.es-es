@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: d61b95c7136a4cbce11789a58d27cc1a164ae374
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 1cefb5a7b554b9a477f6a51eab3b22b0e8f55378
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668017"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958446"
 ---
 # <a name="troubleshoot-domain-and-tlsssl-certificate-problems-in-azure-app-service"></a>Solución de problemas de dominio y certificado TLS/SSL en Azure App Service
 
@@ -131,7 +131,7 @@ No se puede agregar un nuevo nombre de host a una aplicación para asignar un su
 #### <a name="solution"></a>Solución
 
 - Compruebe con el administrador de suscripciones que tiene permisos para agregar un nombre de host a la aplicación.
-- Si necesita más subdominios, se recomienda que cambie el dominio que hospeda el Servicio de nombres de dominio (DNS) de Azure. Mediante el uso de Azure DNS, puede agregar 500 nombres de host a la aplicación. Para más información, consulte el artículo sobre [agregar un subdominio](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/).
+- Si necesita más subdominios, se recomienda que cambie el dominio que hospeda el Servicio de nombres de dominio (DNS) de Azure. Mediante el uso de Azure DNS, puede agregar 500 nombres de host a la aplicación. Para más información, consulte el artículo sobre [agregar un subdominio](/archive/blogs/waws/mapping-a-custom-subdomain-to-an-azure-website).
 
 ### <a name="dns-cant-be-resolved"></a>El DNS no se puede resolver
 
@@ -310,7 +310,7 @@ Sí. Cuando acceda a la hoja Dominios personalizados y TLS en Azure Portal, ver�
 
 **¿Puedo transferir un dominio de una suscripción a otra?**
 
-Puede mover un dominio a otra suscripción o a otro grupo de recursos mediante el cmdlet [Move-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Move-azResource) de PowerShell.
+Puede mover un dominio a otra suscripción o a otro grupo de recursos mediante el cmdlet [Move-AzResource](/powershell/module/az.Resources/Move-azResource) de PowerShell.
 
 **¿Cómo puedo administrar mi dominio personalizado si no hay actualmente una aplicación de Azure App Service?**
 

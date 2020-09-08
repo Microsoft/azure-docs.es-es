@@ -2,25 +2,21 @@
 title: 'Tutorial: Configuración de Hootsuite para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
 description: Obtenga información sobre cómo aprovisionar y cancelar el aprovisionamiento de forma automática de las cuentas de usuario desde Azure AD en Hootsuite.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: fbbee24e-272f-4fa6-819c-10c548bf0215
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 2c31aabb57a9e1f4b29f535271691e17ea4f8559
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 83b2a497cbeda188a4329e634256746f48984a89
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924111"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88521941"
 ---
 # <a name="tutorial-configure-hootsuite-for-automatic-user-provisioning"></a>Tutorial: Configuración de Hootsuite para el aprovisionamiento automático de usuarios
 

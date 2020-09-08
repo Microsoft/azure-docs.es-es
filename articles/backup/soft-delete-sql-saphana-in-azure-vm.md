@@ -3,12 +3,12 @@ title: Eliminación temporal de servidores SQL Server en máquinas virtuales de
 description: Obtenga información sobre cómo la eliminación temporal de servidores SQL Server en máquinas virtuales de Azure y de instancias de SAP HANA en cargas de trabajo de máquinas virtuales de Azure consigue que las copias de seguridad sean más seguras.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: c0eaedea2d5428376befaade42f87348cf84e7bc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 26525ec758b3a27d6e0e1b9754b11041bd1fa0d2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538197"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022299"
 ---
 # <a name="soft-delete-for-sql-server-in-azure-vm-and-sap-hana-in-azure-vm-workloads"></a>Eliminación temporal de servidores SQL Server en máquinas virtuales de Azure y de instancias de SAP HANA en cargas de trabajo de máquinas virtuales de Azure
 
@@ -70,7 +70,7 @@ La [eliminación temporal](backup-azure-security-feature-cloud.md) es una caract
 
    ![Eliminación de datos de copia de seguridad](./media/soft-delete-sql-saphana-in-azure-vm/delete-backup-data.png)
 
-3. Durante esos 14 días, en el almacén de Recovery Services, el elemento eliminado temporalmente aparecerá con un icono rojo de "eliminación temporal" junto a ella.
+3. Durante esos 14 días, el elemento eliminado temporalmente aparecerá con un icono rojo de "eliminación temporal" junto a ella en el almacén de Recovery Services.
 
    ![Elementos eliminados temporalmente](./media/soft-delete-sql-saphana-in-azure-vm/soft-deleted-items.png)
 
@@ -99,7 +99,7 @@ La secuencia de pasos para utilizar Azure PowerShell es la misma que en Azure 
 
 ### <a name="delete-the-backup-item-using-azure-powershell"></a>Eliminación del elemento de copia de seguridad con Azure PowerShell
 
-Puede eliminar el elemento de copia de seguridad mediante el cmdlet de PS [Disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection).
+Puede eliminar el elemento de copia de seguridad mediante el cmdlet de PowerShell [Disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection).
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
@@ -109,7 +109,7 @@ El elemento **DeleteState** del elemento de copia de seguridad cambiará de **No
 
 ### <a name="undoing-the-deletion-operation-using-azure-powershell"></a>Acción de deshacer la operación de eliminación mediante Azure PowerShell
 
-En primer lugar, capture el elemento de copia de seguridad pertinente que se encuentra en estado de eliminación temporal (es decir, que se va a eliminar).
+En primer lugar, capture el elemento de copia de seguridad relevante que se encuentre en estado de eliminación temporal (es decir, a punto de eliminarse).
 
 ```powershell
 Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadType SQLDataBase -VaultId $myVaultID | Where-Object {$_.DeleteState -eq "ToBeDeleted"}
@@ -117,7 +117,7 @@ Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadTy
 $myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadType SQLDataBase -VaultId $myVaultID -Name AppVM1
 ```
 
-A continuación, realice la operación para deshacer la eliminación con el cmdlet de PS [Undo-AzRecoveryServicesBackupItemDeletion](/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion).
+A continuación, realice la operación para deshacer la eliminación con el cmdlet de PowerShell [Undo-AzRecoveryServicesBackupItemDeletion](/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion).
 
 ```powershell
 Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force

@@ -4,12 +4,12 @@ description: En este artículo se analizan las preguntas generales más frecuent
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 89a5785811b4f4833a5a5ddcef827b258ce1775a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d77f62a57a75f13589b11e023f902c1a128a0d95
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083742"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950500"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Preguntas generales acerca de Azure Site Recovery
 
@@ -247,6 +247,73 @@ Sí. Azure Site Recovery para el sistema operativo Linux admite scripts personal
 
 >[!Note]
 >La versión del agente de Site Recovery debe ser 9.24 o superior para admitir scripts personalizados.
+
+## <a name="replication-policy"></a>Directiva de replicación
+
+### <a name="what-is-a-replication-policy"></a>¿Qué es una directiva de replicación?
+
+Una directiva de replicación define la configuración del historial de retención de puntos de recuperación. La directiva también define la frecuencia de las instantáneas coherentes con la aplicación. De forma predeterminada, Azure Site Recovery crea una nueva directiva de replicación con la configuración predeterminada de:
+
+- 24 horas para el historial de retención de puntos de recuperación.
+- 4 horas para la frecuencia de las instantáneas coherentes con la aplicación.
+
+### <a name="what-is-a-crash-consistent-recovery-point"></a>¿Qué es un punto de recuperación coherente con los bloqueos?
+
+Un punto de recuperación coherente con los bloqueos tiene los datos en el disco, como si se tirara del cable de alimentación del servidor durante la instantánea. No incluye nada que estuviera en memoria cuando se tomó la instantánea.
+
+Hoy en día, la mayoría de las aplicaciones se pueden recuperar bien a partir de instantáneas coherentes con los bloqueos. Un punto de recuperación coherente con los bloqueos suele ser suficiente para aplicaciones y sistemas operativos que no tienen bases de datos, como los servidores de archivos, los servidores DHCP y los servidores de impresión.
+
+### <a name="what-is-the-frequency-of-crash-consistent-recovery-point-generation"></a>¿Cuál es la frecuencia de generación de puntos de recuperación coherentes frente al bloqueo?
+
+Site Recovery crea un punto de recuperación coherente con los bloqueos cada 5 minutos.
+
+### <a name="what-is-an-application-consistent-recovery-point"></a>¿Qué es un punto de recuperación coherente con la aplicación?
+
+Los puntos de recuperación coherentes con la aplicación se crean a partir de instantáneas coherentes con la aplicación. Los puntos de recuperación coherentes con la aplicación capturan los mismos datos que las instantáneas coherentes con los bloqueos, al tiempo que también se capturan los datos en memoria y todas las transacciones en curso.
+
+Debido a su contenido adicional, las instantáneas coherentes con la aplicación son las más complejas y las que más tardan. Se recomiendan puntos de recuperación coherentes con la aplicación para sistemas operativos de bases de datos y aplicaciones como SQL Server.
+
+### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>¿Cómo afectan los puntos de recuperación coherentes con la aplicación en el rendimiento de la aplicación?
+
+Los puntos de recuperación coherentes con la aplicación capturan todos los datos en memoria y en curso. Como los puntos de recuperación capturan esas datos, requieren un marco como el Servicio de instantáneas de volumen de Windows para poner en modo inactivo la aplicación. Si el proceso de captura es frecuente, puede afectar al rendimiento cuando la carga de trabajo ya está ocupada. No se recomienda usar baja frecuencia con los puntos de recuperación coherentes con la aplicación en cargas de trabajo que no son de base de datos. Incluso con cargas de trabajo de base de datos, 1 hora es suficiente.
+
+### <a name="what-is-the-minimum-frequency-of-application-consistent-recovery-point-generation"></a>¿Cuál es la frecuencia mínima de generación de puntos de recuperación coherentes frente a la aplicación?
+
+Site Recovery puede crear un punto de recuperación coherente con la aplicación con una frecuencia mínima de 1 hora.
+
+### <a name="how-are-recovery-points-generated-and-saved"></a>¿Cómo se generan y guardan los puntos de recuperación?
+
+Para comprender cómo Site Recovery genera puntos de recuperación, veamos un ejemplo de una directiva de replicación. Esta directiva de replicación tiene un punto de recuperación con una ventana de retención de 24 horas y una instantánea con una frecuencia coherente con la aplicación de 1 hora.
+
+Site Recovery crea un punto de recuperación coherente con los bloqueos cada 5 minutos. No se puede cambiar esta frecuencia. Durante la última hora, puede elegir entre 12 puntos coherentes con los bloqueos y 1 punto coherente con la aplicación. Conforme transcurre el tiempo, Site Recovery elimina todos los puntos de recuperación de hace más de una hora y solo guarda un punto de recuperación por hora.
+
+La siguiente captura de pantalla ilustra el ejemplo. En la captura de pantalla:
+
+- En la pasada hora, hay puntos de recuperación con una frecuencia de 5 minutos.
+- Por encima de esta, Site Recovery conserva solo un punto de recuperación.
+
+   ![Lista de puntos de recuperación generados](./media/azure-to-azure-troubleshoot-errors/recoverypoints.png)
+
+### <a name="how-far-back-can-i-recover"></a>¿Hasta cuánto tiempo atrás puedo recuperar?
+
+El punto de recuperación más antiguo que puede usar es de 72 horas.
+
+### <a name="i-have-a-replication-policy-of-24-hours-what-will-happen-if-a-problem-prevents-site-recovery-from-generating-recovery-points-for-more-than-24-hours-will-my-previous-recovery-points-be-lost"></a>Tengo una directiva de replicación de 24 horas. ¿Qué ocurrirá si un problema impide que Site Recovery genere puntos de recuperación durante más de 24 horas? ¿Se perderán mis puntos de recuperación anteriores?
+
+No, Site Recovery mantendrá todos los puntos de recuperación anteriores. En función de la ventana de retención de los puntos de recuperación, Site Recovery reemplaza el punto más antiguo solo si genera nuevos puntos. A consecuencia de este problema, Site Recovery no puede generar ningún punto de recuperación nuevo. Hasta que no haya nuevos puntos de recuperación, todos los puntos anteriores permanecerán después de alcanzar la ventana de retención.
+
+### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>Después de habilitar la replicación en una máquina virtual, ¿cómo puedo cambiar la directiva de replicación?
+
+Vaya a **Almacén de Site Recovery** > **Site Recovery Infrastructure (Infraestructura de Site Recovery)**  > **Directivas de replicación**. Seleccione la directiva que quiera editar y guarde los cambios. Todos los cambios se aplicarán también en todas las replicaciones existentes.
+
+### <a name="are-all-the-recovery-points-a-complete-copy-of-the-vm-or-a-differential"></a>¿Todos los puntos de recuperación son una copia completa de la máquina virtual o diferencial?
+
+El primer punto de recuperación que se genera tiene la copia completa. Los puntos de recuperación sucesivos tienen los cambios diferenciales.
+
+### <a name="does-increasing-the-retention-period-of-recovery-points-increase-the-storage-cost"></a>¿Al aumentar el período de retención de los puntos de recuperación se aumenta el costo de almacenamiento?
+
+Sí. Si aumenta el período de retención de 24 a 72 horas, Site Recovery guardará los puntos de recuperación durante otras 48 horas. El tiempo adicional implicará cargos de almacenamiento. Por ejemplo, un único punto de recuperación podría tener cambios diferenciales de 10 GB con un costo por GB de 0,16 USD al mes. Los cargos adicionales serían de 1,60 USD × 48 al mes.
+
 
 ## <a name="failover"></a>Conmutación por error
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-vms-after-failover"></a>Si se realiza una conmutación por error a Azure, ¿cómo se puede tener acceso a las máquinas virtuales de Azure tras este proceso?

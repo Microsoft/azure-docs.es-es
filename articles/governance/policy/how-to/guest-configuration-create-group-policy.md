@@ -1,29 +1,29 @@
 ---
 title: Cómo crear definiciones de directivas de configuración de invitado a partir de la directiva de grupo línea de base para Windows
 description: Obtenga información sobre cómo convertir una directiva de grupo de la línea base de seguridad de Windows Server 2019 en una definición de directiva.
-ms.date: 06/05/2020
+ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: bbb634ed55acf8aa994045fbef6569fae031c841
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 58fe4fa3e5056192fa5febe4883a1457d130871b
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080676"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547775"
 ---
 # <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>Cómo crear definiciones de directivas de configuración de invitado a partir de la directiva de grupo línea de base para Windows
 
-Antes de crear definiciones de directivas personalizadas, es conveniente leer la información conceptual general en [Información sobre Guest Configuration de Azure Policy](../concepts/guest-configuration.md). Para obtener información sobre cómo crear definiciones de directivas de configuración de invitado personalizadas para Linux, consulte la página [Cómo crear una directiva de configuración de invitados para Linux](./guest-configuration-create-linux.md). Para obtener información sobre cómo crear definiciones de directivas de configuración de invitado personalizadas para Windows, consulte la página [Cómo crear una directiva de configuración de invitados para Windows](./guest-configuration-create.md). 
+Antes de crear definiciones de directivas personalizadas, es conveniente leer la información conceptual general en [Información sobre Guest Configuration de Azure Policy](../concepts/guest-configuration.md). Para obtener información sobre cómo crear definiciones de directivas de configuración de invitado personalizadas para Linux, consulte la página [Cómo crear una directiva de configuración de invitados para Linux](./guest-configuration-create-linux.md). Para obtener información sobre cómo crear definiciones de directivas de configuración de invitado personalizadas para Windows, consulte la página [Cómo crear una directiva de configuración de invitados para Windows](./guest-configuration-create.md).
 
-Durante la auditoría en Windows, Configuración de invitado usa un módulo de recursos [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) para crear el archivo de configuración. La configuración de DSC define la condición en la que debe estar la máquina. Si la evaluación de la configuración es **no compatible**, se desencadena el efecto *auditIfNotExists* de la directiva. La [configuración de invitado de Azure Policy](../concepts/guest-configuration.md) solo realiza la auditoría de la configuración dentro de máquinas.
+Durante la auditoría en Windows, Configuración de invitado usa un módulo de recursos [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) para crear el archivo de configuración. La configuración de DSC define la condición en la que debe estar la máquina. Si la evaluación de la configuración es **no compatible**, se desencadena el efecto *auditIfNotExists* de la directiva.
+La [configuración de invitado de Azure Policy](../concepts/guest-configuration.md) solo realiza la auditoría de la configuración dentro de máquinas.
 
 > [!IMPORTANT]
 > Las definiciones de directivas personalizadas con la configuración de invitados son una característica en vista previa (GB).
 >
-> La extensión de configuración de invitado es necesaria para realizar auditorías en las máquinas virtuales de Azure.
-> Para implementar la extensión a gran escala en todas las máquinas Windows, asigne las siguientes definiciones de directiva:
->   - [Implemente los requisitos previos para habilitar la directiva de configuración de invitado en VM de Windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
+> La extensión de configuración de invitado es necesaria para realizar auditorías en las máquinas virtuales de Azure. Para implementar la extensión a gran escala en todas las máquinas Windows, asigne las siguientes definiciones de directiva:
+> - [Implemente los requisitos previos para habilitar la directiva de configuración de invitado en VM de Windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
 
-La comunidad de DSC ha publicado el [módulo BaselineManagement](https://github.com/microsoft/BaselineManagement) para convertir las plantillas exportadas de la directiva de grupo al formato DSC. Junto con el cmdlet GuestConfiguration, el módulo BaselineManagement crea el paquete de configuración de invitado de Azure Policy para Windows a partir del contenido de directiva de grupo. Para obtener más información sobre el uso del módulo BaselineManagement, consulte el artículo [Inicio rápido: Conversión de directiva de grupo en DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart). 
+La comunidad de DSC ha publicado el [módulo BaselineManagement](https://github.com/microsoft/BaselineManagement) para convertir las plantillas exportadas de la directiva de grupo al formato DSC. Junto con el cmdlet GuestConfiguration, el módulo BaselineManagement crea el paquete de configuración de invitado de Azure Policy para Windows a partir del contenido de directiva de grupo. Para obtener más información sobre el uso del módulo BaselineManagement, consulte el artículo [Inicio rápido: Conversión de directiva de grupo en DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart).
 
 En esta guía, recorremos el proceso de creación de un paquete de configuración de invitado de Azure Policy a partir de un objeto de directiva de grupo (GPO). Aunque en el tutorial se describe la conversión de la línea base de seguridad de Windows Server 2019, se puede aplicar el mismo proceso a otros GPO.  
 
@@ -62,7 +62,7 @@ Para instalar el **DSC**, **GuestConfiguration**, **administración de línea de
 
 ## <a name="convert-from-group-policy-to-azure-policy-guest-configuration"></a>Conversión de directiva de grupo a configuración de invitado de Azure Policy
 
-Después, convierta la línea de base de la instancia de Server 2019 descargada en un paquete de configuración de invitado mediante los módulos configuración de invitado y administración de línea de base. 
+Después, convierta la línea de base de la instancia de Server 2019 descargada en un paquete de configuración de invitado mediante los módulos configuración de invitado y administración de línea de base.
 
 1. Convierta la directiva de grupo a Desired State Configuration mediante el módulo de administración de línea de base.
 
@@ -203,5 +203,5 @@ La asignación de una definición de directiva con el efecto _DeployIfNotExists_
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga información sobre la auditoría de VM con la [configuración de invitados](../concepts/guest-configuration.md).
-- Obtenga información acerca de cómo se pueden [crear directivas mediante programación](programmatically-create.md).
-- Obtenga información sobre cómo [obtener datos de cumplimiento](get-compliance-data.md).
+- Obtenga información acerca de cómo se pueden [crear directivas mediante programación](./programmatically-create.md).
+- Obtenga información sobre cómo [obtener datos de cumplimiento](./get-compliance-data.md).

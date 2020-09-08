@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c915898d3eec4494b6a300e88ffde216f21d5d68
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 396344ba90aa3850d7d23dc40d6df95f6d1f6c3f
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358130"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279540"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Privacidad del usuario y autenticación de paso a través de Azure Active Directory
 
@@ -67,7 +67,7 @@ Para más información sobre los requisitos relacionados del RGPD de Azure AD Co
 
 ### <a name="delete-authentication-agent-event-logs"></a>Eliminación de registros de eventos del agente de autenticación
 
-Este producto también puede crear **registros de eventos de Windows**. Para más información, lea [este artículo](https://msdn.microsoft.com/library/windows/desktop/aa385780(v=vs.85).aspx).
+Este producto también puede crear **registros de eventos de Windows**. Para más información, lea [este artículo](/windows/win32/wes/windows-event-log).
 
 Para ver los registros relacionados con el agente de autenticación de paso a través, abra la aplicación **Visor de eventos** en el servidor y consulte **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
 
@@ -103,7 +103,7 @@ Para programar que este script se ejecute cada 48 horas, siga estos pasos:
  
 ### <a name="note-about-domain-controller-logs"></a>Nota sobre los registros de controlador de dominio
 
-Si el registro de auditoría está habilitado, este producto puede generar registros de seguridad para los controladores de dominio. Para más información sobre cómo configurar las directivas de auditoría, lea este [artículo](https://technet.microsoft.com/library/dd277403.aspx).
+Si el registro de auditoría está habilitado, este producto puede generar registros de seguridad para los controladores de dominio. Para más información sobre cómo configurar las directivas de auditoría, lea este [artículo](/previous-versions/tn-archive/dd277403(v=technet.10)).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Revisar la directiva de privacidad de Microsoft en Trust Center](https://www.microsoft.com/trustcenter)

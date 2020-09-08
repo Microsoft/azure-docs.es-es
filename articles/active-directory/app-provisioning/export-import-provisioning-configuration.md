@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 03/19/2020
 ms.author: kenwith
-ms.openlocfilehash: ef4fbf582baf1e4b81d49c81a8b0e16674e64841
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e34656d6ce515cabe955c101f7b52ac0f2ade8db
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781729"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235824"
 ---
 # <a name="how-to-export-provisioning-configuration-and-roll-back-to-a-known-good-state"></a>Procedimiento: Exportación de la configuración de aprovisionamiento y reversión a un estado correcto conocido
 
@@ -39,8 +39,8 @@ Para exportar la configuración:
 
 Si exporta y guarda la configuración, podrá volver a una versión anterior de la configuración. Se recomienda exportar la configuración de aprovisionamiento y guardarla para más adelante siempre que realice un cambio en las asignaciones de atributos o en los filtros de ámbito. Lo único que debe hacer es abrir el archivo JSON que descargó en los pasos anteriores, copiar todo el contenido del archivo JSON, reemplazar todo el contenido de la carga útil de JSON en el editor de esquemas y, después, guardarlo. Si hay un ciclo de aprovisionamiento activo, se completará y, en el ciclo siguiente, se usará el esquema actualizado. El ciclo siguiente también será un ciclo inicial en el que se volverá a evaluar cada usuario y grupo con arreglo a la nueva configuración. Al revertir a una configuración anterior, tenga en cuenta lo siguiente:
 
-- Los usuarios se evaluarán de nuevo para determinar si deben estar en el ámbito. Si los filtros de ámbito han cambiado, los usuarios que ya no estén en el ámbito se deshabilitarán. Aunque este es el comportamiento deseado en la mayoría de los casos, hay ocasiones en las que tal vez quiera evitarlo, por lo que puede usar la funcionalidad [omisión de las eliminaciones de ámbito](https://docs.microsoft.com/azure/active-directory/app-provisioning/skip-out-of-scope-deletions). 
-- Si cambia la configuración de aprovisionamiento, se reiniciará el servicio y se desencadenará un [ciclo inicial](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works#provisioning-cycles-initial-and-incremental).
+- Los usuarios se evaluarán de nuevo para determinar si deben estar en el ámbito. Si los filtros de ámbito han cambiado, los usuarios que ya no estén en el ámbito se deshabilitarán. Aunque este es el comportamiento deseado en la mayoría de los casos, hay ocasiones en las que tal vez quiera evitarlo, por lo que puede usar la funcionalidad [omisión de las eliminaciones de ámbito](./skip-out-of-scope-deletions.md). 
+- Si cambia la configuración de aprovisionamiento, se reiniciará el servicio y se desencadenará un [ciclo inicial](./how-provisioning-works.md#provisioning-cycles-initial-and-incremental).
 
 ## <a name="export-and-import-your-provisioning-configuration-by-using-the-microsoft-graph-api"></a>Exportación e importación de la configuración de aprovisionamiento mediante Microsoft Graph API
 

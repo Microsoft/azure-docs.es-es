@@ -1,6 +1,6 @@
 ---
 title: Solución de problemas de compresión de archivos en Azure CDN | Microsoft Docs
-description: Solucione los problemas con la compresión de archivos de Azure CDN.
+description: Aprenda a solucionar problemas con la compresión de archivos en Azure Content Delivery Network. En este artículo se tratan varias causas posibles.
 services: cdn
 documentationcenter: ''
 author: sohamnc
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 5c56564ee6f07c5d208ea5d3089a2c96fd8bbc33
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53db148eac0d56e53bb96e0597ad53d3183d86e9
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888693"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192520"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Solución de problemas de compresión de archivos de red CDN
 Este artículo le ayudará a solucionar los problemas con la [compresión de archivos de red CDN](cdn-improve-performance.md).
@@ -98,7 +98,7 @@ Desplácese hasta el punto de conexión en [Azure Portal](https://portal.azure.c
 
 Con las herramientas para desarrolladores de su explorador, compruebe los encabezados de respuesta para asegurarse de que el archivo se almacena en caché en la región donde se solicita.
 
-* Compruebe el encabezado de respuesta **Server** .  El encabezado debe tener el formato **Plataforma (POP/id. de servidor)** , tal como se muestra en el ejemplo siguiente.
+* Compruebe el encabezado de respuesta **Server** .  El encabezado debe tener el formato **Plataforma (POP/id. de servidor)**, tal como se muestra en el ejemplo siguiente.
 * Compruebe el encabezado de respuesta **X-Cache** .  Debe poner **HIT**.  
 
 ![Encabezados de respuesta de red CDN](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
@@ -117,6 +117,6 @@ Para que un archivo sea apto para la compresión, debe cumplir los siguientes re
 ### <a name="check-the-request-at-the-origin-server-for-a-via-header"></a>Compruebe la solicitud en el servidor de origen para un encabezado **Mediante**
 El encabezado **Mediante** HTTP indica al servidor web que un servidor proxy pasará la solicitud.  De forma predeterminada, los servidores web de Microsoft IIS no comprimen las respuestas si la solicitud contiene un encabezado **Mediante** .  Para anular este comportamiento, haga lo siguiente:
 
-* **IIS 6**: [Establezca HcNoCompressionForProxies="FALSE" en las propiedades de la metabase de IIS](/previous-versions/iis/6.0-sdk/ms525390(v=vs.90))
-* **IIS 7 y posteriores**: [Establezca **noCompressionForHttp10** y **noCompressionForProxies** en False en la configuración del servidor](https://www.iis.net/configreference/system.webserver/httpcompression)
+* **IIS 6**: [Establezca HcNoCompressionForProxies = "FALSE" en las propiedades de la metabase de IIS](/previous-versions/iis/6.0-sdk/ms525390(v=vs.90))
+* **IIS 7 y posteriores**: [Establezca **noCompressionForHttp10** y **noCompressionForProxies** en False en la configuración del servidor](https://www.iis.net/configreference/system.webserver/httpcompression).
 

@@ -1,18 +1,18 @@
 ---
 title: 'Creación de una instancia de Azure VPN Gateway basada en la ruta: CLI'
-description: Aprenda a crear rápidamente una instancia de VPN Gateway mediante la CLI.
+description: Cree rápidamente una instancia de Azure VPN Gateway basada en rutas mediante la CLI de Azure, para una conexión VPN a una red local o para conectar redes virtuales.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/04/2018
+ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0cb03f827c8174932f235ec8ea327225da76ef4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e43f324a8c32615eded782e75291b575852c4382
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987698"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393758"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>Creación de una instancia de VPN Gateway basada en rutas mediante la CLI
 

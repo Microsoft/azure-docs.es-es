@@ -8,12 +8,12 @@ ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
-ms.openlocfilehash: 97399635399c12022006ac95e60c5828bf2a9dc5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6c07ab4b18c017bd29723d2640129b8e67374e3c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76905436"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837387"
 ---
 # <a name="migrate-your-apps-and-solutions-from-biztalk-services-to-azure-logic-apps"></a>Migre sus aplicaciones y soluciones de BizTalk Services a Azure Logic Apps
 
@@ -53,13 +53,13 @@ BizTalk Services tiene varios tipos de artefactos.
 
 Los conectores de BizTalk Services ayudan a los puentes a enviar y recibir datos, incluidos los puentes bidireccionales que habilitan interacciones de solicitud/respuesta basadas en HTTP. Logic Apps usa la misma terminología y tiene cientos de conectores que sirven al mismo objetivo conectándose a una amplia gama de tecnologías y servicios. Por ejemplo, los conectores están disponibles para servicios SaaS y PaaS en la nube, como OneDrive, Office365, Dynamics CRM y otros, además de sistemas locales a través de la Puerta de enlace de datos local, que reemplaza al Servicio de adaptador de BizTalk de BizTalk Services. Los orígenes de BizTalk Services están limitados a FTP, SFTP y suscripción a Tema o Cola de Service Bus.
 
-![](media/logic-apps-move-from-mabs/sources.png)
+![Diagrama que muestra el flujo de BizTalk Services.](media/logic-apps-move-from-mabs/sources.png)
 
 De manera predeterminada, cada puente tiene un punto de conexión HTTP, el que se configura con las propiedades Dirección en tiempo de ejecución y Dirección relativa del puente. Para lograr los mismos resultados con Logic Apps, use las acciones [Solicitud y respuesta](../connectors/connectors-native-reqres.md).
 
 ## <a name="xml-processing-and-bridges"></a>Puentes y procesamiento de XML
 
-En BizTalk Services, un puente es análogo a una canalización de procesamiento. Un puente puede tomar los datos recibidos desde un conector, trabajar con esos datos y luego enviarlos a otro sistema. Logic Apps hace exactamente lo mismo, ya que es compatible con los mismos patrones de interacción basada en canalización que BizTalk Services y, además, proporciona otros patrones de integración. El [puente de solicitud-respuesta XML](https://msdn.microsoft.com/library/azure/hh689781.aspx) en BizTalk Services es conocido como una canalización VETER, que consta de fases en que se realizan estas tareas:
+En BizTalk Services, un puente es análogo a una canalización de procesamiento. Un puente puede tomar los datos recibidos desde un conector, trabajar con esos datos y luego enviarlos a otro sistema. Logic Apps hace exactamente lo mismo, ya que es compatible con los mismos patrones de interacción basada en canalización que BizTalk Services y, además, proporciona otros patrones de integración. El [puente de solicitud-respuesta XML](/previous-versions/azure/hh689781(v=azure.100)) en BizTalk Services es conocido como una canalización VETER, que consta de fases en que se realizan estas tareas:
 
 * (V) Validación
 * (E) Enriquecimiento
@@ -69,7 +69,7 @@ En BizTalk Services, un puente es análogo a una canalización de procesamiento.
 
 En esta imagen se muestra cómo se divide el procesamiento entre solicitud y respuesta, lo cual ofrece control sobre las rutas de solicitud y respuesta de forma separada, por ejemplo, utilizando distintas asignaciones para cada una:
 
-![](media/logic-apps-move-from-mabs/xml-request-reply.png)
+![Captura de pantalla que muestra cómo se divide el procesamiento entre la solicitud y la respuesta.](media/logic-apps-move-from-mabs/xml-request-reply.png)
 
 Además, un puente unidireccional XML agrega las fases de descodificación y codificación al inicio y el fin del procesamiento. El puente de paso a través contiene una sola fase de enriquecimiento.
 
@@ -91,7 +91,7 @@ En BizTalk Services, la fase de transformación convierte un formato de mensaje 
 
 BizTalk Services toma una decisión de enrutamiento sobre qué punto de conexión o conector envía los mensajes o datos entrantes. La capacidad de seleccionar a partir de los puntos de conexión preconfigurados es posible con la opción de filtro de enrutamiento:
 
-![](media/logic-apps-move-from-mabs/route-filter.png)
+![Captura de pantalla que muestra la opción de filtro de enrutamiento.](media/logic-apps-move-from-mabs/route-filter.png)
 
 En BizTalk Services, si hay solo dos opciones, el uso de una *condición* es la mejor manera de convertir filtros de enrutamiento en BizTalk Services. Si hay más de dos, use un **modificador**.
 
@@ -103,7 +103,7 @@ En el procesamiento de BizTalk Services, la fase de enriquecimiento agrega propi
 
 ### <a name="run-custom-code"></a>Ejecución de código personalizado
 
-BizTalk Services le permite [ejecutar código personalizado](https://msdn.microsoft.com/library/azure/dn232389.aspx) que está cargado en sus propios ensamblados. Esta función se implementa mediante la interfaz [IMessageInspector](https://msdn.microsoft.com/library/microsoft.biztalk.services.imessageinspector). Cada fase del puente incluye dos propiedades (On Enter Inspector y On Exit Inspector) que proporciona el tipo de .NET que se creó que implementa esta interfaz. El código personalizado le permite realizar procesamientos más complejos en los datos, así como volver a usar código existente en ensamblados que realizan una lógica de negocios común. 
+BizTalk Services le permite [ejecutar código personalizado](/previous-versions/azure/dn232389(v=azure.100)) que está cargado en sus propios ensamblados. Esta función se implementa mediante la interfaz [IMessageInspector](). Cada fase del puente incluye dos propiedades (On Enter Inspector y On Exit Inspector) que proporciona el tipo de .NET que se creó que implementa esta interfaz. El código personalizado le permite realizar procesamientos más complejos en los datos, así como volver a usar código existente en ensamblados que realizan una lógica de negocios común. 
 
 Logic Apps proporciona dos maneras principales para ejecutar el código personalizado: Azure Functions y API Apps. Es posible crear y llamar a Azure Functions desde aplicaciones lógicas. Consulte [Adición y ejecución de código personalizado para aplicaciones lógicas con Azure Functions](../logic-apps/logic-apps-azure-functions.md). Use API Apps, parte de Azure App Service, para crear sus propios desencadenadores y acciones. Obtenga más información sobre cómo [crear una API personalizada para usarla con Logic Apps](../logic-apps/logic-apps-create-api-app.md). 
 

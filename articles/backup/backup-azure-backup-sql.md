@@ -3,12 +3,12 @@ title: Realización de una copia de seguridad de SQL Server en Azure como una ca
 description: Introducción a la copia de seguridad de bases de datos de SQL Server mediante el servicio Azure Backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: dd091f9446cafdb6ff91ae5679c703e07457169c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ef8ffcb2445a7be27f7fd3da2115f76fe961fd74
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055381"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876315"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Realización de una copia de seguridad de SQL Server en Azure como una carga de trabajo DPM
 
@@ -21,6 +21,9 @@ Para realizar una copia de seguridad de una base de datos de SQL Server en Azur
 1. Cree una directiva de copia de seguridad para proteger las bases de datos de SQL Server en Azure.
 1. Cree copias de seguridad a petición en Azure.
 1. Recuperación de la base de datos de Azure.
+
+>[!NOTE]
+>DPM 2019 UR2 admite instancias de clúster de conmutación por error (FCI) de SQL Server mediante volúmenes compartidos de clúster (CSV).
 
 ## <a name="prerequisites-and-limitations"></a>Requisitos previos y limitaciones
 

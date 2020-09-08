@@ -4,14 +4,14 @@ description: Aprenda a configurar las claves administradas por el cliente para s
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/19/2020
+ms.date: 08/05/2020
 ms.author: thweiss
-ms.openlocfilehash: 443e037f89508b0fc3b01ba90f884c139f4c64be
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 9fa899e0f0de3b263baad7e44ed24d32d735b001
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027762"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836518"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configuración de claves administradas por el cliente para una cuenta de Azure Cosmos con Azure Key Vault
 
@@ -64,6 +64,8 @@ Si usa una instancia de Azure Key Vault existente y desea verificar si estas pro
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap.png" alt-text="Selección de la entidad de seguridad de Azure Cosmos DB":::
 
 1. Seleccione **Agregar** para agregar la nueva directiva de acceso.
+
+1. Seleccione **Guardar** en la instancia de Key Vault para guardar todos los cambios.
 
 ## <a name="generate-a-key-in-azure-key-vault"></a>Generación de una clave en Azure Key Vault
 
@@ -228,7 +230,15 @@ La rotación de la clave administrada por el cliente que usa la cuenta de Azure�
 
   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-rot.png" alt-text="Creación de una nueva versión de la clave":::
 
-- Intercambie la clave que se usa en este momento con una totalmente diferente mediante la actualización de la propiedad `keyVaultKeyUri` de la cuenta. Aquí se muestra cómo hacerlo en PowerShell:
+- Intercambie la clave que se usa en este momento con una totalmente diferente mediante la actualización del URI de la clave en la cuenta. En Azure Portal, vaya a su cuenta de Azure Cosmos y seleccione **Cifrado de datos** en el menú de la izquierda:
+
+    :::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="Entrada de menú de cifrado de datos":::
+
+    A continuación, reemplace el **URI de clave** por la nueva clave que desee usar y seleccione **Guardar**:
+
+    :::image type="content" source="./media/how-to-setup-cmk/portal-key-swap.png" alt-text="Actualización del URI de la clave":::
+
+    Aquí se muestra cómo lograr el mismo resultado en PowerShell:
 
     ```powershell
     $resourceGroupName = "myResourceGroup"
@@ -287,7 +297,11 @@ Actualmente, no. Sin embargo, se está analizando la posibilidad de incluir clav
 
 ### <a name="how-can-i-tell-if-customer-managed-keys-are-enabled-on-my-azure-cosmos-account"></a>¿Cómo se puede saber si las claves administradas por el cliente están habilitadas en mi cuenta de Azure Cosmos?
 
-Puede recuperar los detalles de la cuenta de Azure Cosmos mediante programación y buscar la presencia de la propiedad `keyVaultKeyUri`. Consulte anteriormente para conocer formas de hacerlo [en PowerShell](#using-powershell) y [mediante la CLI de Azure](#using-azure-cli).
+En Azure Portal, vaya a su cuenta de Azure Cosmos y observe la entrada de **Cifrado de datos** del menú de la izquierda. Si esta entrada existe, las claves administradas por el cliente estarán habilitadas en su cuenta:
+
+:::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="Entrada de menú de cifrado de datos":::
+
+También puede recuperar los detalles de la cuenta de Azure Cosmos mediante programación y buscar la presencia de la propiedad `keyVaultKeyUri`. Consulte anteriormente para conocer formas de hacerlo [en PowerShell](#using-powershell) y [mediante la CLI de Azure](#using-azure-cli).
 
 ### <a name="how-do-customer-managed-keys-affect-a-backup"></a>¿Cómo afectan las claves administradas por el cliente a una copia de seguridad?
 

@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 31bc9a5f38d50318f858a4d7169391e9d2e5e610
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 775b296185f9f0f0e967ada2688e24158f36360e
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87848737"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648367"
 ---
 # <a name="eav4-and-easv4-series"></a>Series Eav4 y Easv4
 
@@ -83,7 +83,7 @@ Los tamaños de la serie Easv4 se basan en el procesador EPYC<sup>TM</sup> 7452 
 
 Calculadora de precios: [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 
-Más información sobre los tipos de disco: [Tipos de disco](./linux/disks-types.md#ultra-disk)
+Más información sobre los tipos de disco: [Tipos de disco](./disks-types.md#ultra-disk)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

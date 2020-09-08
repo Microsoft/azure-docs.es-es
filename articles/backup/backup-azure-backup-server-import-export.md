@@ -3,12 +3,12 @@ title: Copia de seguridad sin conexión para DPM y Azure Backup Server
 description: Con Azure Backup, puede enviar datos fuera de la red mediante el servicio Azure Import/Export. En este artículo se explica el flujo de trabajo de la copia de seguridad sin conexión para DPM y Azure Backup Server.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: f27a38657bb43a1d1153a0372db0e1f9e284eccc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 368ae846a24ec04ee4b7da9b5971c00180be611d
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067354"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378464"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Flujo de trabajo de copia de seguridad sin conexión para DPM y Azure Backup Server (MABS)
 
@@ -51,10 +51,10 @@ Asegúrese de que se cumplen los siguientes requisitos previos antes de iniciar 
 * Cree una cuenta de Azure Storage en la misma suscripción que el almacén de Recovery Services.
 * Asegúrese de tener los [permisos necesarios](../active-directory/develop/howto-create-service-principal-portal.md) para crear la aplicación de Azure Active Directory. El flujo de trabajo de la copia de seguridad sin conexión crea una aplicación de Azure Active Directory en la suscripción asociada con la cuenta de Azure Storage. El objetivo de la aplicación es proporcionar Azure Backup con el acceso seguro y limitado al servicio Azure Import que se requiere para el flujo de trabajo de la copia de seguridad sin conexión.
 * Registre el proveedor de recursos Microsoft.ImportExport con la suscripción que contiene la cuenta de Azure Storage. Para registrar el proveedor de recursos:
-    1. En el menú principal, haga clic en **Suscripciones**.
+    1. En el menú principal, seleccione **Suscripciones**.
     2. Si está suscrito a varias suscripciones, seleccione la suscripción que usa para la copia de seguridad sin conexión. Si solo usa una, aparecerá esa suscripción.
-    3. En el menú de la suscripción, haga clic en **Proveedores de recursos** para ver la lista de proveedores.
-    4. En la lista de proveedores, desplácese hacia abajo hasta Microsoft.ImportExport. Si el estado es NotRegistered, haga clic en **Registrar**.
+    3. En el menú de la suscripción, seleccione **Proveedores de recursos** para ver la lista de proveedores.
+    4. En la lista de proveedores, desplácese hacia abajo hasta Microsoft.ImportExport. Si el estado es NotRegistered, seleccione **Registrar**.
 
        ![Registro del proveedor de recursos](./media/backup-azure-backup-server-import-export/register-import-export.png)
 
@@ -68,7 +68,7 @@ La información de esta sección le ayuda a completar el flujo de trabajo de cop
 
 ## <a name="initiate-offline-backup"></a>Inicio de la copia de seguridad sin conexión
 
-1. Cuando cree un grupo de protección nuevo con protección en línea o agregue protección en línea a un grupo de protección existente, consulte la pantalla siguiente. Para seleccionar el método de replicación en línea inicial, seleccione **Transfer using my own disk** (Transferir con mi propio disco) y haga clic en **Siguiente**.
+1. Cuando cree un grupo de protección nuevo con protección en línea o agregue protección en línea a un grupo de protección existente, consulte la pantalla siguiente. Para seleccionar el método de replicación en línea inicial, seleccione **Transfer using my own disk** (Transferir con mi propio disco) y elija **Siguiente**.
 
     ![Pantalla de importación](./media/backup-azure-backup-server-import-export/create-new-protection-group.png)
 
@@ -160,7 +160,7 @@ El procedimiento siguiente actualiza los detalles del envío del trabajo de impo
 * los detalles de envío en caso de devolución de los discos
 
    1. Inicie sesión en la suscripción de Azure.
-   2. En el menú principal, haga clic en **Todos los servicios** y, en el cuadro de diálogo Todos los servicios, haga clic en Importar. Haga clic en **Trabajos de Import/Export** cuando lo vea.
+   2. En el menú principal, seleccione **Todos los servicios** y, en el cuadro de diálogo Todos los servicios, escriba Importar. Cuando vea la opción **Trabajos de importación o exportación**, selecciónela.
        ![Especificación de la información de envío](./media/backup-azure-backup-server-import-export/search-import-job.png)
 
        Se abre el menú de la lista de **Trabajos de Import/Export** y aparecen todos los trabajos de Import/Export de la suscripción seleccionada.
@@ -169,11 +169,11 @@ El procedimiento siguiente actualiza los detalles del envío del trabajo de impo
 
        ![Revisión de la información de envío](./media/backup-azure-backup-server-import-export/import-job-found.png)
 
-   4. En el menú de configuración del trabajo de importación recién creado, haga clic en **Manage Shipping Info** (Administrar información de envío) y escriba los detalles para el envío en caso de devolución.
+   4. En el menú Configuración del trabajo de importación, seleccione **Administrar la información de envío** y escriba los detalles para el envío en caso de devolución.
 
        ![Almacenamiento de la información de envío](./media/backup-azure-backup-server-import-export/shipping-info.png)
 
-   5. Cuando tenga el número de seguimiento del transportista de envío, haga clic en el banner en la página de información general del trabajo de importación de Azure y escriba estos detalles:
+   5. Cuando tenga el número de seguimiento del transportista de envío, seleccione el banner en la página de información general del trabajo de importación de Azure y escriba estos detalles:
 
       > [!IMPORTANT]
       > Asegúrese de que la información del transportista y el número de seguimiento se actualicen en dos semanas a contar de la creación del trabajo de importación de Azure. No comprobar esta información dentro de dos semanas puede generar que se elimine el trabajo y que no se procese.

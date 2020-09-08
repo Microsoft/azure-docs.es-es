@@ -2,24 +2,24 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 04/14/2020
-ms.openlocfilehash: 45dad7d7b176037087e37638db380294521a8e19
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 08/17/2020
+ms.openlocfilehash: a56b95fe4f6b7005e823ebe80fd2e74ed1cf7725
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82135059"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511351"
 ---
-En este artículo se proporciona información y código de ejemplo para ayudarle a empezar a usar el SDK de Custom Vision con Go para crear un modelo de detección de objetos. Después de crearlo, puede agregar regiones etiquetadas, cargar imágenes, entrenar el proyecto, obtener la dirección URL publicada del punto de conexión de predicción del proyecto y utilizar el punto de conexión para probar una imagen mediante programación. Use este ejemplo como plantilla para crear su propia aplicación de Go.
+En este artículo se proporciona información y código de ejemplo para ayudarle a empezar a usar la biblioteca cliente de Custom Vision con Go para crear un modelo de detección de objetos. Después de crearlo, puede agregar regiones etiquetadas, cargar imágenes, entrenar el proyecto, obtener la dirección URL publicada del punto de conexión de predicción del proyecto y utilizar el punto de conexión para probar una imagen mediante programación. Use este ejemplo como plantilla para crear su propia aplicación de Go.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
 - [Go 1.8+](https://golang.org/doc/install)
 - [!INCLUDE [create-resources](../../includes/create-resources.md)]
 
-## <a name="install-the-custom-vision-sdk"></a>Instalar el SDK de Custom Vision
+## <a name="install-the-custom-vision-client-library"></a>Instalación de la biblioteca cliente de Custom Vision
 
-Para instalar el SDK de Custom Vision Service para Go, ejecute el comando siguiente en PowerShell:
+Para instalar la biblioteca cliente del servicio Custom Vision para Go, ejecute el comando siguiente en PowerShell:
 
 ```shell
 go get -u github.com/Azure/azure-sdk-for-go/...

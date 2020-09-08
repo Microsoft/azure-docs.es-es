@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Picturepark | Microsoft Docs'
 description: Obtenga información sobre cómo configurar el inicio de sesión único entre Azure Active Directory y Picturepark.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 31c21cd4-9c00-4cad-9538-a13996dc872f
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 57f412f93d9dbe2d9967c5cbc7dc50b1ee8bd61f
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: bb12b666315f6d30df64b33b6a87d6ce831fd225
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85801502"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88553865"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Tutorial: Integración de Azure Active Directory con Picturepark
 

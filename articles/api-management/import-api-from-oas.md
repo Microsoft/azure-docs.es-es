@@ -1,6 +1,6 @@
 ---
 title: Importación de una especificación OpenAPI mediante Azure Portal | Microsoft Docs
-description: Obtenga información sobre cómo importar una especificación OpenAPI con API Management.
+description: Aprenda a importar una especificación de OpenAPI con API Management y, a continuación, probar la API en los portales de Azure y para desarrolladores.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 2e4dee74eb0c50e8e12d3f9ff0dccdd83271ea65
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 346156c624a4c8b1c1d6cc490fc0559f364b4b9d
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82202931"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905574"
 ---
 # <a name="import-an-openapi-specification"></a>Importación de una especificación OpenAPI
 

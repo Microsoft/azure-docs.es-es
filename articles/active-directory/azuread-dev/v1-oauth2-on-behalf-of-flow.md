@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 08/5/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6f52ddbfbdfa30108670b985fba5c5263ce517b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f746cc654934464d907c6ad669eb7470e4dcaeeb
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85551675"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117743"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Llamadas entre servicios que usan la identidad de usuarios delegada en el flujo de On-Behalf-Of
 
@@ -59,10 +59,10 @@ Registre el servicio de nivel intermedio y la aplicación cliente en Azure AD.
 1. En **Supported account types** (Tipos de cuenta compatibles), seleccione **Accounts in any organizational directory and personal Microsoft accounts** (Cuentas en cualquier directorio de organización y cuentas personales de Microsoft).
 1. Establezca el URI de redireccionamiento en la URL base.
 1. Seleccione **Registrar** para crear la aplicación.
-1. Genere un secreto de cliente antes de salir de Azure Portal.
 1. En Azure Portal, elija la aplicación y seleccione **Certificados y secretos**.
 1. Seleccione **Nuevo secreto de cliente** y agregue un secreto con una duración de uno o dos años.
 1. Al guardar esta página, Azure Portal muestra el valor del secreto. Copie y guarde el valor del secreto en una ubicación segura.
+1. Cree un ámbito en la aplicación en la página **Exponer una API** de la aplicación y haga clic en "Agregar un ámbito".  El portal puede requerir también la creación de un identificador URI del identificador de aplicación. 
 
 > [!IMPORTANT]
 > Necesitará el secreto para configurar las opciones de la aplicación en la implementación. Este valor de secreto no se volverá a mostrar y no se puede recuperar de ninguna otra manera. Regístrelo en cuanto esté visible en Azure Portal.
@@ -79,7 +79,7 @@ Registre el servicio de nivel intermedio y la aplicación cliente en Azure AD.
 1. Seleccione **Registrar** para crear la aplicación.
 1. Configure permisos para la aplicación. En **Permisos de API**, seleccione **Agregar un permiso** y, luego **Mis API**.
 1. Escriba el nombre del servicio de nivel intermedio en el campo de texto.
-1. Elija **Seleccionar permisos** y, después, seleccione **Acceder a \<service name>** .
+1. Elija **Seleccionar permisos** y, a continuación, seleccione el ámbito que creó en el último paso de registro del servicio de nivel intermedio.
 
 ### <a name="configure-known-client-applications"></a>Configuración de aplicaciones cliente conocidas
 
@@ -264,7 +264,7 @@ La respuesta contiene un token SAML codificado con UTF8 y Base64url.
 - **SubjectConfirmationData para una aserción SAML procedente de una llamada OBO**: si la aplicación de destino requiere un valor de destinatario en **SubjectConfirmationData**, el valor debe ser una dirección URL de respuesta que no sea de caracteres comodín en la configuración de la aplicación de recursos.
 - **El nodo SubjectConfirmationData**: este no puede contener un atributo **InResponseTo**, ya que no forma parte de una respuesta SAML. La aplicación que recibe el token SAML debe tener la capacidad de aceptar la aserción SAML sin el atributo **InResponseTo**.
 
-- **Consentimiento**: debe otorgarse un consentimiento con el fin de recibir un token SAML que contenga datos de usuario en un flujo de OAuth. Para obtener información sobre los permisos y el consentimiento del administrador, consulte [Permisos y consentimiento en el punto de conexión v1.0 de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-permissions-consent).
+- **Consentimiento**: debe otorgarse un consentimiento con el fin de recibir un token SAML que contenga datos de usuario en un flujo de OAuth. Para obtener información sobre los permisos y el consentimiento del administrador, consulte [Permisos y consentimiento en el punto de conexión v1.0 de Azure Active Directory](./v1-permissions-consent.md).
 
 ### <a name="response-with-saml-assertion"></a>Respuesta con aserción SAML
 

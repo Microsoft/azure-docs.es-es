@@ -1,19 +1,19 @@
 ---
 title: 'Inicio rápido: Creación de una instancia de Azure Firewall con Availability Zones: plantilla de Resource Manager'
-description: Implementación de Azure Firewall mediante una plantilla. La red virtual tiene una red virtual con tres subredes. Se implementan dos máquinas virtuales con Windows Server; un jumpbox y un servidor.
+description: En este inicio rápido, implementará Azure Firewall mediante una plantilla. La red virtual tiene una red virtual con tres subredes. Se implementan dos máquinas virtuales con Windows Server; un jumpbox y un servidor.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 04/30/2020
+ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: cec7ff020ce7e5894d4909263b5ab1aa2275caac
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c8b4102968e4b6b633216e29d5e993a1c98fa1c6
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260632"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071727"
 ---
 # <a name="quickstart-deploy-azure-firewall-with-availability-zones---arm-template"></a>Inicio rápido: Implementación de Azure Firewall con Availability Zones: plantilla de Resource Manager
 
@@ -43,7 +43,7 @@ Esta plantilla crea una instancia de Azure Firewall con Availability Zones, junt
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-azurefirewall-with-zones-sandbox).
 
-:::code language="json" source="~/quickstart-templates/101-azurefirewall-with-zones-sandbox/azuredeploy.json" range="001-444" highlight="369-442":::
+:::code language="json" source="~/quickstart-templates/101-azurefirewall-with-zones-sandbox/azuredeploy.json":::
 
 En la plantilla se definen varios recursos de Azure:
 

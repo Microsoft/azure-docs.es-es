@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 3ef109dc5fad73a19eabefb8eb872c02d62698ba
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b7623a3c89f9ae4b20385caaac676b972f55f85e
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087585"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209491"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Migración de una instancia de SQL Server a Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -162,7 +162,7 @@ En la mayoría de los casos, la migración de base de datos a una instancia admi
 Como requisito previo, asegúrese de que ha completado las siguientes actividades:
 
 - Alinear la configuración de la instancia administrada con la configuración de la instancia de SQL Server de origen investigando diversos valores de configuración de la instancia, la base de datos y tempdb. Asegúrese de que no ha cambiado valores como los de los niveles de compatibilidad o el cifrado antes de ejecutar la primera comparación de rendimiento, o acepte el riesgo de que algunas de las nuevas características que ha habilitado afecten a algunas consultas. Para reducir los riesgos de la migración, cambie el nivel de compatibilidad de la base de datos solo después de supervisar el rendimiento.
-- Implementar [directrices de procedimientos recomendados de almacenamiento de uso general](https://techcommunity.microsoft.com/t5/DataCAT/Storage-performance-best-practices-and-considerations-for-Azure/ba-p/305525), como preasignar el tamaño de los archivos para obtener el mejor rendimiento.
+- Implementar [directrices de procedimientos recomendados de almacenamiento de uso general](https://techcommunity.microsoft.com), como preasignar el tamaño de los archivos para obtener el mejor rendimiento.
 - Obtener más información sobre las [principales diferencias del entorno que podrían producir diferencias de rendimiento entre una instancia administrada y SQL Server](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/) e identificar los riesgos que podrían afectar al rendimiento.
 - Asegurarse de que tiene habilitadas las características Almacén de consultas y Ajuste automático en la instancia administrada. Estas características le permiten medir el rendimiento de carga de trabajo y corregir automáticamente los posibles problemas de rendimiento. Aprenda a usar Almacén de consultas como herramienta ideal para obtener información sobre el rendimiento de la carga de trabajo antes y después de cambiar el nivel de compatibilidad de la base de datos, tal y como se explica en [Mantener la estabilidad del rendimiento al actualizar a una versión más reciente de SQL Server](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
 Una vez que haya preparado el entorno de forma que sea lo más parecido posible al entorno local, puede empezar a ejecutar la carga de trabajo y a medir el rendimiento. El proceso de medición debe incluir los mismos parámetros que midió [al crear la base de referencia de rendimiento de la carga de trabajo en la instancia de origen de SQL Server](#create-a-performance-baseline).

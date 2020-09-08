@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 965118345a003aface0373bda7496243bcab8429
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f444ff4e884e50ed75b02328bfbe4d4117bc4cc9
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290171"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064798"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Cifrado de datos del servidor único de Azure Database for PostgreSQL con clave administrada por el cliente
 
@@ -26,7 +26,7 @@ Key Vault es un sistema de administración de claves externas basado en la nube.
 
 ## <a name="benefits"></a>Ventajas
 
-El cifrado de datos para un servidor único de Azure Database for PostgreSQL proporciona las siguientes ventajas:
+El cifrado de datos con claves administradas por el cliente de Azure Database for PostgreSQL: servidor único proporciona las siguientes ventajas:
 
 * El acceso a los datos está totalmente controlado por el usuario gracias a la posibilidad de quitar la clave y hacer que la base de datos sea inaccesible 
 *    Control total sobre el ciclo de vida de la clave, incluida la rotación de esta para cumplir con las directivas corporativas
@@ -48,8 +48,8 @@ Las DEK, cifradas con las KEK, se almacenan por separado. Solo una entidad con a
 Para que un servidor de PostgreSQL pueda usar claves administradas por el cliente almacenadas en Key Vault para el cifrado de la DEK, un administrador de Key Vault debe conceder los siguientes derechos de acceso al servidor:
 
 * **get**: para recuperar la parte pública y las propiedades de la clave del almacén de claves.
-* **wrapKey**: para poder cifrar la DEK.
-* **unwrapKey**: para poder descifrar la DEK.
+* **wrapKey**: para poder cifrar la DEK. La DEK cifrada se almacena en Azure Database for PostgreSQL.
+* **unwrapKey**: para poder descifrar la DEK. Azure Database for PostgreSQL necesita la DEK descifrada para cifrar o descifrar los datos.
 
 El administrador del almacén de claves también puede [habilitar el registro de eventos de auditoría de Key Vault](../azure-monitor/insights/key-vault-insights-overview.md), de forma que se puedan auditar más adelante.
 
@@ -59,16 +59,16 @@ Cuando el servidor está configurado para usar la clave administrada por el clie
 
 A continuación se indican los requisitos para configurar Key Vault:
 
-* Key Vault y el servidor único de Azure Database for PostgreSQL deben pertenecer al mismo inquilino de Azure Active Directory (Azure AD). No se admiten las interacciones de servidor y Key Vault entre inquilinos. Para mover los recursos posteriormente, es necesario volver a configurar el cifrado de datos.
+* Key Vault y el servidor único de Azure Database for PostgreSQL deben pertenecer al mismo inquilino de Azure Active Directory (Azure AD). No se admiten las interacciones de servidor y Key Vault entre inquilinos. Para mover los recursos de Key Vault posteriormente, es necesario volver a configurar el cifrado de datos.
 * Habilita la característica de eliminación temporal en el almacén de claves para protegerse frente a la pérdida de datos en caso de una eliminación accidental de claves (o de Key Vault). Los recursos eliminados temporalmente se conservan durante 90 días, a menos que el usuario los recupere o los purgue mientras tanto. Las acciones de recuperación y purga tienen permisos propios asociados a una directiva de acceso a Key Vault. La característica de eliminación temporal está desactivada de forma predeterminada, pero puede habilitarla mediante PowerShell o la CLI de Azure (tenga en cuenta que no puede habilitarla mediante Azure Portal).
-* Conceda al servidor único de Azure Database for PostgreSQL acceso al almacén de claves con los permisos get, wrapKey y unwrapKey mediante su identidad administrada única. En Azure Portal, la identificación única se crea automáticamente cuando se habilita el cifrado de datos en el servidor único de PostgreSQL. Consulte [Cifrado de datos para un servidor único de Azure Database for PostgreSQL mediante Azure Portal](howto-data-encryption-portal.md) para obtener instrucciones detalladas cuando usa Azure Portal.
+* Conceda al servidor único de Azure Database for PostgreSQL acceso al almacén de claves con los permisos get, wrapKey y unwrapKey mediante su identidad administrada única. En Azure Portal, la identidad única de "Servicio" se crea automáticamente cuando se habilita el cifrado de datos en el servidor único de PostgreSQL. Consulte [Cifrado de datos para un servidor único de Azure Database for PostgreSQL mediante Azure Portal](howto-data-encryption-portal.md) para obtener instrucciones detalladas cuando usa Azure Portal.
 
 A continuación se indican los requisitos para configurar la clave administrada por el cliente:
 
 * La clave administrada por el cliente que se va a usar para cifrar las DEK solo puede ser asimétrica, RSA 2048.
 * La fecha de activación de la clave (si se establece) debe ser una fecha y hora del pasado. La fecha de expiración (si se establece) debe ser una fecha y hora del futuro.
 * El estado de la clave debe ser *Habilitada*.
-* Si va a importar una clave existente en el almacén de claves, asegúrese de proporcionarla en uno de los formatos de archivo compatibles (`.pfx`, `.byok`, `.backup`).
+* Si va a [importar una clave existente](https://docs.microsoft.com/rest/api/keyvault/ImportKey/ImportKey) en el almacén de claves, asegúrese de proporcionarla en los formatos de archivo admitidos (`.pfx`, `.byok`, `.backup`).
 
 ## <a name="recommendations"></a>Recomendaciones
 

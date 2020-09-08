@@ -8,12 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 852d8f8f85536dc62dd792e5727dd7ec0571ba29
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a9d508afac64e448ca220a36b2be983da85d96b0
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084218"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002630"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-cognitive-search"></a>Creación de un filtro de faceta en Azure Cognitive Search 
 
@@ -38,7 +39,7 @@ Las facetas se pueden calcular tanto para campos de valor único como para colec
 
 Las facetas se habilitan campo a campo al crear el índice mediante el establecimiento del atributo `facetable` en `true`. Por lo general, debe establecer también el atributo `filterable` en `true` para esos campos para que la aplicación de búsqueda pueda filtrar por esos campos en función de las facetas que seleccione el usuario final. 
 
-Al crear un índice mediante la API de REST, cualquier [tipo de campo](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) que pudiera usarse en la navegación por facetas se marca como `facetable` de forma predeterminada:
+Al crear un índice mediante la API de REST, cualquier [tipo de campo](/rest/api/searchservice/supported-data-types) que pudiera usarse en la navegación por facetas se marca como `facetable` de forma predeterminada:
 
 + `Edm.String`
 + `Edm.DateTimeOffset`
@@ -77,11 +78,11 @@ Los atributos de índice que controlan cómo se usa un campo se agregan a las de
 ```
 
 > [!Note]
-> Esta definición de índice se copia de [Creación de un índice de Azure Cognitive Search con la API REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api). Es idéntico, salvo en diferencias superficiales en las definiciones de campo. Los atributos `filterable` y `facetable` se agregan explícitamente en los campos `category`, `tags`, `parkingIncluded`, `smokingAllowed` y `rating`. En la práctica, `filterable` y `facetable` se habilitarían en estos campos de forma predeterminada al usar la API de REST. Al usar el SDK de .NET, estos atributos deben habilitarse de forma explícita.
+> Esta definición de índice se copia de [Creación de un índice de Azure Cognitive Search con la API REST](./search-get-started-powershell.md). Es idéntico, salvo en diferencias superficiales en las definiciones de campo. Los atributos `filterable` y `facetable` se agregan explícitamente en los campos `category`, `tags`, `parkingIncluded`, `smokingAllowed` y `rating`. En la práctica, `filterable` y `facetable` se habilitarían en estos campos de forma predeterminada al usar la API de REST. Al usar el SDK de .NET, estos atributos deben habilitarse de forma explícita.
 
 ## <a name="build-and-load-an-index"></a>Creación y carga de un índice
 
-Un paso intermedio (y, quizás, obvio) es que tiene que [crear y completar el índice](https://docs.microsoft.com/azure/search/search-get-started-dotnet#1---create-index) antes de formular una consulta. Hemos mencionado este paso aquí para mayor integridad. Una manera de determinar si el índice está disponible es comprobar la lista de índices en el [portal](https://portal.azure.com).
+Un paso intermedio (y, quizás, obvio) es que tiene que [crear y completar el índice](./search-get-started-dotnet.md#1---create-an-index) antes de formular una consulta. Hemos mencionado este paso aquí para mayor integridad. Una manera de determinar si el índice está disponible es comprobar la lista de índices en el [portal](https://portal.azure.com).
 
 ## <a name="add-facet-filters-to-a-query"></a>Agregar filtros por faceta a una consulta
 
@@ -124,5 +125,5 @@ Aunque se trata de un caso de uso común, no es algo que la estructura de navega
 ## <a name="see-also"></a>Consulte también
 
 + [Filtros de Azure Cognitive Search](search-filters.md)
-+ [Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) (Creación de índices [API de REST])
-+ [API de REST de documentos de búsqueda](https://docs.microsoft.com/rest/api/searchservice/search-documents)
++ [Create Index REST API](/rest/api/searchservice/create-index) (Creación de índices [API de REST])
++ [API de REST de documentos de búsqueda](/rest/api/searchservice/search-documents)

@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: d535866881fa6ed73b51eb6039baa9d515b770b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 63a1f8e30be2983c0df93ff5a7229460f8f39214
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080827"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936051"
 ---
 # <a name="image-analysis-cognitive-skill"></a>Aptitud cognitiva de análisis de imágenes
 
-La aptitud de **Análisis de imágenes** extrae un amplio conjunto de características visuales en función del contenido de la imagen. Por ejemplo, puede generar una leyenda a partir de una imagen, generar etiquetas o identificar celebridades y lugares de referencia. Esta aptitud utiliza los modelos de aprendizaje automático proporcionados por [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) en Cognitive Services. 
+La aptitud de **Análisis de imágenes** extrae un amplio conjunto de características visuales en función del contenido de la imagen. Por ejemplo, puede generar una leyenda a partir de una imagen, generar etiquetas o identificar celebridades y lugares de referencia. Esta aptitud utiliza los modelos de aprendizaje automático proporcionados por [Computer Vision](../cognitive-services/computer-vision/home.md) en Cognitive Services. 
 
 > [!NOTE]
 > Los volúmenes pequeños (menos de 20 transacciones) se pueden ejecutar gratis en Búsqueda cognitiva de Azure, pero las cargas de trabajo más grandes requieren la [asociación de un recurso de Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y por la extracción de imágenes como parte de la fase de descifrado de documentos de Azure Cognitive Search. No hay ningún cargo por la extracción de texto de documentos.
@@ -35,7 +35,7 @@ Los parámetros distinguen mayúsculas de minúsculas.
 | Nombre de parámetro     | Descripción |
 |--------------------|-------------|
 | `defaultLanguageCode` |  Cadena que indica el idioma que se devolverá. Este servicio devuelve los resultados de reconocimiento en un idioma concreto. Si esta no se especifica este parámetro, se usa el valor predeterminado "en". <br/><br/>Estos son los idiomas admitidos: <br/>*en*: inglés (predeterminado) <br/> *es*: español <br/> *ja*: japonés <br/> *pt*: portugués <br/> *zh*: chino simplificado|
-| `visualFeatures` |    Matriz de cadenas que indica los tipos de características visual que se devolverán. Los tipos de características visuales válidos incluyen:  <ul><li>*adult*: detecta si la imagen es de naturaleza pornográfica (representa desnudez o un acto sexual) o cruenta (muestra sangre o violencia extrema). También se detecta contenido provocativo (esto es, contenido subido de tono).</li><li>*brands*: detecta varias marcas en una imagen, incluida la ubicación aproximada. La característica visual *brands* solo está disponible en inglés.</li><li> *categories*: clasifica el contenido de la imagen según una taxonomía definida en la [documentación de Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy) de Cognitive Services. </li><li>*description*: describe el contenido de la imagen con una oración completa en los idiomas que se admiten.</li><li>*faces*: detecta si hay caras presentes. Si las hay, indica las coordenadas, el género y la edad.</li><li>   *objects*: detecta varios objetos en una imagen, incluida la ubicación aproximada. La característica visual *objects* solo está disponible en inglés.</li><li> *Etiquetas*: etiquetas de la imagen con una lista detallada de palabras relacionadas con el contenido de la imagen.</li></ul> Los nombres de las características visuales distinguen entre mayúsculas y minúsculas. Tenga en cuenta que las características visuales *color* y *imageType* han quedado en desuso, pero todavía se puede acceder a esta funcionalidad mediante una [aptitud personalizada](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface).|
+| `visualFeatures` |    Matriz de cadenas que indica los tipos de características visual que se devolverán. Los tipos de características visuales válidos incluyen:  <ul><li>*adult*: detecta si la imagen es de naturaleza pornográfica (representa desnudez o un acto sexual) o cruenta (muestra sangre o violencia extrema). También se detecta contenido provocativo (esto es, contenido subido de tono).</li><li>*brands*: detecta varias marcas en una imagen, incluida la ubicación aproximada. La característica visual *brands* solo está disponible en inglés.</li><li> *categories*: clasifica el contenido de la imagen según una taxonomía definida en la [documentación de Computer Vision](../cognitive-services/computer-vision/category-taxonomy.md) de Cognitive Services. </li><li>*description*: describe el contenido de la imagen con una oración completa en los idiomas que se admiten.</li><li>*faces*: detecta si hay caras presentes. Si las hay, indica las coordenadas, el género y la edad.</li><li>  *objects*: detecta varios objetos en una imagen, incluida la ubicación aproximada. La característica visual *objects* solo está disponible en inglés.</li><li> *Etiquetas*: etiquetas de la imagen con una lista detallada de palabras relacionadas con el contenido de la imagen.</li></ul> Los nombres de las características visuales distinguen entre mayúsculas y minúsculas. Tenga en cuenta que las características visuales *color* y *imageType* han quedado en desuso, pero todavía se puede acceder a esta funcionalidad mediante una [aptitud personalizada](./cognitive-search-custom-skill-interface.md).|
 | `details` | Matriz de cadenas que indica qué detalles específicos del dominio que se devolverán. Los tipos de características visuales válidos incluyen: <ul><li>*celebrities*: identifica celebridades si se detectan en la imagen.</li><li>*landmarks*: identifica puntos de referencia si se detectan en la imagen. </li></ul> |
 
 ## <a name="skill-inputs"></a>Entradas de la aptitud
@@ -542,4 +542,4 @@ Si recibe el error similar a `"One or more skills are invalid. Details: Error in
 
 + [Aptitudes integradas](cognitive-search-predefined-skills.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
-+ [Create Indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [Create Indexer (REST)](/rest/api/searchservice/create-indexer)

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/25/2020
-ms.openlocfilehash: 708b243d9db16ee8454b4bc0f5c136b9f4399916
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 8/13/2020
+ms.openlocfilehash: 088d2c0a11f7d145f0c8a7ccb2c0aac5bd2d140d
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85413202"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224092"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Supervisión en Azure Database for MariaDB
 La supervisión de los datos sobre los servidores le permite solucionar problemas y optimizar la carga de trabajo. Azure Database for MariaDB proporciona diversas métricas que proporcionan información sobre el comportamiento del servidor.
@@ -28,7 +28,7 @@ Estas métricas están disponibles para Azure Database for MariaDB:
 |---|---|---|---|
 |cpu_percent|Porcentaje de CPU|Percent|Porcentaje de CPU en uso.|
 |memory_percent|Porcentaje de memoria|Percent|Porcentaje de memoria en uso.|
-|io_consumption_percent|Porcentaje de E/S|Percent|Porcentaje de E/S en uso. (No se aplica a los servidores de nivel Básico).|
+|io_consumption_percent|Porcentaje de E/S|Percent|Porcentaje de E/S en uso. (No se aplica a los servidores de nivel Básico)|
 |storage_percent|Porcentaje de almacenamiento|Percent|Porcentaje de almacenamiento que se usa más allá del límite máximo del servidor.|
 |storage_used|Almacenamiento utilizado|Bytes|Cantidad de almacenamiento en uso. El almacenamiento que usa el servicio puede incluir los archivos de base de datos, los registros de transacciones y los registros de servidor.|
 |serverlog_storage_percent|Porcentaje de almacenamiento del registro del servidor|Percent|El porcentaje usado del almacenamiento máximo de registro del servidor.|
@@ -37,8 +37,10 @@ Estas métricas están disponibles para Azure Database for MariaDB:
 |storage_limit|Límite de almacenamiento|Bytes|Almacenamiento máximo de este servidor.|
 |active_connections|Conexiones activas|Count|Número de conexiones activas al servidor.|
 |connections_failed|Conexiones con errores|Count|Número de conexiones con errores al servidor.|
+|seconds_behind_master|Intervalo de replicación en segundos|Count|El número de segundos que el servidor de réplica se retrasa en relación con el servidor maestro. (No se aplica a los servidores de nivel Básico)|
 |network_bytes_egress|Red interna|Bytes|Red externa a través de conexiones activas.|
 |network_bytes_ingress|Red interna|Bytes|Red interna a través de conexiones activas.|
+|backup_storage_used|Almacenamiento de copia de seguridad utilizado|Bytes|Cantidad de almacenamiento de copia de seguridad utilizado. Esta métrica representa la suma del almacenamiento consumido por todas las copias de seguridad de base de datos completas, copias de seguridad diferenciales y copias de seguridad de registros, conservadas según el período de retención de copia de seguridad establecido para el servidor. La frecuencia de las copias de seguridad la administra el servicio, y se explicó en el [artículo sobre los conceptos](concepts-backup.md). En el caso del almacenamiento con redundancia geográfica, el uso del almacenamiento de copia de seguridad es dos veces el del almacenamiento con redundancia local.|
 
 ## <a name="server-logs"></a>Registros del servidor
 

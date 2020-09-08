@@ -1,18 +1,18 @@
 ---
 title: Información sobre la nube por niveles de Azure File Sync | Microsoft Docs
-description: Obtenga información sobre la característica Nube por niveles de Azure File Sync
+description: Lea acerca de la nube por niveles, una característica opcional de Azure File Sync. Los archivos a los que se accede con frecuencia se almacenan en caché localmente en el servidor; otros están organizados por niveles en Azure Files.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 74887e6ee4656091aa647b481bc406dcc23b9c12
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 6678f64802dc497de6cf0a70ba5ff0bbcaf44e1c
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460089"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88033128"
 ---
 # <a name="cloud-tiering-overview"></a>Información general de nube por niveles
 La nube por niveles es una característica opcional de Azure File Sync por la que los archivos a los que se tiene acceso con frecuencia se almacenan en caché localmente en el servidor mientras que todos los demás archivos se organizan en niveles en Azure Files, según la configuración de directiva. Cuando un archivo está en capas, el filtro del sistema de archivos de Azure File Sync (StorageSync.sys) sustituye al archivo localmente por un puntero o punto de repetición de análisis. El punto de repetición de análisis representa una dirección URL del archivo en Azure Files. Un archivo con niveles tiene los atributos “sin conexión” y FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS establecidos en NTFS para que las aplicaciones de terceros puedan identificar de forma segura archivos con niveles.

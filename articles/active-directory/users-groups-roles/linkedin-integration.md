@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c5058e24ee0817ebcc6c5761f7b9e22d1a14203
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08d6b12f897b8b7efb150b11ae4b3f5e2440f7c8
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727201"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797996"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integración de conexiones de cuentas de LinkedIn en Azure Active Directory
 
@@ -33,7 +33,7 @@ Puede permitir que los usuarios de la organización accedan a sus conexiones de 
 > * La opción está desactivada de forma predeterminada para las organizaciones de Azure AD aprovisionadas en Alemania. Tenga en cuenta que la opción no está disponible para los clientes que usan Microsoft Cloud Germany.
 > * La opción está desactivada de forma predeterminada para las organizaciones aprovisionadas en Francia.
 >
-> Una vez que se hayan habilitado las conexiones de cuentas de LinkedIn para la organización, las conexiones de cuentas funcionarán después de que los usuarios den su consentimiento para que las aplicaciones accedan a datos de la empresa en su nombre. Para obtener información sobre la configuración de consentimientos del usuario, vea [Cómo quitar el acceso de un usuario a una aplicación](https://docs.microsoft.com/azure/active-directory/application-access-assignment-how-to-remove-assignment).
+> Una vez que se hayan habilitado las conexiones de cuentas de LinkedIn para la organización, las conexiones de cuentas funcionarán después de que los usuarios den su consentimiento para que las aplicaciones accedan a datos de la empresa en su nombre. Para obtener información sobre la configuración de consentimientos del usuario, vea [Cómo quitar el acceso de un usuario a una aplicación](../manage-apps/methods-for-removing-user-access.md).
 
 ## <a name="enable-linkedin-account-connections-in-the-azure-portal"></a>Habilitación de conexiones de cuentas de LinkedIn en Azure Portal
 

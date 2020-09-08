@@ -3,14 +3,14 @@ title: Valoraciones de máquinas virtuales de Azure en el Server Assessment de A
 description: Obtenga información sobre las evaluaciones en Server Assessment de Azure Migrate.
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 7664c8296f0d47f37f9542dee82d3c718be40126
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 1d9c887f42089611ce7402aa32174958cd8c0b07
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825997"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88261861"
 ---
-# <a name="azure-vm-assessments-in-azure-migrate-server-assessment"></a>Valoraciones de máquinas virtuales de Azure en Azure Migrate: Server Assessment
+# <a name="server-assessment-overview-migrate-to-azure-vms"></a>Introducción a la evaluación del servidor (migración a máquinas virtuales de Azure)
 
 Este artículo sirve de introducción a las evaluaciones de la herramienta [Azure Migrate: Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool). La herramienta puede evaluar las máquinas virtuales de VMware locales, las máquinas virtuales de Hyper-V y los servidores físicos para migrarlos a Azure.
 
@@ -122,7 +122,7 @@ Esto es lo que se incluye en una evaluación de máquinas virtuales de Azure en 
 **Historial de rendimiento** | Se usa el ajuste de tamaño basado en el rendimiento. El historial de rendimiento especifica la duración que se usa cuando se evalúan los datos de rendimiento.
 **Uso de percentil** | Se usa el ajuste de tamaño basado en el rendimiento. El uso de percentil especifica el valor de percentil de la muestra de rendimiento que se usa para elegir el tamaño adecuado.
 **Series de VM** | La serie de máquinas virtuales de Azure que quiere tener en cuenta para elegir el tamaño adecuado. Por ejemplo, si no tiene un entorno de producción que necesite máquinas virtuales de la serie A en Azure, puede excluir esta serie de la lista.
-**Factor de confort** | Búfer usado durante la evaluación. Se aplica a los datos de uso de CPU, RAM, disco y red de las máquinas virtuales. Tiene en cuenta problemas como el uso estacional, el historial de rendimiento corto y los posibles aumentos en el uso futuro.<br/><br/> Por ejemplo, una VM de 10 núcleos con un uso del 20 % normalmente genera una VM de dos núcleos. Con un factor de confort de 2.0, el resultado es una máquina virtual de cuatro núcleos.
+**Factor de confort** | Búfer usado durante la evaluación. Se aplica a los datos de CPU, RAM, disco y red de las máquinas virtuales. Tiene en cuenta problemas como el uso estacional, el historial de rendimiento corto y los posibles aumentos en el uso futuro.<br/><br/> Por ejemplo, una VM de 10 núcleos con un uso del 20 % normalmente genera una VM de dos núcleos. Con un factor de confort de 2.0, el resultado es una máquina virtual de cuatro núcleos.
 **Oferta** | La [oferta de Azure](https://azure.microsoft.com/support/legal/offer-details/) en la que está inscrito. Server Assessment calcula el costo de esa oferta.
 **Moneda** | Moneda de facturación de la cuenta.
 **Descuento (%)** | Cualquier descuento específico de la suscripción que recibe además de la oferta de Azure. La configuración predeterminada es 0 %.
@@ -151,8 +151,8 @@ En el caso de una valoración de máquinas virtuales de Azure, Server Assessment
 Propiedad | Detalles | Estado de la preparación para Azure
 --- | --- | ---
 **Tipo de arranque** | Azure admite máquinas virtuales con un tipo de arranque de BIOS, no UEFI. | Condicionalmente preparada si el tipo de arranque es UEFI.
-**Núcleos** | Cada máquina no debe tener más de 128 núcleos, que es el número máximo compatible que admite una máquina virtual de Azure.<br/><br/> Si el historial de rendimiento está disponible, Azure Migrate tiene en cuenta los núcleos utilizados para la comparación. Si se especifica un factor de confort en la configuración de evaluación, el número de núcleos usados se multiplica por este.<br/><br/> Si no hay ningún historial de rendimiento, Azure Migrate usa los núcleos asignados sin aplicar el factor de confort. | Preparada si el número de núcleos está dentro del límite.
-**RAM** | Cada máquina no debe tener más de 3892 GB de RAM, que es el tamaño máximo que admite una máquina virtual Standard_M128m de la serie M de Azure&nbsp;<sup>2</sup>. [Más información](../virtual-machines/sizes.md).<br/><br/> Si el historial de rendimiento está disponible, Azure Migrate tiene en cuenta la RAM utilizada para la comparación. Si se especifica un factor de confort, la RAM utilizada se multiplica por este.<br/><br/> Si no hay ningún historial, se usa la RAM asignada sin aplicar el factor de confort.<br/><br/> | Preparada si la cantidad de RAM está dentro del límite.
+**Núcleos** | Cada máquina no debe tener más de 128 núcleos, que es el número máximo compatible que admite una máquina virtual de Azure.<br/><br/> Si el historial de rendimiento está disponible, Azure Migrate tiene en cuenta los núcleos utilizados para la comparación. Si se especifica un factor de confort en la configuración de evaluación, el número de núcleos usados se multiplica por este.<br/><br/> Si no hay ningún historial de rendimiento, Azure Migrate usa los núcleos asignados para aplicar el factor de confort. | Preparada si el número de núcleos está dentro del límite.
+**RAM** | Cada máquina no debe tener más de 3892 GB de RAM, que es el tamaño máximo que admite una máquina virtual Standard_M128m de la serie M de Azure&nbsp;<sup>2</sup>. [Más información](../virtual-machines/sizes.md).<br/><br/> Si el historial de rendimiento está disponible, Azure Migrate tiene en cuenta la RAM utilizada para la comparación. Si se especifica un factor de confort, la RAM utilizada se multiplica por este.<br/><br/> Si no hay ningún historial, la RAM asignada se utiliza para aplicar un factor de confort.<br/><br/> | Preparada si la cantidad de RAM está dentro del límite.
 **Disco de almacenamiento** | El tamaño asignado de un disco no debe ser superior a 32 TB. Aunque Azure admite discos de 64 TB con discos Azure SSD Ultra, Azure Migrate: Server Assessment utiliza actualmente 32 TB como límite de tamaño del disco, ya que todavía no admite SSD Ultra. <br/><br/> El número de discos conectados a la máquina debe ser 65 o menos, incluido el disco del sistema operativo. | Preparada si el tamaño y el número de los discos están dentro de los límites.
 **Redes** | Una máquina no debe tener más de 32 interfaces de red (NIC) conectadas. | Preparada si el número de NIC está dentro del límite.
 

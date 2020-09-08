@@ -2,24 +2,25 @@
 title: Montaje de un sistema de archivos virtual en un grupo
 description: Obtenga información sobre cómo montar un sistema de archivos virtual en un grupo de Batch.
 ms.topic: how-to
+ms.custom: devx-track-csharp
 ms.date: 08/13/2019
-ms.openlocfilehash: 3f948f8441208f4a8741949e65afc8032f0a5080
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: df03275fdeea88df1a2f2b6e2cda55021497cdf7
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144408"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145491"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Montaje de un sistema de archivos virtual en un grupo de Batch
 
 Ahora Azure Batch admite el montaje de almacenamiento en la nube o un sistema de archivos externo en nodos de ejecución de Windows o Linux en los grupos de Batch. Cuando un nodo de ejecución se une a un grupo, el sistema de archivos virtual se monta y se trata como una unidad local en ese nodo. Puede montar sistemas de archivos como Azure Files, Azure Blob Storage, Network File System (NFS), incluida una [caché de Avere vFXT](../avere-vfxt/avere-vfxt-overview.md), o Sistema de archivos de Internet común (CIFS).
 
-En este artículo, aprenderá a montar un sistema de archivos virtual en un grupo de nodos de ejecución mediante la [biblioteca de administración de Batch para .NET](/dotnet/api/overview/azure/batch?view=azure-dotnet).
+En este artículo, aprenderá a montar un sistema de archivos virtual en un grupo de nodos de ejecución mediante la [biblioteca de administración de Batch para .NET](/dotnet/api/overview/azure/batch).
 
 > [!NOTE]
 > El montaje de un sistema de archivos virtual se admite en grupos de Batch creados el 19 de agosto de 2019 o posteriormente. Los grupos de Batch creados antes de esta fecha no admiten esta característica.
 > 
-> Las API para el montaje de sistemas de archivos en un nodo de ejecución forman parte de la biblioteca de [Batch para .NET](/dotnet/api/microsoft.azure.batch?view=azure-dotnet).
+> Las API para el montaje de sistemas de archivos en un nodo de ejecución forman parte de la biblioteca de [Batch para .NET](/dotnet/api/microsoft.azure.batch).
 
 ## <a name="benefits-of-mounting-on-a-pool"></a>Ventajas del montaje en un grupo
 

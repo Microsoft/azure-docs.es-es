@@ -1,14 +1,14 @@
 ---
 title: Controles del ejemplo de plano técnico PCI-DSS v3.2.1
 description: Asignación a los controles de la muestra de plano técnico Estándar de seguridad de los datos para el sector de las tarjetas de pago v3.2.1 en Azure Policy y RBAC.
-ms.date: 01/29/2020
+ms.date: 08/19/2020
 ms.topic: sample
-ms.openlocfilehash: db21ac9d628e777b6ff2cc86516cfb1497f5a62f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e6133c4a847a6df8aa6a27bbca63e0fc2d047783
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76905641"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649234"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Asignación a los controles de la muestra de plano técnico PCI-DSS v3.2.1
 

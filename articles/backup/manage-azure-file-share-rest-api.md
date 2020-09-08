@@ -3,12 +3,12 @@ title: Administración de copias de seguridad de recursos compartidos de archivo
 description: Aprenda a usar API REST para administrar y supervisar los recursos compartidos de archivos de Azure de los que se ha creado una copia de seguridad con Azure Backup.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: c4d1ee187fd1c45dfd043b28c0d4b3d5935f50e1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5e2823472c6a7bdd6b3f9819db3079d7efa78c4e
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073244"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892854"
 ---
 # <a name="manage-azure-file-share-backup-with-rest-api"></a>Administración de copias de seguridad de recursos compartidos de archivos de Azure con API REST
 
@@ -46,7 +46,7 @@ El trabajo de copia de seguridad del recurso compartido de archivos se identific
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2019-05-13
 ```
 
-{JobName} es el valor de "jobId" mencionado anteriormente. La respuesta es siempre "200 (Correcto)" y el campo **status** indica el estado del trabajo. Una vez pasa a "Completed" o "CompletedWithWarnings", la sección **extendedInfo** revela más detalles sobre el trabajo.
+{JobName} es el valor de "jobId" mencionado anteriormente. La respuesta es siempre "200 (Correcto)" y el campo **status** indica el estado del trabajo. Cuando el estado sea "Completed" o "CompletedWithWarnings", la sección **extendedInfo** ofrecerá más detalles sobre el trabajo.
 
 ```http
 GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupJobs/e2ca2cf4-2eb9-4d4b-b16a-8e592d2a658b?api-version=2019-05-13'

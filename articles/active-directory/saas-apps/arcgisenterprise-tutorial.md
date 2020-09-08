@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con ArcGIS Enterprise | Microsoft Docs'
 description: Obtenga información sobre cómo configurar el inicio de sesión único entre Azure Active Directory y ArcGIS Enterprise.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: 24809e9d-a4aa-4504-95a9-e4fcf484f431
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/28/2018
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57eda7e1d5ffedf7d5b867bfa7a59850fbadaf99
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: a544a98b3a9d5c2d30f95240325e91018d2f40c9
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905030"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549625"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-enterprise"></a>Tutorial: Integración de Azure Active Directory con ArcGIS Enterprise
 
@@ -48,8 +43,6 @@ Para configurar la integración de Azure AD con ArcGIS Enterprise, necesita los 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
-
-
 
 * ArcGIS Enterprise admite el inicio de sesión único iniciado por **SP e IDP**
 * ArcGIS Enterprise admite el aprovisionamiento de usuarios **Just-In-Time**
@@ -132,21 +125,30 @@ Para configurar el inicio de sesión único de Azure AD con [nombre de aplicaci�
 
 ### <a name="configure-arcgis-enterprise-single-sign-on"></a>Configuración del inicio de sesión único de ArcGIS Enterprise
 
-1. En otra ventana del explorador web, inicie sesión como administrador en el sitio de la compañía de ArcGIS Enterprise.
+1. Para automatizar la configuración en ArcGIS Enterprise, debe instalar la **extensión del explorador de inicio de sesión seguro de Mis aplicaciones**. Para ello, haga clic en **Instalar la extensión**.
 
-2. Seleccione **Organization >EDIT SETTINGS** (Organización > Editar configuración).
+    ![Extensión Mis aplicaciones](common/install-myappssecure-extension.png)
+
+1. Después de agregar la extensión al explorador, haga clic en **Set up ArcGIS Enterprise** (Configurar ArcGIS Enterprise) para ir a la aplicación del mismo nombre. Desde allí, proporcione las credenciales de administrador para iniciar sesión en ArcGIS Enterprise. La extensión de explorador configurará automáticamente la aplicación y automatizará los pasos 3 a 7.
+
+    ![Configuración](common/setup-sso.png)
+
+1. Si desea configurar ArcGIS Enterprise manualmente, inicie sesión en el sitio de la empresa ArcGIS Enterprise como administrador.
+
+
+1. Seleccione **Organization >EDIT SETTINGS** (Organización > Editar configuración).
 
     ![Configuración de ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure1.png)
 
-3. Seleccione la pestaña **Seguridad**.
+1. Seleccione la pestaña **Seguridad**.
 
     ![Configuración de ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure2.png)
 
-4. Desplácese hacia abajo hasta la sección **Enterprise Logins via SAML** (Inicios de sesión empresariales mediante SAML) y seleccione **SET ENTERPRISE LOGIN** (Establecer inicio de sesión empresarial).
+1. Desplácese hacia abajo hasta la sección **Enterprise Logins via SAML** (Inicios de sesión empresariales mediante SAML) y seleccione **SET ENTERPRISE LOGIN** (Establecer inicio de sesión empresarial).
 
     ![Configuración de ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure3.png)
 
-5. En la sección **Set Identity Provider** (Definición del proveedor de identidades), realice los siguientes pasos:
+1. En la sección **Set Identity Provider** (Definición del proveedor de identidades), realice los siguientes pasos:
 
     ![Configuración de ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure4.png)
 

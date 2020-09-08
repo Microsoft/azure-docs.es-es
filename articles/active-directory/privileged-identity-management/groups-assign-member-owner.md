@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/27/2020
+ms.date: 08/18/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1dcc98366e37455f462fe1a0740aa161201912f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 06e61bb966313265f7e3772dbbf6017a03a42386
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87505692"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869675"
 ---
 # <a name="assign-eligibility-for-a-privileged-access-group-preview-in-privileged-identity-management"></a>Asignación de la elegibilidad para un grupo de acceso con privilegios (versión preliminar) en Privileged Identity Management
 
@@ -33,19 +33,14 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) puede ay
 
 Siga estos pasos para hacer que un usuario sea elegible para ser miembro o propietario de un grupo de acceso con privilegios.
 
-1. Inicie sesión en [Privileged Identity Management](https://portal.azure.com/) Azure Portal con los permisos del rol [Administrador de roles con privilegios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator).
+1. [Inicie sesión en Azure AD](https://aad.portal.azure.com) con permisos de administrador global o de propietario de grupo.
+1. Seleccione **Grupos** y, a continuación, seleccione el grupo al que se pueden asignar roles que quiera administrar. Puede buscar o filtrar la lista.
 
-    Para información sobre cómo conceder acceso a otro administrador para gestionar Privileged Identity Management, consulte [Concesión de acceso a otros administradores para administrar Privileged Identity Management](pim-how-to-give-access-to-pim.md).
+    ![buscar un grupo al que se pueden asignar roles para administrarlo en PIM](./media/groups-assign-member-owner/groups-list-in-azure-ad.png)
 
-1. Abra **Azure AD Privileged Identity Management**.
+1. Abra el grupo y seleccione **Acceso con privilegios (versión preliminar)** .
 
-1. Seleccione **Acceso con privilegios (versión preliminar)** .
-
-1. Puede buscar un nombre de grupo y usar el campo **Tipo de grupo** para filtrar la lista y seleccionar el grupo que desea administrar.
-
-    ![Lista de los grupos de acceso con privilegios que se van a administrar](./media/groups-assign-member-owner/privileged-access-list.png)
-
-1. En **Administrar**, seleccione **Asignaciones**.
+    ![Abrir la experiencia de Privileged Identity Management](./media/groups-assign-member-owner/groups-discover-groups.png)
 
 1. Seleccione **Agregar asignaciones**.
 
@@ -77,21 +72,20 @@ Siga estos pasos para hacer que un usuario sea elegible para ser miembro o propi
 
 Siga estos pasos para actualizar o quiotar una asignación de roles existente.
 
-1. Abra **Azure AD Privileged Identity Management**.
+1. [Inicie sesión en Azure AD](https://aad.portal.azure.com) con permisos de administrador global o de propietario de grupo.
+1. Seleccione **Grupos** y, a continuación, seleccione el grupo al que se pueden asignar roles que quiera administrar. Puede buscar o filtrar la lista.
 
-1. Seleccione **Acceso con privilegios (versión preliminar)** .
+    ![buscar un grupo al que se pueden asignar roles para administrarlo en PIM](./media/groups-assign-member-owner/groups-list-in-azure-ad.png)
 
-1. Puede buscar un nombre de grupo y usar el campo **Tipo de grupo** para filtrar la lista y seleccionar el grupo que desea administrar.
+1. Abra el grupo y seleccione **Acceso con privilegios (versión preliminar)** .
 
-    ![Lista de los grupos de acceso con privilegios que se van a administrar](./media/groups-assign-member-owner/privileged-access-list.png)
-
-1. En **Administrar**, seleccione **Asignaciones**.
+    ![Abrir la experiencia de Privileged Identity Management](./media/groups-assign-member-owner/groups-discover-groups.png)
 
 1. Seleccione el rol que quiera actualizar o quitar.
 
 1. Busque la asignación de roles en las pestañas **Roles elegibles** o **Roles activos**.
 
-    ![Actualizar o quitar la asignación de roles](./media/groups-assign-member-owner/groups-add-assignment.png)
+    ![Actualizar o quitar la asignación de roles](./media/groups-assign-member-owner/groups-bring-under-management.png)
 
 1. Seleccione **Actualizar** o **Quitar** para actualizar o quitar la asignación de roles.
 

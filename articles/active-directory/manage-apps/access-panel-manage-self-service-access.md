@@ -16,16 +16,16 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1c5a003eb113289bcb798423ff649b944dcf186
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29ff3ca98c0fa5929a5e1c0ad5678222253130b6
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84761075"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641796"
 ---
 # <a name="how-to-use-self-service-application-access"></a>Uso del acceso de autoservicio a las aplicaciones
 
-Antes de que los usuarios puedan detectar automáticamente las aplicaciones de su panel de acceso, debe habilitar el **acceso de autoservicio a las aplicaciones** de cualquier aplicación que desee permitir que los usuarios puedan detectar automáticamente y solicitar acceso a ella.
+Antes de que los usuarios puedan encontrar por su cuenta aplicaciones de Mis aplicaciones, debe habilitar **el acceso a las aplicaciones de autoservicio** a las aplicaciones que quiera que los usuarios puedan detectar automáticamente y solicitar acceso a.
 
 Esta característica es una excelente manera de ahorrar tiempo y dinero como grupo de TI y es muy recomendable como parte de una implementación de aplicaciones moderna con Azure Active Directory.
 

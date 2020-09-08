@@ -3,12 +3,12 @@ title: 'Equilibrio de carga de particiones entre varias instancias: Azure Event
 description: Describe cómo equilibrar la carga de las particiones entre varias instancias de una aplicación mediante un procesador de eventos y el SDK de Azure Event Hubs.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: ff68408be15d8160ea7ecd878a05441d82700f99
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8bf3f05b823a784f4f3fc2074719ed346f769f5e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512323"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933800"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>Equilibrio de carga de particiones entre varias instancias de una aplicación
 Para escalar la aplicación de procesamiento de eventos, puede ejecutar varias instancias de la aplicación y equilibrar la carga entre ellas. En las versiones anteriores, [EventProcessorHost](event-hubs-event-processor-host.md) permitía equilibrar la carga entre varias instancias del programa y eventos de punto de comprobación en la recepción. En las versiones más recientes (5.0 y posteriores), **EventProcessorClient** (.NET y Java) o **EventHubConsumerClient** (Python y JavaScript) le permiten hacer lo mismo. El modelo de desarrollo se simplifica mediante el uso de eventos. Para suscribirse a los eventos que le interesen, registre un controlador de eventos.
@@ -88,7 +88,7 @@ De forma predeterminada, se llama de forma secuencial a la función que procesa 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte las siguientes guías de inicio rápido:
 
-- [.NET Core](get-started-dotnet-standard-send-v2.md)
+- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
 - [Java](event-hubs-java-get-started-send.md)
-- [Python](get-started-python-send-v2.md)
-- [JavaScript](get-started-node-send-v2.md)
+- [Python](event-hubs-python-get-started-send.md)
+- [JavaScript](event-hubs-node-get-started-send.md)

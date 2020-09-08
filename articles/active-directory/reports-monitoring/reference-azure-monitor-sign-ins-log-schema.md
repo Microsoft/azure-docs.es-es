@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d7c9713f27643e792ea381e1a2419cbc4b67a99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6a881dee50195fe4995c77d793b4f4b75091d20b
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82129198"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231119"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interpretación del esquema de registros de inicio de sesión de Azure AD en Azure Monitor
 
@@ -165,7 +165,7 @@ En este artículo se describe el esquema de registro de inicio de sesión de Azu
 | Identidad | Identidad del token que se ha presentado al realizar la solicitud. Puede ser una cuenta de usuario, una cuenta del sistema o una entidad de servicio. |
 | Nivel | Proporciona el tipo de mensaje. Para la auditoría, siempre es *informativo*. |
 | Location | Indica la ubicación de la actividad de inicio de sesión. |
-| Propiedades | Enumera todas las propiedades asociadas con los inicios de sesión. Para más información, consulte [Referencia de Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). Este esquema usa los mismos nombres de atributo que el recurso de inicio de sesión, para fines de legibilidad.
+| Propiedades | Enumera todas las propiedades asociadas con los inicios de sesión. Para más información, consulte [Referencia de Microsoft Graph API](/graph/api/resources/signin?view=graph-rest-beta). Este esquema usa los mismos nombres de atributo que el recurso de inicio de sesión, para fines de legibilidad.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

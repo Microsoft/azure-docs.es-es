@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: mingshen
-ms.date: 07/28/2020
-ms.openlocfilehash: 0adffbb9058141ea89daefc292b937841659c879
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.date: 08/07/2020
+ms.openlocfilehash: 33b3dcdc4fbcf08114f6ba6d63bb949250380d63
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798076"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816531"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Creación de una oferta de máquina virtual de Azure en Azure Marketplace
 
@@ -242,20 +242,24 @@ Proporcione información de contacto para que Microsoft la use en caso de proble
 
 Proporcione logotipos e imágenes para usarlos con la oferta. Todas las imágenes deben estar en formato PNG. Las imágenes borrosas harán que se rechace el envío.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!NOTE]
 >Si tiene problemas al cargar archivos, asegúrese de que la red local no bloquee el servicio https://upload.xboxlive.com que usa el Centro de partners.
 
-#### <a name="store-logos"></a>Logotipos de Store
+#### <a name="azure-marketplace-logos"></a>Logotipos de Azure Marketplace
 
-Proporcione un archivo PNG para el logotipo de tamaño **grande** (entre 216 x 216 y 350 x 350 píxeles). El Centro de partners lo utilizará para crear un logotipo de tamaño **pequeño** (48 x 48 píxeles) y un logotipo de tamaño **medio** (90 x 90 píxeles). Opcionalmente, puede reemplazarlos por imágenes diferentes.
+Proporcione un archivo PNG para el logotipo de tamaño **Grande**. El Centro de partners lo usará para crear un logotipo **Pequeño** y un logotipo **Mediano**. Opcionalmente, puede reemplazarlos por imágenes diferentes más adelante.
 
-Se requieren los tres tamaños de logotipo para su uso en distintos lugares de la lista:
+- **Grande** (de 216 x 216 a 350 x 350 píxeles, obligatorio)
+- **Mediano** (90 x 90 píxeles, opcional)
+- **Pequeño** (48 x 48 píxeles, opcional)
 
-- **Pequeño (48 x 48)**
-- **Medio (90 x 90)**
-- **Grande** (entre 216 x 216 y 350 x 350)
+Estos logotipos se usan en distintos lugares de la publicación:
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Capturas de pantalla
 
@@ -288,6 +292,8 @@ Seleccione **Guardar borrador** antes de continuar con la siguiente sección.
 ## <a name="plan-overview"></a>Información general del plan
 
 Puede proporcionar una serie de opciones de planes dentro de la misma oferta en el Centro de partners. Una oferta requiere al menos un plan (anteriormente denominada una SKU), que puede variar en términos de audiencia de monetización, regiones de Azure, características o imágenes de máquina virtual.
+
+Puede crear hasta 100 planes para cada oferta, de los cuales hasta 45 pueden ser privados. Más información sobre los planes privados en [Ofertas privadas en el marketplace comercial de Microsoft](../private-offers.md).
 
 Después de crear los planes, la pestaña **Plan overview** (Información general del plan) muestra lo siguiente:
 

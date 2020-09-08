@@ -3,12 +3,12 @@ title: Administración y supervisión de copias de seguridad de máquinas virtua
 description: Aprenda a administrar y supervisar las copias de seguridad de Azure VM con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: cbe0ccef9df27af032cf849b302f6a6211383fe8
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: a3349d30d5913781fb3348e7f5622366b3abc1d0
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532046"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892174"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Administración de las copias de seguridad de máquina virtual de Azure con el servicio Azure Backup
 
@@ -188,7 +188,7 @@ Para proteger los datos, Azure Backup incluye la característica de eliminación
 
 * Si las máquinas virtuales de Azure configuradas para Azure Backup se eliminan o se mueven sin detener la protección, los trabajos de copia de seguridad programados y a petición (ad hoc) producirán el error UserErrorVmNotFoundV2. La comprobación previa de la copia de seguridad aparecerá como crítica solo para los trabajos de copia de seguridad a petición con errores (no se muestran los trabajos programados con errores).
 * Estos elementos de copia de seguridad permanecen activos en el sistema que se adhiere a la directiva de copia de seguridad y retención establecida por el usuario. Los datos de copia de seguridad de estas máquinas virtuales de Azure se conservarán según la directiva de retención. Los puntos de recuperación expirados (excepto el último punto de recuperación) se limpian según el intervalo de retención establecido en la directiva de copia de seguridad.
-* Si los datos o elementos de copia de seguridad de los recursos de eliminación ya no son necesarios, ya que el último punto de recuperación se mantiene indefinidamente y al usuario se le cobra según los precios de copia de seguridad aplicables, se recomienda a los usuarios eliminar los elementos de copia de seguridad en los que ya no exista el origen de datos principal para evitar costos adicionales.
+* Si los datos o elementos de copia de seguridad de los recursos de eliminación ya no son necesarios, ya que el último punto de recuperación se mantiene indefinidamente y al usuario se le cobra según los precios de copia de seguridad aplicables, se recomienda eliminar los elementos de copia de seguridad en los que ya no exista el origen de datos principal para evitar costos adicionales.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

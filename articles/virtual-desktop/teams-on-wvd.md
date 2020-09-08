@@ -6,17 +6,17 @@ ms.topic: how-to
 ms.date: 07/28/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6fd20819d17861ed5171bf61e4c485fcceba7985
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 049b962740abc98a6ac7d029c1419d40aa722165
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006118"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922572"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Uso de Microsoft Teams en Windows Virtual Desktop
 
 >[!IMPORTANT]
->La optimización multimedia para Teams no es compatible con entornos de Microsoft 365 Government.
+>La optimización multimedia para Teams es compatible con entornos de Microsoft 365 Government (GCC). La optimización multimedia para Teams no es compatible con GCC-High o DoD.
 
 >[!NOTE]
 >La optimización multimedia de Microsoft Teams solo está disponible para el cliente de escritorio de Windows en máquinas con Windows 10. Las optimizaciones multimedia requieren la versión de cliente de escritorio de Windows 1.2.1026.0 o posterior.
@@ -32,11 +32,11 @@ Para poder usar Microsoft Teams en Windows Virtual Desktop, tendrá que hacer l
 - [Prepare la red](/microsoftteams/prepare-network/) para Microsoft Teams.
 - Instale el [cliente de escritorio de Windows](connect-windows-7-10.md) en un dispositivo con Windows 10 o Windows 10 IoT Enterprise que cumpla los [requisitos de hardware de Teams de un equipo Windows](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 - Conéctese a una máquina virtual (VM) de sesión múltiple de Windows 10 o Windows 10 Enterprise.
-- Instale la aplicación de escritorio Teams en el host mediante la instalación por máquina. Para la optimización multimedia de Microsoft Teams se necesita la versión 1.3.00.4461 o posterior de la aplicación de escritorio Teams.
+- [Descargue](https://www.microsoft.com/microsoft-365/microsoft-teams/download-app) e instale la aplicación de escritorio Teams en el host mediante la instalación por máquina. Para la optimización multimedia de Microsoft Teams se necesita la versión 1.3.00.4461 o posterior de la aplicación de escritorio Teams.
 
 ## <a name="install-the-teams-desktop-app"></a>Instalación de la aplicación de escritorio Teams
 
-En esta sección se muestra cómo instalar la aplicación de escritorio Teams en la imagen de la máquina virtual de Windows 10 o Windows 10 Enterprise. Para obtener más información, consulte [Instalación o actualización de la aplicación de escritorio Teams en VDI](/microsoftteams/teams-for-vdi#install-or-update-the-teams-desktop-app-on-vdi/).
+En esta sección se muestra cómo instalar la aplicación de escritorio Teams en la imagen de la máquina virtual de Windows 10 o Windows 10 Enterprise. Para obtener más información, consulte [Instalación o actualización de la aplicación de escritorio Teams en VDI](/microsoftteams/teams-for-vdi#install-or-update-the-teams-desktop-app-on-vdi).
 
 ### <a name="prepare-your-image-for-teams"></a>Preparación de la imagen para Teams
 
@@ -71,17 +71,17 @@ En la tabla siguiente se enumeran las versiones más recientes del servicio WebS
 
 Puede implementar la aplicación de escritorio Teams mediante una instalación por máquina o por usuario. Para instalar Microsoft Teams en el entorno de Windows Virtual Desktop:
 
-1. Descargue el [paquete MSI de Teams](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm/) apropiado para el entorno. En un sistema operativo de 64 bits se recomienda usar el instalador de 64 bits.
+1. Descargue el [paquete MSI de Teams](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm) apropiado para el entorno. En un sistema operativo de 64 bits se recomienda usar el instalador de 64 bits.
 
-      > [!NOTE]
-      > Para la optimización multimedia de Microsoft Teams se necesita la versión 1.3.00.4461 o posterior de la aplicación de escritorio Teams.
+      > [!IMPORTANT]
+      > La actualización más reciente de la versión de cliente de escritorio de Teams 1.3.00.21759 ha corregido un problema en el que Teams mostró la zona horaria UTC en el chat, los canales y el calendario. La nueva versión del cliente mostrará la zona horaria de la sesión remota.
 
 2. Ejecute uno de los siguientes comandos para instalar el MSI en la máquina virtual del host:
 
     - Instalación por usuario
 
         ```powershell
-        msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSERS=1
+        msiexec /i <path_to_msi> /l*v <install_logfile_name>
         ```
 
         Este proceso es la instalación predeterminada, que instala Teams en la carpeta de usuario **%AppData%** . Los equipos no funcionarán correctamente con la instalación por usuario en una instalación no persistente.
@@ -89,12 +89,12 @@ Puede implementar la aplicación de escritorio Teams mediante una instalación p
     - Instalación por máquina
 
         ```powershell
-        msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSER=1 ALLUSERS=1
+        msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSER=1
         ```
 
         Teams se instala en la carpeta Program Files (x86) de un sistema operativo de 64 bits y en la carpeta Archivos de programa de un sistema operativo de 32 bits. En este momento se ha completado la instalación de la imagen dorada. En el caso de instalaciones no persistentes, es necesario instalar Teams por cada máquina.
 
-        La próxima vez que abra Teams en una sesión, se le pedirán sus credenciales.
+        Hay dos marcas que se pueden establecer al instalar equipos, **ALLUSER=1** y **ALLUSERS=1**. Es importante saber en qué se diferencian estos parámetros. El parámetro **ALLUSER=1** solo se usa en entornos de VDI para especificar una instalación por equipo. El parámetro **ALLUSERS=1** se puede usar en entornos de VDI y de otro tipo. Al establecer este parámetro, el instalador a nivel de todo el equipo de Teams aparece en Programas y características en el panel de control, así como en Aplicaciones y características en la configuración de Windows. Todos los usuarios con credenciales de administrador en el equipo pueden desinstalar Teams.
 
         > [!NOTE]
         > En la actualidad, los usuarios y administradores no pueden deshabilitar el inicio automático para Teams durante el inicio de sesión.
@@ -125,12 +125,11 @@ Después de instalar el servicio WebSocket y la aplicación de escritorio Teams,
 
 ## <a name="known-issues-and-limitations"></a>Limitaciones y problemas conocidos
 
-El uso de Teams en un entorno virtualizado es diferente de su uso en un entorno no virtualizado. Para obtener más información sobre las limitaciones de Teams en entornos virtualizados, consulte [Teams para la infraestructura de escritorio virtualizada](/microsoftteams/teams-for-vdi#known-issues-and-limitations/).
+El uso de Teams en un entorno virtualizado es diferente de su uso en un entorno no virtualizado. Para obtener más información sobre las limitaciones de Teams en entornos virtualizados, consulte [Teams para la infraestructura de escritorio virtualizada](/microsoftteams/teams-for-vdi#known-issues-and-limitations).
 
 ### <a name="client-deployment-installation-and-setup"></a>Implementación, instalación y configuración del cliente
 
 - Con la instalación por máquina, Teams en VDI no se actualiza automáticamente de la misma forma en que lo hacen los clientes de Teams no VDI. Para actualizar el cliente, debe actualizar la imagen de la máquina virtual mediante la instalación de una nueva MSI.
-- Teams solo muestra actualmente la zona horaria UTC en el chat, los canales y el calendario.
 - La optimización multimedia para Teams solo se admite para el cliente de escritorio de Windows en máquinas que ejecutan Windows 10.
 - No se admite el uso de proxies HTTP explícitos definidos en un punto de conexión.
 
@@ -143,7 +142,7 @@ El uso de Teams en un entorno virtualizado es diferente de su uso en un entorno 
 - Debido a las limitaciones de WebRTC, la resolución de la secuencia de vídeo entrante y saliente está limitada a 720p.
 - La aplicación Teams no admite botones HID o controles LED con otros dispositivos.
 
-En el caso de problemas conocidos de Teams que no están relacionados con los entornos virtualizados, consulte [Soporte para Microsoft Teams en la organización](/microsoftteams/known-issues/).
+En el caso de problemas conocidos de Teams que no están relacionados con los entornos virtualizados, consulte [Soporte para Microsoft Teams en la organización](/microsoftteams/known-issues).
 
 ## <a name="uservoice-site"></a>Sitio de UserVoice
 

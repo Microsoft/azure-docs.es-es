@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 9/12/2019
-ms.openlocfilehash: c91731d70d5db59ecf5daa726fd42ee42c58f51e
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 6de08faee78deeb86117084b420eb5043153f62d
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116307"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88186053"
 ---
 # <a name="ssis-migration-with-azure-sql-managed-instance-as-the-database-workload-destination"></a>Migración de SSIS con Instancia administrada de Azure SQL como destino de la carga de trabajo de base de datos
 
@@ -32,7 +32,9 @@ La migración de SSISDB se puede realizar con DMS, tal como se describe en el ar
 
 ## <a name="ssis-jobs-to-sql-managed-instance-agent"></a>Migración de trabajos de SSIS al agente de Instancia administrada de SQL
 
-Instancia administrada de SQL tiene un programador nativo de primera clase como el Agente SQL Server local.  Puesto que aún no hay disponible una herramienta de migración para los trabajos de SSIS, se deben migrar del Agente SQL Server local al agente de Instancia administrada de SQL mediante scripts o copia manual.
+Instancia administrada de SQL tiene un programador nativo de primera clase como el Agente SQL Server local.  Puede [ejecutar paquetes SSIS mediante el agente de Azure SQL Managed Instance](how-to-invoke-ssis-package-managed-instance-agent.md).
+
+Puesto que aún no hay disponible una herramienta de migración para los trabajos de SSIS, se deben migrar del Agente SQL Server local al agente de Instancia administrada de SQL mediante scripts o copia manual.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

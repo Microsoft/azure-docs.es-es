@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Klue | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Klue.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 08341008-980b-4111-adb2-97bbabbf1e47
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/13/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: da6ce8c25bdb8a051bb346868b900053ef231816
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2bd5ff3dce0b336fb4d1f1998abf60e896c9c1a9
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77185633"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88535093"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-klue"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Klue
 

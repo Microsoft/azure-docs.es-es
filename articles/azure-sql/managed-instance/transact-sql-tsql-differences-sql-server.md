@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 229a74fe760386b59bc83373cc7b1429bd826929
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d611fc7eff2efa7a632f4b5467b5829a8374b95e
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298454"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705392"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferencias de T-SQL entre SQL Server y una Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -26,7 +26,7 @@ Este artículo resume y explica las diferencias de sintaxis y comportamiento ent
 
 Instancia administrada de SQL proporciona una alta compatibilidad con el motor de base de datos de SQL Server, y la mayoría de las características se admiten en una Instancia administrada de SQL.
 
-![Migración](./media/transact-sql-tsql-differences-sql-server/migration.png)
+![Migración sencilla desde SQL Server](./media/transact-sql-tsql-differences-sql-server/migration.png)
 
 Existen algunas limitaciones de PaaS que se introdujeron en Instancia administrada de SQL y algunos cambios de comportamiento en comparación con SQL Server. Las diferencias se dividen en las siguientes categorías: <a name="Differences"></a>
 
@@ -364,7 +364,7 @@ No se admiten algunos destinos específicos de Windows para Extended Events (XEv
 
 ### <a name="external-libraries"></a>Bibliotecas externas
 
-Aún no se admiten las bibliotecas externas de R y Python para análisis en base de datos. Consulte [Machine Learning Services en SQL Server](/sql/advanced-analytics/r/sql-server-r-services).
+Las bibliotecas externas de R y Python en base de datos se admiten en la versión preliminar pública limitada. Consulte [Machine Learning Services de Azure SQL Managed Instance (versión preliminar)](machine-learning-services-overview.md).
 
 ### <a name="filestream-and-filetable"></a>FileStream y FileTable
 

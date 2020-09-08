@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d582db4bd7ef99d86602f49bc9046aadb8c3e8f0
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 8f800c11bb878ca1788c7258cde25266847e2a90
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460616"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278588"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migración a la autenticación en la nube mediante un lanzamiento preconfigurado (versión preliminar)
 
@@ -25,7 +25,7 @@ El lanzamiento preconfigurado le permite probar de forma selectiva grupos de usu
 -  Usa tarjetas inteligentes para la autenticación. 
 -  El servidor actual ofrece ciertas características de solo federación.
 
-Antes de probar esta característica, le recomendamos que revise la guía sobre cómo elegir el método de autenticación correcto. Para más información, consulte la tabla "Comparación de métodos" del artículo [Selección del método de autenticación adecuado para su solución de identidad híbrida de Azure Active Directory](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn#comparing-methods).
+Antes de probar esta característica, le recomendamos que revise la guía sobre cómo elegir el método de autenticación correcto. Para más información, consulte la tabla "Comparación de métodos" del artículo [Selección del método de autenticación adecuado para su solución de identidad híbrida de Azure Active Directory](./choose-ad-authn.md#comparing-methods).
 
 Para información general sobre la característica, vea este vídeo "Azure Active Directory: ¿Qué es el lanzamiento preconfigurado?" :
 
@@ -84,14 +84,14 @@ Los siguientes escenarios no se admiten en el lanzamiento preconfigurado:
 
 - La primera vez que se agrega un grupo de seguridad para el lanzamiento preconfigurado, está limitado a 200 usuarios para evitar que se agote el tiempo de espera de la experiencia de usuario. Después de agregar el grupo, puede agregarle más usuarios directamente, según sea necesario.
 
-- Mientras los usuarios están en el lanzamiento preconfigurado, la directiva de expiración de contraseñas se establece en 90 días sin opción de personalizarla. 
+- Mientras los usuarios están en fase de lanzamiento preconfigurado, cuando EnforceCloudPasswordPolicyForPasswordSyncedUsers está habilitado, la directiva de expiración de contraseñas se establece en 90 días sin la opción de personalizarla. 
 
 
 ## <a name="get-started-with-staged-rollout"></a>Introducción al lanzamiento preconfigurado
 
 Para probar el inicio de sesión de *sincronización de hash de contraseñas* mediante el lanzamiento preconfigurado, siga las instrucciones del trabajo previo en la sección siguiente.
 
-Para información sobre qué cmdlets de PowerShell usar, consulte la [versión preliminar de Azure AD 2.0](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
+Para información sobre qué cmdlets de PowerShell usar, consulte la [versión preliminar de Azure AD 2.0](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
 ## <a name="pre-work-for-password-hash-sync"></a>Trabajo previo para la sincronización de hash de contraseña
 
@@ -225,7 +225,7 @@ Para probar el inicio de sesión con *inicio de sesión único de conexión dire
 
 1. Asegúrese de que el inicio de sesión se muestra correctamente en el [informe de actividad de inicio de sesión de Azure AD](../reports-monitoring/concept-sign-ins.md) mediante el filtrado por el nombre principal de usuario.
 
-   Para realizar un seguimiento de los inicios de sesión de los usuarios seleccionados para el lanzamiento preconfigurado que se siguen produciendo en los Servicios de federación de Active Directory (AD FS), siga las instrucciones que se indican en [Solución de problemas de AD FS: eventos y registro](https://docs.microsoft.com/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-logging#types-of-events). Consulte la documentación del proveedor para saber cómo comprobar esto en los proveedores de federación de terceros.
+   Para realizar un seguimiento de los inicios de sesión de los usuarios seleccionados para el lanzamiento preconfigurado que se siguen produciendo en los Servicios de federación de Active Directory (AD FS), siga las instrucciones que se indican en [Solución de problemas de AD FS: eventos y registro](/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-logging#types-of-events). Consulte la documentación del proveedor para saber cómo comprobar esto en los proveedores de federación de terceros.
 
 ## <a name="remove-a-user-from-staged-rollout"></a>Eliminación de un usuario del lanzamiento preconfigurado
 
@@ -243,7 +243,7 @@ A. No, esta característica está diseñada para migrar de la autenticación fed
 
 **P: ¿Se puede usar PowerShell para realizar el lanzamiento preconfigurado?**
 
-A. Sí. Para información sobre cómo usar PowerShell para realizar el lanzamiento preconfigurado, consulte [Versión preliminar de Azure AD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
+A. Sí. Para información sobre cómo usar PowerShell para realizar el lanzamiento preconfigurado, consulte [Versión preliminar de Azure AD](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Versión preliminar de Azure AD 2.0](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )
+- [Versión preliminar de Azure AD 2.0](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )

@@ -3,12 +3,12 @@ title: Compatibilidad con la evaluación y migración de Hyper-V en Azure Migra
 description: Obtenga información sobre la compatibilidad con la evaluación y migración de Hyper-V en Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 1ea7d139b3d3cc8c14e43ccfb7c233fcbe4c564c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5af2c296147bb972d121183a7d552157b4b824c7
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122071"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871503"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Matriz de compatibilidad para la migración de Hyper-V
 
@@ -25,7 +25,7 @@ Puede seleccionar hasta 10 máquinas virtuales a la vez para la replicación. Si
 | :-------------------       | :------------------- |
 | **Implementación**       | El host de Hyper-V puede ser independiente o implementarse en un clúster. <br/>El software de replicación de Azure Migrate (proveedor de replicación de Hyper-V) se instala en los hosts de Hyper-V.|
 | **Permisos**           | Necesita permisos de administrador en el host de Hyper-V. |
-| **Sistema operativo host** | Windows Server 2019, Windows Server 2016 o Windows Server 2012 R2. |
+| **Sistema operativo host** | Windows Server 2019, Windows Server 2016 o Windows Server 2012 R2 con las últimas actualizaciones. Tenga en cuenta que también se admite la instalación de Server Core de estos sistemas operativos. |
 | **Acceso a puertos** |  Conexiones salientes en el puerto HTTPS 443 para enviar datos de replicación de VM.
 
 
@@ -35,10 +35,10 @@ Puede seleccionar hasta 10 máquinas virtuales a la vez para la replicación. Si
 | :----------------------------- | :------------------- |
 | **Sistema operativo** | Azure admite todos los sistemas operativos [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) y [Linux](../virtual-machines/linux/endorsed-distros.md). |
 **Windows Server 2003** | En el caso de las máquinas virtuales que ejecutan Windows Server 2003, debe [instalar Integration Services de Hyper-V](prepare-windows-server-2003-migration.md) antes de la migración. | 
-**Máquinas virtuales de Linux en Azure** | Es posible que algunas máquinas virtuales requieran cambios para poder ejecutarse en Azure.<br/><br/> En el caso de Linux, Azure Migrate realiza los cambios automáticamente en estos sistemas operativos:<br/> - Red Hat Enterprise Linux 6.5+, 7.0+<br/> - CentOS 6.5+, 7.0+</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS<br/> -Debian 7, 8. En el caso de otros sistemas operativos, realice [los cambios necesarios](prepare-for-migration.md#linux-machines) manualmente.
+**Máquinas virtuales de Linux en Azure** | Es posible que algunas máquinas virtuales requieran cambios para poder ejecutarse en Azure.<br/><br/> En el caso de Linux, Azure Migrate realiza los cambios automáticamente para estos sistemas operativos:<br/> - Red Hat Enterprise Linux 6.5+, 7.0+<br/> - CentOS 6.5+, 7.0+</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8. En el caso de otros sistemas operativos, realice [los cambios necesarios](prepare-for-migration.md#linux-machines) manualmente.
 | **Cambios necesarios para Azure** | Es posible que algunas máquinas virtuales requieran cambios para poder ejecutarse en Azure. Haga los ajustes manualmente antes de la migración. Los artículos pertinentes contienen instrucciones sobre cómo hacerlo. |
 | **Arranque de Linux**                 | Si/boot está en una partición dedicada, debe residir en el disco del sistema operativo y no distribuirse en varios discos.<br/> Si /boot forma parte de la partición raíz (/), la partición "/" debe estar en el disco del sistema operativo y no abarcar otros discos. |
-| **Arranque UEFI**                  | La máquina virtual migrada en Azure se convertirá automáticamente en una VM de arranque del BIOS. La máquina virtual debe estar ejecutando Windows Server 2012 o una versión posterior. El disco del sistema operativo debe tener un máximo de cinco particiones y el tamaño del disco del sistema operativo debe ser inferior a 300 GB.|
+| **Arranque UEFI**                  | Compatible. Asegúrese de seleccionar un tamaño de máquina virtual compatible con una VM de generación 2 de Azure.  |
 | **Tamaño del disco**                  | 2 TB para el disco del sistema operativo y 4 TB para los discos de datos.|
 | **Número de discos** | Un máximo de 16 discos por VM.|
 | **Discos/volúmenes cifrados**    | No se admiten para la migración.|

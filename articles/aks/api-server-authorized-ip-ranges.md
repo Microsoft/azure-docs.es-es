@@ -4,12 +4,12 @@ description: Aprenda a proteger el clúster mediante un intervalo de direcciones
 services: container-service
 ms.topic: article
 ms.date: 11/05/2019
-ms.openlocfilehash: c92d4e00da1cc3d372cca0bf4efbe648ae522608
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 404bd600f825a5da334811744132c6aa9b751566
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057477"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006900"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Protección del acceso al servidor de API con intervalos de direcciones IP autorizadas en Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ Es preciso que esté instalada y configurada la versión 2.0.76 de la CLI de A
 
 ## <a name="overview-of-api-server-authorized-ip-ranges"></a>Información general sobre los intervalos de direcciones IP autorizadas por el servidor de API
 
-El servidor de API de Kubernetes es el modo en el que se exponen las API de Kubernetes subyacentes. Este componente proporciona la interacción de las herramientas de administración, como `kubectl` o el panel de Kubernetes. AKS proporciona un patrón de clúster de inquilino único con un servidor de API dedicado. De forma predeterminada, el servidor de API se asigna a una dirección IP pública y debe controlar el acceso mediante controles de acceso basado en rol (RBAC).
+El servidor de API de Kubernetes es el modo en el que se exponen las API de Kubernetes subyacentes. Este componente proporciona la interacción de las herramientas de administración, como `kubectl` o el panel de Kubernetes. AKS proporciona un patrón de clúster de inquilino único con un servidor de API dedicado. El servidor de API se asigna de forma predeterminada a una dirección IP pública, y el usuario debe regular el acceso mediante el control de acceso basado en rol (RBAC).
 
 Para proteger el acceso al panel de control de AKS y al servidor de API (que, de lo contrario, serían accesibles al público), puede habilitar y usar intervalos de direcciones IP autorizadas. De esta manera, solo se permite la comunicación con el servidor de API a los intervalos de direcciones IP definidas. Las solicitudes al servidor de API procedentes de direcciones IP que no formen parte de este intervalo se bloquean. Siga usando RBAC para autorizar a los usuarios y las acciones que soliciten.
 

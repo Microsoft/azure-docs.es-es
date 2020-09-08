@@ -8,12 +8,13 @@ ms.topic: how-to
 ms.date: 10/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 44602c65a08f2e76fa017022f6137a18481f2edd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: c5c51bb052948c58d4849c556d0756240d6968ca
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515364"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011538"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Desarrollo para Azure Files con .NET
 
@@ -99,7 +100,7 @@ A continuación, guardará las credenciales en el archivo `App.config` del proye
 ```
 
 > [!NOTE]
-> La versión más reciente del Emulador de Azure Storage no es compatible con Azure Files. La cadena de conexión debe hacer referencia a una cuenta de Azure Storage en la nube para trabajar con Azure Files.
+> Las versiones más recientes del emulador de Azure Storage y el emulador de código abierto Azurite no admiten Azure Files. La cadena de conexión debe hacer referencia a una cuenta de Azure Storage en la nube para trabajar con Azure Files.
 
 ## <a name="add-using-directives"></a>Adición de directivas using
 

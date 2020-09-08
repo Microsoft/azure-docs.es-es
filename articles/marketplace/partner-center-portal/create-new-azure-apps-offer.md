@@ -7,12 +7,12 @@ ms.topic: article
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: 7a0f04344d2e4213bbbabb63d57bdaf933154388
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 071d3fc972e99d61a226492350b7eee146584df6
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797904"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815679"
 ---
 # <a name="create-an-azure-application-offer"></a>Creación de una oferta de aplicación de Azure
 
@@ -56,12 +56,12 @@ Revise los siguientes recursos mientras prepara su oferta de aplicación de Azur
 
 En el vídeo [Creación de plantillas de soluciones y aplicaciones administradas para Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) se proporciona una completa introducción al tipo de oferta de aplicación de Azure:
 
-* Qué tipos de oferta están disponibles;
-* Qué recursos técnicos se requieren;
-* Cómo crear una plantilla de Azure Resource Manager;
-* Desarrollo y prueba de la interfaz de usuario de la aplicación;
-* Cómo publicar la oferta de la aplicación;
-* El proceso de revisión de la aplicación.
+* Qué tipos de oferta están disponibles
+* Qué recursos técnicos se necesitan
+* Cómo crear una plantilla de Azure Resource Manager
+* Desarrollo y prueba de la interfaz de usuario de la aplicación
+* Cómo publicar la oferta de la aplicación
+* El proceso de revisión de la aplicación
 
 ### <a name="suggested-tools"></a>Herramientas sugeridas
 
@@ -103,7 +103,7 @@ Para información sobre los requisitos de publicación de cada plan de aplicaci�
 ## <a name="create-a-new-offer"></a>Crear una nueva oferta
 
 >[!NOTE]
->Después de publicar una oferta, las modificaciones que realice en ella en el Centro de partners no aparecerán en los escaparates hasta que vuelva a publicarla. Tras realizar los cambios, asegúrese siempre de volver a publicar la oferta.
+>Después de publicar una oferta, las modificaciones que realice en ella en el Centro de partners no aparecerán en las tiendas en línea hasta que vuelva a publicarla. Tras realizar los cambios, asegúrese siempre de volver a publicar la oferta.
 
 1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
 
@@ -242,20 +242,24 @@ Proporcione el nombre, el correo electrónico y el número de teléfono de un **
 
 Proporcione logotipos e imágenes para usarlos con la oferta. Todas las imágenes deben estar en formato PNG. Las imágenes borrosas harán que se rechace el envío.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!Note]
 >Si tiene problemas al cargar archivos, asegúrese de que la red local no bloquee el servicio https://upload.xboxlive.com que usa el Centro de partners.
 
 #### <a name="store-logos"></a>Logotipos de Store
 
-Proporcione un archivo PNG para el logotipo de tamaño **grande** (entre 216 x 216 y 350 x 350 píxeles). El Centro de partners lo utilizará para crear un logotipo de tamaño **pequeño** (48 x 48 píxeles) y un logotipo de tamaño **medio** (90 x 90 píxeles). Opcionalmente, puede reemplazarlos por imágenes diferentes.
+Proporcione un archivo PNG para el logotipo de tamaño **Grande**. El Centro de partners lo usará para crear un logotipo **Pequeño** y un logotipo **Mediano**. Opcionalmente, puede reemplazarlos por imágenes diferentes más adelante.
 
-Se requieren los tres tamaños de logotipo para su uso en distintos lugares de la lista:
+- **Grande** (de 216 x 216 a 350 x 350 píxeles, obligatorio)
+- **Mediano** (90 x 90 píxeles, opcional)
+- **Pequeño** (48 x 48 píxeles, opcional)
 
-- **Pequeño (48 x 48)**
-- **Medio (90 x 90)**
-- **Grande** (entre 216 x 216 y 350 x 350)
+Estos logotipos se usan en distintos lugares de la publicación:
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Capturas de pantalla
 
@@ -283,7 +287,7 @@ Los GUID de identificador de suscripción de Azure, junto con una descripción a
 Agregue al menos un id. de suscripción de Azure, ya sea de forma individual (hasta 10) o mediante la carga de un archivo CSV (hasta 100). Al agregar estos identificadores de suscripción, puede definir quién puede obtener una vista previa de la oferta antes de publicarla. Si la oferta ya está publicada, todavía puede definir un público preliminar para probar los cambios o las actualizaciones de la oferta.
 
 > [!NOTE]
-> Un público preliminar no es el mismo que un público privado. A una audiencia preliminar se le permite acceder a la oferta _antes_ de que se publique en el marketplace. Podrá ver y validar todos los planes, incluidos aquellos que estarán disponibles solo para un público privado después de que su oferta se publique completamente en el marketplace. Un público privado (definido en la pestaña **Precios y disponibilidad** del plan) tiene acceso exclusivo a un plan determinado.
+> Un público preliminar no es el mismo que un público privado. A una audiencia preliminar se le permite acceder a la oferta *antes* de que se publique en el marketplace. Podrá ver y validar todos los planes, incluidos aquellos que estarán disponibles solo para un público privado después de que su oferta se publique completamente en el marketplace. Un público privado (definido en la pestaña **Precios y disponibilidad** del plan) tiene acceso exclusivo a un plan determinado.
 
 Seleccione **Guardar borrador** antes de continuar.
 
@@ -313,6 +317,8 @@ La configuración técnica define los detalles (identificador de inquilino e ide
 
 Esta pestaña le permite ofrecer diversas opciones de planes dentro de la misma oferta. Estos planes (anteriormente llamados SKU) pueden diferir en términos de tipo de plan (plantilla de solución frente a aplicación administrada), monetización o público. Configure al menos un plan para mostrar su oferta en Marketplace.
 
+Puede crear hasta 100 planes para cada oferta, de los cuales hasta 45 pueden ser privados. Más información sobre los planes privados en [Ofertas privadas en el marketplace comercial de Microsoft](../private-offers.md).
+
 Una vez creados, verá los nombres de los planes, los identificadores, la disponibilidad (pública o privada), el estado actual de la publicación y las acciones disponibles en esta pestaña.
 
 Las **acciones** disponibles en **Información general del plan** varían en función del estado actual del plan y pueden incluir:
@@ -335,7 +341,7 @@ Seleccione el tipo de plan de la oferta. El cliente administra completamente los
 
 #### <a name="re-use-technical-configuration"></a>Reutilización de la configuración técnica
 
-Si tiene más de un plan del mismo tipo y los paquetes son idénticos entre ellos, puede seleccionar **this plan reuses packages from another plan** (este plan reutiliza paquetes de otro plan).  Al seleccionar esta opción, podrá seleccionar uno de los otros planes del mismo tipo del que esta oferta pueda reutilizar paquetes. 
+Si tiene más de un plan del mismo tipo y los paquetes son idénticos entre ellos, puede seleccionar **this plan reuses packages from another plan** (este plan reutiliza paquetes de otro plan).  Al seleccionar esta opción, podrá seleccionar uno de los otros planes del mismo tipo del que esta oferta pueda reutilizar paquetes.
 
 >[!Note]
 >Cuando reutilice paquetes de otro plan, toda la pestaña Configuración técnica desaparecerá de este plan. Los detalles de configuración técnica del otro plan, incluidas las actualizaciones que realice en el futuro, se usarán también para este plan.<br><br>Esta configuración no se puede modificar una vez publicado este plan.
@@ -416,9 +422,9 @@ Si ya se ha establecido los precios del plan en dólares de Estados Unidos (USD)
 
 Proporcione el precio mensual de este plan.  El precio se suma a cualquier infraestructura de Azure o costos de software de pago por uso en los que incurren los recursos implementados por esta solución.
 
-Además del precio por mes, también puede establecer precios por el consumo de unidades no estándar mediante la [facturación de uso medido](./azure-app-metered-billing.md).  Si lo desea, puede establecer el precio por mes en cero y cobrar exclusivamente con la facturación de uso medido. 
+Además del precio por mes, también puede establecer precios por el consumo de unidades no estándar mediante la [facturación de uso medido](./azure-app-metered-billing.md).  Si lo desea, puede establecer el precio por mes en cero y cobrar exclusivamente con la facturación de uso medido.
 
-Los precios establecidos en USD (USD = dólares de Estados Unidos) se convierten en la moneda local de todos los mercados seleccionados con los tipos de cambio actuales en el momento de guardarlos. Valide estos precios antes de realizar la publicación. Para ello, debe exportar la hoja de cálculo de precios y examinar el precio de cada mercado. Si desea establecer precios personalizados en un mercado individual, modifique e importe la hoja de cálculo de precios. 
+Los precios establecidos en USD (USD = dólares de Estados Unidos) se convierten en la moneda local de todos los mercados seleccionados con los tipos de cambio actuales en el momento de guardarlos. Valide estos precios antes de realizar la publicación. Para ello, debe exportar la hoja de cálculo de precios y examinar el precio de cada mercado. Si desea establecer precios personalizados en un mercado individual, modifique e importe la hoja de cálculo de precios.
 
 >[!Note]
 >Primero debe guardar los cambios de precios para habilitar la exportación de los datos de precios.
@@ -442,8 +448,7 @@ Si convierte el plan en privado, escriba los **identificadores de suscripción d
 >[!Note]
 >Las ofertas privadas no son compatibles con las suscripciones de Azure que se establecen a través de un revendedor del programa Proveedor de soluciones en la nube (CSP).
 
-
-### <a name="technical-configuration"></a>Configuración técnica 
+### <a name="technical-configuration"></a>Configuración técnica
 
 Esta pestaña le permite cargar el paquete de implementación que posibilitará que los clientes implementen el plan.
 
@@ -501,15 +506,15 @@ Especifique un punto de conexión de webhook de HTTPS para recibir notificacione
 
 #### <a name="customize-allowed-customer-actions"></a>Personalizar acciones de cliente permitidas
 
-Seleccione esta opción para especificar qué acciones pueden realizar los clientes en los recursos administrados, además de las acciones "`*/read`" que están disponibles de forma predeterminada. 
+Seleccione esta opción para especificar qué acciones pueden realizar los clientes en los recursos administrados, además de las acciones "`*/read`" que están disponibles de forma predeterminada.
 
-Enumere las acciones adicionales que desea permitir a su cliente realizar aquí, separadas por signos de punto y coma.  Para más información, consulte [Descripción de las asignaciones de denegación para recursos de Azure](../../role-based-access-control/deny-assignments.md).  Puede consultar las acciones disponibles en [Operaciones del proveedor de recursos de Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md). Por ejemplo, para permitir que los consumidores reinicien las máquinas virtuales, agregue `Microsoft.Compute/virtualMachines/restart/action` a las acciones permitidas.
+Enumere las acciones adicionales que desea permitir a su cliente realizar aquí, separadas por signos de punto y coma.  Para más información, consulte [Descripción de las asignaciones de denegación para recursos de Azure](../../role-based-access-control/deny-assignments.md). Puede consultar las acciones disponibles en [Operaciones del proveedor de recursos de Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md). Por ejemplo, para permitir que los consumidores reinicien las máquinas virtuales, agregue `Microsoft.Compute/virtualMachines/restart/action` a las acciones permitidas.
 
 #### <a name="global-azure--azure-government-cloud"></a>Azure global o nube de Azure Government
 
-Indique quién debe tener acceso de administración a esta aplicación administrada en cada nube compatible. Los usuarios, grupos o aplicaciones a los que desea conceder permiso para el grupo de recursos administrados se identifican mediante identidades de Azure Active Directory (AAD).
+Indique quién debe tener acceso de administración a esta aplicación administrada en cada nube compatible. Los usuarios, grupos o aplicaciones a los que quiere conceder permiso para el grupo de recursos administrados se identifican mediante identidades de Azure Active Directory (AAD).
 
-**Id. de inquilino de Azure Active Directory**: el identificador de inquilino de AAD (también conocido como identificador de directorio) que contiene las identidades de los usuarios, grupos o aplicaciones a los que quiere conceder permisos. Encontrará su identificador de inquilino de AAD en la página [Propiedades de Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties), en Azure Portal.
+**Id. de inquilino de Azure Active Directory**: el identificador de inquilino de Azure AD (también conocido como identificador de directorio) que contiene las identidades de los usuarios, grupos o aplicaciones a los que quiere conceder permisos. Encontrará su identificador de inquilino de Azure AD en la página [Propiedades de Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties), en Azure Portal.
 
 **Autorizaciones**: agregue el identificador de objeto de Azure Active Directory del usuario, grupo o aplicación a los que quiere conceder permiso para el grupo de recursos administrados. Identifique al usuario por su identificador de entidad de seguridad, que encontrará en la [hoja Usuarios de Azure Active Directory, en Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
 
@@ -581,7 +586,7 @@ Cuando haya completado todas las secciones necesarias de la oferta, seleccione *
 Revise el estado de finalización de cada sección de la oferta.
     - *No iniciada*: significa que la sección no se ha modificado y se debe completar.
     - *Incompleta*: significa que la sección tiene errores que deben corregirse o que requiere más información. Vuelva a las secciones y actualícelas.
-    - *Completa*: significa que la sección está completa, que se han proporcionado todos los datos necesarios y que no hay ningún error. Para poder enviar la oferta, todas sus secciones deben estar en estado Completa.
+    - *Completa*: significa que la sección está completa, que se ha proporcionado todos los datos necesarios y que no hay ningún error. Para poder enviar la oferta, todas sus secciones deben estar en estado Completa.
 
 Si esta es la primera vez que publica esta oferta, puede proporcionar instrucciones de prueba al equipo de certificación para asegurarse de que la aplicación se prueba correctamente, además de todas las notas adicionales que pueden resultar útiles para conocer la aplicación.
 

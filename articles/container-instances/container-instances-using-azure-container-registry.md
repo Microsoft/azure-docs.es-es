@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/02/2020
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 8a82b0b70b7be8897d8f85cabea2ee21ce84d913
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 0a997733e015a9f65b59ffc99cc137dae3d2d62a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169619"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927443"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implementación en Azure Container Instances desde Azure Container Registry
 
@@ -25,7 +25,7 @@ ms.locfileid: "86169619"
 
 ## <a name="configure-registry-authentication"></a>Configurar la autenticación del registro
 
-En un escenario de producción donde se brinda acceso a servicios y aplicaciones "sin periféricos", se recomienda configurar el acceso al registro mediante una [entidad de servicio](../container-registry/container-registry-auth-service-principal.md). Una entidad de servicio permite proporcionar [control de acceso basado en rol](../container-registry/container-registry-roles.md) a las imágenes de contenedor. Por ejemplo, puede configurar una entidad de servicio con acceso de solo extracción a un registro.
+En un escenario de producción donde se brinda acceso a servicios y aplicaciones "sin periféricos", se recomienda configurar el acceso al registro mediante una [entidad de servicio](../container-registry/container-registry-auth-service-principal.md). Una entidad de servicio permite proporcionar el [control de acceso basado en rol (RBAC de Azure)](../container-registry/container-registry-roles.md) a las imágenes de contenedor. Por ejemplo, puede configurar una entidad de servicio con acceso de solo extracción a un registro.
 
 Azure Container Registry ofrece [opciones de autenticación](../container-registry/container-registry-authentication.md) adicionales.
 

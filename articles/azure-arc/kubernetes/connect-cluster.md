@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Conexión de un clúster de Kubernetes habilitado para Azure Arc
 keywords: Kubernetes, Arc, Azure, K8s, contenedores
 ms.custom: references_regions
-ms.openlocfilehash: 2c5e697f3dd67087582118fb6a6e083feecf549f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eb3921d3ab2090b6bac54c9b68e9def3949ed4b5
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050099"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723748"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Conexión de un clúster de Kubernetes habilitado para Azure Arc (versión preliminar)
 
@@ -72,6 +72,7 @@ Los agentes de Azure Arc requieren que funcionen los siguientes protocolos, puer
 | `https://github.com`, git://github.com                                                                         | Los repositorios de GitOps de ejemplo se hospedan en GitHub. El agente de configuración requiere conectividad con el punto de conexión de Git que se especifique. |
 | `https://login.microsoftonline.com`                                                                            | Necesario para capturar y actualizar tokens de Azure Resource Manager                                                                                    |
 | `https://azurearcfork8s.azurecr.io`                                                                            | Necesario para extraer imágenes de contenedor para agentes de Azure Arc                                                                  |
+| `https://eus.his.arc.azure.com`, `https://weu.his.arc.azure.com`                                                                            |  Necesario para extraer certificados de identidad administrados que haya asignado el sistema                                                                  |
 
 ## <a name="register-the-two-providers-for-azure-arc-enabled-kubernetes"></a>Registre los dos proveedores para Kubernetes habilitado para Azure Arc:
 
@@ -91,7 +92,7 @@ az provider show -n Microsoft.Kubernetes -o table
 az provider show -n Microsoft.KubernetesConfiguration -o table
 ```
 
-## <a name="create-a-resource-group"></a>Creación de un grupo de recursos
+## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
 Use un grupo de recursos para almacenar los metadatos del clúster.
 
@@ -172,6 +173,41 @@ También puede ver este recurso en [Azure Portal](https://portal.azure.com/). Un
 > [!NOTE]
 > Después de la incorporación del clúster, los metadatos del clúster (versión del clúster, versión del agente, número de nodos) tardan entre 5 y 10 minutos en aparecer en la página de información general del recurso de Kubernetes compatible con Azure Arc en Azure Portal.
 
+## <a name="connect-using-an-outbound-proxy-server"></a>Conexión mediante un servidor proxy de salida
+
+Si el clúster se encuentra detrás de un servidor proxy de salida, la CLI de Azure y los agentes de Kubernetes habilitados para Arc deben enrutar sus solicitudes a través del servidor proxy de salida. La siguiente configuración permite hacerlo:
+
+1. Para comprobar la versión de la extensión `connectedk8s` instalada en el equipo, ejecute este comando:
+
+    ```bash
+    az -v
+    ```
+
+    Necesita la versión 0.2.3 o superior de la extensión de `connectedk8s` para configurar los agentes con el proxy de salida. Si tiene la versión < 0.2.3 en la máquina, siga los [pasos de actualización](#before-you-begin) para obtener la versión más reciente de la extensión en la máquina.
+
+2. Establezca las variables de entorno necesarias para CLI de Azure:
+
+    ```bash
+    export HTTP_PROXY=<proxy-server-ip-address>:<port>
+    export HTTPS_PROXY=<proxy-server-ip-address>:<port>
+    export NO_PROXY=<cluster-apiserver-ip-address>:<port>
+    ```
+
+3. Ejecute el comando connect con los parámetros de proxy especificados:
+
+    ```bash
+    az connectedk8s connect -n <cluster-name> -g <resource-group> \
+    --proxy-https https://<proxy-server-ip-address>:<port> \
+    --proxy-http http://<proxy-server-ip-address>:<port> \
+    --proxy-skip-range <excludedIP>,<excludedCIDR>
+    ```
+
+> [!NOTE]
+> 1. La especificación de excludedCIDR en--proxy-skip-range es importante para garantizar que la comunicación en el clúster no se interrumpa para los agentes.
+> 2. Actualmente, la especificación de proxy anterior solo se aplica a los agentes de Arc y no a los pods de flujo usados en sourceControlConfiguration. El equipo de Kubernetes habilitado para Arc trabaja activamente en esta característica y estará disponible pronto.
+
+## <a name="azure-arc-agents-for-kubernetes"></a>Agentes de Azure Arc para Kubernetes
+
 Kubernetes habilitado para Azure Arc implementa algunos operadores en el espacio de nombres `azure-arc`. Puede ver estas implementaciones y pods aquí:
 
 ```console
@@ -199,8 +235,6 @@ pod/flux-logs-agent-7c489f57f4-mwqqv            2/2     Running  0       16h
 pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
 pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 ```
-
-## <a name="azure-arc-agents-for-kubernetes"></a>Agentes de Azure Arc para Kubernetes
 
 Kubernetes habilitado para Azure Arc consta de algunos agentes (operadores) que se ejecutan en el clúster implementado en el espacio de nombres `azure-arc`.
 

@@ -4,15 +4,15 @@ description: Busque ejemplos de plantillas de Azure Resource Manager para alguno
 author: tfitzmac
 tags: azure-service-management
 ms.topic: sample
-ms.date: 01/04/2019
+ms.date: 08/26/2020
 ms.author: tomfitz
 ms.custom: mvc, fasttrack-edit
-ms.openlocfilehash: 4ac8e7d51ce9a3d5694f2853219bb04869a91734
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5129fccceb633991767cdd3b52bbb5b6af067270
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517712"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88891052"
 ---
 # <a name="azure-resource-manager-templates-for-app-service"></a>Plantillas de Azure Resource Manager para App Service
 
@@ -44,6 +44,7 @@ Para obtener información sobre la sintaxis de JSON y las propiedades para los r
 | [Creación de una base de datos de Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database)| Implementa una aplicación de App Service y una base de datos de Azure SQL Database en el nivel de servicio Básico. |
 | [App with a Blob storage connection](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-blob-connection) (Aplicación con una conexión a Azure Blob Storage)| Implementa una aplicación de App Service con una cadena de conexión de Azure Blob Storage. Luego, puede usar Blob Storage desde la aplicación. |
 | [App with an Azure Cache for Redis](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-redis-cache) (Aplicación con una instancia de Azure Redis Cache)| Implementa una aplicación de App Service con una instancia de Azure Redis Cache. |
+| [Aplicación conectada a una aplicación web de back-end](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-privateendpoint-vnet-injection)| Implementa dos aplicaciones web (front-end y back-end) conectadas de forma segura junto con inserción de red virtual y un punto de conexión privado. |
 |**entorno de App Service**| **Descripción** |
 | [Create an App Service environment v2](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-asev2-create) (Creación de un entorno de App Service v2) | Crea un entorno de App Service v2 en la red virtual. |
 | [Create an App Service environment v2 with an ILB address](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-asev2-ilb-create/) (Creación de un entorno de App Service v2 con una dirección ILB) | Crea un entorno de App Service v2 en la red virtual con una dirección de equilibrador de carga interno privado. |

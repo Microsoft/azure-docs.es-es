@@ -1,18 +1,18 @@
 ---
 title: Guía de inicio rápido para administrar recursos compartidos de archivos de Azure mediante Azure Portal
-description: Use esta guía de inicio rápido para aprender a usar Azure Portal para administrar Azure Files.
+description: Vea cómo se crean y administran los recursos compartidos de archivos de Azure en Azure Portal. Cree una cuenta de almacenamiento, cree un recurso compartido de archivos de Azure y úselo.
 author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fef3daf6e9e535736002e309e3d27491364dc553
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f68d9f620b686ab20e93584bdd7c024d8a943577
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "71260291"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036545"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Guía de inicio rápido: Creación y administración de recursos compartidos de archivos de Azure con Azure Portal 
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden montar en Windows, Linux y macOS. En esta guía se describen los conceptos básicos sobre cómo trabajar con recursos compartidos de archivos de Azure mediante [Azure Portal](https://portal.azure.com/).
@@ -29,7 +29,7 @@ Para crear un recurso compartido de archivos de Azure:
 2. En la página de la cuenta de almacenamiento, en la sección **Services** (Servicios), seleccione **Files** (Archivos).
     ![Captura de pantalla de la sección de servicios de la cuenta de almacenamiento; seleccione el servicio Files](media/storage-how-to-use-files-portal/create-file-share-1.png)
 
-3. En el menú de la parte superior de la página **File service**, haga clic en **Recurso compartido de archivos** . Se abre la página **New file share** (Nuevo recurso compartido de archivos).
+3. En el menú de la parte superior de la página **File service**, haga clic en **Recurso compartido de archivos **. Se abre la página **New file share** (Nuevo recurso compartido de archivos).
 4. En **Name** (Nombre), escriba *myshare*.
 5. Haga clic en **Aceptar** para crear el recurso compartido de archivos de Azure.
 

@@ -1,6 +1,6 @@
 ---
 title: Transferencia de datos con Azure Data Box Gateway | Microsoft Docs
-description: Aprenda a agregar recursos compartidos en el dispositivo de Data Box Gateway y a conectarse a ellos.
+description: Obtenga información sobre cómo agregar y conectarse a recursos compartidos en Azure Data Box Gateway y, a continuación, el dispositivo Data Box Gateway puede transferir los datos a Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 4817db0ce9723f46ceac4f4720915a9bfddcf915
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 6db2d8fa6e957a63a4410f17b09a9f106bfba6e6
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561722"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923482"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway"></a>Tutorial: Transferencia de datos con Azure Data Box Gateway
 

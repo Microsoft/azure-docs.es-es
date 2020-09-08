@@ -9,12 +9,13 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 10e6d0a183afdda2bf89014bb72f58d03a3013ec
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 0e9f4602582a8c24f74d6603b732e7b91d97fa8d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171897"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002698"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-3"></a>Actualización a la versión 3 del SDK de .NET para Azure Search
 
@@ -25,7 +26,7 @@ Indexer execution result errors no longer have status
 the data source API will no longer return in the response of any REST operation, the connection string specified by the user.
 --->
 
-Si usa la versión preliminar 2.0 o posterior del [SDK de .NET para Azure Search](https://docs.microsoft.com/dotnet/api/overview/azure/search), este artículo le ayudará a actualizar la aplicación para que use la versión 3.
+Si usa la versión preliminar 2.0 o posterior del [SDK de .NET para Azure Search](/dotnet/api/overview/azure/search), este artículo le ayudará a actualizar la aplicación para que use la versión 3.
 
 Para obtener un tutorial más general del SDK que incluya ejemplos, vea [Cómo usar Azure Search desde una aplicación .NET](search-howto-dotnet-sdk.md).
 

@@ -8,12 +8,13 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: sngun
-ms.openlocfilehash: 69a0fec0dd5036b021926045ff3a63a011966654
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: 6772150338dd0d172f2f100c2aa8cae7175b18d6
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118889"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051308"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Tutorial: Desarrollar una aplicación web ASP.NET Core MVC con Azure Cosmos DB mediante el SDK de .NET
 
@@ -116,36 +117,19 @@ Azure Cosmos DB usa JSON para trasladar y almacenar los datos. Puede usar el at
 
 ### <a name="add-views"></a><a name="add-views"></a>Adición de vistas
 
-A continuación, se van a crear las tres vistas siguientes.
+A continuación, se agregarán las siguientes vistas.
 
-* Agregar una vista de elementos de lista
-* Agregar una nueva vista de elementos
-* Agregar una vista de edición de elementos.
+* Una vista Crear elemento
+* Una vista Eliminar elemento
+* Una vista para obtener los detalles del elemento
+* Una vista Editar elemento
+* Una vista para enumerar todos los elementos
 
-#### <a name="add-a-list-item-view"></a><a name="AddItemIndexView"></a>Agregar una vista de elementos de lista
+#### <a name="create-item-view"></a><a name="AddNewIndexView"></a>Vista Crear elemento
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en la carpeta **Views** y seleccione **Agregar** > **Nueva carpeta**. Asigne a la carpeta el nombre *Item*.
 
 1. Haga clic con el botón derecho en la carpeta vacía **Item** y seleccione **Agregar** > **Vista**.
-
-1. En **Agregar vista MVC**, proporcione los siguientes valores:
-
-   * En **Nombre de la vista**, escriba *Index*.
-   * En **Plantilla**, seleccione **List**.
-   * En **Clase de modelo**, seleccione **Item (todo.Models)** .
-   * Seleccione **Usar una página de diseño** y escriba *~/Views/Shared/_Layout.cshtml*.
-
-   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png" alt-text="Captura de pantalla que muestra el cuadro de diálogo para agregar una vista MVC":::
-
-1. Cuando haya agregado estos valores, haga clic en **Agregar** y permita que Visual Studio cree una vista de plantilla.
-
-Una vez hecho, Visual Studio abre el archivo *cshtml* que crea. Puede cerrar el archivo en Visual Studio. Volveremos a él más adelante.
-
-#### <a name="add-a-new-item-view"></a><a name="AddNewIndexView"></a>Agregar una nueva vista de elementos
-
-Lo mismo que ha creado una vista para elementos de lista, cree una vista para crear elementos mediante los pasos siguientes:
-
-1. En el **Explorador de soluciones**, vuelva a hacer clic con el botón derecho en la carpeta **Item** y seleccione **Agregar** > **Vista**.
 
 1. En **Agregar vista MVC**, realice los cambios siguientes:
 
@@ -155,9 +139,44 @@ Lo mismo que ha creado una vista para elementos de lista, cree una vista para cr
    * Seleccione **Usar una página de diseño** y escriba *~/Views/Shared/_Layout.cshtml*.
    * Seleccione **Agregar**.
 
-#### <a name="add-an-edit-item-view"></a><a name="AddEditIndexView"></a>Agregar una vista de edición de elementos
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png" alt-text="Captura de pantalla que muestra el cuadro de diálogo para agregar una vista MVC":::
 
-Y por último, agregue una vista para editar un elemento con los pasos siguientes:
+1. Después, seleccione **Agregar** y permita que Visual Studio cree una vista de plantilla. Reemplace el código del archivo generado por el siguiente contenido:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Create.cshtml":::
+
+#### <a name="delete-item-view"></a><a name="AddEditIndexView"></a>Vista Eliminar elemento
+
+1. En el **Explorador de soluciones**, vuelva a hacer clic con el botón derecho en la carpeta **Item** y seleccione **Agregar** > **Vista**.
+
+1. En **Agregar vista MVC**, realice los cambios siguientes:
+
+   * En el cuadro **Nombre de vista**, escriba *Delete* (Eliminar).
+   * En el cuadro **Plantilla**, seleccione **Delete** (Eliminar).
+   * En el cuadro **Clase de modelo**, seleccione **Elemento (todo.Models)** .
+   * Seleccione **Usar una página de diseño** y escriba *~/Views/Shared/_Layout.cshtml*.
+   * Seleccione **Agregar**.
+
+1. Después, seleccione **Agregar** y permita que Visual Studio cree una vista de plantilla. Reemplace el código del archivo generado por el siguiente contenido:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Delete.cshtml":::
+
+#### <a name="add-a-view-to-get-an-item-details"></a><a name="AddItemIndexView"></a>Adición de una vista para obtener los detalles de un elemento
+
+1. En el **Explorador de soluciones**, vuelva a hacer clic con el botón derecho en la carpeta **Item** y seleccione **Agregar** > **Vista**.
+
+1. En **Agregar vista MVC**, proporcione los siguientes valores:
+
+   * En **Nombre de la vista**, escriba *Details* (Detalles).
+   * En **Plantilla**, seleccione **Details** (Detalles).
+   * En **Clase de modelo**, seleccione **Item (todo.Models)** .
+   * Seleccione **Usar una página de diseño** y escriba *~/Views/Shared/_Layout.cshtml*.
+
+1. Después, seleccione **Agregar** y permita que Visual Studio cree una vista de plantilla. Reemplace el código del archivo generado por el siguiente contenido:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Details.cshtml":::
+
+#### <a name="add-an-edit-item-view"></a><a name="AddEditIndexView"></a>Agregar una vista de edición de elementos
 
 1. En el **Explorador de soluciones**, vuelva a hacer clic con el botón derecho en la carpeta **Item** y seleccione **Agregar** > **Vista**.
 
@@ -169,7 +188,29 @@ Y por último, agregue una vista para editar un elemento con los pasos siguiente
    * Seleccione **Usar una página de diseño** y escriba *~/Views/Shared/_Layout.cshtml*.
    * Seleccione **Agregar**.
 
-Una vez hecho esto, cierre todos los documentos *cshtml* en Visual Studio, porque volverá a estas vistas más adelante.
+1. Después, seleccione **Agregar** y permita que Visual Studio cree una vista de plantilla. Reemplace el código del archivo generado por el siguiente contenido:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Edit.cshtml":::
+
+#### <a name="add-a-view-to-list-all-the-items"></a><a name="AddEditIndexView"></a>Adición de una vista para enumerar todos los elementos
+
+Y, por último, agregue una vista para obtener todos los elementos con los pasos siguientes:
+
+1. En el **Explorador de soluciones**, vuelva a hacer clic con el botón derecho en la carpeta **Item** y seleccione **Agregar** > **Vista**.
+
+1. En **Agregar vista MVC**, realice los cambios siguientes:
+
+   * En el cuadro **Nombre de vista**, escriba *Índice*.
+   * En el cuadro **Plantilla**, seleccione **Lista**.
+   * En el cuadro **Clase de modelo**, seleccione **Elemento (todo.Models)** .
+   * Seleccione **Usar una página de diseño** y escriba *~/Views/Shared/_Layout.cshtml*.
+   * Seleccione **Agregar**.
+
+1. Después, seleccione **Agregar** y permita que Visual Studio cree una vista de plantilla. Reemplace el código del archivo generado por el siguiente contenido:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Index.cshtml":::
+
+Una vez hecho esto, cierre todos los documentos *cshtml* en Visual Studio.
 
 ### <a name="declare-and-initialize-services"></a><a name="initialize-services"></a>Declaración e inicialización de servicios
 

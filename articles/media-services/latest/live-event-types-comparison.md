@@ -3,24 +3,26 @@ title: Tipos de LiveEvent en Azure Media Services | Microsoft Docs
 description: 'En Azure Media Services, los objetos LiveEvent pueden ser de uno de estos dos tipos: *codificación en directo* y de *paso a través*. En este artículo se muestra una tabla detallada que compara los tipos de LiveEvent.'
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
-ms.date: 06/13/2019
-ms.author: juliako
-ms.openlocfilehash: 793ddb8c99a4e21c176374f7cb3445d1a7d8fca0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: c79d45cfac22f41f05071b619c444e7b7ab7956a
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090066"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397311"
 ---
 # <a name="live-event-types-comparison"></a>Comparación de tipos de objetos LiveEvent
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 En Azure Media Services, un [evento en directo](/rest/api/media/liveevents) se puede establecer en una *codificación de paso a través* (un codificador en directo local envía una secuencia de velocidad de bits múltiple) o en una *codificación en directo* (un codificador en directo local envía una secuencia de velocidad de bits única). 
 
@@ -84,8 +86,7 @@ Si la fuente de contribución tiene una resolución de 720p o más, el valor pre
 | 200 |340 |192 |30 |Alto |
 
 > [!NOTE]
-> Si necesita personalizar el valor predeterminado de codificación en directo, abra una incidencia de soporte técnico a través de Azure Portal. Debe especificar la tabla de resoluciones y velocidades de bits deseadas. Compruebe que hay solo una capa a 720p y, como máximo, 6 capas. También se debe especificar que se solicita un valor predeterminado para un codificador en directo Standard.
-> Es posible que, a lo largo del tiempo, se tengan que ajustar los valores específicos de las velocidades de bits y resoluciones.
+> Si necesita personalizar el valor predeterminado de codificación en directo, abra una incidencia de soporte técnico a través de Azure Portal. Debe especificar la tabla de resoluciones de vídeo y velocidades de bits deseadas. No se admite la personalización de la velocidad de bits de codificación de audio. Compruebe que hay solo una capa a 720p y, como máximo, 6 capas. También se debe especificar que se solicita un valor predeterminado.
 
 ### <a name="output-video-streams-for-default1080p"></a>Secuencias de vídeo de salida para Default1080p
 
@@ -101,8 +102,7 @@ Si la fuente de contribución tiene una resolución de 1080p, el valor predeterm
 | 200 |320 |180 |30 |Alto |
 
 > [!NOTE]
-> Si necesita personalizar el valor predeterminado de codificación en directo, abra una incidencia de soporte técnico a través de Azure Portal. Debe especificar la tabla de resoluciones y velocidades de bits deseadas. Compruebe que hay solo una capa a 1080p y, como máximo, 6 capas. También se debe especificar que se solicita un valor predeterminado para un codificador en directo Premium1080p.
-> Es posible que, a lo largo del tiempo, se tengan que ajustar los valores específicos de las velocidades de bits y resoluciones.
+> Si necesita personalizar el valor predeterminado de codificación en directo, abra una incidencia de soporte técnico a través de Azure Portal. Debe especificar la tabla de resoluciones y velocidades de bits deseadas. Compruebe que hay solo una capa a 1080p y, como máximo, 6 capas. También debe especificar que se solicita un valor predeterminado para un codificador en directo Premium1080p. Es posible que, a lo largo del tiempo, se tengan que ajustar los valores específicos de las velocidades de bits y resoluciones.
 
 ### <a name="output-audio-stream-for-default720p-and-default1080p"></a>Secuencias de audio de salida para Default720p y Default1080p
 

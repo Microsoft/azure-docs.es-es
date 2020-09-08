@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3ee7287f2a5cf9491ae91d434caf2f653c853a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4d05aaa7a6bd48c92e863d38dcee9f0bf925bafa
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83995316"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049271"
 ---
 # <a name="conditional-access-block-access"></a>Acceso condicional: Bloquear acceso
 
@@ -38,7 +38,7 @@ Las directivas de acceso condicional son herramientas eficaces, por lo que se re
 
 ## <a name="create-a-conditional-access-policy"></a>Creación de una directiva de acceso condicional
 
-Los pasos siguientes le ayudarán a crear directivas de acceso condicional para bloquear el acceso a todas las aplicaciones excepto [Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) si los usuarios no están en una red de confianza. Estas directivas se colocan inicialmente en [modo de solo informe](howto-conditional-access-report-only.md), para que los administradores puedan determinar el impacto que tendrán en los usuarios existentes. Cuando los administradores consideren que las directivas se aplican de la forma prevista, pueden cambiarlas a **Activadas**.
+Los pasos siguientes le ayudarán a crear directivas de acceso condicional para bloquear el acceso a todas las aplicaciones excepto [Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) si los usuarios no están en una red de confianza. Estas directivas se colocan inicialmente en [modo de solo informe](howto-conditional-access-insights-reporting.md), para que los administradores puedan determinar el impacto que tendrán en los usuarios existentes. Cuando los administradores consideren que las directivas se aplican de la forma prevista, pueden cambiarlas a **Activadas**.
 
 La primera directiva bloquea el acceso a todas las aplicaciones (menos las de Office 365) si no se encuentran en una ubicación de confianza.
 
@@ -84,6 +84,6 @@ A continuación se crea una segunda directiva para requerir la autenticación mu
 
 [Directivas de acceso condicional habituales](concept-conditional-access-policy-common.md)
 
-[Determinación del impacto mediante el modo de solo informe de acceso condicional](howto-conditional-access-report-only.md)
+[Determinación del impacto mediante el modo de solo informe de acceso condicional](howto-conditional-access-insights-reporting.md)
 
 [Simulación del comportamiento de inicio de sesión mediante la herramienta What If de acceso condicional](troubleshoot-conditional-access-what-if.md)

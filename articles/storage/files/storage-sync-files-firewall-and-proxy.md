@@ -1,18 +1,18 @@
 ---
 title: Configuración del proxy y el firewall locales de Azure File Sync | Microsoft Docs
-description: Configuración de la red local de Azure File Sync
+description: Comprenda la configuración del proxy y el firewall locales de Azure File Sync. Revise los detalles de configuración de puertos, redes y conexiones especiales con Azure.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7410e30c892eb083f9ed71b1d9ce379ae9a036b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e4f011d9286a0685f1b091b930155db969407423
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515282"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903721"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Configuración del proxy y el firewall de Azure File Sync
 Azure File Sync conecta los servidores locales a Azure Files, lo que permite sincronizar las características de niveles de nube y de sincronización multisitio. Por lo tanto, un servidor local debe estar conectado a Internet. Un administrador de TI tiene que decidir cuál es la mejor ruta de acceso para que el servidor acceda a los servicios en la nube de Azure.

@@ -1,19 +1,19 @@
 ---
 title: Modelado de relaciones en el diseño de almacenamiento en tablas de Azure | Microsoft Docs
-description: Comprenda el proceso de modelado al diseñar una solución de almacenamiento en tablas.
+description: Comprenda el proceso de modelado al diseñar la solución de almacenamiento de Azure Table. Lea acerca de las relaciones uno a varios, uno a uno y de herencia.
 services: storage
-author: MarkMcGeeAtAquent
 ms.service: storage
+author: tamram
+ms.author: tamram
 ms.topic: article
 ms.date: 04/23/2018
-ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 25082c107fbc0feeb533aa2b4fc56cff960e778d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3023b478ef7a4aaf6d9239e997bdf63282b56210
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75457563"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271199"
 ---
 # <a name="modeling-relationships"></a>Modelado de relaciones
 En este artículo se explica el proceso de modelado para ayudarle a diseñar soluciones de almacenamiento en tablas de Azure.
@@ -51,7 +51,7 @@ En la tabla siguiente se resumen las ventajas y desventajas de cada uno de los m
 <td>
 <ul>
 <li>Puede actualizar una entidad de departamento con una sola operación.</li>
-<li>Puede usar un EGT para mantener la coherencia si tiene un requisito para modificar una entidad department siempre que se actualice, inserte o elimine una entidad de empleado. Por ejemplo, si mantiene un recuento de empleados de departamento para cada departamento.</li>
+<li>Puede usar una transacción de un grupo de entidades* (EGT) para mantener la coherencia si tiene un requisito para modificar una entidad department siempre que se actualice, inserte o elimine una entidad de empleado. Por ejemplo, si mantiene un recuento de empleados de departamento para cada departamento.</li>
 </ul>
 </td>
 <td>
@@ -92,6 +92,9 @@ En la tabla siguiente se resumen las ventajas y desventajas de cada uno de los m
 </td>
 </tr>
 </table>
+
+*Para más información, consulte [Transacciones de grupos de entidades](table-storage-design.md#entity-group-transactions).  
+
 
 Cómo elegir entre estas opciones y cuáles de las ventajas y desventajas son más importantes, depende de los escenarios de aplicación concretos. Por ejemplo, la frecuencia con que modifica las entidades de departamento; necesitan todas las consultas de empleados la información adicional del departamento; ¿cómo de cerca se encuentra de los límites de escalabilidad de sus particiones o de su cuenta de almacenamiento?  
 

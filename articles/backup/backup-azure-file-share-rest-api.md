@@ -3,12 +3,12 @@ title: Copia de seguridad de recursos compartidos de archivos de Azure con API R
 description: Aprenda a usar la API REST para realizar copias de seguridad de recursos compartidos de archivos de Azure en el almacén de Recovery Services
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: 7059dbae9d448b710880f1f9d72b843a6d77d98b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8d2d8ed88da133986540a293185c8e37000ab87b
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055026"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824872"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Copia de seguridad de un recurso compartido de archivos de Azure con Azure Backup mediante API REST
 
@@ -32,13 +32,13 @@ En este artículo, usaremos los siguientes recursos:
 
 ### <a name="discover-storage-accounts-with-unprotected-azure-file-shares"></a>Detección de cuentas de almacenamiento con recursos compartidos de archivos de Azure sin protección
 
-El almacén debe detectar todas las cuentas de almacenamiento de Azure de la suscripción con recursos compartidos de archivos de los que se pueda realizar una copia de seguridad en el almacén de Recovery Services. Esta acción se desencadena con la [operación de actualización](/rest/api/backup/protectioncontainers/refresh). Se trata de una operación *POST* asincrónica que garantiza que el almacén obtiene la lista más reciente de todos los recursos compartidos de archivos sin protección de Azure de la suscripción actual y los "almacena en caché". Una vez que el recurso compartido de archivos se almacena en caché, Recovery Services puede acceder a este y protegerlo.
+El almacén debe detectar todas las cuentas de almacenamiento de Azure de la suscripción que tengan recursos compartidos de archivos de los que se pueda realizar una copia de seguridad en el almacén de Recovery Services. Esta acción se desencadena con la [operación de actualización](/rest/api/backup/protectioncontainers/refresh). Se trata de una operación *POST* asincrónica que garantiza que el almacén obtiene la lista más reciente de todos los recursos compartidos de archivos sin protección de Azure de la suscripción actual y los "almacena en caché". Una vez que el recurso compartido de archivos se almacena en caché, Recovery Services puede acceder a este y protegerlo.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01&$filter={$filter}
 ```
 
-El URI de POST tiene los parámetros `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}` y `{fabricName}`. En nuestro ejemplo, el valor de los distintos parámetros sería el siguiente:
+El URI de POST tiene los parámetros `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}` y `{fabricName}`. En nuestro ejemplo, el valor de los distintos parámetros será el siguiente:
 
 - `{fabricName}` es *Azure*
 
@@ -54,13 +54,13 @@ Como todos los parámetros necesarios se proporcionan en el URI, no hay necesida
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01&$filter=backupManagementType eq 'AzureStorage'
 ```
 
-#### <a name="responses"></a>Respuestas
+#### <a name="responses-to-the-refresh-operation"></a>Respuestas para la operación de actualización
 
 La operación 'refresh' es una [operación asincrónica](../azure-resource-manager/management/async-operations.md). Significa que esta operación crea otra que tiene que ser seguida por separado.
 
 Devuelve las dos respuestas: 202 (Aceptado) cuando se crea otra operación y 200 (Correcto) cuando se completa dicha operación.
 
-##### <a name="example-responses"></a>Respuestas de ejemplo
+##### <a name="example-responses-to-the-refresh-operation"></a>Respuestas de ejemplo para la operación de actualización
 
 Una vez que se envía la solicitud *POST*, se devuelve una respuesta 202 (Accepted).
 
@@ -106,9 +106,9 @@ x-ms-routing-request-id  : CENTRALUSEUAP:20200127T105304Z:d9bdb266-8349-4dbd-968
 Date   : Mon, 27 Jan 2020 10:53:04 GMT
 ```
 
-### <a name="get-list-of-storage-accounts-that-can-be-protected-with-recovery-services-vault"></a>Obtener una lista de cuentas de almacenamiento que se pueden proteger con el almacén de Recovery Services
+### <a name="get-list-of-storage-accounts-with-file-shares-that-can-be-backed-up-with-recovery-services-vault"></a>Obtenga una lista de cuentas de almacenamiento con recursos compartidos de archivos de los que se puede realizar una copia de seguridad con el almacén de Recovery Services
 
-Para confirmar que el “almacenamiento en caché” ha finalizado, muestre todas las cuentas de almacenamiento que se pueden proteger de la suscripción. A continuación, busque la cuenta de almacenamiento deseada en la respuesta. Esto se hace mediante la operación [GET ProtectableContainers](/rest/api/backup/protectablecontainers/list).
+Para confirmar que se ha realizado el "almacenamiento en caché", enumere todas las cuentas de almacenamiento de la suscripción con recursos compartidos de archivos de los que se pueda realizar una copia de seguridad con el almacén de Recovery Services. A continuación, busque la cuenta de almacenamiento deseada en la respuesta. Esto se hace mediante la operación [GET ProtectableContainers](/rest/api/backup/protectablecontainers/list).
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectableContainers?api-version=2016-12-01&$filter=backupManagementType eq 'AzureStorage'
@@ -175,7 +175,7 @@ Defina las variables de los URI como se indica a continuación:
    En nuestro ejemplo, es *StorageContainer;Storage;AzureFiles;testvault2*
 
 >[!NOTE]
-> Tome siempre el atributo de nombre de la respuesta y rellénelo en esta solicitud. NO cree ni codifique de forma rígida el formato contenedor-nombre. Si lo crea o codifica de forma rígida, se producirá un error en la llamada API si el formato contenedor-nombre cambia en el futuro.
+> Tome siempre el atributo de nombre de la respuesta y rellénelo en esta solicitud. No cree ni codifique de forma rígida el formato del nombre de contenedor. Si lo crea o codifica de forma rígida, se producirá un error en la llamada API si el formato contenedor-nombre cambia en el futuro.
 
 <br>
 
@@ -373,7 +373,7 @@ En nuestro ejemplo, el identificador del recurso compartido de archivos que quer
 También puede hacer referencia al atributo **name** del contenedor de protección y las respuestas de los elementos que se pueden proteger.
 
 >[!NOTE]
->Tome siempre el atributo de nombre de la respuesta y rellénelo en esta solicitud. NO cree ni codifique de forma rígida el formato contenedor-nombre ni el formato del nombre del elemento protegido. Si lo crea o codifica de forma rígida, se producirá un error en la llamada API si el formato contenedor-nombre o el formato del nombre del elemento protegido cambia en el futuro.
+>Tome siempre el atributo de nombre de la respuesta y rellénelo en esta solicitud. No cree ni codifique de forma rígida el formato del nombre de contenedor, ni el formato del nombre del elemento protegido. Si lo crea o codifica de forma rígida, se producirá un error en la llamada API si el formato contenedor-nombre o el formato del nombre del elemento protegido cambia en el futuro.
 
 <br>
 
@@ -487,13 +487,13 @@ Ejemplo de cuerpo de la solicitud
 }
 ```
 
-### <a name="responses"></a>Respuestas
+### <a name="responses-to-the-on-demand-backup-operation"></a>Respuestas a la operación de copia de seguridad a petición
 
 Desencadenar una copia de seguridad a petición es una [operación asincrónica](../azure-resource-manager/management/async-operations.md). Significa que esta operación crea otra que tiene que ser seguida por separado.
 
 Devuelve las dos respuestas: 202 (Aceptado) cuando se crea otra operación y 200 (Correcto) cuando se completa dicha operación.
 
-### <a name="example-responses"></a>Respuestas de ejemplo
+### <a name="example-responses-to-the-on-demand-backup-operation"></a>Respuestas de ejemplo a la operación de copia de seguridad a petición
 
 Una vez enviada la solicitud *POST* para una copia de seguridad a petición, la respuesta inicial es 202 (Accepted) con un encabezado de ubicación o Azure-async-header.
 

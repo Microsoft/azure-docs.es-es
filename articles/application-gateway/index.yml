@@ -10,12 +10,12 @@ metadata:
   author: vhorne
   ms.author: victorh
   ms.date: 03/24/2020
-  ms.openlocfilehash: 63000da3b1d3e69c2a0c0a1d10267e18da199ffa
-  ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+  ms.openlocfilehash: 0ff595778193a4ff11ebd67e1cec4bccfa3afc61
+  ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/20/2020
-  ms.locfileid: "86524767"
+  ms.lasthandoff: 09/02/2020
+  ms.locfileid: "89378515"
 landingContent:
 - title: Información acerca de Application Gateway
   linkLists:
@@ -27,6 +27,8 @@ landingContent:
     links:
     - text: Preguntas más frecuentes
       url: application-gateway-faq.md
+    - text: Novedades
+      url: https://azure.microsoft.com/updates/?category=networking&query=Application%20Gateway
 - title: Soporte para volúmenes de tráfico elevados
   linkLists:
   - linkListType: concept

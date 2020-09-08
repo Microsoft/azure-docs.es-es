@@ -3,17 +3,18 @@ title: Lista de comprobación de rendimiento y de escalabilidad para Table Stora
 description: Lista de comprobación de procedimientos de eficacia probada que se usan en Table Storage al desarrollar aplicaciones de alto rendimiento.
 services: storage
 author: tamram
+ms.author: tamram
 ms.service: storage
 ms.topic: overview
 ms.date: 10/10/2019
-ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: 89581c8ae2fbdbb55a2abfbd527c8fdcf4b65761
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 9a60683b8dbf809bc3e91ffd8720b545db4c361d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75749556"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008682"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Lista de comprobación de rendimiento y de escalabilidad para Table Storage
 
@@ -196,7 +197,7 @@ En esta sección se enumeran varias configuraciones rápidas que puede usar para
 
 A partir de la versión del 15 de agosto de 2013 del servicio Storage, Table service admite el uso de JSON en lugar del formato AtomPub basado en XML para transferir datos de las tablas. El uso de JSON puede reducir los tamaños de carga hasta en un 75 % y puede mejorar significativamente el rendimiento de la aplicación.
 
-Para más información, consulte la publicación [Microsoft Azure Tables: Introducing JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) (Tablas de Microsoft Azure: Introducción a JSON) y [Payload Format for Table Service Operations](https://msdn.microsoft.com/library/azure/dn535600.aspx) (Formato de carga para las operaciones del servicio de tablas).
+Para más información, consulte la publicación [Tablas de Microsoft Azure: introducción a JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) y [Payload Format for Table Service Operations](https://msdn.microsoft.com/library/azure/dn535600.aspx) (Formato de carga para las operaciones de Table service).
 
 ### <a name="disable-nagle"></a>Deshabilitación de Nagle
 
@@ -215,7 +216,7 @@ La forma de representar los datos y realizar consultas es el factor más importa
 Las tablas se dividen en dos particiones. Cada entidad almacenada en una partición comparte la misma clave de partición y tiene una clave de fila única para identificarla dentro de esa partición. Las particiones proporcionan ventajas pero también presentan limitaciones de escalabilidad.
 
 - Ventajas: Puede actualizar entidades de la misma partición en una sola transacción por lotes atómica que contenga hasta 100 operaciones de almacenamiento independientes (límite de tamaño total de 4 MB). Suponiendo que se recupera el mismo número de entidades, también puede consultar datos dentro de una sola partición más eficientemente que los datos que se extienden por particiones (siga leyendo para conocer más recomendaciones sobre la consulta de datos de tabla).
-- Límite de escalabilidad: No se puede equilibrar la carga del acceso a entidades almacenadas en una sola partición porque las particiones admiten transacciones por lotes atómicas. Por esta razón, el objetivo de escalabilidad de una partición de tabla individual es inferior al de Table service en conjunto.
+- Limite de escalabilidad: no se puede realizar el equilibrio de carga en el acceso a entidades almacenadas en una sola partición porque las particiones admiten transacciones por lotes atómicas. Por esta razón, el objetivo de escalabilidad de una partición de tabla individual es inferior al de Table service en conjunto.
 
 Debido a estas características de tablas y particiones, debe adoptar los siguientes principios de diseño:
 

@@ -3,13 +3,13 @@ title: Diseño de consultas de lista eficaces
 description: Mejore el rendimiento filtrando las consultas cuando solicite información en recursos de Batch, como grupos, trabajos, tareas y nodos de proceso.
 ms.topic: how-to
 ms.date: 06/18/2020
-ms.custom: seodec18
-ms.openlocfilehash: bcf99dbc55d708af70a28155a3f98c20003e51f7
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: 3a767cc8ae3c8c48e1e40e0735c33fa807ba0015
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960612"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933521"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Creación de consultas para enumerar los recursos de Batch con eficacia
 

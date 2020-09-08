@@ -12,16 +12,16 @@ ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04b0b0120a514591fb4fa23656906203acf443b4
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 7875bfc55d4530f7f56a96599491cab4a98ced04
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799509"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642034"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Asignación de un usuario o un grupo a una aplicación empresarial en Azure Active Directory
 
-En este artículo se explica cómo asignar usuarios o grupos a aplicaciones empresariales en Azure Active Directory (Azure AD), ya sea desde Azure Portal o usando PowerShell. Cuando un usuario se asigna a una aplicación, dicha aplicación aparece en el [panel de acceso Mis aplicaciones](https://myapps.microsoft.com/) del usuario para que pueda acceder a ella más fácilmente. Si la aplicación expone roles, también se puede asignar un rol concreto al usuario.
+En este artículo se explica cómo asignar usuarios o grupos a aplicaciones empresariales en Azure Active Directory (Azure AD), ya sea desde Azure Portal o usando PowerShell. Cuando un usuario se asigna a una aplicación, dicha aplicación aparece en [Aplicaciones](https://myapps.microsoft.com/) del usuario para que pueda acceder a ella más fácilmente. Si la aplicación expone roles, también se puede asignar un rol concreto al usuario.
 
 De cara a tener un mayor control, se pueden configurar algunos tipos de aplicaciones empresariales para [requerir la asignación de usuarios](#configure-an-application-to-require-user-assignment). 
 
@@ -45,7 +45,7 @@ Cuando se requiere la asignación de usuarios, solo podrán iniciar sesión los 
 
 Cuando la asignación *no es necesaria*, ya sea porque esta opción se ha establecido en **No** o porque la aplicación usa otro modo de SSO, podrá acceder a la aplicación cualquier usuario que tenga un vínculo directo a la aplicación o la **dirección URL de acceso de usuario** en la página **Propiedades** de la aplicación. 
 
-Esto no afecta a si una aplicación aparece o no en el panel de acceso Mis aplicaciones. Las aplicaciones aparecen en los paneles de acceso Mis aplicaciones de los usuarios en el momento en que un usuario o un grupo se asigna a la aplicación en cuestión. Para obtener información general, vea [Administración del acceso a las aplicaciones](what-is-access-management.md).
+Esto no afecta a si una aplicación aparece o no en Aplicaciones. Las aplicaciones aparecen en los paneles de acceso Mis aplicaciones de los usuarios en el momento en que un usuario o un grupo se asigna a la aplicación en cuestión. Para obtener información general, vea [Administración del acceso a las aplicaciones](what-is-access-management.md).
 
 
 Para requerir la asignación de usuarios en una aplicación:
@@ -161,7 +161,7 @@ En este ejemplo se asigna el usuario Britta Simon a la aplicación [Microsoft Wo
 ## <a name="related-articles"></a>Artículos relacionados
 
 - [Más información sobre el acceso de los usuarios finales a las aplicaciones](end-user-experiences.md)
-- [Planeamiento de la implementación del Panel de acceso de Azure AD](access-panel-deployment-plan.md)
+- [Planeamiento de la implementación de Aplicaciones de Azure AD](access-panel-deployment-plan.md)
 - [Administración del acceso a las aplicaciones](what-is-access-management.md)
  
 ## <a name="next-steps"></a>Pasos siguientes

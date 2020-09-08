@@ -1,14 +1,14 @@
 ---
 title: 'Trabajo con grupos de administración: Gobernanza en Azure'
 description: Aprenda a visualizar, mantener, actualizar y eliminar la jerarquía de grupos de administración.
-ms.date: 04/15/2020
+ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: c5a0269935daedb3be478cc27d5ecaf87f3c97f7
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 43837dcaed9b9628573ee92244ede542107155f9
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535015"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055146"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Administración de los recursos con grupos de administración
 
@@ -65,9 +65,7 @@ az account management-group update --name 'Contoso' --display-name 'Contoso Grou
 
 Para eliminar un grupo de administración, deben cumplirse los siguientes requisitos:
 
-1. No deben existir grupos de administración secundarios ni suscripciones en el grupo de administración.
-
-   - Para mover una suscripción o un grupo de administración a otro grupo de administración, consulte [Movimiento de grupos de administración y suscripciones en la jerarquía](#moving-management-groups-and-subscriptions).
+1. No deben existir grupos de administración secundarios ni suscripciones en el grupo de administración. Para mover una suscripción o un grupo de administración a otro grupo de administración, consulte [Movimiento de grupos de administración y suscripciones en la jerarquía](#moving-management-groups-and-subscriptions).
 
 1. Necesita permisos de escritura sobre el grupo de administración (propietario, colaborador o colaborador de grupo de administración). Para ver qué permisos tiene, seleccione el grupo de administración y, a continuación, seleccione **IAM**. Para más información sobre los roles de Azure, vea:  
    [Administración de acceso y permisos con RBAC](../../role-based-access-control/overview.md).
@@ -200,7 +198,7 @@ az account management-group show --name 'Contoso' -e -r
 
 Uno de los motivos de crear un grupo de administración es agrupar las suscripciones. Solo los grupos de administración y las suscripciones pueden convertirse en secundarios de otro grupo de administración. Una suscripción que se mueve a un grupo de administración hereda todas las directivas y accesos de usuario del grupo de administración primario.
 
-Al mover un grupo de administración o una suscripción para que sean un elemento secundario de otro grupo de administración, es preciso evaluar tres reglas como verdaderas.
+Al mover un grupo de administración o una suscripción para ser secundarios de otro grupo de administración, es preciso evaluar tres reglas como verdaderas.
 
 Si va a realizar la acción de movimiento, necesitará lo siguiente: 
 

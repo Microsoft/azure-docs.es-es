@@ -1,6 +1,6 @@
 ---
 title: 'Incorporación de un certificado de entidad de certificación personalizado: Azure API Management | Microsoft Docs'
-description: Aprenda a agregar un certificado de entidad de certificación personalizado a Azure API Management.
+description: Aprenda a agregar un certificado de entidad de certificación personalizado a Azure API Management. También puede ver instrucciones para eliminar un certificado.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 21d5869f2bcdfb6383b6ef89869d8098135ea7ee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e42e976e57dd69ffcbd9065cfb3aaf3af9c4b972
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70073603"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852079"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Incorporación de un certificado de entidad de certificación personalizado a Azure API Management
 

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 707b432a4cb3918aa2dfbe460fc3cdcd53761bf1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3452641b336308ddf46349064345b154e55aa53c
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497087"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649166"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Obtención de datos de sensor de los asociados de sensor
 
@@ -62,19 +62,19 @@ Siga los pasos que se indican a continuación para generar la información anter
 
 5. Vaya a su directorio principal.
 
-    ```azurepowershell-interactive 
-    cd  
+    ```azurepowershell-interactive
+    cd
     ```
 
 6. Ejecute el siguiente comando: Se conecta una cuenta autenticada para su uso en solicitudes de Azure AD
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive
     Connect-AzureAD
     ```
-    
+
 7. Ejecute el siguiente comando: Se descargará un script en el directorio principal.
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive
 
     wget –q https://aka.ms/farmbeatspartnerscriptv3 -O ./generatePartnerCredentials.ps1
 
@@ -82,11 +82,15 @@ Siga los pasos que se indican a continuación para generar la información anter
 
 8. Ejecute el siguiente script. El script solicita el id. de inquilino, que se puede obtener en la página **Azure Active Directory** > **Información general**.
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive
 
-    ./generatePartnerCredentials.ps1   
+    ./generatePartnerCredentials.ps1
 
     ```
+
+> [!NOTE]
+> 1. El nombre del punto de conexión de API del centro de datos debe estar en minúsculas.
+> 2. Si está copiando la dirección URL del nombre del sitio web de FarmBeats para el punto de conexión de API del centro de datos, asegúrese de que no hay ninguna barra diagonal (/) al final.
 
 9. Siga las instrucciones en pantalla para capturar los valores del **punto de conexión de API**, el **identificador de inquilino**, el **identificador de cliente**, el **secreto de cliente** y la **cadena de conexión de EventHub**.
 
@@ -138,7 +142,7 @@ Siga estos pasos:
 
     ![Página Sensors (Sensores)](./media/get-sensor-data-from-sensor-partner/view-sensors-1.png)
 
-## <a name="assign-devices"></a>Asignación de dispositivos  
+## <a name="assign-devices"></a>Asignación de dispositivos
 
 Una vez que fluyan los datos del sensor, puede asignarlos a la granja en la que ha implementado estos sensores.
 

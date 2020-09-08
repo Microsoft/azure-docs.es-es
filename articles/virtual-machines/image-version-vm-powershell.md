@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 681bd0aff909552531d682186d5b22dce5ef33f9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 757b297d3d74365928cda0934485c0018f28ffee
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010774"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225655"
 ---
 # <a name="preview-create-an-image-from-a-vm"></a>Vista previa: Creación de una imagen a partir de una máquina virtual
 
@@ -133,7 +133,7 @@ $job.State
 > [!NOTE]
 > Deberá esperar a que la versión de la imagen termine de compilarse y replicarse por completo antes de poder usar la misma imagen administrada para crear otra versión de la imagen.
 >
-> También puede almacenar la imagen en almacenamiento Premium al agregar `-StorageAccountType Premium_LRS`, o en el [almacenamiento con redundancia de zona](../storage/common/storage-redundancy.md) al agregar `-StorageAccountType Standard_ZRS` durante la creación de la versión de la imagen.
+> También puede almacenar la imagen en almacenamiento Premium agregando `-StorageAccountType Premium_LRS`, o en el [almacenamiento con redundancia de zona](../storage/common/storage-redundancy.md) agregando `-StorageAccountType Standard_ZRS` al crear la versión de la imagen.
 >
 
 ## <a name="next-steps"></a>Pasos siguientes

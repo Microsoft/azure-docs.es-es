@@ -1,6 +1,6 @@
 ---
 title: Modelos de consumo del vehículo para enrutamiento | Microsoft Azure Maps
-description: En este artículo, obtendrá información sobre los modelos de consumo del vehículo para el enrutamiento de Microsoft Azure Maps.
+description: 'Obtenga información acerca de los modelos de consumo que Azure Maps admite: combustión y electricidad. Vea qué parámetros usa cada modelo y sus restricciones.'
 author: subbarayudukamma
 ms.author: skamma
 ms.date: 05/08/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: c1572eddf78ca2d5f8f4e3ee9f1fe47b0d43f5aa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b44186d783a249192a8c13ee97063034ee319df7
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77190245"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036766"
 ---
 # <a name="consumption-model"></a>Modelo de consumo
 

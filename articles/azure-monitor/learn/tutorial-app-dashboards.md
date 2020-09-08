@@ -7,12 +7,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 07/3/2019
 ms.custom: mvc
-ms.openlocfilehash: 49984349ce8d9d1bc43778c0042dd21485eded15
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 1b6fdbdfaef601751961d022858545d731fe62a8
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829686"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88856014"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Creación de paneles de indicadores clave de rendimiento (KPI) personalizados con Azure Application Insights
 
@@ -40,6 +40,9 @@ Para completar este tutorial:
 Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-new-dashboard"></a>Creación de un nuevo panel
+> [!WARNING]
+> Si mueve el recurso de Application Insights a un grupo de recursos o una suscripción diferentes, tendrá que actualizar manualmente el panel; para ello, deberá quitar los iconos antiguos y anclar otros nuevos del mismo recurso de Application Insights en la nueva ubicación. 
+
 Un solo panel puede contener recursos de varias aplicaciones, grupos de recursos y suscripciones.  Comience el tutorial creando un nuevo panel para la aplicación.  
 
 1. En el panel, seleccione **Nuevo panel**.

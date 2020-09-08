@@ -3,15 +3,15 @@ title: Asociación de un disco de datos, o su desasociación, a una máquina vir
 description: Aprenda a asociar un disco de datos a una máquina virtual, o a desasociarlo, en Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a5faae56307639e369130ec7443c8bceab2f794d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 222bf06dc07cc2538bc0512b4a41b7bd91bc1ebf
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287575"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653926"
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Asociación de un disco de datos, o su desasociación, a una máquina virtual en Azure DevTest Labs
-[Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md) administra las cuentas de almacenamiento asociadas a los discos de datos de máquina virtual. Un usuario asocia un nuevo disco de datos a una máquina virtual, especifica el tipo y el tamaño del disco que se necesita, y Azure crea y administra el disco automáticamente. El disco de datos se puede desasociar de la máquina virtual y volver a asociarlo más tarde a la misma máquina virtual, o bien se puede asociar a otra máquina virtual que pertenezca al mismo usuario.
+[Azure Managed Disks](../virtual-machines/managed-disks-overview.md) administra las cuentas de almacenamiento asociadas a los discos de datos de máquina virtual. Un usuario asocia un nuevo disco de datos a una máquina virtual, especifica el tipo y el tamaño del disco que se necesita, y Azure crea y administra el disco automáticamente. El disco de datos se puede desasociar de la máquina virtual y volver a asociarlo más tarde a la misma máquina virtual, o bien se puede asociar a otra máquina virtual que pertenezca al mismo usuario.
 
 Esta funcionalidad es útil para administrar el almacenamiento o el software fuera de cada máquina virtual individual. Si el almacenamiento o software ya existe dentro de un disco de datos, se puede asociar, desasociar y volver a asociar fácilmente a cualquier máquina virtual que sea propiedad del usuario que posee ese disco de datos.
 

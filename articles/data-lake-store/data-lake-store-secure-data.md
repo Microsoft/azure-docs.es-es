@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 1ae93dad9a18c18e330b4ff65924dd1db7a1faf0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1da644d8aca0b197e21ec03c7d0ac0b454f92a9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515260"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926304"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Protección de los datos almacenados en Azure Data Lake Storage Gen1
 Para proteger los datos en Azure Data Lake Storage Gen1, se adopta un enfoque de tres pasos.  Es necesario que esté configurado tanto el control de acceso basado en rol como las listas de control de acceso para permitir un acceso total a los datos para los usuarios y los grupos de seguridad.
 
-1. Comience creando grupos de seguridad en Azure Active Directory (AAD). Estos grupos de seguridad se usan para implementar el control de acceso basado en roles (RBAC) en Azure Portal. Para más información, vea [Control de acceso basado en roles en Microsoft Azure](../role-based-access-control/role-assignments-portal.md).
+1. Comience creando grupos de seguridad en Azure Active Directory (AAD). Estos grupos de seguridad se usan para implementar el control de acceso basado en roles de Azure (Azure RBAC) en Azure Portal. Para más información, consulte [Azure RBAC](../role-based-access-control/role-assignments-portal.md).
 2. Asigne los grupos de seguridad de AAD a la cuenta de Data Lake Storage Gen1. Esto controla el acceso a la cuenta de Data Lake Storage Gen1 desde el portal y las operaciones de administración desde el portal o las API.
 3. Asigne los grupos de seguridad de AAD como listas de control de acceso (ACL) en el sistema de archivos de Data Lake Storage Gen1.
 4. Además, también puede establecer un intervalo de direcciones IP para los clientes que pueden acceder a los datos de Data Lake Storage Gen1.
@@ -155,4 +155,3 @@ Cuando quita las ACL de grupos de seguridad de un sistema de archivos de Data La
 * [Introducción a Data Lake Storage Gen1 con PowerShell](data-lake-store-get-started-powershell.md)
 * [InGet Started with Data Lake Storage Gen1 using .NET SDK](data-lake-store-get-started-net-sdk.md) (Introducción a Data Lake Storage Gen1 con el SDK de .NET)
 * [Access diagnostic logs for Data Lake Storage Gen1](data-lake-store-diagnostic-logs.md) (Acceso a los registros de diagnóstico de Data Lake Storage Gen1)
-

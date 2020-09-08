@@ -7,15 +7,15 @@ manager: devtiw
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: e67769d37b45a9e1344ce6aa72bd1e60e6bfe287
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: de14cf8cc79b4e1387950a2ae048da41738f5db1
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87061281"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589943"
 ---
 # <a name="import-hsm-protected-keys-for-key-vault-ncipher"></a>Importación de claves protegidas con HSM para Key Vault (nCipher)
 

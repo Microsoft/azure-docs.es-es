@@ -1,5 +1,5 @@
 ---
-title: Administración de aplicaciones con Azure Active Directory | Microsoft Docs
+title: Qué es la administración de aplicaciones en Azure Active Directory
 description: Información general sobre el uso de Azure Active Directory (AD) como sistema de administración de identidades y acceso (IAM) para aplicaciones locales y en la nube.
 services: active-directory
 author: kenwith
@@ -12,12 +12,12 @@ ms.date: 07/01/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28b04828bc778a2b9076c9ea1970ce80f231fbe3
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 293aa80336b259a760a835e3ece56d50287f06ed
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386017"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299888"
 ---
 # <a name="what-is-application-management"></a>¿Qué es la administración de aplicaciones?
 
@@ -93,6 +93,6 @@ En el caso de las aplicaciones de recursos humanos u otras aplicaciones con un g
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Series de guías de inicio rápido sobre la administración de aplicaciones en Azure AD](view-applications-portal.md)
+- [Serie de guías de inicio rápido sobre la administración de aplicaciones](view-applications-portal.md)
 - [Introducción a la integración de aplicaciones](plan-an-application-integration.md)
 - [Obtenga información sobre cómo automatizar el aprovisionamiento](../app-provisioning/user-provisioning.md)

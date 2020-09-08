@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3aad90a3894d3abc1a850ae21946e8895619a188
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 0aefe95f3e78afc4b449539fd683ffc1fe525a15
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849885"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280186"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Autenticación de paso a través de Azure Active Directory: Guía de inicio rápido
 
@@ -33,7 +33,7 @@ La autenticación de paso a través de Azure Active Directory (Azure AD) permite
 >Si va a migrar desde AD FS (u otra tecnología de federación) a la autenticación de paso a través, es muy recomendable que siga nuestra guía de implementación detallada publicada [aquí](https://aka.ms/adfstoPTADPDownload).
 
 >[!NOTE]
->Si implementa la autenticación de paso a través con la nube de Azure Government, vea [Consideraciones al respecto de la identidad híbrida para Azure Government](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud).
+>Si implementa la autenticación de paso a través con la nube de Azure Government, vea [Consideraciones al respecto de la identidad híbrida para Azure Government](./reference-connect-government-cloud.md).
 
 Siga estas instrucciones para implementar la autenticación de paso a través en su inquilino:
 
@@ -42,12 +42,12 @@ Siga estas instrucciones para implementar la autenticación de paso a través en
 Asegúrese de que se cumplen los siguientes requisitos previos.
 
 >[!IMPORTANT]
->Desde el punto de vista de la seguridad, los administradores deben tratar el servidor que ejecuta el agente de PTA como si fuera un controlador de dominio.  Los servidores del agente de PTA deben protegerse a lo largo de las mismas líneas que se describen en [Protección de los controladores de dominio frente a ataques](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack).
+>Desde el punto de vista de la seguridad, los administradores deben tratar el servidor que ejecuta el agente de PTA como si fuera un controlador de dominio.  Los servidores del agente de PTA deben protegerse a lo largo de las mismas líneas que se describen en [Protección de los controladores de dominio frente a ataques](/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack).
 
 ### <a name="in-the-azure-active-directory-admin-center"></a>En el Centro de administración de Azure Active Directory
 
-1. Cree una cuenta de administrador global solo en la nube en el inquilino de Azure AD. De esta manera, puede administrar la configuración del inquilino en caso de que los servicios locales fallen o no estén disponibles. Información acerca de la [incorporación de una cuenta de administrador global que está solo en la nube](../active-directory-users-create-azure-portal.md). Realizar este paso es esencial para garantizar que no queda bloqueado fuera de su inquilino.
-2. Agregue uno o varios [nombres de dominio personalizados](../active-directory-domains-add-azure-portal.md) al inquilino de Azure AD. Los usuarios pueden iniciar sesión con uno de estos nombres de dominio.
+1. Cree una cuenta de administrador global solo en la nube en el inquilino de Azure AD. De esta manera, puede administrar la configuración del inquilino en caso de que los servicios locales fallen o no estén disponibles. Información acerca de la [incorporación de una cuenta de administrador global que está solo en la nube](../fundamentals/add-users-azure-active-directory.md). Realizar este paso es esencial para garantizar que no queda bloqueado fuera de su inquilino.
+2. Agregue uno o varios [nombres de dominio personalizados](../fundamentals/add-custom-domain.md) al inquilino de Azure AD. Los usuarios pueden iniciar sesión con uno de estos nombres de dominio.
 
 ### <a name="in-your-on-premises-environment"></a>En el entorno local
 
@@ -55,12 +55,12 @@ Asegúrese de que se cumplen los siguientes requisitos previos.
 2. Instale la [última versión de Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) en el servidor identificado en el paso anterior. Si ya tiene Azure AD Connect en ejecución, asegúrese de que la versión es 1.1.750.0 o posterior.
 
     >[!NOTE]
-    >Las versiones de Azure AD Connect 1.1.557.0, 1.1.558.0, 1.1.561.0 y 1.1.614.0 tienen un problema relacionado con la sincronización de hash de contraseña. Si _no_ pretende utilizar la sincronización de hash de contraseña junto con la autenticación de paso a través, consulte las [notas del historial de versiones de Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-version-history#116470).
+    >Las versiones de Azure AD Connect 1.1.557.0, 1.1.558.0, 1.1.561.0 y 1.1.614.0 tienen un problema relacionado con la sincronización de hash de contraseña. Si _no_ pretende utilizar la sincronización de hash de contraseña junto con la autenticación de paso a través, consulte las [notas del historial de versiones de Azure AD Connect](./reference-connect-version-history.md).
 
 3. Identifique uno o más servidores adicionales (que ejecute Windows Server 2012 R2 o versiones posteriores, con TLS 1.2 habilitado) en el que poder ejecutar los agentes de autenticación independientes. Estos servidores adicionales son necesarios para garantizar la alta disponibilidad de las solicitudes de inicio de sesión. Agregue los servidores al mismo bosque de Active Directory que los usuarios cuyas contraseñas se deben validar.
 
     >[!IMPORTANT]
-    >En entornos de producción, se recomienda tener un mínimo de 3 agentes de autenticación en ejecución en el inquilino. Hay un límite de sistema de 40 agentes de autenticación por inquilino. Y, como procedimiento recomendado, trate todos los servidores que ejecutan los agentes de autenticación como sistemas de nivel 0 (consulte la [referencia](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
+    >En entornos de producción, se recomienda tener un mínimo de 3 agentes de autenticación en ejecución en el inquilino. Hay un límite de sistema de 40 agentes de autenticación por inquilino. Y, como procedimiento recomendado, trate todos los servidores que ejecutan los agentes de autenticación como sistemas de nivel 0 (consulte la [referencia](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 
 4. Si hay un firewall entre los servidores y Azure AD, configure los elementos siguientes:
    - Asegúrese de que los agentes de autenticación pueden realizar solicitudes *salientes* a Azure AD a través de los puertos siguientes:
@@ -120,7 +120,7 @@ En esta fase, los usuarios de todos los dominios administrados del inquilino pue
 Si tiene previsto implementar la autenticación de paso a través en un entorno de producción, debe instalar un agente de autenticación independiente adicional. Instale los agentes de autenticación en servidores _distintos_ que el servidor en que se ejecuta Azure AD Connect. Esta configuración proporciona alta disponibilidad para las solicitudes de inicio de sesión.
 
 >[!IMPORTANT]
->En entornos de producción, se recomienda tener un mínimo de 3 agentes de autenticación en ejecución en el inquilino. Hay un límite de sistema de 40 agentes de autenticación por inquilino. Y, como procedimiento recomendado, trate todos los servidores que ejecutan los agentes de autenticación como sistemas de nivel 0 (consulte la [referencia](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
+>En entornos de producción, se recomienda tener un mínimo de 3 agentes de autenticación en ejecución en el inquilino. Hay un límite de sistema de 40 agentes de autenticación por inquilino. Y, como procedimiento recomendado, trate todos los servidores que ejecutan los agentes de autenticación como sistemas de nivel 0 (consulte la [referencia](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 
 La instalación de varios agentes de autenticación de paso a través solo garantiza una alta disponibilidad, pero no un equilibrio de carga determinista entre los agentes de autenticación. Para determinar cuántos agentes de autenticación necesita para su inquilino, considere la carga máxima y la carga media de las solicitudes de inicio de sesión que espera ver en el inquilino. Como referencia, un solo agente de autenticación puede administrar entre 300 y 400 autenticaciones por segundo en un servidor estándar con CPU de 4 núcleos y 16 GB de RAM.
 

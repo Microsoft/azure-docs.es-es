@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a recuperar archivos y carpetas desde
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: e12669609b21d23b775af27f95528c4b42e95e81
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 7b9d97e518282cf150a8f54225c11d9edcbf8892
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533564"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892582"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperación de archivos desde una copia de seguridad de máquina virtual de Azure
 
@@ -17,7 +17,7 @@ Azure Backup ofrece la funcionalidad de restauración de [discos y máquinas vir
 
 > [!NOTE]
 > Esta característica está disponible en las máquinas virtuales de Azure implementadas con el modelo de Resource Manager y protegidas en un almacén de Recovery Services.
-> No se pueden recuperar archivos a partir de una copia de seguridad de máquina virtual cifrada.
+> No es posible recuperar archivos a partir de una copia de seguridad de máquina virtual cifrada.
 >
 
 ## <a name="mount-the-volume-and-copy-files"></a>Montaje del volumen y copia de archivos
@@ -32,7 +32,7 @@ Para restaurar archivos o carpetas desde el punto de recuperación, vaya a la m�
 
 3. En el menú del panel de Backup, seleccione **Recuperación de archivos**.
 
-    ![Botón Recuperación de archivos](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
+    ![Selección de Recuperación de archivos](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
 
     Se abre el menú **Recuperación de archivos**.
 
@@ -42,7 +42,7 @@ Para restaurar archivos o carpetas desde el punto de recuperación, vaya a la m�
 
 5. Si desea descargar el software para copiar archivos del punto de recuperación, seleccione **Descargar ejecutable** (para máquinas virtuales Windows de Azure) o en **Descargar script** (para máquinas virtuales Linux de Azure, se genera un script de Python).
 
-    ![Contraseña generada](./media/backup-azure-restore-files-from-vm/download-executable.png)
+    ![Descarga del ejecutable](./media/backup-azure-restore-files-from-vm/download-executable.png)
 
     Azure descarga el archivo ejecutable o el script en el equipo local.
 
@@ -56,7 +56,7 @@ Para restaurar archivos o carpetas desde el punto de recuperación, vaya a la m�
 
 7. Asegúrese de que [tiene la máquina correcta](#selecting-the-right-machine-to-run-the-script) para ejecutar el script. Si la máquina correcta es la misma máquina en la que descargó el script, puede pasar a la sección de descarga. Desde la ubicación de descarga (normalmente, la carpeta *Descargas*), haga clic con el botón derecho en el archivo ejecutable o el script y ejecútelo con las credenciales del administrador. Cuando se le solicite, escriba la contraseña o péguela de la memoria y presione **Entrar**. Una vez que se escriba la contraseña válida, el script se conecta al punto de recuperación.
 
-    ![Menú Recuperación de archivos](./media/backup-azure-restore-files-from-vm/executable-output.png)
+    ![Salida del ejecutable](./media/backup-azure-restore-files-from-vm/executable-output.png)
 
 8. En el caso de las máquinas Linux, se genera un script de Python. Es necesario descargar el script y copiarlo en el servidor Linux relevante o compatible. Es posible que haya que modificar los permisos para ejecutarlo con ```chmod +x <python file name>```. Luego se ejecuta el archivo de Python con ```./<python file name>```.
 
@@ -68,7 +68,7 @@ Consulte la sección [Requisitos de acceso](#access-requirements) para asegurars
 
 Al ejecutar el archivo ejecutable, el sistema operativo monta los nuevos volúmenes y asigna letras de unidad. Puede usar el Explorador de Windows o el Explorador de archivos para buscar esas unidades. Las letras de unidad asignadas a los volúmenes no pueden ser las mismas que las de la máquina virtual original. Sin embargo, se conserva el nombre del volumen. Por ejemplo, si el volumen de la máquina virtual original era "Data Disk (E:`\`)", ese volumen se puede conectar al equipo local como "Data Disk ('cualquier letra':`\`)". Busque en todos los volúmenes que se mencionan en la salida del script hasta que encuentre sus archivos o carpeta.  
 
-   ![Menú Recuperación de archivos](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
+   ![Volúmenes de recuperación conectados](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
 
 #### <a name="for-linux"></a>Para Linux
 
@@ -85,6 +85,9 @@ Después de identificar los archivos y copiarlos en una ubicación de almacenami
 Cuando los discos estén desmontados, recibirá un mensaje. Puede tardar unos minutos en actualizarse la conexión para que pueda quitar los discos.
 
 En Linux, cuando se corta la conexión con el punto de recuperación, el sistema operativo no elimina las rutas de acceso de montaje correspondientes automáticamente. Las rutas de acceso de montaje adoptan la forma de volúmenes "huérfanos" y se pueden ver, pero se genera un error al acceder a los archivos o al escribir en ellos. Se pueden quitar manualmente. Cuando el script se ejecuta, este identifica todos los volúmenes existentes desde todos los puntos de recuperación anteriores y los limpia, aunque con consentimiento previo.
+
+> [!NOTE]
+> Asegúrese de que la conexión se cierra después de restaurar los archivos necesarios. Esto es importante, especialmente en el escenario en el que la máquina en la que se ejecuta el script también está configurada para la copia de seguridad. Si la conexión continúa abierta, la copia de seguridad posterior puede generar un error "UserErrorUnableToOpenMount". Esto sucede porque se entiende que las unidades o volúmenes montados están disponibles y, al acceder a ellos, podrían producir un error debido a que el almacenamiento subyacente, es decir, el servidor de destino iSCSI, no está disponible. La limpieza de la conexión quitará estas unidades o volúmenes, por lo que no estarán disponibles durante la copia de seguridad.
 
 ## <a name="selecting-the-right-machine-to-run-the-script"></a>Selección de la máquina correcta para ejecutar el script
 
@@ -166,7 +169,7 @@ La primera columna (PV) muestra el volumen físico, las columnas siguientes mues
 
 ###### <a name="duplicate-volume-groups"></a>Duplicación de grupos de volúmenes
 
-Hay escenarios en los que los nombres de los grupos de volúmenes pueden tener dos UUID después de ejecutar el script. Esto significa que los nombres de los grupos de volúmenes de la máquina donde se ejecutó el script y de la máquina virtual de la que se ha realizado una copia de seguridad son los mismos. En tal caso, es necesario cambiar el nombre de los grupos de volúmenes de las máquinas virtuales de las que se ha realizado una copia de seguridad. Observe el ejemplo siguiente:
+Hay escenarios en los que los nombres de los grupos de volúmenes pueden tener dos UUID después de ejecutar el script. Esto significa que los nombres de los grupos de volúmenes de la máquina donde se ejecutó el script y de la máquina virtual para la que se ha realizado una copia de seguridad son los mismos. En tal caso, es necesario cambiar el nombre de los grupos de volúmenes de las máquinas virtuales de las que se ha realizado una copia de seguridad. Observe el ejemplo siguiente.
 
 ```bash
 PV         VG        Fmt  Attr PSize   PFree    VG UUID
@@ -203,7 +206,7 @@ Asegúrese de que los grupos de volúmenes correspondientes a los volúmenes del
 vgdisplay -a
 ```  
 
-De lo contrario, active el grupo de volúmenes con el siguiente comando.
+De lo contrario, active el grupo de volúmenes mediante el siguiente comando.
 
 ```bash
 #!/bin/bash
@@ -231,7 +234,7 @@ mount <LV path from the lvdisplay cmd results> </mountpath>
 ```
 
 > [!WARNING]
-> No utilice "mount-a". Este comando monta todos los dispositivos descritos en "/etc/fstab". Esto podría hacer que se montaran dispositivos duplicados. Los datos se pueden redirigir a dispositivos creados por el script, que no los conservan y, por tanto, podría producirse una pérdida de datos.
+> No utilice "mount-a". Este comando monta todos los dispositivos descritos en "/etc/fstab". Esto podría hacer que se montaran dispositivos duplicados. Los datos se pueden redirigir a dispositivos creados por un script, que no los conserva y, por tanto, podría producirse una pérdida de datos.
 
 #### <a name="for-raid-arrays"></a>Para matrices RAID
 
@@ -282,7 +285,7 @@ En Linux, el sistema operativo del equipo usado para restaurar archivos debe adm
 | openSUSE | 42.2 y posterior |
 
 > [!NOTE]
-> Hemos descubierto algunos problemas al ejecutar el script de recuperación de archivos en máquinas con sistema operativo de SLES 12 SP4 y se están investigando con el equipo de SLES.
+> Hemos identificado algunos problemas al ejecutar el script de recuperación de archivos en máquinas con el sistema operativo SLES 12 SP4 y se están investigando con el equipo de SLES.
 > Actualmente, la ejecución del script de recuperación de archivos funciona en máquinas con versiones de sistema operativo de SLES 12 SP2 y SP3.
 >
 
@@ -299,7 +302,7 @@ El script también requiere los componentes Python y Bash para realizar la ejecu
 Si lo hace en un equipo con acceso restringido, asegúrese de que hay acceso a los siguientes recursos:
 
 - `download.microsoft.com`
-- Direcciones URL del servicio de recuperación (geo-nombre hace referencia a la región donde reside el almacén de Recovery Services)
+- Direcciones URL del servicio de recuperación (el nombre geográfico hace referencia a la región donde reside el almacén de Recovery Services)
   - `https://pod01-rec2.geo-name.backup.windowsazure.com` (Para todas las regiones públicas de Azure)
   - `https://pod01-rec2.geo-name.backup.windowsazure.cn` (Para Azure China 21Vianet)
   - `https://pod01-rec2.geo-name.backup.windowsazure.us` (Para Azure US Gov)
@@ -329,7 +332,7 @@ Dado que el proceso de recuperación de archivos asocia todos los discos de la c
     - Asegúrese de que el sistema operativo sea Windows Server 2012 o posterior.
     - Asegúrese de que las claves del Registro se establecen como se sugiere a continuación en el servidor de restauración y asegúrese de reiniciar el servidor. El número situado junto al GUID puede oscilar entre 0001 y 0005. En el ejemplo siguiente, es 0004. Navegue por la ruta de acceso de la clave del Registro hasta la sección de parámetros.
 
-    ![iscsi-reg-key-changes.png](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
+    ![Cambios en las claves del Registro](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
 
 ```registry
 - HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Disk\TimeOutValue – change this from 60 to 1200
@@ -340,7 +343,7 @@ Dado que el proceso de recuperación de archivos asocia todos los discos de la c
 
 - Si el servidor de restauración es una máquina virtual Linux:
   - En el archivo /etc/iscsi/iscsid.conf, cambie la configuración de:
-    - node.conn[0].timeo.noop_out_timeout = 5 a node.conn[0].timeo.noop_out_timeout = 30
+    - `node.conn[0].timeo.noop_out_timeout = 5` a `node.conn[0].timeo.noop_out_timeout = 30`
 - Tras realizar el cambio anterior, vuelva a ejecutar el script. Con estos cambios, es muy probable que la recuperación de archivos se realice correctamente.
 - Cada vez que el usuario descarga un script, Azure Backup inicia el proceso de preparación del punto de recuperación para su descarga. Con discos de gran tamaño, se tardará un tiempo considerable. Si hay ráfagas sucesivas de solicitudes, la preparación de destino pasará a un espiral de descarga. Por lo tanto, se recomienda descargar un script desde el portal, PowerShell o la CLI, esperar entre 20 y 30 minutos (valor heurístico) y luego ejecutarlo. En este momento, el destino debería estar listo para conectarse desde el script.
 - Después de la recuperación de archivos, asegúrese de volver al portal y seleccione **Desmontar discos** en los puntos de recuperación en los que no se pudieron montar los volúmenes. En esencia, este paso limpiará cualquier proceso o sesión y aumentará la posibilidad de recuperación.
@@ -352,7 +355,7 @@ Si tiene problemas al tratar de recuperar archivos de las máquinas virtuales, c
 | Mensaje de error y escenario | Causa probable | Acción recomendada |
 | ------------------------ | -------------- | ------------------ |
 | Salida del ejecutable: *Excepción detectada al conectarse al destino* | El script no puede acceder al punto de recuperación.    | Compruebe si la máquina cumple los [requisitos de acceso anteriores](#access-requirements). |  
-| Salida del ejecutable: *el destino ya ha iniciado sesión mediante una sesión iSCSI.* | El script ya se ejecutó en la misma máquina y se ha conectado la unidad. | Ya se han conectado los volúmenes del punto de recuperación. Es posible que NO se monten con las mismas letras de unidad de la máquina virtual original. Examine todos los volúmenes disponibles en el explorador de archivos para buscar su archivo. |
+| Salida del ejecutable: *el destino ya ha iniciado sesión mediante una sesión iSCSI.* | El script ya se ejecutó en la misma máquina y se ha conectado la unidad. | Ya se han conectado los volúmenes del punto de recuperación. Es posible que no se monten con las mismas letras de unidad de la máquina virtual original. Examine todos los volúmenes disponibles en el explorador de archivos para buscar su archivo. |
 | Salida del ejecutable: *este script no es válido porque se han desmontado los discos a través del portal o se ha superado el límite de 12 horas. Descargue un nuevo script del portal.* |    Se han desmontado los discos desde el portal o se ha superado el límite de 12 horas. | Este archivo ejecutable ahora no es válido y no se puede ejecutar. Si desea acceder a los archivos de esa recuperación en un momento dado, visite el portal para descargar un nuevo archivo ejecutable.|
 | En el equipo donde se ejecuta el archivo ejecutable: los nuevos volúmenes no se desmontan después de hacer clic en el botón Desmontar. | El iniciador iSCSI de la máquina no responde ni actualiza su conexión con el destino ni mantiene la caché. |  Espere unos minutos tras hacer clic **Desmontar**. Si los nuevos volúmenes no se han desmontado, examínelos todos. Al examinar todos los volúmenes se obliga al iniciador a actualizar la conexión y el volumen se desmonta con un mensaje de error que indica que el disco no está disponible.|
 | Salida del ejecutable: el script se ejecuta correctamente, pero no se muestra en la salida del script el mensaje que indica que se han conectado nuevos volúmenes. |    Se trata de un problema transitorio.    | Los volúmenes ya deberían estar conectados. Abra el Explorador para examinarlos. Si usa siempre la misma máquina para ejecutar scripts, considere la posibilidad de reiniciarla; debería mostrarse la lista en las ejecuciones posteriores del ejecutable. |
@@ -395,7 +398,7 @@ El flujo de datos entre el servicio de recuperación y la máquina se protege me
 
 Cualquier lista de control de acceso (ACL) a archivos presente en la máquina virtual principal o de la que se ha hecho una copia de seguridad se conserva también en el sistema de archivos montado.
 
-El script proporciona acceso de solo lectura a un punto de recuperación y solo es válido durante 12 horas. Si desea quitar el acceso antes, inicie sesión en Azure Portal, PowerShell o la CLI y realice el **desmontaje de discos** para ese punto de recuperación concreto. El script se invalidará inmediatamente.
+El script proporciona acceso de solo lectura a un punto de recuperación y solo es válido durante 12 horas. Si desea quitar el acceso antes, inicie sesión en Azure Portal, PowerShell o la CLI y **desmonte los discos** para ese punto de recuperación concreto. El script se invalidará inmediatamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

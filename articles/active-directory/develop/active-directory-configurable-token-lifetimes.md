@@ -13,16 +13,17 @@ ms.date: 04/17/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: d25c2e2603f36ff090d01f235a4c8e4a1ae12605
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: e50b4aa300c74ed5fff9a345f83d41fdda5a1054
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552856"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115873"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Vigencia de tokens configurable en la Plataforma de identidad de Microsoft (versión preliminar)
 
-Puede especificar la vigencia de un token emitido por la Plataforma de identidad de Microsoft. La vigencia de los tokens se puede configurar para todas las aplicaciones de una organización, para una aplicación multiinquilino (multiorganización) o para una entidad de servicio específica de una organización.
+Puede especificar la vigencia de un token emitido por la Plataforma de identidad de Microsoft. La vigencia de los tokens se puede configurar para todas las aplicaciones de una organización, para una aplicación multiinquilino (multiorganización) o para una entidad de servicio específica de una organización. 
+> Tenga en cuenta que actualmente no se admite la configuración de la vigencia de los tokens para las entidades de servicio de identidad administradas.
 
 > [!IMPORTANT]
 > Después de escuchar a los clientes durante la versión preliminar, hemos implementado las [funcionalidades de administración de sesiones de autenticación](https://go.microsoft.com/fwlink/?linkid=2083106) en el acceso condicional de Azure AD. Puede usar esta nueva característica para configurar la vigencia de los tokens de actualización mediante la configuración de la frecuencia de inicio de sesión. A partir del 30 de mayo de 2020, ningún inquilino nuevo podrá usar la directiva de vigencia de token configurable para configurar tokens de actualización y de sesión. La retirada se realizará varios meses después, lo que significa que dejaremos de contemplar las directivas de token de actualización y sesión existentes. Después, podrá seguir configurando la duración del token de acceso.
@@ -208,7 +209,7 @@ En los ejemplos, puede aprender a:
 * Crear una directiva para una aplicación nativa que llama a una API web
 * Administrar una directiva avanzada
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 En los ejemplos siguientes, va a crear, actualizar, vincular y eliminar directivas de aplicaciones, entidades de servicio y de la organización en general. Si no está familiarizado con Azure AD, se recomienda que aprenda [cómo obtener un inquilino de Azure AD](quickstart-create-new-tenant.md) antes de continuar con estos ejemplos.  
 
 Para comenzar, realice uno de los pasos siguientes:
@@ -550,4 +551,4 @@ Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -Policy
 
 Necesita una licencia de Azure AD Premium P1 para usar esta característica. Para obtener la licencia correcta para sus requisitos, consulte [Comparación de las características con disponibilidad general de las ediciones Gratis y Prémium](https://azure.microsoft.com/pricing/details/active-directory/).
 
-Los clientes con [licencias de Microsoft 365 Empresa](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) también tienen acceso a características de acceso condicional.
+Los clientes con [licencias de Microsoft 365 Empresa](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) también tienen acceso a características de acceso condicional.

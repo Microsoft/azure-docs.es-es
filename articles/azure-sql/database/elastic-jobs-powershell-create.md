@@ -4,24 +4,24 @@ description: Aprenda a crear un agente de trabajos elásticos mediante PowerShel
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: seo-lt-2019, sqldbrb=1
+ms.custom: seo-lt-2019, sqldbrb=1, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: tutorial
 author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 ms.date: 03/13/2019
-ms.openlocfilehash: 093214241757bdc3973d88d5a0e6f3157c6178c7
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 0fe6a3b1d0e5216d923cfe3997826e7a727f1a2b
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85251138"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077354"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Creación de un agente de trabajos elásticos mediante PowerShell
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Los [trabajos elásticos](job-automation-overview.md#elastic-database-jobs-preview) habilitan la ejecución de uno o más scripts de Transact-SQL (T-SQL) en paralelo en varias bases de datos.
+Los [trabajos elásticos (versión preliminar)](job-automation-overview.md#elastic-database-jobs-preview) permiten la ejecución de uno o más scripts de Transact-SQL (T-SQL) en paralelo en varias bases de datos.
 
 En este tutorial aprenderá los pasos necesarios para ejecutar una consulta en varias bases de datos:
 

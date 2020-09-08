@@ -7,14 +7,14 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: 1e4539dcec1f3f57f7fcc0ca0b8d8c266dc1bc99
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 62f30d8a0fe1b2f2397fc16161929279a148aaa2
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121510"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037514"
 ---
-# <a name="support-for-microsoft-commercial-marketplace"></a>Soporte técnico de Marketplace comercial de Microsoft
+# <a name="support-for-the-microsoft-commercial-marketplace"></a>Soporte técnico de marketplace comercial de Microsoft
 
 ¿Tiene alguna pregunta sobre cómo empezar a trabajar como anunciante de Marketplace comercial de Microsoft? A continuación, se muestra una lista de las opciones admitidas en Marketplace comercial. Además de los siguientes recursos, también puede obtener respuestas a muchas de sus preguntas en el [canal Marketplace del foro de la comunidad de C + AI](https://www.microsoftpartnercommunity.com/t5/Marketplace/bd-p/2222).  
 

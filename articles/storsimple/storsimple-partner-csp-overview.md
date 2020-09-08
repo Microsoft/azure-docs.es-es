@@ -1,6 +1,6 @@
 ---
 title: Introducción a Microsoft Azure StorSimple y el programa de soluciones en la nube | Microsoft Docs
-description: Introducción a StorSimple y CSP para asociados de StorSimple.
+description: Obtenga información introductoria sobre StorSimple y el programa de soluciones en la nube (CSP) para asociados de StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: e2adccaf1371cf322b5a50b0e1f6ef64dde14b66
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 358399426798ac20897d207c93a8874357e8b781
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60628666"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182007"
 ---
 # <a name="what-is-storsimple-for-cloud-solutions-providers-program"></a>¿Qué es StorSimple para el programa de proveedores de soluciones en la nube?
 

@@ -7,18 +7,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.reviewer: sngun
-ms.openlocfilehash: d7408f3b3e955d397ba4a54d07323f80dd72c3d3
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 23f99dc5c648948ce07f1b40106667d24906328a
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697335"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236801"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Lectura de la fuente de cambios de Azure Cosmos DB
 
-Puede trabajar con la fuente de cambios de Azure Cosmos DB mediante un modelo de inserción o un modelo de extracción. Con un modelo de inserción, un cliente solicita trabajo del servidor y tiene lógica de negocios para procesar un cambio. Sin embargo, el servidor se encarga de la complejidad de comprobar los cambios y almacenar el estado de los últimos cambios procesados.
+Puede trabajar con la fuente de cambios de Azure Cosmos DB mediante un modelo de inserción o un modelo de extracción. Con un modelo de inserción, un servidor (la fuente de cambios) envía el trabajo a un cliente que tiene la lógica de negocios para procesar este trabajo. Sin embargo, el servidor se encarga de la complejidad de comprobar el trabajo y almacenar el estado del último trabajo procesado.
 
-Con un modelo de extracción, un servidor solicita trabajo y, a menudo, lo hace desde una cola de trabajo central. En este caso, el cliente no solo tiene lógica de negocios para procesar los cambios, sino que también almacena el estado del último cambio procesado. De este modo, se encarga del equilibrio de carga entre varios clientes que procesan los cambios en paralelo, así como de los errores.
+Con un modelo de extracción, el cliente tiene que extraer el trabajo del servidor. En este caso, el cliente no solo tiene lógica de negocios para procesar el trabajo, sino que también almacena el estado del último trabajo procesado. De este modo, se encarga del equilibrio de carga entre varios clientes que procesan el trabajo en paralelo, así como de los errores.
 
 Para leer la fuente de cambios de Azure Cosmos DB, normalmente se recomienda usar un modelo de inserción, ya que no es necesario preocuparse por lo siguiente:
 

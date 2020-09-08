@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/29/2020
-ms.openlocfilehash: 29c04fc8f6af016200e06ad239095a3665de5869
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.custom: contperfq1
+ms.date: 08/21/2020
+ms.openlocfilehash: 4c4b9c60eb967b5791af724e5c15bba887263d44
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086439"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757870"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Escalado automático de clústeres de Azure HDInsight
 
@@ -133,7 +133,7 @@ Para obtener más información sobre la creación de clústeres de HDInsight con
 
 #### <a name="load-based-autoscaling"></a>Escalado automático basado en carga
 
-Para crear un clúster de HDInsight con el escalado automático basado en carga de una plantilla de Azure Resource Manager, agregue un nodo `autoscale` a la sección `computeProfile` > `workernode` con las propiedades `minInstanceCount` y `maxInstanceCount`, tal como se muestra en el fragmento de código JSON a continuación.
+Para crear un clúster de HDInsight con el escalado automático basado en carga de una plantilla de Azure Resource Manager, agregue un nodo `autoscale` a la sección `computeProfile` > `workernode` con las propiedades `minInstanceCount` y `maxInstanceCount`, tal como se muestra en el fragmento de código JSON a continuación. Para obtener una plantilla de Resource Manager completa, consulte [Plantilla de inicio rápido: Implementación de un clúster de Spark con la escalabilidad automática basada en carga habilitada](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-autoscale-loadbased).
 
 ```json
 {
@@ -161,7 +161,7 @@ Para crear un clúster de HDInsight con el escalado automático basado en carga 
 
 #### <a name="schedule-based-autoscaling"></a>Escalado automático basado en programación
 
-Para crear un clúster de HDInsight con el escalado automático basado en programación de una plantilla de Azure Resource Manager, agregue un nodo `autoscale` a la sección `computeProfile` > `workernode`. El nodo `autoscale` contiene una `recurrence` que tiene una `timezone` y una `schedule` que describe cuándo se aplicará el cambio.
+Para crear un clúster de HDInsight con el escalado automático basado en programación de una plantilla de Azure Resource Manager, agregue un nodo `autoscale` a la sección `computeProfile` > `workernode`. El nodo `autoscale` contiene una `recurrence` que tiene una `timezone` y una `schedule` que describe cuándo se aplicará el cambio. Para obtener una plantilla de Resource Manager completa, consulte [Implementación de un clúster de Spark con la escalabilidad automática basada en programación habilitada](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-autoscale-schedulebased).
 
 ```json
 {
@@ -258,6 +258,26 @@ Los trabajos seguirán en ejecución. Los trabajos pendientes esperarán una pro
 ### <a name="minimum-cluster-size"></a>Tamaño mínimo del clúster
 
 No reduzca verticalmente el clúster a menos de tres nodos. El escalado del clúster a menos de tres nodos puede hacer que se quede atascado en el modo seguro debido a una replicación de archivos insuficiente.  Para obtener más información, consulte [Bloqueo en modo seguro](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
+
+### <a name="llap-daemons-count"></a>Recuento de demonios de LLAP
+
+En el caso de los clústeres de LLAP habilitados para la escalabilidad automática, el evento de escalar o reducir verticalmente también escala vertical u horizontalmente el número de demonios de LLAP al número de nodos de trabajo activos. Pero este cambio en el número de demonios no se conserva en la configuración **num_llap_nodes** de Ambari. Si los servicios de Hive se reinician manualmente, el número de demonios de LLAP se restablecerá según la configuración de Ambari.
+
+Tomemos el siguiente escenario:
+1. Un clúster habilitado para la escalabilidad automática de LLAP se crea con tres nodos de trabajo y la escalabilidad automática basada en carga se habilita con el número mínimo de tres nodos de trabajo y el máximo de diez nodos de trabajo.
+2. La configuración del recuento de demonios de LLAP según la configuración de LLAP y Ambari es tres, ya que el clúster se creó con tres nodos de trabajo.
+3. Después, se desencadena una escalabilidad vertical automática debido a la carga en el clúster, el clúster se escala a diez nodos.
+4. La comprobación de escalabilidad automática que se ejecuta a intervalos regulares observa que el número de demonios de LLAP es tres, pero el número de nodos de trabajo activos es diez, el proceso de escalabilidad automática ahora aumentará el número de demonios de LLAP a diez, pero este cambio no se conserva en la configuración de Ambari -num_llap_nodes.
+5. La escalabilidad automática ahora está deshabilitada.
+6. El clúster tiene ahora diez nodos de trabajo y diez demonios de LLAP.
+7. El servicio LLAP se reinicia manualmente.
+8. Durante el reinicio, comprueba la configuración de num_llap_nodes en la configuración de LLAP y observa que el valor es tres, por lo que pone en marcha tres instancias de demonios, pero el número de nodos de trabajo es de diez. Hay entonces una discrepancia entre los dos.
+
+Cuando esto sucede, es necesario cambiar manualmente la **configuración de num_llap_node de (número de nodos para ejecutar el demonio de LLAP de Hive) en hive-interactive-env avanzado** para que coincida con el número actual de nodos de trabajo activos.
+
+**Nota**
+
+Los eventos de escalabilidad automática no cambian la configuración de Hive de **Número máximo total de consultas simultáneas** en Ambari. Esto significa que el servicio interactivo del servidor de Hive 2 **solo puede controlar el número dado de consultas simultáneas en cualquier momento, incluso si el número de demonios de LLAP se escala y reduce verticalmente en función de la carga o programación**. La recomendación general es establecer esta configuración para el escenario de uso máximo para que se pueda evitar la intervención manual. Sin embargo, debe tener en cuenta que **establecer un valor alto para el número máximo total de consultas simultáneas puede producir un error al reiniciar el servicio interactivo de Hive Server 2 si el número mínimo de nodos de trabajo no puede dar cabida al número determinado de Tez Ams (igual al valor máximo total de consultas simultáneas)**
 
 ## <a name="next-steps"></a>Pasos siguientes
 

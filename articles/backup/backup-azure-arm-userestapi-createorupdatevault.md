@@ -4,16 +4,16 @@ description: En este artículo obtendrá información sobre cómo administrar la
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: 0170bda1ca956efe971695e34dc0d14b68eb109a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c4aa88399bfbdd7814864170d9861a7b7d14dc58
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079339"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757258"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Creación del almacén de Azure Recovery Services mediante API REST
 
-Los pasos para crear un almacén de Azure Recovery Services con API REST se describen en el [documento de la creación de almacenes de API REST](/rest/api/recoveryservices/vaults/createorupdate). Vamos a usar este documento como referencia para crear un almacén de prueba llamado "testVault" en "Oeste de EE. UU.".
+Los pasos para crear un almacén de Azure Recovery Services mediante una API REST se describen en la documentación sobre [creación de almacenes de API REST](/rest/api/recoveryservices/vaults/createorupdate). Vamos a usar este documento como referencia para crear un almacén de prueba llamado "testVault" en "Oeste de EE. UU.".
 
 Para crear o actualizar un almacén de Azure Recovery Services, use la siguiente operación *PUT*.
 

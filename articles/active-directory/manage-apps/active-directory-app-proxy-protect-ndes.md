@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 01/17/2020
 ms.author: kenwith
 ms.reviewer: mimart
-ms.openlocfilehash: 0798b7674828b14a37f20921e05820d995bff6a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a385a339122197b7055ef6f54b8e37edea8eae4a
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84760803"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078944"
 ---
 # <a name="integrate-with-azure-ad-application-proxy-on-a-network-device-enrollment-service-ndes-server"></a>Integración con Azure AD Application Proxy en un servidor de servicio de inscripción de dispositivos de red (NDES)
 
@@ -89,10 +89,10 @@ Azure AD Application Proxy forma parte de Azure. Proporciona una cantidad masiv
 
 1. Debería ver una respuesta **Error HTTP 403: prohibido**.
 
-1. Cambie la dirección URL de NDES proporcionada (a través de Microsoft Intune) en los dispositivos. Este cambio puede hacerse en el centro de configuración de puntos de conexión de Microsoft o en Intune Cloud.
+1. Cambie la dirección URL de NDES proporcionada (mediante Microsoft Intune) a los dispositivos. Este cambio puede aplicarse en Microsoft Endpoint Configuration Manager o en el centro de administración de Microsoft Endpoint Manager.
 
-   * En el caso del centro de configuración, vaya al punto de registro de certificados (CRP) y ajuste la dirección URL. Esta es la dirección URL a la que los dispositivos llaman y presentan su desafío.
-   * Para Intune Cloud Only, también conocido como Intune Standalone, edite o cree una nueva directiva de SCEP y agregue la nueva dirección URL.
+   * En Configuration Manager, acceda al punto de registro de certificados y modifique la dirección URL. Esta es la dirección URL a la que los dispositivos llaman y presentan su desafío.
+   * En Intune independiente, edite o cree una nueva directiva de SCEP y añada la nueva dirección URL.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

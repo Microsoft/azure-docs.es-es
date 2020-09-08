@@ -3,12 +3,12 @@ title: 'Diseño de la implementación de Application Insights: uno frente a much
 description: Este artículo trata sobre el envío directo de la telemetría a los diferentes recursos para los sellos de desarrollo, prueba y producción.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 4f539862432fcdc67632e91caadf71d6584fbc3e
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 264cbe35e7af50577b345d686b639e47760f428d
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420573"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258714"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>¿Cuántos recursos de Application Insights se deben implementar?
 
@@ -41,7 +41,7 @@ Cada recurso de Application Insights incluye métricas disponibles de serie. En 
 
 ## <a name="dynamic-instrumentation-key"></a><a name="dynamic-ikey"></a> Copia de la clave de instrumentación
 
-Para que sea más fácil cambiar la clave iKey cuando el código se mueva entre las fases de producción, establézcala en el código en lugar de en el archivo de configuración.
+Para que sea más fácil cambiar el valor de iKey cuando el código pasa por las fases de producción, referencie la clave de forma dinámica en el código, en lugar de utilizar un valor estático o que se haya codificado de forma rígida.
 
 Establezca la clave en un método de inicialización, como global.aspx.cs en un servicio de ASP.NET:
 

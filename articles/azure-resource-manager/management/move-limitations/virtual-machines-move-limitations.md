@@ -2,13 +2,13 @@
 title: Traslado de máquinas virtuales de Azure a una nueva suscripción o grupo de recursos
 description: Use Azure Resource Manager para trasladar máquinas virtuales a un nuevo grupo de recursos o a una nueva suscripción.
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: e812f2cee44fc48dccbd8ab66a3343e087790803
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/26/2020
+ms.openlocfilehash: d522eb4a6496bc2cc65b4937a19b9ac5228e7f2b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87063099"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933246"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Guía del traslado de máquinas virtuales
 
@@ -18,7 +18,6 @@ En este artículo se describen los escenarios que actualmente no se admiten y lo
 
 Todavía no se admiten los siguientes escenarios:
 
-* Las instancias de Managed Disks en Availability Zones no se pueden trasladar a una suscripción diferente.
 * No es posible trasladar Virtual Machine Scale Sets con equilibrador de carga o IP pública de SKU estándar.
 * Las máquinas virtuales creadas a partir de recursos de Marketplace con planes asociados no se pueden mover entre suscripciones. Desaprovisione el recurso en la suscripción activa y vuelva a implementarlo en la nueva suscripción.
 * Las máquinas virtuales de una red virtual existente no se pueden mover a una suscripción nueva si no se van a mover todos los recursos de la red virtual.

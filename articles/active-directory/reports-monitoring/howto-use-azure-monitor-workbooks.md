@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ec492466e107eb6f4821f0e6d2caed9daa141a35
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 510991c1afba9a5ffbfd77e855ee25d8b641bdd0
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608957"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226988"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Uso de los libros de Azure Monitor en informes de Azure Active Directory
 
@@ -42,13 +42,13 @@ Quiere:
 
 - Obtenga información más detallada sobre las consultas del registro de inicio de sesión, el libro informa del número de usuarios a los que se ha concedido o denegado el acceso, así como de cuántos usuarios han omitido las directivas de acceso condicional al acceder a los recursos.
 
-- Para ayudarle a resolver estas cuestiones, Azure Active Directory proporciona libros para la supervisión. Los [libros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) combinan texto, consultas de análisis, métricas de Azure y parámetros en informes interactivos avanzados.
+- Para ayudarle a resolver estas cuestiones, Azure Active Directory proporciona libros para la supervisión. Los [libros de Azure Monitor](../../azure-monitor/platform/workbooks-overview.md) combinan texto, consultas de análisis, métricas de Azure y parámetros en informes interactivos avanzados.
 
 
 
 Este artículo:
 
-- Supone que está familiarizado con cómo [crear informes interactivos con libros de Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview).
+- Supone que está familiarizado con cómo [crear informes interactivos con libros de Monitor](../../azure-monitor/platform/workbooks-overview.md).
 
 - Explica cómo utilizar los libros de Monitor para comprender el efecto de las directivas de acceso condicional, para solucionar los problemas de inicio de sesión e identificar las autenticaciones heredadas.
  
@@ -58,11 +58,11 @@ Este artículo:
 
 Para utilizar los libros de Monitor, necesita:
 
-- Un inquilino de Azure Active Directory con una licencia Premium (P1 o P2). Aprenda cómo [obtener una licencia prémium](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
+- Un inquilino de Azure Active Directory con una licencia Premium (P1 o P2). Aprenda cómo [obtener una licencia prémium](../fundamentals/active-directory-get-started-premium.md).
 
-- Un [área de trabajo de Log Analytics.](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
+- Un [área de trabajo de Log Analytics.](../../azure-monitor/learn/quick-create-workspace.md)
 
-- [Acceso](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) al área de trabajo de Log Analytics
+- [Acceso](../../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions) al área de trabajo de Log Analytics
 - Los siguientes roles en Azure Active Directory (si obtiene acceso a Log Analytics a través del portal de Azure Active Directory)
     - Administrador de seguridad
     - Lector de seguridad
@@ -70,7 +70,7 @@ Para utilizar los libros de Monitor, necesita:
     - Administrador global
 
 ## <a name="roles"></a>Roles
-Debe estar en uno de los roles siguientes y tener [acceso al área de trabajo subyacente de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) para administrar los libros:
+Debe estar en uno de los roles siguientes y tener [acceso al área de trabajo subyacente de Log Analytics](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) para administrar los libros:
 -   Administrador global
 -   Administrador de seguridad
 -   Lector de seguridad
@@ -302,4 +302,4 @@ Para ayudarle a solucionar problemas de inicios de sesión, Azure Monitor propor
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Creación de informes interactivos con los libros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview).
+[Creación de informes interactivos con los libros de Azure Monitor](../../azure-monitor/platform/workbooks-overview.md).

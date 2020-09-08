@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 07/14/2020
-ms.openlocfilehash: d49f9df9fdc7dd8d2fb53b9ad6eb6eae64965fb7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 09/02/2020
+ms.openlocfilehash: fe8024c60e204a4ec72002c878f7753ae35aa00d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87271729"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393826"
 ---
 # <a name="pricing-for-virtual-machine-offers"></a>Precios de ofertas de máquinas virtuales
 
@@ -98,7 +98,7 @@ El editor también puede cargar la hoja de cálculo de precios en una ubicación
 
 ## <a name="new-core-sizes-added-on-722019"></a>Nuevos tamaños de núcleo agregados el 2/7/2019
 
-A los publicadores de máquinas virtuales se les notificó el 2 de julio de 2019 la incorporación de nuevos precios para los nuevos tamaños de máquina virtual de Azure (en función del número de núcleos).  Los nuevos precios son para los tamaños de núcleo 10, 44, 48, 60, 120, 208 y 416.  Para ofertas de máquinas virtuales existentes, los nuevos precios para estos tamaños de núcleo se han calculado automáticamente en función de los precios actuales.  Los publicadores tienen hasta el 1 de agosto de 2019 para revisar los precios adicionales y realizar los cambios deseados.  Después de esta fecha, si el publicador no los ha vuelto a publicar, se aplicarán los precios calculados automáticamente para estos nuevos tamaños de núcleo.
+A los publicadores de máquinas virtuales se les notificó el 2 de julio de 2019 la incorporación de nuevos precios para los nuevos tamaños de máquina virtual de Azure (en función del número de núcleos).  Los nuevos precios son para los tamaños de núcleo 10, 44, 48, 60, 120, 208 y 416.  Para ofertas de máquinas virtuales existentes, los nuevos precios para estos tamaños de núcleo se han calculado automáticamente en función de los precios actuales. Los publicadores tienen hasta el 1 de agosto de 2019 para revisar los precios adicionales y realizar los cambios deseados.  Después de esta fecha, si el publicador no los ha vuelto a publicar, se aplicarán los precios calculados automáticamente para estos nuevos tamaños de núcleo.
 
 ## <a name="regions"></a>Regions
 
@@ -121,7 +121,7 @@ En la tabla siguiente se muestran las distintas regiones que se pueden especific
 | CR         | Costa Rica           | CRC               |
 | HR         | Croacia              | HRK               |
 | CY         | Chipre               | EUR               |
-| CZ         | República Checa       | CZK               |
+| CZ         | Chequia       | CZK               |
 | DK         | Dinamarca              | DKK               |
 | DO         | República Dominicana   | USD               |
 | EC         | Ecuador              | USD               |
@@ -151,7 +151,6 @@ En la tabla siguiente se muestran las distintas regiones que se pueden especific
 | LI         | Liechtenstein        | CHF               |
 | LT         | Lituania            | EUR               |
 | LU         | Luxemburgo           | EUR               |
-| MK         | Macedonia del Norte      | MKD               |
 | MY         | Malasia             | MYR               |
 | MT         | Malta                | EUR               |
 | MX         | México               | MXN               |
@@ -160,6 +159,7 @@ En la tabla siguiente se muestran las distintas regiones que se pueden especific
 | NL         | Países Bajos          | EUR               |
 | NZ         | Nueva Zelanda          | NZD               |
 | NG         | Nigeria              | NGN               |
+| MK         | Macedonia del Norte      | MKD               |
 | No         | Noruega               | NOK               |
 | OM         | Omán                 | OMR               |
 | PK         | Pakistán             | PKR               |

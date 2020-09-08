@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83cc75c1d69ee7232edf0c21643d25027b97f088
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14612247d241aed420a76ff40e19d04164cbe150
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85339718"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049934"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planeamiento de la implementación del acceso condicional
 
@@ -242,7 +242,7 @@ Puede ser difícil predecir el número y los nombres de los usuarios afectados p
 
 El [modo de solo informe](concept-conditional-access-report-only.md) permite a los administradores evaluar el impacto de las directivas de CA antes de habilitarlas en su entorno.
 
-Obtenga información sobre cómo [configurar el modo de solo informe en una directiva de acceso condicional](howto-conditional-access-report-only.md).
+Obtenga información sobre cómo [configurar el modo de solo informe en una directiva de acceso condicional](howto-conditional-access-insights-reporting.md).
 
 ### <a name="plan-for-disruption"></a>Planear la interrupción
 
@@ -313,7 +313,7 @@ Casos de uso comunes para exigir el acceso a MFA:
 
 * [De los administradores](howto-conditional-access-policy-admin-mfa.md)
 
-* [A aplicaciones específicas](app-based-mfa.md)
+* [A aplicaciones específicas](../authentication/tutorial-enable-azure-mfa.md)
 
 * [Para todos los usuarios](howto-conditional-access-policy-all-users-mfa.md)
 
@@ -384,18 +384,18 @@ El plan de pruebas es importante para tener una comparación entre los resultado
 | - | - | - |
 | [Exigir la autenticación multifactor desde fuera de la oficina](untrusted-networks.md)| El usuario autorizado inicia sesión en la aplicación desde la oficina / una ubicación de confianza| Al usuario no se le solicita autenticación multifactor |
 | [Exigir la autenticación multifactor desde fuera de la oficina](untrusted-networks.md)| El usuario autorizado inicia sesión en la aplicación desde otro lugar distinto a la oficina / una ubicación de confianza| Al usuario se le solicita autenticación multifactor para iniciar sesión |
-| [Exigir autenticación multifactor (para administradores)](howto-baseline-protect-administrators.md)| El administrador global inicia sesión en la aplicación| Al administrador se le solicita autenticación multifactor |
-| [Inicios de sesión no seguros](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)| El usuario inicia sesión en la aplicación usando un explorador no aprobado| Al administrador se le solicita autenticación multifactor |
+| [Exigir autenticación multifactor (para administradores)](../fundamentals/concept-fundamentals-security-defaults.md)| El administrador global inicia sesión en la aplicación| Al administrador se le solicita autenticación multifactor |
+| [Inicios de sesión no seguros](../identity-protection/howto-identity-protection-configure-risk-policies.md)| El usuario inicia sesión en la aplicación usando un explorador no aprobado| Al administrador se le solicita autenticación multifactor |
 | [Administración de dispositivos](require-managed-devices.md)| El usuario autorizado intenta iniciar sesión desde un dispositivo autorizado| El acceso se le concede |
 | [Administración de dispositivos](require-managed-devices.md)| El usuario autorizado intenta iniciar sesión desde un dispositivo no autorizado| El acceso se le bloquea |
-| [Cambio de contraseña en caso de riesgo del usuario](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)| El usuario autorizado intenta iniciar sesión con credenciales en riesgo (inicio de sesión de alto riesgo)| Al usuario se le solicita que cambie la contraseña o se le bloquea el acceso (de conformidad con la directiva) |
+| [Cambio de contraseña en caso de riesgo del usuario](../identity-protection/howto-identity-protection-configure-risk-policies.md)| El usuario autorizado intenta iniciar sesión con credenciales en riesgo (inicio de sesión de alto riesgo)| Al usuario se le solicita que cambie la contraseña o se le bloquea el acceso (de conformidad con la directiva) |
 
 
 ### <a name="configure-the-test-policy"></a>Configurar la directiva de prueba
 
 En [Azure Portal](https://portal.azure.com/), configure las directivas de CA en Azure Active Directory > Seguridad > Acceso condicional.
 
-Si desea obtener más información sobre cómo crear directivas de CA, consulte este ejemplo: [Directiva de CA para solicitar MFA cuando un usuario inicie sesión en Azure Portal](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json). Este artículo de inicio rápido le ayudará a:
+Si desea obtener más información sobre cómo crear directivas de CA, consulte este ejemplo: [Directiva de CA para solicitar MFA cuando un usuario inicie sesión en Azure Portal](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json). Este artículo de inicio rápido le ayudará a:
 
 * Familiarizarse con la interfaz de usuario
 
@@ -442,7 +442,7 @@ En caso de que necesite revertir las directivas recién implementadas, use una o
 > [!NOTE]
 >  Esta opción debe usarse con moderación, solo en situaciones donde el usuario sea de confianza. El usuario debe agregarse de nuevo a la directiva o grupo n cuanto sea posible.
 
-* **Elimine la directiva.** Si ya no es necesaria, [elimínela](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json).
+* **Elimine la directiva.** Si ya no es necesaria, [elimínela](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json).
 
 ## <a name="manage-access-to-cloud-apps"></a>Administración del acceso a las aplicaciones en la nube
 
@@ -501,4 +501,4 @@ Una vez que haya recopilado la información, consulte los siguientes recursos:
 
 [Más información sobre Identity Protection](../identity-protection/overview-identity-protection.md)
 
-[Administración de directivas de CA con Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md)
+[Administración de directivas de CA con Microsoft Graph API](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf3fd50b907e69311c475af844c7969f081a3094
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 7d3fbb06355772794fbe3fab5cdf3c8622c2baf4
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849928"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948834"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Instrucciones: Uso obligatorio de dispositivos administrados para el acceso a aplicaciones en la nube mediante el acceso condicional
 
@@ -28,7 +28,7 @@ En este artículo se explica cómo puede configurar directivas de acceso condici
 
 El uso obligatorio de dispositivos administrados para acceder a las aplicaciones en la nube vincula el **acceso condicional de Azure AD** y la **administración de dispositivos de Azure AD**. Si no está familiarizado con ninguna de estas áreas, debería leer los siguientes temas en primer lugar:
 
-- **[Acceso condicional en Azure Active Directory](../active-directory-conditional-access-azure-portal.md)** : en este artículo se proporciona información general conceptual sobre el acceso condicional y la terminología relacionada.
+- **[Acceso condicional en Azure Active Directory](./overview.md)** : en este artículo se proporciona información general conceptual sobre el acceso condicional y la terminología relacionada.
 - **[Introducción a la administración de dispositivos en Azure Active Directory](../devices/overview.md)** : en este artículo se proporciona información general de las diversas opciones que tiene para mantener los dispositivos bajo el control de la organización. 
 - Para la compatibilidad con Chrome en **Windows 10 Creators Update (versión 1703)** o posterior, instale la [extensión de cuentas de Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). Esta extensión es necesaria cuando una directiva de acceso condicional requiere detalles específicos del dispositivo.
 

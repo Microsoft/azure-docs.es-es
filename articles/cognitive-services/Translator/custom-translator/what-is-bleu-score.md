@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 08/17/2020
 ms.author: swmachan
-ms.openlocfilehash: b35dce5a2b572e5a3f11601d5e67efb2da02cdec
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 61c1efb7337bee5fe329c9d548e23f3931e6ce3c
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83997067"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510783"
 ---
 # <a name="what-is-a-bleu-score"></a>¿Qué es una puntuación BLEU?
 
@@ -26,7 +26,7 @@ El algoritmo de BLEU compara expresiones consecutivas de la traducción automát
 
 ## <a name="how-bleu-works"></a>¿Cómo funciona BLEU?
 
-El punto fuerte de BLEU es que se correlaciona bien con el criterio humano al calcular el promedio de los errores de criterio de frases individuales de un corpus de prueba, en lugar de intentar averiguar el criterio humano exacto para cada frase.
+La principal ventaja de BLEU es que se correlaciona bien con el criterio humano calculando el promedio de los errores de criterio de frases individuales de un corpus de prueba, en lugar de intentar averiguar el criterio humano exacto para cada frase.
 
 [Aquí](https://youtu.be/-UqDljMymMg) puede encontrar un análisis más completo sobre la puntuación BLEU.
 

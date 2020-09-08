@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: damaerte
-ms.openlocfilehash: 5abc10d149cdb2c054f4122cd805ec22b2e37e2f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1cb5716e2f02a99e4d39a4041a2e54e87cf43568
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095201"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114666"
 ---
 # <a name="deploy-cloud-shell-into-an-azure-virtual-network"></a>Implementación de Cloud Shell en una instancia de Azure Virtual Network
 > [!NOTE]
@@ -103,7 +103,7 @@ Desplácese a la retransmisión que se creó con la plantilla anterior, seleccio
 > [!NOTE]
 > Este paso se debe completar para todos los administradores que usarán Cloud Shell.
 
-Después de implementar los pasos anteriores, diríjase a Cloud Shell en Azure Portal o en https://shell.azure.com.
+Después de implementar los pasos anteriores, diríjase a Cloud Shell en Azure Portal o en https://shell.azure.com. Una de estas experiencias debe usarse cada vez que quiera conectarse a una experiencia de Cloud Shell aislada.
 
 > [!NOTE]
 > Si ha usado Cloud Shell en el pasado, el clouddrive existente debe desmontarse. Para ello, ejecute `clouddrive unmount` desde una sesión de Cloud Shell activa y actualice la página.

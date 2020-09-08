@@ -3,26 +3,28 @@ title: Migración de Azure Media Services v2 a v3 | Microsoft Docs
 description: En este artículo se describen los cambios realizados en Azure Media Services v3 y se muestran las diferencias entre las dos versiones. En el artículo también se proporcionan instrucciones de migración para pasar de Media Services v2 a v3.
 services: media-services
 documentationcenter: na
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 tags: ''
 keywords: azure media services, transmisión, difusión, en vivo, sin conexión
 ms.service: media-services
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/09/2020
-ms.author: juliako
-ms.openlocfilehash: c9ec677e356f5d4e70a49c9de10f0fdb2039917d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: b4e79a2aab5ca72ff8263bfc5734757bbff41005
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078054"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297746"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Guía de migración para mover de Media Services v2 a v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 >Reciba notificaciones para volver a visitar esta página y obtener actualizaciones; para ello, copie y pegue esta URL (`https://docs.microsoft.com/api/search/rss?search=%22Migrate+from+Azure+Media+Services+v2+to+v3%22&locale=en-us`) en el lector de fuentes RSS.
 

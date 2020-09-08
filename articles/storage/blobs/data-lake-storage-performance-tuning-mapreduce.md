@@ -1,6 +1,6 @@
 ---
 title: 'Ajustar rendimiento: MapReduce, HDInsight y Azure Data Lake Storage Gen2 | Microsoft Docs'
-description: Guía para la optimización del rendimiento de MapReduce de Azure Data Lake Storage Gen2
+description: Conozca las directrices para optimizar el rendimiento de los trabajos de MapReduce en Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 7e4030583ac902093c30374c24b877e3f089eb02
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e9d638a7ed17d08b585c71b1dac4a0177f4a2939
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106227"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030527"
 ---
 # <a name="tune-performance-mapreduce-hdinsight--azure-data-lake-storage-gen2"></a>Ajustar rendimiento: MapReduce, HDInsight y Azure Data Lake Storage Gen2
 

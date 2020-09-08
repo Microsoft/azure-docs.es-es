@@ -6,12 +6,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 3/21/2019
 ms.author: rohink
-ms.openlocfilehash: 1543c0daae7d637730a5f8f9da2305423ba7f84e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: d59f166897674e9dcff8086b8f5c906605155ee3
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76932398"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924281"
 ---
 # <a name="what-is-azure-dns"></a>¿Qué es Azure DNS?
 
@@ -29,7 +29,7 @@ Los dominios DNS de DNS de Azure se hospedan en la red global de servidores de n
 
  Azure DNS se basa en Azure Resource Manager, que proporciona características tales como:
 
-* [Control de acceso basado en rol](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview): para controlar quién tiene acceso a acciones específicas en la organización.
+* [Control de acceso basado en rol de Azure (Azure RBAC)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para controlar quién accede a acciones específicas en la organización.
 
 * [Registros de actividad](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview): para supervisar cómo un usuario de su organización modificó un recurso o para encontrar errores al solucionar problemas.
 
@@ -70,4 +70,3 @@ Para obtener más información, consulte [Overview of Azure DNS alias records](d
 * Para más información sobre cómo crear una zona en Azure DNS, consulte [Creación de una zona DNS](./dns-getstarted-create-dnszone-portal.md).
 
 * Para ver las preguntas más frecuentes sobre DNS de Azure, vea [Azure DNS FAQ (P+F de DNS de Azure)](dns-faq.md).
-

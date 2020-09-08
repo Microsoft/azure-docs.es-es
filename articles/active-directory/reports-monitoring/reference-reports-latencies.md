@@ -17,12 +17,12 @@ ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d031546bb4f1f05e9ea2abb5b74fe911b0b507f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0498ee1c57cfa661884fe3209d4e089b54996fae
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74007702"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231068"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latencias de informes de Azure Active Directory
 
@@ -54,8 +54,8 @@ Si ya tiene datos de actividades con la licencia gratuita, entonces los verá in
 
 Hay dos tipos de informes de seguridad:
 
-- [Inicios de sesión peligrosos](concept-risky-sign-ins.md): un inicio de sesión peligroso es un indicador de un intento de inicio de sesión que puede haber realizado alguien que no es el propietario legítimo de una cuenta de usuario. 
-- [Usuarios marcados en riesgo](concept-user-at-risk.md): un usuario en peligro es un indicador de una cuenta de usuario que puede haber estado en peligro. 
+- [Inicios de sesión peligrosos](../identity-protection/overview-identity-protection.md): un inicio de sesión peligroso es un indicador de un intento de inicio de sesión que puede haber realizado alguien que no es el propietario legítimo de una cuenta de usuario. 
+- [Usuarios marcados en riesgo](../identity-protection/overview-identity-protection.md): un usuario en peligro es un indicador de una cuenta de usuario que puede haber estado en peligro. 
 
 La tabla siguiente enumera la información de latencia para los informes de seguridad.
 
@@ -84,4 +84,4 @@ La tabla siguiente enumera la información de latencia para detecciones de riesg
 
 * [Información general sobre informes de Azure AD](overview-reports.md)
 * [Acceso mediante programación a los informes de Azure AD](concept-reporting-api.md)
-* [Detecciones de riesgo de Azure Active Directory](concept-risk-events.md)
+* [Detecciones de riesgo de Azure Active Directory](../identity-protection/overview-identity-protection.md)

@@ -11,12 +11,12 @@ ms.date: 01/08/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e60c35a32152d4adec72fb507becc0db535036f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 02a30aa4d553910c52a7dde89719450baf9037ce
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80631726"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278843"
 ---
 # <a name="what-is-azure-ad-connect"></a>¿Qué es Azure AD Connect?
 
@@ -26,7 +26,7 @@ Azure AD Connect es la herramienta de Microsoft diseñada para satisfacer y logr
 - [Autenticación de paso a través](how-to-connect-pta.md): un método de inicio de sesión que permite a los usuarios usar la misma contraseña de forma local y en la nube, pero que no requiere la infraestructura adicional de un entorno federado.
 - [Integración de federación](how-to-connect-fed-whatis.md): la federación es una parte opcional de Azure AD Connect y puede utilizarse para configurar un entorno híbrido mediante una infraestructura local de AD FS. También proporciona funcionalidades de administración de AD FS, como la renovación de certificados e implementaciones de servidor de AD FS adicionales.
 - [Sincronización](how-to-connect-sync-whatis.md): responsable de la creación de usuarios, grupos y otros objetos.  También de asegurar que la información de identidad de los usuarios y los grupos de su entorno local coincide con la de la nube.  Esta sincronización también incluye los códigos hash de contraseña.
-- [Seguimiento de estado](whatis-hybrid-identity-health.md): Azure AD Connect Health puede proporcionar una sólida supervisión y una ubicación central en Azure Portal donde se puede ver esta actividad. 
+- [Seguimiento de estado](): Azure AD Connect Health puede proporcionar una sólida supervisión y una ubicación central en Azure Portal donde se puede ver esta actividad. 
 
 
 ![Qué es Azure AD Connect](./media/whatis-hybrid-identity/arch.png)
@@ -76,4 +76,4 @@ Principales ventajas y procedimientos recomendados:
 - [Hardware y requisitos previos](how-to-connect-install-prerequisites.md) 
 - [Configuración rápida](how-to-connect-install-express.md)
 - [Configuración personalizada](how-to-connect-install-custom.md)
-- [Instalación de agentes de Azure AD Connect Health](how-to-connect-health-agent-install.md) 
+- [Instalación de agentes de Azure AD Connect Health](how-to-connect-health-agent-install.md)

@@ -1,6 +1,6 @@
 ---
 title: Comparación de características de los planes de tarifa de Azure API Management | Microsoft Docs
-description: En este artículo se comparan los planes de tarifa de API Management según las características que ofrecen.
+description: En este artículo se comparan los planes de tarifa de API Management según las características que ofrecen. Verá una tabla donde se resumen las características principales disponibles en cada plan de tarifa.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: apimpm
-ms.openlocfilehash: ef16339d9a584eb12c611a25d636a9287265953a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 262d12e1b0ff74570b44b7794f8b55619a9afa97
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284343"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905149"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Comparación de características de los planes de tarifa de Azure API Management
 
@@ -26,7 +26,7 @@ Cada [plan de tarifa](https://aka.ms/apimpricing) de API Management ofrece un co
 > [!IMPORTANT]
 > Tenga en cuenta que el nivel Desarrollador no es para evaluaciones ni casos de uso que no son de producción. No proporciona Acuerdos de Nivel de Servicio.
 
-| Característica                                                                                      | Consumo | Desarrollador | Básica | Estándar | Premium |
+| Característica                                                                                      | Consumo | Desarrollador | Básico | Estándar | Premium |
 | -------------------------------------------------------------------------------------------- | ----------- | --------- | ----- | -------- | ------- |
 | Integración de Azure AD<sup>1</sup>                                                             | No          | Sí       | No    | Sí      | Sí     |
 | Compatibilidad con redes virtuales (VNet)                                                               | No          | Sí       | No    | No       | Sí     |

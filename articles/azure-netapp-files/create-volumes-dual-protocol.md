@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/28/2020
+ms.date: 8/11/2020
 ms.author: b-juche
-ms.openlocfilehash: 61e8c56e75e82bc28ddb2abf231d9a5e919691b0
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: f4cc253de0de9d099cfc4881f48182cf9b2a1616
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535291"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88134588"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Creación de un volumen de protocolo dual (NFSv3 y SMB) para Azure NetApp Files
 
@@ -36,6 +36,7 @@ Azure NetApp Files admite la creación de volúmenes con NFS (NFSv3 y NFSv4.1), 
 ## <a name="considerations"></a>Consideraciones
 
 * Asegúrese de cumplir los [requisitos para las conexiones de Active Directory](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections). 
+* Cree una zona de búsqueda inversa en el servidor DNS y, a continuación, agregue un registro de puntero (PTR) de la máquina host de AD en esa zona de búsqueda inversa. De lo contrario, se producirá un error en la creación del volumen de dos protocolos.
 * Asegúrese de que el cliente NFS esté actualizado y ejecute las actualizaciones más recientes del sistema operativo.
 
 ## <a name="create-a-dual-protocol-volume"></a>Creación de un volumen de protocolo dual
@@ -44,7 +45,7 @@ Azure NetApp Files admite la creación de volúmenes con NFS (NFSv3 y NFSv4.1), 
 
     ![Vaya a Volúmenes](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png) 
 
-2.  En la ventana Crear un volumen, haga clic en **Crear** y proporcione la información para los campos siguientes en la pestaña Aspectos básicos:   
+2.  En la ventana Crear un volumen, haga clic en **Crear** y proporcione la información para los campos siguientes bajo la pestaña Aspectos básicos:   
     * **Nombre del volumen**      
         Especifique el nombre para el volumen que va a crear.   
 

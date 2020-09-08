@@ -7,12 +7,13 @@ ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 05/26/2020
-ms.openlocfilehash: 1fc4c0497095c2ab4e1210ab71bc5597713499b7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: a3870ae192955df11107f0ebb5c618b90a0cc799
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120473"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833256"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mariadb-server-using-powershell"></a>Copia de seguridad y restauración de un servidor de Azure Database for MariaDB mediante PowerShell
 
@@ -132,4 +133,4 @@ El servidor creado durante una restauración no tiene los puntos de conexión de
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Personalización de parámetros de servidor de Azure Database for MariaDB mediante PowerShell](howto-configure-server-parameters-using-powershell.md)
+> [Cómo generar una cadena de conexión de Azure Database for MariaDB con PowerShell](howto-connection-string-powershell.md)

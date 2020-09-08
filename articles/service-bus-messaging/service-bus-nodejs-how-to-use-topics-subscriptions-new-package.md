@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-javascript
-ms.openlocfilehash: fafdf18a3593f7ec444e9970d99807cbfe0cb13d
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: bbb0f530d95c78b8b5da178ee1544830ac3f7132
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080633"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660603"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>Inicio rápido: Uso de los temas y las suscripciones de Service Bus con Node.js y el paquete azure/services-bus.
 En este tutorial, obtendrá información sobre cómo crear un programa de Node.js para enviar mensajes a un tema de Service Bus y recibir mensajes de una suscripción de Service Bus con el paquete [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) nuevo. En este paquete se usa el [protocolo AMQP 1.0](service-bus-amqp-overview.md) (más rápido), mientras que en el paquete [azure-sb](https://www.npmjs.com/package/azure-sb) anterior se utilizaban las [API de tiempo de ejecución REST de Service Bus](/rest/api/servicebus/service-bus-runtime-rest). Los ejemplos están escritos en JavaScript.
@@ -86,7 +86,7 @@ El tamaño máximo de mensaje que admiten los temas de Service Bus es de 256 KB 
 La interactuación con una suscripción de Service Bus empieza por la creación de una instancia de la clase [ServiceBusClient](/javascript/api/@azure/service-bus/servicebusclient) y su uso para crear una instancia de la clase [SubscriptionClient](/javascript/api/@azure/service-bus/subscriptionclient). Una vez que tenga el cliente de suscripción, puede crear un receptor y usar los métodos [receiveMessages](/javascript/api/@azure/service-bus/receiver#receivemessages-number--undefined---number-) o [registerMessageHandler](/javascript/api/@azure/service-bus/receiver#registermessagehandler-onmessage--onerror--messagehandleroptions-) en él para recibir mensajes.
 
 1. Abra el editor que prefiera, como [Visual Studio Code](https://code.visualstudio.com/)
-2. Cree un archivo denominado `recieve.js` y pegue en él el código siguiente. Este código intentará recibir 10 mensajes de la suscripción. El recuento real que recibe depende del número de mensajes en la suscripción y la latencia de red.
+2. Cree un archivo denominado `receive.js` y pegue en él el código siguiente. Este código intentará recibir 10 mensajes de la suscripción. El recuento real que recibe depende del número de mensajes en la suscripción y la latencia de red.
 
     ```javascript
     const { ServiceBusClient, ReceiveMode } = require("@azure/service-bus"); 
@@ -117,7 +117,7 @@ La interactuación con una suscripción de Service Bus empieza por la creación 
     });
     ```
 3. Escriba la cadena de conexión y los nombres del tema y la suscripción del código anterior.
-4. Después, ejecute el comando `node receiveMessages.js` en un símbolo del sistema para ejecutar este archivo.
+4. Después, ejecute el comando `node receive.js` en un símbolo del sistema para ejecutar este archivo.
 
 Felicidades. Acaba de recibir mensajes de una suscripción de Service Bus.
 

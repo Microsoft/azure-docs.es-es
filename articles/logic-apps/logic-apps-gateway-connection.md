@@ -5,17 +5,17 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, divswa, logicappspm
 ms.topic: article
-ms.date: 07/28/2020
-ms.openlocfilehash: 675d4bdb0b8c0aa8e034d5a85dc027f642705fa9
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.date: 08/18/2020
+ms.openlocfilehash: 2dd086ccc45458299cf6b8a7ad83d023055c96ae
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386187"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661204"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Conexión a orígenes de datos locales desde Azure Logic Apps
 
-Después de [instalar la *puerta de enlace de datos local* en un equipo local](../logic-apps/logic-apps-gateway-install.md) y antes de poder acceder a los orígenes de datos locales desde las aplicaciones lógicas, debe crear un recurso de puerta de enlace en Azure para la instalación de la puerta de enlace. Después puede seleccionar este recurso de puerta de enlace en los desencadenadores y las acciones que quiere usar para los [conectores locales](../connectors/apis-list.md#on-premises-connectors) disponibles en Azure Logic Apps.
+Después de [instalar la *puerta de enlace de datos local* en un equipo local](../logic-apps/logic-apps-gateway-install.md) y antes de poder acceder a los orígenes de datos locales desde las aplicaciones lógicas, debe crear un recurso de puerta de enlace en Azure para la instalación de la puerta de enlace. Después puede seleccionar este recurso de puerta de enlace en los desencadenadores y las acciones que quiere usar para los [conectores locales](../connectors/apis-list.md#on-premises-connectors) disponibles en Azure Logic Apps. Azure Logic Apps admite operaciones de lectura y escritura a través de la puerta de enlace de datos. Sin embargo, estas operaciones tienen [límites en su tamaño de carga](/data-integration/gateway/service-gateway-onprem#considerations).
 
 En este artículo se muestra cómo crear el recurso de puerta de enlace de Azure para una [puerta de enlace instalada previamente en el equipo local](../logic-apps/logic-apps-gateway-install.md). Para más información sobre la puerta de enlace, consulte el [funcionamiento de la puerta de enlace](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service).
 
@@ -48,7 +48,7 @@ En Azure Logic Apps, la puerta de enlace de datos local admite los [conectores l
 * SQL Server
 * Teradata
 
-Azure Logic Apps admite operaciones de lectura y escritura a través de la puerta de enlace de datos. Sin embargo, estas operaciones tienen [límites en su tamaño de carga](/data-integration/gateway/service-gateway-onprem#considerations). Aunque la puerta de enlace por sí sola no incurre en costos adicionales, el [modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md) se aplica a estos conectores y a otras operaciones en Azure Logic Apps.
+También puede crear [conectores personalizados](../logic-apps/custom-connector-overview.md) que se conectan a orígenes de datos a través de HTTP o HTTPS mediante REST o SOAP. Aunque la puerta de enlace por sí sola no incurre en costos adicionales, el [modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md) se aplica a estos conectores y a otras operaciones en Azure Logic Apps.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

@@ -9,12 +9,13 @@ ms.date: 06/15/2020
 ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: 447653cdcaeb1a0bbf891a26e8bc0af5ead87fdb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 542c9374b70cd765ed27dd4dd158ad81035269f0
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518714"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018848"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Introducción a blobs en páginas de Azure
 
@@ -50,13 +51,13 @@ En el siguiente diagrama se describen las relaciones globales entre la cuenta, l
 
 #### <a name="creating-an-empty-page-blob-of-a-specified-size"></a>Creación de un blob en páginas vacío de tamaño específico
 
-# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 En primer lugar, obtenga una referencia a un contenedor. Para crear un blob en páginas, llame al método [GetPageBlobClient](/dotnet/api/azure.storage.blobs.specialized.specializedblobextensions.getpageblobclient) y, a continuación, llame al método [PageBlobClient.Create](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.create). Pase el tamaño máximo del blob que se va a crear. Ese tamaño debe ser un múltiplo de 512 bytes.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_CreatePageBlob":::
 
-# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Para crear un blob en páginas, primero debe crear un objeto **CloudBlobClient**, con el URI base para acceder al almacenamiento de blobs de la cuenta de almacenamiento (*pbaccount* en la figura 1) junto con el objeto **StorageCredentialsAccountAndKey**, tal y como se muestra en el ejemplo siguiente. El ejemplo muestra cómo crear una referencia a un objeto **CloudBlobContainer** y, a continuación, cómo crear el contenedor (*testvhds*) si aún no existe. A continuación, con el objeto **CloudBlobContainer**, cree una referencia a un objeto **CloudPageBlob** especificando el nombre de blob en página (os4.vhd) al que se quiere acceder. Para crear el blob en páginas, llame a [CloudPageBlob.Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create) pasando el tamaño máximo del blob que se va a crear. *blobSize* debe ser un múltiplo de 512 bytes.
 
@@ -87,13 +88,13 @@ pageBlob.Create(16 * OneGigabyteAsBytes);
 
 #### <a name="resizing-a-page-blob"></a>Cambio del tamaño de un blob en páginas
 
-# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Para cambiar el tamaño de un blob en páginas después de crearlo, use el método [Resize](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.resize?view=azure-dotnet). El tamaño solicitado debe ser un múltiplo de 512 bytes.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ResizePageBlob":::
 
-# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Para cambiar el tamaño de un blob en páginas después de crearlo, use el método [Resize](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.resize). El tamaño solicitado debe ser un múltiplo de 512 bytes.
 
@@ -105,13 +106,13 @@ pageBlob.Resize(32 * OneGigabyteAsBytes);
 
 #### <a name="writing-pages-to-a-page-blob"></a>Escritura de páginas en un blob en páginas
 
-# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Para escribir páginas, use el método [PageBlobClient.UploadPages](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.uploadpages).  
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_WriteToPageBlob":::
 
-# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Para escribir páginas, use el método [CloudPageBlob.WritePages](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.beginwritepages).  
 
@@ -134,13 +135,13 @@ En el siguiente diagrama se muestran dos operaciones de escritura independientes
 
 #### <a name="reading-pages-from-a-page-blob"></a>Lectura de páginas de un blob en páginas
 
-# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Para leer las páginas, use el método [PageBlobClient.download](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.download) para leer un intervalo de bytes del blob en páginas. 
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ReadFromPageBlob":::
 
-# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Para leer las páginas, use el método [CloudPageBlob.DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.icloudblob.downloadrangetobytearray) para leer un intervalo de bytes desde el blob en páginas. 
 
@@ -159,13 +160,13 @@ En la siguiente ilustración se muestra una operación de lectura con un desplaz
 
 Si tiene un blob apenas lleno, es posible que quiera cargar solo las regiones de página válidas para evitar pagar la salida de cero bytes y reducir la latencia de descarga.  
 
-# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Para determinar qué páginas están respaldadas por datos, use [PageBlobClient.GetPageRanges](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.getpageranges). A continuación, puede enumerar los intervalos devueltos y descargar los datos de cada intervalo. 
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ReadValidPageRegionsFromPageBlob":::
 
-# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Para determinar qué páginas están respaldadas por datos, use [CloudPageBlob.GetPageRanges](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.getpageranges). A continuación, puede enumerar los intervalos devueltos y descargar los datos de cada intervalo. 
 

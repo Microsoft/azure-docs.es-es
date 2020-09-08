@@ -17,12 +17,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb41e14a7ecf41a2698a063c3067a98d8acf8f07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: baa03499cc11bda24ead986dd64621572484cbb1
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698604"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279659"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: conceptos de diseño
 El propósito de este documento es describir las áreas que se deben tener en cuenta durante el diseño de implementación de Azure AD Connect. Este documento trata de una profundización en determinadas áreas y estos conceptos se describen también brevemente en otros documentos.
@@ -165,7 +165,7 @@ Durante el análisis (paso 4), si el atributo está configurado en uno o varios 
 ### <a name="impact-on-ad-fs-or-third-party-federation-configuration"></a>Repercusiones en AD FS o la configuración de la federación de terceros
 Si usa Azure AD Connect para administrar una implementación de AD FS local, Azure AD Connect actualiza automáticamente las reglas de notificación para que usen el mismo atributo de AD como sourceAnchor. Esto garantiza que la notificación de ImmutableID generada por AD FS sea coherente con los valores de sourceAnchor que se exportan a Azure AD.
 
-Si administra AD FS fuera de Azure AD Connect o usa servidores de federación de terceros para la autenticación, debe actualizar manualmente las reglas de notificación para que la notificación de ImmutableID sea coherente con los valores de sourceAnchor exportados a Azure AD, como se describe en la sección del artículo [Modificación de las reglas de notificaciones de AD FS](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-management#modclaims). El asistente devuelve la siguiente advertencia al completarse la instalación:
+Si administra AD FS fuera de Azure AD Connect o usa servidores de federación de terceros para la autenticación, debe actualizar manualmente las reglas de notificación para que la notificación de ImmutableID sea coherente con los valores de sourceAnchor exportados a Azure AD, como se describe en la sección del artículo [Modificación de las reglas de notificaciones de AD FS](./how-to-connect-fed-management.md#modclaims). El asistente devuelve la siguiente advertencia al completarse la instalación:
 
 ![Configuración de federación de terceros](./media/plan-connect-design-concepts/consistencyGuid-03.png)
 
@@ -193,7 +193,7 @@ John es un usuario de "contoso.com". Desea que John use el UPN local john\@conto
 ### <a name="non-routable-on-premises-domains-and-upn-for-azure-ad"></a>Dominios locales no enrutables y UPN para Azure AD
 Algunas organizaciones tienen dominios no enrutables, como "contoso.local" o dominios de etiqueta única simple como "contoso". No podrá comprobar un dominio no enrutable en Azure AD. Azure AD Connect puede sincronizarse solo con un dominio comprobado en Azure AD. Cuando se crea un directorio de Azure AD, se crea un dominio enrutable que se convierte en el dominio predeterminado para Azure SD, por ejemplo, "contoso.onmicrosoft.com". Por lo tanto, es necesario comprobar cualquier otro dominio enrutable en este escenario, en caso de que no desee sincronizar con el valor predeterminado ".onmicrosoft.com".
 
-Consulte [Incorporación de su nombre de dominio personalizado a Azure Active Directory](../active-directory-domains-add-azure-portal.md) para más información sobre cómo agregar y comprobar dominios.
+Consulte [Incorporación de su nombre de dominio personalizado a Azure Active Directory](../fundamentals/add-custom-domain.md) para más información sobre cómo agregar y comprobar dominios.
 
 Azure AD Connect detecta si está ejecutando en un entorno de dominio no enrutable y le advertirá adecuadamente antes de que prosiga con la configuración rápida. Si está trabajando en un dominio no enrutable, es probable que el UPN de los usuarios tenga también un sufijo no enrutable. Por ejemplo, si se ejecuta bajo "contoso.local", Azure AD Connect le sugiere que utilice la configuración personalizada en lugar de la configuración rápida. Al usar una configuración personalizada, podrá especificar el atributo que debe usarse como UPN para iniciar sesión en Azure después de que los usuarios se sincronicen con Azure AD.
 

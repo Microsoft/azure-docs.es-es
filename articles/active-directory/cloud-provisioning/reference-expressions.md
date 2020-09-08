@@ -11,12 +11,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 722b3fcb2bc533e396a35feb4c755de99c375b10
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: c14f406e5671e1eefb43f0208044f9945e446267
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201848"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226580"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escritura de expresiones para la asignación de atributos en Azure Active Directory
 Al configurar el aprovisionamiento en la nube, uno de los tipos de asignaciones de atributos que se pueden especificar es una asignación de expresiones. 
@@ -253,7 +253,7 @@ si el atributo accountName no está presente, se produce un error en el objeto.
    | Nombre | Obligatorio/Repetición | Tipo | Notas |
    | --- | --- | --- | --- |
    | **de origen** |Obligatorio |String |Normalmente el nombre del atributo del objeto de origen. |
-   | **inputFormat** |Obligatorio |String |Formato esperado del valor de origen. Para conocer los formatos admitidos, consulte [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+   | **inputFormat** |Obligatorio |String |Formato esperado del valor de origen. Para conocer los formatos admitidos, consulte [/dotnet/standard/base-types/custom-date-and-time-format-strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
    | **outputFormat** |Obligatorio |String |Formato de la fecha de salida. |
 
 ---

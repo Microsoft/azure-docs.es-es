@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 07/21/2020
-ms.openlocfilehash: 24c7e0a3c9a7d3c28823db0418e17cb94bc101ec
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/14/2020
+ms.openlocfilehash: 7131ddac840d2854969147da2eeb82a890ce3410
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325073"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586824"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Información general del modelo de núcleo virtual: Azure SQL Database y Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -102,12 +102,12 @@ To enable M-series hardware for a subscription and region, a support request mus
 
 |Generación de hardware  |Proceso  |Memoria  |
 |:---------|:---------|:---------|
-|Gen4     |- Procesadores Intel E5-2673 v3 (Haswell) 2,4 GHz<br>- Aprovisionamiento de hasta 24 núcleos virtuales (1 núcleo virtual = 1 núcleo físico)  |- 7 GB por núcleo virtual<br>- Aprovisionamiento de hasta 168 GB|
-|Gen5     |**Proceso aprovisionado**<br>- Procesadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz e Intel SP-8160 (Skylake)*<br>- Aprovisionamiento de hasta 80 núcleos virtuales (1 núcleo virtual = 1 hiperproceso)<br><br>**Proceso sin servidor**<br>- Procesadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz e Intel SP-8160 (Skylake)*<br>- Escalado vertical automático de hasta 16 núcleos virtuales (1 núcleo virtual = 1 hiperproceso)|**Proceso aprovisionado**<br>- 5,1 GB por núcleo virtual<br>- Aprovisionamiento de hasta 408 GB<br><br>**Proceso sin servidor**<br>- Escalado vertical automático de hasta 24 GB por núcleo virtual<br>- Escalado vertical automático de hasta 48 GB máx.|
-|Serie Fsv2     |- Procesadores Intel Xeon Platinum 8168 (SkyLake)<br>- Presentación de una velocidad de reloj turbo sostenida de todos los núcleos de hasta 3,4 GHz y una velocidad de reloj turbo de un solo núcleo máxima de 3,7 GHz.<br>- Aprovisionamiento de hasta 72 núcleos virtuales (1 núcleo virtual = 1 hiperproceso)|1,9 GB por núcleo virtual<br>- Aprovisionamiento de hasta 136 GB|
-|Serie M     |- Procesadores Intel Xeon E7-8890 v3 de 2,5 GHz e Intel Xeon Platinum 8280M de 2,7 GHz (Cascade Lake)<br>- Aprovisionamiento de hasta 128 núcleos virtuales (1 núcleo virtual = 1 hiperproceso)|29 GB por núcleo virtual<br>- Aprovisionamiento de hasta 3,7 TB|
+|Gen4     |- Procesadores Intel® E5-2673 v3 (Haswell) de 2,4 GHz<br>- Aprovisionamiento de hasta 24 núcleos virtuales (1 núcleo virtual = 1 núcleo físico)  |- 7 GB por núcleo virtual<br>- Aprovisionamiento de hasta 168 GB|
+|Gen5     |**Proceso aprovisionado**<br>- Procesadores Intel® E5-2673 v4 (Broadwell) de 2,3 GHz, Intel® SP-8160 (Skylake)\* e Intel® 8272CL (Cascade Lake) de 2,5 GHz\*<br>- Aprovisionamiento de hasta 80 núcleos virtuales (1 núcleo virtual = 1 hiperproceso)<br><br>**Proceso sin servidor**<br>- Procesadores Intel® E5-2673 v4 (Broadwell) de 2,3 GHz e Intel® SP-8160 (Skylake)*<br>- Escalado vertical automático de hasta 40 núcleos virtuales (1 núcleo virtual = 1 hiperproceso)|**Proceso aprovisionado**<br>- 5,1 GB por núcleo virtual<br>- Aprovisionamiento de hasta 408 GB<br><br>**Proceso sin servidor**<br>- Escalado vertical automático de hasta 24 GB por núcleo virtual<br>- Escalado vertical automático de hasta 120 GB máx.|
+|Serie Fsv2     |- Procesadores Intel® 8168 (Skylake)<br>- Presentación de una velocidad de reloj turbo sostenida de todos los núcleos de hasta 3,4 GHz y una velocidad de reloj turbo de un solo núcleo máxima de 3,7 GHz.<br>- Aprovisionamiento de hasta 72 núcleos virtuales (1 núcleo virtual = 1 hiperproceso)|1,9 GB por núcleo virtual<br>- Aprovisionamiento de hasta 136 GB|
+|Serie M     |- Procesadores Intel® E7-8890 v3 de 2,5 GHz e Intel® 8280M de 2,7 GHz (Cascade Lake)<br>- Aprovisionamiento de hasta 128 núcleos virtuales (1 núcleo virtual = 1 hiperproceso)|29 GB por núcleo virtual<br>- Aprovisionamiento de hasta 3,7 TB|
 
-\* En la vista de administración dinámica [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database), la generación de hardware para bases de datos Gen5 que usan procesadores Intel SP-8160 (Skylake) aparece como Gen6. Los límites de recursos en todas las bases de datos Gen5 son los mismos, independientemente del tipo de procesador (Broadwell o Skylake).
+\* En la vista de administración dinámica [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database), la generación de hardware para bases de datos que usan procesadores Intel® SP-8160 (Skylake) aparece como Gen6, mientras que la generación de hardware para bases de datos que usan procesadores Intel® 8272CL (Cascade Lake) aparece como Gen7. Los límites de recursos en todas las bases de datos Gen5 son los mismos, independientemente del tipo de procesador (Broadwell, Skylake o Cascade Lake).
 
 Para obtener más información sobre los límites de recursos, vea [Límites de recursos para bases de datos únicas (núcleo virtual)](resource-limits-vcore-single-databases.md) o [Límites de recursos para grupos elásticos (núcleo virtual)](resource-limits-vcore-elastic-pools.md).
 

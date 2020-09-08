@@ -11,12 +11,12 @@ ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 07/16/2020
-ms.openlocfilehash: 16366d9f3be1144a7588ceb9133fb4e2e60db95c
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 0b914059567e9a513b605ce733407465b625a909
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373715"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950024"
 ---
 # <a name="debug-and-troubleshoot-parallelrunstep"></a>Depuración y solución de problemas de ParallelRunStep
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,11 +25,11 @@ En este artículo aprenderá a depurar y resolver los problemas de la clase [Par
 
 ## <a name="testing-scripts-locally"></a>Prueba de scripts de forma local
 
-Consulte la [sección Prueba de scripts de forma local](how-to-debug-pipelines.md#testing-scripts-locally) en el artículo sobre canalizaciones de aprendizaje automático. La instancia de ParallelRunStep se ejecuta como un paso en las canalizaciones de Machine Learning, por lo que la misma respuesta se aplica en ambos casos.
+Consulte la [sección Prueba de scripts de forma local](how-to-debug-pipelines.md#debug-scripts-locally) en el artículo sobre canalizaciones de aprendizaje automático. La instancia de ParallelRunStep se ejecuta como un paso en las canalizaciones de Machine Learning, por lo que la misma respuesta se aplica en ambos casos.
 
 ## <a name="debugging-scripts-from-remote-context"></a>Depuración de scripts desde un contexto remoto
 
-La transición de la depuración de un script de puntuación de forma local, a la depuración de un script de puntuación en una canalización real puede resultar difícil. Para información sobre cómo buscar los registros en el portal, consulte la [sección de canalizaciones de aprendizaje automático en la depuración de scripts desde un contexto remoto](how-to-debug-pipelines.md#debugging-scripts-from-remote-context). La información de esa sección también se aplica a ParallelRunStep.
+La transición de la depuración de un script de puntuación de forma local, a la depuración de un script de puntuación en una canalización real puede resultar difícil. Para información sobre cómo buscar los registros en el portal, consulte la [sección de canalizaciones de aprendizaje automático en la depuración de scripts desde un contexto remoto](how-to-debug-pipelines.md#finding-and-reading-pipeline-log-files). La información de esa sección también se aplica a ParallelRunStep.
 
 Por ejemplo, el archivo de registro `70_driver_log.txt` contiene información del controlador que inicia el código de ParallelRunStep.
 

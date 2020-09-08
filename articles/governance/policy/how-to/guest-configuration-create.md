@@ -1,14 +1,14 @@
 ---
 title: Creación de directivas de Configuración de invitado para Windows
 description: Aprenda a crear una directiva de Configuración de invitado de Azure Policy para Windows.
-ms.date: 03/20/2020
+ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: b53c8ec8189516305de8b0b8c05b2be8ea49f7f2
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 36e71f00a4613e1723645f48d9e57aed9e1e9a8a
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045134"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719400"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Creación de directivas de Configuración de invitado para Windows
 
@@ -16,8 +16,7 @@ Antes de crear definiciones de directivas personalizadas, es conveniente leer la
  
 Para obtener información sobre cómo crear directivas de Configuración de invitado para Linux, consulte la página [Cómo crear una directiva de configuración de invitados para Linux](./guest-configuration-create-linux.md).
 
-Durante la auditoría en Windows, Configuración de invitado usa un módulo de recursos [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) para crear el archivo de configuración. La configuración de DSC define la condición en la que debe estar la máquina.
-Si se produce un error en la evaluación de la configuración, se desencadena el efecto **auditIfNotExists** de la directiva y se considera que la máquina **no es compatible**.
+Durante la auditoría en Windows, Configuración de invitado usa un módulo de recursos [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) para crear el archivo de configuración. La configuración de DSC define la condición en la que debe estar la máquina. Si se produce un error en la evaluación de la configuración, se desencadena el efecto **auditIfNotExists** de la directiva y se considera que la máquina **no es compatible**.
 
 Solo se puede usar la [configuración de invitados de Azure Policy](../concepts/guest-configuration.md) para auditar la configuración dentro de las máquinas. Todavía no está disponible la opción para corregir la configuración dentro de las máquinas.
 
@@ -27,8 +26,7 @@ Use las siguientes acciones para crear su propia configuración para validar el 
 > Las directivas personalizadas con la configuración de invitados son una característica en vista previa (GB).
 >
 > La extensión de configuración de invitado es necesaria para realizar auditorías en las máquinas virtuales de Azure.
-> Para implementar la extensión a gran escala en todas las máquinas Windows, asigne las siguientes definiciones de directiva:
->   - [Implemente los requisitos previos para habilitar la directiva de configuración de invitado en VM de Windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
+> Para implementar la extensión a gran escala en todas las máquinas Windows, asigne las siguientes definiciones de directiva: `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
 
 ## <a name="install-the-powershell-module"></a>Instalación del módulo de PowerShell
 
@@ -56,7 +54,7 @@ El módulo de recursos de configuración de invitados requiere el siguiente soft
 
 - PowerShell 6.2 o posterior. Si todavía no está instalado, siga [estas instrucciones](/powershell/scripting/install/installing-powershell).
 - Azure PowerShell 1.5.0 o posterior. Si todavía no está instalado, siga [estas instrucciones](/powershell/azure/install-az-ps).
-  - Solo se requieren los módulos de AZ "Az.Accounts" y "Az.Resources".
+  - Solo se requieren los módulos Az "Az.Accounts" y "Az.Resources".
 
 ### <a name="install-the-module"></a>Instalación del módulo
 
@@ -90,8 +88,7 @@ Cuando la configuración de invitado audita una máquina, la secuencia de evento
 1. El valor booleano devuelto por la función determina si el estado de Azure Resource Manager para Asignación de invitado debe ser Compatible o No compatible.
 1. El proveedor ejecuta `Get-TargetResource` para devolver el estado actual de cada configuración, de modo que haya detalles disponibles tanto sobre el motivo por el que una máquina no es compatible como para confirmar que el estado actual es compatible.
 
-Los parámetros de Azure Policy que pasan valores a las asignaciones de configuración de invitado deben ser de tipo _String_.
-No es posible pasar matrices mediante parámetros, aunque el recurso de DSC admita matrices.
+Los parámetros de Azure Policy que pasan valores a las asignaciones de configuración de invitado deben ser de tipo _String_. No es posible pasar matrices mediante parámetros, aunque el recurso de DSC admita matrices.
 
 ### <a name="get-targetresource-requirements"></a>Requisitos de Get-TargetResource
 
@@ -121,7 +118,7 @@ return @{
 }
 ```
 
-La propiedad Reasons también debe agregarse al archivo MOF del esquema para el recurso como una clase incrustada.
+La propiedad Reasons debe agregarse al archivo MOF del esquema del recurso como una clase insertada.
 
 ```mof
 [ClassVersion("1.0.0.0")] 
@@ -166,8 +163,7 @@ El formato del paquete debe ser un archivo .zip.
 ### <a name="storing-guest-configuration-artifacts"></a>Almacenamiento de artefactos de Configuración de invitado
 
 El paquete .zip debe almacenarse en una ubicación a la que puedan obtener acceso las máquinas virtuales administradas.
-Algunos ejemplos son los repositorios de GitHub, un repositorio de Azure o Azure Storage. Si prefiere no hacer que el paquete sea público, puede incluir un [token de SAS](../../../storage/common/storage-sas-overview.md) en la dirección URL.
-También puede implementar el [punto de conexión de servicio](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) para las máquinas de una red privada, aunque esta configuración solo se aplica para acceder al paquete y no para comunicarse con el servicio.
+Algunos ejemplos son los repositorios de GitHub, un repositorio de Azure o Azure Storage. Si prefiere no hacer que el paquete sea público, puede incluir un [token de SAS](../../../storage/common/storage-sas-overview.md) en la dirección URL. También puede implementar el [punto de conexión de servicio](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) para las máquinas de una red privada, aunque esta configuración solo se aplica para acceder al paquete y no para comunicarse con el servicio.
 
 ## <a name="step-by-step-creating-a-custom-guest-configuration-audit-policy-for-windows"></a>Creación de una directiva de auditoría de Configuración de invitado personalizada para Windows, paso a paso
 
@@ -307,6 +303,8 @@ Parámetros del cmdlet `New-GuestConfigurationPolicy`:
 - **Versión**: Versión de la directiva.
 - **Ruta de acceso**: Ruta de acceso de destino donde se crean las definiciones de directiva.
 - **Plataforma**: Plataforma de destino (Windows/Linux) para la directiva de configuración de invitados y el paquete de contenido.
+- **Tag** agrega uno o varios filtros de etiquetas a la definición de directiva.
+- **Category** establece el campo de metadatos de categoría en la definición de directiva.
 
 En el ejemplo siguiente se crean las definiciones de directivas en una ruta de acceso especificada desde un paquete de directivas personalizado:
 
@@ -328,14 +326,6 @@ New-GuestConfigurationPolicy `
 - **Initiative.json**
 
 La salida del cmdlet devuelve un objeto que contiene el nombre para mostrar de la iniciativa y la ruta de acceso de los archivos de directiva.
-
-> [!Note]
-> El módulo Configuración de invitado más reciente incluye parámetros nuevos:
-> - **Tag** agrega uno o varios filtros de etiquetas a la definición de directiva.
->   - Vea la sección [Filtrado de directivas de Configuración de invitado mediante etiquetas](#filtering-guest-configuration-policies-using-tags).
-> - **Category** establece el campo de metadatos de categoría en la definición de directiva.
->   - Si no se incluye el parámetro, la categoría tiene como valor predeterminado Configuración de invitado.
-> Estas características se encuentran en versión preliminar y requieren la versión 1.20.1 del módulo Configuración de invitado, que se puede instalar mediante `Install-Module GuestConfiguration -AllowPrerelease`.
 
 Por último, publique las definiciones de directivas con el cmdlet `Publish-GuestConfigurationPolicy`. El cmdlet solo tiene el parámetro **Path** que apunta a la ubicación de los archivos JSON que creó `New-GuestConfigurationPolicy`.
 
@@ -377,9 +367,6 @@ New-AzRoleDefinition -Role $role
 ```
 
 ### <a name="filtering-guest-configuration-policies-using-tags"></a>Filtrado de directivas de Configuración de invitado mediante etiquetas
-
-> [!Note]
-> Esta característica se encuentra en versión preliminar y requiere la versión 1.20.1 del módulo Configuración de invitado, que se puede instalar mediante `Install-Module GuestConfiguration -AllowPrerelease`.
 
 De forma opcional, las definiciones de directiva que crean los cmdlets en el módulo Configuración de invitado pueden incluir un filtro para las etiquetas. El parámetro **Tag** de `New-GuestConfigurationPolicy` admite una matriz de tablas hash que contiene entradas de etiquetas individuales. Las etiquetas se agregan a la sección `If` de la definición de directiva y no se pueden modificar mediante una asignación de directiva.
 
@@ -439,10 +426,6 @@ New-GuestConfigurationPolicy
 ```
 
 ## <a name="extending-guest-configuration-with-third-party-tools"></a>Ampliación de Configuración de invitado con herramientas de terceros
-
-> [!Note]
-> Esta característica se encuentra en versión preliminar y requiere la versión 1.20.3 del módulo Configuración de invitado, que se puede instalar mediante `Install-Module GuestConfiguration -AllowPrerelease`.
-> En la versión 1.20.3, esta característica solo está disponible para las definiciones de directiva que auditan máquinas Windows.
 
 Los paquetes de artefactos para Configuración de invitado se pueden ampliar para que incluyan herramientas de terceros.
 La ampliación de Configuración de invitados requiere el desarrollo de dos componentes.
@@ -575,11 +558,6 @@ Si desea publicar una actualización de la directiva, hay dos campos que requier
 
 La manera más fácil de publicar un paquete actualizado es repetir el proceso que se describe en este artículo y proporcionar un número de versión actualizado. Este proceso garantiza que todas las propiedades se hayan actualizado correctamente.
 
-## <a name="converting-windows-group-policy-content-to-azure-policy-guest-configuration"></a>Conversión del contenido de la directiva de grupo de Windows a la configuración de invitado de Azure Policy
-
-La configuración de invitado, al auditar máquinas Windows, es una implementación de la sintaxis de PowerShell Desired State Configuration. La comunidad de DSC ha publicado herramientas para convertir las plantillas exportadas de la directiva de grupo al formato DSC. Mediante el uso de esta herramienta junto con los cmdlets de configuración de invitado descritos anteriormente, puede convertir el contenido de la directiva de grupo de Windows y empaquetarlo o publicarlo para que Azure Policy lo audite. Para obtener más información sobre el uso de la herramienta, consulte el artículo [Inicio rápido: Conversión de directiva de grupo en DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart).
-Una vez convertido el contenido, los pasos anteriores para crear un paquete y publicarlo como Azure Policy son los mismos que para cualquier contenido de DSC.
-
 ## <a name="optional-signing-guest-configuration-packages"></a>Opcional: Firma de paquetes de configuración de invitados
 
 Las directivas personalizadas de Configuración de invitado usan el hash SHA256 para validar que el paquete de directivas no haya cambiado.
@@ -620,5 +598,5 @@ Para más información sobre los cmdlets de esta herramienta, use el comando Get
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga información sobre la auditoría de VM con la [configuración de invitados](../concepts/guest-configuration.md).
-- Obtenga información acerca de cómo se pueden [crear directivas mediante programación](programmatically-create.md).
-- Obtenga información sobre cómo [obtener datos de cumplimiento](get-compliance-data.md).
+- Obtenga información acerca de cómo se pueden [crear directivas mediante programación](./programmatically-create.md).
+- Obtenga información sobre cómo [obtener datos de cumplimiento](./get-compliance-data.md).

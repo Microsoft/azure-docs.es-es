@@ -3,16 +3,16 @@ title: Implementación de recursos en una suscripción
 description: Se describe cómo crear un grupo de recursos en una plantilla de Azure Resource Manager. También se muestra cómo implementar recursos en el ámbito de la suscripción de Azure.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: a4e21f29762a30baec8d5cf6e3914da2b5faadeb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: aca1aaf9d7d0c8a97bf2dad437953ccadc02a924
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321775"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002783"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Creación de grupos de recursos y otros recursos en el nivel de suscripción
 
-Para simplificar la administración de recursos, puede usar una plantilla de Azure Resource Manager (plantilla de ARM) para implementar recursos en el nivel de la suscripción de Azure. Por ejemplo, puede implementar [directivas](../../governance/policy/overview.md) y [controles de acceso basados en roles](../../role-based-access-control/overview.md) en su suscripción, para que se apliquen en su suscripción. También puede crear grupos de recursos dentro de la suscripción e implementar recursos en grupos de recursos de la suscripción.
+Para simplificar la administración de recursos, puede usar una plantilla de Azure Resource Manager (plantilla de ARM) para implementar recursos en el nivel de la suscripción de Azure. Por ejemplo, puede implementar [directivas](../../governance/policy/overview.md) y el [control de acceso basado en rol (RBAC de Azure)](../../role-based-access-control/overview.md) en su suscripción, y se aplicarán a ella en su totalidad. También puede crear grupos de recursos dentro de la suscripción e implementar recursos en grupos de recursos de la suscripción.
 
 > [!NOTE]
 > Puede implementar en 800 grupos de recursos distintos en una implementación de nivel de suscripción.
@@ -473,7 +473,7 @@ New-AzSubscriptionDeployment `
 
 ## <a name="access-control"></a>Control de acceso
 
-Para aprender sobre los roles de asignación, consulte [Administración del acceso a los recursos de Azure mediante RBAC y plantillas de Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
+Para más información sobre la asignación de roles, consulte [Incorporación de asignaciones de roles mediante plantillas de Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
 
 En el ejemplo siguiente, se crea un grupo de recursos, se le aplica un bloqueo y se asigna un rol a una entidad de seguridad.
 

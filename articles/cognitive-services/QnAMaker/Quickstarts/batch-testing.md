@@ -3,12 +3,12 @@ title: 'Inicio rápido: Prueba de una base de conocimientos con preguntas por lo
 description: Use la herramienta de realización de pruebas por lotes de QnA Maker para probar las bases de conocimientos del recurso de QnA Maker y ver las respuestas esperadas, las puntuaciones de confianza y los avisos de turno múltiple.
 ms.topic: tutorial
 ms.date: 05/26/2020
-ms.openlocfilehash: 01c767a6fbea5061f644052234f7462857dd342b
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: bcee98678212a3bc233c36a831f6bcde7e6ae550
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84337740"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88531076"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>Inicio rápido: Prueba de una base de conocimientos con preguntas por lotes y respuestas esperadas
 
@@ -16,7 +16,7 @@ Use la herramienta de realización de pruebas por lotes de QnA Maker para probar
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/)
 * [Cree un servicio QnA Maker](create-publish-knowledge-base.md) o use un servicio existente que utilice el idioma inglés.
 * Descargar el archivo de [ejemplo de turno múltiple`.docx`](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)
 * Descargue la [herramienta de realización de pruebas por lotes](https://aka.ms/qnamakerbatchtestingtool) y extraiga el archivo ejecutable del archivo `.zip`.
@@ -61,7 +61,7 @@ Use la herramienta de realización de pruebas por lotes de QnA Maker para probar
 
 ## <a name="create-batch-test-file-with-question-ids"></a>Creación de un archivo de prueba por lotes con identificadores de preguntas
 
-Para usar la herramienta de pruebas por lotes, cree un archivo denominado `batch-test-data-1.tsv` con un editor de texto. Es preciso que el archivo tenga las siguientes columnas separadas por un signo de tabulación.
+Para usar la herramienta de pruebas por lotes, cree un archivo denominado `batch-test-data-1.tsv` con un editor de texto. El archivo debe estar en formato UTF-8 y tener las siguientes columnas separadas por una tabulación.
 
 |Campos del archivo de entrada TSV|Notas|Ejemplo|
 |--|--|--|

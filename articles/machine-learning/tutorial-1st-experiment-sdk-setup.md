@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 8ba6141bddd60c2bdc2fdf17845e8f470dd6ef55
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-python
+ms.openlocfilehash: ff23a42d9b96b8411d8b2f82ab8303e2a8a69953
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520534"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852725"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Tutorial: Creación del primer experimento de ML con el SDK de Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -97,7 +97,7 @@ Complete los siguientes pasos de configuración y ejecución del experimento en 
         + Debe empezar por una letra (no un número ni un guion).
         + Si se usa el guion, debe ir seguido al menos de una letra. Ejemplo: Test-, test-0, test-01 no son válidos, mientras que test-a0 y test-0a son ejemplos válidos.
 
-    1.  Seleccione el tamaño de la máquina virtual de entre las opciones disponibles.
+    1.  Seleccione el tamaño de la máquina virtual de entre las opciones disponibles. En los tutoriales, la máquina virtual predeterminada es una buena elección.
 
     1. Seleccione **Crear**. La configuración de la máquina virtual puede tardar aproximadamente 5 minutos.
 

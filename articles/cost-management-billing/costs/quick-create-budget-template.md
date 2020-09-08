@@ -5,15 +5,16 @@ author: bandersmsft
 ms.author: banders
 tags: azure-resource-manager
 ms.service: cost-management-billing
+ms.subservice: cost-management
 ms.topic: quickstart
 ms.date: 07/28/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 70408a3ed6638ec76af113c24cc3c8190a44f55c
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 3b21353c7e5338c78b9d56e79ac5da3fa7e9af84
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445987"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88687593"
 ---
 # <a name="quickstart-create-a-budget-with-an-arm-template"></a>Inicio rápido: Creación de un presupuesto con una plantilla de Resource Manager
 

@@ -3,16 +3,16 @@ title: Permisos en Azure Advisor
 description: Los permisos de Advisor y cómo pueden bloquear la capacidad de configurar suscripciones o posponer o descartar recomendaciones.
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 6b5dfdeb888b0577a40562536bd7a6dfc271cb19
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3c7b42372ae6de5c2f519b69aec8a154a2f35a82
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057582"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927392"
 ---
 # <a name="permissions-in-azure-advisor"></a>Permisos en Azure Advisor
 
-Azure Advisor proporciona recomendaciones basadas en el uso y la configuración de los recursos y las suscripciones de Azure. Advisor usa los [roles integrados](../role-based-access-control/built-in-roles.md) que se proporcionan mediante el [control de acceso basado en rol](../role-based-access-control/overview.md) (RBAC) para administrar el acceso a recomendaciones y características de Advisor. 
+Azure Advisor proporciona recomendaciones basadas en el uso y la configuración de los recursos y las suscripciones de Azure. Advisor usa los [roles integrados](../role-based-access-control/built-in-roles.md) que se proporcionan en el [control de acceso basado en rol (RBAC de Azure)](../role-based-access-control/overview.md) para administrar el acceso a recomendaciones y características de Advisor. 
 
 ## <a name="roles-and-their-access"></a>Roles y su acceso
 

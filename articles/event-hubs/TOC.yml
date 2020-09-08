@@ -15,9 +15,9 @@
   items:
     - name: Creación de un centro de eventos
       items:
-        - name: Azure portal
+        - name: Azure Portal
           href: event-hubs-create.md
-        - name: Azure CLI
+        - name: CLI de Azure
           href: event-hubs-quickstart-cli.md
         - name: Azure PowerShell
           href: event-hubs-quickstart-powershell.md
@@ -27,13 +27,13 @@
     - name: Envío y recepción de eventos
       items:
         - name: .NET (Azure.Messaging.EventHubs)
-          href: get-started-dotnet-standard-send-v2.md
+          href: event-hubs-dotnet-standard-getstarted-send.md
         - name: Java (azure-messaging-eventhubs)
-          href: get-started-java-send-v2.md
+          href: event-hubs-java-get-started-send.md
         - name: 'Python (azure-eventhub, versión 5)'
-          href: get-started-python-send-v2.md
+          href: event-hubs-python-get-started-send.md
         - name: 'JavaScript (azure/event-hubs, versión 5)'
-          href: get-started-node-send-v2.md
+          href: event-hubs-node-get-started-send.md
         - name: Go
           href: event-hubs-go-get-started-send.md
         - name: C (solo enviar)
@@ -43,13 +43,9 @@
     - name: Envío y recepción de eventos (versiones o paquetes antiguos)
       items:
         - name: .NET (Microsoft.Azure.EventHubs)
-          href: event-hubs-dotnet-standard-getstarted-send.md
+          href: event-hubs-dotnet-standard-get-started-send-legacy.md
         - name: Java (azure-eventhubs)
-          href: event-hubs-java-get-started-send.md
-        - name: 'Python (azure-eventhub, versión 1)'
-          href: event-hubs-python-get-started-send.md
-        - name: 'JavaScript (azure/event-hubs, versión 2)'
-          href: event-hubs-node-get-started-send.md
+          href: event-hubs-java-get-started-send-legacy.md
         - name: .NET Framework (Microsoft.ServiceBus)
           href: event-hubs-dotnet-framework-getstarted-send.md
     - name: Captura de eventos
@@ -58,9 +54,7 @@
           href: event-hubs-capture-enable-through-portal.md
         - name: Uso de una plantilla de Resource Manager para habilitar la captura de Event Hubs
           href: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
-        - name: 'Lectura de los datos capturados mediante Python (azure-eventhub, versión 5)'
-          href: get-started-capture-python-v2.md
-        - name: 'Lectura de los datos capturados con Python (azure-eventhub, versión 1)'
+        - name: Lectura de los datos capturados mediante Python
           href: event-hubs-capture-python.md
     - name: Streaming en Event Hubs para Apache Kafka
       href: event-hubs-quickstart-kafka-enabled-event-hubs.md
@@ -70,7 +64,7 @@
   items:
     - name: Visualización de anomalías de datos en flujos de datos de Event Hubs
       href: event-hubs-tutorial-visualize-anomalies.md
-    - name: Almacene los datos capturados en un almacén de datos de SQL
+    - name: Almacenamiento de datos capturados en Azure Synapse Analytics
       href: store-captured-data-data-warehouse.md
     - name: Procesamiento de eventos de Apache Kafka para Event Hubs mediante Stream Analytics
       href: event-hubs-kafka-stream-analytics.md
@@ -81,9 +75,6 @@
   items:
     - name: Ejemplos de código
       href: event-hubs-samples.md
-    - name: Elementos integrados de Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceptos
   items:
     - name: Terminología de Event Hubs
@@ -134,8 +125,12 @@
       maintainContext: true
 - name: Guías paso a paso
   items:
-    - name: Traslado entre regiones
-      href: move-across-regions.md
+    - name: Move
+      items:
+        - name: Movimiento de un espacio de nombres a otra región
+          href: move-across-regions.md
+        - name: Movimiento de un clúster dedicado a otra región
+          href: move-cluster-across-regions.md
     - name: Adición dinámica de particiones
       href: dynamically-add-partitions.md
     - name: "Uso de Blob Storage como almacén de puntos de comprobación en Azure\_Stack Hub"
@@ -296,6 +291,9 @@
       href: event-hubs-quotas.md
     - name: Configuraciones de Apache Kafka
       href: apache-kafka-configurations.md
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Desarrollo de aptitudes con Microsoft Learn

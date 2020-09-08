@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2019
 ms.author: mlottner
-ms.openlocfilehash: e9c4470ea16f1840274a6fa8613822b20d6772b3
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 7b867f5bcbbdc5deab2d67f356df69ee870c21f3
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81310876"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142254"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Inicio rápido: Creación de un módulo gemelo de azureiotsecurity
 
@@ -76,7 +76,7 @@ Para más información acerca de cómo personalizar las propiedades de módulos 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Pase al siguiente artículo para aprender a configurar alertas personalizadas...
+Avance al siguiente artículo para aprender a investigar las recomendaciones de seguridad...
 
 > [!div class="nextstepaction"]
-> [Configurar alertas personalizadas](quickstart-create-custom-alerts.md)
+> [Investigación de recomendaciones de seguridad](quickstart-investigate-security-recommendations.md)

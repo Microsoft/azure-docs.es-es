@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 05/01/2020
-ms.openlocfilehash: 25bda7ed94eef20e22bcf717780d08a3ea5e6521
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 08/12/2020
+ms.openlocfilehash: 19e3f1a157ee2c042dfebfc96c9b51c3c4698ebc
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077225"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163737"
 ---
 # <a name="how-to-monitor-cluster-availability-with-azure-monitor-logs-in-hdinsight"></a>Supervisión de la disponibilidad de un clúster con los registros Azure Monitor en HDInsight
 
@@ -30,6 +30,8 @@ En la página de recursos del clúster de HDInsight, en el portal, seleccione **
 
 ![HDInsight Operations Management Suite](media/cluster-availability-monitor-logs/azure-portal-monitoring.png)
 
+De forma predeterminada, esto instala el agente de OMS en todos los nodos del clúster, excepto en los nodos perimetrales. Dado que no se instala ningún agente de OMS en los nodos perimetrales del clúster, no hay telemetría en los nodos perimetrales presentes en Log Analytics de forma predeterminada.
+
 ## <a name="query-metrics-and-logs-tables"></a>Consultar tablas de métricas y registros
 
 Cuando se haya habilitado la integración de registros de Azure Monitor (esto puede tardar unos minutos), vaya al recurso **Área de trabajo de Log Analytics** y seleccione **Registros**.
@@ -46,7 +48,7 @@ La hoja Registros muestra un número de consultas de ejemplo, como:
 | Equipos desconectados           | Lista de todos los equipos conocidos que no enviaron un latido en las últimas 5 horas |
 | Índice de disponibilidad               | Calcular el índice de disponibilidad de cada equipo conectado                |
 
-Por ejemplo, ejecute la consulta de ejemplo **Índice de disponibilidad**. Para ello, seleccione **Ejecutar** en esa consulta, tal como se muestra en la captura de pantalla anterior. Esto mostrará el índice de disponibilidad de cada nodo del clúster como un porcentaje. Si habilitó varios clústeres de HDInsight para enviar métricas a la misma área de trabajo de Log Analytics, verá el índice de disponibilidad para todos los nodos en los clústeres que se muestran.
+Por ejemplo, ejecute la consulta de ejemplo **Índice de disponibilidad**. Para ello, seleccione **Ejecutar** en esa consulta, tal como se muestra en la captura de pantalla anterior. Esto mostrará el índice de disponibilidad de cada nodo del clúster como un porcentaje. Si habilitó varios clústeres de HDInsight para enviar métricas a la misma área de trabajo de Log Analytics, verá el índice de disponibilidad para todos los nodos (salvo los perimetrales) en los clústeres que se muestran.
 
 ![Consulta de ejemplo de "índice de disponibilidad" de los registros del área de trabajo de Log Analytics](media/cluster-availability-monitor-logs/portal-availability-rate.png)
 

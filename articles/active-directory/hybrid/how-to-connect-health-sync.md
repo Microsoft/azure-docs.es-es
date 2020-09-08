@@ -16,12 +16,12 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 356697c4843742c12aa39d82602815e38dcca74a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef1e988bef3876fafdee4f7f6f109858e85d75d0
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359150"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278741"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Supervisión de Azure AD Connect sync con Azure AD Connect Health
 La siguiente documentación es específica de la supervisión de sincronización de Azure AD Connect (Sync) con Azure AD Connect Health.  Para obtener información sobre la supervisión de AD FS con Azure AD Connect Health, consulte [Uso de Azure AD Connect Health con AD FS](how-to-connect-health-adfs.md). Para obtener información adicional sobre la supervisión de Active Directory Domain Services con Azure AD Connect Health, consulte [Using Azure AD Connect Health with AD DS](how-to-connect-health-adds.md)(Uso de Azure AD Connect Health con AD DS).
@@ -116,7 +116,7 @@ En escenarios específicos de errores de sincronización de atributos duplicados
 ## <a name="related-links"></a>Vínculos relacionados
 * [Solución de problemas de errores durante la sincronización](tshoot-connect-sync-errors.md)
 * [Resistencia de atributos duplicados](how-to-connect-syncservice-duplicate-attribute-resiliency.md)
-* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
+* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Instalación del agente de Azure AD Connect Health](how-to-connect-health-agent-install.md)
 * [Operaciones de Azure AD Connect Health](how-to-connect-health-operations.md)
 * [Uso de Azure AD Connect Health con AD FS](how-to-connect-health-adfs.md)

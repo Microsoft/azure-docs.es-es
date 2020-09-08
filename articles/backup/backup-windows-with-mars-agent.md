@@ -3,12 +3,12 @@ title: Copia de seguridad de máquinas Windows con el agente de MARS
 description: Use el agente de Microsoft Azure Recovery Services (MARS) para realizar copias de seguridad de máquinas Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 34fa0906ec63eb51d37c192f9dadddc57dbf1cdf
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 55eb8bdf069fd1b5793468ae52f764eb4288f261
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538639"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182095"
 ---
 # <a name="back-up-windows-server-files-and-folders-to-azure"></a>Copia de seguridad de carpetas y archivos de Windows Server en Azure
 
@@ -28,7 +28,7 @@ En este artículo, aprenderá a:
 * Obtenga información acerca de la [arquitectura de copia de seguridad](backup-architecture.md#architecture-back-up-to-dpmmabs) que ejecuta el agente de MARS en un servidor MABS secundario o un servidor Data Protection Manager.
 * Revise [qué admite y de qué puede hacer una copia de seguridad](backup-support-matrix-mars-agent.md) el agente de MARS.
 * [Compruebe el acceso a Internet](install-mars-agent.md#verify-internet-access) en las máquinas de las que desee realizar copias de seguridad.
-* Si no está instalado el agente de MARS, obtenga información sobre cómo instalarlo [aquí](install-mars-agent.md).
+* Si el agente de MARS no está instalado, obtenga información sobre cómo instalarlo [aquí](install-mars-agent.md).
 
 ## <a name="create-a-backup-policy"></a>Crear una directiva de copia de seguridad
 

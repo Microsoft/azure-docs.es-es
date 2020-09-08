@@ -12,17 +12,20 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/08/2019
+ms.topic: how-to
+ms.date: 08/31/2020
 ms.author: willzhan
-ms.openlocfilehash: 0e65bf39db00f1277635d600da87346f19a881a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: c46fe5a4199e73cd22aeef4df62daeed4b58db06
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83197165"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291320"
 ---
 # <a name="offline-fairplay-streaming-for-ios-with-media-services-v3"></a>Streaming de FairPlay sin conexión para iOS con Media Services v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
  Azure Media Services proporciona un conjunto de [servicios de protección de contenido](https://azure.microsoft.com/services/media-services/content-protection/) de alto diseño que abarca:
 

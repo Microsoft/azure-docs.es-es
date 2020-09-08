@@ -3,16 +3,20 @@ title: Copia de seguridad y restauración selectivas de discos para máquinas vi
 description: En este artículo, se describen la copia de seguridad y la restauración selectivas de discos mediante la solución de copia de seguridad de máquinas virtuales de Azure.
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: e61014a4fde7bfce316671ff0b081ff7bc2205a5
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.custom: references_regions
+ms.openlocfilehash: 12b5b4cd35d70d8ebbd6b269e82c46984652bd07
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535282"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961999"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Copia de seguridad y restauración selectivas de discos para máquinas virtuales de Azure
 
 Azure Backup admite la copia de seguridad de todos los discos (sistema operativo y datos) en una máquina virtual junto con la solución de copia de seguridad de máquinas virtuales. Ahora, con la funcionalidad de copia de seguridad y restauración selectivas de discos, puede realizar una copia de seguridad de un subconjunto de los discos de datos de una máquina virtual. Esto proporciona una solución eficaz y rentable para sus necesidades de copia de seguridad y restauración. Cada punto de recuperación contiene solo los discos que se incluyen en la operación de copia de seguridad. Esto le permite además tener un subconjunto de discos restaurados desde el punto de recuperación determinado durante la operación de restauración. Esto se aplica a la restauración desde instantáneas y desde el almacén.
+
+>[!NOTE]
+>La copia de seguridad y restauración de discos selectiva para máquinas virtuales de Azure se encuentra en versión preliminar pública en todas las regiones.
 
 ## <a name="scenarios"></a>Escenarios
 
@@ -64,31 +68,31 @@ az backup protection enable-for-vm  --resource-group {ResourceGroup} --vault-nam
 ### <a name="modify-protection-for-already-backed-up-vms-with-azure-cli"></a>Modificación de la protección de las máquinas virtuales de las que ya ha realizado una copia de seguridad con la CLI de Azure
 
 ```azurecli
-az backup protection update-for-vm --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} --disk-list-setting exclude --diskslist {LUN number(s) separated by space}
+az backup protection update-for-vm --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} --backup-management-type AzureIaasVM --disk-list-setting exclude --diskslist {LUN number(s) separated by space}
 ```
 
 ### <a name="backup-only-os-disk-during-configure-backup-with-azure-cli"></a>Copia de seguridad solo del disco del sistema operativo durante la configuración de la copia de seguridad con la CLI de Azure
 
 ```azurecli
-az backup protection enable-for-vm --resource-group {resourcegroup} --vault-name {vaultname} --vm {vmname} --policy-name {policyname} -- exclude-all-data-disks
+az backup protection enable-for-vm --resource-group {resourcegroup} --vault-name {vaultname} --vm {vmname} --policy-name {policyname} --exclude-all-data-disks
 ```
 
 ### <a name="backup-only-os-disk-during-modify-protection-with-azure-cli"></a>Copia de seguridad solo del disco del sistema operativo durante la modificación de la protección con la CLI de Azure
 
 ```azurecli
-az backup protection update-for-vm --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} --exclude-all-data-disks
+az backup protection update-for-vm --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} --backup-management-type AzureIaasVM --exclude-all-data-disks
 ```
 
 ### <a name="restore-disks-with-azure-cli"></a>Restauración de discos con la CLI de Azure
 
 ```azurecli
-az backup restore restore-disks --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} -r {restorepoint} --target-resource-group {targetresourcegroup} --storage-account {storageaccountname} --restore-to-staging-storage-account --diskslist {LUN number of the disk(s) to be restored}
+az backup restore restore-disks --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} --backup-management-type AzureIaasVM -r {restorepoint} --target-resource-group {targetresourcegroup} --storage-account {storageaccountname} --diskslist {LUN number of the disk(s) to be restored}
 ```
 
 ### <a name="restore-only-os-disk-with-azure-cli"></a>Restauración solo del disco del sistema operativo con la CLI de Azure
 
 ```azurecli
-az backup restore restore-disks --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} -r {restorepoint} } --target-resource-group {targetresourcegroup} --storage-account {storageaccountname} --restore-to-staging-storage-account --restore-only-osdisk
+az backup restore restore-disks --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} -r {restorepoint} } --target-resource-group {targetresourcegroup} --storage-account {storageaccountname} --restore-only-osdisk
 ```
 
 ### <a name="get-protected-item-to-get-disk-exclusion-details-with-azure-cli"></a>Obtención de un elemento protegido para obtener detalles de exclusión de disco con la CLI de Azure
@@ -177,7 +181,7 @@ Cada punto de recuperación tiene la información de los discos incluidos y excl
 ### <a name="remove-disk-exclusion-settings-and-get-protected-item-with-azure-cli"></a>Eliminación de la configuración de exclusión de discos y obtención del elemento protegido con la CLI de Azure
 
 ```azurecli
-az backup protection update-for-vm --vault-name {vaultname} --resource-group {resourcegroup} -c {vmname} -i {vmname} --disk-list-setting resetexclusionsettings
+az backup protection update-for-vm --vault-name {vaultname} --resource-group {resourcegroup} -c {vmname} -i {vmname} --backup-management-type AzureIaasVM --disk-list-setting resetexclusionsettings
 
 az backup item show -c {vmname} -n {vmname} --vault-name {vaultname} --resource-group {resourcegroup} --backup-management-type AzureIaasVM
 ```
@@ -186,7 +190,7 @@ Cuando ejecute estos comandos, verá `"diskExclusionProperties": null`.
 
 ## <a name="using-powershell"></a>Usar PowerShell
 
-Asegúrese de usar Azure PS versión 3.7.0 o posterior.
+Asegúrese de usar Azure PowerShell versión 3.7.0 o posterior.
 
 ### <a name="enable-backup-with-powershell"></a>Habilitación de la copia de seguridad con PowerShell
 
@@ -273,7 +277,7 @@ La restauración selectiva de discos es una funcionalidad adicional que se obtie
 - La restauración selectiva de discos solo se admite para los puntos de recuperación creados después de habilitar la funcionalidad de exclusión de discos.
 - Las copias de seguridad con la configuración de exclusión de discos **activada** solo admiten la opción **Disk restore** (Restauración de disco). Las opciones de restauración **VM restore** (Restauración de máquina virtual) o **Replace Existing** (Reemplazar existente) no se admiten en este caso.
 
-![Las opciones para restaurar la máquina virtual y reemplazar la existente no están disponibles durante la operación de restauración.](./media/selective-disk-backup-restore/options-not-available.png)
+![La opción para restaurar la máquina virtual y reemplazar la existente no está disponible durante la operación de restauración.](./media/selective-disk-backup-restore/options-not-available.png)
 
 ## <a name="limitations"></a>Limitaciones
 

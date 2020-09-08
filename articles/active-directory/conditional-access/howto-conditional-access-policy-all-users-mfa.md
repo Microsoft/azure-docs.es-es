@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1e99556b0a0c5b7559cc03b152a19e78aeb58f6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a45ce7bee04716612431effe77315d739f328dba
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283051"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049305"
 ---
 # <a name="conditional-access-require-mfa-for-all-users"></a>Acceso condicional: Exigir autenticación multifactor para todos los usuarios
 
@@ -76,6 +76,6 @@ En la directiva de ejemplo anterior, una organización puede optar por no requer
 
 [Directivas de acceso condicional habituales](concept-conditional-access-policy-common.md)
 
-[Determinación del impacto mediante el modo de solo informe de acceso condicional](howto-conditional-access-report-only.md)
+[Determinación del impacto mediante el modo de solo informe de acceso condicional](howto-conditional-access-insights-reporting.md)
 
 [Simulación del comportamiento de inicio de sesión mediante la herramienta What If de acceso condicional](troubleshoot-conditional-access-what-if.md)

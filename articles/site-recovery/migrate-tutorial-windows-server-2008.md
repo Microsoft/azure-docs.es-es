@@ -1,6 +1,6 @@
 ---
-title: Migración de servidores de Windows Server 2008 a Azure con Azure Site Recovery
-description: En este artículo se describe cómo migrar máquinas de Windows Server 2008 locales a Azure mediante Azure Site Recovery.
+title: Migración de servidores de Windows Server 2008 a Azure con Azure Migrate o Site Recovery
+description: En este artículo se describe cómo migrar máquinas Windows Server 2008 locales a Azure y se recomienda Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/27/2020
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 8d672c1113f265f9fbbabc7caed8df071f548f2a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d8cd8bf2e1a29b122fb4bac7a12454f102183fe3
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503827"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87845568"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migración de servidores que ejecutan Windows Server 2008 a Azure
 
@@ -31,9 +31,11 @@ En este tutorial, aprenderá a:
 
 ## <a name="migrate-with-azure-migrate"></a>Migración con Azure Migrate
 
-Se recomienda migrar las máquinas a Azure mediante el servicio [Azure Migrate](../migrate/migrate-services-overview.md). Azure Migrate proporciona un centro de conectividad centralizado para la valoración y la migración de máquinas locales a Azure, mediante Azure Migrate, otros servicios de Azure y herramientas de terceros. Azure Site Recovery debe usarse solo para la recuperación ante desastres, no para la migración.
+Se recomienda migrar las máquinas a Azure mediante el servicio [Azure Migrate](../migrate/migrate-services-overview.md). 
 
-Azure Migrate admite la migración de servidores que ejecutan Windows Server 2008.
+- Azure Migrate está diseñado específicamente para la migración de servidores.
+- Azure Migrate proporciona un centro centralizado para la detección, evaluación y migración de máquinas locales a Azure. Azure Site Recovery debe usarse solo para la recuperación ante desastres, no para la migración.
+- Azure Migrate admite la migración de servidores que ejecutan Windows Server 2008.
 
 
 ## <a name="migrate-with-site-recovery"></a>Migración con Site Recovery

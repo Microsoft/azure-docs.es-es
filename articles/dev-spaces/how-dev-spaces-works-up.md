@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Describe los procesos de ejecución del código en Azure Kubernetes Service con Azure Dev Spaces
 keywords: azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
-ms.openlocfilehash: c343c32f0817cc922784bb25283290dc9ed88d29
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9dbc1f0f21c2883e5caadbdae268a515eb94d145
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072956"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208685"
 ---
 # <a name="how-running-your-code-with-azure-dev-spaces-works"></a>Cómo funciona la ejecución del código con Azure Dev Spaces
 
@@ -201,14 +201,6 @@ Para más información sobre las redes y cómo se enrutan las solicitudes en Azu
 
 Para más información sobre el uso de Azure Dev Spaces para iterar y desarrollar rápidamente, consulte [Funcionamiento de Proceso local con Kubernetes][how-it-works-local-process-kubernetes] y [Funcionamiento de la depuración remota del código con Azure Dev Spaces][how-it-works-remote-debugging].
 
-Para empezar a trabajar con Azure Dev Spaces ejecutando su proyecto, consulte los siguientes inicios rápidos:
-
-* [Iteración y depuración rápidas con Visual Studio Code y Java][quickstart-java]
-* [Iteración y depuración rápidas con Visual Studio Code y .NET][quickstart-netcore]
-* [Iteración y depuración rápidas con Visual Studio Code y Node.js][quickstart-node]
-* [Iteración y depuración rápidas con Visual Studio y .NET Core][quickstart-vs]
-* [Uso de la CLI para desarrollar una aplicación en Kubernetes][quickstart-cli]
-
 
 [azds-yaml-section]: #how-running-your-code-is-configured
 [helm-upgrade]: https://helm.sh/docs/intro/using_helm/#helm-upgrade-and-helm-rollback-upgrading-a-release-and-recovering-on-failure
@@ -216,10 +208,5 @@ Para empezar a trabajar con Azure Dev Spaces ejecutando su proyecto, consulte lo
 [how-it-works-prep]: how-dev-spaces-works-prep.md
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
 [how-it-works-routing]: how-dev-spaces-works-routing.md
-[quickstart-cli]: quickstart-cli.md
-[quickstart-java]: quickstart-java.md
-[quickstart-netcore]: quickstart-netcore.md
-[quickstart-node]: quickstart-nodejs.md
-[quickstart-vs]: quickstart-netcore-visualstudio.md
 [sync-section]: #file-synchronization
 [troubleshooting]: troubleshooting.md

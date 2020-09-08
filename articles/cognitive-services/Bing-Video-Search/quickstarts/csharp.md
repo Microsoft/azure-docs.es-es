@@ -10,12 +10,13 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: d9d69d4550a5cd4a162795261b7ab3d8b59b7297
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.custom: devx-track-csharp
+ms.openlocfilehash: c69fec46a6d1c8b177e5602ae24a6cbf0654dc20
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848947"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929217"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-c"></a>Inicio rápido: Búsqueda de vídeos con la API de REST Bing Video Search y C#
 

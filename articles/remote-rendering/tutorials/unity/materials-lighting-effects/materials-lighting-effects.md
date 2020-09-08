@@ -5,12 +5,13 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 39560966b542999b2c0c3472075c7497f2146455
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 0580614468d4003b3640fd4df08ff02f3a1c8476
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207351"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021075"
 ---
 # <a name="tutorial-refining-materials-lighting-and-effects"></a>Tutorial: Refinamiento de materiales, iluminación y efectos
 

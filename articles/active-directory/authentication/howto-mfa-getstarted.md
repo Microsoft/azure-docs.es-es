@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15d519e1cede27b3626d715c48790af620589e43
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 4fc459e63dd48adb49ab916c368b68cc3a1ccbaf
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757612"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717037"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Planificación de una implementación de Azure Multi-Factor Authentication
 
@@ -74,7 +74,7 @@ Utilice los pósteres y plantillas de correo electrónico personalizables de los
 
 Las directivas de acceso condicional fomentan el registro, ya que los usuarios no registrados deben completar su registro en el primer inicio de sesión, una consideración de seguridad importante.
 
-[Azure AD Identity Protection](../identity-protection/howto-configure-risk-policies.md) contribuye con directivas de registro y directivas de detección y corrección automatizada de riesgos para el caso de Azure Multi-Factor Authentication. Las directivas se pueden crear para forzar los cambios de contraseña cuando hay una amenaza de identidad en peligro o pueden requerir MFA cuando un inicio de sesión se considera de riesgo según los siguientes [eventos](../reports-monitoring/concept-risk-events.md):
+[Azure AD Identity Protection](../identity-protection/howto-identity-protection-configure-risk-policies.md) contribuye con directivas de registro y directivas de detección y corrección automatizada de riesgos para el caso de Azure Multi-Factor Authentication. Las directivas se pueden crear para forzar los cambios de contraseña cuando hay una amenaza de identidad en peligro o pueden requerir MFA cuando un inicio de sesión se considera de riesgo según los siguientes [eventos](../identity-protection/overview-identity-protection.md):
 
 * Credenciales con fugas
 * Inicios de sesión desde direcciones IP anónimas
@@ -108,6 +108,9 @@ Se recomienda que las organizaciones usen acceso condicional para definir su red
 ## <a name="plan-authentication-methods"></a>Planificación de métodos de autenticación
 
 Los administradores pueden elegir los [métodos de autenticación](../authentication/concept-authentication-methods.md) que quieren que estén disponibles para los usuarios. Es importante habilitar más de un método de autenticación para que los usuarios tengan disponible un método alternativo en caso de que su método principal no esté disponible. Los métodos siguientes están disponibles para que los administradores los habiliten:
+
+> [!TIP]
+> Microsoft recomienda el uso de la aplicación móvil como método principal para Azure Multi-Factor Authentication, para obtener la mejor experiencia de usuario y seguridad.
 
 ### <a name="notification-through-mobile-app"></a>Notificación a través de aplicación móvil
 
@@ -148,7 +151,7 @@ Los administradores deben determinar la forma en que los usuarios registrarán s
 
 ### <a name="registration-with-identity-protection"></a>Registro con Identity Protection
 
-Si su organización usa Azure Active Directory Identity Protection, [configure la directiva de registro de MFA](../identity-protection/howto-mfa-policy.md) para pedir a los usuarios que se registren la próxima vez que inicien sesión de forma interactiva.
+Si su organización usa Azure Active Directory Identity Protection, [configure la directiva de registro de MFA](../identity-protection/howto-identity-protection-configure-mfa-policy.md) para pedir a los usuarios que se registren la próxima vez que inicien sesión de forma interactiva.
 
 ### <a name="registration-without-identity-protection"></a>Registro sin Identity Protection
 
@@ -162,7 +165,7 @@ Mediante los siguientes pasos, una directiva de acceso condicional puede obligar
 2. Mediante el acceso condicional, exija la autenticación multifactor para este grupo a fin de acceder a todos los recursos.
 3. Periódicamente, vuelva a evaluar la pertenencia al grupo y quite a los usuarios del grupo que ya están registrados.
 
-Puede identificar a los usuarios de Azure MFA registrados y no registrados con comandos de PowerShell que se basan en el [módulo MSOnline de PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
+Puede identificar a los usuarios de Azure MFA registrados y no registrados con comandos de PowerShell que se basan en el [módulo MSOnline de PowerShell](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
 
 #### <a name="identify-registered-users"></a>Identificación de usuarios registrados
 
@@ -278,7 +281,7 @@ La extensión NPS actúa como un adaptador entre RADIUS y Azure MFA en la nube p
 
 #### <a name="implementing-your-nps-server"></a>Implementación del servidor de NPS
 
-Si tiene una instancia de NPS implementada y está en uso, consulte [Integración de la infraestructura existente de NPS con Azure Multi-Factor Authentication](howto-mfa-nps-extension.md). Si está configurando NPS por primera vez, consulte el artículo [Servidor de directivas de redes (NPS)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) para obtener instrucciones. Puede encontrar una guía de solución de problemas en el artículo [Resolución de mensajes de error de la extensión de NPS para Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md).
+Si tiene una instancia de NPS implementada y está en uso, consulte [Integración de la infraestructura existente de NPS con Azure Multi-Factor Authentication](howto-mfa-nps-extension.md). Si está configurando NPS por primera vez, consulte el artículo [Servidor de directivas de redes (NPS)](/windows-server/networking/technologies/nps/nps-top) para obtener instrucciones. Puede encontrar una guía de solución de problemas en el artículo [Resolución de mensajes de error de la extensión de NPS para Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md).
 
 #### <a name="prepare-nps-for-users-that-arent-enrolled-for-mfa"></a>Preparación de los usuarios NPS que no están inscritos en MFA
 
@@ -322,7 +325,7 @@ La escritura de registros estándar de AD FS 2016 y 2019 en el registro de segur
 
 En todos los servidores de AD FS del equipo local My Store habrá un certificado de Azure MFA autofirmado con el título OU=Microsoft AD FS Azure MFA, que contiene la fecha de expiración del certificado. Compruebe el período de validez de este certificado en cada servidor de AD FS para determinar la fecha de expiración.
 
-Si el período de validez de los certificados está próximo a expirar, [genere y compruebe un nuevo certificado MFA en cada servidor de AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa#configure-the-ad-fs-servers).
+Si el período de validez de los certificados está próximo a expirar, [genere y compruebe un nuevo certificado MFA en cada servidor de AD FS](/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa#configure-the-ad-fs-servers).
 
 Las instrucciones siguientes detallan cómo administrar los certificados de Azure MFA en los servidores de AD FS. Cuando se configura AD FS con Azure MFA, los certificados que se generan a través del cmdlet `New-AdfsAzureMfaTenantCertificate` de PowerShell son válidos durante dos años. Renueve e instale los certificados renovados antes de que expiren para evitar interrupciones en el servicio de MFA.
 
@@ -333,7 +336,7 @@ Ahora que ha planeado la solución, puede implementarla mediante los siguientes 
 1. Cumpla con los requisitos previos necesarios.
    1. Implemente [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) para los escenarios híbridos.
    1. Implemente [Azure AD Application Proxy](../manage-apps/application-proxy.md) en todas las aplicaciones locales publicadas para el acceso a la nube.
-   1. Implemente [NPS](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) para todas las autenticaciones de RADIUS.
+   1. Implemente [NPS](/windows-server/networking/technologies/nps/nps-top) para todas las autenticaciones de RADIUS.
    1. Asegúrese de que los usuarios están actualizados a las versiones compatibles de Microsoft Office con la autenticación moderna habilitada.
 1. Configure los [métodos de autenticación](#choose-verification-options) que eligió.
 1. Defina las [ubicaciones de red con nombre](../conditional-access/location-condition.md#named-locations).
@@ -341,7 +344,7 @@ Ahora que ha planeado la solución, puede implementarla mediante los siguientes 
 1. Configure las [directivas de acceso condicional](#create-conditional-access-policy).
 1. Configure la directiva de registro MFA.
    1. [MFA y SSPR combinados](howto-registration-mfa-sspr-combined.md)
-   1. Con [Identity Protection](../identity-protection/howto-mfa-policy.md)
+   1. Con [Identity Protection](../identity-protection/howto-identity-protection-configure-mfa-policy.md)
 1. Envíe las comunicaciones de usuario y haga que los usuarios se inscriban en [https://aka.ms/mfasetup](https://aka.ms/mfasetup).
 1. [Realice un seguimiento de quién está inscrito](#identify-non-registered-users).
 

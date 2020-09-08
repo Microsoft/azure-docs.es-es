@@ -1,6 +1,6 @@
 ---
 title: Carga previa de recursos en un punto de conexión de Azure CDN | Microsoft Docs
-description: Aprenda a precargar el contenido almacenado en caché en un punto de conexión de Azure CDN.
+description: Aprenda a cargar previamente contenido almacenado en caché en un punto de conexión de Azure Content Delivery Network. Esta característica está disponible en determinadas versiones del producto.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/12/2018
 ms.author: allensu
-ms.openlocfilehash: 587a6c4104693e8ccf610a670064832364a166d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2f0968af5cb52904f6044e130adba8b0ba9a6cd1
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887573"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192579"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Carga previa de activos en un punto de conexión de Azure CDN
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]

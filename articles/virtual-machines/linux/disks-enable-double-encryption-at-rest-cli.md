@@ -2,20 +2,20 @@
 title: 'Habilitación del cifrado doble en reposo para discos administrados: CLI de Azure'
 description: Habilite el cifrado doble en reposo para los datos de discos administrados mediante la CLI de Azure.
 author: roygara
-ms.date: 07/10/2020
+ms.date: 08/24/2020
 ms.topic: how-to
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 25f4f99d2bd80034d2f337aa649417d2d06026be
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 76e5ab49e354faac085be533fed1ff16c0315a5e
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082535"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816837"
 ---
-# <a name="azure-cli---enable-double-encryption-at-rest-on-your-managed-disks"></a>CLI de Azure: Habilitación del cifrado doble en reposo en discos administrados
+# <a name="use-the-azure-cli-to-enable-double-encryption-at-rest-for-managed-disks"></a>Uso de la CLI de Azure para habilitar el cifrado doble en reposo para discos administrados
 
 Azure Disk Storage admite el cifrado doble en reposo para los discos administrados. Para obtener información conceptual sobre el cifrado doble en reposo, así como otros tipos de cifrado de discos administrados, consulte la sección [Doble cifrado en reposo](disk-encryption.md#double-encryption-at-rest) de nuestro artículo sobre el cifrado de discos.
 

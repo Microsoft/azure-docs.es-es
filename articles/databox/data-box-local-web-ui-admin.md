@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/15/2020
+ms.date: 08/10/2020
 ms.author: alkohli
-ms.openlocfilehash: a99499110951ccbc0458b5ce848930fed9205dad
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 7cac14708adecbdf3c809e3a9656d25c727d80e3
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372044"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206168"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Use la interfaz de usuario web local para administrar los dispositivos Data Box y Data Box Heavy
 
@@ -25,7 +25,7 @@ Este artículo incluye los siguientes tutoriales:
 
 - Generar un paquete de soporte técnico
 - Apagar o reiniciar el dispositivo
-- Descarga de los archivos del manifiesto o la lista de materiales
+- Descarga de la lista de materiales (BOM) o los archivos de manifiesto
 - Ver la capacidad disponible del dispositivo
 - Omitir la validación de la suma de comprobación
 
@@ -62,7 +62,7 @@ Para apagar el dispositivo, siga estos pasos.
 
     ![Apagar Data Box 1](media/data-box-local-web-ui-admin/shut-down-local-web-ui-1.png)
 
-3. Cuando se le pida confirmación, haga clic en **Aceptar** para continuar.
+3. Cuando se le pida confirmación, seleccione **Aceptar** para continuar.
 
     ![Apagar Data Box 2](media/data-box-local-web-ui-admin/shut-down-local-web-ui-2.png)
 
@@ -83,31 +83,30 @@ Para reiniciar su Data Box, realice los pasos siguientes.
 
 Los archivos del manifiesto o la lista de materiales (BOM) contienen la lista de archivos que se copian en Data Box o en Data Box Heavy. Estos archivos se generan para un pedido de importación al preparar el dispositivo para el envío.
 
-Antes de comenzar, asegúrese de completar en el dispositivo el paso **Preparación para el envío**. Siga estos pasos para descargar los archivos de manifiesto o la lista de materiales para el pedido de importación:
+Antes de empezar, siga estos pasos para descargar los archivos de manifiesto o la lista de materiales para el pedido de importación:
 
-1. Vaya a la interfaz de usuario web local de su dispositivo. Ahí podrá ver si el dispositivo ha completado la preparación para el envío. Una vez completada la preparación del dispositivo, su estado se muestra como **Listo para el envío**.
+1. Vaya a la interfaz de usuario web local de su dispositivo. Compruebe que el dispositivo haya completado el paso **Preparación para el envío**. Una vez completada la preparación del dispositivo, su estado se muestra como **Listo para el envío**.
 
-    ![Dispositivo listo para el envío](media/data-box-portal-admin/ready-to-ship.png)
+    ![Dispositivo listo para el envío](media/data-box-local-web-ui-admin/prepare-to-ship-3.png)
 
 2. Seleccione **Descargar lista de archivos** para descargar la lista de archivos que se copiaron en Data Box.
 
-    ![Seleccionar Descargar lista de archivos](media/data-box-portal-admin/download-list-of-files.png)
+    <!-- ![Select Download list of files](media/data-box-portal-admin/download-list-of-files.png) -->
 
 3. En el Explorador de archivos, verá que se generan listas de archivos independientes según el protocolo utilizado para conectarse al dispositivo y el tipo de instancia de Azure Storage empleado.
 
-    ![Archivos para tipo de almacenamiento y protocolo de conexión](media/data-box-portal-admin/files-storage-connection-type.png)
+    <!-- ![Files for storage type and connection protocol](media/data-box-portal-admin/files-storage-connection-type.png) -->
+    ![Archivos para tipo de almacenamiento y protocolo de conexión](media/data-box-local-web-ui-admin/prepare-to-ship-5.png)
 
    La tabla siguiente asigna los nombres de archivo al tipo de instancia de Azure Storage y al protocolo de conexión utilizados.
 
     |Nombre de archivo  |Tipo de instancia de Azure Storage  |Protocolo de conexión utilizado |
     |---------|---------|---------|
-    |databoxe2etest_BlockBlob.txt     |Blobs en bloques         |SMB/NFS         |
-    |databoxe2etest_PageBlob.txt     |Blobs en páginas         |SMB/NFS         |
-    |databoxe2etest_AzFile-BOM.txt    |Azure Files         |SMB/NFS         |
-    |databoxe2etest_PageBlock_Rest-BOM.txt     |Blobs en páginas         |REST        |
-    |databoxe2etest_BlockBlock_Rest-BOM.txt    |Blobs en bloques         |REST         |
-    |mydbmdrg1_MDisk-BOM.txt    |Disco administrado         |SMB/NFS         |
-    |mydbmdrg2_MDisk-BOM.txt     |Disco administrado         |SMB/NFS         |
+    |utSAC1_202006051000_BlockBlob-BOM.txt     |Blobs en bloques         |SMB/NFS         |
+    |utSAC1_202006051000_PageBlob-BOM.txt     |Blobs en páginas         |SMB/NFS         |
+    |utSAC1_202006051000_AzFile-BOM.txt    |Azure Files         |SMB/NFS         |
+    |utsac1_PageBlock_Rest-BOM.txt     |Blobs en páginas         |REST        |
+    |utsac1_BlockBlock_Rest-BOM.txt    |Blobs en bloques         |REST         |
 
 Esta lista sirve para comprobar qué archivos se han cargado en la cuenta de Azure Storage después de que Data Box vuelva al centro de datos de Azure. A continuación, se muestra un archivo de manifiesto de ejemplo.
 

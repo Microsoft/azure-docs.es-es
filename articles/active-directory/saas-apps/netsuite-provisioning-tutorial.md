@@ -2,25 +2,20 @@
 title: 'Tutorial: Configuración de NetSuite OneWorld para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
 description: Más información sobre cómo configurar el inicio de sesión único entre Azure Active Directory y NetSuite OneWorld.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.assetid: 8a6d3994-ee33-4a6f-b0a2-9d0389467f16
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c9a823e6515c2bfe09e1ab7bcef471eb8169e75
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 158b66d63292a1ffb503f3f87eddfd33a2b09b71
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77063302"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88554488"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Tutorial: Configuración de Netsuite para el aprovisionamiento automático de usuarios
 

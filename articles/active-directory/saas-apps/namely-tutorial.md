@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Namely | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Namely.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 9541d5c4-4c82-4b5b-b01a-6a3f75a2b7a1
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: a9ec54ce27b4d058938e688ec671709e09391cce
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 00ddd61209af6e0d16b7f7579a6e8729cde0cdf0
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73160369"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88552482"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-namely"></a>Tutorial: Integración de Azure Active Directory con Namely
 

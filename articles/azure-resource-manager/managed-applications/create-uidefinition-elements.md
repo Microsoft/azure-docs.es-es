@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: tomfitz
-ms.openlocfilehash: 221e4dc2e909561c70b1cd1b86df026619c2b31f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8b6c6e78c64f83ca39a29f319a103e893d8d8b38
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004314"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923728"
 ---
 # <a name="createuidefinition-elements"></a>Elementos CreateUiDefinition
 
@@ -50,6 +50,7 @@ La documentación de cada elemento contiene un ejemplo de interfaz de usuario, u
 
 - [Microsoft.Common.CheckBox](microsoft-common-checkbox.md)
 - [Microsoft.Common.DropDown](microsoft-common-dropdown.md)
+- [Microsoft.Common.EditableGrid](microsoft-common-editablegrid.md)
 - [Microsoft.Common.FileUpload](microsoft-common-fileupload.md)
 - [Microsoft.Common.InfoBox](microsoft-common-infobox.md)
 - [Microsoft.Common.OptionsGroup](microsoft-common-optionsgroup.md)

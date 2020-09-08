@@ -9,12 +9,12 @@ ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 6113ee61d4949649b65607c0f1bd606be4edb2ac
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 91157f625b328dfc03927cf0036aea1b6040cdbf
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837166"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783729"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Redes para conjuntos de escalado de máquinas virtuales de Azure
 
@@ -43,28 +43,7 @@ Azure Accelerated Networking mejora el rendimiento de la red al permitir la virt
 ```
 
 ## <a name="azure-virtual-machine-scale-sets-with-azure-load-balancer"></a>Conjuntos de escalado de máquinas virtuales de Azure con Azure Load Balancer
-
-Al trabajar con conjuntos de escalado de máquinas virtuales y el equilibrador de carga, debe tener en cuenta los siguientes aspectos:
-
-* **Varios conjuntos de escalado de máquinas virtuales no pueden usar el mismo equilibrador de carga**.
-* **Enrutamiento de puerto y reglas NAT de entrada**:
-  * cada conjunto de escalado de máquinas virtuales debe tener una regla NAT de entrada.
-  * Después de crear el conjunto de escalado, no se puede modificar el puerto de back-end para una regla de equilibrio de carga que se usa en un sondeo de estado del equilibrador de carga. Para cambiar el puerto, puede quitar el sondeo de estado mediante la actualización del conjunto de escalado de máquinas virtuales de Azure, actualizar el puerto y, a continuación, volver a configurar el sondeo de estado.
-  * Al usar el conjunto de escalado de máquinas virtuales en el grupo de back-end del equilibrador de carga, las reglas NAT de entrada predeterminadas se crean automáticamente.
-* **Grupo NAT de entrada**:
-  * El grupo NAT de entrada es una colección de reglas NAT de entrada. Un grupo NAT de entrada no admite varios conjuntos de escalado de máquinas virtuales.
-* **Reglas de equilibrio de carga**:
-  * Al usar el conjunto de escalado de máquinas virtuales en el grupo de back-end del equilibrador de carga, la regla de equilibrio de carga predeterminada se crea automáticamente.
-* **Reglas de salida**:
-  *  Para crear una regla de salida para un grupo de back-end al que ya se hace referencia mediante una regla de equilibrio de carga, primero debe marcar **"Crear reglas de salida implícitas"** como **No** en el portal cuando se crea la regla de equilibrio de carga de entrada.
-
-  :::image type="content" source="./media/vmsslb.png" alt-text="Creación de una regla de equilibrio de carga" border="true":::
-
-Los siguientes métodos se pueden usar para implementar un conjunto de escalado de máquinas virtuales con una instancia existente de Azure Load Balancer.
-
-* [Configuración de un conjunto de escalado de máquinas virtuales con una instancia existente de Azure Load Balancer mediante Azure Portal](../load-balancer/configure-vm-scale-set-portal.md)
-* [Configuración de un conjunto de escalado de máquinas virtuales con una instancia existente de Azure Load Balancer mediante Azure PowerShell](../load-balancer/configure-vm-scale-set-powershell.md).
-* [Configuración de un conjunto de escalado de máquinas virtuales con una instancia existente de Azure Load Balancer mediante la CLI de Azure](../load-balancer/configure-vm-scale-set-cli.md).
+Consulte [Azure Load Balancer y Virtual Machine Scale Sets](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-virtual-machine-scale-sets) para más información sobre cómo configurar Standard Load Balancer con Virtual Machine Scale Sets según su escenario.
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Creación de un conjunto de escalado que hace referencia a una puerta de enlace de aplicaciones
 Para crear un conjunto de escalado que usa una puerta de enlace de aplicaciones, haga referencia al grupo de direcciones de back-end de la puerta de enlace de aplicaciones en la sección ipConfigurations del conjunto de escalado, como en esta configuración de plantilla ARM:

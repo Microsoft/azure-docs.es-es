@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 10/07/2019
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: e6d61e329ba91f53b11ace4d258b35950e188dcb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3d38fa2afe35976283e5129eab7d7f8ef3a1103b
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76771212"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236495"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Uso de Azure Table Storage y Table API de Azure Cosmos DB con C++
 
@@ -91,14 +91,14 @@ const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=ht
 
 Use el nombre de la cuenta de Azure Cosmos DB en `<your_cosmos_db_account>`. Escriba la clave principal en `<your_cosmos_db_account_key>`. Escriba el punto de conexión que aparece en [Azure Portal](https://portal.azure.com) en `<your_cosmos_db_endpoint>`.
 
-Para probar la aplicación en el equipo local de Windows, puede usar el emulador de Azure Storage que se instala con el [SDK de Azure](https://azure.microsoft.com/downloads/). El emulador de almacenamiento es una utilidad que simula los servicios Azure Blob, Queue y Table en el equipo de desarrollo local. En el ejemplo siguiente se muestra cómo declarar un campo estático para mantener la cadena de conexión al emulador de almacenamiento local:  
+Para probar la aplicación en el equipo local de Windows, puede usar Emulador de Azure Storage que se instala con el [SDK de Azure](https://azure.microsoft.com/downloads/). Emulador de Storage es una utilidad que simula los servicios Azure Blob, Queue y Table disponibles en la máquina de desarrollo local. En el ejemplo siguiente se muestra cómo declarar un campo estático para mantener la cadena de conexión al emulador de almacenamiento local:  
 
 ```cpp
 // Define the connection string with Azure storage emulator.
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-Para iniciar el emulador de Azure Storage, en el escritorio de Windows, seleccione el botón **Iniciar** o la tecla Windows. Escriba y ejecute *Emulador de Microsoft Azure Storage*. Para más información, consulte [Uso del emulador de Azure Storage para desarrollo y pruebas](../storage/common/storage-use-emulator.md).
+Para iniciar Emulador de Azure Storage, en el escritorio de Windows, seleccione el botón **Iniciar** o la tecla Windows. Escriba y ejecute *Emulador de Microsoft Azure Storage*. Para más información, consulte [Uso del emulador de Azure Storage para desarrollo y pruebas](../storage/common/storage-use-emulator.md).
 
 ### <a name="retrieve-your-connection-string"></a>Recuperación de la cadena de conexión
 

@@ -1,21 +1,22 @@
 ---
 title: Administrar la simultaneidad
 titleSuffix: Azure Storage
-description: Obtenga información sobre cómo administrar la simultaneidad para los servicios Blob service, Queue service, Table service y File service.
+description: Obtenga información sobre cómo administrar la simultaneidad en Azure Storage para Blob service, Queue service, Table service y File service. Comprenda las tres estrategias de simultaneidad de datos principales usadas.
 services: storage
 author: tamram
 ms.service: storage
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 9879f98e72e22fc0745a9e91f29216cbe74ab8fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 2732781d32e92c8ec03116988e33ec4fbe0b2330
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228340"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021568"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Administración de la simultaneidad en Almacenamiento de Microsoft Azure
 
@@ -49,7 +50,7 @@ El esquema de este proceso es el siguiente:
 4. Si el valor ETag actual del blob es una versión diferente de ETag del encabezado condicional **If-Match** de la solicitud, el servicio devuelve un error 412 al cliente. Esto indica al cliente que otro proceso ha actualizado el blob desde que el cliente lo recuperó.
 5. Si el valor ETag actual del blob es la misma versión que el valor ETag del encabezado condicional **If-Match** de la solicitud, el servicio realiza la operación solicitada y actualiza el valor ETag actual del blob para mostrar que ha creado una nueva versión.  
 
-El siguiente fragmento de código de C# (usando Biblioteca de almacenamiento de cliente 4.2.0) muestra un ejemplo sencillo de cómo construir una **If-Match AccessCondition** basándose en el valor ETag al que se tiene acceso desde las propiedades de un blob que se recuperó o insertó previamente. Luego usa el objeto **AccessCondition** cuando actualiza el blob: el objeto **AccessCondition** agrega el encabezado **If-Match** a la solicitud. Si otro proceso ha actualizado el blob, Blob service devuelve un mensaje de estado HTTP 412 (error en la condición previa). Puede descargar aquí el ejemplo completo: [Managing concurrency using Azure Storage](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114) (Administración de la simultaneidad mediante Azure Storage).  
+El siguiente fragmento de código de C# (usando Biblioteca de almacenamiento de cliente 4.2.0) muestra un ejemplo sencillo de cómo construir una **If-Match AccessCondition** basándose en el valor ETag al que se tiene acceso desde las propiedades de un blob que se recuperó o insertó previamente. Luego usa el objeto **AccessCondition** cuando actualiza el blob: el objeto **AccessCondition** agrega el encabezado **If-Match** a la solicitud. Si otro proceso ha actualizado el blob, Blob service devuelve un mensaje de estado HTTP 412 (error en la condición previa). Puede descargar aquí el ejemplo completo: [Administración de simultaneidad con Almacenamiento de Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).  
 
 ```csharp
 // Retrieve the ETag from the newly created blob
@@ -90,7 +91,7 @@ En la siguiente tabla se resumen las operaciones de contenedor que aceptan encab
 
 | Operación | Devuelve el valor ETag del contenedor | Acepta encabezados condicionales |
 |:--- |:--- |:--- |
-| Create Container |Sí |No |
+| Creación de un contenedor |Sí |No |
 | Get Container Properties |Sí |No |
 | Get Container Metadata |Sí |No |
 | Set Container Metadata |Sí |Sí |
@@ -131,7 +132,7 @@ Para bloquear un blob para uso exclusivo, puede adquirir una [concesión](https:
 
 Las concesiones permiten diferentes estrategias de sincronización, como por ejemplo las siguientes: escritura exclusiva / lectura compartida, escritura exclusiva / lectura exclusiva y escritura compartida / lectura exclusiva. Donde existe una concesión, el servicio Almacenamiento impone escrituras exclusivas (operaciones poner, establecer y eliminar) garantizando, sin embargo, que la exclusividad para operaciones de lectura requiere que el desarrollador garantice que todas las aplicaciones cliente usan un identificador de concesión y que solamente un cliente tiene un identificador de concesión válido en cada momento. Las operaciones de lectura que no incluyen un identificador de concesión, dan lugar a lecturas compartidas.  
 
-En el siguiente fragmento de código de C# se muestra un ejemplo de adquisición de una concesión exclusiva durante 30 segundos en un blob, actualizando el contenido de dicho blob y, a continuación, liberando la concesión. Si ya hay una concesión válida en el blob cuando intenta adquirir una nueva concesión, la instancia de Blob service devuelve un resultado de estado "HTTP (409) Conflicto". El fragmento de código siguiente usa un objeto **AccessCondition** para encapsular la información de concesión cuando crea una solicitud para actualizar el blob en el servicio de almacenamiento.  Puede descargar aquí el ejemplo completo: [Managing concurrency using Azure Storage](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114) (Administración de la simultaneidad mediante Azure Storage).
+En el siguiente fragmento de código de C# se muestra un ejemplo de adquisición de una concesión exclusiva durante 30 segundos en un blob, actualizando el contenido de dicho blob y, a continuación, liberando la concesión. Si ya hay una concesión válida en el blob cuando intenta adquirir una nueva concesión, la instancia de Blob service devuelve un resultado de estado "HTTP (409) Conflicto". El fragmento de código siguiente usa un objeto **AccessCondition** para encapsular la información de concesión cuando crea una solicitud para actualizar el blob en el servicio de almacenamiento.  Puede descargar aquí el ejemplo completo: [Administración de simultaneidad con Almacenamiento de Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
 ```csharp
 // Acquire lease for 15 seconds
@@ -197,9 +198,9 @@ Las siguientes operaciones de contenedor pueden usar concesiones para administra
 
 Para más información, consulte:  
 
-* [Especificar encabezados condicionales para las operaciones del servicio BLOB](https://msdn.microsoft.com/library/azure/dd179371.aspx)
+* [Specifying Conditional Headers for Blob Service Operations](https://msdn.microsoft.com/library/azure/dd179371.aspx) (Especificación de encabezados condicionales para las operaciones del servicio BLOB)
 * [Lease Container](https://msdn.microsoft.com/library/azure/jj159103.aspx)
-* [Lease Blob](https://msdn.microsoft.com/library/azure/ee691972.aspx)
+* [Concesión de blobs](https://msdn.microsoft.com/library/azure/ee691972.aspx)
 
 ## <a name="managing-concurrency-in-table-storage"></a>Administración de la simultaneidad en Table Storage
 
@@ -215,7 +216,7 @@ Para usar simultaneidad optimista y comprobar si otro proceso modificó una enti
 
 Tenga en cuenta que, a diferencia de Blob service, Table service requiere que el cliente incluya un encabezado **If-Match** en las solicitudes de actualización. Sin embargo, es posible imponer una actualización no condicional (estrategia de tipo "El último en escribir gana") y omitir comprobaciones de simultaneidad si el cliente establece el encabezado **If-Match** en el carácter comodín (*) en la solicitud.  
 
-El siguiente fragmento de código C# muestra una entidad customer que se creó o recuperó previamente teniendo su dirección de correo electrónico actualizada. La operación de inserción o recuperación inicial almacena el valor ETag en el objeto customer y, dado que el ejemplo usa la misma instancia de objeto cuando ejecuta la operación de reemplazo, automáticamente vuelve a enviar el valor ETag al servicio Tabla, permitiendo al servicio comprobar las infracciones de simultaneidad. Si otro proceso ha actualizado la entidad en el almacenamiento de tabla, el servicio devuelve un mensaje de estado HTTP 412 (Error en la condición previa).  Puede descargar aquí el ejemplo completo: [Managing concurrency using Azure Storage](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114) (Administración de la simultaneidad mediante Azure Storage).
+El siguiente fragmento de código C# muestra una entidad customer que se creó o recuperó previamente teniendo su dirección de correo electrónico actualizada. La operación de inserción o recuperación inicial almacena el valor ETag en el objeto customer y, dado que el ejemplo usa la misma instancia de objeto cuando ejecuta la operación de reemplazo, automáticamente vuelve a enviar el valor ETag al servicio Tabla, permitiendo al servicio comprobar las infracciones de simultaneidad. Si otro proceso ha actualizado la entidad en el almacenamiento de tabla, el servicio devuelve un mensaje de estado HTTP 412 (Error en la condición previa).  Puede descargar aquí el ejemplo completo: [Administración de simultaneidad con Almacenamiento de Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
 ```csharp
 try
@@ -252,7 +253,7 @@ En la siguiente tabla se resume cómo las operaciones de entidad de tabla usan v
 | Insert or Replace Entity |Sí |No |
 | Insert or Merge Entity |Sí |No |
 
-Tenga en cuenta que las operaciones **Insert or Replace Entity** e **Insert or Merge Entity** *no* realizan ninguna comprobación de simultaneidad porque no envían un valor ETag a Table service.  
+Tenga en cuenta que las operaciones **Insert or Replace Entity** e **Insert or Merge Entity***no* realizan ninguna comprobación de simultaneidad porque no envían un valor ETag a Table service.  
 
 En general, los desarrolladores que usan tablas deben basarse en simultaneidad optimista cuando desarrollan aplicaciones escalables. Si se necesita el bloqueo pesimista, un enfoque que los desarrolladores pueden usar cuando obtienen acceso a tablas es asignar un blob designado para cada tabla e intentar llevar a cabo una concesión en el blob antes de realizar operaciones en la tabla. Este enfoque no requiere que la aplicación garantice que todas las rutas de acceso a los datos obtienen la concesión antes de realizar operaciones en la tabla. También debe tener en cuenta que el tiempo mínimo de concesión es 15 segundos, lo que requiere una consideración cuidadosa para escalabilidad.  
 
@@ -268,7 +269,7 @@ El servicio Cola no admite simultaneidad optimista o pesimista y, por esta razó
 
 Para más información, consulte:  
 
-* [API de REST del servicio Cola](https://msdn.microsoft.com/library/azure/dd179363.aspx)
+* [Queue Service REST API](https://msdn.microsoft.com/library/azure/dd179363.aspx) (API REST de Queue service)
 * [Get Messages](https://msdn.microsoft.com/library/azure/dd179474.aspx)  
 
 ## <a name="managing-concurrency-in-azure-files"></a>Administración de la simultaneidad en Azure Files
@@ -292,5 +293,5 @@ Para obtener más información acerca de Almacenamiento de Azure, consulte:
 * [Página principal de Almacenamiento de Microsoft Azure](https://azure.microsoft.com/services/storage/)
 * [Introducción a Almacenamiento de Azure](storage-introduction.md)
 * Introducción al almacenamiento para [Blob](../blobs/storage-dotnet-how-to-use-blobs.md), [Table](../../cosmos-db/table-storage-how-to-use-dotnet.md), [Queues](../storage-dotnet-how-to-use-queues.md) y [Files](../storage-dotnet-how-to-use-files.md)
-* Storage Architecture – [Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx) (Arquitectura de Storage – Azure Storage: servicio de almacenamiento en nube altamente disponible y de gran coherencia).
+* Arquitectura de almacenamiento. [Azure Storage: un servicio de almacenamiento en nube altamente disponible con coherencia fuerte](https://docs.microsoft.com/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency)
 

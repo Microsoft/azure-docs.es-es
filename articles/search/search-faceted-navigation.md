@@ -8,12 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f7bf1c8f3f1ecbb21207776a99bba99d123ea891
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 05be5295ae5f8c73c916a21bba7dbc98ab0c5e87
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171948"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002800"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Procedimiento para implementar la navegación por facetas en Azure Cognitive Search
 
@@ -63,7 +64,7 @@ En el código de aplicación, el patrón es usar parámetros de consulta de face
 
 ### <a name="query-basics"></a>Conceptos básicos de las consultas
 
-En Azure Cognitive Search, una solicitud se especifica mediante uno o más parámetros de consulta (consulte [Buscar documentos](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) para obtener una descripción de cada uno). Ninguno de los parámetros de consulta son obligatorios, pero debe tener al menos uno para que una consulta sea válida.
+En Azure Cognitive Search, una solicitud se especifica mediante uno o más parámetros de consulta (consulte [Buscar documentos](/rest/api/searchservice/Search-Documents) para obtener una descripción de cada uno). Ninguno de los parámetros de consulta son obligatorios, pero debe tener al menos uno para que una consulta sea válida.
 
 La precisión, entendida como la capacidad de filtrar los resultados irrelevantes, se consigue mediante una o ambas de estas expresiones:
 
@@ -230,7 +231,7 @@ SearchParameters sp = new SearchParameters()
 };
 ```
 
-Un parámetro de consulta de faceta se establece en un campo y, según el tipo de datos, se puede parametrizar aún más con una lista delimitada por comas que incluya `count:<integer>`, `sort:<>`, `interval:<integer>` y `values:<list>`. Se admiten listas de valores para datos numéricos cuando se establecen intervalos. Consulte [Buscar documentos (API de Azure Cognitive Search)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) para más información sobre su uso.
+Un parámetro de consulta de faceta se establece en un campo y, según el tipo de datos, se puede parametrizar aún más con una lista delimitada por comas que incluya `count:<integer>`, `sort:<>`, `interval:<integer>` y `values:<list>`. Se admiten listas de valores para datos numéricos cuando se establecen intervalos. Consulte [Buscar documentos (API de Azure Cognitive Search)](/rest/api/searchservice/Search-Documents) para más información sobre su uso.
 
 Además de las facetas, la solicitud que la aplicación formula también debe generar filtros para reducir el conjunto de documentos candidatos en función de una selección de valores de faceta. Para una tienda de bicicletas, la navegación por facetas proporciona pistas a preguntas como *¿qué colores, fabricantes y tipos de bicicletas están disponibles?* . El filtrado responde a preguntas como *¿qué bicicletas exactas son rojas, bicicletas de montaña, dentro de este precio de intervalo de precios?* . Cuando hace clic en "Red" para indicar que solo se deben mostrar productos de color rojo, la consulta siguiente que la aplicación envía incluye`$filter=Color eq 'Red'`.
 
@@ -319,7 +320,7 @@ Al agregar un filtro a una consulta por facetas, quizás quiera conservar la ins
 
 **Garantía de obtención de recuentos de faceta adecuados**
 
-En algunos casos, puede que los recuentos de faceta no coincidan con los conjuntos de resultados (consulte [Navegación por facetas en Azure Cognitive Search, en la página de preguntas y respuestas de Microsoft](https://docs.microsoft.com/answers/topics/azure-cognitive-search.html)).
+En algunos casos, puede que los recuentos de faceta no coincidan con los conjuntos de resultados (consulte [Navegación por facetas en Azure Cognitive Search, en la página de preguntas y respuestas de Microsoft](/answers/topics/azure-cognitive-search.html)).
 
 Los recuentos de faceta pueden ser incorrectos debido a la arquitectura de particionamiento. Cada índice de búsqueda tiene varias particiones, y cada una notifica las N primeras facetas por recuento de documentos, que después se combina en un único resultado. Si algunas particiones tienen muchos valores coincidentes, mientras que otros tienen menos, verá que algunos valores de faceta faltan o se contabilizan con un número inferior en los resultados.
 
@@ -333,7 +334,7 @@ Las etiquetas suelen definirse en el HTML o formulario (`index.cshtml` en la apl
 <a name="rangefacets"></a>
 
 ## <a name="filter-based-on-a-range"></a>Filtro basado en un intervalo
-El uso de facetas en intervalos de valores es un requisito habitual de las aplicaciones de búsqueda. Se admiten intervalos para datos numéricos y valores de fecha y hora. Puede leer más acerca de cada enfoque en [Buscar documentos (API de Azure Cognitive Search)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
+El uso de facetas en intervalos de valores es un requisito habitual de las aplicaciones de búsqueda. Se admiten intervalos para datos numéricos y valores de fecha y hora. Puede leer más acerca de cada enfoque en [Buscar documentos (API de Azure Cognitive Search)](/rest/api/searchservice/Search-Documents).
 
 Azure Cognitive Search simplifica la construcción de intervalos mediante dos enfoques de cálculo de intervalos. En ambos enfoques, Azure Cognitive Search crea los intervalos adecuados con las entradas proporcionadas. Por ejemplo, si especifica valores de intervalo de 10|20|30, creará automáticamente los intervalos 0-10, 10-20, 20-30. La aplicación tiene la opción de quitar los intervalos que estén vacíos. 
 
@@ -404,4 +405,3 @@ Para obtener más información sobre los principios de diseño de la navegación
 
 * [Patrones de diseño: Navegación por facetas](https://alistapart.com/article/design-patterns-faceted-navigation)
 * [Problemas de front-end al implementar la búsqueda por facetas – Parte 1](https://articles.uie.com/faceted_search2/)
-

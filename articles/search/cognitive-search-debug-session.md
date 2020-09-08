@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: edce8f3460e92eef4f6665b1b38a61582d6841ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b428ff4a9a4f4b9110e88dba57cfad20f2221cf1
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85560372"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936170"
 ---
 # <a name="debug-sessions-in-azure-cognitive-search"></a>Sesiones de depuración en Azure Cognitive Search
 
@@ -95,4 +95,4 @@ Las sesiones de depuración funcionan con todos los orígenes de datos disponibl
 Ahora que comprende los elementos de las sesiones de depuración, pruebe el tutorial para obtener una experiencia práctica.
 
 > [!div class="nextstepaction"]
-> [Tutorial para explorar la característica de sesiones de depuración](https://docs.microsoft.com/azure/search/cognitive-search-tutorial-debug-sessions)
+> [Tutorial para explorar la característica de sesiones de depuración](./cognitive-search-tutorial-debug-sessions.md)

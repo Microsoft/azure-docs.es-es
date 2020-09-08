@@ -4,24 +4,26 @@ titleSuffix: Azure Media Services
 description: En este tema se proporciona una introducción a los eventos en directo y las salidas en directo en Azure Media Services v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
-ms.date: 04/08/2020
-ms.author: juliako
-ms.openlocfilehash: c41538acdb8ed94ee4995ad8d5f5e4cebb2e14d6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 9a32cd4db9a4c4dbd2b5f36c16feef4717790c3c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043438"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291473"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventos en directo y salidas activas en Media Services
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Azure Media Services permite entregar eventos en directo a los clientes en la nube de Azure. Para configurar los eventos de streaming en vivo en Media Services v3, debe comprender los conceptos que se tratan en este artículo.
 

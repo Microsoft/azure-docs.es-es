@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/18/2019
 ms.author: curtand
-ms.openlocfilehash: 91138f104c787148042b187f4cf59a60bc1448d3
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: c056e439deac71417ff14dcfc3f2c3c95db41946
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744415"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797673"
 ---
 # <a name="set-up-a-security-key-as-your-verification-method"></a>Configuración de una clave de seguridad como su método de comprobación
 
@@ -158,13 +158,13 @@ Puede crear un nuevo PIN de clave de seguridad para su clave de seguridad.
 
 ## <a name="additional-security-info-methods"></a>Métodos de información de seguridad adicionales
 
-Para registrar una clave de seguridad, debe tener al menos un método de comprobación de seguridad adicional registrado. Para más información, consulte la [sección Información general](security-info-add-update-methods-overview.md). 
+Para registrar una clave de seguridad, debe tener al menos un método de comprobación de seguridad adicional registrado. Para más información, consulte la [sección Información general](./security-info-setup-auth-app.md). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener más información sobre los métodos de autenticación sin contraseña, lea la entrada del blog [Azure AD de Microsoft inicia la versión preliminar pública de claves de seguridad FIDO2, lo que permite los inicios de sesión sin contraseña](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins), o consulte los artículos [¿Qué es la aplicación Microsoft Authenticator?](user-help-auth-app-overview.md) e [Introducción a Windows Hello](https://www.microsoft.com/windows/windows-hello).
 
-- Para obtener información más detallada sobre las [claves de seguridad compatibles con Microsoft](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
+- Para obtener información más detallada sobre las [claves de seguridad compatibles con Microsoft](/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
 
 - Restablezca la contraseña si ha perdido u olvidado la que tenía acudiendo al [portal de restablecimiento de contraseña](https://passwordreset.microsoftonline.com/) o siga los pasos descritos en el artículo [Restablecimiento de la contraseña profesional o educativa](active-directory-passwords-update-your-own-password.md).
 

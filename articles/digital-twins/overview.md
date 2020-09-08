@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 45b535db9fccb41542ee74cb28845d49211e16ec
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ea08843dc73ed7603181eee1cf36495fda82b8d4
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281062"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003854"
 ---
 # <a name="what-is-azure-digital-twins"></a>¿Qué es Azure Digital Twins?
 
-**Azure Digital Twins** es una oferta de plataforma como servicio (PaaS) que permite la creación de modelos digitales completos de entornos completos. Estos entornos podrían ser edificios, fábricas, granjas, redes energéticas, ferrocarriles, estadios, etc., e incluso ciudades enteras. Estos modelos digitales se pueden usar para obtener información que impulse mejores productos, operaciones optimizadas, costos reducidos y experiencias de cliente innovadoras.
+**Azure Digital Twins** es una oferta de plataforma como servicio (PaaS) que permite la creación de grafos de conocimientos basados en modelos digitales de entornos completos. Estos entornos podrían ser edificios, fábricas, granjas, redes energéticas, ferrocarriles, estadios, etc., e incluso ciudades enteras. Estos modelos digitales se pueden usar para obtener información que impulse mejores productos, operaciones optimizadas, costos reducidos y experiencias de cliente innovadoras.
 
 Aproveche su experiencia en este campo además de Azure Digital Twins para crear soluciones personalizadas y conectadas capaces de:
 * Modelar cualquier entorno y hacer que las gemelos digitales cobren vida de una manera escalable y segura.
@@ -105,5 +105,4 @@ Si ha trabajado con la versión preliminar anterior de Azure Digital Twins, obte
 
 O bien, avance y profundice en el trabajo con Azure Digital Twins con el primer tutorial:
 
-> [!div class="nextstepaction"]
-> [*Tutorial: Programación de una aplicación cliente*](tutorial-code.md)
+[*Tutorial: Programación de una aplicación cliente*](tutorial-code.md)

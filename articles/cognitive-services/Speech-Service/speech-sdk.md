@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 79f7924b021de9426eeb66adf2ec12f8033efcea
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: ad26fe0d869a2e892a419b1732727c3ff1d1e9a2
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056863"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870721"
 ---
 # <a name="about-the-speech-sdk"></a>Acerca del SDK de Voz
 
@@ -31,17 +31,52 @@ El SDK de voz expone muchas características del servicio de voz, pero no todas 
 
 La [conversión de voz en texto](speech-to-text.md) (también conocida como *reconocimiento de voz*) transcribe secuencias de audio en texto en tiempo real que las aplicaciones, herramientas o dispositivos pueden usar o mostrar. Use voz a texto con [Language Understanding (LUIS)](../luis/index.yml) para derivar las intenciones del usuario a partir de voz transcrita y actuar en los comandos de voz. Utilice [Speech Translation](speech-translation.md) para traducir la entrada de voz a un idioma diferente con una sola llamada. Para más información, consulte [Aspectos básicos del reconocimiento de voz](speech-to-text-basics.md).
 
+Las plataformas siguientes proporcionan **funcionalidad de reconocimiento de voz (SR), lista de frases, intención, traducción y contenedores locales**:
+
+  - C++/Windows, Linux y macOS
+  - C# (Framework y .NET Core)/Windows, UWP, Unity, Xamarin, Linux y macOS
+  - Java (JRE y Android)
+  - JavaScript (Brower y NodeJS)
+  - Python
+  - Swift
+  - Objective-C  
+  - Go (solo SR)
+
 ### <a name="text-to-speech"></a>Texto a voz
 
 La [conversión de texto en voz](text-to-speech.md) (también conocido como *síntesis de voz*) convierte el texto en voz sintetizada similar a la voz humana. El texto de entrada está formado por literales de cadena o mediante el [lenguaje de marcado de síntesis de voz (SSML)](speech-synthesis-markup.md). Para más información sobre las voces estándar o neuronales, consulte [Compatibilidad con idiomas y voces en el servicio de voz](language-support.md#text-to-speech).
+
+El servicio de **texto a voz (TTS)** está disponible en las siguientes plataformas:
+
+  - C++/Windows y Linux
+  - C#/Windows, UWP y Unity
+  - Java (JRE y Android)
+  - Python
+  - Swift
+  - Objective-C
+  - La API REST de TTS puede usarse en todas las demás situaciones.
 
 ### <a name="voice-assistants"></a>Asistentes de voz
 
 Los [asistentes de voz](voice-assistants.md) que usan el SDK de voz permiten a los desarrolladores crear interfaces de conversación naturales, similares a la humana, para sus aplicaciones y experiencias. El servicio del asistente de voz proporciona una interacción rápida y confiable entre un dispositivo y un asistente. La implementación utiliza el canal Direct Line Speech de Bot Framework o el servicio integrado de comandos personalizados (versión preliminar) para la finalización de tareas. Además, los asistentes de voz pueden usar las voces personalizadas creadas en el [Portal de voz personalizado](https://aka.ms/customvoice) para agregar una experiencia de salida de voz única.
 
+Los **asistentes de voz** están disponibles en las siguientes plataformas:
+
+  - C++/Windows, Linux y macOS
+  - C#/Windows
+  - Java/Windows, Linux, macOS y Android (SDK de dispositivos de voz)
+
 #### <a name="keyword-spotting"></a>Detección de palabras clave
 
 El concepto de [detección de palabras clave](speech-devices-sdk-create-kws.md) es compatible con el SDK de voz. La detección de palabras clave es el acto de identificar una palabra clave en el habla, seguido de una acción al escuchar la palabra clave. Por ejemplo, "Hola Cortana" activa el asistente Cortana.
+
+La **detección de palabras clave (KWS)** está disponible en las siguientes plataformas:
+
+  - C++/Windows y Linux
+  - C#/Windows & Linux
+  - Python/Windows y Linux
+  - Java/Windows, Linux y Android (SDK de dispositivos de voz)
+  - La funcionalidad de detección de palabras clave (KWS) podría funcionar con cualquier tipo de micrófono; no obstante, la compatibilidad oficial de KWS está limitada actualmente a las matrices de micrófonos que se encuentran en el hardware de Azure Kinect DK o el SDK de dispositivos de voz.
 
 ### <a name="meeting-scenarios"></a>Escenarios de reuniones
 
@@ -51,9 +86,20 @@ El SDK de voz es idóneo para la transcripción de escenarios de reuniones, ya s
 
 La [transcripción de conversaciones](conversation-transcription.md) permite el reconocimiento de voz en tiempo real (y asincrónico), la identificación del hablante y la atribución de frases a cada hablante (también conocido como *diarización*). Es perfecto para transcribir reuniones en persona con la capacidad de distinguir a los oradores.
 
+La **transcripción de la conversación** está disponible en las siguientes plataformas:
+
+  - C++/Windows y Linux
+  - C# (Framework y .NET Core)/Windows, UWP y Linux
+  - Java/Windows, Linux y Android (SDK de dispositivos de voz)
+
 #### <a name="multi-device-conversation"></a>Conversación entre varios dispositivos
 
 Con la [conversación entre varios dispositivos](multi-device-conversation.md), puede conectar varios dispositivos o clientes en una conversación para enviar mensajes basados en voz o texto, con compatibilidad sencilla con la transcripción y traducción.
+
+La **conversación entre varios dispositivos** está disponible en las siguientes plataformas:
+
+  - C++/Windows
+  - C# (Framework y .NET Core)/Windows
 
 ### <a name="custom--agent-scenarios"></a>Escenarios personalizados o de agente
 
@@ -63,9 +109,17 @@ El SDK de voz se puede usar para transcribir escenarios de centros de llamadas, 
 
 La [transcripción para los centros de llamadas](call-center-transcription.md) es un escenario común para la conversión de voz en texto, ya que se transcriben grandes volúmenes de datos de telefonía que pueden provenir de varios sistemas, como la respuesta interactiva de voz (IVR). Los últimos modelos de reconocimiento de voz del servicio Voz destacan en la transcripción de estos datos de telefonía, incluso en los casos en que los datos son difíciles de entender para un humano.
 
+La **transcripción del centro de llamadas** está disponible a través del servicio de voz por lotes mediante la API de REST y se puede usar en cualquier situación.
+
 ### <a name="codec-compressed-audio-input"></a>Entrada de audio comprimido con códec
 
 Algunos de los lenguajes de programación del SDK de voz admiten flujos de entrada de audio comprimido con códecs. Para más información, consulte <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">Uso de entradas de audio comprimido con códec con el SDK de voz<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+
+La **entrada de audio comprimido con códecs** está disponible en las siguientes plataformas:
+
+  - C++/Linux
+  - C#/Linux
+  - Java/Linux, Android e iOS
 
 ## <a name="rest-api"></a>API DE REST
 

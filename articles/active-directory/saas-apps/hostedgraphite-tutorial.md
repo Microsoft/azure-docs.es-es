@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Hosted Graphite | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Hosted Graphite.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: a1ac4d7f-d079-4f3c-b6da-0f520d427ceb
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6c5b689d00bd1adad820043840c43f49666655c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b7aaaa589b92814694bee2838332f6823b3351de
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73158068"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88521919"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>Tutorial: Integración de Azure Active Directory con Hosted Graphite
 

@@ -5,22 +5,26 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/11/2020
+ms.date: 08/20/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6a2c1a9b908503ee5afc2687ebef473ffed626a
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: ae8bb66141e4cc4e67f1502b208cf519d37c0374
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87907728"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88706014"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Habilitación de la colaboración externa B2B y administración de quién puede invitar a otros usuarios
 
-En este artículo se describe cómo habilitar la colaboración B2B de Azure Active Directory (Azure AD) y determinar quién puede invitar a otros usuarios. De manera predeterminada, todos los usuarios e invitados del directorio pueden invitar a otros usuarios, incluso si no tienen asignado un rol de administrador. La configuración de colaboración externa le permite activar o desactivar las invitaciones de invitados para los distintos tipos de usuarios de la organización. También puede delegar las invitaciones a usuarios individuales mediante la asignación de roles que les permitan invitar a otros usuarios.
+En este artículo se describe cómo habilitar la colaboración B2B de Azure Active Directory (Azure AD), designar quién puede tener invitados y determinar los permisos que tienen los usuarios invitados en Azure AD. 
+
+De manera predeterminada, todos los usuarios e invitados del directorio pueden invitar a otros usuarios, incluso si no tienen asignado un rol de administrador. La configuración de colaboración externa le permite activar o desactivar las invitaciones de invitados para los distintos tipos de usuarios de la organización. También puede delegar las invitaciones a usuarios individuales mediante la asignación de roles que les permitan invitar a otros usuarios.
+
+Azure AD le permite restringir qué usuarios invitados externos se pueden ver en el directorio de Azure AD. De forma predeterminada, los usuarios invitados tienen un nivel de permiso limitado que les impide enumerar usuarios, grupos u otros recursos de directorio, pero sí ver la pertenencia de grupos no ocultos. Una nueva opción en versión preliminar le permite restringir aún más el acceso de invitado, de modo que los invitados solo pueden ver su propia información de perfil. 
 
 ## <a name="configure-b2b-external-collaboration-settings"></a>Configuración de los valores de colaboración externa B2B
 
@@ -38,19 +42,38 @@ De manera predeterminada, todos los usuarios, incluidos los invitados, pueden in
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de inquilinos.
 2. Seleccione **Azure Active Directory**.
 3. Seleccione **External Identities** > **Configuración de colaboración externa**.
-6. En la página **Configuración de colaboración externa**, elija las directivas que quiere habilitar.
 
-   ![Configuración de colaboración externa](./media/delegate-invitations/control-who-to-invite.png)
+4. En **Restricciones de acceso de usuarios invitados (versión preliminar)** , elija el nivel de acceso que desea que tengan los usuarios invitados:
 
-  - **Los permisos de los usuarios invitados están limitados**: Esta directiva determina los permisos para los invitados de su directorio. Seleccione **Sí** para impedir que los invitados realicen determinadas tareas de directorio, como la enumeración de usuarios, grupos u otros recursos de directorio. Seleccione **No** para proporcionar a los invitados el mismo acceso a datos del directorio que el de los usuarios normales del directorio.
+   > [!IMPORTANT]
+   > Durante un corto tiempo, estos nuevos controles del portal de los permisos de usuario invitado serán visibles solo con la dirección URL [https://aka.ms/AADRestrictedGuestAccess](https://aka.ms/AADRestrictedGuestAccess). Para más información, consulte [Restricción de los permisos de acceso de usuario (versión preliminar)](https://aka.ms/exid-users-restrict-guest-permissions).
+
+   - **Guest users have the same access as members (most inclusive)** (Los usuarios invitados tienen el mismo acceso que los miembros [principalmente inclusivo]): esta opción permite a los invitados tener el mismo acceso a los recursos de Azure AD y a los datos del directorio que los usuarios miembros.
+
+   - **Guest users have limited access to properties and memberships of directory objects** (Los usuarios invitados tienen acceso limitado a las propiedades y pertenencias de los objetos de directorio): (predeterminada) Esta opción impide que los usuarios realicen determinadas tareas de directorio, como enumerar usuarios, grupos u otros recursos de directorio. Los invitados pueden ver la pertenencia de todos los grupos no ocultos.
+
+   - **Guest user access is restricted to properties and memberships of their own directory objects (most restrictive)** (El acceso de los usuarios invitados está restringido a las propiedades y pertenencias de sus propios objetos de directorio [opción más restrictiva]): con esta configuración, los invitados solo pueden tener acceso a sus propios perfiles. No se permite a los invitados ver perfiles, grupos o pertenencias a grupos de otros usuarios.
+  
+    ![Configuración de restricciones de acceso de usuarios invitados](./media/delegate-invitations/guest-user-access.png)
+
+5. En **Configuración de la invitación de usuarios**, elija la configuración adecuada:
+
    - **Los administradores y los usuarios del rol de invitador de usuarios invitados pueden invitar**: Para permitir que los administradores y usuarios del rol "Invitador de usuarios invitados" inviten a otros usuarios, establezca esta directiva en **Sí**.
+
    - **Los miembros pueden invitar**: Para permitir que los miembros que no son administradores del directorio inviten a otros usuarios, establezca esta directiva en **Sí**.
+
    - **Los invitados pueden invitar**: Para permitir que los invitados puedan invitar a otros usuarios, establezca esta directiva en **Sí**.
-   - **Habilitar el código de acceso de un solo uso de correo electrónico para invitados (versión preliminar)** : Para obtener más información sobre la característica de código de acceso de un solo uso, consulte [Email one-time passcode authentication (preview)](one-time-passcode.md) [Autenticación con código de acceso de un solo uso de correo electrónico (versión preliminar)].
-   - **Restricciones de colaboración**: Para obtener más información sobre cómo permitir o bloquear invitaciones en dominios concretos, consulte [Allow or block invitations to B2B users from specific organizations](allow-deny-list.md) (Permitir o bloquear invitaciones a usuarios B2B procedentes de determinadas organizaciones).
-   
+
+   - **Habilitar el código de acceso de un solo uso de correo electrónico para invitados (versión preliminar)** : para más información sobre la característica de código de acceso de un solo uso, consulte [Autenticación con código de acceso de un solo uso de correo electrónico (versión preliminar)](one-time-passcode.md).
+
+   - **Enable guest self-service sign up via user flows (Preview)** (Habilitación del autoservicio de registro de invitados mediante flujos de usuario [versión preliminar]): para más información sobre esta opción, consulte [Incorporación de un flujo de usuario de registro de autoservicio a una aplicación (versión preliminar)](self-service-sign-up-user-flow.md).
+
    > [!NOTE]
    > Si **Los miembros pueden invitar** está establecido en **No** y **Los administradores y los usuarios del rol de invitador de personas pueden invitar** está establecido en **Sí**, los usuarios del rol **Invitador de usuarios invitados** todavía podrán invitar a usuarios invitados.
+
+    ![Configuración de la invitación de usuarios](./media/delegate-invitations/guest-invite-settings.png)
+
+6. En **Restricciones de colaboración**, elija si desea permitir o denegar las invitaciones a los dominios que especifique. Para obtener más información, consulte [Allow or block invitations to B2B users from specific organizations](allow-deny-list.md) (Permitir o bloquear invitaciones a usuarios de B2B procedentes de determinadas organizaciones).
 
 ## <a name="assign-the-guest-inviter-role-to-a-user"></a>Asignación del rol de invitador de usuarios invitados a un usuario
 

@@ -4,12 +4,12 @@ description: Obtenga más información sobre las redes en Azure Kubernetes Servi
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: dacb14664b21412df1b1d48c023017378cf364c9
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: edb195fae2e05a1f746c10482576f7e0b1bff7c9
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387768"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88243911"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceptos de redes de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -72,6 +72,8 @@ Para más información, consulte el artículo de [Configuración de la red de ku
 ### <a name="azure-cni-advanced-networking"></a>Redes (avanzadas) de Azure CNI
 
 Con Azure CNI, cada pod obtiene una dirección IP de la subred y se puede acceder a ella directamente. Estas direcciones IP deben ser únicas en el espacio de red y deben planearse de antemano. Cada nodo tiene un parámetro de configuración para el número máximo de pods que admite. Luego, el número equivalente de direcciones IP por nodo se reserva por adelantado para ese nodo. Este enfoque requiere más planificación, ya que de otro modo puede conducir al agotamiento de direcciones IP o a la necesidad de recompilar los clústeres en una subred mayor, a medida que crecen las exigencias de la aplicación.
+
+A diferencia de kubenet, el tráfico hacia los puntos de conexión de la misma red virtual no traduce las direcciones de red a la dirección IP principal del nodo. La dirección de origen para el tráfico dentro de la red virtual es la dirección IP del pod. El tráfico externo a la red virtual sigue traduciendo las direcciones de red a la dirección IP principal del nodo.
 
 Los nodos usan el complemento [Azure Container Networking Interface (CNI)][cni-networking] de Kubernetes.
 

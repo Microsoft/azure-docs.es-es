@@ -2,13 +2,14 @@
 title: WebSockets de Conexiones híbridas de Azure Relay en .NET
 description: Escriba una aplicación de consola en C# para WebSockets de Conexiones híbridas de Azure Relay.
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 ms.date: 06/23/2020
-ms.openlocfilehash: a6e759b8cda7515faf63834ef15c013e2f075687
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb204a7bf18ed1c88a6d359cc521130fa19a1c82
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317084"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934266"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>Introducción a WebSockets de Conexiones híbridas de Relay en .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]

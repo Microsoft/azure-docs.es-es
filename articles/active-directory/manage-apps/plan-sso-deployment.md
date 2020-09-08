@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 0ee138ac41557554ae4b8fde8c9178336fd8d5db
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: e8aa5515bf8ae8e842a98656167f4198ac652981
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387785"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642391"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planeación de una implementación de inicio de sesión único
 
@@ -285,7 +285,7 @@ Los vínculos siguientes presentan escenarios de solución de problemas. Es posi
 
 - [Problemas al iniciar sesión desde un portal personalizado](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-deeplink)
 
-- [Problemas al iniciar sesión desde el panel de acceso](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel)
+- [Problemas al iniciar sesión desde Aplicaciones](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel)
 
 - [Error en la página de inicio de sesión de la aplicación](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-application-error)
 
@@ -324,3 +324,5 @@ Los vínculos siguientes presentan escenarios de solución de problemas. Es posi
 [Acceso con SSO](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 [Tutorial de inicio de sesión único de aplicaciones](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
+
+[Notas del producto para descargar: Plan de implementación de inicio de sesión único](https://aka.ms/SSODeploymentPlan)

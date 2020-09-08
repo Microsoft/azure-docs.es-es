@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Taskize Connect | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Taskize Connect.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 2c5d5e85-f10b-4ae7-ab8b-709c6cb03248
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40a6917938b5cdd2e3449977b4c6c6ed8280a7a9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 291aa831279abdedb20196cd9af9ba49ac20d340
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75470780"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88552075"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-taskize-connect"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Taskize Connect
 

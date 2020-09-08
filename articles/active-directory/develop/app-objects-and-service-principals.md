@@ -13,12 +13,12 @@ ms.date: 07/22/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: 5a3e6d918f4ab94c4533e930ea73b5267deb53a4
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 0b6a6eac04711b564d602408a57b92f833fb5d5d
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115533"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782448"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objetos de aplicación y de entidad de servicio de Azure Active Directory
 
@@ -27,16 +27,16 @@ En este artículo se describe el registro de la aplicación, los objetos de apli
 ## <a name="application-registration"></a>Registro de la aplicación
 Para permitir la delegación de las funciones de administración de identidades y acceso a Azure AD, la aplicación debe registrarse con un [inquilino](developer-glossary.md#tenant) de Azure AD. Cuando registra una aplicación con Azure AD, crea una configuración de identidad para la aplicación, lo que permite integrarla con Azure AD. Cuando registra una aplicación en [Azure Portal][AZURE-Portal], elige si es de un solo inquilino (solo accesible en el inquilino) o multiinquilino (accesible en otros inquilinos) y, opcionalmente, puede establecer un URI de redirección (al que se envía el token de acceso).
 
-![Registro de aplicación](./media/app-objects-and-service-principals/app-registration.png)
+:::image type="content" source="media/app-objects-and-service-principals/app-registration.png" alt-text="Captura de pantalla del panel Registrar una aplicación de Azure Portal":::
 
 Una vez completado el registro de la aplicación, tiene una instancia globalmente única de la aplicación (el objeto de aplicación) que reside en su directorio o inquilino principal.  También tiene un identificador único global para la aplicación (el identificador de la aplicación o del cliente).  En el portal, puede entonces agregar secretos o certificados y ámbitos para que la aplicación funcione, personalizar la marca de la aplicación en el cuadro de diálogo de inicio de sesión y mucho más.
 
 Al registrar una aplicación en Azure Portal, se crean automáticamente un objeto de aplicación y un objeto de entidad de servicio en su inquilino principal.  Si registra o crea una aplicación mediante las API de Microsoft Graph, la creación del objeto de entidad de servicio se hace en un paso independiente.
 
 ## <a name="application-object"></a>Objeto de aplicación
-Una aplicación de Azure AD se define por su único objeto de aplicación, que reside en el inquilino de Azure AD donde se registró la aplicación, (conocido como inquilino "principal" de la aplicación).  El objeto de aplicación se usa como plantilla o plano técnico para crear uno o varios objetos de entidad de servicio.  La entidad de servicio se crea en todos los inquilinos en los que se utiliza la aplicación. De forma similar a una clase en la programación orientada a objetos, el objeto de aplicación tiene algunas propiedades estáticas que se aplican a todas las entidades de servicio creadas (o instancias de aplicación). 
+Una aplicación de Azure AD se define por su único objeto de aplicación, que reside en el inquilino de Azure AD donde se registró la aplicación, (conocido como inquilino "principal" de la aplicación).  El objeto de aplicación se usa como plantilla o plano técnico para crear uno o varios objetos de entidad de servicio.  La entidad de servicio se crea en todos los inquilinos en los que se utiliza la aplicación. De forma similar a una clase en la programación orientada a objetos, el objeto de aplicación tiene algunas propiedades estáticas que se aplican a todas las entidades de servicio creadas (o instancias de aplicación).
 
-El objeto de aplicación describe tres aspectos de una aplicación: la forma en que el servicio emite tokens para tener acceso a la aplicación, los recursos a los que la aplicación podría necesitar tener acceso y las acciones que puede realizar la aplicación. 
+El objeto de aplicación describe tres aspectos de una aplicación: la forma en que el servicio emite tokens para tener acceso a la aplicación, los recursos a los que la aplicación podría necesitar tener acceso y las acciones que puede realizar la aplicación.
 
 La hoja **Registros de aplicaciones** de [Azure Portal][AZURE-Portal] se usa para mostrar y administrar los objetos de aplicación del inquilino principal.
 
@@ -47,7 +47,7 @@ La [entidad de aplicación][MS-Graph-App-Entity] de Microsoft Graph define el es
 ## <a name="service-principal-object"></a>Objeto de entidad de servicio
 Para acceder a los recursos que están protegidos por un inquilino de Azure AD, la entidad que requiere acceso debe estar representada por una entidad de seguridad. Este requisito es cierto para los usuarios (entidad de seguridad de usuario) y para las aplicaciones (entidad de servicio). La entidad de seguridad define la directiva de acceso y los permisos para el usuario o aplicación de ese inquilino de Azure AD. Esto habilita características básicas como la autenticación del usuario o de la aplicación durante el inicio de sesión y la autorización durante el acceso a los recursos.
 
-Una entidad de servicio es la representación local o la instancia de aplicación de un objeto de aplicación global en un único inquilino o directorio. Se trata de una instancia concreta creada a partir del objeto de aplicación, que hereda ciertas propiedades de ese objeto de aplicación.  La entidad de servicio se crea en cada inquilino donde se usa la aplicación y hace referencia al objeto de aplicación único global.  El objeto de entidad de servicio define lo que la aplicación puede hacer en el inquilino específico, quién puede acceder a la aplicación y a qué recursos tiene acceso la aplicación. 
+Una entidad de servicio es la representación local o la instancia de aplicación de un objeto de aplicación global en un único inquilino o directorio. Se trata de una instancia concreta creada a partir del objeto de aplicación, que hereda ciertas propiedades de ese objeto de aplicación.  La entidad de servicio se crea en cada inquilino donde se usa la aplicación y hace referencia al objeto de aplicación único global.  El objeto de entidad de servicio define lo que la aplicación puede hacer en el inquilino específico, quién puede acceder a la aplicación y a qué recursos tiene acceso la aplicación.
 
 Cuando una aplicación tiene permiso para acceder a los recursos de un inquilino (tras el registro o [consentimiento](developer-glossary.md#consent)), se crea un objeto de entidad de seguridad de servicio. También puede crear un objeto de entidad de servicio en un inquilino mediante [Azure PowerShell](howto-authenticate-service-principal-powershell.md), la CLI de Azure, [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http), [Azure Portal][AZURE-Portal] y otras herramientas.  Si usa el portal, se crea automáticamente una entidad de servicio al registrar una aplicación.
 

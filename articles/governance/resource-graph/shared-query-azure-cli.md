@@ -3,12 +3,12 @@ title: 'Inicio rápido: Creación de una consulta compartida con la CLI de Azure
 description: En este inicio rápido, dará los pasos necesarios para habilitar la extensión de Resource Graph en la CLI de Azure y crear una consulta compartida.
 ms.date: 06/29/2020
 ms.topic: quickstart
-ms.openlocfilehash: fc03339c50316516301901d84d2c5a3ba2ab287d
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: c5f7e6fbe1b462c1f9b6e8ad46c598398e1aca02
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85569518"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050971"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-cli"></a>Inicio rápido: Creación de una consulta compartida de Azure Resource Graph mediante la CLI de Azure
 
@@ -26,7 +26,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 Para que la CLI de Azure pueda trabajar con Azure Resource Graph, se debe agregar la extensión. Esta extensión funciona siempre que se puede usar la CLI de Azure, incluidos [Bash en Windows 10](/windows/wsl/install-win10), [Cloud Shell](https://shell.azure.com) (independiente y dentro del portal), la [imagen de Docker de la CLI de Azure](https://hub.docker.com/r/microsoft/azure-cli/) o instalado localmente.
 
-1. Compruebe que está instalada la versión más reciente de la CLI de Azure (al menos la versión **2.8.0**). Si todavía no está instalado, siga [estas instrucciones](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+1. Compruebe que está instalada la versión más reciente de la CLI de Azure (al menos la versión **2.8.0**). Si todavía no está instalado, siga [estas instrucciones](/cli/azure/install-azure-cli-windows).
 
 1. En el entorno de la CLI de Azure que prefiera, use [az extension add](/cli/azure/extension#az-extension-add) para importar la extensión de Resource Graph con el siguiente comando:
 

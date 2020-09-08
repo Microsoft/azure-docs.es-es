@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d66ef8f142a72bfdea2dcf3eeb996b18173de04d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 70dcee1cce49c658a60e98821a3ce60ec443408a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502969"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932583"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Extensión de máquina virtual de Key Vault para Windows
 
@@ -73,9 +73,9 @@ El siguiente JSON muestra el esquema para la extensión de máquina virtual de K
 > 
 > Esto se debe a que la ruta de acceso `/secrets` devuelve el certificado completo, incluida la clave privada, mientras que la ruta de acceso `/certificates` no. Se puede encontrar más información sobre los certificados aquí: [Certificados de Key Vault](../../key-vault/general/about-keys-secrets-certificates.md)
 
-> [!NOTE]
-> La propiedad "authenticationSettings" es opcional para los escenarios en los que la máquina virtual tiene varias identidades asignadas.
-> Permite especificar la identidad que se usará para la autenticación en Key Vault.
+> [!IMPORTANT]
+> La propiedad "authenticationSettings" es **necesaria** solo para máquinas virtuales con **identidades asignadas por el usuario**.
+> Especifica la identidad que se usará para la autenticación en Key Vault.
 
 
 ### <a name="property-values"></a>Valores de propiedad
@@ -89,7 +89,7 @@ El siguiente JSON muestra el esquema para la extensión de máquina virtual de K
 | pollingIntervalInS | 3600 | string |
 | certificateStoreName | MY | string |
 | linkOnRenewal | false | boolean |
-| certificateStoreLocation  | LocalMachine | string |
+| certificateStoreLocation  | LocalMachine o CurrentUser (distingue mayúsculas de minúsculas) | string |
 | requiredInitialSync | true | boolean |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | matriz de cadenas
 | msiEndpoint | http://169.254.169.254/metadata/identity | string |
@@ -130,6 +130,8 @@ La configuración de JSON para una extensión de máquina virtual debe estar ani
 
 
 ## <a name="azure-powershell-deployment"></a>Implementación de Azure PowerShell
+> [!WARNING]
+> Los clientes de PowerShell suelen agregar `\` a `"` en el archivo settings.json, lo cual producirá en akvvm_service el error: `[CertificateManagementConfiguration] Failed to parse the configuration settings with:not an object.`.
 
 Azure PowerShell puede usarse para implementar la extensión de máquina virtual de Key Vault en una máquina virtual o un conjunto de escalado de máquinas virtuales. 
 

@@ -9,12 +9,13 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8c1f13449c8ee5152e4e5b48af87f41004e599dc
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 42a1110b089d5edf9793bf2bb2c699a717a4b1a4
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81420809"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004976"
 ---
 # <a name="connection-strings-for-synapse-sql-preview"></a>Cadenas de conexión para Synapse SQL (versión preliminar)
 

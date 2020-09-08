@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
-ms.openlocfilehash: d8baf1c70d115b80e3238d3eedf128057684d2e6
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 73d82efed438d447c7af3bfc54d5c3fc22cdd819
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224713"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921935"
 ---
 # <a name="security-management-in-azure"></a>Administración de la seguridad en Azure
 Los suscriptores de Azure pueden administrar sus entornos de nube desde diversos dispositivos, incluidas estaciones de trabajo de administración, equipos de desarrollador e incluso dispositivos de usuario final con privilegios que tengan permisos específicos para la tarea. En algunos casos, las funciones administrativas se realizan mediante consolas web tales como [Azure Portal](https://azure.microsoft.com/features/azure-portal/). En otros casos, puede haber conexiones directas a Azure desde sistemas locales a través de redes privadas virtuales (VPN), Terminal Services, protocolos de aplicación de cliente o Azure Service Management API (SMAPI). Además, los puntos de conexión de cliente pueden estar unidos a un dominio o aislados y no administrados, como tabletas o smartphones.
@@ -66,7 +66,7 @@ La consolidación de los recursos de acceso y la eliminación de puntos de conex
 ### <a name="providing-security-for-azure-remote-management"></a>Seguridad para la administración remota de Azure
 Azure proporciona mecanismos de seguridad para ayudar a los administradores que administran servicios en la nube y máquinas virtuales de Azure. Estos mecanismos incluyen:
 
-* Autenticación y [control de acceso basado en rol](../../role-based-access-control/role-assignments-portal.md).
+* Autenticación y [control de acceso basado en rol de Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
 * Supervisión, registro y auditoría.
 * Certificados y comunicación cifrada.
 * Un portal de administración web.

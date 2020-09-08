@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/10/2020
-ms.openlocfilehash: 82c3454ad4c8db3a9b19084f5b6ece988cc86b9a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 08/10/2020
+ms.openlocfilehash: 806c19100594f449288d810b68d072dd7de23646
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79455985"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88189824"
 ---
 # <a name="score-svd-recommender"></a>Puntuación del recomendador SVD
 
@@ -107,9 +107,6 @@ El conjunto de datos puntuado devuelto por Score SVD Recommender (Puntuar recome
 
 - La primera columna debe contener identificadores de usuario.
 - Se generan varias columnas adicionales, en función del valor establecido para **Maximum number of items to recommend to a user** (Número máximo de elementos para recomendar a un usuario). Cada columna contiene un elemento recomendado (por identificador). Las recomendaciones se ordenan por afinidad de elemento de usuario. El elemento con la afinidad más alta se coloca en la columna **Elemento 1**.
-
-> [!WARNING]
-> Este conjunto de datos puntuado no se puede evaluar con el módulo [Evaluate Recommender](evaluate-recommender.md) (Evaluar recomendador).
 
 
 ##  <a name="technical-notes"></a>Notas técnicas

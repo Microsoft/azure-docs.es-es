@@ -1,24 +1,24 @@
 ---
-title: 'Inicio rápido: Creación de un perfil de alta disponibilidad de aplicaciones CLI de Azure - Azure Traffic Manager'
+title: 'Inicio rápido: Creación de un perfil de alta disponibilidad de aplicaciones: CLI de Azure (Azure Traffic Manager)'
 description: En este artículo de inicio rápido se describe cómo crear un perfil de Traffic Manager para crear una aplicación web de alta disponibilidad.
 services: traffic-manager
-author: rohinkoul
-mnager: twooley
+author: duongau
+mnager: kumud
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/29/2019
-ms.author: rohink
+ms.date: 08/26/2020
+ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1de651d5321fa3a0dea4da33c5d41839e67ad9dc
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 429d107a68c8631983bf791108f5091f31a480c3
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87491211"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178089"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-cli"></a>Inicio rápido: Creación de un perfil de Traffic Manager para una aplicación web de alta disponibilidad mediante la CLI de Azure
 
@@ -112,12 +112,12 @@ az webapp create \
 ## <a name="add-traffic-manager-endpoints"></a>Incorporación de puntos de conexión de Traffic Manager
 Agregue las dos aplicaciones web como puntos de conexión de Traffic Manager mediante [az network traffic-manager endpoint create](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create) al perfil de Traffic Manager como se describe a continuación:
 
-- Determine el identificador de la aplicación web y agregue la aplicación web que se encuentra en la región de Azure *Este de EE. UU.* como punto de conexión principal para enrutar todo el tráfico de usuario. 
+- Determine el identificador de la aplicación web y agregue la aplicación web ubicada e la región *Este de EE. UU.* de Azure como punto de conexión principal para enrutar todo el tráfico de usuarios. 
 - Determine el identificador de la aplicación web y agregue la aplicación web que se encuentra en la región de Azure *Oeste de Europa* como punto de conexión de conmutación por error. 
 
 Cuando el punto de conexión principal no está disponible, el tráfico se enruta automáticamente al punto de conexión de conmutación por error.
 
-En el siguiente ejemplo, reemplace **<app1name_eastus>** y **<app2name_westeurope>** por los nombres de aplicación que creó para cada región en la sección anterior y **<appspname_eastus>** y **<appspname_westeurope>** , por el nombre que usó para crear los planes de App Service en la sección anterior. También debe reemplazar **<profile_name>** por el nombre del perfil que usó en la sección anterior. 
+En el ejemplo siguiente, reemplace **< app1name_eastus>** y **< app2name_westeurope>** por los nombres de aplicación creados para cada región en la sección anterior. Luego, reemplace **<profile_name>** por el nombre del perfil usado en la sección anterior. 
 
 **Punto de conexión del Este de EE. UU.**
 
@@ -130,7 +130,7 @@ az webapp show \
 
 ```
 
-Tome nota del identificador mostrado en la salida y use en el siguiente comando para agregar el punto de conexión:
+Tome nota del identificador que se muestra en la salida y úselo en el siguiente comando para agregar el punto de conexión:
 
 ```azurecli-interactive
 
@@ -155,7 +155,7 @@ az webapp show \
 
 ```
 
-Tome nota del identificador mostrado en la salida y use en el siguiente comando para agregar el punto de conexión:
+Tome nota del identificador que se muestra en la salida y úselo en el siguiente comando para agregar el punto de conexión:
 
 ```azurecli-interactive
 
@@ -174,7 +174,7 @@ az network traffic-manager endpoint create \
 
 En esta sección, comprobará el nombre de dominio del perfil de Traffic Manager. También configurará el punto de conexión principal para que no esté disponible. Por último, podrá ver que la aplicación web sigue estando disponible. Se debe a que Traffic Manager envía el tráfico al punto de conexión de conmutación por error.
 
-En el siguiente ejemplo, reemplace **<app1name_eastus>** y **<app2name_westeurope>** por los nombres de aplicación que creó para cada región en la sección anterior y **<appspname_eastus>** y **<appspname_westeurope>** , por el nombre que usó para crear los planes de App Service en la sección anterior. También debe reemplazar **<profile_name>** por el nombre del perfil que usó en la sección anterior.
+En el ejemplo siguiente, reemplace **<app1name_eastus>** y **<app2name_westeurope>** por los nombres de aplicación creados para cada región en la sección anterior. Luego, reemplace **<profile_name>** por el nombre del perfil usado en la sección anterior.
 
 ### <a name="determine-the-dns-name"></a>Determinación del nombre DNS
 

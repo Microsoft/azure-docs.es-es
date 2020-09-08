@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 3250e4c35f6b898f4431d0f2fe15f84d915c1c8e
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: e7be96fcab0807ac8c6500c3b360f9380b4d2b28
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760403"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824957"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Consulta del grafo gemelo de Azure Digital Twins
 
@@ -131,6 +131,22 @@ AND R.reportedCondition = 'clean'
 
 En el ejemplo anterior, observe cómo *reportedCondition* es una propiedad de la propia relación *servicedBy* (NO de un gemelo digital que tiene una relación *servicedBy*).
 
+### <a name="query-with-multiple-joins"></a>Consulta con varias combinaciones JOIN
+
+Actualmente en versión preliminar, una consulta única admite hasta cinco `JOIN`. Esto le permite atravesar varios niveles de relaciones a la vez.
+
+Este es un ejemplo de una consulta de varias combinaciones, que obtiene todas las bombillas contenidas en los paneles de luz de las salas 1 y 2.
+
+```sql
+SELECT LightBulb 
+FROM DIGITALTWINS Room 
+JOIN LightPanel RELATED Room.contains 
+JOIN LightBulb RELATED LightPanel.contains 
+WHERE IS_OF_MODEL(LightPanel, ‘dtmi:contoso:com:lightpanel;1’) 
+AND IS_OF_MODEL(LightBulb, ‘dtmi:contoso:com:lightbulb ;1’) 
+AND Room.$dtId IN [‘room1’, ‘room2’] 
+```
+
 ## <a name="run-queries-with-an-api-call"></a>Ejecución de consultas con una llamada a la API
 
 Una vez que haya decidido una cadena de consulta, puede ejecutarla realizando una llamada a la **API de consulta**.
@@ -206,7 +222,6 @@ A continuación se muestran algunas sugerencias para realizar consultas con Azur
         AND IS_OF_MODEL(Room, 'dtmi:com:contoso:Room;1')
         ```
 * Los nombres y valores de propiedad distinguen mayúsculas de minúsculas, por lo que debe tener cuidado de usar los nombres exactos definidos en los modelos. Si los nombres de propiedad están mal escritos o usan las mayúsculas de forma incorrecta, el conjunto de resultados está vacío y no se devuelven errores.
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

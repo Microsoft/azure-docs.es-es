@@ -1,32 +1,32 @@
 ---
 title: Comparación de Microsoft AppSource y Azure Marketplace
-description: 'En este artículo se explican las diferencias entre los escaparates de marketplace comercial de Microsoft: Microsoft AppSource y Azure Marketplace.'
+description: 'En este artículo se explican las diferencias entre las tiendas en línea del marketplace comercial de Microsoft: Microsoft AppSource y Azure Marketplace.'
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: fc0a03871ee3191f24a886cc1b9d7f90e8d54b62
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 10560d1407d4e9f899578d6d4eb9cdf9b7fe7dc9
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121816"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607464"
 ---
 # <a name="comparing-microsoft-appsource-and-azure-marketplace"></a>Comparación de Microsoft AppSource y Azure Marketplace
 
-Marketplace comercial de Microsoft incluye [Microsoft AppSource](https://appsource.microsoft.com) y [Azure Marketplace](https://azuremarketplace.microsoft.com). Cada escaparate atiende a requisitos de cliente únicos y audiencias de destino diferentes, por lo que puede garantizar que la solución o el servicio están disponibles para los clientes adecuados.
+Marketplace comercial de Microsoft incluye [Microsoft AppSource](https://appsource.microsoft.com) y [Azure Marketplace](https://azuremarketplace.microsoft.com). Cada tienda en línea atiende a requisitos de cliente únicos y audiencias de destino diferentes, por lo que puede garantizar que la solución o el servicio están disponibles para los clientes adecuados.
 
-## <a name="understanding-the-differences-between-storefronts"></a>Diferencias entre escaparates
+## <a name="understanding-the-differences-between-online-stores"></a>Información sobre las diferencias entre escaparates y tiendas en línea
 
-Para elegir un escaparate, en primer lugar, identifique la audiencia de destino de su oferta. Si sus audiencias de destino se encuentran en varios escaparates, puede publicar una sola vez para vender en varios escaparates.
+Para elegir una tienda en línea, en primer lugar, identifique el público de destino de su oferta. Si su público de destino se encuentra en varias tiendas en línea, puede publicar una sola vez para vender en varias tiendas.
 
 | Azure Marketplace | AppSource |
 |:--- |:--- |
 | Desarrolladores y profesionales de TI | Usuarios de negocios y responsables de la toma de decisiones de negocios |
 
-En las tablas siguientes se describen las ventajas del uso de un escaparate:
+En la tabla siguiente se describen las ventajas del uso de una tienda en línea:
 
 | Ventajas | Azure Marketplace | AppSource |
 |:--- |:--- | :--- |

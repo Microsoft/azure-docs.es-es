@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Cognidox | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Cognidox.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: a2f92e18-0d03-4a31-9036-0cf5554664eb
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/18/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4280bd1385bbf936dc9188df259ca1a4b4a62d6a
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 0db29103c208fdf2478a93d3605b998a4acc1062
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81870383"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551632"
 ---
 # <a name="tutorial-integrate-cognidox-with-azure-active-directory"></a>Tutorial: Integración de Cognidox con Azure Active Directory
 

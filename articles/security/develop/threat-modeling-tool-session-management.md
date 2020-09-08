@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.custom: has-adal-ref, devx-track-javascript
-ms.openlocfilehash: 6a40d89db3e81721ec8a35973b79a558c17caee4
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: has-adal-ref, devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: b6cb79c4310237e2052ff7eca59a5e2d356968a5
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543697"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000471"
 ---
 # <a name="security-frame-session-management"></a>Marco de seguridad: Administración de sesiones
 | Producto o servicio | Artículo |

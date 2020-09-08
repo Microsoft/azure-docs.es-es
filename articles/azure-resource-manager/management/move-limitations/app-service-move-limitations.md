@@ -2,13 +2,13 @@
 title: Movimiento de recursos de Azure App Service
 description: Use Azure Resource Manager para trasladar recursos de App Service a un nuevo grupo de recursos o a una nueva suscripción.
 ms.topic: conceptual
-ms.date: 12/13/2019
-ms.openlocfilehash: d0ecd117bdcda9238e310a3020dba19a6871a3fc
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.date: 08/10/2020
+ms.openlocfilehash: 45f04cad27e175b471f4d6e07426787ca678e369
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655782"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042066"
 ---
 # <a name="move-guidance-for-app-service-resources"></a>Orientaciones para el traslado de recursos de App Service
 
@@ -23,7 +23,8 @@ Al trasladar una instancia de Web App entre suscripciones, se aplican las guías
     - Planes de App Service
     - Certificados TLS/SSL cargados o importados
     - Entornos de App Service
-- Todos los recursos de App Service del grupo de recursos se deben mover conjuntamente. Tenga en cuenta que los entornos de App Service Environment no se pueden trasladar a un nuevo grupo de recursos ni a una nueva suscripción.
+- Todos los recursos de App Service del grupo de recursos se deben mover conjuntamente.
+- Las instancias de App Service Environment no se pueden mover a un nuevo grupo de recursos ni suscripción. Sin embargo, puede mover una aplicación web y un plan de App Service a una nueva suscripción sin mover la instancia de App Service Environment. Después del movimiento, la aplicación web ya no se hospeda en App Service Environment.
 - Puede trasladar un certificado enlazado a una web sin eliminar los enlaces TLS, siempre y cuando el certificado se mueva con el resto de recursos del grupo.
 - Los recursos de App Service solo se pueden mover del grupo de recursos en el que se crearon originalmente. Si un recurso de App Service ya no está en su grupo de recursos original, muévalo a su grupo de recursos original. A continuación, mueva el recurso entre las suscripciones.
 

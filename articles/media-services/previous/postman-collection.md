@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2d3bf8b43bc12a2a8a193ea2708ab1668235edde
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f5f7a40cb72e1ae58f7962c4c8b80195a82ebdc5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047582"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259275"
 ---
-# <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>Importar la colección de Postman con las operaciones de streaming a petición 
+# <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>Importar la colección de Postman con las operaciones de streaming a petición
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Este artículo contiene una definición de la colección de **Postman** que tiene solicitudes HTTP agrupadas que llaman a las API de REST de Azure Media Services. Para obtener información sobre cómo configurar **Postman** para que pueda usarse para llamar a las API de REST de Media Services, consulte el tutorial [Configuración de Postman para llamadas API de REST de Azure Media Services](media-rest-apis-with-postman.md).
 

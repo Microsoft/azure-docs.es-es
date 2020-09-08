@@ -3,13 +3,15 @@ title: Uso de las GPU en Azure Kubernetes Service (AKS)
 description: Obtenga información acerca de cómo usar GPU para cargas de trabajo de cálculo de alto rendimiento o de uso intensivo de gráficos en Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 03/27/2020
-ms.openlocfilehash: 30cbac0984236717581c994700483b85829c4571
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 08/21/2020
+ms.author: jpalma
+author: palma21
+ms.openlocfilehash: 27c284ff7e806c9f194005ed26c05e99c4697083
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244300"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757649"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Uso de GPU para cargas de trabajo de cálculo intensivo en Azure Kubernetes Service (AKS)
 
@@ -52,7 +54,7 @@ Obtenga las credenciales para el clúster de AKS mediante el comando [az aks get
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-## <a name="install-nvidia-drivers"></a>Instalación de controladores NVIDIA
+## <a name="install-nvidia-device-plugin"></a>Instalación del complemento de dispositivo NVIDIA
 
 Para poder usar las GPU en los nodos, debe implementar un elemento DaemonSet para el complemento de dispositivo NVIDIA. Este objeto DaemonSet ejecuta un pod en cada nodo para proporcionar los controladores requeridos para las GPU.
 
@@ -117,6 +119,71 @@ $ kubectl apply -f nvidia-device-plugin-ds.yaml
 
 daemonset "nvidia-device-plugin" created
 ```
+
+## <a name="use-the-aks-specialized-gpu-image-preview"></a>Uso de la imagen de GPU especializada de AKS (versión preliminar)
+
+Como alternativa a estos pasos, AKS proporciona una imagen de AKS totalmente configurada que ya contiene el [complemento de dispositivo NVIDIA para Kubernetes][nvidia-github].
+
+> [!WARNING]
+> No debe instalar manualmente el conjunto de demonio del complemento de dispositivo NVIDIA para clústeres mediante la nueva imagen de GPU especializada de AKS.
+
+
+Registre la característica `GPUDedicatedVHDPreview`:
+
+```azurecli
+az feature register --name GPUDedicatedVHDPreview --namespace Microsoft.ContainerService
+```
+
+Pueden pasar unos minutos hasta que el estado aparezca como **Registrado**. Puede comprobar el estado del registro con el comando [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list):
+
+```azurecli
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/GPUDedicatedVHDPreview')].{Name:name,State:properties.state}"
+```
+
+Cuando el estado se muestre como Registrado, actualice el registro del proveedor de recursos `Microsoft.ContainerService` mediante el comando [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register):
+
+```azurecli
+az provider register --namespace Microsoft.ContainerService
+```
+
+Para instalar la extensión aks-preview de la CLI, use los siguientes comandos de la CLI de Azure:
+
+```azurecli
+az extension add --name aks-preview
+```
+
+Para actualizar la extensión aks-preview de la CLI, use los siguientes comandos de la CLI de Azure:
+
+```azurecli
+az extension update --name aks-preview
+```
+
+### <a name="use-the-aks-specialized-gpu-image-on-new-clusters-preview"></a>Uso de la imagen de GPU especializada de AKS en clústeres nuevos (versión preliminar)    
+
+Configure el clúster para usar la imagen de GPU especializada de AKS cuando se cree el clúster. Use la marca `--aks-custom-headers` para los nodos del agente GPU en el nuevo clúster para usar la imagen de GPU especializada de AKS.
+
+```azure-cli
+az aks create --name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true
+```
+
+Para crear un clúster con imágenes normales de AKS, puede omitir la etiqueta `--aks-custom-headers` personalizada. También puede optar por añadir más grupos de nodos de GPU especializados, tal y como se indica a continuación.
+
+
+### <a name="use-the-aks-specialized-gpu-image-on-existing-clusters-preview"></a>Uso de la imagen de GPU especializada de AKS en clústeres existentes (versión preliminar)
+
+Configure un grupo de nodos nuevo para usar la imagen de GPU especializada de AKS. Use la marca de `--aks-custom-headers` para los nodos del agente de GPU en el nuevo grupo de nodos para usar la imagen de GPU especializada de AKS.
+
+```azure-cli
+az aks nodepool add --name gpu --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true
+```
+
+Para crear un grupo de nodos mediante imágenes AKS normales, puede omitir la etiqueta `--aks-custom-headers` personalizada. 
+
+> [!NOTE]
+> Si la SKU de GPU requiere máquinas virtuales de generación 2, para crearlas puede:
+> ```azure-cli
+> az aks nodepool add --name gpu --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6s_v2 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true,usegen2vm=true
+> ```
 
 ## <a name="confirm-that-gpus-are-schedulable"></a>Confirmación de que las GPU son programables
 

@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/03/2020
-ms.openlocfilehash: ad5fb077596b6cc444c1c4df81af32cbcfa7c1db
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.date: 08/19/2020
+ms.openlocfilehash: 77dda42b27aa6f5fb505fe65667876523cb3f5d2
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475556"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650900"
 ---
 # <a name="monitor-data-flows"></a>Supervisión de flujos de datos
 
@@ -76,6 +76,10 @@ También puede ver el tiempo detallado del paso de transformación de cada parti
          ]
 }
 ```
+
+### <a name="post-processing-time"></a>Tiempo de posprocesamiento
+
+Cuando seleccione un icono de transformación del receptor en el mapa, el panel deslizante de la derecha mostrará un punto de datos adicional denominado "Tiempo de posprocesamiento" en la parte inferior. Esta es la cantidad de tiempo que se dedica a ejecutar el trabajo en el clúster de Spark *después* de cargar, transformar y escribir los datos. Esta cantidad puede incluir el cierre de grupos de conexiones, el apagado de controladores, la eliminación de archivos, la fusión de archivos, etc. Al realizar acciones en el flujo como "migrar archivos" y "enviar a un solo archivo", es probable que se muestre un aumento en el valor de tiempo de posprocesamiento.
   
 ## <a name="monitor-icons"></a>Iconos de supervisión
 

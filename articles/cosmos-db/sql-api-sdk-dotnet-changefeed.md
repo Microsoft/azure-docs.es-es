@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 05/11/2020
+ms.date: 08/12/2020
 ms.author: anfeldma
-ms.openlocfilehash: b2c846298fecdc771dd5d9831a558b99c74b2737
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 6d25eb2965e31211c0d30ec8d5e3e376176147c0
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461075"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590054"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK para los procesadores de fuente de cambios de .NET: descarga y notas de la versión
 
@@ -27,6 +27,9 @@ ms.locfileid: "87461075"
 > * [SDK de Java v4](sql-api-sdk-java-v4.md)
 > * [Versión 2 del SDK de Java asincrónico](sql-api-sdk-async-java.md)
 > * [SDK de Java v2 sincrónico](sql-api-sdk-java.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
+> * [Conector de Spark](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api
 > * [Proveedor de recursos de REST](/rest/api
@@ -47,6 +50,9 @@ ms.locfileid: "87461075"
 ## <a name="release-notes"></a>Notas de la versión
 
 ### <a name="v2-builds"></a>compilaciones v2
+
+### <a name="232"></a><a name="2.3.2"/>2.3.2
+* Se ha agregado compatibilidad del almacén de concesión con el [SDK V3](sql-api-sdk-dotnet-standard.md) que permite rutas de migración activas. Una aplicación puede migrar al SDK V3 y volver a migrar a la biblioteca de procesadores de fuente de cambios sin perder ningún estado.
 
 ### <a name="231"></a><a name="2.3.1"/>2.3.1
 * Se corrigió un caso cuando el motivo de cierre de `FeedProcessing.ChangeFeedObserverCloseReason.Unknown` se envió a `FeedProcessing.IChangeFeedObserver.CloseAsync`, si no se encuentra la partición o si la réplica de destino no está actualizada con la sesión de lectura. En estos casos, se usan ahora los motivos de cierre `FeedProcessing.ChangeFeedObserverCloseReason.ResourceGone` y `FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable`.
@@ -191,6 +197,7 @@ Microsoft notificará la retirada de un SDK con al menos **12 meses** de antelac
 
 | Versión | Fecha de la versión | Fecha de retirada |
 | --- | --- | --- |
+| [2.3.2](#2.3.2) |11 de agosto de 2020 |--- |
 | [2.3.1](#2.3.1) |30 de julio de 2020 |--- |
 | [2.3.0](#2.3.0) |2 de abril de 2020 |--- |
 | [2.2.8](#2.2.8) |28 de octubre de 2019 |--- |

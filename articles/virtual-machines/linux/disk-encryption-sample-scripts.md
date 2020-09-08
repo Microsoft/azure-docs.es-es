@@ -7,13 +7,13 @@ ms.subservice: security
 ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
-ms.custom: seodec18
-ms.openlocfilehash: ab6ef302d2ac3cbca8bb91c05f994c1ddf19bd1e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: seodec18, devx-track-azurepowershell
+ms.openlocfilehash: abf805d24d164ba31daa4d77d6360629632bfcf0
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87370264"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89072713"
 ---
 # <a name="azure-disk-encryption-sample-scripts-for-linux-vms"></a>Scripts de ejemplo de Azure Disk Encryption para máquinas virtuales Linux
 

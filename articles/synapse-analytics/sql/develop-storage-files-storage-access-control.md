@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: b7005954b14a9263ec074c836180853a99812dd5
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: fd4cc4cfa7b7be9085ac404cab7fc7447b6d66a7
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534777"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987144"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Control del acceso a la cuenta de almacenamiento para SQL a petición (versión preliminar)
 
@@ -81,12 +81,13 @@ En la tabla siguiente puede encontrar los tipos de autorización disponibles:
 
 Puede usar las siguientes combinaciones de tipos de autorización y almacenamiento de Azure:
 
-|                     | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
+| Tipo de autorización  | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
-| *SAS*               | Compatible      | No compatible   | Compatible     |
-| *Identidad administrada* | Compatible      | Compatible        | Compatible     |
-| *Identidad del usuario*    | Compatible      | Compatible        | Compatible     |
+| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | Compatible\*      | No compatible   | Compatible\*     |
+| [Identidad administrada](?tabs=managed-identity#supported-storage-authorization-types) | Compatible      | Compatible        | Compatible     |
+| [Identidad de usuario](?tabs=user-identity#supported-storage-authorization-types)    | Compatible\*      | Compatible\*        | Compatible\*     |
 
+\* El token de SAS y la identidad de Azure AD se pueden usar para tener acceso a un almacenamiento que no está protegido con el firewall.
 
 > [!IMPORTANT]
 > Al acceder al almacenamiento protegido con el firewall, solo se puede usar la identidad administrada. Debe establecer [Permitir servicios de Microsoft de confianza…](../../storage/common/storage-network-security.md#trusted-microsoft-services) y [asignar un rol de Azure](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) de manera explícita a la [identidad administrada asignada por el sistema](../../active-directory/managed-identities-azure-resources/overview.md) para esa instancia del recurso. En ese caso, el ámbito de acceso de la instancia corresponde al rol de Azure que se asigna a la identidad administrada.
@@ -177,27 +178,46 @@ Las credenciales con ámbito en la base de datos permiten el acceso a Azure Stor
 
 Los usuarios de Azure AD que tengan, como mínimo, los roles `Storage Blob Data Owner`, `Storage Blob Data Contributor`o `Storage Blob Data Reader` pueden acceder a cualquier archivo de Azure Storage. Los usuarios de Azure AD no necesitan credenciales para acceder al almacenamiento.
 
+```sql
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>'
+)
+```
+
 Los usuarios de SQL no pueden utilizar la autenticación de Azure AD para acceder al almacenamiento.
 
 ### <a name="shared-access-signature"></a>[Firma de acceso compartido](#tab/shared-access-signature)
 
-El script siguiente crea una credencial que se usa para tener acceso a los archivos del almacenamiento mediante el token de SAS especificado en la credencial.
+El script siguiente crea una credencial que se usa para tener acceso a los archivos del almacenamiento mediante el token de SAS especificado en la credencial. El script creará un origen de datos externo de ejemplo que usa este token de SAS para acceder al almacenamiento.
 
 ```sql
+-- Optional: Create MASTER KEY if not exists in database:
+-- CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<Very Strong Password>'
+GO
 CREATE DATABASE SCOPED CREDENTIAL [SasToken]
 WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
      SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
 GO
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>',
+          CREDENTIAL = SasToken
+)
 ```
 
 ### <a name="managed-identity"></a>[Identidad administrada](#tab/managed-identity)
 
-El script siguiente crea una credencial con ámbito en la base de datos que se puede usar para suplantar al usuario actual de Azure AD como identidad administrada del servicio. 
+El script siguiente crea una credencial con ámbito en la base de datos que se puede usar para suplantar al usuario actual de Azure AD como identidad administrada del servicio. El script creará un origen de datos externo de ejemplo que usa la identidad del área de trabajo para acceder al almacenamiento.
 
 ```sql
-CREATE DATABASE SCOPED CREDENTIAL [SynapseIdentity]
+-- Optional: Create MASTER KEY if not exists in database:
+-- CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<Very Strong Password>
+CREATE DATABASE SCOPED CREDENTIAL SynapseIdentity
 WITH IDENTITY = 'Managed Identity';
 GO
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>',
+          CREDENTIAL = SynapseIdentity
+)
 ```
 
 No es necesario que la credencial con ámbito en la base de datos coincida con el nombre de la cuenta de almacenamiento porque se usará explícitamente en el ORIGEN DE DATOS que define la ubicación del almacenamiento.
@@ -206,6 +226,11 @@ No es necesario que la credencial con ámbito en la base de datos coincida con e
 
 La credencial con ámbito en la base de datos no es necesaria para permitir el acceso a archivos disponibles públicamente. Cree un [origen de datos sin credenciales con ámbito en la base de datos](develop-tables-external-tables.md?tabs=sql-ondemand#example-for-create-external-data-source) para tener acceso a los archivos disponibles públicamente en Azure Storage.
 
+```sql
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://<storage_account>.blob.core.windows.net/<container>/<path>'
+)
+```
 ---
 
 Las credenciales con ámbito en la base de datos se usan en orígenes de datos externos para especificar el método de autenticación que se utilizará para tener acceso a este almacenamiento:

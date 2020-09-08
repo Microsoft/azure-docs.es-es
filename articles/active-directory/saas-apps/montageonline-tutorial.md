@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Montage Online | Microsoft Docs'
 description: Obtenga información para configurar el inicio de sesión único entre Azure Active Directory y Montage Online.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 5c5e8c6f-e4fb-43fe-8841-e371f568ebed
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 89713d99b9a6d5f8b56d57c9cf6f184142510420
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 415d1b8fd8b950aec96a89965e798dfb92a3efae
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73160499"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88554663"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-montage-online"></a>Tutorial: Integración de Azure Active Directory con Montage Online
 

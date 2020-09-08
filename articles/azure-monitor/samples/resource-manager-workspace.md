@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: d5af288ea564c4118e010c8d0f0f86c5337ce170
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 684f37ba3186a719aa9ce730ac07ca4ad42f113d
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024061"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458066"
 ---
 # <a name="resource-manager-template-samples-for-log-analytics-workspaces-in-azure-monitor"></a>Ejemplos de plantillas de Resource Manager para áreas de trabajo de Log Analytics en Azure Monitor
 Este artículo incluye [plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) de ejemplo para crear y configurar área de trabajo de Log Analytics en Azure Monitor. Cada ejemplo incluye un archivo de plantilla y un archivo de parámetros con valores de ejemplo para la plantilla.
@@ -21,7 +21,8 @@ Este artículo incluye [plantillas de Azure Resource Manager](../../azure-reso
 
 ## <a name="template-references"></a>Referencias de plantilla
 
-- [Microsoft.OperationalInsights/workspaces](/azure/templates/microsoft.operationalinsights/2020-03-01-preview/workspaces) 
+- [Microsoft.OperationalInsights/workspaces](/azure/templates/microsoft.operationalinsights/2020-03-01-preview/workspaces
+) 
 - [Microsoft.OperationalInsights workspaces/dataSources](/azure/templates/microsoft.operationalinsights/2020-03-01-preview/workspaces/datasources)
 
 ## <a name="create-a-log-analytics-workspace"></a>Creación de un área de trabajo de Log Analytics
@@ -35,7 +36,7 @@ En el ejemplo siguiente, se crea una nueva área de trabajo de Log Analytics va
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "workspaceName": {
@@ -112,7 +113,7 @@ En el ejemplo siguiente, se crea una nueva área de trabajo de Log Analytics va
       {
           "type": "Microsoft.OperationalInsights/workspaces",
           "name": "[parameters('workspaceName')]",
-          "apiVersion": "2020-03-01-preview",
+          "apiVersion": "2020-08-01",
           "location": "[parameters('location')]",
           "properties": {
               "sku": {
@@ -134,7 +135,7 @@ En el ejemplo siguiente, se crea una nueva área de trabajo de Log Analytics va
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
@@ -164,7 +165,7 @@ En el ejemplo siguiente, se agrega una recopilación de [eventos de Windows](../
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "workspaceName": {
@@ -177,13 +178,13 @@ En el ejemplo siguiente, se agrega una recopilación de [eventos de Windows](../
   "resources": [
   {
       "type": "Microsoft.OperationalInsights/workspaces",
-      "apiVersion": "2020-03-01-preview",
+      "apiVersion": "2020-08-01",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
       "resources": [
         {
           "type": "datasources",
-          "apiVersion": "2020-03-01-preview",
+          "apiVersion": "2020-08-01",
           "name": "WindowsEventsSystem",
           "dependsOn": [
             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -203,7 +204,7 @@ En el ejemplo siguiente, se agrega una recopilación de [eventos de Windows](../
         },
         {
           "type": "datasources",
-          "apiVersion": "2020-03-01-preview",
+          "apiVersion": "2020-08-01",
           "name": "WindowsEventsApplication",
           "dependsOn": [
             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -235,7 +236,7 @@ En el ejemplo siguiente, se agrega una recopilación de [eventos de Windows](../
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
@@ -259,7 +260,7 @@ En el ejemplo siguiente, se agrega una recopilación de [eventos de syslog](../p
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "workspaceName": {
@@ -277,14 +278,14 @@ En el ejemplo siguiente, se agrega una recopilación de [eventos de syslog](../p
     },
     "resources": [
     {
-        "apiVersion": "2020-03-01-preview",
+        "apiVersion": "2020-08-01",
         "type": "Microsoft.OperationalInsights/workspaces",
         "name": "[parameters('workspaceName')]",
         "location": "[parameters('location')]",
         "resources": [
             {
                 "type": "datasources",
-                "apiVersion": "2020-03-01-preview",
+                "apiVersion": "2020-08-01",
                 "name": "SyslogKern",
                 "dependsOn": [
                     "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -322,7 +323,7 @@ En el ejemplo siguiente, se agrega una recopilación de [eventos de syslog](../p
             },
             {
                 "type": "datasources",
-                "apiVersion": "2020-03-01-preview",
+                "apiVersion": "2020-08-01",
                 "name": "SyslogDaemon",
                 "dependsOn": [
                     "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -350,7 +351,7 @@ En el ejemplo siguiente, se agrega una recopilación de [eventos de syslog](../p
                 }
             },
             {
-                "apiVersion": "2020-03-01-preview",
+                "apiVersion": "2020-08-01",
                 "type": "datasources",
                 "name": "SyslogCollection",
                 "dependsOn": [
@@ -373,7 +374,7 @@ En el ejemplo siguiente, se agrega una recopilación de [eventos de syslog](../p
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
@@ -397,7 +398,7 @@ En el ejemplo siguiente, se agrega una recopilación de [contadores de rendimien
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "workspaceName": {
@@ -415,13 +416,13 @@ En el ejemplo siguiente, se agrega una recopilación de [contadores de rendimien
     },
     "resources": [
     {
-        "apiVersion": "2020-03-01-preview",
+        "apiVersion": "2020-08-01",
         "type": "Microsoft.OperationalInsights/workspaces",
         "name": "[parameters('workspaceName')]",
         "location": "[parameters('location')]",
         "resources": [
           {
-            "apiVersion": "2020-03-01-preview",
+            "apiVersion": "2020-08-01",
             "type": "datasources",
             "name": "WindowsPerfMemoryAvailableBytes",
             "dependsOn": [
@@ -436,7 +437,7 @@ En el ejemplo siguiente, se agrega una recopilación de [contadores de rendimien
             }
           },
           {
-            "apiVersion": "2020-03-01-preview",
+            "apiVersion": "2020-08-01",
             "type": "datasources",
             "name": "WindowsPerfMemoryPercentageBytes",
             "dependsOn": [
@@ -451,7 +452,7 @@ En el ejemplo siguiente, se agrega una recopilación de [contadores de rendimien
             }
           },
           {
-            "apiVersion": "2020-03-01-preview",
+            "apiVersion": "2020-08-01",
             "type": "datasources",
             "name": "WindowsPerfProcessorPercentage",
             "dependsOn": [
@@ -476,7 +477,7 @@ En el ejemplo siguiente, se agrega una recopilación de [contadores de rendimien
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
@@ -501,7 +502,7 @@ En el ejemplo siguiente, se agrega una recopilación de [contadores de rendimien
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "workspaceName": {
@@ -519,13 +520,13 @@ En el ejemplo siguiente, se agrega una recopilación de [contadores de rendimien
     },
     "resources": [
     {
-        "apiVersion": "2020-03-01-preview",
+        "apiVersion": "2020-08-01",
         "type": "Microsoft.OperationalInsights/workspaces",
         "name": "[parameters('workspaceName')]",
         "location": "[parameters('location')]",
         "resources": [
             {
-                "apiVersion": "2020-03-01-preview",
+                "apiVersion": "2020-08-01",
                 "type": "datasources",
                 "name": "LinuxPerformanceLogicalDisk",
                 "dependsOn": [
@@ -559,7 +560,7 @@ En el ejemplo siguiente, se agrega una recopilación de [contadores de rendimien
                 }
             },
             {
-                "apiVersion": "2020-03-01-preview",
+                "apiVersion": "2020-08-01",
                 "type": "datasources",
                 "name": "LinuxPerformanceProcessor",
                 "dependsOn": [
@@ -590,7 +591,7 @@ En el ejemplo siguiente, se agrega una recopilación de [contadores de rendimien
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
@@ -616,7 +617,7 @@ En el ejemplo siguiente, se agrega una recopilación de [registros personalizado
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "workspaceName": {
@@ -634,13 +635,13 @@ En el ejemplo siguiente, se agrega una recopilación de [registros personalizado
   },
   "resources": [
   {
-      "apiVersion": "2020-03-01-preview",
+      "apiVersion": "2020-08-01",
       "type": "Microsoft.OperationalInsights/workspaces",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
       "resources": [
         {
-            "apiVersion": "2020-03-01-preview",
+            "apiVersion": "2020-08-01",
             "type": "dataSources",
             "name": "[concat(parameters('workspaceName'), 'armlog_timedelimited')]",
             "dependsOn": [
@@ -687,7 +688,7 @@ En el ejemplo siguiente, se agrega una recopilación de [registros personalizado
             }
         },
         {
-          "apiVersion": "2020-03-01-preview",
+          "apiVersion": "2020-08-01",
           "type": "dataSources",
           "name": "[concat(parameters('workspaceName'), 'armlog_newline')]",
           "dependsOn": [
@@ -740,7 +741,7 @@ En el ejemplo siguiente, se agrega una recopilación de [registros personalizado
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
@@ -761,7 +762,7 @@ En el ejemplo siguiente, se agrega una recopilación de [registros de IIS](../pl
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "workspaceName": {
@@ -780,12 +781,12 @@ En el ejemplo siguiente, se agrega una recopilación de [registros de IIS](../pl
     "resources": [
     {
         "type": "Microsoft.OperationalInsights/workspaces",
-        "apiVersion": "2020-03-01-preview",
+        "apiVersion": "2020-08-01",
         "name": "[parameters('workspaceName')]",
         "location": "[parameters('location')]",
         "resources": [
             {
-                "apiVersion": "2020-03-01-preview",
+                "apiVersion": "2020-08-01",
                 "type": "datasources",
                 "name": "IISLog",
                 "dependsOn": [
@@ -807,7 +808,7 @@ En el ejemplo siguiente, se agrega una recopilación de [registros de IIS](../pl
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {

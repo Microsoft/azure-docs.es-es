@@ -5,12 +5,12 @@ ms.assetid: f7091b25-b2b6-48da-8d4a-dcf9b7baccab
 ms.topic: article
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: b8545c4f8c0dc86d83e0711147a1bda608c2897f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8085cbd3d19bd60c50de38950625de2fcd1e5c27
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84020173"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962492"
 ---
 # <a name="scale-up-an-app-in-azure-app-service"></a>Escalado de una aplicación en Azure App Service
 
@@ -18,7 +18,7 @@ En este artículo se muestra cómo escalar aplicaciones en Azure App Service. Ex
 
 * [Escalado vertical](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): obtenga más CPU, memoria, espacio en disco y características adicionales como máquinas virtuales exclusivas, dominios y certificados personalizados, espacios de ensayo, autoescala y mucho más. Para escalar verticalmente, se cambia el plan de tarifa del plan de App Service al que pertenece la aplicación.
 * [Escalado horizontal](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): se aumenta el número de instancias de máquina virtual que ejecutan la aplicación.
-  Se puede escalar horizontalmente hasta un máximo de 30 instancias, según el plan de tarifa. [Entornos de App Service](environment/intro.md) en el nivel **Aislado** aumenta aún más el recuento de escalado horizontal a 100 instancias. Para más información sobre el escalado horizontal, consulte [Escalado del número de instancias de forma manual o automática](../monitoring-and-diagnostics/insights-how-to-scale.md). En ese artículo aprenderá a usar el escalado automático, que consiste en escalar el número de instancias automáticamente en función de las programaciones y reglas predefinidas.
+  Se puede escalar horizontalmente hasta un máximo de 30 instancias, según el plan de tarifa. [Entornos de App Service](environment/intro.md) en el nivel **Aislado** aumenta aún más el recuento de escalado horizontal a 100 instancias. Para más información sobre el escalado horizontal, consulte [Escalado del número de instancias de forma manual o automática](../azure-monitor/platform/autoscale-get-started.md). En ese artículo aprenderá a usar el escalado automático, que consiste en escalar el número de instancias automáticamente en función de las programaciones y reglas predefinidas.
 
 La configuración de escalado tarda solo unos segundos en aplicarse y afecta a todas las aplicaciones del [plan de App Service](../app-service/overview-hosting-plans.md).
 No hay que modificar el código ni volver a implementar la aplicación.
@@ -77,7 +77,7 @@ Para ver una tabla de límites de servicio, presupuestos y restricciones, así c
 
 ## <a name="more-resources"></a>Más recursos
 
-[Escalado del recuento de instancias de forma manual o automática](../monitoring-and-diagnostics/insights-how-to-scale.md)  
+[Escalado del recuento de instancias de forma manual o automática](../azure-monitor/platform/autoscale-get-started.md)  
 [Configuración del nivel PremiumV2 para App Service](app-service-configure-premium-tier.md)
 
 <!-- LINKS -->

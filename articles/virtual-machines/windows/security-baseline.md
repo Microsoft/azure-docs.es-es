@@ -6,13 +6,13 @@ ms.service: virtual-machines-windows
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 11b532b5ece10c8a9ac6dad61e4ca64a9f19f901
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 7726a0f1acb8f7fde2b491979d478badeca1b384
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445211"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400388"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Base de referencia de seguridad de Azure para Windows Virtual Machines
 
@@ -556,11 +556,11 @@ Microsoft usa el protocolo Seguridad de la capa de transporte (TLS) para protege
 
 **Responsabilidad**: Customer
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Uso del control de acceso basado en rol para controlar el acceso a los recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Uso de RBAC de Azure para controlar el acceso a los recursos
 
-**Guía**: mediante el control de acceso basado en rol (RBAC), puede repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan en la máquina virtual para realizar su trabajo. En lugar de proporcionar a todos los empleados permisos no restringidos en la máquina virtual, puede permitir solo determinadas acciones. Puede configurar el control de acceso para la máquina virtual en Azure Portal, usando la CLI de Azure o Azure PowerShell.
+**Guía**: Mediante el control de acceso basado en roles de Azure (RBAC de Azure), puede repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan en la máquina virtual para realizar su trabajo. En lugar de proporcionar a todos los empleados permisos no restringidos en la máquina virtual, puede permitir solo determinadas acciones. Puede configurar el control de acceso para la máquina virtual en Azure Portal, usando la CLI de Azure o Azure PowerShell.
 
-* [Control de acceso basado en rol (RBAC) para recursos de Azure](../../role-based-access-control/overview.md)
+* [Azure RBAC](../../role-based-access-control/overview.md)
 
 * [Roles integrados en los recursos de Azure](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 
@@ -622,7 +622,7 @@ Microsoft usa el protocolo Seguridad de la capa de transporte (TLS) para protege
 
 * [Solución Update Management de Azure](../../automation/update-management/update-mgmt-overview.md)
 
-* [Administración de actualizaciones y revisiones para las VM](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
+* [Administración de actualizaciones y revisiones para las máquinas virtuales](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -634,7 +634,7 @@ Microsoft usa el protocolo Seguridad de la capa de transporte (TLS) para protege
 
 * [Solución Update Management de Azure](../../automation/update-management/update-mgmt-overview.md)
 
-* [Administración de actualizaciones y revisiones para las VM](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
+* [Administración de actualizaciones y revisiones para las máquinas virtuales](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Supervisión de Azure Security Center**: No disponible
 
@@ -913,11 +913,11 @@ En la mayoría de los escenarios, las plantillas de máquina virtual base de Mic
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: Almacene imágenes de sistema operativo personalizadas de forma segura
 
-**Guía**: si usa imágenes personalizadas (p. ej., un disco duro virtual), use el control de acceso basado en rol de Azure para asegurarse de que solo los usuarios autorizados pueden acceder a las imágenes.
+**Instrucciones**: si usa imágenes personalizadas (p. ej., un disco duro virtual), use el control de acceso basado en roles de Azure (RBAC de Azure) para asegurarse de que solo los usuarios autorizados pueden acceder a las imágenes.
 
-* [Descripción de RBAC en Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+* [Descripción de Azure RBAC](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-* [Configuración de RBAC en Azure](../../role-based-access-control/quickstart-assign-role-user-portal.md)
+* [Configuración de Azure RBAC](../../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 **Supervisión de Azure Security Center**: No disponible
 
@@ -973,7 +973,9 @@ En la mayoría de los escenarios, las plantillas de máquina virtual base de Mic
 
 * [Creación de un almacén de claves](../../key-vault/secrets/quick-create-portal.md)
 
-* [Cómo proporcionar la autenticación de Key Vault con una identidad administrada](../../key-vault/general/managed-identity.md)
+* [Autenticación en Key Vault](../../key-vault/general/authentication.md)
+
+* [Asignación de una directiva de acceso de Key Vault](../../key-vault/general/assign-access-policy-portal.md)
 
 **Supervisión de Azure Security Center**: Sí
 

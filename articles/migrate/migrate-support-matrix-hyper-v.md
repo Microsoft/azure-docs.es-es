@@ -3,12 +3,12 @@ title: Compatibilidad con la evaluación de Hyper-V en Azure Migrate
 description: Obtenga información sobre la compatibilidad con la evaluación de Hyper-V con la herramienta Server Assessment de Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 563a98162a2453ac1c96baf9f04500ee880e0ce5
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 3d55d71fc4e9551fa19afe8c3f37d31107e4d2e7
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420964"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641830"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Matriz de compatibilidad para la evaluación de Hyper-V
 
@@ -34,7 +34,7 @@ Para configurar la evaluación de máquinas virtuales de Hyper-V, cree un proyec
 
 | **Soporte técnico**                | **Detalles**               
 | :-------------------       | :------------------- |
-| **Host de Hyper-V**       | El host de Hyper-V puede ser independiente o implementarse en un clúster.<br/><br/> Asimismo, el host de Hyper-V puede ejecutar Windows Server 2019, Windows Server 2016 o Windows Server 2012 R2. También se admite la instalación Server Core de Windows Server 2016 y Windows Server 2012 R2 <br/>No puede evaluar VM que se encuentran en hosts de Hyper-V que ejecutan Windows Server 2012.
+| **Host de Hyper-V**       | El host de Hyper-V puede ser independiente o implementarse en un clúster.<br/><br/> Asimismo, el host de Hyper-V puede ejecutar Windows Server 2019, Windows Server 2016 o Windows Server 2012 R2. También se admite la instalación de Server Core de estos sistemas operativos. <br/>No puede evaluar VM que se encuentran en hosts de Hyper-V que ejecutan Windows Server 2012.
 | **Permisos**           | Necesita permisos de administrador en el host de Hyper-V. <br/> Si no quiere asignar permisos de administrador, cree una cuenta de usuario local o de dominio y agregue la cuenta del usuario a estos grupos: Usuarios de administración remota, Administradores de Hyper-V y Usuarios del monitor de sistema. |
 | **Comunicación remota de PowerShell**   | La [comunicación remota de PowerShell](/powershell/module/microsoft.powershell.core/enable-psremoting?view=powershell-7) debe estar habilitada en cada host de Hyper-V. |
 | **Réplica de Hyper-V**       | Si usa la réplica de Hyper-V (o tiene varias máquinas virtuales con los mismos identificadores) y detecta las máquinas virtuales originales y las replicadas mediante Azure Migrate, es posible que la evaluación generada por Azure Migrate no sea precisa. |

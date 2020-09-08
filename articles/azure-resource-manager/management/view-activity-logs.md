@@ -3,12 +3,12 @@ title: Visualización de registros de actividad de Azure para supervisar recurso
 description: Use los registros de actividad para revisar las acciones y los errores de los usuarios. Muestra PowerShell de Azure Portal, la CLI de Azure y REST.
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 9511090099894fad6708843f106570ed029f0c1a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b02865e4487a187d1296b2971918aa101d711b5b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75474418"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827068"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Visualización de registros de actividad para supervisar acciones sobre recursos
 
@@ -191,7 +191,7 @@ Las operaciones REST para trabajar con el registro de actividad forman parte de 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Los registros de actividad de Azure se pueden usar con Power BI para obtener mayor información sobre las acciones en su suscripción. Consulte [View and analyze Azure Audit Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/)(Consulta y análisis de registros de auditoría de Azure en Power BI y más).
-* Para obtener información sobre cómo establecer directivas de seguridad, vea [Control de acceso basado en roles de Azure](../../role-based-access-control/role-assignments-portal.md).
+* Para obtener información sobre cómo establecer directivas de seguridad, consulte [Control de acceso basado en rol de Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
 * Para ver más detalles sobre los cambios en las aplicaciones desde el nivel de infraestructura hasta la implementación de aplicaciones, consulte el artículo sobre el [Uso de Application Change Analysis en Azure Monitor](../../azure-monitor/app/change-analysis.md).
 * Para aprender sobre los comandos para ver operaciones de implementación, consulte [Visualización de operaciones de implementación](../templates/deployment-history.md).
 * Para aprender a evitar eliminaciones en un recurso para todos los usuarios, consulte [Bloqueo de recursos con Azure Resource Manager](lock-resources.md).

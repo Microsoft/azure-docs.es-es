@@ -4,14 +4,14 @@ description: Introducción a los conceptos claves de mensajes y conexiones de Az
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 08/05/2020
 ms.author: zhshang
-ms.openlocfilehash: 5f6428231a3639738e8fb52e7dc3f2f2a3d2a26e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5483e10e817ce8a0a7e7c82d817b7bdbbdd9176b
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75392809"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853456"
 ---
 # <a name="messages-and-connections-in-azure-signalr-service"></a>Mensajes y conexiones de Azure SignalR Service
 
@@ -36,7 +36,13 @@ Para la facturación, solo se cuentan mensajes salientes de Azure SignalR Servic
 
 Los mensajes mayores de 2 KB se cuentan como mensajes múltiples de 2 KB cada uno. El gráfico de recuento de mensajes de Azure Portal se actualiza cada 100 mensajes por centro.
 
-Por ejemplo, suponga que tiene tres clientes y un servidor de aplicaciones. Un cliente envía un mensaje de 4 KB para permitir que el servidor difunda a todos los clientes. El número de mensajes es ocho: un mensaje desde el servicio al servidor de aplicaciones y tres mensajes desde el servicio a los clientes. Cada mensaje se cuenta como dos mensajes de 2 KB.
+Por ejemplo, suponga que tiene un servidor de aplicaciones y tres clientes:
+
+El servidor de aplicaciones difunde un mensaje de 1 KB a todos los clientes conectados, el mensaje del servidor de aplicaciones al servicio se considera un mensaje entrante gratuito. Solo los tres mensajes que se envían desde el servicio a cada uno de los clientes se facturan como mensajes salientes.
+
+El cliente A envía un mensaje de 1 KB a otro cliente B, sin pasar por el servidor de aplicaciones. El mensaje del cliente A al servicio es un mensaje entrante gratuito. El mensaje del servicio al cliente B se factura como mensaje saliente.
+
+Si tiene tres clientes y un servidor de aplicaciones. Un cliente envía un mensaje de 4 KB para permitir que el servidor difunda a todos los clientes. El número de mensajes facturados es ocho: un mensaje desde el servicio al servidor de aplicaciones y tres mensajes desde el servicio a los clientes. Cada mensaje se cuenta como dos mensajes de 2 KB.
 
 ## <a name="how-connections-are-counted"></a>Cómo se cuentan las conexiones
 
@@ -46,13 +52,13 @@ El recuento de conexiones que se muestra en Azure Portal incluye conexiones de s
 
 Por ejemplo, suponga que tiene dos servidores de aplicaciones y define cinco centros en el código. El número de conexiones del servidor será 50: 2 servidores de aplicaciones * 5 centros * 5 conexiones por centro.
 
-ASP.NET SignalR calcula las conexiones de los servidores de otra forma. Incluye un centro predeterminado además de los centros que defina. De forma predeterminada, cada servidor de aplicaciones necesita cinco conexiones de los servidores. El número de conexiones iniciales del centro predeterminado se mantiene igual que el de los restantes centros.
+ASP.NET SignalR calcula las conexiones de los servidores de otra forma. Incluye un centro predeterminado además de los centros que defina. De forma predeterminada, cada servidor de aplicaciones necesita cinco conexiones de los servidores. El número de conexiones iniciales del centro predeterminado se mantiene igual que el de los otros centros.
 
-Durante la vigencia del servidor de aplicaciones, tanto el servicio como el servidor de aplicaciones mantienen el estado de la conexión de sincronización y realizan el ajuste en las conexiones del servidor para mejorar el rendimiento y la estabilidad del servicio. Por lo tanto, puede ver que el número de conexiones con el servidor cambia de vez en cuando.
+El servicio y el servidor de aplicaciones mantienen el estado de la conexión de sincronización y realizan el ajuste en las conexiones del servidor para mejorar el rendimiento y la estabilidad del servicio.  Por lo tanto, puede ver que el número de conexiones con el servidor cambia de vez en cuando.
 
 ## <a name="how-inboundoutbound-traffic-is-counted"></a>Cómo se cuenta el tráfico entrante y saliente
 
-La distinción entre el tráfico entrante y el tráfico saliente se basa en la perspectiva de Azure SignalR Service. El tráfico se calcula en bytes.
+El mensaje enviado al servicio es entrante. El mensaje enviado desde el servicio es saliente. El tráfico se calcula en bytes.
 
 ## <a name="related-resources"></a>Recursos relacionados
 

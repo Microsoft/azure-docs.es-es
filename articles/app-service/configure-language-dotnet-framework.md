@@ -2,14 +2,15 @@
 title: Configuración de las aplicaciones de ASP.NET
 description: Cómo configurar una aplicación de ASP.NET en Azure App Service En este artículo se muestran las tareas de configuración más comunes.
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 53654520ea20bd8ee797de61449a616eadd001a5
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 30fddaec9ca5d0439beadedf7c5ca6b6c7d51d83
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080154"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961710"
 ---
 # <a name="configure-an-aspnet-app-for-azure-app-service"></a>Configuración de una aplicación de ASP.NET para Azure App Service
 
@@ -94,7 +95,7 @@ Vuelva a implementar la aplicación con *Web.config* actualizado. Ahora debería
 
 ## <a name="access-diagnostic-logs"></a>Acceso a los registros de diagnóstico
 
-Puede agregar mensajes de diagnóstico en el código de la aplicación mediante [System.Diagnostics.Trace](https://docs.microsoft.com/dotnet/api/system.diagnostics.trace). Por ejemplo: 
+Puede agregar mensajes de diagnóstico en el código de la aplicación mediante [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace). Por ejemplo: 
 
 ```csharp
 Trace.TraceError("Record not found!"); // Error trace

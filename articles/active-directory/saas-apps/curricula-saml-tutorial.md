@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Curricula SAML | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Curricula SAML.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 2018f871-f1d8-42ac-86e1-cda2c61d70f5
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 05/28/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1709ada2284f315b79c1c8430c374e2ed73e8092
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 5d4f61afcf90ff8443010987b188c02de57eeb35
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84236341"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88542645"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-curricula-saml"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Curricula SAML
 

@@ -1,4 +1,4 @@
-- name: Documentos sobre Base de datos MySQL en Azure
+- name: "Documentación de Azure\_DB for MySQL"
   href: index.yml
 - name: Información general
   items:
@@ -28,6 +28,12 @@
           href: connect-php.md
         - name: Java
           href: connect-java.md
+        - name: Java con Spring Data JDBC
+          href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-mysql?toc=/azure/mysql/toc.json&bc=/azure/bread/toc.json
+        - name: Java con Spring Data JPA
+          href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-mysql?toc=/azure/mysql/toc.json&bc=/azure/bread/toc.json
+        - name: Java con Spring Data R2DBC
+          href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-mysql?toc=/azure/mysql/toc.json&bc=/azure/bread/toc.json
         - name: .NET
           href: connect-csharp.md
         - name: Python
@@ -46,7 +52,7 @@
   items:
     - name: 1 - Diseño de una base de datos
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: tutorial-design-database-using-portal.md
         - name: Azure CLI
           href: tutorial-design-database-using-cli.md
@@ -68,9 +74,6 @@
       href: sample-scripts-azure-cli.md
     - name: Agrupación de conexiones de Java
       href: sample-scripts-java-connection-pooling.md
-    - name: Elementos integrados de Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceptos
   items:
     - name: Bases de datos y servidores
@@ -111,6 +114,9 @@
           href: concepts-azure-ad-authentication.md
         - name: Cifrado doble de infraestructura
           href: concepts-infrastructure-double-encryption.md
+        - name: Controles de seguridad de Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: Línea de base de seguridad
           href: security-baseline.md
     - name: Continuidad empresarial
@@ -138,6 +144,8 @@
           href: concepts-server-parameters.md
     - name: Desarrollo
       items:
+        - name: Procedimientos recomendados de la aplicación
+          href: app-development-best-practices.md
         - name: Compatibilidad de controladores y herramientas
           href: concepts-compatibility.md
         - name: Desarrollo de aplicaciones
@@ -148,10 +156,14 @@
           href: concepts-aks.md
         - name: Java
           items:
-            - name: Configuración de Spring Data JDBC
-              href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-mysql
-            - name: Configuración de Spring Data JPA
-              href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-mysql
+            - name: Uso de Java y JDBC
+              href: connect-java.md
+            - name: Uso de Spring Data JDBC
+              href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-mysql?toc=/azure/mysql/toc.json&bc=/azure/bread/toc.json
+            - name: Uso de Spring Data JPA
+              href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-mysql?toc=/azure/mysql/toc.json&bc=/azure/bread/toc.json
+            - name: Uso de Spring Data R2DBC
+              href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-mysql?toc=/azure/mysql/toc.json&bc=/azure/bread/toc.json
     - name: Replicación
       items:
         - name: Replicación de datos internos
@@ -162,17 +174,17 @@
   items:
     - name: Administración de un servicio
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: howto-create-manage-server-portal.md
     - name: Reglas de firewall
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: howto-manage-firewall-using-portal.md
         - name: Azure CLI
           href: howto-manage-firewall-using-cli.md
     - name: Restauración de un servidor
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: howto-restore-server-portal.md
         - name: Azure CLI
           href: howto-restore-server-cli.md
@@ -206,7 +218,7 @@
           href: howto-redirection.md
     - name: Configuración de parámetros del servidor
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: howto-server-parameters.md
         - name: Azure CLI
           href: howto-configure-server-parameters-using-cli.md
@@ -214,7 +226,7 @@
           href: howto-configure-server-parameters-using-powershell.md
     - name: Almacenamiento de crecimiento automático
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: howto-auto-grow-storage-portal.md
         - name: Azure CLI
           href: howto-auto-grow-storage-cli.md
@@ -224,13 +236,13 @@
       items:
         - name: Registros de consultas lentos
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: howto-configure-server-logs-in-portal.md
             - name: Azure CLI
               href: howto-configure-server-logs-in-cli.md
         - name: Registros de auditoría
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: howto-configure-audit-logs-portal.md
             - name: Azure CLI
               href: howto-configure-audit-logs-cli.md
@@ -250,6 +262,8 @@
           href: howto-read-replicas-powershell.md
     - name: Solución de problemas
       items:
+        - name: Solución de errores comunes
+          href: howto-troubleshoot-common-errors.md
         - name: Solución de problemas de conexión
           href: howto-troubleshoot-common-connection-issues.md
         - name: Solución de problemas del rendimiento de las consultas
@@ -260,23 +274,23 @@
           href: howto-data-encryption-troubleshoot.md
     - name: Protección contra amenazas avanzada
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: howto-database-threat-protection-portal.md
     - name: Virtual Network
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: howto-manage-vnet-using-portal.md
         - name: Azure CLI
           href: howto-manage-vnet-using-cli.md
     - name: Private Link
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: howto-configure-privatelink-portal.md
         - name: Azure CLI
           href: howto-configure-privatelink-cli.md
     - name: Cifrado de datos
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: howto-data-encryption-portal.md
         - name: Azure CLI
           href: howto-data-encryption-cli.md
@@ -294,11 +308,11 @@
           href: howto-connect-with-managed-identity.md
     - name: Denegación del acceso a una red pública
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: howto-deny-public-network-access.md
     - name: Reinicio del servidor
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: howto-restart-server-portal.md
         - name: Azure CLI
           href: howto-restart-server-cli.md
@@ -318,6 +332,9 @@
       href: /azure/templates/microsoft.dbformysql/allversions
     - name: Procedimientos almacenados de administración
       href: reference-stored-procedures.md
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Plantillas de implementación

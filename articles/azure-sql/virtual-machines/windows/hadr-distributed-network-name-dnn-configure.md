@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 7c40f4d9f86f27af34c1bc649483810f6756c41d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 8eb9caf466148e43266c4be9cf1308da15fb67f2
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169823"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245543"
 ---
 # <a name="configure-a-distributed-network-name-for-an-fci"></a>Configuración de un nombre de red distribuida para una FCI 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -156,6 +156,29 @@ El **Administrador de clústeres de conmutación por error** muestra el rol y su
 Para probar la conectividad, inicie sesión en otra máquina virtual de la misma red virtual. Abra **SQL Server Management Studio** y conéctese al nombre de la FCI de SQL Server con el nombre DNS de DNN.
 
 Si es necesario, puede [descargar SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
+
+## <a name="avoid-ip-conflict"></a>Evitar conflictos de IP
+
+Este es un paso opcional para evitar que se asigne a otro recurso de Azure un duplicado de la dirección IP virtual (VIP) que usa el recurso FCI. 
+
+Aunque los clientes ahora usan la DNN para conectarse a la FCI de SQL Server, el nombre de red virtual (VNN) y la dirección IP virtual no se pueden eliminar ya que son componentes necesarios de la infraestructura de FCI. Sin embargo, dado que ya no hay un equilibrador de carga que reserva la dirección IP virtual en Azure, existe el riesgo de que otro recurso de la red virtual tenga asignada la misma dirección IP que la que usa la FCI. Como consecuencia, podría producirse un problema de conflicto de IP duplicada. 
+
+Para reservar la dirección IP, configure una dirección APIPA o un adaptador de red dedicado. 
+
+### <a name="apipa-address"></a>Dirección APIPA
+
+Para evitar el uso de direcciones IP duplicadas, configure una dirección APIPA (también conocida como dirección local de vínculo). Para ello, ejecute el siguiente comando:
+
+```powershell
+Get-ClusterResource "virtual IP address" | Set-ClusterParameter 
+    –Multiple @{"Address”=”169.254.1.1”;”SubnetMask”=”255.255.0.0”;"OverrideAddressMatch"=1;”EnableDhcp”=0}
+```
+
+En este comando, "dirección IP virtual" es el nombre del recurso de dirección VIP en clúster y "169.254.1.1" es la dirección APIPA elegida para la dirección VIP. Elija la dirección que mejor se adapte a su negocio. Establezca `OverrideAddressMatch=1` para permitir que la dirección IP esté en cualquier red, incluido el espacio de direcciones APIPA. 
+
+### <a name="dedicated-network-adapter"></a>Adaptador de red dedicado
+
+También puede configurar un adaptador de red en Azure para reservar la dirección IP usada por el recurso de dirección IP virtual. Sin embargo, esta solución consume la dirección del espacio de direcciones de la subred y existe la sobrecarga adicional de garantizar que el adaptador de red no se use para ningún otro propósito.
 
 ## <a name="limitations"></a>Limitaciones
 

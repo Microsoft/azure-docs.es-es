@@ -8,18 +8,18 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 07/15/2020
-ms.openlocfilehash: ba30584ca40e7d093ecd9090b82b977d71fc1e0e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 99d477bb9e8291721022e276c5933ec0ef7f1e37
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503309"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936017"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Uso de REST y AI para generar contenido en el que se pueden realizar búsquedas desde blobs de Azure
 
 Si tiene texto no estructurado o imágenes en Azure Blob Storage, una [canalización de enriquecimiento de inteligencia artificial](cognitive-search-concept-intro.md) puede extraer la información y crear contenido útil en escenarios de búsqueda de texto completo o minería de conocimiento. Aunque una canalización puede procesar los archivos de imagen, este tutorial de REST se centra en el texto y se aplica la detección de idioma y el procesamiento del lenguaje natural para crear campos que se puedan aprovechar en las consultas, las facetas y los filtros.
 
-En este tutorial se usa Postman y las [API REST de Search](https://docs.microsoft.com/rest/api/searchservice/) para realizar las siguientes tareas:
+En este tutorial se usa Postman y las [API REST de Search](/rest/api/searchservice/) para realizar las siguientes tareas:
 
 > [!div class="checklist"]
 > * Comience con documentos completos (texto no estructurado) como PDF, HTML, DOCX y PPTX en Azure Blob Storage.
@@ -135,7 +135,7 @@ En Azure Cognitive Search, el procesamiento de la inteligencia artificial se pro
 
 ### <a name="step-1-create-a-data-source"></a>Paso 1: Creación de un origen de datos
 
-Un [objeto de origen de datos](https://docs.microsoft.com/rest/api/searchservice/create-data-source) proporciona la cadena de conexión al contenedor de blobs que contiene los archivos.
+Un [objeto de origen de datos](/rest/api/searchservice/create-data-source) proporciona la cadena de conexión al contenedor de blobs que contiene los archivos.
 
 1. Use **POST** y la dirección URL siguiente, reemplazando NOMBRE-DE-SU-SERVICIO por el nombre real del servicio.
 
@@ -165,7 +165,7 @@ Si obtuvo un error 403 o 404, compruebe la construcción de la solicitud: `api-v
 
 ### <a name="step-2-create-a-skillset"></a>Paso 2: Creación de un conjunto de aptitudes
 
-Un [objeto conjunto de aptitudes](https://docs.microsoft.com/rest/api/searchservice/create-skillset) es un conjunto de pasos de enriquecimiento aplicados al contenido. 
+Un [objeto conjunto de aptitudes](/rest/api/searchservice/create-skillset) es un conjunto de pasos de enriquecimiento aplicados al contenido. 
 
 1. Use **PUT** y la dirección URL siguiente, reemplazando NOMBRE-DE-SU-SERVICIO por el nombre real del servicio.
 
@@ -250,7 +250,7 @@ Un [objeto conjunto de aptitudes](https://docs.microsoft.com/rest/api/searchserv
 
 ### <a name="step-3-create-an-index"></a>Paso 3: Creación de un índice
 
-Un [índice](https://docs.microsoft.com/rest/api/searchservice/create-index) proporciona el esquema que se usa para crear la expresión física del contenido en índices invertidos y otras construcciones en Azure Cognitive Search. El componente más grande de un índice es la colección de campos, donde el tipo de datos y los atributos determinan el contenido y los comportamientos en Azure Cognitive Search.
+Un [índice](/rest/api/searchservice/create-index) proporciona el esquema que se usa para crear la expresión física del contenido en índices invertidos y otras construcciones en Azure Cognitive Search. El componente más grande de un índice es la colección de campos, donde el tipo de datos y los atributos determinan el contenido y los comportamientos en Azure Cognitive Search.
 
 1. Use **PUT** y la dirección URL siguiente, reemplazando NOMBRE-DE-SU-SERVICIO por el nombre real del servicio, para asignar un nombre al índice.
 
@@ -334,7 +334,7 @@ Un [índice](https://docs.microsoft.com/rest/api/searchservice/create-index) pro
 
 ### <a name="step-4-create-and-run-an-indexer"></a>Paso 4: Creación y ejecución de un indexador
 
-Un [indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer) rige la canalización. Los tres componentes que ha creado hasta ahora (origen de datos, conjunto de aptitudes e índice) son entradas para un indexador. La creación del indexador en Azure Cognitive Search es el evento que pone toda la canalización en movimiento. 
+Un [indexador](/rest/api/searchservice/create-indexer) rige la canalización. Los tres componentes que ha creado hasta ahora (origen de datos, conjunto de aptitudes e índice) son entradas para un indexador. La creación del indexador en Azure Cognitive Search es el evento que pone toda la canalización en movimiento. 
 
 1. Use **PUT** y la dirección URL siguiente, reemplazando NOMBRE-DE-SU-SERVICIO por el nombre real del servicio, para asignar un nombre al indexador.
 
@@ -486,7 +486,7 @@ Recuerde que comenzamos con el contenido del blob, donde todo el documento se em
    https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$filter=organizations/any(organizations: organizations eq 'NASDAQ')&$select=metadata_storage_name,organizations&$count=true&api-version=2020-06-30
    ```
 
-Estas consultas muestran algunas de las formas en que puede trabajar con sintaxis de consulta y filtros en nuevos campos creados por la búsqueda cognitiva. Para más ejemplos de consultas, vea [Ejemplos de la API REST de búsqueda de documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples), [Ejemplos de consulta de sintaxis simple](search-query-simple-examples.md) y [Ejemplos de consultas que usan la sintaxis de búsqueda de Lucene "completa"](search-query-lucene-examples.md).
+Estas consultas muestran algunas de las formas en que puede trabajar con sintaxis de consulta y filtros en nuevos campos creados por la búsqueda cognitiva. Para más ejemplos de consultas, vea [Ejemplos de la API REST de búsqueda de documentos](/rest/api/searchservice/search-documents#bkmk_examples), [Ejemplos de consulta de sintaxis simple](search-query-simple-examples.md) y [Ejemplos de consultas que usan la sintaxis de búsqueda de Lucene "completa"](search-query-lucene-examples.md).
 
 <a name="reset"></a>
 

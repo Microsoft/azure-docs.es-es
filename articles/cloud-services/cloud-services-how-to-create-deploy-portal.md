@@ -1,6 +1,6 @@
 ---
 title: Creación e implementación de un servicio en la nube | Microsoft Docs
-description: Aprenda a crear e implementar un servicio en la nube mediante el Portal de Azure.
+description: Aprenda cómo usar el método Creación rápida para crear un servicio en la nube y usar Cargar para cargar e implementar un paquete de servicios en la nube en Azure.
 services: cloud-services
 documentationcenter: ''
 author: tgore03
@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
-ms.openlocfilehash: 63cf864a3f3b92728ad613ac45542bdbce2c9858
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: fca14ed4e3b338f9b49f949af7498dfd49990d3b
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811344"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142390"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Creación e implementación de un servicio en la nube
 Azure Portal le ofrece dos formas de crear e implementar un servicio en la nube: *Creación rápida* y *Creación personalizada*.

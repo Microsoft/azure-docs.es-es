@@ -5,17 +5,18 @@ metadata:
   title: Guardar con Azure Reservations
   description: Averigüe cómo Azure Reservations le permitirá ahorrar gastos al confirmar planes de un año o tres para las máquinas virtuales, la capacidad de proceso de SQL Database, Azure Blob Storage o Azure Data Lake Storage Gen2, el rendimiento de Azure Cosmos DB u otros recursos de Azure.
   ms.service: cost-management-billing
+  ms.subservice: reservations
   ms.topic: landing-page
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
   ms.date: 04/30/2020
-  ms.openlocfilehash: 4706c13d6c9e354c6c7ca382f724a7b1094bdda3
-  ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+  ms.openlocfilehash: d8c7e7eee6307ce48e89cb5ade65d7dbff0f42d4
+  ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/09/2020
-  ms.locfileid: "86207127"
+  ms.lasthandoff: 08/20/2020
+  ms.locfileid: "88684701"
 landingContent:
 - title: Adquisición de reservas
   linkLists:

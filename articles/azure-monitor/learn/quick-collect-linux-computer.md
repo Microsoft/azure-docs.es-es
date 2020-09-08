@@ -13,18 +13,18 @@ ms.topic: quickstart
 ms.date: 12/24/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: a1adf167bb23b3d66f6dcbd07794145f7c817105
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b856381e8d085c6839effd1de6d9867b214d24ee
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322166"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020395"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Inicio rápido: Recopilación de datos de un equipo Linux en un entorno híbrido con Azure Monitor
 
 [Azure Monitor](../overview.md) puede recopilar datos directamente de los equipos Linux físicos o virtuales del entorno en un área de trabajo de Log Analytics para una correlación y un análisis detallados. La instalación del [agente de Log Analytics](../platform/log-analytics-agent.md) permite a Azure Monitor recopilar datos de un centro de datos o de otro entorno en la nube. En esta guía de inicio rápido se muestra cómo configurar y recopilar datos del servidor Linux con unos pasos sencillos. Para más información sobre las máquinas virtuales Linux de Azure, consulte [Recopilación de datos acerca de máquinas virtuales de Azure](./quick-collect-azurevm.md).  
 
-Para comprender la configuración compatible, consulte [Sistemas operativos Windows admitidos](../platform/log-analytics-agent.md#supported-linux-operating-systems) y [Configuración del firewall de red](../platform/log-analytics-agent.md#network-requirements).
+Para conocer la configuración admitida, consulte [Sistemas operativos admitidos](../platform/agents-overview.md#supported-operating-systems) y [Configuración del firewall de red](../platform/log-analytics-agent.md#network-requirements).
  
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 

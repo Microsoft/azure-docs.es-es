@@ -11,18 +11,18 @@ ms.workload: infrastructure-services
 ms.date: 04/29/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: 4f0e9d057c92f1907bb77ee0767c7bb07f0f4c62
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: bb9bc978e49cddab13ab1e4f7ec4f0b74d369ac1
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836996"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705850"
 ---
 # <a name="azure-instance-metadata-service-imds"></a>Azure Instance Metadata Service (IMDS)
 
 Instance Metadata Service (IMDS) de Azure proporciona información sobre instancias de máquina virtual actualmente en ejecución y se puede usar para administrar y configurar las máquinas virtuales.
 Esta información incluye las SKU, almacenamiento, configuraciones de red y próximos eventos de mantenimiento. Para una lista completa de los datos que están disponibles, consulte [API de metadatos](#metadata-apis).
-Instance Metadata Service está disponible para las instancias de máquinas virtuales y los conjuntos de escalado de máquinas virtuales. Solo está disponible para ejecutar máquinas virtuales creadas o administradas mediante [Azure Resource Manager](/rest/api/resources/).
+Instance Metadata Service está disponible para ejecutar máquinas virtuales e instancias de conjunto de escalado de máquinas virtuales. Todas las API admiten máquinas virtuales creadas o administradas mediante [Azure Resource Manager](/rest/api/resources/). Solo los puntos de conexión de red y atestados admiten máquinas virtuales clásicas (no ARM) y los atestados lo hacen solo hasta un cierto punto.
 
 IMDS de Azure es un punto de conexión REST que está disponible en una dirección IP no enrutable conocida (`169.254.169.254`); solo se puede acceder desde dentro de la máquina virtual. La comunicación entre la máquina virtual y IMDS nunca sale del host.
 Se recomienda que los clientes HTTP omitan los servidores proxy web dentro de la VM al consultar a IMDS y consideran que `169.254.169.254` es lo mismo que [`168.63.129.16`](../../virtual-network/what-is-ip-address-168-63-129-16.md).
@@ -47,7 +47,7 @@ A continuación se muestra el código de ejemplo para recuperar todos los metada
 **Solicitud**
 
 ```bash
-curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2019-06-01"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2020-06-01"
 ```
 
 **Respuesta**
@@ -57,112 +57,97 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?ap
 
 ```json
 {
-  "compute": {
-    "azEnvironment": "AzurePublicCloud",
-    "customData": "",
-    "location": "centralus",
-    "name": "negasonic",
-    "offer": "lampstack",
-    "osType": "Linux",
-    "placementGroupId": "",
-    "plan": {
-        "name": "5-6",
-        "product": "lampstack",
-        "publisher": "bitnami"
-    },
-    "platformFaultDomain": "0",
-    "platformUpdateDomain": "0",
-    "provider": "Microsoft.Compute",
-    "publicKeys": [],
-    "publisher": "bitnami",
-    "resourceGroupName": "myrg",
-    "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Compute/virtualMachines/negasonic",
-    "sku": "5-6",
-    "storageProfile": {
-        "dataDisks": [
-          {
-            "caching": "None",
-            "createOption": "Empty",
-            "diskSizeGB": "1024",
-            "image": {
-              "uri": ""
+    "compute": {
+        "azEnvironment": "AZUREPUBLICCLOUD",
+        "isHostCompatibilityLayerVm": "true",
+        "location": "westus",
+        "name": "examplevmname",
+        "offer": "Windows",
+        "osType": "linux",
+        "placementGroupId": "f67c14ab-e92c-408c-ae2d-da15866ec79a",
+        "plan": {
+            "name": "planName",
+            "product": "planProduct",
+            "publisher": "planPublisher"
+        },
+        "platformFaultDomain": "36",
+        "platformUpdateDomain": "42",
+        "publicKeys": [{
+                "keyData": "ssh-rsa 0",
+                "path": "/home/user/.ssh/authorized_keys0"
             },
-            "lun": "0",
-            "managedDisk": {
-              "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
-              "storageAccountType": "Standard_LRS"
-            },
-            "name": "exampledatadiskname",
-            "vhd": {
-              "uri": ""
-            },
-            "writeAcceleratorEnabled": "false"
-          }
+            {
+                "keyData": "ssh-rsa 1",
+                "path": "/home/user/.ssh/authorized_keys1"
+            }
         ],
-        "imageReference": {
-          "id": "",
-          "offer": "UbuntuServer",
-          "publisher": "Canonical",
-          "sku": "16.04.0-LTS",
-          "version": "latest"
+        "publisher": "RDFE-Test-Microsoft-Windows-Server-Group",
+        "resourceGroupName": "macikgo-test-may-23",
+        "resourceId": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
+        "securityProfile": {
+            "secureBootEnabled": "true",
+            "virtualTpmEnabled": "false"
         },
-        "osDisk": {
-          "caching": "ReadWrite",
-          "createOption": "FromImage",
-          "diskSizeGB": "30",
-          "diffDiskSettings": {
-            "option": "Local"
-          },
-          "encryptionSettings": {
-            "enabled": "false"
-          },
-          "image": {
-            "uri": ""
-          },
-          "managedDisk": {
-            "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
-            "storageAccountType": "Standard_LRS"
-          },
-          "name": "exampleosdiskname",
-          "osType": "Linux",
-          "vhd": {
-            "uri": ""
-          },
-          "writeAcceleratorEnabled": "false"
-        }
-    },
-    "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
-    "tags": "Department:IT;Environment:Prod;Role:WorkerRole",
-    "version": "7.1.1902271506",
-    "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
-    "vmScaleSetName": "",
-    "vmSize": "Standard_A1_v2",
-    "zone": "1"
-  },
-  "network": {
-    "interface": [
-      {
-        "ipv4": {
-          "ipAddress": [
-            {
-              "privateIpAddress": "10.1.2.5",
-              "publicIpAddress": "X.X.X.X"
+        "sku": "Windows-Server-2012-R2-Datacenter",
+        "storageProfile": {
+            "dataDisks": [{
+                "caching": "None",
+                "createOption": "Empty",
+                "diskSizeGB": "1024",
+                "image": {
+                    "uri": ""
+                },
+                "lun": "0",
+                "managedDisk": {
+                    "id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+                    "storageAccountType": "Standard_LRS"
+                },
+                "name": "exampledatadiskname",
+                "vhd": {
+                    "uri": ""
+                },
+                "writeAcceleratorEnabled": "false"
+            }],
+            "imageReference": {
+                "id": "",
+                "offer": "UbuntuServer",
+                "publisher": "Canonical",
+                "sku": "16.04.0-LTS",
+                "version": "latest"
+            },
+            "osDisk": {
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+                "diskSizeGB": "30",
+                "diffDiskSettings": {
+                    "option": "Local"
+                },
+                "encryptionSettings": {
+                    "enabled": "false"
+                },
+                "image": {
+                    "uri": ""
+                },
+                "managedDisk": {
+                    "id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+                    "storageAccountType": "Standard_LRS"
+                },
+                "name": "exampleosdiskname",
+                "osType": "Linux",
+                "vhd": {
+                    "uri": ""
+                },
+                "writeAcceleratorEnabled": "false"
             }
-          ],
-          "subnet": [
-            {
-              "address": "10.1.2.0",
-              "prefix": "24"
-            }
-          ]
         },
-        "ipv6": {
-          "ipAddress": []
-        },
-        "macAddress": "000D3A36DDED"
-      }
-    ]
-  }
+        "subscriptionId": "8d10da13-8125-4ba9-a717-bf7490507b3d",
+        "tags": "baz:bash;foo:bar",
+        "version": "15.05.22",
+        "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
+        "vmScaleSetName": "crpteste9vflji9",
+        "vmSize": "Standard_A3",
+        "zone": ""
+    }
 }
 ```
 
@@ -191,9 +176,26 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?ap
 
 Instance Metadata Service tiene versiones y es obligatorio especificar la versión de la API en la solicitud HTTP.
 
-A continuación se indican las versiones de servicio admitidas: 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15.
+Las versiones de la API admitidas son: 
+- 2017-03-01
+- 2017-04-02
+- 2017-08-01 
+- 2017-10-01
+- 2017-12-01 
+- 2018-02-01
+- 2018-04-02
+- 2018-10-01
+- 01-02-2019
+- 2019-03-11
+- 2019-04-30
+- 2019-06-01
+- 2019-06-04
+- 2019-08-01
+- 2019-08-15
+- 2019-11-01
+- 2020-06-01
 
-Tenga en cuenta que cuando se lanza una nueva versión, se tarda un tiempo en implementarse en todas las regiones. La versión 2019-11-01 se está implementando actualmente y puede que no esté disponible en todas las regiones.
+Tenga en cuenta que cuando se lanza una nueva versión, se tarda un tiempo en implementarse en todas las regiones.
 
 A medida que se agreguen versiones más recientes, todavía se podrá acceder a las versiones anteriores por motivos de compatibilidad si los scripts tienen dependencias en formatos de datos específicos.
 
@@ -240,6 +242,7 @@ data | Descripción | Versión de introducción
 -----|-------------|-----------------------
 azEnvironment | Entorno de Azure donde se está ejecutando la máquina virtual | 2018-10-01
 customData | Esta funcionalidad actualmente está deshabilitada. Esta documentación se actualizará cuando esté disponible | 01-02-2019
+isHostCompatibilityLayerVm | Identifica si la máquina virtual se ejecuta en el nivel de compatibilidad del host. | 2020-06-01
 ubicación | La región de Azure donde se ejecuta la máquina virtual | 2017-04-02
 name | Nombre de la máquina virtual | 2017-04-02
 offer | Ofrece información de la imagen de la máquina virtual y solo está presente para imágenes implementadas desde la galería de imágenes de Azure. | 2017-04-02
@@ -254,6 +257,8 @@ publisher | Publicador de la imagen de VM | 2017-04-02
 resourceGroupName | [Grupo de recursos](../../azure-resource-manager/management/overview.md) para su máquina virtual | 2017-08-01
 resourceId | El identificador [completo](/rest/api/resources/resources/getbyid) del recurso | 2019-03-11
 sku | SKU específica de la imagen de VM | 2017-04-02
+securityProfile.secureBootEnabled | Identifica si el arranque seguro UEFI está habilitado en la máquina virtual. | 2020-06-01
+securityProfile.virtualTpmEnabled | Identifica si el Módulo de plataforma segura (TPM) virtual está habilitado en la máquina virtual. | 2020-06-01
 storageProfile | Consulte [Perfil de almacenamiento](#storage-metadata) | 2019-06-01
 subscriptionId | Suscripción de Azure para la máquina virtual | 2017-08-01
 etiquetas | [Etiquetas](../../azure-resource-manager/management/tag-resources.md) para su máquina virtual  | 2017-08-01
@@ -679,7 +684,7 @@ Nonce es una cadena opcional de 10 dígitos. Si no se proporciona, IMDS devuelv
 }
 ```
 
-El blob de firma es una versión con la firma [pkcs7](https://aka.ms/pkcs7) del documento. Contiene el certificado que se usa para la firma junto con detalles de la máquina virtual como vmld, sku, nonce, subscriptionId y timeStamp para la creación y expiración del documento, y la información del plan sobre la imagen. La información del plan solo se rellena para las imágenes de Azure Marketplace. El certificado se puede extraer de la respuesta y usarse para validar que la respuesta es válida y viene de Azure.
+El blob de firma es una versión con la firma [pkcs7](https://aka.ms/pkcs7) del documento. Contiene el certificado usado para firmar junto con los detalles específicos de una determinada máquina virtual. En el caso de las máquinas virtuales de ARM, se incluye vmld, sku, nonce, subscriptionId y timeStamp para la creación y expiración del documento y la información del plan sobre la imagen. La información del plan solo se rellena para las imágenes de Azure Marketplace. En el caso de las máquinas virtuales clásicas (no ARM), solo se garantiza que se rellena vmId. El certificado se puede extraer de la respuesta y usarse para validar que la respuesta es válida y viene de Azure.
 El documento contiene estos campos:
 
 data | Descripción
@@ -691,6 +696,9 @@ timestamp/expiresOn | La marca de tiempo UTC para el momento en que expira el do
 vmId |  [Identificador único](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) para la máquina virtual.
 subscriptionId | Suscripción de Azure para la máquina virtual publicada con fecha `2019-04-30`
 sku | SKU específica de la imagen de VM, presentada en `2019-11-01`
+
+> [!NOTE]
+> En el caso de las máquinas virtuales clásicas (no ARM), solo se garantiza que se rellena vmId.
 
 ### <a name="sample-2-validating-that-the-vm-is-running-in-azure"></a>Ejemplo 2: Validación de que la máquina virtual se ejecuta en Azure
 

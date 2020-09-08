@@ -3,12 +3,12 @@ title: Selección de una opción de migración de VMware con Azure Migrate Serve
 description: Proporciona información general sobre las opciones para migrar máquinas virtuales de VMware a Azure con Azure Migrate Server Migration.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 56398f8bf78cb48b6cfe7a90ffdcbdb72743dc93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e62b9cea80f1ed7f672135b93e52ba606a717a6c
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84769633"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950228"
 ---
 # <a name="select-a-vmware-migration-option"></a>Selección de una opción de migración de VMware
 
@@ -29,7 +29,7 @@ Use estas comparaciones seleccionadas para que le ayuden a decidir qué método 
 **Implementación del dispositivo** | El [dispositivo de Azure Migrate](migrate-appliance.md) se implementa de forma local. | El [dispositivo de replicación de Azure Migrate](migrate-replication-appliance.md) se implementa de forma local.
 **Compatibilidad con Site Recovery** | Compatible. | No se puede replicar con la migración del servidor de Azure Migrate si ha configurado la replicación para una máquina con Site Recovery.
 **Disco de destino** | Discos administrados | Discos administrados
-**Límites del disco** | Disco del sistema operativo: 2 TB<br/><br/> Disco de datos: 4 TB<br/><br/> Número máximo de discos: 60 | Disco del sistema operativo: 2 TB<br/><br/> Disco de datos: 8 TB<br/><br/> Número máximo de discos: 63
+**Límites del disco** | Disco del sistema operativo: 2 TB<br/><br/> Disco de datos: 8 TB<br/><br/> Número máximo de discos: 60 | Disco del sistema operativo: 2 TB<br/><br/> Disco de datos: 8 TB<br/><br/> Número máximo de discos: 63
 **Discos de acceso directo** | No compatible | Compatible
 **Arranque UEFI** | No compatible | La máquina virtual migrada en Azure se convertirá automáticamente en una VM de arranque del BIOS.<br/><br/> El disco del sistema operativo debe tener hasta cuatro particiones y los volúmenes deben formatearse con NTFS.
 

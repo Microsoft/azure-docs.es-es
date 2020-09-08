@@ -3,20 +3,20 @@ title: 'Azure Front Door: Reescritura de direcciones URL | Microsoft Docs'
 description: Este artículo le ayudará a comprender cómo Azure Front Door realiza la reescritura de direcciones URL para las rutas, si se ha configurado.
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: 1e5bd565be7a1cabf08ddf33c65eb12b5294249f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: duau
+ms.openlocfilehash: 8f4a6283f762d9792f50651b9caee17795df6d55
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471479"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398944"
 ---
 # <a name="url-rewrite-custom-forwarding-path"></a>Reescritura de direcciones URL (ruta de acceso de reenvío personalizada)
 Azure Front Door admite la reescritura de direcciones URL al permitirle configurar una **ruta de acceso de reenvío personalizada** opcional que se usará al construir la solicitud de reenvío al back-end. De forma predeterminada, si no se proporciona ninguna ruta de reenvío personalizada, Front Door copiará la ruta de acceso de la dirección URL entrante en la dirección URL usada en la solicitud reenviada. El encabezado host usado en la solicitud reenviada se configura para el back-end seleccionado. Lea [Encabezado de host de back-end](front-door-backend-pool.md#hostheader) para más información sobre lo que hace y cómo configurarlo.

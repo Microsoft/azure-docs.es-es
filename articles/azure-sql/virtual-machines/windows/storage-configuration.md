@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: 21609e38625d0911476c85a9d6e518f5ff7e9e61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de0402febe94e50877367dc37d448a4a13893f93
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84667376"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653365"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuración del almacenamiento para máquinas virtuales de SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,7 +34,7 @@ Para usar la configuración del almacenamiento automática, la máquina virtual 
 
 * Aprovisionada con una [imagen de la galería de SQL Server](sql-server-on-azure-vm-iaas-what-is-overview.md#payasyougo).
 * Usa el [modelo de implementación de Resource Manager](../../../azure-resource-manager/management/deployment-models.md).
-* Usa [discos SSD Premium](../../../virtual-machines/windows/disks-types.md).
+* Usa [discos SSD Premium](../../../virtual-machines/disks-types.md).
 
 ## <a name="new-vms"></a>Nuevas máquinas virtuales
 
@@ -115,7 +115,7 @@ Puede modificar la configuración de disco de las unidades que se configuraron d
 Esta sección proporciona una referencia para los cambios en la configuración del almacenamiento que Azure realiza automáticamente durante el aprovisionamiento de la máquina virtual de SQL Server o la configuración en Azure Portal.
 
 * Azure configura un bloque de almacenamiento desde el almacenamiento seleccionado de la máquina virtual. En la sección siguiente de este tema se proporcionan los detalles de la configuración del bloque de almacenamiento.
-* La configuración automática del almacenamiento siempre utiliza discos de datos P30 de [discos SSD Premium](../../../virtual-machines/windows/disks-types.md). En consecuencia, hay una asignación 1:1 entre el número de terabytes seleccionado y el número de discos de datos asociados a la máquina virtual.
+* La configuración automática del almacenamiento siempre utiliza discos de datos P30 de [discos SSD Premium](../../../virtual-machines/disks-types.md). En consecuencia, hay una asignación 1:1 entre el número de terabytes seleccionado y el número de discos de datos asociados a la máquina virtual.
 
 Para más información, consulte la página [Storage pricing](https://azure.microsoft.com/pricing/details/storage) (Precios de almacenamiento) en la pestaña **Almacenamiento en disco** .
 

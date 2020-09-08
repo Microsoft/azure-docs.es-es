@@ -5,18 +5,18 @@ ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
 ms.topic: article
 ms.date: 10/30/2018
 ms.custom: seodec18
-ms.openlocfilehash: ed84cb2b0cb8d98b12fe787e49c400ba47e4e38a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 11798db483f0ba370f73340489c17f38c87ede41
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74671621"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080205"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funcionalidad del sistema operativo en Azure App Service
 En este artículo se describe la funcionalidad del sistema operativo de línea base común que está disponible para todas las aplicaciones Windows que se ejecutan en el [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Esta funcionalidad incluye archivo, red, acceso de registro, registros de diagnóstico y eventos. 
 
 > [!NOTE] 
-> Las [aplicaciones Linux](containers/app-service-linux-intro.md) en App Service se ejecutan en sus propios contenedores. No se permite ningún acceso al sistema operativo host, pero sí tiene acceso a la raíz del contenedor. Del mismo modo, para las [aplicaciones que se ejecutan en contenedores de Windows](app-service-web-get-started-windows-container.md), tiene acceso administrativo al contenedor, pero no al sistema operativo host. 
+> Las [aplicaciones Linux](overview.md#app-service-on-linux) en App Service se ejecutan en sus propios contenedores. No se permite ningún acceso al sistema operativo host, pero sí tiene acceso a la raíz del contenedor. Del mismo modo, para las [aplicaciones que se ejecutan en contenedores de Windows](quickstart-custom-container.md?pivots=container-windows), tiene acceso administrativo al contenedor, pero no al sistema operativo host. 
 >
 
 <a id="tiers"></a>
@@ -60,7 +60,7 @@ Es importante supervisar el uso del disco a medida que la aplicación crece. Si 
 
 <a id="NetworkDrives"></a>
 
-### <a name="network-drives-aka-unc-shares"></a>Unidades de red (también conocidas como recursos compartidos UNC)
+### <a name="network-drives-unc-shares"></a>Unidades de red (recursos compartidos UNC)
 Uno de los aspectos exclusivos de App Service que hace que el mantenimiento y la implementación de aplicaciones sean sencillos es que todo el contenido del usuario se almacena en un conjunto de recursos compartidos UNC. Este modelo se asigna perfectamente al patrón común de almacenamiento de contenido usado en entornos locales de hospedaje web que disponen de varios servidores con equilibrio de carga. 
 
 En App Service existen varios recursos compartidos UNC creados en cada centro de datos. Un porcentaje del contenido de usuario para todos los clientes en cada centro de datos se asigna a cada recurso compartido UNC. Además, todo el contenido del archivo para una suscripción de cliente única se coloca siempre en el mismo recurso compartido UNC. 

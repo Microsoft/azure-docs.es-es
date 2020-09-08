@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5fe1bf294c34afc2f7e0e0aa911dc05597ab9df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 841bc3ae4fbddb376ea4da8141bf4df3f895c4dc
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85252787"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269563"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>Implementación de una estación de trabajo segura administrada por Azure
 
@@ -449,9 +449,9 @@ El registro de aplicaciones estará disponible en el área de trabajo selecciona
 
 ## <a name="monitoring"></a>Supervisión
 
-* Obtención de información sobre cómo [Detectar amenazas con Azure Sentinel](/azure/sentinel/tutorial-detect-threats)
-* [Investigación de incidentes con Azure Sentinel](/azure/sentinel/tutorial-investigate-cases)
-* [Configuración de respuestas automatizadas frente a amenazas en Azure Sentinel](/azure/sentinel/tutorial-respond-threats-playbook)
+* Obtención de información sobre cómo [Detectar amenazas con Azure Sentinel](../../sentinel/tutorial-detect-threats-built-in.md)
+* [Investigación de incidentes con Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
+* [Configuración de respuestas automatizadas frente a amenazas en Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
 * Descripción de la revisión de la [Puntuación de exposición](/windows/security/threat-protection/microsoft-defender-atp/tvm-exposure-score)
 * Revisión de las [Recomendaciones de seguridad](/windows/security/threat-protection/microsoft-defender-atp/tvm-security-recommendation)
 * Administración de las [Correcciones](/windows/security/threat-protection/microsoft-defender-atp/tvm-remediation) de seguridad
@@ -463,4 +463,4 @@ El registro de aplicaciones estará disponible en el área de trabajo selecciona
 * Obtenga más información sobre [Microsoft Intune](/intune/index).
 * Descripción de [Azure AD](../index.yml).
 * Trabaje con [Advanced Threat Protection de Microsoft Defender](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection).
-* Descubra [Azure Sentinel](/azure/sentinel/).
+* Descubra [Azure Sentinel](../../sentinel/index.yml).

@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 327d365cd1b110a6b57b11f92e70d221d3712cfb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d8ec8eec28d66cf93608393ddca45f78460d831
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550178"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279778"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Sincronización de Azure AD Connect: Referencia de funciones
 En Azure AD Connect, las funciones se usan para manipular un valor de atributo durante la sincronización.  
@@ -660,7 +660,7 @@ se asegura de que el objeto se puede crear en un directorio LDAP incluso si el a
 * format: una cadena que representa el formato de conversión.
 
 **Observaciones**:  
-Los valores posibles para el formato pueden encontrarse aquí: [Formatos de fecha y hora personalizados para la función FORMAT](https://docs.microsoft.com/dax/custom-date-and-time-formats-for-the-format-function).
+Los valores posibles para el formato pueden encontrarse aquí: [Formatos de fecha y hora personalizados para la función FORMAT](/dax/custom-date-and-time-formats-for-the-format-function).
 
 **Ejemplo**:  
 

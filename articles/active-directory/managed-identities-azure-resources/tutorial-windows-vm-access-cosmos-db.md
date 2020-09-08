@@ -3,7 +3,7 @@ title: 'Tutorial: Uso de identidades administradas para acceder a Azure Cosmos�
 description: Este tutorial le guía por el proceso de usar una identidad administrada asignada por el sistema en una máquina virtual Windows para acceder a Azure Cosmos DB.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/14/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11b7f8eeb94fb2d6f197af2d40b120c5f74d6128
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 17cdebb1291f78706178e129a62b932d45f38537
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583064"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263083"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Tutorial: Uso de las identidades administradas asignadas por el sistema de una máquina virtual Windows para acceder a Azure Cosmos DB
 
@@ -84,7 +84,7 @@ New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Read
 
 En esta sección se muestra cómo llamar a Azure Resource Manager con un token de acceso para la identidad administrada asignada por el sistema de la máquina virtual Windows. En el resto del tutorial, vamos a trabajar desde la máquina virtual que se creó anteriormente. 
 
-Tiene que instalar la versión más reciente de la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) en la máquina virtual Windows.
+Tiene que instalar la versión más reciente de la [CLI de Azure](/cli/azure/install-azure-cli) en la máquina virtual Windows.
 
 
 
@@ -204,6 +204,4 @@ Este comando de la CLI devuelve detalles acerca de la colección:
 En este tutorial, ha aprendido a utilizar una identidad asignada por el sistema de una máquina virtual Windows para acceder a Cosmos DB.  Para obtener más información sobre Cosmos DB, vea:
 
 > [!div class="nextstepaction"]
->[Introducción a Azure Cosmos DB](/azure/cosmos-db/introduction)
-
-
+>[Introducción a Azure Cosmos DB](../../cosmos-db/introduction.md)

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/13/2020
+ms.date: 08/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d3df4eee14e5ce2f0638058efde0f80d0e5b051
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f72e477d332b33b7434663fb13cb3ca4f4c2069d
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87275486"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032208"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedimientos: Bloqueo de la autenticación heredada en Azure AD con acceso condicional   
 
@@ -49,7 +49,7 @@ Azure AD admite varios de los protocolos de autenticación y autorización usado
 - Aplicaciones anteriores de Microsoft Office
 - Aplicaciones que usan protocolos de correo como POP, IMAP y SMTP
 
-La autenticación de un solo factor (por ejemplo, nombre de usuario y contraseña) ya no es suficiente. No se recomiendan las contraseñas, porque son fáciles de adivinar y porque los usuarios humanos no suelen elegir contraseñas seguras. Las contraseñas también son vulnerables ante una variedad de ataques, como suplantación de identidad (phishing) y difusión de contraseña. Una de las medidas más sencillas que puede tomar para protegerse contra las amenazas para las contraseñas es implementar la autenticación multifactor. Con MFA, incluso si el atacante cuenta con la contraseña del usuario, la contraseña por sí sola no es suficiente para autenticarse de manera correcta y acceder a los datos.
+La autenticación de un solo factor (por ejemplo, nombre de usuario y contraseña) ya no es suficiente. No se recomiendan las contraseñas, porque son fáciles de adivinar y porque los usuarios humanos no suelen elegir contraseñas seguras. Las contraseñas también son vulnerables ante una variedad de ataques, como suplantación de identidad (phishing) y difusión de contraseña. Una de las medidas más sencillas que puede tomar para protegerse contra las amenazas para las contraseñas es implementar la autenticación multifactor (MFA). Con MFA, incluso si el atacante cuenta con la contraseña del usuario, la contraseña por sí sola no es suficiente para autenticarse de manera correcta y acceder a los datos.
 
 ¿Cómo se puede evitar que las aplicaciones que usan la autenticación heredada accedan a los recursos del inquilino? La recomendación es simplemente bloquearlas con una directiva de acceso condicional. Si es necesario, puede permitir que solo ciertos usuarios y ubicaciones de red específicas usen aplicaciones basadas en la autenticación heredada.
 
@@ -91,46 +91,24 @@ Al filtrar solo se muestran los intentos de inicio de sesión que se realizaron 
 
 Estos registros indicarán qué usuarios dependen todavía de la autenticación heredada y qué aplicaciones usan protocolos heredados para realizar solicitudes de autenticación. Para los usuarios que no aparecen en estos registros y se confirme que no van a usar la autenticación heredada, implemente una directiva de acceso condicional solo para estos usuarios.
 
-### <a name="block-legacy-authentication"></a>Bloquear la autenticación heredada 
+## <a name="block-legacy-authentication"></a>Bloquear la autenticación heredada 
 
-En una directiva de acceso condicional, puede establecer una condición vinculada a las aplicaciones cliente que se usan para acceder a los recursos. La condición de aplicaciones cliente le permite restringir el ámbito a las aplicaciones que usan la autenticación heredada mediante la selección de **clientes de Exchange ActiveSync** y **otros clientes** en **Aplicaciones móviles y aplicaciones de escritorio**.
+Hay dos maneras de usar las directivas de acceso condicional para bloquear la autenticación heredada.
 
-![Otros clientes](./media/block-legacy-authentication/01.png)
-
-Para bloquear el acceso a estas aplicaciones, debe seleccionar **Bloquear acceso**.
-
-![Bloquear acceso](./media/block-legacy-authentication/02.png)
-
-### <a name="select-users-and-cloud-apps"></a>Selección de usuarios y aplicaciones en la nube
-
-Si quiere bloquear la autenticación heredada en su organización, probablemente piense que puede hacerlo si selecciona:
-
-- Todos los usuarios
-- Todas las aplicaciones en la nube
-- Bloquear acceso
-
-![Assignments](./media/block-legacy-authentication/03.png)
-
-Azure incluye una característica de seguridad que le impide crear una directiva similar, porque esta configuración infringe los [procedimientos recomendados](best-practices.md) para las directivas de acceso condicional.
+- [Bloqueo directo de la autenticación heredada](#directly-blocking-legacy-authentication)
+- [Bloqueo indirecto de la autenticación heredada](#indirectly-blocking-legacy-authentication)
  
-![Configuración de directiva no compatible](./media/block-legacy-authentication/04.png)
+### <a name="directly-blocking-legacy-authentication"></a>Bloqueo directo de la autenticación heredada
 
-La característica de seguridad es necesaria porque el *bloqueo de todos los usuarios y todas las aplicaciones en la nube* tiene el potencial de impedir que toda la organización inicie sesión en el inquilino. Se debe excluir al menos un usuario para cumplir con el requisito mínimo del procedimiento recomendado. También puede excluir un rol de directorio.
+La forma más sencilla de bloquear la autenticación heredada en toda la organización es mediante la configuración de una directiva de acceso condicional que se aplica específicamente a los clientes de autenticación heredados y bloquea el acceso. Al asignar usuarios y aplicaciones a la directiva, asegúrese de excluir los usuarios y las cuentas de servicio que todavía deben iniciar sesión con la autenticación heredada. Configure la condición de aplicaciones cliente; para ello, seleccione **Clientes de Exchange ActiveSync** y **Otros clientes**. Para bloquear el acceso a estas aplicaciones cliente, configure los controles de acceso para bloquear el acceso.
 
-![Configuración de directiva no compatible](./media/block-legacy-authentication/05.png)
+![Condición de aplicaciones cliente configurada para bloquear la autenticación heredada](./media/block-legacy-authentication/client-apps-condition-configured-yes.png)
 
-Para satisfacer esta característica de seguridad, excluya un usuario de la directiva. Idealmente, debe definir algunas [cuentas administrativas de acceso de emergencia en Azure AD](../users-groups-roles/directory-emergency-access.md) y excluirlas de la directiva.
+### <a name="indirectly-blocking-legacy-authentication"></a>Bloqueo indirecto de la autenticación heredada
 
-El uso del [modo de solo informe](concept-conditional-access-report-only.md) al habilitar la directiva para bloquear la autenticación heredada brinda a la organización la oportunidad de ver cuál sería el impacto de la directiva.
+Incluso si la organización no está lista para bloquear la autenticación heredada en toda la organización, debe asegurarse de que los inicios de sesión que usan la autenticación heredada no omiten las directivas que requieren controles de concesión, como requerir la autenticación multifactor o los dispositivos unidos a Azure AD híbrido o compatibles. Durante la autenticación, los clientes de autenticación heredada no admiten el envío de información sobre MFA, el cumplimiento del dispositivo o el estado de la unión a Azure AD. Por lo tanto, aplique directivas con controles de concesión a todas las aplicaciones cliente para que se bloqueen los inicios de sesión basados en la autenticación heredada que no puedan satisfacer los controles de concesión. Con la disponibilidad general de la condición de aplicaciones de cliente en agosto de 2020, las directivas de acceso condicional recién creadas se aplican a todas las aplicaciones cliente de forma predeterminada.
 
-## <a name="policy-deployment"></a>Implementación de directivas
-
-Antes de implementar la directiva en el entorno de producción, encárguese de lo siguiente:
- 
-- **Cuentas de servicio**: identifique las cuentas de usuario que se utilizan como cuentas de servicio o a través de dispositivos, como teléfonos en salas de conferencias. Asegúrese de que estas cuentas tienen contraseñas seguras y agréguelas a un grupo de exclusión.
-- **Informes de inicio de sesión**: revise el informe de inicio de sesión y busque el tráfico de **otro cliente**. Identifique el uso principal e investigué por qué está en uso. Por lo general, el tráfico lo generan clientes de Office más antiguos que no usan la autenticación moderna, o bien algunas aplicaciones de correo de terceros. Elabore un plan para quitar el uso de estas aplicaciones, o bien, si el impacto es bajo, notifique a los usuarios que ya no pueden usarlas.
- 
-Para más información, consulte [¿Cómo debe implementar una directiva nueva?](best-practices.md#how-should-you-deploy-a-new-policy)
+![Configuración predeterminada de la condición de aplicaciones cliente](./media/block-legacy-authentication/client-apps-condition-configured-no.png)
 
 ## <a name="what-you-should-know"></a>Qué debería saber
 
@@ -141,14 +119,6 @@ La configuración de una directiva para **otros clientes** bloquea toda la organ
 La directiva puede tardar hasta 24 horas en surtir efecto.
 
 Puede seleccionar todos los controles de concesión disponibles para la condición **Otros clientes**, pero la experiencia del usuario final siempre es la misma: el acceso bloqueado.
-
-Si bloquea la autenticación heredada con la condición **Otros clientes**, también puede establecer la plataforma del dispositivo y la condición de la ubicación. Por ejemplo, si solo desea bloquear la autenticación heredada para dispositivos móviles, establezca la condición **plataformas de dispositivo** seleccionando:
-
-- Android
-- iOS
-- Windows Phone
-
-![Configuración de directiva no compatible](./media/block-legacy-authentication/06.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

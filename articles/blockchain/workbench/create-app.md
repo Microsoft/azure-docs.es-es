@@ -1,15 +1,15 @@
 ---
 title: 'Creación de una aplicación de cadena de bloques: Azure Blockchain Workbench'
 description: Tutorial sobre la creación de una aplicación de cadena de bloques para Azure Blockchain Workbench (versión preliminar).
-ms.date: 10/14/2019
+ms.date: 08/24/2020
 ms.topic: tutorial
-ms.reviewer: brendal
-ms.openlocfilehash: 7be79757f506ea9fb854a248e77f0ff4f1b74f47
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: ravastra
+ms.openlocfilehash: add790a069d2e0ea66d84bbd632825cf9331fd38
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073105"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88784035"
 ---
 # <a name="tutorial-create-a-blockchain-application-for-azure-blockchain-workbench"></a>Tutorial: Creación de una aplicación de cadena de bloques para Azure Blockchain Workbench
 
@@ -40,7 +40,7 @@ Siga los pasos para crear los archivos de la aplicación o [descargue el ejemplo
 
 ## <a name="configuration-file"></a>Archivo de configuración
 
-Los metadatos de configuración definen los flujos de trabajo de alto nivel y el modelo de interacción de la aplicación de cadena de bloques. Los metadatos de configuración representan las etapas de los flujos de trabajo y el modelo de interacción de la aplicación de cadena de bloques.
+Los metadatos de configuración definen los flujos de trabajo de alto nivel y el modelo de interacción de la aplicación de cadena de bloques. Los metadatos de configuración representan las etapas de los flujos de trabajo y el modelo de interacción de la aplicación de cadena de bloques. Para más información sobre el contenido de los archivos de configuración, consulte [Azure Blockchain Workflow configuration reference](configuration.md) (Referencia sobre la configuración de flujos de trabajo de Azure Blockchain)///.
 
 1. En el editor que prefiera, cree un archivo llamado `HelloBlockchain.json`.
 2. Agregue el siguiente JSON para definir la configuración de la aplicación de cadena de bloques.
@@ -211,8 +211,6 @@ La sección de roles de aplicación define los roles de usuario que pueden actua
 ### <a name="workflows"></a>Workflows
 
 Los flujos de trabajo definen una o varias etapas y acciones del contrato. En el escenario de solicitud-respuesta, la primera etapa (estado) del flujo de trabajo es que un solicitante (rol) realiza una acción (transición) para enviar una solicitud (función). La siguiente etapa (estado) es que un respondedor (función) realiza una acción (transición) para enviar una respuesta (función). Un flujo de trabajo de una aplicación puede incluir las propiedades, funciones y estados necesarios para describir el flujo de un contrato.
-
-Para más información sobre el contenido de los archivos de configuración, consulte [Azure Blockchain Workflow configuration reference](configuration.md) (Referencia sobre la configuración de flujos de trabajo de Azure Blockchain)///.
 
 ## <a name="smart-contract-code-file"></a>Archivo de código de contrato inteligente
 

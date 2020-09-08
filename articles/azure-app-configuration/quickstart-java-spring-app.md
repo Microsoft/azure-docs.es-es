@@ -1,6 +1,6 @@
 ---
 title: Inicio rápido para aprender a usar Azure App Configuration
-description: Una artículo de inicio rápido para usar Azure App Configuration con aplicaciones de Java Spring.
+description: En este inicio rápido se crea una aplicación de Java Spring con Azure App Configuration para centralizar el almacenamiento y la administración de la configuración de la aplicación de forma independiente del código.
 services: azure-app-configuration
 documentationcenter: ''
 author: lisaguthrie
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/18/2020
 ms.custom: devx-track-java
 ms.author: lcozzens
-ms.openlocfilehash: 93a2fd89e21dbf4edee29a27bd18f63f2b835aae
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 10b38d5c5802ec4f6bc33b15b3ddef12e8256a78
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121228"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586460"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Inicio rápido: Creación de una aplicación de Java Spring con Azure App Configuration
 

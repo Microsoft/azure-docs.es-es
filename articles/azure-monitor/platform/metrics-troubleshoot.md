@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: b2f7e45c7f6092566314e6e4867bc0345683e4eb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4800234b55507b7c8d8a16d16ce4d2fef3365baa
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318392"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829601"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Solución de problemas de gráficos de métricas
 
@@ -42,7 +42,7 @@ La exploración de métricas requiere que el proveedor de recursos *Microsoft.In
 
 ### <a name="you-dont-have-sufficient-access-rights-to-your-resource"></a>No tiene suficientes derechos de acceso al recurso
 
-En Azure, el acceso a las métricas se controla mediante el [control de acceso basado en rol (RBAC)](../../role-based-access-control/overview.md). Debe ser miembro del [lector de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-reader), [colaborador de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-contributor) o [colaborador](../../role-based-access-control/built-in-roles.md#contributor) para explorar las métricas de cualquier recurso.
+En Azure, el acceso a las métricas se controla mediante el [control de acceso basado en rol (RBAC de Azure)](../../role-based-access-control/overview.md). Debe ser miembro del [lector de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-reader), [colaborador de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-contributor) o [colaborador](../../role-based-access-control/built-in-roles.md#contributor) para explorar las métricas de cualquier recurso.
 
 **Solución:** Asegúrese de que tiene permisos suficientes para el recurso desde el que explora las métricas.
 
@@ -118,4 +118,3 @@ De forma predeterminada, las métricas del SO invitado se almacenan en la cuenta
 * [Más información sobre las características avanzadas del Explorador de métricas](metrics-charts.md)
 * [Vea una lista de métricas disponibles para servicios de Azure](metrics-supported.md)
 * [Vea ejemplos de gráficos configurados](metric-chart-samples.md)
-

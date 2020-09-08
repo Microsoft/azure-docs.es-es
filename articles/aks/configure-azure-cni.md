@@ -4,12 +4,12 @@ description: Aprenda a configurar redes de Azure CNI (avanzadas) en Azure Kubern
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: d025bcddfdee25cddac311ac9a201b7f3afebd22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0506eb6350358f7256a61c8d6f164b6594d20554
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84416858"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566121"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configuración de redes de Azure CNI en Azure Kubernetes Service (AKS)
 
@@ -49,7 +49,7 @@ El plan de direcciones IP de un clúster AKS consta de una red virtual, al menos
 
 | Intervalo de direcciones / recurso de Azure | Límites y tamaño |
 | --------- | ------------- |
-| Virtual network | El tamaño de Azure Virtual Network puede ser de /8, pero se limita a 65 536 direcciones IP configuradas. |
+| Virtual network | El tamaño de Azure Virtual Network puede ser de /8, pero se limita a 65 536 direcciones IP configuradas. Antes de configurar el espacio de direcciones, tenga en cuenta todos sus requisitos de red, incluida la comunicación con los servicios de otras redes virtuales. Por ejemplo, si configura un espacio de direcciones demasiado grande, es posible que surjan problemas de superposición con otros espacios de direcciones dentro de la red.|
 | Subnet | Debe ser lo suficientemente grande como para dar cabida a los nodos, los pods y a todos los recursos de Kubernetes y de Azure que se pueden aprovisionar en el clúster. Por ejemplo, si implementa una instancia de Azure Load Balancer interna, sus direcciones IP de front-end se asignan desde la subred del clúster, no las direcciones IP públicas. El tamaño de la subred también debe tener en cuenta las operaciones de actualización o las necesidades futuras de escalabilidad.<p />Para calcular el tamaño *mínimo* de subred, incluido un nodo adicional para operaciones de actualización: `(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>Ejemplo de un clúster de 50 nudos: `(51) + (51  * 30 (default)) = 1,581` (/21 o superior)<p/>Ejemplo de un clúster de 50 nodos que también incluye aprovisionamiento para escalar verticalmente 10 nodos adicionales: `(61) + (61 * 30 (default)) = 1,891` (/21 o superior)<p>Si no especifica un número máximo de pods por nodo al crear el clúster, el número máximo de pods por nodo se establece en *30*. El número mínimo de direcciones IP requeridas se basa en ese valor. Si se calculan los requisitos mínimos de dirección IP según otro valor máximo distinto, vea [cómo configurar el número máximo de pods por nodo](#configure-maximum---new-clusters) para establecer este valor cuando se implementa el clúster. |
 | Intervalo de direcciones del servicio de Kubernetes | Este intervalo no lo debe usar ningún elemento de red de esta red virtual o que esté conectado a ella. El CIDR de la dirección del servicio debe ser menor que /12. Puede reutilizar este intervalo en diferentes clústeres de AKS. |
 | Dirección IP del servicio DNS de Kubernetes | Dirección IP del intervalo de direcciones del servicio de Kubernetes que se usará en la detección de servicios de clúster (kube-dns). No use la primera dirección IP en el intervalo de direcciones, como .1. La primera dirección del intervalo de la subred se usa para la dirección *kubernetes.default.svc.cluster.local*. |
@@ -87,7 +87,7 @@ Se exige un valor mínimo para los pods máximos por nodo para garantizar el esp
 
 ### <a name="configure-maximum---existing-clusters"></a>Configurar máximo: clústeres existentes
 
-La configuración de maxPod por nodo se puede definir cuando se crea un nuevo grupo de nodos. Si necesita aumentar el valor de maxPod por nodo en un clúster existente, agregue un nuevo grupo de nodos con el nuevo recuento de maxPod deseado. Después de migrar los pods al nuevo grupo, elimine el grupo anterior. Para eliminar cualquier grupo anterior en un clúster, asegúrese de que está configurando los modos de grupo de nodos tal como se define en el [documento del grupo de nodos del sistema [system-node-pools].
+La configuración de maxPod por nodo se puede definir cuando se crea un nuevo grupo de nodos. Si necesita aumentar el valor de maxPod por nodo en un clúster existente, agregue un nuevo grupo de nodos con el nuevo recuento de maxPod deseado. Después de migrar los pods al nuevo grupo, elimine el grupo anterior. Para eliminar cualquier grupo anterior en un clúster, asegúrese de que está configurando los modos de grupo de nodos tal como se define en el [documento de grupos de nodos del sistema][system-node-pools].
 
 ## <a name="deployment-parameters"></a>Parámetros de implementación
 
@@ -152,6 +152,10 @@ Las siguientes preguntas y respuestas se aplican a la configuración de red de *
 * *¿Puedo implementar máquinas virtuales en la subred del clúster?*
 
   Sí.
+
+* *¿Qué dirección IP de origen ven los sistemas externos para el tráfico que se origina en un pod habilitado para Azure CNI?*
+
+  Los sistemas de la misma red virtual que el clúster de AKS ven la IP del pod como la dirección de origen para todo el tráfico del pod. Los sistemas que están fuera de la red virtual del clúster de AKS ven la IP del nodo como la dirección de origen para todo el tráfico del pod. 
 
 * *¿Puedo configurar las directivas de red por pod?*
 

@@ -19,19 +19,19 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 3bf9dc0e69707eaed8c2a844f6ed3169e65a5342
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6ea8bc2551df4f85e4b856dc9cf1c06a9bd571fd
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564078"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923456"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Sintaxis de consulta de Lucene en Azure Cognitive Search
 
 Puede escribir consultas en Azure Cognitive Search basadas en la sintaxis enriquecida del [analizador de consultas de Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) para formas de consulta especializadas, por ejemplo, comodines, búsqueda aproximada, búsqueda por proximidad o expresiones regulares. Gran parte de la sintaxis del analizador de consultas de Lucene [se implementa tal cual en Azure Cognitive Search](search-lucene-query-architecture.md), a excepción de las *búsquedas de intervalo* que se construyen mediante expresiones `$filter`. 
 
 > [!NOTE]
-> La sintaxis completa de Lucene se usa para las expresiones de consulta que se pasan en el parámetro **search** de la API [Buscar documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents), no se debe confundir con la [sintaxis de OData](query-odata-filter-orderby-syntax.md) que se usa para el parámetro [$filter](search-filters.md) de esa API. Estas distintas sintaxis tienen sus propias reglas para construir consultas, cadenas de escape, etc.
+> La sintaxis completa de Lucene se usa para las expresiones de consulta que se pasan en el parámetro **search** de la API [Buscar documentos](/rest/api/searchservice/search-documents), no se debe confundir con la [sintaxis de OData](query-odata-filter-orderby-syntax.md) que se usa para el parámetro [$filter](search-filters.md) de esa API. Estas distintas sintaxis tienen sus propias reglas para construir consultas, cadenas de escape, etc.
 
 ## <a name="invoke-full-parsing"></a>Invocación del análisis completo
 
@@ -60,7 +60,7 @@ POST /indexes/hotels/docs/search?api-version=2020-06-30
 }
 ```
 
-Para ver ejemplos adicionales, consulte los [ejemplos de sintaxis de consulta de Lucene para la creación de consultas en Azure Cognitive Search](search-query-lucene-examples.md). Para más información sobre cómo especificar el contingente completo de parámetros de consulta, consulte [Documentos de búsqueda &#40;API REST de Azure Cognitive Search&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
+Para ver ejemplos adicionales, consulte los [ejemplos de sintaxis de consulta de Lucene para la creación de consultas en Azure Cognitive Search](search-query-lucene-examples.md). Para más información sobre cómo especificar el contingente completo de parámetros de consulta, consulte [Documentos de búsqueda &#40;API REST de Azure Cognitive Search&#41;](/rest/api/searchservice/Search-Documents).
 
 > [!NOTE]  
 >  Azure Cognitive Search también admite [sintaxis de consulta simple](query-simple-syntax.md), un lenguaje de consulta sencillo y robusto que se puede usar para la búsqueda directa de palabras clave.  
@@ -139,7 +139,7 @@ Puede definir una operación de búsqueda clasificada por campos con la sintaxis
 
 Asegúrese de colocar varias cadenas entre comillas si quiere que las dos cadenas se evalúen como una sola entidad, como en este caso donde se buscan dos ciudades distintas en el campo `artists`.  
 
-El campo especificado en `fieldName:searchExpression` debe ser un campo `searchable`.  Consulte [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) (Crear índice) para más información sobre cómo se usan los atributos de índice en las definiciones de campo.  
+El campo especificado en `fieldName:searchExpression` debe ser un campo `searchable`.  Consulte [Create Index](/rest/api/searchservice/create-index) (Crear índice) para más información sobre cómo se usan los atributos de índice en las definiciones de campo.  
 
 > [!NOTE]
 > Al usar expresiones de búsqueda clasificada por campos, no es necesario usar el parámetro `searchFields` porque cada expresión de búsqueda clasificada por campos tiene un nombre de campo especificado explícitamente. Pero tenga en cuenta que todavía puede usar el parámetro `searchFields` si quiere ejecutar una consulta donde algunas partes se limitan a un campo específico y el resto se podría aplicar a varios campos. Por ejemplo, la consulta `search=genre:jazz NOT history&searchFields=description` coincidiría con `jazz` únicamente con el campo `genre`, aunque coincidiría con `NOT history` con el campo `description`. El nombre de campo proporcionado en `fieldName:searchExpression` siempre tiene prioridad sobre el parámetro `searchFields`. Por eso en este ejemplo no es necesario incluir `genre` en el parámetro `searchFields`.
@@ -183,7 +183,16 @@ La coincidencia de sufijos, en la que `*` o `?` precede a la cadena (como en `se
 > [!NOTE]  
 > Como norma general, la coincidencia de patrones es lenta, por lo que es posible que desee explorar métodos alternativos, como la tokenización de n-gramas perimetrales que crea tokens para las secuencias de caracteres de un término. El índice será mayor, pero las consultas se podrían ejecutar más rápido, según la construcción del patrón y la longitud de las cadenas que se van a indexar.
 >
-> Durante el análisis de consultas, las consultas que se formulan como prefijo, sufijo, carácter comodín o expresiones regulares se pasan tal cual al árbol de consultas y se omite el [análisis léxico](search-lucene-query-architecture.md#stage-2-lexical-analysis). Solo se encontrarán coincidencias si el índice contiene las cadenas en el formato que especifica la consulta. En la mayoría de los casos, durante la indexación necesitará un analizador alternativo que conserve la integridad de las cadenas para que la coincidencia de patrones y términos parciales sea correcta. Para obtener más información, consulte [Búsqueda de términos parciales en las consultas de Azure Cognitive Search](search-query-partial-matching.md).
+
+### <a name="impact-of-an-analyzer-on-wildcard-queries"></a>Impacto de un analizador en las consultas con caracteres comodín
+
+Durante el análisis de consultas, las consultas que se formulan como prefijo, sufijo, carácter comodín o expresiones regulares se pasan tal cual al árbol de consultas y se omite el [análisis léxico](search-lucene-query-architecture.md#stage-2-lexical-analysis). Solo se encontrarán coincidencias si el índice contiene las cadenas en el formato que especifica la consulta. En la mayoría de los casos, durante la indexación necesitará un analizador que conserve la integridad de las cadenas para que la coincidencia de patrones y términos parciales sea correcta. Para obtener más información, consulte [Búsqueda de términos parciales en las consultas de Azure Cognitive Search](search-query-partial-matching.md).
+
+Piense en una situación en la que quiere que la consulta de búsqueda "terminat*" devuelva resultados que contengan términos como "terminate", "termination" y "terminates".
+
+Si usara el analizador en.lucene (Inglés Lucene), aplicaría una lematización agresiva de cada término. Por ejemplo, "terminate", "termination", "terminates" sufrirían una reducción hasta el token "termi" en el índice. Por otra parte, los términos de las consultas que usan caracteres comodín o búsqueda aproximada no se analizan, por lo que no habrá resultados que coincidan con la consulta "terminat*".
+
+Además, los analizadores de Microsoft (en este caso, en.microsoft) son un poco más avanzados y usan lemas en lugar de lexemas. Esto significa que todos los tokens generados deben ser palabras en inglés válidas. Por ejemplo, ''terminate", "terminates" y "termination" se mantendrán en su totalidad en el índice, y esta sería una opción preferible para escenarios que dependen mucho de los caracteres comodín y la búsqueda aproximada.
 
 ##  <a name="scoring-wildcard-and-regex-queries"></a><a name="bkmk_searchscoreforwildcardandregexqueries"></a> Puntuación de consultas de caracteres comodín y expresiones regulares
 
@@ -193,6 +202,6 @@ Azure Cognitive Search usa la puntuación basada en la frecuencia ([TF-IDF](http
 
 + [Ejemplos de consulta para una búsqueda simple](search-query-simple-examples.md)
 + [Ejemplos de consulta para una búsqueda completa de Lucene](search-query-lucene-examples.md)
-+ [Buscar en documentos](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
++ [Buscar en documentos](/rest/api/searchservice/Search-Documents)
 + [OData expression syntax for filters and sorting](query-odata-filter-orderby-syntax.md) (Sintaxis de expresiones de OData para filtros y ordenación)   
-+ [Sintaxis de consulta simple en Azure Cognitive Search](query-simple-syntax.md)   
++ [Sintaxis de consulta simple en Azure Cognitive Search](query-simple-syntax.md)

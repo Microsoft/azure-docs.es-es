@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 08/13/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8032e8809f7849ab7497da7821788c017adff12d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c61e8df05c4bc199c0d91b8ed0cbd73fa6f196cf
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85212061"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192316"
 ---
 # <a name="convert-resource-classes-to-workload-groups"></a>Conversión de las clases de recursos en grupos de cargas de trabajo
 
@@ -44,13 +44,13 @@ Dado que los grupos de cargas de trabajo operan en función del porcentaje de re
 
 Con el valor `REQUEST_MIN_RESOURCE_GRANT_PERCENT`conocido, se puede usar la sintaxis de <link> CREATE WORKLOAD GROUP para crear el grupo de cargas de trabajo.  Opcionalmente, puede especificar un valor `MIN_PERCENTAGE_RESOURCE` mayor que cero para aislar los recursos del grupo de cargas de trabajo.  Además, puede especificar opcionalmente un valor `CAP_PERCENTAGE_RESOURCE` menor de 100 para limitar la cantidad de recursos que puede consumir el grupo de cargas de trabajo.  
 
-En el ejemplo siguiente se establece el valor `MIN_PERCENTAGE_RESOURCE` para dedicar el 9,6 % de los recursos del sistema a `wgDataLoads` y se garantiza que se podrá ejecutar una consulta todas las horas.  Además, `CAP_PERCENTAGE_RESOURCE` se establece en el 38,4 % y limita este grupo de cargas de trabajo a cuatro solicitudes simultáneas.  Al establecer el parámetro `QUERY_EXECUTION_TIMEOUT_SEC` en 3600, las consultas que se ejecuten durante más de 1 hora se cancelarán automáticamente.
+Usando mediumrc como base para un ejemplo, el código siguiente establece el valor `MIN_PERCENTAGE_RESOURCE` para dedicar el 10 % de los recursos del sistema a `wgDataLoads` y se garantiza que se podrá ejecutar una consulta todas las horas.  Además, `CAP_PERCENTAGE_RESOURCE` se establece en el 40 % y limita este grupo de cargas de trabajo a cuatro solicitudes simultáneas.  Al establecer el parámetro `QUERY_EXECUTION_TIMEOUT_SEC` en 3600, las consultas que se ejecuten durante más de 1 hora se cancelarán automáticamente.
 
 ```sql
 CREATE WORKLOAD GROUP wgDataLoads WITH  
-( REQUEST_MIN_RESOURCE_GRANT_PERCENT = 9.6
- ,MIN_PERCENTAGE_RESOURCE = 9.6
- ,CAP_PERCENTAGE_RESOURCE = 38.4
+( REQUEST_MIN_RESOURCE_GRANT_PERCENT = 10
+ ,MIN_PERCENTAGE_RESOURCE = 10
+ ,CAP_PERCENTAGE_RESOURCE = 40
  ,QUERY_EXECUTION_TIMEOUT_SEC = 3600)
 ```
 

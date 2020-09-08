@@ -7,16 +7,18 @@ ms.author: baanders
 ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d0bca2ad14216873836c751dc002ea915baa3a66
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: ca500401a6bff8a00dd9c51eecb29aa93fdbc82b
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800490"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042656"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Integre Azure Digital Twins con otros servicios
 
-Azure Digital Twins se suele usar junto con otros servicios. Mediante [**rutas de evento**](concepts-route-events.md), Azure Digital Twins recibe datos de los servicios de nivel superior como [IOT Hub](../iot-hub/about-iot-hub.md), que se usa para proporcionar telemetría y notificaciones. Azure Digital Twins también puede enrutar los datos a servicios de bajada para el almacenamiento, la integración de flujos de trabajo, el análisis y otros usos. 
+Azure Digital Twins se suele usar junto con otros servicios. Mediante [**rutas de evento**](concepts-route-events.md), Azure Digital Twins recibe datos de los servicios de nivel superior como [IOT Hub](../iot-hub/about-iot-hub.md), que se usa para proporcionar telemetría y notificaciones. 
+
+Azure Digital Twins también puede enrutar los datos a servicios de bajada, como Azure Maps ([*Procedimientos: Uso de Azure Digital Twins para actualizar un plano interior de Azure Maps*](how-to-integrate-maps.md)) y Time Series Insights ([*Procedimientos: Integración con Time Series Insights*](how-to-integrate-time-series-insights.md)), para el almacenamiento, la integración de flujos de trabajo, el análisis, y mucho más. 
 
 ## <a name="data-ingress"></a>Entrada de datos
 

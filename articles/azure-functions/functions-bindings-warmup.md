@@ -7,14 +7,15 @@ manager: gwallace
 keywords: Azure Functions, funciones, procesamiento de eventos, preparación, arranque en frío, premium, proceso dinámico, arquitectura sin servidor
 ms.service: azure-functions
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 11/08/2019
 ms.author: cshoe
-ms.openlocfilehash: dade31fd9a5a75c875274ea45607fea81a2de027
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: f5523c513cc0bdd08c43bdbed5046bf662f1a3e5
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87383722"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206572"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Desencadenador de preparación de Azure Functions
 

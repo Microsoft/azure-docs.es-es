@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: jushiman
-ms.openlocfilehash: 0039480c24e96f39ec2b464984a84e672b5bffa1
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 2dea6ea292b4ed69d89a6e5e03c58f437446561d
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832610"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654793"
 ---
 # <a name="m-series"></a>Serie M
 
@@ -30,7 +30,7 @@ Migración en vivo: No compatible
 
 Actualizaciones con conservación de memoria: No compatible
 
-Acelerador de escritura:  [Compatible](./windows/how-to-enable-write-accelerator.md)
+Acelerador de escritura:  [Compatible](./how-to-enable-write-accelerator.md)
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS/Mbps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps | Nº máx. NIC|Ancho de banda de red esperado (Mbps) |
 |---|---|---|---|---|---|---|---|---|
@@ -66,7 +66,7 @@ Acelerador de escritura:  [Compatible](./windows/how-to-enable-write-accelerator
 
 Calculadora de precios: [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 
-Más información sobre los tipos de disco: [Tipos de disco](./linux/disks-types.md#ultra-disk)
+Más información sobre los tipos de disco: [Tipos de disco](./disks-types.md#ultra-disk)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

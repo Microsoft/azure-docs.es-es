@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/27/2019
 ms.author: memildin
-ms.openlocfilehash: 35b91aab8c228fc7dced5dfe06e33f939f4634f5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9fc5fac95d1fca743b8242f253d15be9a4b70853
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080801"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277602"
 ---
 # <a name="protect-your-azure-app-service-web-apps-and-apis"></a>Protección de las aplicaciones web y API de Azure App Service
 
@@ -32,7 +32,7 @@ Con el plan de App Service habilitado, Security Center evalúa los recursos incl
 Security Center aprovecha la escala de la nube y la visibilidad que tiene Azure como proveedor de servicios en la nube, para supervisar los ataques a las aplicaciones web comunes. Security Center puede descubrir ataques a las aplicaciones e identificar ataques emergentes, incluso mientras los atacantes se encuentran en la fase de reconocimiento, explorando para identificar vulnerabilidades en varias aplicaciones hospedadas en Azure. Como servicio nativo de Azure, Security Center también se encuentra en una posición única para ofrecer análisis de seguridad basados en host que cubren los nodos de proceso subyacentes para este PaaS, lo que permite a Security Center detectar ataques contra aplicaciones web que ya se habían aprovechado. Para más información, consulte [Protección contra amenazas para Azure App Service](threat-protection.md#app-services).
 
 
-## <a name="enabling-monitoring-and-protection-of-app-service"></a>Habilitación de la supervisión y protección de App Service
+## <a name="enable-monitoring-and-protection-of-app-service"></a>Habilitación de la supervisión y la protección de App Service
 
 1. En Azure Portal, elija Security Center.
 2. Vaya a **Pricing & settings** (Precios y configuración) y elija una suscripción.

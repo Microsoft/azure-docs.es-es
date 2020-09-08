@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 62669457f73ba78186614433fb6d10cc4dc01089
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: b5865f2fd76c1159f7f72633362a96335af8a059
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85565510"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509372"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Inicio rápido: Representación de un modelo con Unity
 
@@ -84,7 +84,7 @@ Más adelante implementaremos este proyecto en un dispositivo HoloLens y nos con
 
 ### <a name="create-a-session-and-view-the-default-model"></a>Creación de una sesión y visualización del modelo predeterminado
 
-Presione el botón **Play** (Reproducir) de Unity para iniciar la sesión. Debería ver una superposición con el texto de estado en la parte inferior de la ventanilla en el panel *Game* (Juego). La sesión se someterá a una serie de transiciones de estado. En el estado **Starting** (Iniciar), se pone en marcha la máquina virtual remota, que tarda varios minutos. En caso de que se realice correctamente, realiza la transición al estado **Ready** (Preparado). Ahora la sesión entra en el estado **Connecting** (Conectando), donde intenta alcanzar el tiempo de ejecución de representación en esa máquina virtual. Cuando se realiza correctamente, el ejemplo cambia al estado **Connected** (Conectado). En este punto, comenzará a descargar el modelo para la representación. Debido al tamaño del modelo, la descarga puede tardar unos minutos más. A continuación, aparecerá el modelo representado de forma remota.
+Presione el botón **Play** (Reproducir) de Unity para iniciar la sesión. Debería ver una superposición con el texto de estado en la parte inferior de la ventanilla en el panel *Game* (Juego). La sesión se someterá a una serie de transiciones de estado. En el estado **Iniciándose**, el servidor se pone en marcha, lo que tarda varios minutos. En caso de que se realice correctamente, realiza la transición al estado **Ready** (Preparado). Ahora la sesión entra en el estado **Conectando**, donde intenta alcanzar el tiempo de ejecución de representación en ese servidor. Cuando se realiza correctamente, el ejemplo cambia al estado **Connected** (Conectado). En este punto, comenzará a descargar el modelo para la representación. Debido al tamaño del modelo, la descarga puede tardar unos minutos más. A continuación, aparecerá el modelo representado de forma remota.
 
 ![Salida generada por el ejemplo](media/arr-sample-output.png)
 

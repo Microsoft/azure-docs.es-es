@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli
 ms.author: larryfr
 author: Blackmist
 ms.date: 07/27/2020
-ms.openlocfilehash: 06ab819065f96508bcc4ebd26371c743c89b9220
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1d405aff5233f38aee2031220fd119693da64abb
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87487809"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892871"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Uso de una plantilla de Azure Resource Manager para crear un área de trabajo para Azure Machine Learning
 
@@ -120,7 +120,7 @@ New-AzResourceGroupDeployment `
 De forma predeterminada, todos los recursos creados como parte de la plantilla son nuevos. Sin embargo, también tiene la opción de usar los recursos existentes. Si proporciona parámetros adicionales a la plantilla, puede usar los recursos existentes. Por ejemplo, si desea usar una cuenta de almacenamiento existente, establezca el valor **storageAccountOption** en **existing** y proporcione el nombre de la cuenta de almacenamiento en el parámetro **storageAccountName**.
 
 > [!IMPORTANT]
-> Si quiere usar una cuenta de Azure Storage existente, no puede ser una cuenta Premium (Premium_LRS y Premium_GRS). Tampoco puede tener un espacio de nombres jerárquico (se usa con Azure Data Lake Storage Gen2). No se admite Premium Storage ni el espacio de nombres jerárquico con la cuenta de almacenamiento predeterminada del área de trabajo.
+> Si quiere usar una cuenta de Azure Storage existente, no puede ser una cuenta Premium (Premium_LRS y Premium_GRS). Tampoco puede tener un espacio de nombres jerárquico (se usa con Azure Data Lake Storage Gen2). No se admite Premium Storage ni el espacio de nombres jerárquico con la cuenta de almacenamiento predeterminada del área de trabajo. No se admite Premium Storage ni el espacio de nombres jerárquico con la cuenta de almacenamiento _predeterminada_ del área de trabajo. Puede usar Premium Storage o el espacio de nombres jerárquico con cuentas de almacenamiento _no predeterminadas_.
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azcli)
 
@@ -165,158 +165,50 @@ Para obtener más información, consulte [Cifrado en reposo](concept-enterprise-
 
 > [!IMPORTANT]
 > Hay algunos requisitos específicos que la suscripción debe cumplir antes de usar esta plantilla:
->
-> * La aplicación __Azure Machine Learning__ debe ser un __colaborador__ para su suscripción de Azure.
 > * Debe tener un almacén Azure Key Vault existente que contenga una clave de cifrado.
-> * Debe tener una directiva de acceso en el almacén Azure Key Vault que conceda el acceso __obtener__, __ajustar__ y __desajustar__ a la aplicación __Azure Cosmos DB__.
 > * El almacén Azure Key Vault debe estar en la misma región en la que se planea crear el área de trabajo de Azure Machine Learning.
+> * Tienen que especificar el identificador de Azure Key Vault y el URI de la clave de cifrado.
 
-__Para agregar la aplicación de Azure Machine Learning como un colaborador__, use los comandos siguientes:
+__A fin de obtener los valores__ para `cmk_keyvault` (id. de Key Vault) y los parámetros de `resource_cmk_uri` (URI de clave) necesarios para esta plantilla, siga los pasos siguientes:    
 
-1. Inicie sesión en la cuenta de Azure y obtenga el id. de suscripción. Esta suscripción debe ser la misma que la que contiene el área de trabajo de Azure Machine Learning.  
+1. Para obtener el id. de Key Vault, use el comando siguiente:  
 
-    # <a name="azure-cli"></a>[CLI de Azure](#tab/azcli)
+    # <a name="azure-cli"></a>[CLI de Azure](#tab/azcli)   
 
-    ```azurecli
-    az account list --query '[].[name,id]' --output tsv
-    ```
+    ```azurecli 
+    az keyvault show --name <keyvault-name> --query 'id' --output tsv   
+    ``` 
 
-    > [!TIP]
-    > Para seleccionar otra suscripción, utilice el comando `az account set -s <subscription name or ID>` y especifique el nombre o identificador de la suscripción a los que desea cambiar. Para obtener más información sobre la selección de la suscripción, consulte [Uso de varias suscripciones de Azure](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). 
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell) 
 
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
-
-    ```azurepowershell
-    Get-AzSubscription
-    ```
-
-    > [!TIP]
-    > Para seleccionar otra suscripción, utilice el comando `Az-SetContext -SubscriptionId <subscription ID>` y especifique el nombre o identificador de la suscripción a los que desea cambiar. Para obtener más información sobre la selección de la suscripción, consulte [Uso de varias suscripciones de Azure](https://docs.microsoft.com/powershell/azure/manage-subscriptions-azureps?view=azps-4.3.0).
-
-    ---
-
-1. Para obtener el id. de objeto de la aplicación de Azure Machine Learning, use el comando siguiente. El valor puede ser distinto para cada una de las suscripciones de Azure:
-
-    # <a name="azure-cli"></a>[CLI de Azure](#tab/azcli)
-
-    ```azurecli
-    az ad sp list --display-name "Azure Machine Learning" --query '[].[appDisplayName,objectId]' --output tsv
-    ```
-
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
-
-    ```azurepowershell
-    Get-AzADServicePrincipal --DisplayName "Azure Machine Learning" | select-object DisplayName, Id
-    ```
-
-    ---
-    Este comando devuelve el id. de objeto, que es un GUID.
-
-1. Para agregar el id. de objeto como colaborador a la suscripción, use el comando siguiente. Reemplace `<object-ID>` por el id. de objeto de la entidad de servicio. Reemplace `<subscription-ID>` por el nombre o id. de la suscripción de Azure:
-
-    # <a name="azure-cli"></a>[CLI de Azure](#tab/azcli)
-
-    ```azurecli
-    az role assignment create --role 'Contributor' --assignee-object-id <object-ID> --subscription <subscription-ID>
-    ```
-
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
-
-    ```azurepowershell
-    New-AzRoleAssignment --ObjectId <object-ID> --RoleDefinitionName "Contributor" -Scope /subscriptions/<subscription-ID>
-    ```
-
-    ---
-
-1. Para generar una clave en una instancia existente de Azure Key Vault, use uno de los siguientes comandos. Reemplace `<keyvault-name>` por el nombre del almacén de claves. Reemplace `<key-name>` por el nombre que va a usar para la clave:
-
-    # <a name="azure-cli"></a>[CLI de Azure](#tab/azcli)
-
-    ```azurecli
-    az keyvault key create --vault-name <keyvault-name> --name <key-name> --protection software
-    ```
-
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
-
-    ```azurepowershell
-    Add-AzKeyVaultKey -VaultName <keyvault-name> -Name <key-name> -Destination 'Software'
-    ```
+    ```azurepowershell  
+    Get-AzureRMKeyVault -VaultName '<keyvault-name>'    
+    ``` 
     --- 
 
-__Para agregar una directiva de acceso al almacén de claves, use los comandos siguientes__:
+    Este comando devuelve un valor similar a `/subscriptions/{subscription-guid}/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<keyvault-name>`.  
 
-1. Para obtener el id. de objeto de la aplicación de Azure Cosmos DB, use el comando siguiente. El valor puede ser distinto para cada una de las suscripciones de Azure:
+1. Para obtener el valor del URI de la clave administrada por el cliente, use el comando siguiente:    
 
-    # <a name="azure-cli"></a>[CLI de Azure](#tab/azcli)
+    # <a name="azure-cli"></a>[CLI de Azure](#tab/azcli)   
 
-    ```azurecli
-    az ad sp list --display-name "Azure Cosmos DB" --query '[].[appDisplayName,objectId]' --output tsv
-    ```
+    ```azurecli 
+    az keyvault key show --vault-name <keyvault-name> --name <key-name> --query 'key.kid' --output tsv  
+    ``` 
 
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell) 
 
-    ```azurepowershell
-    Get-AzADServicePrincipal --DisplayName "Azure Cosmos DB" | select-object DisplayName, Id
-    ```
-    ---
+    ```azurepowershell  
+    Get-AzureKeyVaultKey -VaultName '<keyvault-name>' -KeyName '<key-name>' 
+    ``` 
+    --- 
 
-    Este comando devuelve el id. de objeto, que es un GUID. Guárdelo para más adelante.
+    Este comando devuelve un valor similar a `https://mykeyvault.vault.azure.net/keys/mykey/{guid}`. 
 
-1. Para establecer una directiva, use el comando siguiente. Reemplace `<keyvault-name>` por el nombre del almacén Azure Key Vault existente. Reemplace `<object-ID>` por el GUID del paso anterior:
-
-    # <a name="azure-cli"></a>[CLI de Azure](#tab/azcli)
-
-    ```azurecli
-    az keyvault set-policy --name <keyvault-name> --object-id <object-ID> --key-permissions get unwrapKey wrapKey
-    ```
-
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
-    
-    ```azurepowershell
-    Set-AzKeyVaultAccessPolicy -VaultName <keyvault-name> -ObjectId <object-ID> -PermissionsToKeys get, unwrapKey, wrapKey
-    ```
-    ---    
-
-__A fin de obtener los valores__ para `cmk_keyvault` (id. de Key Vault) y los parámetros de `resource_cmk_uri` (URI de clave) necesarios para esta plantilla, siga los pasos siguientes:
-
-1. Para obtener el id. de Key Vault, use el comando siguiente:
-
-    # <a name="azure-cli"></a>[CLI de Azure](#tab/azcli)
-
-    ```azurecli
-    az keyvault show --name <keyvault-name> --query 'id' --output tsv
-    ```
-
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
-
-    ```azurepowershell
-    Get-AzureRMKeyVault -VaultName '<keyvault-name>'
-    ```
-    ---
-
-    Este comando devuelve un valor similar a `/subscriptions/{subscription-guid}/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<keyvault-name>`.
-
-1. Para obtener el valor del URI de la clave administrada por el cliente, use el comando siguiente:
-
-    # <a name="azure-cli"></a>[CLI de Azure](#tab/azcli)
-
-    ```azurecli
-    az keyvault key show --vault-name <keyvault-name> --name <key-name> --query 'key.kid' --output tsv
-    ```
-
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
-
-    ```azurepowershell
-    Get-AzureKeyVaultKey -VaultName '<keyvault-name>' -KeyName '<key-name>'
-    ```
-    ---
-
-    Este comando devuelve un valor similar a `https://mykeyvault.vault.azure.net/keys/mykey/{guid}`.
-
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Una vez que se ha creado un área de trabajo, no se puede cambiar la configuración de datos confidenciales, cifrado, identificador de almacén de claves o identificadores de claves. Para cambiar estos valores, debe crear una nueva área de trabajo con los nuevos valores.
 
-Una vez que haya completado correctamente los pasos anteriores, implemente la plantilla como lo haría normalmente. Para habilitar el uso de claves administradas por el cliente, establezca los parámetros siguientes:
+Para habilitar el uso de claves administradas por el cliente, establezca los parámetros siguientes al implementar la plantilla:
 
 * **encryption_status** en **Enabled**.
 * **cmk_keyvault** en el valor `cmk_keyvault` obtenido en los pasos anteriores.
@@ -380,7 +272,7 @@ Al establecer el valor del parámetro `vnetOption` en `new` o `existing`, podrá
 Si los recursos asociados no están detrás de una red virtual, puede establecer el parámetro **privateEndpointType** en `AutoAproval` o `ManualApproval` para implementar el área de trabajo detrás de un punto de conexión privado. Esto puede hacerse tanto en áreas de trabajo nuevas como existentes. Al actualizar un área de trabajo existente, rellene los parámetros de la plantilla con la información del área de trabajo existente.
 
 > [!IMPORTANT]
-> La implementación solo es válida en las regiones que admiten puntos de conexión privados.
+> El uso de Azure Private Link para crear un punto de conexión privado para un área de trabajo de Azure Machine Learning se encuentra actualmente en versión preliminar pública. Esta funcionalidad solo está disponible en las regiones **Este de EE. UU.** y **Oeste de EE. UU. 2**. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azcli)
 
@@ -750,6 +642,32 @@ Para evitar este problema, se recomienda uno de los siguientes enfoques:
 
     ```text
     /subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault
+    ```
+
+### <a name="virtual-network-not-linked-to-private-dns-zone"></a>Red virtual no vinculada a una zona DNS privada
+
+Al crear un área de trabajo con un punto de conexión privado, la plantilla crea una zona DNS privada denominada __privatelink.api.azureml.ms__. Se agrega un __vínculo de red virtual__ automáticamente a esta zona DNS privada. El vínculo solo se agrega para el área de trabajo y el punto de conexión privado primeros que crea en un grupo de recursos. Si crea otra red virtual y otro área de trabajo con un punto de conexión privado en el mismo grupo de recursos, es posible que la segunda red virtual no se agregue a la zona DNS privada.
+
+Para ver los vínculos de red virtual que ya existen para la zona DNS privada, use el siguiente comando de la CLI de Azure:
+
+```azurecli
+az network private-dns link vnet list --zone-name privatelink.api.azureml.ms --resource-group myresourcegroup
+```
+
+Para agregar la red virtual que contiene otra área de trabajo y un punto de conexión privado, siga estos pasos:
+
+1. Para encontrar el identificador de red virtual de la red que desea agregar, use el siguiente comando:
+
+    ```azurecli
+    az network vnet show --name myvnet --resource-group myresourcegroup --query id
+    ```
+    
+    Este comando devuelve un valor similar a "/subscriptions/GUID/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvnet". Guarde este valor y úselo en el paso siguiente.
+
+2. Para agregar un vínculo de red virtual a la zona DNS privada privatelink.api.azureml.ms, use el siguiente comando. Para el parámetro `--virtual-network`, utilice la salida del comando anterior:
+
+    ```azurecli
+    az network private-dns link vnet create --name mylinkname --registration-enabled true --resource-group myresourcegroup --virtual-network myvirtualnetworkid --zone-name privatelink.api.azureml.ms
     ```
 
 ## <a name="next-steps"></a>Pasos siguientes

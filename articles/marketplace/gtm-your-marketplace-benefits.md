@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2020
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: c2481ca9894a1af3b363db8d5043b7fcd4eefc3d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0a98bf7d6a035dbf293bda5d8afe5d0e1130f58f
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498028"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705561"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Las ventajas de Marketplace comercial
 
@@ -26,13 +26,13 @@ Las Recompensas de Marketplace están diseñadas para ayudarlo en su fase de cre
 
 El programa crea un bucle de retroalimentación positivo: las ventajas de cada fase de crecimiento están diseñadas para llevarle hasta la fase siguiente, lo que le permite llevar el negocio a los clientes de Microsoft, con el campo de Microsoft, y a través del canal de Microsoft mediante el aprovechamiento de Marketplace comercial como plataforma.
 
-Sus ventajas se diferencian en función de si la oferta es de [Lista, Prueba o Transacción](determine-your-listing-type.md#choose-a-call-to-action).
+Sus ventajas se diferencian en función de si la oferta es de [Lista, Prueba o Transacción](determine-your-listing-type.md#choose-a-listing-option).
 
 Un miembro del equipo de Recompesas se pondrá en contacto con usted cuando se publique la oferta, en función de su idoneidad.
 
 En el caso de los asociados de transacciones, a medida que aumenta las ventas facturadas a través de la plataforma del marketplace comercial, se desbloquean mayores ventajas por nivel.
 
-El requisito mínimo para publicar en los escaparates es un MPNID, por lo que estas ventajas están disponibles para todos los asociados, con independencia del estado de la competencia de MPN o del tipo de asociado. Cada asociado está capacitado para hacer crecer su negocio con el marketplace comercial como plataforma.
+El requisito mínimo para publicar en las tiendas en línea es un MPNID, por lo que estas ventajas están disponibles para todos los asociados, con independencia del estado de la competencia de MPN o del tipo de asociado. Cada asociado está capacitado para hacer crecer su negocio con el marketplace comercial como plataforma.
 
 Obtendrá ayuda para entender los recursos que tiene disponibles y en la implementación de los procedimientos recomendados, que también puede [revisar por su cuenta.](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/)
 

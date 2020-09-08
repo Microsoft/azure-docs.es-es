@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/14/2019
+ms.date: 08/25/2020
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman, hahamil, brianmel
-ms.openlocfilehash: a734589178438fd65d9a2d156fd91fc82807f578
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9042318d29b9a7fc8c2064bdf845d6f0d5a4f3e8
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76697904"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853853"
 ---
 # <a name="brokered-authentication-in-android"></a>Autenticación con agente en Android
 
@@ -122,3 +122,12 @@ Si obtiene una excepción `MsalClientException` con el código de error `"BROKER
 
 - Pida al usuario que deshabilite la optimización de energía para la aplicación Microsoft Authenticator y el Portal de empresa de Intune.
 - Pida al usuario que conceda el permiso `"READ_CONTACTS"`.
+
+## <a name="verifying-broker-integration"></a>Comprobación de la integración del agente
+
+Es posible que no quede claro inmediatamente que la integración del agente funcione, pero puede seguir estos los pasos siguientes para comprobarlo:
+
+1. En el dispositivo Android, complete una solicitud con el agente.
+1. En la configuración del dispositivo Android, busque una cuenta recién creada que se corresponda con la cuenta con la que se autenticó. La cuenta debe ser del tipo *Cuenta profesional*.
+
+Puede quitar la cuenta de la configuración si desea repetir la prueba.

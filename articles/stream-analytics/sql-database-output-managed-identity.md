@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: fff44617a5621d4edd84bee8f9b1e6b6e6924cd8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 906311452598d592b73a263ce25d0c8c51cc1cc7
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87305931"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870194"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-from-an-azure-stream-analytics-job-preview"></a>Uso de identidades administradas para acceder a Azure SQL Database desde un trabajo de Azure Stream Analytics (versión preliminar)
 
@@ -122,7 +122,7 @@ Asegúrese de haber creado una tabla en la instancia de SQL Database con el esq
 
 1. Seleccione **Agregar > SQL Database**. En la ventana de propiedades de salida del receptor de salida de SQL Database, seleccione **Identidad administrada** en la lista desplegable Modo de autenticación.
 
-1. Rellene el resto de las propiedades. Para más información acerca de cómo crear una salida de SQL Database, consulte [Creación de una salida de SQL Database con Stream Analytics](stream-analytics-define-outputs.md#sql-database). Cuando haya terminado, seleccione **Guardar**. 
+1. Rellene el resto de las propiedades. Para más información acerca de cómo crear una salida de SQL Database, consulte [Creación de una salida de SQL Database con Stream Analytics](sql-database-output.md). Cuando haya terminado, seleccione **Guardar**. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

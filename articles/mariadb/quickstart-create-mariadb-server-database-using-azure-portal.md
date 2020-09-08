@@ -7,14 +7,14 @@ ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 3/19/2020
-ms.openlocfilehash: 698220a7f81dc5fb9d70d2aa65e96dfa199af444
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e5801f46745b3fda28af19c11e323b9497ebe98a
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80063837"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185254"
 ---
-# <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>Creación de un servidor de Azure Database for MariaDB mediante Azure Portal
+# <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>Inicio rápido: Creación de un servidor de Azure Database for MariaDB mediante Azure Portal
 
 Azure Database for MariaDB es un servicio administrado que se usa para ejecutar, administrar y escalar bases de datos MariaDB de alta disponibilidad en la nube. En esta guía de inicio rápido se muestra cómo crear un servidor de Azure Database for MariaDB en unos cinco minutos mediante Azure Portal.  
 

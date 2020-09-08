@@ -5,14 +5,14 @@ author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 8/12/2020
 ms.author: shants
-ms.openlocfilehash: f7d9912686be8ba6076278f148067575a40f32f8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1e2eb1c2b6ecb98c60b117d004a97cd4e5f07a55
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510045"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182176"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>Control de las notificaciones de mantenimiento planeado
 
@@ -107,7 +107,8 @@ Para más información sobre la alta disponibilidad, consulte [Availability for 
 **R:** Hay varios motivos por los que no ve información de mantenimiento en sus máquinas virtuales:
 1.  Utiliza una suscripción marcada como interna de Microsoft.
 2.  Las máquinas virtuales no están programadas para su mantenimiento. Es posible que la tanda de mantenimiento haya finalizado, se haya cancelado o se haya modificado para que las máquinas virtuales dejen de verse afectadas por ella.
-3.  La columna **Mantenimiento** no se ha agregado a la vista de la lista de máquinas virtuales. Aunque hemos agregado esta columna a la vista predeterminada, los clientes que se han configurado para ver las columnas no predeterminadas deben agregar manualmente la columna de **mantenimiento** a la vista de lista de máquinas virtuales.
+3. Ha desasignado la máquina virtual y, a continuación, la ha iniciado. Esto puede hacer que la máquina virtual se mueva a una ubicación que no tenga programado el mantenimiento planeado. Por lo tanto, la máquina virtual no mostrará más información de mantenimiento. 
+4.  La columna **Mantenimiento** no se ha agregado a la vista de la lista de máquinas virtuales. Aunque hemos agregado esta columna a la vista predeterminada, los clientes que se han configurado para ver las columnas no predeterminadas deben agregar manualmente la columna de **mantenimiento** a la vista de lista de máquinas virtuales.
 
 **P: Está programado que se realice un segundo mantenimiento programado de mi máquina virtual. ¿Por qué?**
 

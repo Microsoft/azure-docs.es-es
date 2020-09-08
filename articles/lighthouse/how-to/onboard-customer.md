@@ -1,30 +1,30 @@
 ---
 title: Incorporación de un cliente a Azure Lighthouse
 description: Obtenga información sobre cómo incorporar un cliente a Azure Lighthouse, lo que permite administrar sus recursos y acceder a ellos desde su propio inquilino mediante la administración de recursos delegados de Azure.
-ms.date: 05/26/2020
+ms.date: 08/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 3cc754dba124c5f647cd4b51246ced19360c82c3
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: db6a819c72f1ef46f542ed47cad6caae23c0d191
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133471"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719060"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Incorporación de un cliente a Azure Lighthouse
 
 En este artículo se explica cómo, como proveedor de servicios, puede incorporar un cliente a Azure Lighthouse. Al hacerlo, los recursos delegados del cliente (suscripciones o grupos de recursos) están accesibles y se pueden administrar desde su propio inquilino de Azure Active Directory (Azure AD) mediante la [Administración de recursos delegados de Azure](../concepts/azure-delegated-resource-management.md).
 
-Puede repetir este proceso si está administrando recursos para varios clientes. A continuación, cuando un usuario autorizado inicia sesión en el inquilino, se puede autorizar al usuario en los ámbitos del inquilino del cliente para realizar operaciones de administración sin tener que iniciar sesión en todos los inquilinos de cliente individuales.
-
-Para realizar el seguimiento del impacto en las involucraciones de los clientes y recibir el reconocimiento correspondiente, asocie el identificador de Microsoft Partner Network (MPN) con al menos una cuenta de usuario con acceso a cada una de las suscripciones incorporadas. Tenga en cuenta que deberá realizar esta asociación en el inquilino del proveedor de servicios. Para simplificar, se recomienda crear en el inquilino una cuenta de entidad de servicio asociada al identificador de MPN y concederle acceso de lectura a todos los clientes que incorpore. Para obtener más información, vea [Vinculación de un Id. de partner a cuentas de Azure](../../cost-management-billing/manage/link-partner-id.md). 
-
-> [!NOTE]
-> Los clientes también se pueden incorporar a Azure Lighthouse cuando compran una oferta de servicios administrados (pública o privada) que haya publicado en Azure Marketplace. Para obtener más información, consulte [Publicar ofertas de servicios administrados en Azure Marketplace](publish-managed-services-offers.md). También puede usar el proceso de incorporación que se describe aquí con una oferta publicada en Azure Marketplace.
-
-El proceso de incorporación requiere que se tomen medidas desde el inquilino del proveedor de servicios y del inquilino del cliente. Todos estos pasos se describen en este artículo.
-
 > [!TIP]
 > Aunque en este tema nos referiremos a los proveedores de servicios y clientes, las [empresas que administren varios inquilinos](../concepts/enterprise.md) pueden usar el mismo proceso para configurar Azure Lighthouse y consolidar su experiencia de administración.
+
+Puede repetir el proceso de incorporación de varios clientes. Cuando un usuario con permisos apropiados inicia sesión en el inquilino administrador, se puede autorizar a ese usuario en los ámbitos del inquilino del cliente para realizar operaciones de administración sin tener que iniciar sesión en todos y cada uno de los inquilinos de cliente individuales.
+
+Para realizar el seguimiento del impacto en las involucraciones de los clientes y recibir el reconocimiento correspondiente, asocie el identificador de Microsoft Partner Network (MPN) con al menos una cuenta de usuario con acceso a cada una de las suscripciones incorporadas. Tendrá que realizar esta asociación en el inquilino del proveedor de servicios. Para simplificar, se recomienda crear en el inquilino una cuenta de entidad de servicio asociada al identificador de MPN y concederle acceso de lectura a todos los clientes que incorpore. Para obtener más información, vea [Vinculación de un Id. de partner a cuentas de Azure](../../cost-management-billing/manage/link-partner-id.md).
+
+> [!NOTE]
+> Los clientes también se pueden incorporar a Azure Lighthouse cuando compran una oferta de servicios administrados (pública o privada) que [haya publicado en Azure Marketplace](publish-managed-services-offers.md). También puede usar el proceso de incorporación que se describe aquí con una oferta publicada en Azure Marketplace.
+
+El proceso de incorporación requiere que se tomen medidas desde el inquilino del proveedor de servicios y del inquilino del cliente. Todos estos pasos se describen en este artículo.
 
 ## <a name="gather-tenant-and-subscription-details"></a>Recopilación de los detalles del inquilino y la suscripción
 
@@ -65,14 +65,16 @@ az account show
 
 ## <a name="define-roles-and-permissions"></a>Definir roles y permisos
 
-Como proveedor de servicios, es posible que quiera realizar varias tareas para un solo cliente, lo que requiere un acceso diferente para distintos ámbitos. Puede definir tantas autorizaciones como necesite para asignar [roles integrados de control de acceso basado en rol (RBAC)](../../role-based-access-control/built-in-roles.md) a los usuarios de su inquilino.
+Como proveedor de servicios, es posible que quiera realizar varias tareas para un solo cliente, lo que requiere un acceso diferente para distintos ámbitos. Puede definir tantas autorizaciones como necesite para asignar los [roles integrados de control de acceso basado en rol (RBAC)](../../role-based-access-control/built-in-roles.md) a los usuarios de su inquilino.
 
-Para facilitar la administración, se recomienda usar grupos de usuarios de Azure AD para cada rol, lo que le permite agregar o quitar usuarios individuales en el grupo, en lugar de asignar permisos directamente a ese usuario. También es posible que quiera asignar roles a una entidad de servicio. Asegúrese de seguir el principio de privilegios mínimos para que los usuarios solo tengan los permisos necesarios para completar su trabajo. Para obtener recomendaciones e información sobre los roles admitidos, consulte [Inquilinos, usuarios y roles en escenarios de Azure Lighthouse](../concepts/tenants-users-roles.md).
+Para facilitar la administración, se recomienda usar grupos de usuarios de Azure AD para cada rol. Esto le ofrece la flexibilidad para agregar o quitar usuarios individuales del grupo que tiene acceso, de modo que no tenga que repetir el proceso de incorporación para realizar cambios en el usuario. Puede asignar roles a una entidad de servicio, lo que puede ser útil para escenarios de automatización.
+
+Al definir las autorizaciones, asegúrese de seguir el principio de privilegios mínimos para que los usuarios solo tengan los permisos necesarios para completar su trabajo. Para obtener recomendaciones e información sobre los roles admitidos, consulte [Inquilinos, usuarios y roles en escenarios de Azure Lighthouse](../concepts/tenants-users-roles.md).
 
 > [!IMPORTANT]
 > Para agregar permisos a un grupo de Azure AD, el **tipo de grupo** debe ser **Seguridad** y no **Office 365**. Esta opción se selecciona cuando se crea el grupo. Para obtener más información vea [Creación de un grupo básico e incorporación de miembros con Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-Para definir las autorizaciones, debe conocer los valores de identificador de cada usuario, grupo de usuarios o entidad de servicio en el inquilino del proveedor de servicios al que quiera conceder acceso. También necesitará el identificador de definición de roles para cada rol integrado que quiera asignar. Si aún no los tiene, puede recuperarlos ejecutando los comandos a continuación en el inquilino del proveedor de servicios.
+Para definir las autorizaciones, tiene que conocer los valores de identificador de cada usuario, grupo de usuarios o entidad de servicio en el inquilino del proveedor de servicios al que quiera conceder acceso. También necesitará el identificador de definición de roles para cada rol integrado que quiera asignar. Si aún no los tiene, puede recuperarlos ejecutando los comandos a continuación en el inquilino del proveedor de servicios.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -86,7 +88,7 @@ Para definir las autorizaciones, debe conocer los valores de identificador de ca
 (Get-AzADUser -UserPrincipalName '<yourUPN>').id
 
 # To retrieve the objectId for an SPN
-(Get-AzADApplication -DisplayName '<appDisplayName>').objectId
+(Get-AzADApplication -DisplayName '<appDisplayName>' | Get-AzADServicePrincipal).Id
 
 # To retrieve role definition IDs
 (Get-AzRoleDefinition -Name '<roleName>').id
@@ -109,16 +111,17 @@ az ad sp list --query "[?displayName == '<spDisplayName>'].objectId" --output ts
 # To retrieve role definition IDs
 az role definition list --name "<roleName>" | grep name
 ```
+
 > [!TIP]
 > Se recomienda asignar el [rol de eliminación de asignación del registro de servicios administrados](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) al incorporar un cliente, de modo que los usuarios del inquilino puedan [quitar el acceso a la delegación](remove-delegation.md) más adelante si es necesario. Si este rol no está asignado, solo un usuario puede quitar los recursos delegados del inquilino del cliente.
 
 ## <a name="create-an-azure-resource-manager-template"></a>Creación de una plantilla de Azure Resource Manager
 
-Para incorporar el cliente, deberá crear una plantilla de [Azure Resource Manager](../../azure-resource-manager/index.yml) para la oferta con la información siguiente. Los valores **mspOfferName** y **mspOfferDescription** serán visibles para el cliente al ver los detalles de la oferta en la [página de proveedores de servicios](view-manage-service-providers.md) de Azure Portal.
+Para incorporar el cliente, deberá crear una plantilla de [Azure Resource Manager](../../azure-resource-manager/index.yml) para la oferta con la información siguiente. Los valores **mspOfferName** y **mspOfferDescription** serán visibles para el cliente en la [página de proveedores de servicios](view-manage-service-providers.md) de Azure Portal.
 
 |Campo  |Definición  |
 |---------|---------|
-|**mspOfferName**     |Nombre que describe esta definición. Este valor se muestra al cliente como el título de la oferta.         |
+|**mspOfferName**     |Nombre que describe esta definición. Este valor se muestra al cliente como el título de la oferta y debe ser un valor único.        |
 |**mspOfferDescription**     |Breve descripción de la oferta (por ejemplo, "oferta de administración de VM de Contoso").      |
 |**managedByTenantId**     |El identificador de inquilino.          |
 |**authorizations**     |Los valores de **principalId** para los usuarios/grupos/SPN del inquilino, cada uno de ellos con un valor de **principalIdDisplayName** para ayudar a su cliente a entender el propósito de la autorización y asignarla a un valor de **roleDefinitionId** integrado para especificar el nivel de acceso.      |
@@ -135,7 +138,7 @@ La plantilla que elija dependerá de si se incorpora una suscripción completa, 
 |Suscripción (al usar una oferta publicada en Azure Marketplace)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!IMPORTANT]
-> El proceso que se describe aquí requiere una implementación en el nivel de suscripción independiente para cada suscripción que se está incorporando, incluso si va a incorporar suscripciones en el mismo inquilino de cliente. También se necesitan implementaciones independientes si se incorporan varios grupos de recursos en distintas suscripciones del mismo inquilino del cliente. Sin embargo, la incorporación de varios grupos de recursos dentro de una sola suscripción puede realizarse en una implementación en el nivel de suscripción.
+> El proceso que se describe aquí requiere una implementación independiente para cada suscripción que se está incorporando, incluso si va a incorporar suscripciones en el mismo inquilino de cliente. También se necesitan implementaciones independientes si se incorporan varios grupos de recursos en distintas suscripciones del mismo inquilino del cliente. Sin embargo, la incorporación de varios grupos de recursos dentro de una sola suscripción puede realizarse en una implementación.
 >
 > También se necesitan implementaciones independientes para varias ofertas que se aplican a la misma suscripción (o grupos de recursos dentro de una suscripción). Cada oferta aplicada debe usar un valor de **mspOfferName** diferente.
 
@@ -196,14 +199,22 @@ La última autorización del ejemplo anterior agrega un valor de **principalId**
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Implementación de las plantillas de Azure Resource Manager
 
-Una vez actualizado el archivo de parámetros, un usuario del inquilino del cliente debe implementar la plantilla de Azure Resource Manager en su inquilino como implementación de nivel de suscripción. Se necesita una implementación independiente para cada suscripción que quiera incorporar (o para cada suscripción que contenga grupos de recursos que quiera incorporar).
-
-Dado que se trata de una implementación de nivel de suscripción, no se puede iniciar en Azure Portal. La implementación puede realizarse mediante PowerShell o la CLI de Azure, como se muestra a continuación.
+Una vez actualizado el archivo de parámetros, un usuario del inquilino del cliente debe implementar la plantilla de Azure Resource Manager en su inquilino. Se necesita una implementación independiente para cada suscripción que quiera incorporar (o para cada suscripción que contenga grupos de recursos que quiera incorporar).
 
 > [!IMPORTANT]
-> Esta implementación en el nivel de suscripción debe realizarse desde una cuenta que no sea de invitado en el inquilino del cliente que tenga el [rol Propietario integrado](../../role-based-access-control/built-in-roles.md#owner) para la suscripción que se va a incorporar (o que contiene los grupos de recursos que se están incorporando). Para ver todos los usuarios que puedan delegar la suscripción, cualquiera de los usuarios del inquilino del cliente puede seleccionar la suscripción en Azure Portal, abrir **Control de acceso (IAM)** y [ver todos los usuarios con el rol Propietario](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
+> Esta implementación debe realizarse desde una cuenta que no sea de invitado en el inquilino del cliente que tenga el [rol Propietario integrado](../../role-based-access-control/built-in-roles.md#owner) para la suscripción que se va a incorporar (o que contiene los grupos de recursos que se están incorporando). Para ver todos los usuarios que puedan delegar la suscripción, cualquiera de los usuarios del inquilino del cliente puede seleccionar la suscripción en Azure Portal, abrir **Control de acceso (IAM)** y [ver todos los usuarios con el rol Propietario](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription). 
 >
 > Si la suscripción se creó con el [programa Proveedor de soluciones en la nube (CSP)](../concepts/cloud-solution-provider.md), cualquier usuario que tenga el rol de [agente de administración](/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) en el inquilino del proveedor de servicios puede realizar la implementación.
+
+La implementación puede realizarse en Azure Portal, mediante PowerShell o la CLI de Azure, como se muestra a continuación.
+
+### <a name="azure-portal"></a>Azure portal
+
+1. En nuestro [repositorio de GitHub](https://github.com/Azure/Azure-Lighthouse-samples/), seleccione el botón **Deploy to Azure** (Implementar en Azure) que se muestra junto a la plantilla que quiera usar. La plantilla se abrirá en Azure Portal.
+1. Escriba los valores de **Msp Offer Name** (nombre de oferta de MSP), **Msp Offer Description** (descripción de la oferta de MSP), **Managed by Tenant Id** (administrado por id. de inquilino) y **Authorizations** (autorizaciones). Si lo prefiere, puede seleccionar **Editar parámetros** para especificar valores de `mspOfferName`, `mspOfferDescription`, `managedbyTenantId` y `authorizations` directamente en el archivo de parámetros. Asegúrese de actualizar estos valores, en lugar de usar los valores predeterminados de la plantilla.
+1. Seleccione **Revisar y crear** y, luego, **Crear**.
+
+Transcurridos unos minutos, se mostrará una notificación indicando que la implementación se ha completado.
 
 ### <a name="powershell"></a>PowerShell
 

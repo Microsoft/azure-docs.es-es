@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 08e146ebde34c6d85e258c93a1ed1780bb97727b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 6c96c4803293db9d9bacfc43f0de2f7803e6c41c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206440"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836486"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-portal"></a>Creación y administración de Private Link en Azure Database for MariaDB mediante el portal
 
@@ -20,7 +20,7 @@ Un punto de conexión privado es el bloque de creación fundamental para el vín
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 > [!NOTE]
-> Esta característica está disponible en todas las regiones de Azure donde Azure Database for MariaDB admita los planes de tarifa de uso general y optimizado para memoria.
+> La característica de vínculo privado solo está disponible para servidores de Azure Database for MariaDB en los planes de tarifa De uso general u Optimizado para memoria. Asegúrese de que el servidor de bases de datos esté incluido en uno de estos planes de tarifa.
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 Inicie sesión en [Azure Portal](https://portal.azure.com).
@@ -240,7 +240,7 @@ Después de crear **myVm**, conéctese a ella desde Internet como se indica a co
 
 6. (Opcional) Examine las bases de datos del menú izquierdo y cree o consulte información de la base de datos MariaDB
 
-7. Cierre la conexión de Escritorio remoto a myVm.
+7. Cierre la conexión de escritorio remoto a myVm.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 Cuando haya terminado de usar el punto de conexión privado, el servidor MariaDB y la máquina virtual, elimine el grupo de recursos y todos los recursos que contiene:

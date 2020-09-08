@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 06/09/2020
 ms.author: rolyon
-ms.openlocfilehash: a93901bd95d57b29aeb1464652737a77a1a84376
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 343f6b7a78ca98615d512d31d7ac1c10d9de8f10
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84792003"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799339"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevación de los privilegios de acceso para administrar todas las suscripciones y los grupos de administración de Azure
 
@@ -144,6 +144,22 @@ Para quitarse a usted o a otro usuario la asignación del rol de administrador d
     ```
 
 ## <a name="azure-cli"></a>Azure CLI
+
+### <a name="elevate-access-for-a-global-administrator"></a>Elevación de los privilegios de acceso de un administrador global
+
+Utilice los siguientes pasos básicos para elevar los privilegios de acceso de un administrador global mediante la CLI de Azure.
+
+1. Use el comando [az rest](/cli/azure/reference-index?view=azure-cli-latest#az-rest) para llamar al punto de conexión `elevateAccess`, que le concede el rol de administrador de accesos de usuario en el ámbito raíz (`/`).
+
+    ```azurecli
+    az rest --method post --url "/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01"
+    ```
+
+1. Haga los cambios que tenga que hacer con privilegios de acceso elevados.
+
+    Para más información sobre la asignación de roles, consulte [Incorporación o eliminación de asignaciones de roles mediante la CLI de Azure](role-assignments-cli.md).
+
+1. Siga los pasos de una sección posterior para quitar el acceso con privilegios elevados.
 
 ### <a name="list-role-assignment-at-root-scope-"></a>Mostrar la asignación de roles en el ámbito raíz (/)
 

@@ -3,16 +3,16 @@ title: Conexión a Office 365 Outlook
 description: Automatización de tareas y flujos de trabajo que administran el correo electrónico, los contactos y los calendarios en Office 365 Outlook con Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 01/08/2020
+ms.date: 07/27/2020
 tags: connectors
-ms.openlocfilehash: b0f2b8b9c369fdb42c7e0e7f77fc090424ae3729
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e0e152b3c0e10c34bc6213ddf867b79c58d1d767
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75732731"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832984"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Administración del correo electrónico, los contactos y los calendarios en Office 365 Outlook con Azure Logic Apps
 
@@ -29,9 +29,9 @@ Puede usar cualquier desencadenador para iniciar el flujo de trabajo (por ejempl
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Una [cuenta de Office 365](https://www.office.com/).
+* Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 
-* Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/). 
+* Una [cuenta de Office 365](https://www.office.com/).
 
 * La aplicación lógica donde quiere acceder a su cuenta de Office 365 Outlook. Para iniciar el flujo de trabajo con un desencadenador de Office 365 Outlook, necesita una [aplicación lógica en blanco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para agregar una acción de Office 365 Outlook al flujo de trabajo, la aplicación lógica ya debe tener un desencadenador.
 
@@ -46,6 +46,9 @@ Un [desencadenador](../logic-apps/logic-apps-overview.md#logic-app-concepts) es 
    ![Seleccionar el desencadenador para iniciar la aplicación lógica](./media/connectors-create-api-office365-outlook/office365-trigger.png)
 
 1. Si se le pide que inicie sesión, proporcione sus credenciales de Office 365 para que la aplicación lógica pueda conectarse a la cuenta. O bien, si la conexión ya existe, especifique la información de las propiedades del desencadenador.
+
+   > [!NOTE]
+   > La conexión no expira hasta que se revoca, incluso si cambia las credenciales de inicio de sesión. Para obtener más información, consulte [Vigencia de tokens configurables de Azure Active Directory (versión preliminar pública)](../active-directory/develop/active-directory-configurable-token-lifetimes.md).
 
    En este ejemplo se selecciona el calendario que comprueba el desencadenador, por ejemplo:
 
@@ -77,6 +80,9 @@ Una [acción](../logic-apps/logic-apps-overview.md#logic-app-concepts) es una op
 
 1. Si se le pide que inicie sesión, proporcione sus credenciales de Office 365 para que la aplicación lógica pueda conectarse a la cuenta. O bien, si la conexión ya existe, especifique la información de las propiedades de la acción.
 
+   > [!NOTE]
+   > La conexión no expira hasta que se revoca, incluso si cambia las credenciales de inicio de sesión. Para obtener más información, consulte [Vigencia de tokens configurables de Azure Active Directory (versión preliminar pública)](../active-directory/develop/active-directory-configurable-token-lifetimes.md).
+
    En este ejemplo se selecciona la carpeta de contactos en la que la acción crea el nuevo contacto, por ejemplo:
 
    ![Configurar las propiedades de la acción](./media/connectors-create-api-office365-outlook/select-contacts-folder.png)
@@ -85,9 +91,9 @@ Una [acción](../logic-apps/logic-apps-overview.md#logic-app-concepts) es una op
 
 1. En la barra de herramientas del diseñador, seleccione **Save** (Guardar).
 
-## <a name="connector-specific-details"></a>Detalles específicos del conector
+## <a name="connector-reference"></a>Referencia de conectores
 
-Para obtener detalles técnicos sobre los desencadenadores, las acciones y los límites, tal como se describe en el archivo Swagger del conector, consulte la [página de referencia del conector](/connectors/office365connector/). 
+Si necesita detalles técnicos sobre este conector, como los desencadenadores, las acciones y los límites que se describen en el archivo de Swagger del conector, consulte la [página de referencia del conector](/connectors/office365/). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -5,14 +5,15 @@ author: banders
 ms.author: banders
 ms.reviewer: yashar
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: 661e3bfa149718eb2893c5722ab3931a8a9f9afe
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 813cf91195a43a2fc68236febe114c67eb5a3378
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797941"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684616"
 ---
 # <a name="reservation-recommendations"></a>Recomendaciones de reserva
 

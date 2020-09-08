@@ -17,7 +17,7 @@
       items:
         - name: Uso de blobs
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: storage-quickstart-blobs-portal.md
             - name: Explorador de Storage
               href: storage-quickstart-blobs-storage-explorer.md
@@ -111,13 +111,23 @@
           href: storage-samples-blobs-powershell.md
         - name: Azure CLI
           href: storage-samples-blobs-cli.md
-        - name: Elementos integrados de Azure Policy
-          displayName: 'samples, policies, definitions'
-          href: ../common/policy-samples.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Conceptos
       items:
         - name: Cuentas de almacenamiento
           href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Autorización
+          items:
+            - name: Autorización de operaciones de datos
+              href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              items:
+                - name: Autorización con Azure AD
+                  href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Autorización con clave compartida
+                  href: /rest/api/storageservices/authorize-with-shared-key
+                - name: Delegación del acceso con firmas de acceso compartido (SAS)
+                  href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Autorización de operaciones de administración
+              href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Seguridad
           items:
             - name: Recomendaciones de seguridad
@@ -131,17 +141,6 @@
                   href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Claves proporcionadas por el cliente en la solicitud
                   href: ../common/encryption-customer-provided-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Autorización de operaciones de datos
-              href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-              items:
-                - name: Autorización con Azure AD
-                  href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Autorización con clave compartida
-                  href: /rest/api/storageservices/authorize-with-shared-key
-                - name: Delegación del acceso con firmas de acceso compartido (SAS)
-                  href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Autorización de operaciones de administración
-              href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Blobs inalterables
               href: storage-blob-immutable-storage.md
             - name: Protección contra amenazas avanzada
@@ -313,64 +312,66 @@
               href: storage-blob-properties-metadata.md
             - name: Copia de un BLOB (.NET)
               href: storage-blob-copy.md
+        - name: Autorización del acceso a datos de blob
+          items:
+            - name: Opciones de autorización para los usuarios
+              items:
+                - name: Portal
+                  href: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: PowerShell
+                  href: ../common/authorize-active-directory-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Azure CLI
+                  href: ../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Administración de derechos de acceso con RBAC
+              items:
+                - name: Portal
+                  href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: PowerShell
+                  href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Azure CLI
+                  href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Autenticación y autorización con Azure AD
+              items:
+                - name: Autorización con una identidad administrada
+                  href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Autorización desde una aplicación
+                  href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Autorización con clave compartida
+              items:
+                - name: Visualización y administración de claves de cuentas
+                  href: ../common/storage-account-keys-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Configurar cadenas de conexión
+                  href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Uso de la API REST de Azure Storage
+                  href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Evitar autorización con clave compartida
+                  href: ../common/shared-key-authorization-prevent.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Delegación del acceso con firmas de acceso compartido (SAS)
+              items:
+                - name: Creación de una SAS de delegación de usuario
+                  items:
+                    - name: PowerShell
+                      href: storage-blob-user-delegation-sas-create-powershell.md
+                    - name: Azure CLI
+                      href: storage-blob-user-delegation-sas-create-cli.md
+                    - name: .NET
+                      href: storage-blob-user-delegation-sas-create-dotnet.md
+                - name: Creación de una SAS de servicio (.NET)
+                  href: storage-blob-service-sas-create-dotnet.md
+                - name: Creación de una SAS de cuenta (.NET)
+                  href: ../common/storage-account-sas-create-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Definición de una directiva de acceso almacenada
+                  href: ../common/storage-stored-access-policy-define-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Administración del acceso de lectura anónimo a datos de blob
+              items:
+                - name: Configuración del acceso de lectura anónimo para contenedores y blobs
+                  href: anonymous-read-access-configure.md
+                - name: Impedir el acceso de lectura anónimo a datos de blobs
+                  href: anonymous-read-access-prevent.md
+                - name: Acceso anónimo a contenedores y blobs públicos (.NET)
+                  href: anonymous-read-access-client.md
         - name: Protección de los datos de blob
           items:
-            - name: Autorización del acceso a datos de blob
-              items:
-                - name: Opciones de autorización para los usuarios
-                  items:
-                    - name: Portal
-                      href: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: PowerShell
-                      href: ../common/authorize-active-directory-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: Azure CLI
-                      href: ../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Administración de derechos de acceso con RBAC
-                  items:
-                    - name: Portal
-                      href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: PowerShell
-                      href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: Azure CLI
-                      href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Autenticación y autorización con Azure AD
-                  items:
-                    - name: Autorización con una identidad administrada
-                      href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: Autorización desde una aplicación
-                      href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Autorización con clave compartida
-                  items:
-                    - name: Visualización y administración de claves de cuentas
-                      href: ../common/storage-account-keys-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: Configurar cadenas de conexión
-                      href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: Uso de la API REST de Azure Storage
-                      href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Delegación del acceso con firmas de acceso compartido (SAS)
-                  items:
-                    - name: Creación de una SAS de delegación de usuario
-                      items:
-                        - name: PowerShell
-                          href: storage-blob-user-delegation-sas-create-powershell.md
-                        - name: Azure CLI
-                          href: storage-blob-user-delegation-sas-create-cli.md
-                        - name: .NET
-                          href: storage-blob-user-delegation-sas-create-dotnet.md
-                    - name: Creación de una SAS de servicio (.NET)
-                      href: storage-blob-service-sas-create-dotnet.md
-                    - name: Creación de una SAS de cuenta (.NET)
-                      href: ../common/storage-account-sas-create-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: Definición de una directiva de acceso almacenada
-                      href: ../common/storage-stored-access-policy-define-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Administración del acceso de lectura anónimo a datos de blob
-                  items:
-                    - name: Configuración del acceso de lectura anónimo para contenedores y blobs
-                      href: anonymous-read-access-configure.md
-                    - name: Impedir el acceso de lectura anónimo a datos de blobs
-                      href: anonymous-read-access-prevent.md
-                    - name: Acceso anónimo a contenedores y blobs públicos (.NET)
-                      href: anonymous-read-access-client.md
             - name: Administración del cifrado de servicio Azure Storage
               items:
                 - name: Comprobación de si un BLOB está cifrado
@@ -550,6 +551,9 @@
           href: /azure/templates/microsoft.storage/allversions
         - name: Supervisión de datos
           href: ../common/monitor-storage-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Elementos integrados de Azure Policy
+          displayName: 'samples, policies, definitions'
+          href: ../common/policy-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Recursos
       items:
         - name: Actualizaciones de Azure
@@ -566,16 +570,20 @@
               href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Seguridad del Explorador de Azure Storage
               href: ../common/storage-explorer-security.md
+            - name: Control de versiones de blobs del Explorador de Azure Storage
+              href: ../common/storage-explorer-blob-versioning.md
             - name: Ciclo de vida y directiva de soporte técnico del Explorador de Storage
               href: ../common/storage-explorer-support-policy-lifecycle.md
             - name: Accesibilidad al Explorador de Storage
               href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Foro de Azure Storage
+        - name: Azure Storage en Microsoft Q&A
           href: 'https://docs.microsoft.com/answers/topics/azure-blob-storage.html'
         - name: Azure Storage en Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
-        - name: Precios de Blob Storage
+        - name: Precios de blobs en bloques
           href: 'https://azure.microsoft.com/pricing/details/storage/blobs/'
+        - name: Precios de blobs en páginas
+          href: 'https://azure.microsoft.com/pricing/details/storage/page-blobs/'
         - name: Calculadora de precios de Azure
           href: 'https://azure.microsoft.com/pricing/calculator/'
         - name: Vídeos
@@ -705,12 +713,8 @@
                   href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Procedimientos
       items:
-        - name: Crear
-          items:
-            - name: "Creación de una cuenta de almacenamiento (de uso general, versión\_2)"
-              href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Creación de una cuenta de almacenamiento (blob en bloques)
-              href: storage-blob-create-account-block-blob.md
+        - name: Crear una cuenta de almacenamiento
+          href: create-data-lake-storage-account.md
         - name: Migrar
           items:
             - name: Migración desde Data Lake Storage Gen1
@@ -735,6 +739,8 @@
               href: data-lake-storage-explorer.md
             - name: CLI de sistema de archivos de Hadoop
               href: data-lake-storage-use-hdfs-data-lake-storage.md
+            - name: Establecimiento de listas de control de acceso de forma recursiva
+              href: recursive-access-control-lists.md
         - name: Consultar
           items:
             - name: Filtro de datos con aceleración de consultas
@@ -820,6 +826,9 @@
         - name: Plantilla de Resource Manager
           displayName: ARM
           href: /azure/templates/microsoft.storage/allversions
+        - name: Elementos integrados de Azure Policy
+          displayName: 'samples, policies, definitions'
+          href: ../common/policy-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Recursos
       items:
         - name: Problemas conocidos
@@ -842,6 +851,8 @@
               href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Seguridad del Explorador de Azure Storage
               href: ../common/storage-explorer-security.md
+            - name: Control de versiones de blobs del Explorador de Azure Storage
+              href: ../common/storage-explorer-blob-versioning.md
             - name: Ciclo de vida y directiva de soporte técnico del Explorador de Storage
               href: ../common/storage-explorer-support-policy-lifecycle.md
             - name: Accesibilidad al Explorador de Storage

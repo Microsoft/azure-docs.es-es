@@ -11,13 +11,12 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4db0956b1a2dec7626a24de2939941c2384d6a8a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 7d94b8604b2f947463dd760ca7baf25f19a15a26
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080769"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642153"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adición de una aplicación local para el acceso remoto mediante el proxy de aplicación en Azure Active Directory
 
@@ -32,7 +31,7 @@ Este tutorial:
 > * Agrega una aplicación local al inquilino de Azure AD.
 > * Verifica que un usuario de prueba puede iniciar sesión en la aplicación con una cuenta de Azure AD.
 
-## <a name="before-you-begin"></a>Antes de empezar
+## <a name="prerequisites"></a>Requisitos previos
 
 Para agregar una aplicación local a Azure AD, se necesita:
 
@@ -189,7 +188,7 @@ Ahora que ya ha preparado el entorno y ha instalado un conector, está listo par
 
     | Campo | Descripción |
     | :---- | :---------- |
-    | **Nombre** | El nombre de la aplicación que va a aparecer en el panel de acceso y en Azure Portal. |
+    | **Nombre** | El nombre de la aplicación que va a aparecer en Aplicaciones y en Azure Portal. |
     | **Dirección URL interna** | La dirección URL para acceder a la aplicación desde la red privada. Puede especificar una ruta de acceso específica en el servidor back-end para publicar, mientras que el resto del servidor no se publica. De esta forma, puede publicar sitios diferentes en el mismo servidor como aplicaciones diferentes y dar a cada uno un nombre y unas reglas de acceso propios.<br><br>Si publica una ruta de acceso, asegúrese de que incluye todas las imágenes, los scripts y las hojas de estilos necesarias para la aplicación. Por ejemplo, si la aplicación está en https:\//yourapp/app y usa las imágenes que se encuentran en https:\//yourapp/media, debe publicar https:\//yourapp/ como la ruta de acceso. Esta dirección URL interna no tiene que ser la página de inicio que verán los usuarios. Para más información, consulte [Establecimiento de una página principal personalizada para aplicaciones publicadas mediante el proxy de aplicación de Azure AD](application-proxy-configure-custom-home-page.md). |
     | **Dirección URL externa** | La dirección para que los usuarios accedan a la aplicación desde fuera de la red. Si no desea usar el dominio del proxy de aplicación predeterminado, lea sobre el [uso de dominios personalizados en el proxy de aplicación de Azure AD](application-proxy-configure-custom-domain.md).|
     | **Autenticación previa** | La forma en que el proxy de aplicación verifica los usuarios antes de concederles acceso a la aplicación.<br><br>**Azure Active Directory**: el proxy de la aplicación redirige a los usuarios para que inicien sesión en Azure AD, que autentica sus permisos para el directorio y la aplicación. Se recomienda mantener esta opción como predeterminada, para que pueda aprovechar las características de seguridad de Azure AD como el acceso condicional y Multi-Factor Authentication. Se necesita **Azure Active Directory** para la supervisión de la aplicación con Microsoft Cloud Application Security.<br><br>**Acceso directo**: los usuarios no tienen que autenticarse en Azure AD para tener acceso a la aplicación. Esto no impide que pueda configurar los requisitos de autenticación en el back-end. |
@@ -235,6 +234,10 @@ Para probar el inicio de sesión en la aplicación:
 
 Para solucionar problemas, vea [Solución de problemas y mensajes de error de Proxy de aplicación](application-proxy-troubleshoot.md).
 
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Cuando ya no los necesite, elimine los recursos que creó en este tutorial.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, se ha preparado el entorno local para que funcione con el proxy de aplicación y, después, se ha instalado y registrado el conector de proxy de aplicación. A continuación, agregó una aplicación a su inquilino de Azure AD. También comprobó que un usuario puede iniciar sesión en la aplicación con una cuenta de Azure AD.
@@ -250,4 +253,4 @@ Hizo todo esto:
 Ya está preparado para configurar la aplicación para el inicio de sesión único. Use el siguiente vínculo para elegir un método de inicio de sesión único y buscar tutoriales sobre el inicio de sesión único.
 
 > [!div class="nextstepaction"]
-> [Configuración del inicio de sesión único](what-is-single-sign-on.md#choosing-a-single-sign-on-method)
+> [Configuración del inicio de sesión único](sso-options.md#choosing-a-single-sign-on-method)

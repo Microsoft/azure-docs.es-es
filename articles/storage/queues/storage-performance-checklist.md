@@ -8,12 +8,13 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: queues
-ms.openlocfilehash: eb1821537e6e25b05dfdca3107729eecf4c6e1bf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3b9aadf7d9cd27763cafb878d0b35d13a140a304
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75750501"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008410"
 ---
 # <a name="performance-and-scalability-checklist-for-queue-storage"></a>Lista de comprobación de rendimiento y escalabilidad para Queue Storage
 

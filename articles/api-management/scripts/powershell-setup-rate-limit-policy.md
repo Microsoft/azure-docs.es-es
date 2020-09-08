@@ -1,6 +1,6 @@
 ---
 title: 'Ejemplo de script de Azure PowerShell: configuración de la directiva de límite de frecuencia | Microsoft Docs'
-description: 'Ejemplo de script de Azure PowerShell: configuración de la directiva de límite de frecuencia'
+description: Obtenga información sobre cómo configurar la directiva de límite de frecuencia con Azure PowerShell. Consulte un script de ejemplo y los recursos adicionales disponibles.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 11/16/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 991a9fd9fa0717c97a549d371ca47c5b389d1a27
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 40bbd520eb265b70f95c6b365b590727af8ea144
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008768"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87851297"
 ---
 # <a name="set-up-rate-limit-policy"></a>Configuración de la directiva de límite de frecuencia
 

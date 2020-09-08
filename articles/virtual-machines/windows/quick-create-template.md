@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: 11e5d4e31f388dcffe7f1292afa223562d44b20a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: ded59b2f517c5b109dfd00bde2fb73f8351bf821
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832304"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649676"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-using-an-arm-template"></a>Inicio rápido: Creación de una máquina virtual Windows con una plantilla de Resource Manager
 
@@ -33,7 +33,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
-:::code language="json" source="~/quickstart-templates/101-vm-simple-windows/azuredeploy.json" range="1-225" highlight="67-224":::
+:::code language="json" source="~/quickstart-templates/101-vm-simple-windows/azuredeploy.json":::
 
 
 En la plantilla se definen varios recursos:

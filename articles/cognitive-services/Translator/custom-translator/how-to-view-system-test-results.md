@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 05/26/2020
+ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 3361241bf0a330abc18701f93460208b8804a7dc
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 04e21e4bcd56506ba27730ebc1f9b0db8dc39615
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83994269"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509692"
 ---
 # <a name="view-system-test-results"></a>Ver resultados de pruebas del sistema
 
@@ -54,7 +54,7 @@ Haga clic en el vínculo Download Translations (Descargar traducciones) para des
 
 Este archivo zip descargado contiene tres archivos.
 
-1.  **custom.mt.txt:** Este archivo contiene la traducción automática de las oraciones del idioma de origen al idioma de destino que realizó el modelo entrenado con los datos del usuario.
+1.  **custom.mt.txt:** contiene la traducción automática de las oraciones del idioma de origen al idioma de destino que realizó el modelo entrenado con los datos del usuario.
 
 2.  **ref.txt:** contiene las traducciones de las oraciones del idioma de origen proporcionadas por el usuario en el idioma de destino.
 
@@ -68,7 +68,7 @@ Para solicitar una implementación, haga lo siguiente:
 
 1.  Seleccione un proyecto y vaya a la pestaña de modelos.
 
-2. Para cada modelo entrenado correctamente, se muestra un botón "Implementar" si aún no está implementado.
+2. Para cada modelo entrenado correctamente, se muestra un botón "Implementar" si aún no se implementa.
 
     ![Implementación de un modelo](media/how-to/how-to-deploy-model.png)
 
@@ -102,6 +102,6 @@ Para actualizar la configuración de implementación:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Comience a utilizar el modelo de traducción personalizado implementado mediante [Traductor V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Comience a utilizar el modelo de traducción personalizado implementado mediante [Microsoft Translator Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
 - Obtenga información sobre [cómo administrar la configuración](how-to-manage-settings.md) para compartir el área de trabajo y administrar la clave de suscripción.
 - Obtenga información sobre [cómo migrar áreas de trabajo y proyectos](how-to-migrate.md) desde [Microsoft Translator Hub](https://hub.microsofttranslator.com)

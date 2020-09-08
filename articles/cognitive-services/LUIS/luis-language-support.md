@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: 43858015857303d404b1abc0fe410aa462671587
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: b60a777960f3c6f8a2415ca551217d35b7f3497d
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340205"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88588029"
 ---
 # <a name="language-and-region-support-for-luis"></a>Compatibilidad de idiomas y regiones para LUIS
 
@@ -115,8 +115,8 @@ Las referencias culturales siguientes tienen versiones de tokenizador personaliz
 |--|--|--|
 |Alemán<br>`de-de`|1.0.0|Acorta las palabras mediante su división por medio de un tokenizador basado en aprendizaje automático que intenta desglosar las palabras compuestas en sus componentes únicos.<br>Si un usuario escribe `Ich fahre einen krankenwagen` como expresión, se convierte en `Ich fahre einen kranken wagen`. Esto permite el marcado de `kranken` y `wagen` por separado como entidades diferentes.|
 |Alemán<br>`de-de`|1.0.2|Acorta las palabras mediante su división en espacios.<br> Si un usuario escribe `Ich fahre einen krankenwagen` como expresión, sigue siendo un token único. Por lo tanto, `krankenwagen` se marca como una única entidad. |
-|Neerlandés<br>`de-de`|1.0.0|Acorta las palabras mediante su división por medio de un tokenizador basado en aprendizaje automático que intenta desglosar las palabras compuestas en sus componentes únicos.<br>Si un usuario escribe `Ik ga naar de kleuterschool` como expresión, se convierte en `Ik ga naar de kleuter school`. Esto permite el marcado de `kleuter` y `school` por separado como entidades diferentes.|
-|Neerlandés<br>`de-de`|1.0.1|Acorta las palabras mediante su división en espacios.<br> Si un usuario escribe `Ik ga naar de kleuterschool` como expresión, sigue siendo un token único. Por lo tanto, `kleuterschool` se marca como una única entidad. |
+|Neerlandés<br>`nl-nl`|1.0.0|Acorta las palabras mediante su división por medio de un tokenizador basado en aprendizaje automático que intenta desglosar las palabras compuestas en sus componentes únicos.<br>Si un usuario escribe `Ik ga naar de kleuterschool` como expresión, se convierte en `Ik ga naar de kleuter school`. Esto permite el marcado de `kleuter` y `school` por separado como entidades diferentes.|
+|Neerlandés<br>`nl-nl`|1.0.1|Acorta las palabras mediante su división en espacios.<br> Si un usuario escribe `Ik ga naar de kleuterschool` como expresión, sigue siendo un token único. Por lo tanto, `kleuterschool` se marca como una única entidad. |
 
 
 ### <a name="migrating-between-tokenizer-versions"></a>Migración entre versiones de tokenizador

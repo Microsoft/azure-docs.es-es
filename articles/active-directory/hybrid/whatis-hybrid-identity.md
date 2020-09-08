@@ -13,12 +13,12 @@ ms.date: 05/17/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3d681dd06f07f6174e31b59cccf42df5dc16a1e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f74798eeed4764bf2f7b71cb5049fb1c6b3ae077
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "68779847"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278656"
 ---
 # <a name="what-is-hybrid-identity-with-azure-active-directory"></a>¿Qué es la identidad híbrida con Azure Active Directory?
 
@@ -36,7 +36,7 @@ Para lograr la identidad híbrida con Azure AD, se puede usar uno de tres métod
 
 Estos métodos de autenticación también proporcionan funcionales de [inicio de sesión único](how-to-connect-sso.md).  El inicio de sesión único permite que los usuarios inicien sesión automáticamente cuando usan sus dispositivos corporativos y están conectados a la red de la empresa.
 
-Para información adicional, consulte [Selección del método de autenticación adecuado para la solución de identidad híbrida de Azure Active Directory](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn). 
+Para información adicional, consulte [Selección del método de autenticación adecuado para la solución de identidad híbrida de Azure Active Directory](./choose-ad-authn.md). 
 
 ## <a name="common-scenarios-and-recommendations"></a>Escenarios comunes y recomendaciones 
 
@@ -60,7 +60,7 @@ Estos son algunos escenarios comunes de identidad híbrida y administración de 
 > 
 > <sup>3</sup> Inicio de sesión único federado con AD FS.  
 >  
-> <sup>4</sup> AD FS se puede integrar con el PKI de la empresa para permitir el inicio de sesión con certificados. Estos certificados pueden ser certificados flexibles implementados a través de canales de aprovisionamiento de confianza, como certificados MDM o GPO o de tarjetas inteligentes (incluidas las tarjetas PIV/CAC) o Hello para empresas (cert-trust). Para más información sobre la compatibilidad con la autenticación de tarjetas inteligentes, consulte [este blog](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/). 
+> <sup>4</sup> AD FS se puede integrar con el PKI de la empresa para permitir el inicio de sesión con certificados. Estos certificados pueden ser certificados flexibles implementados a través de canales de aprovisionamiento de confianza, como certificados MDM o GPO o de tarjetas inteligentes (incluidas las tarjetas PIV/CAC) o Hello para empresas (cert-trust). Para más información sobre la compatibilidad con la autenticación de tarjetas inteligentes, consulte [este blog](/archive/blogs/samueld/adfs-certauth-aad-o365). 
 > 
 
 ## <a name="license-requirements-for-using-azure-ad-connect"></a>Requisitos de licencia para usar Azure AD Connect
@@ -73,5 +73,4 @@ Estos son algunos escenarios comunes de identidad híbrida y administración de 
 - [¿Qué es la sincronización de hash de contraseñas (PHS)?](whatis-phs.md) 
 - [¿Qué es la autenticación de paso a través (PTA)?](how-to-connect-pta.md) 
 - [¿Qué es la federación?](whatis-fed.md) 
-- [¿Qué es el inicio de sesión único?](how-to-connect-sso.md) 
-
+- [¿Qué es el inicio de sesión único?](how-to-connect-sso.md)

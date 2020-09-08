@@ -3,7 +3,7 @@ title: 'Tutorial`:` Uso de identidades administradas para acceder a Azure Storag
 description: Este tutorial contiene directrices acerca de cómo utilizar una identidad administrada asignada por el sistema de una máquina virtual Linux para acceder a Azure Storage.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/04/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86f875fa80f8bb8dd33a369a23f49833162cd417
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4c00c723c23e2f0d962009d33a6abe1008c734a5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78273814"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266279"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Tutorial: Uso de identidades administradas asignadas por el sistema de una máquina virtual Linux para acceder a Azure Storage utilizando una clave de acceso
 
@@ -78,7 +78,7 @@ En este paso, va a conceder a la identidad administrada asignada por el sistema 
 
 En el resto del tutorial, vamos a trabajar desde la máquina virtual que se creó anteriormente.
 
-Para completar estos pasos, necesitará un cliente SSH. Si usa Windows, puede usar el cliente SSH en el [Subsistema de Windows para Linux](https://msdn.microsoft.com/commandline/wsl/install_guide). Si necesita ayuda para configurar las claves del cliente de SSH, consulte [Uso de SSH con Windows en Azure](../../virtual-machines/linux/ssh-from-windows.md) o [Creación y uso de un par de claves SSH pública y privada para máquinas virtuales Linux en Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+Para completar estos pasos, necesitará un cliente SSH. Si usa Windows, puede usar el cliente SSH en el [Subsistema de Windows para Linux](/windows/wsl/install-win10). Si necesita ayuda para configurar las claves del cliente de SSH, consulte [Uso de SSH con Windows en Azure](../../virtual-machines/linux/ssh-from-windows.md) o [Creación y uso de un par de claves SSH pública y privada para máquinas virtuales Linux en Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. En Azure Portal, vaya a **Máquinas virtuales**, vaya a la máquina virtual Linux y, a continuación, desde la página **Información general**, haga clic en **Conectar** en la parte superior. Copie la cadena para conectarse a la máquina virtual. 
 2. Conéctese a la máquina virtual mediante un cliente SSH.  
@@ -127,7 +127,7 @@ Cree un archivo blob de ejemplo para cargar en el contenedor de almacenamiento d
 echo "This is a test file." > test.txt
 ```
 
-A continuación, autentíquese con el comando `az storage` de la CLI con la clave de acceso al almacenamiento y cargue el archivo en el contenedor de blobs. Para este paso, necesitará [instalar la CLI de Azure más reciente](https://docs.microsoft.com/cli/azure/install-azure-cli) en su máquina virtual, si no lo ha hecho ya.
+A continuación, autentíquese con el comando `az storage` de la CLI con la clave de acceso al almacenamiento y cargue el archivo en el contenedor de blobs. Para este paso, necesitará [instalar la CLI de Azure más reciente](/cli/azure/install-azure-cli) en su máquina virtual, si no lo ha hecho ya.
  
 
 ```azurecli-interactive
@@ -199,4 +199,4 @@ Respuesta:
 En este tutorial, ha aprendido a utilizar una identidad administrada asignada por el sistema de una máquina virtual Linux para acceder a Azure Storage utilizando una clave de acceso.  Para obtener más información sobre las claves de acceso de Azure Storage, vea:
 
 > [!div class="nextstepaction"]
->[Administración de las claves de acceso de almacenamiento](/azure/storage/common/storage-create-storage-account)
+>[Administración de las claves de acceso de almacenamiento](../../storage/common/storage-account-create.md)

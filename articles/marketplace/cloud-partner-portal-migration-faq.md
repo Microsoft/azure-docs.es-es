@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 59f66b88c998a78f5bd3ccf3757cb791aea2521b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 55b789363397945e01d02d76cb0e573660d18b67
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87279311"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607502"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Preguntas más frecuentes sobre la transición de Cloud Partner Portal al Centro de partners
 
@@ -20,17 +20,17 @@ Cloud Partner Portal se ha convertido en el Centro de partners. El Centro de par
 
 ## <a name="what-does-the-transition-to-partner-center-mean-for-me"></a>¿Qué significa la transición al Centro de partners?
 
-Puede seguir haciendo negocios como de costumbre en el Centro de partners:
+Puede seguir haciendo negocios en el Centro de partners:
 
 | Área<img src="" width=200px> | Cambios |
 | --- | --- |
 | Cuenta | No es necesario crear una cuenta del Centro de partners; puede usar las credenciales de Cloud Partner Portal existentes para iniciar sesión en el Centro de partners, donde podrá administrar la cuenta, los usuarios, los permisos y la facturación. El contrato de publicación y la información de perfil de empresa se migran a la nueva cuenta del Centro de partners, junto con cualquier información de perfil de pago de cuenta, permisos y cuentas de usuario, y ofertas activas. Obtenga más información en [Administración de la cuenta de marketplace comercial en el Centro de partners](partner-center-portal/manage-account.md). |
-| Experiencia de administración y publicación de ofertas | Los datos de la oferta se han migrado de Cloud Partner Portal al Centro de partners. Ahora accederá a las ofertas en el Centro de partners, que ofrece una mejor experiencia de usuario y una interfaz intuitiva. Obtenga información sobre la [Actualización de una oferta existente en el marketplace comercial](partner-center-portal/update-existing-offer.md). |
+| Experiencia de administración y publicación de ofertas | Los datos de la oferta se han migrado de Cloud Partner Portal al Centro de partners. Ahora accederá a las ofertas en el Centro de partners, que ofrece una mejor experiencia de usuario y una interfaz intuitiva. Aprenda a [actualizar una oferta existente en el marketplace comercial](partner-center-portal/update-existing-offer.md). |
 | Disponibilidad de las ofertas en el marketplace comercial | Sin cambios. Si la oferta está activa en el marketplace comercial, lo seguirá estando. |
 | Nuevas compras e implementaciones | Sin cambios. Los clientes pueden seguir comprando e implementando las ofertas sin interrupciones. |
 | Pagos | Todas las compras e implementaciones se le seguirán pagando de la forma habitual. Obtenga más información sobre la [Recepción de pagos en el marketplace comercial](partner-center-portal/get-paid.md). |
 | Integraciones de API con las [API de Cloud Partner Portal](cloud-partner-portal-api-overview.md) existentes | Todavía se admiten las API de Cloud Partner Portal existentes y las integraciones existentes siguen funcionando. Obtenga más información en [¿Se admitirán las API REST de Cloud Partner Portal?](#are-the-cloud-partner-portal-rest-apis-still-supported) |
-| Análisis | Mediante el examen de los análisis en el Centro de partners puede seguir supervisando las ventas, evaluando el rendimiento y optimizando las ofertas en el marketplace comercial. Existen diferencias entre cómo se muestran los informes de análisis en CPP y en el Centro de partners. Por ejemplo, **Información para el vendedor** en CPP tiene una pestaña **Orders & Usage** (Pedidos y uso) que muestra los datos de las ofertas basadas y no en el uso, mientras que en el Centro de partners, la página **Pedidos** tiene una pestaña aparte para las ofertas SaaS. Más información en [Acceso a los informes de análisis del marketplace comercial en el Centro de partners](partner-center-portal/analytics.md). |
+| Análisis | Mediante el examen de los análisis en el Centro de partners puede seguir supervisando las ventas, evaluando el rendimiento y optimizando las ofertas en el marketplace comercial. Existen diferencias entre cómo se muestran los informes de análisis en CPP y en el Centro de partners. Por ejemplo, **Información para el vendedor** en CPP tiene una pestaña **Orders & Usage** (Pedidos y uso) que muestra los datos de las ofertas basadas o no basadas en el uso, mientras que, en el Centro de partners, la página **Pedidos** tiene una pestaña aparte para las ofertas de SaaS. Más información en [Acceso a los informes de análisis del marketplace comercial en el Centro de partners](partner-center-portal/analytics.md). |
 |||
 
 ## <a name="do-i-need-to-create-a-new-account-to-manage-my-offers-in-partner-center"></a>¿Es necesario crear una cuenta para administrar las ofertas en el Centro de partners?
@@ -143,7 +143,7 @@ Las actualizaciones que no publique se guardan como borradores. Siga usando la v
 
 ### <a name="enhanced-preview-options"></a>Opciones de vista previa mejoradas
 
-El Centro de partners incluye una [característica de comparación](partner-center-portal/update-existing-offer.md#compare-changes-to-marketplace-offers) con opciones de filtrado mejoradas. Esto le ofrece la posibilidad de comparar con la versión preliminar y las versiones publicadas de la oferta.
+El Centro de partners incluye una [característica de comparación](partner-center-portal/update-existing-offer.md#compare-changes-to-commercial-marketplace-offers) con opciones de filtrado mejoradas. Esto le ofrece la posibilidad de comparar con la versión preliminar y las versiones publicadas de la oferta.
 
 [![Captura de pantalla que muestra la característica de comparación del Centro de partners](media/cpp-pc-faq/compare.png "Se muestra la característica Comparar del Centro de partners")](media/cpp-pc-faq/compare.png#lightbox)
 

@@ -5,16 +5,16 @@ services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.reviewer: mihansen
+ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
-ms.openlocfilehash: a6805fc686d0bc5bd0e2357828d59d40ba05f248
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 1c64468a2e420734ca51a5b9308bb52e13712c51
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "84870392"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852929"
 ---
 # <a name="testing-the-fhir-api"></a>Prueba de la API de FHIR
 En los dos pasos anteriores, se ha implementado Azure API for FHIR y se ha registrado la aplicación cliente. Ya está preparado para probar que su instancia de Azure API for FHIR está configurada con la aplicación cliente. 
@@ -22,11 +22,11 @@ En los dos pasos anteriores, se ha implementado Azure API for FHIR y se ha regis
 ## <a name="retrieve-capability-statement"></a>Recuperación de la instrucción de funcionalidad
 En primer lugar, se obtendrá la instrucción de funcionalidad de Azure API for FHIR. 
 1. Abra Postman.
-1. Recupere la instrucción de funcionalidad mediante GET https://\<NOMBRE-DE-SERVIDOR-DE-FHIR>.azurehealthcareapis.com/metadata. En la imagen siguiente, el nombre del servidor de FHIR es **fhirserver**.
+1. Recupere la declaración de capacidad mediante GET https://\<FHIR-SERVER-NAME>.azurehealthcareapis.com/metadata. En la imagen siguiente, el nombre del servidor de FHIR es **fhirserver**.
 
 ![Instrucción de funcionalidad](media/tutorial-web-app/postman-capability-statement.png)
 
-A continuación, se intentará recuperar a un paciente. Para recuperar a un paciente, escriba GET https://\<NOMBRE-DE-SERVIDOR-DE-FHIR>.azurehealthcareapis.com/Patient. Aparecerá un error 401 de falta de autorización. Este error se debe a que no ha demostrado que puede acceder a los datos del paciente.
+A continuación, se intentará recuperar a un paciente. Para recuperar un paciente, escriba GET https://\<FHIR-SERVER-NAME>.azurehealthcareapis.com/Patient. Aparecerá un error 401 de falta de autorización. Este error se debe a que no ha demostrado que puede acceder a los datos del paciente.
 
 ## <a name="get-patient-from-fhir-server"></a>Obtención de un paciente del servidor de FHIR
 ![Paciente con error](media/tutorial-web-app/postman-patient-authorization-failed.png)
@@ -41,11 +41,11 @@ Para acceder, necesita un token de acceso.
 |Nombre del token           |Nombre para el token                                               |
 |Tipo de concesión           |Código de autorización                                                  |
 |Dirección URL de devolución de llamadas         |https://www.getpostman.com/oauth2/callback                          |
-|Dirección URL de autenticación             |https://login.microsoftonline.com/\<AZURE-AD-TENANT-ID>/oauth2/?resource=https://\<FHIR-SERVER-NAME>.azurehealthcareapis.com|
-|Dirección URL de token de acceso     |https://login.microsoftonline.com/\<AZURE-AD-TENANT-ID>/oauth2/token|
+|Dirección URL de autenticación             |https://login.microsoftonline.com/\<AZURE-AD-TENANT-ID> /oauth2/?resource=https://\<FHIR-SERVER-NAME>.azurehealthcareapis.com|
+|Dirección URL del token de acceso     |https://login.microsoftonline.com/\<AZURE-AD-TENANT-ID> /oauth2/token|
 |Id. de cliente            |Identificador de cliente copiado en los pasos anteriores             |
-|Secreto del cliente        |\<EN BLANCO>                                                            |
-|Ámbito                |\<EN BLANCO>                                                            |
+|Secreto del cliente        |\<BLANK>                                                            |
+|Ámbito                |\<BLANK>                                                            |
 |State                |1234                                                                |
 |Autenticación de clientes|Envío de credenciales de cliente en el cuerpo                                     |
 

@@ -1,23 +1,26 @@
 ---
 title: 'Inicio rápido: Reconocimiento de la entrada de lápiz digital con la API REST Ink Recognizer y C#'
 titleSuffix: Azure Cognitive Services
-description: En este inicio rápido se indica cómo usar la API Ink Recognizer para comenzar a reconocer los trazos de entrada de lápiz digital.
+description: En este inicio rápido se indica cómo usar API Ink Recognizer y C# para comenzar a reconocer los trazos de entrada de lápiz digital.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 06/30/2020
+ms.date: 08/24/2020
 ms.author: aahi
-ms.openlocfilehash: f61566c3d5efa7f973141253353fde7e4893bc6e
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a4bb02f11c7a9a75ddc96e0ee8e9f4b868f8ade5
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986081"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051600"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Inicio rápido: Reconocimiento de la entrada de lápiz digital con la API REST Ink Recognizer y C#
+
+[!INCLUDE [ink-recognizer-deprecation](../includes/deprecation-note.md)]
 
 Use este inicio rápido para comenzar a enviar trazos de entrada de lápiz digital a la API Ink Recognizer. Esta aplicación de C# envía una solicitud de API que contiene datos del trazo de entrada de lápiz con formato JSON y muestra la respuesta.
 

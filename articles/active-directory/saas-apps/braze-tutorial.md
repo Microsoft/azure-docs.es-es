@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Braze | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Braze.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: e8748f49-9a4a-4a9e-a196-dc8311f15f13
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/10/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52a53735ebf8e0e4affa7daf6c345de6bf467228
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9c1b4bd0cd4a96c3ae1e95480fe0bd485afe7111
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72373454"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545376"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-braze"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Braze
 

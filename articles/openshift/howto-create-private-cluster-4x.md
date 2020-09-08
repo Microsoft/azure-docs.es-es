@@ -8,12 +8,12 @@ author: ms-jasondel
 ms.author: jasondel
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: 581587382c3bfd03ed329672e5c6ca065554d1c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c196d48d22a2bd714c4b6252ad927d18790f4674
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83727443"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056778"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Creación de un clúster privado de la versión 4 de Red Hat OpenShift en Azure
 
@@ -23,24 +23,9 @@ En este artículo, preparará su entorno para crear clústeres privados de Red H
 > * Configurar los requisitos previos y crear la red virtual y las subredes necesarias.
 > * Implementar un clúster con un punto de conexión de servidor de API privado y un controlador de entrada privado.
 
-Si decide instalar y usar la CLI localmente, este tutorial requiere que ejecute la versión 2.0.75 de la CLI de Azure, o cualquier otra versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Si decide instalar y usar la CLI de forma local, en este tutorial es preciso que ejecute la CLI de Azure, versión 2.6.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="before-you-begin"></a>Antes de empezar
-
-### <a name="install-the-az-aro-extension"></a>Instalación de la extensión "az aro"
-La extensión `az aro` permite crear, acceder y eliminar clústeres de Red Hat OpenShift en Azure directamente desde la línea de comandos mediante la CLI de Azure.
-
-Para instalar la extensión `az aro`, ejecute el siguiente comando.
-
-```azurecli-interactive
-az extension add -n aro --index https://az.aroapp.io/stable
-```
-
-Si ya tiene la extensión instalada, puede actualizarla ejecutando el siguiente comando.
-
-```azurecli-interactive
-az extension update -n aro --index https://az.aroapp.io/stable
-```
 
 ### <a name="register-the-resource-provider"></a>Registrar el proveedor de recursos
 
@@ -48,21 +33,6 @@ A continuación, es preciso que registre el proveedor de recursos `Microsoft.Red
 
 ```azurecli-interactive
 az provider register -n Microsoft.RedHatOpenShift --wait
-```
-
-Compruebe que la extensión está registrada.
-
-```azurecli-interactive
-az -v
-```
-
-  Obtendrá una salida similar a la siguiente.
-
-```output
-...
-Extensions:
-aro                                1.0.0
-...
 ```
 
 ### <a name="get-a-red-hat-pull-secret-optional"></a>Obtención de un secreto de extracción de Red Hat (opcional)

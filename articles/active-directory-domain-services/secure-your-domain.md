@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 6c5e0779ce0dfe2730a60873316c66184e038a35
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 50cf58f83115cfb8c84fe7b2a37b6664c2d9c567
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039881"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116689"
 ---
 # <a name="disable-weak-ciphers-and-password-hash-synchronization-to-secure-an-azure-active-directory-domain-services-managed-domain"></a>Deshabilitación de los cifrados poco seguros y de la sincronización de hash de contraseñas para proteger un dominio administrado de Azure Active Directory Domain Services
 
@@ -74,6 +74,11 @@ Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySetti
 ```
 
 La configuración de seguridad tarda unos minutos en aplicarse al dominio administrado.
+
+> [!IMPORTANT]
+> Después de desactivar NTLM, efectúe una sincronización completa de hash de contraseñas en Azure AD Connect para quitar todos los valores hash de contraseña del dominio administrado. Si desactiva NTLM pero no fuerza la sincronización de hash de contraseñas, los valores hash de contraseña de NTLM para una cuenta de usuario solo se eliminarán en el siguiente cambio de contraseña. Este comportamiento podría permitir a un usuario iniciar sesión si las credenciales están almacenadas en caché en un sistema que utiliza NTLM como método de autenticación.
+>
+> Cuando el hash de contraseña NTLM es diferente al hash de contraseña de Kerberos, recurrir a NTLM no será una alternativa. Las credenciales almacenadas en caché tampoco funcionarán si la máquina virtual tiene conectividad con el controlador de dominio administrado.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 

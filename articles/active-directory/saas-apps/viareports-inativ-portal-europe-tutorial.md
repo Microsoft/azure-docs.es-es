@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Viareport (Europa) | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Viareport (Europa).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 249a61c6-a32e-40cc-a46a-268b89652f74
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/30/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7589875356c3d40248c798e753a0e95d900c5b4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c4c1ffa4d8e9b175ced40671f1ac3d092b51c8c3
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68825506"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88532029"
 ---
 # <a name="tutorial-integrate-viareport-europe-with-azure-active-directory"></a>Tutorial: Integración de Viareport (Europa) con Azure Active Directory
 

@@ -2,14 +2,14 @@
 title: Escenarios para usar una red virtual
 description: Escenarios, recursos y limitaciones para implementar grupos de contenedores en una red virtual de Azure.
 ms.topic: article
-ms.date: 04/29/2020
+ms.date: 08/11/2020
 ms.author: danlep
-ms.openlocfilehash: c4e983e7d83e661b4ba50ebe2c6d65bce2f42514
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 0474a5f85829080a89a74195483484c464de5840
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259538"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870772"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>Escenarios y recursos de red virtual
 
@@ -42,6 +42,8 @@ Los grupos de contenedores implementados en una red virtual de Azure permiten es
 * No puede usar una [identidad administrada](container-instances-managed-identity.md) en un grupo de contenedores implementado en una red virtual.
 * No puede habilitar un [sondeo de ejecución](container-instances-liveness-probe.md) o un [sondeo de preparación](container-instances-readiness-probe.md) en un grupo de contenedores implementado en una red virtual.
 * Debido a los recursos de red adicionales que intervienen, las implementaciones en una red virtual suelen ser más lentas que las de una instancia de contenedor estándar.
+
+[!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
 
 ## <a name="where-to-deploy"></a>Lugar de implementación
 
@@ -78,6 +80,7 @@ En el diagrama siguiente, se han implementado varios grupos de contenedores en u
 * Puede encontrar ejemplos de implementación mediante la CLI de Azure en [Implementación de instancias de contenedor en una red virtual de Azure](container-instances-vnet.md).
 * Para implementar una nueva red virtual, subred, perfil de red y grupo de contenedores mediante una plantilla de Resource Manager, consulte el artículo sobre la [creación de un grupo de contenedores de Azure con VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
 ).
+* Al utilizar el [Azure Portal](container-instances-quickstart-portal.md) para crear una instancia de contenedor, también puede incluir la configuración de una red virtual nueva o existente en la pestaña **Redes**.
 
 
 <!-- IMAGES -->

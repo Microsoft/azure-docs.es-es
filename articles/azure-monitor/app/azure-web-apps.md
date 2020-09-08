@@ -2,14 +2,14 @@
 title: Supervisar el rendimiento de Azure App Services | Microsoft Docs
 description: Supervisión del rendimiento de aplicaciones de Azure App Services. Carga y tiempo de respuesta de gráfico, información de dependencia y establecer alertas en el rendimiento.
 ms.topic: conceptual
-ms.date: 12/11/2019
-ms.custom: devx-track-javascript
-ms.openlocfilehash: f96d994f9f88a0debf110de2ca4f6da60e8ea3bc
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.date: 08/06/2020
+ms.custom: devx-track-javascript, devx-track-dotnet
+ms.openlocfilehash: 1e06aacaa12a428b42090ecb8e8ae89ae1e5ad76
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373171"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933807"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Supervisar el rendimiento de Azure App Service
 
@@ -114,16 +114,14 @@ Las aplicaciones web de App Service basadas en Python no admiten actualmente la 
 
 La supervisión de cliente está habilitada en ASP.NET. Para habilitar la supervisión de cliente:
 
-* Seleccione **Configuración** >** **Configuración de la aplicación** **
-   * En la configuración de la aplicación, agregue un nuevo **nombre de la configuración de la aplicación** y **valor**:
+* **Parámetros** **>** **Configuración**
+   * En Configuración de la aplicación, cree una **nueva configuración de la aplicación**:
 
      Nombre: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
      Valor: `true`
 
    * **Guarde** la configuración y **reinicie** la aplicación.
-
-![Captura de pantalla de la interfaz de usuario de la configuración de la aplicación](./media/azure-web-apps/appinsights-javascript-enabled.png)
 
 Para deshabilitar la supervisión de cliente, quite el par clave-valor asociado de la configuración de la aplicación o establezca el valor en false.
 
@@ -133,16 +131,14 @@ La supervisión de cliente está **habilitada de manera predeterminada** para la
 
 Si por algún motivo quiere deshabilitar la supervisión de cliente:
 
-* Seleccione **Configuración** > **Configuración de la aplicación**
-   * En la configuración de la aplicación, agregue un nuevo **nombre de la configuración de la aplicación** y **valor**:
+* **Parámetros** **>** **Configuración**
+   * En Configuración de la aplicación, cree una **nueva configuración de la aplicación**:
 
      Nombre: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
      Valor: `false`
 
    * **Guarde** la configuración y **reinicie** la aplicación.
-
-![Captura de pantalla de la interfaz de usuario de la configuración de la aplicación](./media/azure-web-apps/appinsights-javascript-disabled.png)
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
@@ -396,6 +392,12 @@ Si usa APPINSIGHTS_JAVASCRIPT_ENABLED=true en casos donde el contenido está cod
 Esto se debe a que la configuración de la aplicación APPINSIGHTS_JAVASCRIPT_ENABLED está establecida en true y la codificación de contenido está presente al mismo tiempo. Este escenario aún no se admite. La solución consiste en quitar APPINSIGHTS_JAVASCRIPT_ENABLED de la configuración de la aplicación. Esto significa que si la instrumentación de JavaScript del lado cliente o explorador sigue siendo necesaria, se necesitan referencias del SDK manuales para las páginas web. Siga las [instrucciones](https://github.com/Microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) para la instrumentación manual con el SDK de JavaScript.
 
 Para obtener la información más reciente sobre la extensión o el agente de Application Insights, consulte las [notas de la versión](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
+
+### <a name="default-website-deployed-with-web-apps-does-not-support-automatic-client-side-monitoring"></a>El sitio web predeterminado implementado con las aplicaciones web no admite la supervisión automática de cliente.
+
+Cuando se crea una aplicación web con los entornos de ejecución `ASP.NET` o `.NET Core` en instancias de Azure App Service, implementa una única página HTML estática como sitio web de inicio. La página web estática también carga un elemento web administrado de .NET en IIS. Esto permite probar la supervisión sin código del lado servidor, pero no admite la supervisión automática de cliente.
+
+Si desea probar el servidor sin código y la supervisión de cliente para ASP.NET o ASP.NET Core en una aplicación web de Azure App Services, se recomienda seguir las guías oficiales para [crear una aplicación web ASP.NET Core](../../app-service/quickstart-dotnetcore.md) y [crear una aplicación web de ASP.NET Framework](../../app-service/quickstart-dotnet-framework.md) y después usar las instrucciones del artículo actual para habilitar la supervisión.
 
 ### <a name="php-and-wordpress-are-not-supported"></a>PHP y WordPress no se admiten
 

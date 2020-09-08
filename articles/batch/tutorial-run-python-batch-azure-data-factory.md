@@ -4,15 +4,15 @@ description: 'Tutorial: Aprenda a ejecutar scripts de Python como parte de una c
 author: mammask
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 07/29/2020
+ms.date: 08/12/2020
 ms.author: komammas
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 9b58aa06b67f01cf9ce0b30cef0326185124306c
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: f4c71cffe00faa6dd8cc440c59f94b8c2d60f712
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853320"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185118"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Tutorial: Ejecución de scripts de Python mediante Azure Data Factory con Azure Batch
 
@@ -67,8 +67,7 @@ Aquí podrá crear contenedores de blobs que almacenarán la entrada y salida de
 1. Inicie sesión en Explorador de Storage con sus credenciales de Azure.
 1. Con la cuenta de almacenamiento vinculada a su cuenta de Batch, cree dos contenedores de blobs (uno para los archivos de entrada y otro para los de salida); para ello, siga los pasos descritos en [Creación de un contenedor de blobs](../vs-azure-tools-storage-explorer-blobs.md#create-a-blob-container).
     * En este ejemplo, llamaremos a nuestro contenedor de entrada `input` y al contenedor de salida, `output`.
-1. Cargue `main.py` e [`iris.csv`](https://www.kaggle.com/uciml/iris/version/2#Iris.csv) en el contenedor de entrada `input` con el Explorador de Azure Storage; para ello, siga los pasos que se indican en [Administración de blobs de un contenedor de blobs](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container)
-
+1. Cargue [`iris.csv`](https://www.kaggle.com/uciml/iris/version/2#Iris.csv)en el contenedor de entrada `input` con el Explorador de Storage; para ello, siga los pasos que se indican en [Administración de blobs de un contenedor de blobs](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container).
 
 ## <a name="develop-a-script-in-python"></a>Desarrollo de un script en Python
 

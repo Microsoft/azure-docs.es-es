@@ -5,24 +5,24 @@ description: Los grupos de conmutación por error automática permiten administr
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: high-availability
-ms.custom: sqldbrb=2
+ms.custom: sqldbrb=2, devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 07/09/2020
-ms.openlocfilehash: ecc2925b52679c5807c9fa79a67d7b45411df526
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/28/2020
+ms.openlocfilehash: 3b81ce6e1b77db7b89f293850e2d00fde5d40cfa
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014038"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89076521"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Uso de grupos de conmutación por error automática para permitir la conmutación por error de varias bases de datos de manera transparente y coordinada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Los grupos de conmutación por error automática permiten administrar la replicación y la conmutación por error de un grupo de bases de datos en un servidor o de todas las bases de datos de una instancia administrada en otra región. Se trata de una abstracción declarativa sobre la característica de [replicación geográfica activa](active-geo-replication-overview.md) existente, diseñada para simplificar la implementación y administración de bases de datos con replicación geográfica a escala. Puede iniciar la conmutación por error manualmente o puede delegarla en el servicio de Azure según una directiva definida por el usuario. La última opción le permite recuperar automáticamente varias bases de datos relacionadas en una región secundaria después de errores catastróficos u otros eventos no planeados que generen una pérdida total o parcial de la disponibilidad de SQL Database o Instancia administrada de SQL en la región primaria. Un grupo de conmutación por error puede incluir una o varias bases de datos, utilizadas normalmente por la misma aplicación. Además, puede usar las bases de datos secundarias legibles para descargar las cargas de trabajo de consulta de solo lectura. Debido a que los grupos de conmutación por error automática implican varias bases de datos, se deben configurar en el servidor principal. Los grupos de conmutación por error automática admiten la replicación de todas las bases de datos en el grupo solo a una instancia o un servidor secundario en otra región.
+La característica de los grupos de conmutación por error automática permite administrar la replicación y la conmutación por error en otra región de un grupo de bases de datos de un servidor o de todas las bases de datos de una instancia administrada. Se trata de una abstracción declarativa sobre la característica de [replicación geográfica activa](active-geo-replication-overview.md) existente, diseñada para simplificar la implementación y administración de bases de datos con replicación geográfica a escala. Puede iniciar la conmutación por error manualmente o puede delegarla en el servicio de Azure según una directiva definida por el usuario. La última opción le permite recuperar automáticamente varias bases de datos relacionadas en una región secundaria después de errores catastróficos u otros eventos no planeados que generen una pérdida total o parcial de la disponibilidad de SQL Database o Instancia administrada de SQL en la región primaria. Un grupo de conmutación por error puede incluir una o varias bases de datos, utilizadas normalmente por la misma aplicación. Además, puede usar las bases de datos secundarias legibles para descargar las cargas de trabajo de consulta de solo lectura. Debido a que los grupos de conmutación por error automática implican varias bases de datos, se deben configurar en el servidor principal. Los grupos de conmutación por error automática admiten la replicación de todas las bases de datos en el grupo solo a una instancia o un servidor secundario en otra región.
 
 > [!NOTE]
 > Si desea tener varias instancias de Azure SQL Database secundarias en la misma región o en regiones diferentes, use la [replicación geográfica activa](active-geo-replication-overview.md).
@@ -89,11 +89,11 @@ Para lograr una verdadera continuidad empresarial, agregar redundancia de base d
 
 - **Agente de escucha de lectura-escritura de grupo de conmutación por error**
 
-  Un registro CNAME de DNS que apunta a la dirección URL de la base de datos principal actual. Se crea automáticamente cuando se crea el grupo de conmutación por error y permite que la carga de trabajo de lectura y escritura se vuelva a conectar de forma transparente a la base de datos principal cuando esta cambia después de la conmutación por error. Cuando se crea el grupo de conmutación por error en un servidor, el registro CNAME de DNS para la dirección URL del cliente de escucha tiene el formato `<fog-name>.database.windows.net`. Cuando se crea el grupo de conmutación por error en Instancia administrada de SQL, el registro CNAME de DNS para la dirección URL del cliente de escucha tiene el formato `<fog-name>.zone_id.database.windows.net`.
+  Un registro CNAME de DNS que apunta a la dirección URL de la base de datos principal actual. Se crea automáticamente cuando se crea el grupo de conmutación por error y permite que la carga de trabajo de lectura y escritura se vuelva a conectar de forma transparente a la base de datos principal cuando esta cambia después de la conmutación por error. Cuando se crea el grupo de conmutación por error en un servidor, el registro CNAME de DNS para la dirección URL del cliente de escucha tiene el formato `<fog-name>.database.windows.net`. Cuando se crea el grupo de conmutación por error en Instancia administrada de SQL, el registro CNAME de DNS para la dirección URL del cliente de escucha tiene el formato `<fog-name>.<zone_id>.database.windows.net`.
 
 - **Agente de escucha de solo lectura de grupo de conmutación por error**
 
-  Un registro CNAME de DNS formado que apunta al agente de escucha de solo lectura que apunta a la dirección URL de la base de datos secundaria. Se crea automáticamente cuando se crea el grupo de conmutación por error y permite que la carga de trabajo de SQL de solo lectura se vuelva a conectar de forma transparente a la secundaria con las reglas de equilibrio de carga especificadas. Cuando se crea el grupo de conmutación por error en un servidor, el registro CNAME de DNS para la dirección URL del cliente de escucha tiene el formato `<fog-name>.secondary.database.windows.net`. Cuando se crea el grupo de conmutación por error en Instancia administrada de SQL, el registro CNAME de DNS para la dirección URL del cliente de escucha tiene el formato `<fog-name>.zone_id.secondary.database.windows.net`.
+  Un registro CNAME de DNS formado que apunta al agente de escucha de solo lectura que apunta a la dirección URL de la base de datos secundaria. Se crea automáticamente cuando se crea el grupo de conmutación por error y permite que la carga de trabajo de SQL de solo lectura se vuelva a conectar de forma transparente a la secundaria con las reglas de equilibrio de carga especificadas. Cuando se crea el grupo de conmutación por error en un servidor, el registro CNAME de DNS para la dirección URL del cliente de escucha tiene el formato `<fog-name>.secondary.database.windows.net`. Cuando se crea el grupo de conmutación por error en Instancia administrada de SQL, el registro CNAME de DNS para la dirección URL del cliente de escucha tiene el formato `<fog-name>.secondary.<zone_id>.database.windows.net`.
 
 - **Directiva de conmutación por error automática**
 
@@ -135,7 +135,7 @@ Para lograr una verdadera continuidad empresarial, agregar redundancia de base d
   
 ## <a name="permissions"></a>Permisos
 
-Los permisos para un grupo de conmutación por error se administran a través del [control de acceso basado en rol (RBAC)](../../role-based-access-control/overview.md). El rol [Colaborador de SQL Server](../../role-based-access-control/built-in-roles.md#sql-server-contributor) tiene todos los permisos necesarios para administrar grupos de conmutación por error.
+Los permisos para un grupo de conmutación por error se administran a través del [control de acceso basado en rol de Azure (Azure RBAC)](../../role-based-access-control/overview.md). El rol [Colaborador de SQL Server](../../role-based-access-control/built-in-roles.md#sql-server-contributor) tiene todos los permisos necesarios para administrar grupos de conmutación por error.
 
 ### <a name="create-failover-group"></a>Creación de un grupo de conmutación por error
 
@@ -203,7 +203,7 @@ Para ilustrar la secuencia de cambios, supondremos que el servidor A es el servi
 1. Realice una conmutación por error planeada para cambiar el servidor principal a B. El servidor A se convertirá en el nuevo servidor secundario. La conmutación por error puede producir varios minutos de tiempo de inactividad. El tiempo real dependerá del tamaño del grupo de conmutación por error.
 2. Cree instancias secundarias adicionales de cada base de datos del servidor B en el servidor C mediante la [replicación geográfica activa](active-geo-replication-overview.md). Cada base de datos del servidor B tendrá dos secundarios, uno en el servidor A y otro en el servidor C. Esto garantizará que las bases de datos principales permanezcan protegidas durante la transición.
 3. Elimine el grupo de conmutación por error. En este momento, se producirá un error en los inicios de sesión. Esto se debe a que se han eliminado los alias de SQL para los agentes de escucha del grupo de conmutación por error y la puerta de enlace no reconoce el nombre del grupo de conmutación por error.
-4. Vuelva a crear el grupo de conmutación por error con el mismo nombre entre los servidores A y C. En este momento, se dejarán de producir errores en los inicios de sesión.
+4. Vuelva a crear el grupo de conmutación por error con el mismo nombre entre los servidores B y C. En este momento, se dejarán de producir errores en los inicios de sesión.
 5. Agregue todas las bases de datos principales del servidor B al nuevo grupo de conmutación por error.
 6. Realice una conmutación por error planeada del grupo de conmutación por error para cambiar los servidores B y C. Ahora, el servidor C será el principal y el B será el secundario. Todas las bases de datos secundarias del servidor A se vincularán automáticamente a las instancias principales de C. Como en el paso 1, la conmutación por error puede producir varios minutos de tiempo de inactividad.
 7. Quite el servidor A. Todas las bases de datos de dicho servidor se eliminarán automáticamente.
@@ -231,7 +231,7 @@ Para garantizar la conectividad sin interrupciones a la Instancia administrada d
 > [!IMPORTANT]
 > La primera Instancia administrada creada en la subred determina la zona DNS de todas las instancias posteriores de la misma subred. Esto significa que dos instancias de la misma subred no pueden pertenecer a zonas DNS diferentes.
 
-Para obtener más información sobre cómo crear la Instancia administrada de SQL secundaria en la misma zona DNS que la instancia principal, consulte [Creación de una instancia administrada secundaria](../managed-instance/failover-group-add-instance-tutorial.md#3---create-a-secondary-managed-instance).
+Para obtener más información sobre cómo crear la Instancia administrada de SQL secundaria en la misma zona DNS que la instancia principal, consulte [Creación de una instancia administrada secundaria](../managed-instance/failover-group-add-instance-tutorial.md#create-a-secondary-managed-instance).
 
 ### <a name="enabling-replication-traffic-between-two-instances"></a>Habilitación del tráfico de replicación entre dos instancias
 
@@ -257,13 +257,13 @@ Al realizar operaciones OLTP, use `<fog-name>.zone_id.database.windows.net` como
 
 ### <a name="using-read-only-listener-to-connect-to-the-secondary-instance"></a>Uso del agente de escucha de solo lectura para conectarse a la instancia secundaria
 
-Si tiene una carga de trabajo de solo lectura que es tolerante a una cierta obsolescencia de los datos, puede usar la base de datos secundaria en la aplicación. Para conectarse directamente a la base de datos secundaria con replicación geográfica, use `server.secondary.zone_id.database.windows.net` como dirección URL del servidor y la conexión se realizará directamente a dicha base de datos.
+Si tiene una carga de trabajo de solo lectura que es tolerante a una cierta obsolescencia de los datos, puede usar la base de datos secundaria en la aplicación. Para conectarse directamente a la base de datos secundaria con replicación geográfica, use `<fog-name>.secondary.<zone_id>.database.windows.net` como dirección URL del servidor y la conexión se realizará directamente a dicha base de datos.
 
 > [!NOTE]
 > En determinados niveles de servicio, SQL Database admite el uso de [réplicas de solo lectura](read-scale-out.md) para equilibrar las cargas de trabajo de consultas de solo lectura mediante la capacidad de una réplica de solo lectura y el uso del parámetro `ApplicationIntent=ReadOnly` en la cadena de conexión. Cuando se ha configurado una base de datos secundaria con replicación geográfica, puede usar esta funcionalidad para conectarse a una réplica de solo lectura de la ubicación principal o de la ubicación con replicación geográfica.
 >
-> - Para conectarse a una réplica de solo lectura en la ubicación principal, use `<fog-name>.zone_id.database.windows.net`.
-> - Para conectarse a una réplica de solo lectura en la ubicación secundaria, use `<fog-name>.secondary.zone_id.database.windows.net`.
+> - Para conectarse a una réplica de solo lectura en la ubicación principal, use `<fog-name>.<zone_id>.database.windows.net`.
+> - Para conectarse a una réplica de solo lectura en la ubicación secundaria, use `<fog-name>.secondary.<zone_id>.database.windows.net`.
 
 ### <a name="preparing-for-performance-degradation"></a>Preparación para la degradación del rendimiento
 
@@ -398,7 +398,7 @@ Tenga en cuenta las siguientes limitaciones:
 
 ## <a name="programmatically-managing-failover-groups"></a>Administración mediante programación de grupos de conmutación por error
 
-Como se ha mencionado antes, los grupos de conmutación automática por error y la replicación geográfica activa también pueden administrarse mediante programación con Azure PowerShell y la API REST. En las tablas siguientes se describe el conjunto de comandos disponibles. La replicación geográfica activa incluye un conjunto de API de Azure Resource Manager para la administración, en el que se incluyen la [API REST de Azure SQL Database](https://docs.microsoft.com/rest/api/sql/) y los [cmdlets de Azure PowerShell](https://docs.microsoft.com/powershell/azure/). Estas API requieren que se usen grupos de recursos y admiten la seguridad basada en roles (RBAC). Para más información sobre cómo implementar los roles de acceso, consulte [Control de acceso basado en roles de Azure](../../role-based-access-control/overview.md).
+Como se ha mencionado antes, los grupos de conmutación automática por error y la replicación geográfica activa también pueden administrarse mediante programación con Azure PowerShell y la API REST. En las tablas siguientes se describe el conjunto de comandos disponibles. La replicación geográfica activa incluye un conjunto de API de Azure Resource Manager para la administración, en el que se incluyen la [API REST de Azure SQL Database](https://docs.microsoft.com/rest/api/sql/) y los [cmdlets de Azure PowerShell](https://docs.microsoft.com/powershell/azure/). Estas API requieren que se usen grupos de recursos y admiten la seguridad basada en roles (RBAC). Para más información sobre cómo implementar los roles de acceso, consulte [Control de acceso basado en roles de Azure (Azure RBAC)](../../role-based-access-control/overview.md).
 
 ### <a name="manage-sql-database-failover"></a>Administración de la conmutación por error de SQL Database
 

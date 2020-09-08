@@ -2,15 +2,17 @@
 title: Cifrado de contenido con Azure Portal
 description: En este inicio rápido se muestra cómo configurar el cifrado para el contenido mediante Azure Media Services en Azure Portal.
 ms.topic: quickstart
-ms.date: 06/08/2020
-ms.openlocfilehash: 6ff3c14039f9199053d3d43c6ce4488c2692b336
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.date: 08/31/2020
+ms.openlocfilehash: e42b2d4487f2f51c082f22068160a02b3dcbb0a5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84988853"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263644"
 ---
 # <a name="quickstart-use-portal-to-encrypt-content"></a>Inicio rápido: Uso del portal para cifrar contenido
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Use Azure Media Services para proteger su contenido multimedia desde el momento en que este deja el equipo hasta el almacenamiento, el procesamiento y la entrega. Con Media Services puede entregar el contenido cifrado de forma dinámica en vivo y a petición con el Estándar de cifrado avanzado (AES-128) o cualquiera de los tres sistemas de administración de derechos digitales (DRM) principales: Microsoft PlayReady, Google Widevine y Apple FairPlay. Media Services también proporciona un servicio para entregar claves AES y licencias de DMR (PlayReady, Widevine y FairPlay) a los clientes autorizados. 
  

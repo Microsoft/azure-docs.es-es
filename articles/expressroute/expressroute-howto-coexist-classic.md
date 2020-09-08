@@ -3,17 +3,17 @@ title: 'Configuración de conexiones coexistentes de VPN de sitio a sitio y Expr
 description: Este artículo le guiará en la configuración de conexiones ExpressRoute y VPN de sitio a sitio que puedan coexistir en el modelo de implementación clásica.
 documentationcenter: na
 services: expressroute
-author: charwen
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/06/2019
-ms.author: charwen
-ms.openlocfilehash: 673c0e7af4be330f3d63d2fe6ed68c73142da5d2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: duau
+ms.openlocfilehash: 4291e0df9f3a99cb45d4f96d4a316f9bb29a9c79
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084813"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89396155"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Configuración de conexiones de ExpressRoute y de sitio a sitio coexistentes (modelo de implementación clásica)
 > [!div class="op_single_selector"]

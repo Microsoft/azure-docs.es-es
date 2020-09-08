@@ -65,7 +65,7 @@
                   href: ../azure-monitor/insights/container-insights-azure-redhat-setup.md
                   maintainContext: true
                 - name: "Deshabilitación de Azure Monitor para contenedores en Red Hat OpenShift en Azure\_3.11"
-                  href: ../azure-monitor/insights/container-insights-optout-openshift.md
+                  href: ../azure-monitor/insights/container-insights-optout-openshift-v3.md
                   maintainContext: true
         - name: "Ejecución de contenedores con privilegios en Red Hat OpenShift en Azure\_3.11"
           href: howto-run-privileged-containers.md
@@ -79,6 +79,8 @@
   items:
     - name: "Redes en clústeres de Red Hat OpenShift en Azure\_4"
       href: concepts-networking.md
+    - name: "Migración de Azure Red Hat OpenShift\_3.11 a Azure Red Hat OpenShift\_4"
+      href: migration.md
 - name: Referencia
   items:
     - name: CLI de Red Hat OpenShift en Azure
@@ -95,6 +97,8 @@
       href: supported-resources.md
     - name: "Recursos compatibles con Red Hat OpenShift en Azure\_4.3"
       href: support-policies-v4.md
+    - name: "Ciclo de vida del soporte técnico de Red Hat OpenShift en Azure\_4"
+      href: support-lifecycle.md
     - name: Disponibilidad regional
       href: 'https://azure.microsoft.com/regions/services/'
     - name: "Documentación de la versión\_4.3 de Red Hat OpenShift en Azure"

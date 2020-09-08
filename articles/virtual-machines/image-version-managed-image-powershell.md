@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: c119ebc8d87c00608fc515099711463f47b8ed1a
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: c1b40cc8d52ffe5655401f7698790cdc05898331
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87901817"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225552"
 ---
 # <a name="migrate-from-a-managed-image-to-a-shared-image-gallery-image"></a>Migración de una imagen administrada a una imagen de Shared Image Gallery
 
@@ -117,7 +117,7 @@ $job.State
 > [!NOTE]
 > Deberá esperar a que la versión de la imagen termine de compilarse y replicarse por completo antes de poder usar la misma imagen administrada para crear otra versión de la imagen. 
 >
-> También puede almacenar la imagen en almacenamiento Premium al agregar `-StorageAccountType Premium_LRS`, o en el [almacenamiento con redundancia de zona](../storage/common/storage-redundancy.md) al agregar `-StorageAccountType Standard_ZRS` durante la creación de la versión de la imagen.
+> También puede almacenar la imagen en almacenamiento Premium agregando `-StorageAccountType Premium_LRS`, o en el [almacenamiento con redundancia de zona](../storage/common/storage-redundancy.md) agregando `-StorageAccountType Standard_ZRS` al crear la versión de la imagen.
 >
 
 ## <a name="delete-the-managed-image"></a>Eliminación de la imagen administrada

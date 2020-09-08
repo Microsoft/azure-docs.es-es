@@ -13,14 +13,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 04c4157ab44864ba7063150a624d6d3927141091
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: d513a11761fec64c8d0732a61740475be52d727f
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038824"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89262045"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Realización de streaming en vivo con codificadores locales mediante .NET
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)

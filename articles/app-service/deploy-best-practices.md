@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: addc4edba734c350a1e0e4246203c64315f345dd
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: b4581b7e93cde9d6ba9a20d46ee263a879c05402
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88081058"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961880"
 ---
 # <a name="deployment-best-practices"></a>Procedimientos recomendados de implementación
 
@@ -127,7 +127,7 @@ En el script, inicie sesión con `az login --service-principal` y proporcione la
 
 ### <a name="java"></a>Java
 
-Use la API[ zipdeploy/](deploy-zip.md) de Kudu para implementar las aplicaciones JAR y [wardeploy/](deploy-zip.md#deploy-war-file) para las aplicaciones WAR. Si usa Jenkins, puede usar esas API directamente en la fase de implementación. Para obtener más información, consulte [este artículo](../jenkins/execute-cli-jenkins-pipeline.md).
+Use la API[ zipdeploy/](deploy-zip.md) de Kudu para implementar las aplicaciones JAR y [wardeploy/](deploy-zip.md#deploy-war-file) para las aplicaciones WAR. Si usa Jenkins, puede usar esas API directamente en la fase de implementación. Para obtener más información, consulte [este artículo](/azure/developer/jenkins/deploy-to-azure-app-service-using-azure-cli).
 
 ### <a name="node"></a>Nodo
 
@@ -149,7 +149,7 @@ Use siempre la memoria caché local junto con [ranuras de implementación](deplo
 
 Si el Plan de App Service usa más del 90 % de la CPU o la memoria disponibles, es posible que la máquina virtual subyacente tenga problemas para procesar la implementación. Cuando esto suceda, escale de forma temporal el número de instancias para realizar la implementación. Una vez finalizada la implementación, puede devolver el número de instancias a su valor anterior.
 
-Para obtener más información sobre los procedimientos recomendados, visite [Diagnósticos de App Service](https://docs.microsoft.com/azure/app-service/overview-diagnostics) para obtener información sobre los procedimientos recomendados viables específicos para el recurso.
+Para obtener más información sobre los procedimientos recomendados, visite [Diagnósticos de App Service](./overview-diagnostics.md) para obtener información sobre los procedimientos recomendados viables específicos para el recurso.
 
 - Vaya a la aplicación web en [Azure Portal](https://portal.azure.com).
 - En el panel izquierdo, haga clic en **Diagnosticar y solucionar problemas** para abrir la página Diagnósticos de App Service.

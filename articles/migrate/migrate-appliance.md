@@ -3,12 +3,12 @@ title: Dispositivo con Azure Migrate
 description: Proporciona información general sobre el dispositivo de Azure Migrate usado en la evaluación y migración del servidor.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 99b29839028432a6b760265b641d35cdf33ee57f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: a313d7b964e6ea849acb5b034ed55975b8c5b524
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122139"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927528"
 ---
 # <a name="azure-migrate-appliance"></a>Dispositivo con Azure Migrate
 
@@ -43,11 +43,11 @@ En la tabla siguiente se resumen los requisitos del dispositivo de Azure Migrate
 **Requisito** | **VMware** 
 --- | ---
 **Permisos** | Para acceder a la aplicación web del dispositivo de forma local o remota, debe ser un administrador de dominio o un administrador local en la máquina del dispositivo.
-**Componentes del dispositivo** | El dispositivo tiene los componentes siguientes:<br/><br/> - **Aplicación de administración**: una aplicación web para la entrada del usuario durante la implementación del dispositivo. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/> - **Agente de detección**: un agente que reúne los datos de configuración de la máquina. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/>- **Agente de valoración**: un agente que recopila datos de rendimiento. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/>- **Servicio de actualización automática**: actualiza los componentes del dispositivo (se ejecuta cada 24 horas).<br/>- **Agente de recuperación de datos (DRA)** : organiza la replicación de VM y coordina la comunicación entre las máquinas replicadas y Azure. Solo se usa al replicar máquinas virtuales de VMware en Azure mediante la migración sin agentes.<br/>- **Puerta de enlace**: Envía los datos replicados a Azure. Solo se usa al replicar máquinas virtuales de VMware en Azure mediante la migración sin agentes.
+**Componentes del dispositivo** | El dispositivo tiene los componentes siguientes:<br/><br/> - **Aplicación de administración**: una aplicación web para la entrada del usuario durante la implementación del dispositivo. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/> - **Agente de detección**: un agente que reúne los datos de configuración de la máquina. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/>- **Agente recopilador**: un agente que recopila datos de rendimiento. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/>- **Servicio de actualización automática**: actualiza los componentes del dispositivo (se ejecuta cada 24 horas).<br/>- **Agente de recuperación de datos (DRA)** : organiza la replicación de VM y coordina la comunicación entre las máquinas replicadas y Azure. Solo se usa al replicar máquinas virtuales de VMware en Azure mediante la migración sin agentes.<br/>- **Puerta de enlace**: Envía los datos replicados a Azure. Solo se usa al replicar máquinas virtuales de VMware en Azure mediante la migración sin agentes.
 **Implementación admitida** | Impleméntelo como máquina virtual de VMware mediante la plantilla de OVA.<br/><br/> Impleméntelo como máquina física o máquina virtual de VMware mediante el script de instalación de PowerShell.
 **Compatibilidad con proyectos** |  Un dispositivo solo puede estar asociado a un proyecto. <br/> Se puede asociar cualquier número de dispositivos a un solo proyecto.<br/> 
 **Límites de detección** | Un dispositivo puede detectar hasta 10 000 máquinas virtuales de VMware en una instancia de vCenter Server.<br/> Un dispositivo solo puede conectarse a una instancia de vCenter Server.
-**Plantilla de OVA** | Descárguela del portal o en https://aka.ms/migrate/appliance/vmware.<br/><br/> El tamaño de la descarga es de 10,9 GB.<br/><br/> La plantilla del dispositivo descargada incluye una licencia de evaluación de Windows Server 2016 que es válida durante 180 días. Si el período de evaluación está a punto de expirar, se recomienda descargar e implementar un nuevo dispositivo, o bien activar la licencia del sistema operativo de la máquina virtual del dispositivo.
+**Plantilla de OVA** | Descarga desde el portal o desde [aquí](https://go.microsoft.com/fwlink/?linkid=2140333).<br/><br/> El tamaño de la descarga es de 11,6 GB.<br/><br/> La plantilla del dispositivo descargada incluye una licencia de evaluación de Windows Server 2016 que es válida durante 180 días. Si el período de evaluación está a punto de expirar, se recomienda descargar e implementar un nuevo dispositivo, o bien activar la licencia del sistema operativo de la máquina virtual del dispositivo.
 **Script de PowerShell** | Consulte este [artículo](./deploy-appliance-script.md#set-up-the-appliance-for-vmware).<br/><br/> 
 **Software/hardware** |  El dispositivo debe ejecutarse en una máquina con Windows Server 2016, 32 GB de RAM, 8 vCPU, alrededor de 80 GB de almacenamiento en disco y un conmutador virtual externo.<br/> El dispositivo requiere acceso a Internet, ya sea directamente o a través de un proxy.<br/><br/> Si ejecuta el dispositivo en una máquina virtual de VMware, necesitará recursos suficientes en vCenter Server para asignar una máquina virtual que cumpla los requisitos.<br/><br/> Si ejecuta el dispositivo en una máquina física, asegúrese de que está ejecutando Windows Server 2016 y que cumple los requisitos de hardware.
 **Requisitos de VMware** | Si el dispositivo se implementa como una máquina virtual de VMware, debe implementarse en un host ESXi que ejecute la versión 5.5 o una posterior.<br/><br/> vCenter Server que ejecute la versión 5.5, 6.0, 6.5 o 6.7.
@@ -63,11 +63,11 @@ En la tabla siguiente se resumen los requisitos del dispositivo de Azure Migrate
 **Requisito** | **Hyper-V** 
 --- | ---
 **Permisos** | Para acceder a la aplicación web del dispositivo de forma local o remota, debe ser un administrador de dominio o un administrador local en la máquina del dispositivo.
-**Componentes del dispositivo** | El dispositivo tiene los componentes siguientes:<br/><br/>- **Aplicación de administración**: una aplicación web para la entrada del usuario durante la implementación del dispositivo. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/> - **Agente de detección**: un agente que reúne los datos de configuración de la máquina. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/>- **Agente de valoración**: un agente que recopila datos de rendimiento. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/>- **Servicio de actualización automática**: actualiza los componentes del dispositivo (se ejecuta cada 24 horas).
+**Componentes del dispositivo** | El dispositivo tiene los componentes siguientes:<br/><br/>- **Aplicación de administración**: una aplicación web para la entrada del usuario durante la implementación del dispositivo. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/> - **Agente de detección**: un agente que reúne los datos de configuración de la máquina. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/>- **Agente recopilador**: un agente que recopila datos de rendimiento. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/>- **Servicio de actualización automática**: actualiza los componentes del dispositivo (se ejecuta cada 24 horas).
 **Implementación admitida** | Impleméntelo como máquina virtual de Hyper-V mediante una plantilla de VHD.<br/><br/> Impleméntelo como máquina física o máquina virtual de Hyper-V mediante el script de instalación de PowerShell.
 **Compatibilidad con proyectos** |  Un dispositivo solo puede estar asociado a un proyecto. <br/> Se puede asociar cualquier número de dispositivos a un solo proyecto.<br/> 
 **Límites de detección** | Un dispositivo puede detectar hasta 5000 VM de Hyper-V.<br/> Un dispositivo puede conectarse hasta a 300 hosts de Hyper-V.
-**Plantilla de VHD** | Carpeta comprimida que incluye el VHD. Descárguela del portal o en https://aka.ms/migrate/appliance/hyperv.<br/><br/> El tamaño de la descarga es de 10 GB.<br/><br/> La plantilla del dispositivo descargada incluye una licencia de evaluación de Windows Server 2016 que es válida durante 180 días. Si el período de evaluación está a punto de expirar, se recomienda descargar e implementar un nuevo dispositivo, o bien activar la licencia del sistema operativo de la máquina virtual del dispositivo.
+**Plantilla de VHD** | Carpeta comprimida que incluye el VHD. Descarga desde el portal o desde [aquí](https://go.microsoft.com/fwlink/?linkid=2140422).<br/><br/> El tamaño de la descarga es de 10,4 GB.<br/><br/> La plantilla del dispositivo descargada incluye una licencia de evaluación de Windows Server 2016 que es válida durante 180 días. Si el período de evaluación está a punto de expirar, se recomienda descargar e implementar un nuevo dispositivo, o bien activar la licencia del sistema operativo de la máquina virtual del dispositivo.
 **Script de PowerShell** | Consulte este [artículo](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).<br/><br/> 
 **Software/hardware***   |  El dispositivo debe ejecutarse en una máquina con Windows Server 2016, 16 GB de RAM, 8 vCPU, alrededor de 80 GB de almacenamiento en disco y un conmutador virtual externo.<br/> El dispositivo necesita una dirección IP estática o dinámica y requiere acceso a Internet, ya sea directamente o a través de un proxy.<br/><br/> Si se ejecuta el dispositivo como una máquina virtual de Hyper-V, se necesitan recursos suficientes en el host de Hyper-V para asignar 16 GB de RAM, 8 vCPU, alrededor de 80 GB de espacio de almacenamiento y un conmutador externo para la máquina virtual del dispositivo.<br/><br/> Si ejecuta el dispositivo en una máquina física, asegúrese de que está ejecutando Windows Server 2016 y que cumple los requisitos de hardware. 
 **Requisitos de Hyper-V** | Si se implementa el dispositivo con la plantilla de VHD, la máquina virtual del dispositivo que proporciona Azure Migrate es la versión 5.0 de la máquina virtual de Hyper-V.<br/><br/> El host de Hyper-V debe ejecutarse en Windows Server 2012 R2 o posterior. 
@@ -80,11 +80,11 @@ En la tabla siguiente se resumen los requisitos del dispositivo de Azure Migrate
 **Requisito** | **Físico** 
 --- | ---
 **Permisos** | Para acceder a la aplicación web del dispositivo de forma local o remota, debe ser un administrador de dominio o un administrador local en la máquina del dispositivo.
-**Componentes del dispositivo** | El dispositivo tiene los componentes siguientes: <br/><br/> - **Aplicación de administración**: una aplicación web para la entrada del usuario durante la implementación del dispositivo. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/> - **Agente de detección**: un agente que reúne los datos de configuración de la máquina. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/>- **Agente de valoración**: un agente que recopila datos de rendimiento. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/>- **Servicio de actualización automática**: actualiza los componentes del dispositivo (se ejecuta cada 24 horas).
+**Componentes del dispositivo** | El dispositivo tiene los componentes siguientes: <br/><br/> - **Aplicación de administración**: una aplicación web para la entrada del usuario durante la implementación del dispositivo. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/> - **Agente de detección**: un agente que reúne los datos de configuración de la máquina. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/>- **Agente recopilador**: un agente que recopila datos de rendimiento. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/>- **Servicio de actualización automática**: actualiza los componentes del dispositivo (se ejecuta cada 24 horas).
 **Implementación admitida** | Impleméntelo como una máquina física dedicada o una máquina virtual mediante el script de instalación de PowerShell. El script está disponible para su descarga desde el portal.
 **Compatibilidad con proyectos** |  Un dispositivo solo puede estar asociado a un proyecto. <br/> Se puede asociar cualquier número de dispositivos a un solo proyecto.<br/> 
 **Límites de detección** | Un dispositivo puede detectar hasta 1000 servidores físicos.
-**Script de PowerShell** | Descargue el script (AzureMigrateInstaller.ps1) del portal en una carpeta comprimida. [Más información](tutorial-assess-physical.md#set-up-the-appliance). Como alternativa, [descárguelo directamente](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> El tamaño de la descarga es de 63,1 MB.
+**Script de PowerShell** | Descarga del script (AzureMigrateInstaller.ps1) en una carpeta comprimida desde el portal o desde [aquí](https://go.microsoft.com/fwlink/?linkid=2140334). [Más información](tutorial-assess-physical.md#set-up-the-azure-migrate-appliance).<br/><br/> El tamaño de la descarga es de 85 MB.
 **Software/hardware** |  El dispositivo debe ejecutarse en una máquina con Windows Server 2016, 16 GB de RAM, 8 vCPU, alrededor de 80 GB de almacenamiento en disco y un conmutador virtual externo.<br/> El dispositivo necesita una dirección IP estática o dinámica y requiere acceso a Internet, ya sea directamente o a través de un proxy.<br/><br/> Si ejecuta el dispositivo en una máquina física, asegúrese de que está ejecutando Windows Server 2016 y que cumple los requisitos de hardware.<br/> No se admite la ejecución del dispositivo en una máquina con Windows Server 2019.
 **Valor del código hash** | [Compruebe](deploy-appliance-script.md#verify-file-security) los valores hash del script de PowerShell.
 
@@ -465,7 +465,7 @@ El dispositivo se actualiza a medida que se actualizan los agentes de Azure Migr
 Puede activar la actualización automática mediante cualquiera de estos métodos:
 
 - Eliminando la clave del Registro de AutoUpdate de HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.
-- Una vez finalizada la detección, en Appliance Configuration Manager.
+- Haga clic en **Ver servicios del dispositivo** desde las comprobaciones de actualizaciones más recientes en el panel **Configurar los requisitos previos** para activar la actualización automática.
 
 Para eliminar la clave del Registro:
 
@@ -475,24 +475,24 @@ Para eliminar la clave del Registro:
 
 Para realizar la activación desde Appliance Configuration Manager, una vez completada la detección:
 
-1. En la máquina del dispositivo, abra Appliance Configuration Manager.
-2. En **Servicios del dispositivo** > **La actualización automática de los componentes de Azure Migrate está desactivada**, haga clic para activar la actualización automática.
+1. En el administrador de configuración del dispositivo, vaya al panel **Configurar los requisitos previos**.
+2. En la comprobación de actualizaciones más recientes, haga clic en **Ver servicios del dispositivo** y haga clic en el vínculo para activar la actualización automática.
 
-    ![Activar las actualizaciones automáticas](./media/migrate-appliance/turn-on.png)
+    ![Activar las actualizaciones automáticas](./media/migrate-appliance/autoupdate-off.png)
 
 ### <a name="check-the-appliance-services-version"></a>Comprobación de la versión de servicios del dispositivo
 
 Puede comprobar la versión de los servicios del dispositivo con cualquiera de estos métodos:
 
-- En Appliance Configuration Manager, una vez completada la detección.
+- En el administrador de configuración del dispositivo, vaya al panel **Configurar los requisitos previos**.
 - En la máquina del dispositivo, en el **Panel de control** > **Programas y características**.
 
-Para consultarla en Appliance Configuration Manager:
+Para registrar el administrador de configuración del dispositivo:
 
-1. Una vez finalizada la detección, abra Appliance Configuration Manager (en la aplicación web del dispositivo).
-2. En **Servicios del dispositivo**, compruebe las versiones de los servicios del dispositivo.
+1. En el administrador de configuración del dispositivo, vaya al panel **Configurar los requisitos previos**.
+2. En la comprobación de actualizaciones más recientes, haga clic en **Ver servicios del dispositivo**.
 
-    ![Comprobación de la versión](./media/migrate-appliance/version.png)
+    ![Comprobación de la versión](./media/migrate-appliance/versions.png)
 
 Para consultarlo en el Panel de control.
 

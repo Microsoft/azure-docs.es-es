@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 58657ca604e7bd0fc081d6a5bb6ef18a8b7b5b48
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 88d21c7ee092f8d4971770699bdcade4bf40039d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091715"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267809"
 ---
-# <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Uso de Media Services para entregar licencias de DRM a claves AES 
+# <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Uso de Media Services para entregar licencias de DRM a claves AES
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](../latest/index.yml). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-from-v2-to-v3.md).

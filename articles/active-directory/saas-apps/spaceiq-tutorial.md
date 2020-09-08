@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con SpaceIQ | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y SpaceIQ.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 5b55ae29-491f-401f-9299-d3a6b64a1b99
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: b3358ad473ede9e8d78a835e8c68e690e5340638
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 643d2481c171ae58a9d105d3dd7c53c251c2c41f
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67090088"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545036"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spaceiq"></a>Tutorial: Integración de Azure Active Directory con SpaceIQ
 

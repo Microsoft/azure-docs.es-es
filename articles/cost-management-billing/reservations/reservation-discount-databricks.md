@@ -4,15 +4,16 @@ description: Obtenga información sobre cómo se aplica a su uso un descuento de
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 380c4c7fdcccf45d83adaf355c2cc12da0b327fc
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: f5a2102cedfa2b8631c1eb7ff6a3ff2452d315e3
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460327"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690534"
 ---
 # <a name="how-azure-databricks-pre-purchase-discount-is-applied"></a>Cómo se aplica un descuento de compra anticipada de Azure Databricks
 

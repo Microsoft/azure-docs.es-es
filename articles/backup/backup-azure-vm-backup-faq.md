@@ -4,12 +4,12 @@ description: En este artículo, descubra las respuestas a preguntas comunes sobr
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: bf09c4e56c3881987e14d27d5f2166c68e311ab3
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: b29f1a11f6600f013fdf1d5aa71883ab44dfe635
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533502"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761515"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Preguntas más frecuentes sobre la copia de seguridad de máquinas virtuales de Azure
 
@@ -101,6 +101,10 @@ Si cambia las mayúsculas y minúsculas de la máquina virtual o del grupo de re
 
 Azure Backup admite ahora la copia de seguridad y restauración de discos selectivos mediante la solución de copia de seguridad de máquinas virtuales de Azure. Para obtener más información, consulte las [copias de seguridad y restauración de los discos selectivos para VM de Azure](selective-disk-backup-restore.md).
 
+### <a name="are-managed-identities-preserved-if-a-tenant-change-occurs-during-backup"></a>¿Se conservan las identidades administradas si se produce un cambio de inquilino durante la copia de seguridad?
+
+Si se producen [cambios en los inquilinos](https://docs.microsoft.com/azure/devops/organizations/accounts/change-azure-ad-connection), es necesario deshabilitar y volver a habilitar las [identidades administradas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para que las copias de seguridad funcionen de nuevo.
+
 ## <a name="restore"></a>Restauración
 
 ### <a name="how-do-i-decide-whether-to-restore-disks-only-or-a-full-vm"></a>¿Cómo decidir si es necesario restaurar solo los discos o una máquina virtual completa?
@@ -188,3 +192,11 @@ Los puntos de restauración de la máquina virtual anterior estarán disponibles
 ### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy"></a>¿Hay un límite en el número de máquinas virtuales que se pueden asociar con la misma directiva de copia de seguridad?
 
 Sí, hay un límite de 100 máquinas virtuales que se pueden asociar a la misma directiva de copia de seguridad desde el portal. Para más de 100 máquinas virtuales, se recomienda crear varias directivas de copia de seguridad con la misma programación o con una programación diferente.
+
+### <a name="how-can-i-view-the-retention-settings-for-my-backups"></a>¿Cómo se puede ver la configuración de retención de las copias de seguridad?
+
+Actualmente, puede ver la configuración de retención en un nivel de elemento de copia de seguridad (VM) en función de la directiva de copia de seguridad que se asigna a la máquina virtual.
+
+Una manera de ver la configuración de retención de las copias de seguridad consiste en ir al [panel](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard) del elemento de copia de seguridad de la máquina virtual, en Azure Portal. Al hacer clic en el vínculo a su directiva de copia de seguridad, podrá ver la duración de la retención de todos los puntos de retención diarios, semanales, mensuales y anuales asociados a la máquina virtual.
+
+También puede usar el [Explorador de Backup](https://docs.microsoft.com/azure/backup/monitor-azure-backup-with-backup-explorer) para ver la configuración de retención de todas las máquinas virtuales dentro de un único panel. Navegue hasta el Explorador de Backup desde cualquier almacén de Recovery Services, vaya a la pestaña **Elementos de copia de seguridad** y seleccione la vista avanzada para ver información de retención detallada de cada máquina virtual.

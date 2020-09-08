@@ -1,0 +1,58 @@
+- name: Documentación de servidores habilitados para Azure Arc
+  href: index.yml
+- name: Información general
+  items:
+    - name: Acerca de los servidores habilitados para Azure Arc
+      href: overview.md
+    - name: Novedades del agente de Connected Machine
+      href: agent-release-notes.md
+- name: Guías de inicio rápido
+  items:
+    - name: Habilitación del agente de servidores habilitados para Arc
+      href: ./learn/quick-enable-hybrid-vm.md
+- name: Tutoriales
+  items:
+    - name: Asignación de directivas para evaluar el cumplimiento
+      href: ./learn/tutorial-assign-policy-portal.md
+    - name: Supervisión de la máquina
+      href: ./learn/tutorial-enable-vm-insights.md
+- name: Conceptos
+  items:
+    - name: Seguridad
+      items:
+        - name: Controles de seguridad de Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: security-controls-policy.md
+        - name: Introducción a la seguridad
+          href: security-overview.md
+- name: Guías paso a paso
+  items:
+    - name: Conexión a Azure Arc
+      items:
+        - name: Introducción al agente de Connected Machine
+          href: agent-overview.md
+        - name: Conexión de máquinas a Azure Arc desde Azure Portal
+          href: onboard-portal.md
+        - name: Conexión de máquinas a escala mediante una entidad de servicio
+          href: onboard-service-principal.md
+        - name: Conexión de máquinas a Azure Arc con DSC de PowerShell
+          href: onboard-dsc.md
+    - name: Administrar
+      items:
+        - name: Administración y uso de extensiones de máquina virtual de Azure
+          href: manage-vm-extensions.md
+        - name: Administración de agente
+          href: manage-agent.md
+    - name: Solución de problemas
+      items:
+        - name: Problemas de conexión del agente
+          href: troubleshoot-agent-onboard.md
+    - name: Referencia
+      items:
+        - name: Disponibilidad de regiones y residencia de datos
+          href: data-residency.md
+        - name: REST
+          href: /rest/api/hybridcompute
+        - name: Elementos integrados de Azure Policy
+          displayName: 'samples, policies, definitions'
+          href: policy-reference.md

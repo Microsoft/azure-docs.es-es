@@ -1,44 +1,43 @@
 ---
 title: Información sobre impuestos de marketplace comercial de Microsoft
 Description: Para comprender las consideraciones fiscales que debe tener en cuenta para la selección de precios, las implicaciones en el pago y la responsabilidad fiscal, consulte los países o regiones de distribución en las tablas siguientes.
-ms.topic: conceptual
+ms.topic: article
 ms.service: marketplace
-ms.date: 05/04/2020
+ms.date: 09/02/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: b0ada7047241e74095fd5b81a261c15295a08737
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 82e70c128b64f0574050c17d5e40509995488666
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319939"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378345"
 ---
 # <a name="tax-details-for-commercial-marketplace-publishers"></a>Información sobre impuestos para los publicadores de Marketplace comercial
 
-Para comprender las consideraciones fiscales para la selección de precios, así como la responsabilidad fiscal según el [ de Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560) o el contrato del publicador moderno, revise los países o regiones de distribución en las tablas siguientes.
+Para comprender las consideraciones fiscales para la selección de precios, así como la responsabilidad fiscal en virtud del [Acuerdo de publicador de Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560) o el contrato del publicador moderno, revise los países o regiones de distribución en las tablas siguientes.
 
-> [!NOTE]
-> El ajuste de expansión del comercio puede tener implicaciones en el pago de un conjunto limitado de países o regiones. Para obtener más información sobre el ajuste de expansión del comercio y los mercados en los que se aplica, consulte el [Acuerdo de publicador de Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560) y la lista de países o regiones afectados.
+El ajuste de expansión del comercio puede tener implicaciones en el pago de un conjunto limitado de países o regiones. Para obtener más información sobre el ajuste de expansión del comercio y los mercados en los que se aplica, consulte el [Acuerdo de publicador de Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560) y la lista de países o regiones afectados.
 
 > [!IMPORTANT]
 > La responsabilidad fiscal de los países y regiones del revendedor y las circunstancias (como se describe [a continuación](#reseller-countriesregions)) se tratan en el anexo A del [Acuerdo de publicador de Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560), sin prejuicio de la información de la tabla siguiente.
 > Tenga en cuenta que la columna **Implicación en el pago** solo se aplica a los publicadores. Las tasas de impuestos que se indican en esta columna están sujetas a cambios en cualquier momento, y Microsoft no puede garantizar que las tasas de las tablas siguientes siempre sean precisas.
 
-| País/región                   | Consideración fiscal para la selección de precios                                                                                                             | Implicación en el pago                    | Responsabilidad fiscal |
-|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|--------------------|
+| País/región  | Consideración fiscal para la selección de precios  | Implicación en el pago  | Responsabilidad fiscal |
+|---|---|---|---|
 | Afganistán                      | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
 | Albania                          | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
 | Argelia                          | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
 | Samoa Americana                   | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
 | Andorra                          | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
-| Anguila                         | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
 | Angola                           | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
+| Anguila                         | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
 | Antártida                       | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
 | Antigua y Barbuda              | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
 | Argentina                        | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.  | Precio menos los honorarios de Store  | Publicador          |
 | Armenia                          | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos el 20 % de impuestos, menos los honorarios de Store       | Microsoft          |
 | Aruba                      | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
-| Australia                        | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                             | Precio menos el 10 % de impuestos, menos los honorarios de Store             | Microsoft          |
+| Australia                        | El precio seleccionado excluye los impuestos aplicables.*        | Precio menos los honorarios de Store*        | Microsoft          |
 | Austria                          | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables. Los impuestos se restan del precio antes del pago.       | Precio menos el 20 % de impuestos, menos los honorarios de Store     | Microsoft          |
 | Azerbaiyán                       | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
 | Las Bahamas                      | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
@@ -83,7 +82,7 @@ Para comprender las consideraciones fiscales para la selección de precios, así
 | Croacia                          | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables. Los impuestos se restan del precio antes del pago.       | Precio menos el 25 % de impuestos, menos los honorarios de Store   | Microsoft          |
 | Curazao                          | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
 | Chipre                           | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables. Los impuestos se restan del precio antes del pago.       | Precio menos el 19 % de impuestos, menos los honorarios de Store  | Microsoft          |
-| República Checa                   | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables. Los impuestos se restan del precio antes del pago.       | Precio menos el 21 % de impuestos, menos los honorarios de Store   | Microsoft        |
+| Chequia                          | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables. Los impuestos se restan del precio antes del pago.       | Precio menos el 21 % de impuestos, menos los honorarios de Store   | Microsoft        |
 | Dinamarca                          | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables. Los impuestos se restan del precio antes del pago.       | Precio menos el 25 % de impuestos, menos los honorarios de Store   | Microsoft          |
 | Yibuti                         | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
 | Dominica                         | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
@@ -148,7 +147,6 @@ Para comprender las consideraciones fiscales para la selección de precios, así
 | Lituania                        | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables. Los impuestos se restan del precio antes del pago.              | Precio menos el 21 % de impuestos, menos los honorarios de Store | Microsoft          |
 | Luxemburgo                       | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables. Los impuestos se restan del precio antes del pago.              | Precio menos el 17 % de impuestos, menos los honorarios de Store | Microsoft          |
 | RAE de Macao                        | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
-| Macedonia del Norte                | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
 | Madagascar                       | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
 | Malaui                           | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
 | Malasia                         | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
@@ -180,6 +178,7 @@ Para comprender las consideraciones fiscales para la selección de precios, así
 | Nigeria                          | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
 | Niue                             | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
 | Isla Norfolk                   | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
+| Macedonia del Norte                | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
 | Islas Marianas del Norte         | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
 | Noruega                           | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables. Los impuestos se restan del precio antes del pago.              | Precio menos el 25 % de impuestos, menos los honorarios de Store | Microsoft          |
 | Omán                             | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
@@ -258,10 +257,12 @@ Para comprender las consideraciones fiscales para la selección de precios, así
 | Zambia                           | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
 | Zimbabue                         | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
 
+\* Para las compras realizadas en todos los escenarios de compra de clientes, excepto el Contrato Enterprise.
+
 Lo siguiente se aplica solo a los publicadores de Azure Marketplace, con independencia de cualquier disposición en sentido contrario:
 
-| País/región                   | Consideración fiscal para la selección de precios                                                                                                             | Administración fiscal                    |
-|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
+| País/región | Consideración fiscal para la selección de precios | Administración fiscal |
+| --- |--- | --- |
 | Australia (para las compras realizadas a través de todos los escenarios de compra de clientes, excepto Contrato Enterprise) | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables. | Microsoft |
 | Australia (solo para las compras realizadas a través del escenario de compra del cliente de Contrato Enterprise) | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables. | Publicador |
 | Brasil | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables. | Publicador **(consulte Países y regiones de revendedor)** |
@@ -287,6 +288,6 @@ Lo siguiente se aplica solo a los publicadores de Azure Marketplace:
 | Brasil (para las compras realizadas a través de todos los escenarios de compra de clientes, excepto CSP) |
 | México (solo para las compras realizadas a través del escenario de compra del cliente de Contrato Enterprise) |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-step"></a>Paso siguiente
 
 [Configuración de la cuenta de pago y los formularios de impuestos](set-up-your-payout-account-tax-forms.md)

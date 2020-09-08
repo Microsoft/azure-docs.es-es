@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Hightail | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Hightail.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: e15206ac-74b0-46e4-9329-892c7d242ec0
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d06dea6f1d2fa762a2e885ae98e1c0c4b3293ba
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0348e5c773f37606a3975a8e62e556bef291a758
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72596242"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297321"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hightail"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Hightail
 
@@ -114,7 +109,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
 > [!NOTE]
-> Antes de configurar el inicio de sesión único en la aplicación Hightail, incluya su dominio de correo electrónico en la lista de permitidos con el equipo Hightail para que todos aquellos que utilicen este dominio puedan emplear la funcionalidad de inicio de sesión único.
+> Antes de configurar el inicio de sesión único en la aplicación Hightail, agregue el dominio de correo electrónico a la lista de permitidos con el equipo Hightail para que todos aquellos que utilicen este dominio puedan emplear la funcionalidad de inicio de sesión único.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 

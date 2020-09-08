@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 6bb85ada5ab1cd443d47ed85024b45d98354e97f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: c73a5c5339403ecd91d45968405682c59f2f23b4
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500970"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719281"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>Optimización del procesamiento de datos con Azure Machine Learning
 
@@ -45,7 +45,17 @@ Normalmente se produce un error de *memoria insuficiente* cuando el dataframe se
 
 Una solución es aumentar la RAM para ajustarla al dataframe en la memoria. Se recomienda que el tamaño de proceso y la capacidad de procesamiento tengan una RAM del doble del tamaño. Por lo tanto, si el dataframe es de 10 GB, use un destino de proceso con más de 20 GB de RAM para asegurarse de que el dataframe tenga suficiente espacio en la memoria y se puede procesar. 
 
-En el caso de varias CPU virtuales, vCPU, tenga en cuenta que querrá que una de las particiones quepa fácilmente en la memoria RAM que cada vCPU pueda tener en la máquina. Es decir, si tiene 4 vCPU con 16 GB de RAM, querrá más de dataframes de 2 GB por cada vCPU.
+En el caso de varias CPU virtuales, vCPU, tenga en cuenta que querrá que una de las particiones quepa fácilmente en la memoria RAM que cada vCPU pueda tener en la máquina. Es decir, si tiene 4 vCPU con 16 GB de RAM, necesitará dataframes de 2 GB para cada vCPU.
+
+### <a name="local-vs-remote"></a>Local frente a remoto
+
+Quizá note que determinados comandos de dataframe de Pandas funcionan con más rapidez cuando se trabaja en el equipo local frente a una máquina virtual remota aprovisionada con Azure Machine Learning. El equipo local normalmente tiene un archivo de paginación habilitado, lo que permite cargar más de lo que cabe en la memoria física; es decir, el disco duro se usa como una extensión de la RAM. Actualmente, las máquinas virtuales de Azure Machine Learning se ejecutan sin un archivo de paginación, por lo que solo puede cargar tantos datos como permita la RAM física disponible. 
+
+Para los trabajos de proceso intensivo, se recomienda que elija una máquina virtual más grande para mejorar la velocidad de procesamiento.
+
+Obtenga más información sobre los [tamaños y series de máquinas virtuales disponibles](concept-compute-target.md#supported-vm-series-and-sizes) para Azure Machine Learning. 
+
+Para conocer las especificaciones de RAM, consulte las páginas de las series de máquinas virtuales correspondientes, como la serie [Dv2-Dsv2](../virtual-machines/dv2-dsv2-series-memory.md) o [NC](../virtual-machines/nc-series.md).
 
 ### <a name="minimize-cpu-workloads"></a>Minimización de las cargas de trabajo de CPU
 

@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: bb20bfcecbf869dfb9b784b02c43c9d50bc922d3
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ea0a2c40c71b035d53e176d9c2852543db436af9
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495444"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88960310"
 ---
 # <a name="scale-an-app-service-app-manually-using-azure-cli"></a>Escalado manual de una aplicación de App Service mediante la CLI de Azure
 
@@ -45,6 +45,6 @@ Este script usa los siguientes comandos para crear un grupo de recursos, una apl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure).
+Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](/cli/azure).
 
 Puede encontrar ejemplos de script adicionales de la CLI de App Service en la [documentación de Azure App Service](../samples-cli.md).

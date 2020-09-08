@@ -3,13 +3,13 @@ title: 'Tutorial: Envío de correo electrónico con Logic Apps'
 description: Aprenda a invocar procesos empresariales desde una aplicación de App Service. Envíe correos electrónicos, tweets y publicaciones de Facebook, incorpórese a listas de distribución de correo, etc.
 ms.topic: tutorial
 ms.date: 04/08/2020
-ms.custom: mvc
-ms.openlocfilehash: 874c67b0d8d29c163fa5f36b3d100f1d2a013d53
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-csharp, mvc
+ms.openlocfilehash: ddd57bfe653766d133824f42098d9ad9adb1e56b
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080973"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962203"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Tutorial: Envío de correo electrónico e invocación de otros procesos empresariales desde App Service
 
@@ -84,7 +84,7 @@ Implemente una aplicación con el marco de lenguaje que prefiera para App Servic
 1. En la parte inferior del diseñador, haga clic en **Nuevo paso** y, en el cuadro de búsqueda de acciones, escriba **Gmail**. Después, busque y seleccione **Enviar correo electrónico (V2)** .
     
     > [!TIP]
-    > Puede buscar otros tipos de integraciones, como SendGrid, MailChimp, Office 365 y SalesForce. Para más información, consulte [Documentación de Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/).
+    > Puede buscar otros tipos de integraciones, como SendGrid, MailChimp, Office 365 y SalesForce. Para más información, consulte [Documentación de Azure Logic Apps](../logic-apps/index.yml).
 1. En el cuadro de diálogo **Gmail**, seleccione **Iniciar sesión** e inicie sesión en la cuenta de Gmail desde la que desea enviar el correo electrónico.
 
     ![Captura de pantalla que muestra el cuadro de diálogo de Gmail que se usa para iniciar sesión en la cuenta de Gmail desde la que quiere enviar el correo electrónico.](./media/tutorial-send-email/gmail-sign-in.png)
@@ -152,7 +152,7 @@ Haga clic en la pestaña del lenguaje o marco que prefiera para ver un ejemplo.
 
 ### <a name="aspnet"></a>[ASP.NET](#tab/dotnet)
 
-En ASP.NET, puede enviar la solicitud HTTP POST con la clase [System.Net.Http.HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient). Por ejemplo:
+En ASP.NET, puede enviar la solicitud HTTP POST con la clase [System.Net.Http.HttpClient](/dotnet/api/system.net.http.httpclient). Por ejemplo:
 
 ```csharp
 // requires using System.Net.Http;
@@ -177,7 +177,7 @@ Si está probando este código en la aplicación de ejemplo de [Tutorial: Compil
 
 ### <a name="aspnet-core"></a>[ASP.NET Core](#tab/dotnetcore)
 
-En ASP.NET Core, puede enviar la solicitud HTTP POST con la clase [System.Net.Http.HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient). Por ejemplo:
+En ASP.NET Core, puede enviar la solicitud HTTP POST con la clase [System.Net.Http.HttpClient](/dotnet/api/system.net.http.httpclient). Por ejemplo:
 
 ```csharp
 // requires using System.Net.Http;
@@ -199,7 +199,7 @@ var statusCode = result.StatusCode.ToString();
 ```
 
 > [!NOTE]
-> Este código se ha escrito así para simplificar la demostración. En la práctica, no cree instancias de un objeto `HttpClient` en cada solicitud. Siga las instrucciones que se indican en [Uso de IHttpClientFactory para implementar solicitudes HTTP resistentes](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
+> Este código se ha escrito así para simplificar la demostración. En la práctica, no cree instancias de un objeto `HttpClient` en cada solicitud. Siga las instrucciones que se indican en [Uso de IHttpClientFactory para implementar solicitudes HTTP resistentes](/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
 
 Si está probando este código en la aplicación de ejemplo de [Tutorial: Compilación de una aplicación ASP.NET Core y SQL Database en Azure App Service](tutorial-dotnetcore-sqldb-app.md), podrá utilizarla para enviar una confirmación por correo electrónico en la [acción Create](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/blob/master/Controllers/TodosController.cs#L56-L65) después de agregar el elemento `Todo`.
 

@@ -3,16 +3,17 @@ title: Solución de problemas de acceso al portal de Azure EA
 description: En este artículo se describen algunos problemas comunes que pueden producirse en una Contrato Enterprise de Azure (EA) en el portal de Azure EA.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/05/2020
+ms.date: 08/20/2020
 ms.topic: troubleshooting
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 2a6d1e82fda3a3c76af3fe705db5b398dba2d6a1
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5402ee3283e5ae11f43884b4002486e8bdefae2c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115849"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294414"
 ---
 # <a name="troubleshoot-azure-ea-portal-access"></a>Solución de problemas de acceso al portal de Azure EA
 
@@ -31,7 +32,7 @@ El portal del Contrato Enterprise de Azure se usa para conceder acceso a los usu
 - Cuenta profesional o educativa entre inquilinos: para organizaciones que han configurado Active Directory con Federación en la nube y van a tener cuentas en varios inquilinos.
 - Cuenta mixta: permite agregar usuarios con una cuenta Microsoft o con una cuenta profesional o educativa.
 
-La primera cuenta profesional o educativa agregada a la inscripción determina el dominio _predeterminado_ o _maestro_. Para agregar una cuenta profesional o educativa con otro inquilino, es preciso cambiar el nivel de autenticación de la inscripción a autenticación entre inquilinos.
+La primera cuenta profesional o educativa agregada a la inscripción determina el dominio _predeterminado_. Para agregar una cuenta profesional o educativa con otro inquilino, es preciso cambiar el nivel de autenticación de la inscripción a autenticación entre inquilinos.
 
 Para actualizar el nivel de autenticación:
 

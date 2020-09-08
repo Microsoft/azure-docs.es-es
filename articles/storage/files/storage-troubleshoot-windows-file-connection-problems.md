@@ -1,18 +1,18 @@
 ---
 title: Solución de problemas de Azure Files en Windows | Microsoft Docs
-description: Solución de problemas de Azure Files en Windows
+description: Solución de problemas de Azure Files en Windows. Vea problemas comunes relacionados con Azure Files al conectarse desde clientes Windows y las posibles soluciones.
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
 ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: e855ed169a0c4eca7dda696c03deedb9e519e9bf
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e9384dd3865b106488dc8ec303b060736f23ded7
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259988"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797792"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Solucione problemas de Azure Files en Windows
 
@@ -305,27 +305,27 @@ Para resolver este problema, ajuste el valor de registro **DirectoryCacheEntrySi
  
 Por ejemplo, puede establecerlo en 0x100000 y ver si el rendimiento mejora.
 
-## <a name="error-aaddstenantnotfound-in-enabling-azure-active-directory-domain-service-aad-ds-authentication-for-azure-files-unable-to-locate-active-tenants-with-tenant-id-aad-tenant-id"></a>Error AadDsTenantNotFound para habilitar la autenticación de Azure Active Directory Domain Service (AAD DS) para Azure Files "No se pueden encontrar inquilinos activos con el identificador de inquilino aad-tenant-id".
+## <a name="error-aaddstenantnotfound-in-enabling-azure-active-directory-domain-service-azure-ad-ds-authentication-for-azure-files-unable-to-locate-active-tenants-with-tenant-id-aad-tenant-id"></a>Error AadDsTenantNotFound al habilitar la autenticación de Azure Active Directory Domain Service (Azure AD DS) para Azure Files "No se pueden encontrar inquilinos activos con el id. de inquilino aad-tenant-id"
 
 ### <a name="cause"></a>Causa
 
-El error AadDsTenantNotFound se produce al intentar [habilitar la autenticación de Azure Active Directory Domain Services (Azure AD DS) en Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md) en una cuenta de almacenamiento donde [AAD Domain Service (AAD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) no se ha creado en el inquilino de AAD de la suscripción asociada.  
+El error AadDsTenantNotFound se produce al intentar [habilitar la autenticación de Azure Active Directory Domain Services (Azure AD DS) en Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md) en una cuenta de almacenamiento donde [Azure AD Domain Service (Azure AD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) no se ha creado en el inquilino de Azure AD de la suscripción asociada.  
 
 ### <a name="solution"></a>Solución
 
-Habilite AAD DS en el inquilino de AAD de la suscripción donde se implementa la cuenta de almacenamiento. Necesita privilegios de administrador del inquilino de AAD para crear un dominio administrado. Si no es el administrador del inquilino de Azure AD, póngase en contacto con el administrador y siga las instrucciones paso a paso para [habilitar Azure Active Directory Domain Services mediante Azure Portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
+Habilite Azure AD DS en el inquilino de Azure AD de la suscripción donde se ha implementado la cuenta de almacenamiento. Necesita privilegios de administrador del inquilino de Azure AD para crear un dominio administrado. Si no es el administrador del inquilino de Azure AD, póngase en contacto con el administrador y siga las instrucciones paso a paso para [habilitar Azure Active Directory Domain Services mediante Azure Portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
 
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
 
-## <a name="error-system-error-1359-has-occurred-an-internal-error-received-over-smb-access-to-file-shares-with-azure-active-directory-domain-service-aad-ds-authentication-enabled"></a>El error "Error de sistema 1359. Error interno" recibido debido al acceso de SMB a los recursos compartidos de archivos con la autenticación de Azure Active Directory Domain Service (AAD DS) habilitada
+## <a name="error-system-error-1359-has-occurred-an-internal-error-received-over-smb-access-to-file-shares-with-azure-active-directory-domain-service-azure-ad-ds-authentication-enabled"></a>El error "Error de sistema 1359. Error interno" recibido a través del acceso de SMB a los recursos compartidos de archivos con la autenticación de Azure Active Directory Domain Service (Azure AD DS) habilitada
 
 ### <a name="cause"></a>Causa
 
-El error "Error de sistema 1359. Error interno" se produce cuando intenta conectarse al recurso compartido de archivos con la autenticación de AAD DS habilitada en un AAD DS con un nombre DNS de dominio que empieza con un carácter numérico. Por ejemplo, si el nombre DNS del dominio de AAD DS es "1domain", recibirá este error cuando intente montar el recurso compartido de archivos con las credenciales de AAD. 
+El error "Error de sistema 1359. Error interno" se produce al intentar conectarse al recurso compartido de archivos con la autenticación de Azure AD DS habilitada en una instancia de Azure AD DS con un nombre DNS de dominio que empieza con un carácter numérico. Por ejemplo, si el nombre DNS del dominio de Azure AD DS es "1domain", recibe este error al intentar montar el recurso compartido de archivos con las credenciales de Azure AD. 
 
 ### <a name="solution"></a>Solución
 
-Actualmente, puede considerar la posibilidad de volver a implementar el AAD DS con un nombre DNS de dominio nuevo que se aplique con las reglas siguientes:
+Actualmente, puede considerar la posibilidad de volver a implementar la instancia de Azure AD DS con un nombre DNS de dominio nuevo que se aplique con las reglas siguientes:
 - Los nombres no pueden empezar con un carácter numérico.
 - Los nombres deben tener entre 3 y 63 caracteres de longitud.
 
@@ -350,7 +350,7 @@ El cmdlet realiza estas comprobaciones de forma secuencial y proporciona instruc
 4. CheckGetKerberosTicket: intente obtener un vale de Kerberos para conectarse a la cuenta de almacenamiento. 
 5. CheckADObjectPasswordIsCorrect: asegúrese de que la contraseña configurada en la identidad de AD que representa la cuenta de almacenamiento coincide con la de la clave kerb1 o kerb2 de la cuenta de almacenamiento.
 6. CheckSidHasAadUser: compruebe que el usuario de AD que ha iniciado sesión está sincronizado con Azure AD. Si desea buscar si un usuario de AD específico está sincronizado con Azure AD, puede especificar el nombre de usuario y el dominio en los parámetros de entrada.
-7. CheckAadUserHasSid: compruebe si un usuario de Azure AD tiene un SID en AD; esta comprobación requiere que el usuario especifique el identificador de objeto del usuario de Azure AD con el parámetro ObjectId. 
+7. CheckAadUserHasSid: compruebe si un usuario de Azure AD tiene un SID en AD; esta comprobación requiere que el usuario especifique el identificador de objeto del usuario de Azure AD con el parámetro -ObjectId. 
 8. CheckStorageAccountDomainJoined: compruebe las propiedades de la cuenta de almacenamiento para ver que se ha habilitado la autenticación de AD y que se han rellenado las propiedades de AD de la cuenta.
 
 ## <a name="unable-to-configure-directoryfile-level-permissions-windows-acls-with-windows-file-explorer"></a>No se pueden configurar los permisos de nivel de directorio/archivo (ACL de Windows) con el Explorador de archivos de Windows.
@@ -364,6 +364,16 @@ Puede experimentar cualquiera de los síntomas que se describen a continuación 
 ### <a name="solution"></a>Solución
 
 Se recomienda usar la [herramienta icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) para configurar los permisos de nivel de directorio o archivo como solución alternativa. 
+
+## <a name="errors-when-running-join-azstorageaccountforauth-cmdlet"></a>Errores al ejecutar el cmdlet Join-AzStorageAccountForAuth
+
+### <a name="error-the-directory-service-was-unable-to-allocate-a-relative-identifier"></a>Error: "El servicio de directorio no puede asignar un identificador relativo".
+
+Este error puede producirse si un controlador de dominio que contiene el rol FSMO del maestro de RID no está disponible o se quitó del dominio y se restauró a partir de una copia de seguridad.  Confirme que todos los controladores de dominio están en ejecución y se encuentran disponibles.
+
+### <a name="error-cannot-bind-positional-parameters-because-no-names-were-given"></a>Error: "No se pueden enlazar los parámetros de posición porque no se proporcionaron nombres".
+
+Lo más probable es que este error se haya desencadenado debido a un error de sintaxis en el comando Join-AzStorageAccountforAuth.  Compruebe si hay errores ortográficos o de sintaxis en el comando y compruebe que está instalada la última versión del módulo AzFilesHybrid (https://github.com/Azure-Samples/azure-files-samples/releases) ).  
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
 Si sigue necesitando ayuda, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.

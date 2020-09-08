@@ -1,18 +1,18 @@
 ---
 title: Obtención de ayuda con los errores de implementación o aprovisionamiento de Azure VMware Solution
-description: Cómo obtener la información necesaria de la nube privada de Azure VMware Solution (AVS) para realizar una solicitud de servicio para los errores de aprovisionamiento o implementación de AVS.
+description: Cómo obtener la información necesaria de la nube privada de Azure VMware Solution para realizar una solicitud de servicio para los errores de aprovisionamiento o implementación de Azure VMware Solution.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: 05c9dee088b37c37cdcdee7e745cdcd2222b63e0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 63d5440a9e2b15463e465e1d32762889508feca1
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514584"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752242"
 ---
 # <a name="get-help-with-azure-vmware-solution-deployment-or-provisioning-failures"></a>Obtención de ayuda con los errores de implementación o aprovisionamiento de Azure VMware Solution
 
-En este artículo, obtendrá información sobre cómo recibir ayuda con los errores de aprovisionamiento o implementación de Azure VMware Solution (AVS) en la nube privada al realizar una solicitud de servicio en Azure Portal. Sin embargo, primero debe recopilar información importante en Azure Portal. En la mayoría de los casos, necesitará lo siguiente:
+En este artículo, obtendrá información sobre cómo recibir ayuda con los errores de aprovisionamiento o implementación de Azure VMware Solution en la nube privada al realizar una solicitud de servicio en Azure Portal. Sin embargo, primero debe recopilar información importante en Azure Portal. En la mayoría de los casos, necesitará lo siguiente:
 
 - Id. de correlación (de la implementación errónea)
 - Id. de circuito de ExpressRoute (cuando intente escalar o emparejar una nube privada existente con el circuito ExpressRoute de la nube privada y se produzca un error)
@@ -27,7 +27,7 @@ Este es un ejemplo de la salida de una implementación de nube privada con error
 
 Copie y guarde este id. de correlación para incluirlo en la solicitud de servicio. Para obtener más información, consulte [Creación de la solicitud de soporte técnico](#create-your-support-request) al final de este artículo.
 
-Si el error se produce en las fases previas a la validación, antes de que se implemente una nube privada, no se generará ningún id. de correlación. En este caso, simplemente puede proporcionar la información que usó al crear la nube privada de AVS, que incluye:
+Si el error se produce en las fases previas a la validación, antes de que se implemente una nube privada, no se generará ningún id. de correlación. En este caso, simplemente puede proporcionar la información que usó al crear la nube privada de Azure VMware Solution, que incluye:
 
 - Location
 - Resource group
@@ -53,7 +53,7 @@ En Notificaciones, seleccione **More events in the activity log** (Más eventos 
 
 A continuación, busque el nombre del recurso, u otro fragmento de información único que usó para crear el recurso, para buscar la implementación con errores y su id. de correlación. En el ejemplo siguiente se muestran los resultados de la búsqueda en un recurso de la nube privada (pc03).
  
-:::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="Búsqueda de las implementaciones de AVS erróneas anteriores.":::
+:::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="Búsqueda de las implementaciones de Azure VMware Solution anteriores con errores.":::
  
 Al seleccionar el nombre de operación de la implementación con errores se abre una ventana con detalles. Seleccione la pestaña JSON y busque el elemento correlationId. Copie la información e inclúyala en la solicitud de servicio. 
  
@@ -63,7 +63,7 @@ Quizás ya tenga una nube privada y haya experimentado un error cuando intenta e
 
 Mientras mira una nube privada en el portal, seleccione **Conectividad > ExpressRoute** y copie el **Id. de ExpressRoute** en el portapapeles.
  
-:::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="Recopilación de un id. de ExpressRoute."::: 
+:::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="Copia del identificador de ExpressRoute en el portapapeles."::: 
  
 Pegue el id. de ExpressRoute en el campo correspondiente de la nueva solicitud de soporte técnico. Para obtener más información, consulte la siguiente sección [Creación de la solicitud de soporte técnico](#create-your-support-request).
  
@@ -74,11 +74,11 @@ Pegue el id. de ExpressRoute en el campo correspondiente de la nueva solicitud d
 
 Para obtener instrucciones generales sobre cómo crear una solicitud de soporte técnico, consulte [Creación de una solicitud de soporte técnico de Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). 
 
-Esta es una guía adicional específica para la creación de una solicitud de servicio para errores de implementación o aprovisionamiento de AVS.
+Esta es una guía adicional específica para la creación de una solicitud de servicio para errores de implementación o aprovisionamiento de Azure VMware Solution.
 
 1. Seleccione el icono **Ayuda** y, a continuación, **+ Nueva solicitud de soporte técnico**.
 
-    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Recopilación de un id. de ExpressRoute.":::
+    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Recopilación de un id. de ExpressRoute para la solicitud de servicio.":::
 
 2. Rellene todos los campos obligatorios y, en la pestaña **Aspectos básicos**:
 

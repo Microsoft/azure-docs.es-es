@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Appraisd | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Appraisd.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-ms.assetid: db063306-4d0d-43ca-aae0-09f0426e7429
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/27/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08453928ab000cf906c451fa6c1cd619a00ee4ca
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2b8e8a6df2fc355ad6a8ef50d801dc7457e97c63
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67561199"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547790"
 ---
 # <a name="tutorial-integrate-appraisd-with-azure-active-directory"></a>Tutorial: Integración de Appraisd con Azure Active Directory
 

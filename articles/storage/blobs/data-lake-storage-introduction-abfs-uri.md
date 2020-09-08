@@ -1,6 +1,6 @@
 ---
 title: Uso del URI de Azure Data Lake Storage Gen2
-description: Uso del URI de Azure Data Lake Storage Gen2
+description: Conozca la sintaxis del URI del identificador de esquema de ABFS, que representa el controlador de Azure Blob File System (controlador del sistema de archivos de Hadoop para Azure Data Lake Storage Gen2).
 author: normesta
 ms.topic: conceptual
 ms.author: normesta
@@ -8,12 +8,12 @@ ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: fa0f67e0d72ee5710a42b6de744ddae98e20220a
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 7c9c452d608bc2c5f64292d72f3eae6825bf1ce2
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437129"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828258"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Uso del URI de Azure Data Lake Storage Gen2
 

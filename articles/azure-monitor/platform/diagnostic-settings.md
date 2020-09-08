@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: ff0df654650bb1c32d5c3e9833ebde2a81e3d65c
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 74e0a63da87a79cbd582cd6da5992251fc256504
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799963"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135443"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Creación de una configuración de diagnóstico para enviar los registros y las métricas de la plataforma a diferentes destinos
 Los [registros de plataforma](platform-logs-overview.md) de Azure, como los registros de recursos y los registros de actividad de Azure, proporcionan información de diagnóstico y auditoría detallada sobre los recursos de Azure y la plataforma de Azure de la que dependen. Las [métricas de plataforma](data-platform-metrics.md) se recopilan de forma predeterminada y suelen almacenarse en la base de datos de métricas de Azure Monitor. En este artículo, se explica cómo crear y establecer la configuración de diagnóstico para enviar métricas y registros de plataforma a diferentes destinos.
@@ -41,34 +41,24 @@ El siguiente vídeo describe cómo enrutar registros de plataforma con una confi
 
 
 ## <a name="destinations"></a>Destinations
-
-Los registros y las métricas de plataforma se pueden enviar a los destinos de la tabla siguiente. Siga los vínculos de la tabla siguiente para más información sobre cómo enviar datos a ese destino.
+Los registros y las métricas de plataforma se pueden enviar a los destinos de la tabla siguiente. 
 
 | Destination | Descripción |
 |:---|:---|
-| [Área de trabajo de Log Analytics](#log-analytics-workspace) | El envío de registros y métricas a un área de trabajo de Log Analytics le permite analizar con otros datos de supervisión recopilados por Azure Monitor mediante consultas de registro eficaces, junto con otras características de Azure Monitor, como las alertas y las visualizaciones. |
-| [Event Hubs](#event-hub) | El envío de registros y métricas a Event Hubs permite transmitir datos a sistemas externos, como SIEM de terceros y otras soluciones de análisis de registros. |
-| [Cuenta de Almacenamiento de Azure](#azure-storage) | Archivar los registros y las métricas en una cuenta de almacenamiento de Azure resulta útil para realizar auditorías, análisis estáticos o copias de seguridad. En comparación con los registros de Azure Monitor y las áreas de trabajo de Log Analytics, Azure Storage es más económico y los registros se pueden mantener indefinidamente. |
+| [Área de trabajo de Log Analytics](design-logs-deployment.md) | El envío de registros y métricas a un área de trabajo de Log Analytics le permite analizar con otros datos de supervisión recopilados por Azure Monitor mediante consultas de registro eficaces, junto con otras características de Azure Monitor, como las alertas y las visualizaciones. |
+| [Event Hubs](/azure/event-hubs/) | El envío de registros y métricas a Event Hubs permite transmitir datos a sistemas externos, como SIEM de terceros y otras soluciones de análisis de registros.  |
+| [Cuenta de Almacenamiento de Azure](/azure/storage/blobs/) | Archivar los registros y las métricas en una cuenta de almacenamiento de Azure resulta útil para realizar auditorías, análisis estáticos o copias de seguridad. En comparación con los registros de Azure Monitor y las áreas de trabajo de Log Analytics, Azure Storage es más económico y los registros se pueden mantener indefinidamente.  |
 
 
-## <a name="prerequisites"></a>Requisitos previos
-Se deben crear todos los destinos para la configuración de diagnóstico con los permisos necesarios. Consulte las secciones siguientes para conocer los requisitos previos de cada destino.
+### <a name="destination-requirements"></a>Requisitos de destino
 
-### <a name="log-analytics-workspace"></a>Área de trabajo de Log Analytics
-[Cree un área de trabajo nueva](../learn/quick-create-workspace.md) si no tiene ya una. El área de trabajo no tiene que estar en la misma suscripción que la del recurso que envía los registros, siempre que el usuario que realiza la configuración tenga el acceso RBAC adecuado a ambas suscripciones.
+Se deben crear todos los destinos para la configuración de diagnóstico antes de crear la configuración de diagnóstico. El destino no tiene que estar en la misma suscripción que la del recurso que envía los registros, siempre que el usuario que realice la configuración tenga el acceso RBAC adecuado a ambas suscripciones. En la tabla siguiente se proporcionan los requisitos únicos para cada destino, incluidas las restricciones regionales.
 
-### <a name="event-hub"></a>Centro de eventos
-Si no lo tiene, [cree un centro de eventos](../../event-hubs/event-hubs-create.md). El espacio de nombres de Event Hubs no tiene que estar necesariamente en la misma suscripción que la suscripción que emite los registros, siempre que el usuario que configure el valor tenga el acceso RBAC adecuado a ambas suscripciones y estas se encuentren en el mismo inquilino.
-
-La directiva de acceso compartido del espacio de nombres define los permisos que tiene el mecanismo de transmisión. Para transmitir a Event Hubs, se necesitan permisos de administración, envío y escucha. Puede crear o modificar directivas de acceso compartido en la pestaña Configurar de Azure Portal para su espacio de nombres de Event Hubs. Para actualizar la configuración de diagnóstico para incluir la transmisión, debe tener el permiso ListKey sobre esa regla de autorización de Event Hubs. 
-
-
-### <a name="azure-storage"></a>Almacenamiento de Azure
-Si no la tiene, [cree una cuenta de Azure Storage](../../storage/common/storage-account-create.md). La cuenta de almacenamiento no tiene que estar en la misma suscripción que la del recurso que envía los registros, siempre que el usuario que realiza la configuración tenga el acceso RBAC adecuado a ambas suscripciones.
-
-No debe utilizar una cuenta de almacenamiento existente que tenga otros datos sin supervisión almacenados en ella, para que pueda controlar mejor el acceso a los datos. Sin embargo, si va a archivar el registro de actividad y los registros de recurso, puede que tenga sentido utilizar esa misma cuenta de almacenamiento para mantener todos los datos de supervisión en una ubicación central.
-
-Para enviar los datos al almacenamiento inmutable, establezca la directiva de inmutabilidad para la cuenta de almacenamiento tal como se escribe en [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](../../storage/blobs/storage-blob-immutability-policies-manage.md). Debe seguir todos los pasos que aparecen en este artículo, incluida la habilitación de las escrituras de blobs en anexos protegidos.
+| Destination | Requisitos |
+|:---|:---|
+| Área de trabajo de Log Analytics | No es necesario que el área de trabajo esté en la misma región que el recurso que se esté supervisando.|
+| Centros de eventos | La directiva de acceso compartido del espacio de nombres define los permisos que tiene el mecanismo de transmisión. Para transmitir a Event Hubs, se necesitan permisos de administración, envío y escucha. Para actualizar la configuración de diagnóstico para incluir la transmisión, debe tener el permiso ListKey sobre esa regla de autorización de Event Hubs.<br><br>El espacio de nombres del centro de eventos debe estar en la misma región que el recurso que se está supervisando, si este es regional. |
+| Cuenta de almacenamiento de Azure | No debe utilizar una cuenta de almacenamiento existente que tenga otros datos sin supervisión almacenados en ella, para que pueda controlar mejor el acceso a los datos. Sin embargo, si va a archivar el registro de actividad y los registros de recurso, puede que tenga sentido utilizar esa misma cuenta de almacenamiento para mantener todos los datos de supervisión en una ubicación central.<br><br>Para enviar los datos al almacenamiento inmutable, establezca la directiva de inmutabilidad para la cuenta de almacenamiento tal como se escribe en [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](../../storage/blobs/storage-blob-immutability-policies-manage.md). Debe seguir todos los pasos que aparecen en este artículo, incluida la habilitación de las escrituras de blobs en anexos protegidos.<br><br>La cuenta de almacenamiento debe estar en la misma región que el recurso que se esté supervisando, si el recurso es regional. |
 
 > [!NOTE]
 > Actualmente, las cuentas de Azure Data Lake Storage Gen2 no se admiten como destino de la configuración de diagnóstico, aunque pueden aparecer como una opción válida en Azure Portal.

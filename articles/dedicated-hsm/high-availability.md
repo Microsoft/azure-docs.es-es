@@ -1,6 +1,6 @@
 ---
 title: Alta disponibilidad de Azure Dedicated HSM | Microsoft Docs
-description: Consideraciones básicas y ejemplos de alta disponibilidad de Azure Dedicated HSM
+description: Conozca las consideraciones básicas sobre la alta disponibilidad de Azure Dedicated HSM. En este artículo se incluye un ejemplo.
 services: dedicated-hsm
 author: msmbaldwin
 manager: rkarlin
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 536ef62acad900090924598edfa45450b2a8c951
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f8fa2f12825fe88218fe7033a1721cb49fc7335
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70882253"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88189847"
 ---
 # <a name="azure-dedicated-hsm-high-availability"></a>Alta disponibilidad de Azure Dedicated HSM
 

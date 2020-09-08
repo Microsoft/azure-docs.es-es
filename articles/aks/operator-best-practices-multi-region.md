@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 578560eccb13ff4b9169e11b0674859acc1fc901
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 110a25fca0b0e764650665635dbe545de7a350cd
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285873"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654003"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para continuidad empresarial y recuperación ante desastres en Azure Kubernetes Service (AKS)
 
@@ -93,7 +93,7 @@ La replicación geográfica es una característica de los registros de contenedo
 
 El estado se puede externalizar o colocar con el código que lo está manipulando. Generalmente, la externalización del estado se realiza con una base de datos u otro almacén de datos que se ejecuta en distintas máquinas de la red o fuera del proceso en la misma máquina.
 
-Los contenedores y los microservicios son más resistentes si los procesos que se ejecutan dentro de ellos no conservan el estado. Dado que las aplicaciones contienen casi siempre algún estado, use una solución PaaS, como Azure Database for MySQL, Azure Database for PostgreSQL o Microsoft Azure SQL Database.
+Los contenedores y los microservicios son más resistentes si los procesos que se ejecutan dentro de ellos no conservan el estado. Dado que las aplicaciones casi siempre contienen algún estado, utilice una solución PaaS, como Azure Cosmos DB, Azure Database for PostgreSQL, Azure Database for MySQL o Azure SQL Database.
 
 Para crear aplicaciones portátiles, consulte las siguientes directrices:
 
@@ -122,7 +122,7 @@ La estrategia típica consiste en proporcionar un punto común de almacenamiento
 Si usa Azure Managed Disks, puede elegir la replicación y soluciones de recuperación ante desastres como las siguientes:
 
 * [Velero en Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md)
-* [Azure Site Recovery](https://azure.microsoft.com/blog/asr-managed-disks-between-azure-regions/)
+* [Azure Backup](../backup/backup-overview.md)
 
 ### <a name="application-based-asynchronous-replication"></a>Replicación asincrónica basada en la aplicación
 

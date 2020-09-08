@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/15/2020
-ms.openlocfilehash: 9e8d1c012ae07fc458a324315e2635f04c3dbd78
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3aa4a1917711f8997c282ba577c33e7a7f94472b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496542"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932889"
 ---
 # <a name="create-a-basic-search-index-in-azure-cognitive-search"></a>Creación de un índice básico en Azure Cognitive Search
 
@@ -26,10 +26,10 @@ El esquema determina la estructura física de un índice, los campos marcados co
 Puede crear un índice con las siguientes herramientas y API:
 
 * En Azure Portal, use **Agregar índice** o el Asistente para la **importación de datos**.
-* Mediante [Create Index (API REST)](https://docs.microsoft.com/rest/api/searchservice/create-index)
-* Mediante el [SDK de .NET](search-create-index-dotnet.md)
+* Mediante [Create Index (API REST)](/rest/api/searchservice/create-index)
+* Mediante el [SDK de .NET](./search-get-started-dotnet.md)
 
-Es más fácil aprender con una herramienta de portal. El portal aplica ciertos requisitos y reglas de esquema para tipos de datos específicos, como no permitir funciones de búsqueda de texto completo en campos numéricos. Una vez que tenga un índice funcional, puede realizar la transición al código mediante la recuperación de la definición de JSON desde el servicio con [Get index (API REST)](https://docs.microsoft.com/rest/api/searchservice/get-index) y la incorporación a la solución.
+Es más fácil aprender con una herramienta de portal. El portal aplica ciertos requisitos y reglas de esquema para tipos de datos específicos, como no permitir funciones de búsqueda de texto completo en campos numéricos. Una vez que tenga un índice funcional, puede realizar la transición al código mediante la recuperación de la definición de JSON desde el servicio con [Get index (API REST)](/rest/api/searchservice/get-index) y la incorporación a la solución.
 
 ## <a name="recommended-workflow"></a>Flujo de trabajo recomendado
 
@@ -59,7 +59,7 @@ Llegar a un diseño de índice final es un proceso iterativo. Es habitual comenz
 
    ![Página Agregar índice que muestra los atributos según el tipo de datos](media/search-what-is-an-index//field-definitions.png "Página Agregar índice que muestra los atributos según el tipo de datos")
 
-1. Descargue el esquema de índices mediante [Get Index (API REST)](https://docs.microsoft.com/rest/api/searchservice/get-index) y una herramienta de prueba web como [Postman](search-get-started-postman.md). Ahora tiene una representación JSON del índice que puede adaptar para el código.
+1. Descargue el esquema de índices mediante [Get Index (API REST)](/rest/api/searchservice/get-index) y una herramienta de prueba web como [Postman](search-get-started-postman.md). Ahora tiene una representación JSON del índice que puede adaptar para el código.
 
 1. [Cargue el índice con datos](search-what-is-data-import.md). Azure Cognitive Search acepta documentos JSON. Para cargar los datos mediante programación, puede usar Postman con documentos JSON en la carga de solicitudes. Si los datos no se expresan con facilidad como JSON, este paso será más laborioso. 
 
@@ -180,7 +180,7 @@ Los campos tienen un nombre, un tipo que clasifica los datos almacenados y atrib
 | Edm.DateTimeOffset |Los valores de fecha y hora se representan con el formato OData V4 (por ejemplo, `yyyy-MM-ddTHH:mm:ss.fffZ` o `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
 | Edm.GeographyPoint |Un punto que representa una ubicación geográfica en todo el mundo. |
 
-Para más información, consulte los [tipos de datos admitidos](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
+Para más información, consulte los [tipos de datos admitidos](/rest/api/searchservice/Supported-data-types).
 
 <a name="index-attributes"></a>
 
@@ -195,14 +195,14 @@ Los campos de cadena se suelen marcar como "buscables" y "recuperables". Los cam
 |"buscable" |Permite realizar búsquedas de texto completo, sujetas a análisis léxico, como la separación de palabras durante la indexación. Si establece un campo buscable en un valor como "día soleado", internamente se dividirá en los tokens individuales "soleado" y "día". Para obtener detalles, vea [Búsqueda de texto completo](search-lucene-query-architecture.md).|  
 |"filtrable" |Se hace referencia en consultas $filter. Los campos filtrables de tipo `Edm.String` o `Collection(Edm.String)` no sufren separación de palabras, por lo que las comparaciones son solo de coincidencias exactas. Por ejemplo, si establece un campo de este tipo en "día soleado", `$filter=f eq 'sunny'` no encontrará ninguna coincidencia, pero `$filter=f eq 'sunny day'` sí. |  
 |"ordenable" |De forma predeterminada, el sistema ordena los resultados por puntuación, pero puede configurar la ordenación en función de los campos de los documentos. Los campos de tipo `Collection(Edm.String)` no pueden ser "ordenables". |  
-|"clasificable" |Normalmente se usa en una presentación de resultados de búsqueda que incluye un recuento de visitas por categoría (por ejemplo, hoteles de una ciudad concreta). Esta opción no puede utilizarse con campos de tipo `Edm.GeographyPoint`. Los campos de tipo `Edm.String` que son "filtrables", "ordenables" o "clasificables" pueden tener como máximo 32 kilobytes de longitud. Para obtener detalles, vea [Creación de un índice de Búsqueda de Azure con la API de REST](https://docs.microsoft.com/rest/api/searchservice/create-index).|  
+|"clasificable" |Normalmente se usa en una presentación de resultados de búsqueda que incluye un recuento de visitas por categoría (por ejemplo, hoteles de una ciudad concreta). Esta opción no puede utilizarse con campos de tipo `Edm.GeographyPoint`. Los campos de tipo `Edm.String` que son "filtrables", "ordenables" o "clasificables" pueden tener como máximo 32 kilobytes de longitud. Para obtener detalles, vea [Creación de un índice de Búsqueda de Azure con la API de REST](/rest/api/searchservice/create-index).|  
 |"clave" |Identificador único de los documentos del índice. Es necesario elegir exactamente un campo como campo de clave, y debe ser de tipo `Edm.String`.|  
 |"recuperable" |Determina si el campo se puede devolver en un resultado de búsqueda. Esto resulta útil cuando se quiere usar un campo (por ejemplo, *margen de beneficio*) como mecanismo de filtrado, ordenación o puntuación, pero no se quiere que sea visible para el usuario final. Este atributo debe ser `true` for `key` .|  
 
 Aunque puede agregar nuevos campos en cualquier momento, las definiciones de campo existentes se bloquean durante la vigencia del índice. Por este motivo, los desarrolladores suelen usar el portal para crear índices sencillos, probar ideas o emplear las páginas del portal para buscar una configuración. La iteración frecuente de un diseño de índice es más eficaz si se sigue un enfoque basado en código para poder volver a crear el índice fácilmente.
 
 > [!NOTE]
-> Las API que usa para crear un índice tienen distintos comportamientos predeterminados. En el caso de las [API REST](https://docs.microsoft.com/rest/api/searchservice/Create-Index), la mayoría de los atributos están habilitados de forma predeterminada (por ejemplo, "buscable" y "recuperable" son verdaderos para los campos de cadena), y a menudo solo tiene que establecerlos si desea desactivarlos. Para el SDK de .NET, ocurre lo contrario. En cualquier propiedad que no establezca de forma explícita, el valor predeterminado es que el comportamiento de búsqueda correspondiente esté deshabilitado, a menos que lo habilite específicamente.
+> Las API que usa para crear un índice tienen distintos comportamientos predeterminados. En el caso de las [API REST](/rest/api/searchservice/Create-Index), la mayoría de los atributos están habilitados de forma predeterminada (por ejemplo, "buscable" y "recuperable" son verdaderos para los campos de cadena), y a menudo solo tiene que establecerlos si desea desactivarlos. Para el SDK de .NET, ocurre lo contrario. En cualquier propiedad que no establezca de forma explícita, el valor predeterminado es que el comportamiento de búsqueda correspondiente esté deshabilitado, a menos que lo habilite específicamente.
 
 ## `analyzers`
 
@@ -210,7 +210,7 @@ El elemento de analizadores establece el nombre del analizador de idioma que se 
 
 ## `suggesters`
 
-Un proveedor de sugerencias es una sección del esquema que define qué campos de un índice se utilizan para admitir consultas con la función Autocompletar o con escritura automática en las búsquedas. Normalmente, las cadenas de búsqueda parcial se envían a [Sugerencias (API REST)](https://docs.microsoft.com/rest/api/searchservice/suggestions) mientras el usuario escribe una consulta de búsqueda, y la API devuelve un conjunto de documentos o frases sugeridas. 
+Un proveedor de sugerencias es una sección del esquema que define qué campos de un índice se utilizan para admitir consultas con la función Autocompletar o con escritura automática en las búsquedas. Normalmente, las cadenas de búsqueda parcial se envían a [Sugerencias (API REST)](/rest/api/searchservice/suggestions) mientras el usuario escribe una consulta de búsqueda, y la API devuelve un conjunto de documentos o frases sugeridas. 
 
 Los campos agregados a un proveedor de sugerencias se usan para compilar los términos de búsqueda de escritura anticipada. Todos los términos de búsqueda se crean durante la indexación y se almacenan por separado. Para más información sobre la creación de una estructura de proveedor de sugerencias, consulte [Incorporación de proveedores de sugerencias](index-add-suggesters.md).
 

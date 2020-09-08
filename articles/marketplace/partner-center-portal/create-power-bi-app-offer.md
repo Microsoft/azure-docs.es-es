@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 4705919f9c6c11678984c016716fe38cb6191557
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: ebc3ad6957890423314bb2d8623c7b4708aed10b
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88030777"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815424"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Creación de una oferta de aplicación de Power BI
 
@@ -29,7 +29,7 @@ Antes de comenzar, [cree una cuenta de Marketplace comercial en el Centro de par
    ![Muestra el menú de navegación izquierdo.](./media/new-offer-power-bi-app.png)
 
 > [!NOTE]
-> Después de publicar una oferta, las modificaciones que se realicen en el Centro de partners solo aparecen en los escaparates cuando la oferta se vuelve a publicar. Asegúrese de volver a realizar la publicación siempre después de realizar cambios.
+> Después de publicar una oferta, las modificaciones que se realicen en el Centro de partners solo aparecen en las tiendas en línea cuando la oferta se vuelve a publicar. Asegúrese de volver a realizar la publicación siempre después de realizar cambios.
 
 > [!IMPORTANT]
 > Si no se muestra ni está habilitada la opción **Aplicación de servicio Power BI Service App**, la cuenta no tiene permiso para crear este tipo de oferta. Compruebe que cumple todos los [requisitos](create-power-bi-app-overview.md) para este tipo de oferta, incluido el registro para una cuenta de desarrollador.
@@ -209,13 +209,16 @@ Proporcione logotipos e imágenes para usarlos con la oferta. Todas las imágene
 
 #### <a name="store-logos"></a>Logotipos de Store
 
-Proporcione los archivos PNG del logotipo de la oferta en dos tamaños de píxeles:
-- **Pequeño (48 x 48)**
-- **Grande (216 x 216)**
+Proporcione un archivo PNG para el logotipo de tamaño **Grande**. El Centro de partners lo usará para crear un logotipo **Pequeño**. Opcionalmente, puede reemplazarlo por una imagen diferente.
 
-Los dos logotipos son necesarios y se usan en lugares diferentes de la lista de Marketplace.
+- **Grande** (de 216 x 216 a 350 x 350 píxeles, obligatorio)
+- **Pequeño** (48 x 48 píxeles, opcional)
+
+Estos logotipos se usan en distintos lugares de la publicación:
 
 [!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
+
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Capturas de pantalla
 

@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: 4566d32682c8d0345c66d99ba5e4fd58695a325d
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 7dcaae80842f06714759cb5c933a62ccd85aac63
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424747"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798098"
 ---
 # <a name="view-or-change-your-settings-in-the-my-account-portal"></a>Visualización o cambio de la configuración en el portal Mi cuenta
 
@@ -47,7 +47,7 @@ Después de cambiar el idioma para mostrar, se recomienda cerrar sesión e inici
 
 Después de cambiar la configuración del portal Mi cuenta, puede:
 
-- Ver o administrar la [información de seguridad](user-help-security-info-overview.md).
+- Ver o administrar la [información de seguridad](./security-info-setup-signin.md).
 
 - Ver o administrar los dispositivos [conectados](my-account-portal-devices-page.md).
 

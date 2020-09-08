@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2020
 ms.author: memildin
-ms.openlocfilehash: 3c8bf69b745f5dba8c08556908df4d4ae5b5769f
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: f02e45804234fc8f8aa2b966db7ddce5efc9cfd1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521912"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998839"
 ---
 # <a name="supported-platforms"></a>Plataformas compatibles 
 
@@ -39,8 +39,8 @@ En el caso de un entorno de Azure activado en una suscripción de Azure, Azure S
 
 Security Center depende del [agente de Log Analytics](../azure-monitor/platform/agents-overview.md#log-analytics-agent). Asegúrese de que las máquinas ejecutan uno de los sistemas operativos compatibles con este agente, como se describe en las siguientes páginas:
 
-* [Sistemas operativos Windows compatibles con el agente de Log Analytics](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems)
-* [Sistemas operativos Linux compatibles con el agente de Log Analytics](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems)
+* [Sistemas operativos Windows compatibles con el agente de Log Analytics](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
+* [Sistemas operativos Linux compatibles con el agente de Log Analytics](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
 
 Asegúrese también de que el agente de Log Analytics esté [configurado correctamente para enviar datos a Security Center](security-center-enable-data-collection.md#manual-agent)
 

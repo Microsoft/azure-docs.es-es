@@ -3,12 +3,12 @@ title: 'Supervisión y registro: Azure'
 description: En este artículo se proporciona información general sobre la supervisión y el registro de Live Video Analytics on IoT Edge.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: 82e4a5879e4c88e462edcddb02866ec9b671d7fe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e1f31c6bb3ea344286ad9af89417ca9f8fd59527
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87060462"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934300"
 ---
 # <a name="monitoring-and-logging"></a>Supervisión y registro
 
@@ -99,6 +99,25 @@ Live Video Analytics on IoT Edge emite eventos o datos de telemetría según l
    }
    ```
 Los eventos emitidos por el módulo se envían al [centro de IoT Edge](../../iot-edge/iot-edge-runtime.md#iot-edge-hub) y, desde allí, se pueden enrutar a otros destinos. 
+
+### <a name="timestamps-in-analytic-events"></a>Marcas de tiempo de los eventos de análisis
+Como se indicó anteriormente, los eventos generados como parte del análisis de vídeo tienen una marca de tiempo asociada. Si [grabó el vídeo en directo](video-recording-concept.md) como parte de la topología de grafos, esta marca de tiempo le ayuda a encontrar dónde se produjo en el vídeo grabado ese evento determinado. A continuación, se muestran las instrucciones para asignar la marca de tiempo de un evento de análisis a la escala de tiempo del vídeo grabado en un [recurso de Azure Media Services](terminology.md#asset).
+
+En primer lugar, extraiga el valor de `eventTime`. Use este valor en un [filtro de intervalo de tiempo](playback-recordings-how-to.md#time-range-filters) para recuperar una parte adecuada de la grabación. Por ejemplo, puede que quiera realizar una captura de vídeo que comience 30 segundos antes de `eventTime` y que termine 30 segundos después. En el ejemplo anterior, donde `eventTime` es 2020-05-12T23:33:09.381 Z, una solicitud de un manifiesto HLS para la ventana de +/-30 segundos sería similar a la siguiente:
+```
+https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2020-05-12T23:32:39Z,endTime=2020-05-12T23:33:39Z).m3u8
+```
+La dirección URL anterior devolvería la conocida como [lista de reproducción maestra](https://developer.apple.com/documentation/http_live_streaming/example_playlists_for_http_live_streaming), que contiene las direcciones URL de las listas de reproducción de elementos multimedia. La lista de reproducción de elementos multimedia contiene entradas como la siguiente:
+
+```
+...
+#EXTINF:3.103011,no-desc
+Fragments(video=143039375031270,format=m3u8-aapl)
+...
+```
+En ella se informa que hay disponible un fragmento de vídeo que comienza en un valor de marca de tiempo de `143039375031270`. El valor de `timestamp` del evento de análisis usa la misma escala de tiempo que la lista de reproducción de elementos multimedia, y se puede usar para identificar el fragmento de vídeo pertinente y buscar el fotograma correcto.
+
+Para más información, puede leer uno de los muchos [artículos](https://www.bing.com/search?q=frame+accurate+seeking+in+HLS) sobre la búsqueda precisa de fotogramas en HLS.
 
 ## <a name="controlling-events"></a>Control de eventos
 

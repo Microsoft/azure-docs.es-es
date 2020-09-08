@@ -3,14 +3,15 @@ title: Enlace de entrada de SignalR Service para Azure Functions
 description: Aprenda a devolver una dirección URL de punto de conexión de servicio de SignalR y un token de acceso en Azure Functions.
 author: craigshoemaker
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 02/20/2020
 ms.author: cshoe
-ms.openlocfilehash: 53d336aff3177a76c5e02266ffb8484bd9945119
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 326115a2a6cf29fcf211cdbd918edd0994fe45ed
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77530197"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212115"
 ---
 # <a name="signalr-service-input-binding-for-azure-functions"></a>Enlace de entrada de SignalR Service para Azure Functions
 

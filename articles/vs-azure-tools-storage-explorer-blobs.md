@@ -1,6 +1,6 @@
 ---
 title: Administración de recursos de Azure Blob Storage con el Explorador de Storage Azure | Microsoft Docs
-description: Administración de blobs y contenedores de blobs de Azure con el Explorador de Azure Storage
+description: Administre recursos de Azure Blob Storage con el Explorador de Storage. Cree un contenedor de blobs, vea el contenido del contenedor de blobs, elimine o copie un contenedor de blobs, entre otras acciones.
 services: storage
 documentationcenter: na
 author: cawaMS
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2019
 ms.author: cawa
-ms.openlocfilehash: 56c20c995a95058b5039b7268c7b7b1426e900fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07652f2ac88475664f30e8189204b5649f966d16
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298130"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88033621"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Administración de recursos de Azure Blob Storage con el Explorador de Azure Storage
 
@@ -28,7 +28,7 @@ ms.locfileid: "85298130"
 [Azure Blob Storage](storage/blobs/storage-dotnet-how-to-use-blobs.md) es un servicio para almacenar grandes cantidades de datos sin estructura, como texto o datos binarios, a los que puede acceder desde cualquier lugar del mundo a través de HTTP o HTTPS.
 Puede usar el almacenamiento de blobs para exponer datos públicamente o para almacenar datos de la aplicación de manera privada. En este artículo, aprenderá a usar el Explorador de Azure Storage para trabajar con blobs y contenedores de blobs.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar los pasos de este artículo, necesitará:
 
@@ -183,7 +183,7 @@ Los siguientes pasos muestran cómo administrar los blobs (y carpetas) en un con
      1. En la barra de herramientas del panel principal, seleccione **Cargar** y, luego, **Cargar archivos** en el menú desplegable.
 
         ![Menú Cargar archivos][15]
-     2. En el cuadro de diálogo **Cargar archivos**, seleccione el botón de puntos suspensivos ( **...** ) a la derecha del cuadro de texto **Archivos** para seleccionar los archivos que desea cargar.
+     2. En el cuadro de diálogo **Cargar archivos**, seleccione el botón de puntos suspensivos (**...**) a la derecha del cuadro de texto **Archivos** para seleccionar los archivos que desea cargar.
 
         ![Opciones de Cargar archivos][16]
      3. Especifique el **tipo de blob**. Consulte [Crear un contenedor](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) para obtener más información.
@@ -194,7 +194,7 @@ Los siguientes pasos muestran cómo administrar los blobs (y carpetas) en un con
      1. En la barra de herramientas del panel principal, seleccione **Cargar**, y luego **Cargar carpeta** en el menú desplegable.
 
         ![Menú Cargar carpeta][17]
-     2. En el cuadro de diálogo **Cargar carpeta**, seleccione el botón de puntos suspensivos ( **...** ) a la derecha del cuadro de texto **Carpeta** para seleccionar la carpeta cuyo contenido desea cargar.
+     2. En el cuadro de diálogo **Cargar carpeta**, seleccione el botón de puntos suspensivos (**...**) a la derecha del cuadro de texto **Carpeta** para seleccionar la carpeta cuyo contenido desea cargar.
 
         ![Opciones de Cargar carpeta][18]
      3. Especifique el **tipo de blob**. Consulte [Crear un contenedor](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) para obtener más información.

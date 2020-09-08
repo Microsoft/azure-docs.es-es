@@ -14,12 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
-ms.openlocfilehash: d1441ede9f448b3e6ffb0726c2ee92f192369e9a
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: ad77278d593e4b2165708e0c9110a9ffff19a255
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81481831"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017709"
 ---
 # <a name="multitenant-applications-in-azure"></a>Aplicaciones multiempresa en Azure
 Una aplicación multiinquilino es un recurso compartido que permite a los "usuarios en inquilinos independientes" ver la aplicación como si fuera propia. Un escenario típico de una aplicación multiinquilino es aquel en el que todos los usuarios de la aplicación de inquilinos diferentes pueden querer personalizar la experiencia de usuario pero, por otra parte, tienen los mismos requisitos empresariales básicos. Office 365, Outlook.com y visualstudio.com son ejemplos de grandes aplicaciones multiempresa.

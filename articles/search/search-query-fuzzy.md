@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 03d4c2e0685ea165cbad524360a3db6e6c809733
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: faa98f1c52cfe2dd0e19f085f4d33dedb6f01851
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146138"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934895"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Búsqueda aproximada para corregir errores ortográficos y tipográficos
 
@@ -136,5 +136,5 @@ El objetivo de este ejemplo expandido es ilustrar la claridad que el resaltado d
 
 + [Cómo funciona la búsqueda de texto completo en Azure Cognitive Search (arquitectura de análisis de consultas)](search-lucene-query-architecture.md)
 + [Explorador de búsqueda](search-explorer.md)
-+ [Consultas con .NET](search-query-dotnet.md)
-+ [Consultas con REST](search-create-index-rest-api.md)
++ [Consultas con .NET](./search-get-started-dotnet.md)
++ [Consultas con REST](./search-get-started-powershell.md)

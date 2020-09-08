@@ -3,20 +3,20 @@ title: Supervisión de métricas y registro en Azure Front Door | Microsoft D
 description: Este artículo describe las diferentes métricas y registros de acceso que admite Azure Front Door.
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
-ms.author: sharadag
-ms.openlocfilehash: f57c0353989cfcf924042d202bd80a57b476507b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 6f5051dd7dedcc49320557f17148bcdc9bf539ab
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322310"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399759"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Supervisión de métricas y registro en Azure Front Door
 
@@ -91,7 +91,7 @@ Front Door actualmente proporciona los registros de diagnóstico (agrupados por
 | RulesEngineMatchNames | Los nombres de las reglas que coincidieron con la solicitud. |
 | SecurityProtocol | La versión del protocolo TLS/SSL utilizada por la solicitud o null si no hay cifrado. |
 | SentToOriginShield | Campo booleano que representa si se produjo un error de caché en el primer entorno y la solicitud se envió a la caché regional. Omita este campo si la regla de enrutamiento es un redireccionamiento o si no tiene habilitado el almacenamiento en caché. |
-| TimeTaken | El período de tiempo que tardó la acción, en milisegundos. |
+| TimeTaken | Período de tiempo desde el primer byte de la solicitud en Front Door hasta el último byte de la respuesta, en segundos. |
 | TrackingReference | La cadena de referencia exclusiva que identifica una solicitud atendida por Front Door, que también se envía como encabezado X-Azure-Ref al cliente. Se requiere para buscar los detalles en los registros de acceso para una solicitud específica. |
 | UserAgent | Tipo de explorador utilizado por el cliente. |
 

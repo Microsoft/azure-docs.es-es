@@ -11,12 +11,12 @@ metadata:
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 09/19/2019
-  ms.openlocfilehash: ff7af5ead7cc14deb974700e7bf6f3553f2e71f7
-  ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+  ms.openlocfilehash: 080cf9d8b7816b28f299396de2fe147fc2f9b27e
+  ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/29/2020
-  ms.locfileid: "87387751"
+  ms.lasthandoff: 09/02/2020
+  ms.locfileid: "89378889"
 landingContent:
 - title: Acerca de Azure Key Vault
   linkLists:
@@ -54,14 +54,34 @@ landingContent:
       url: security-recommendations.md
     - text: Línea de base de seguridad
       url: security-baseline.md
+  - linkListType: how-to-guide
+    links:
+    - text: Autenticación en Key Vault
+      url: authentication.md
+    - text: Asignación de directiva de acceso (CLI)
+      url: assign-access-policy-CLI.md
+    - text: Asignación de directiva de acceso (PowerShell)
+      url: assign-access-policy-powershell.md
+    - text: Asignación de directiva de acceso (Azure Portal)
+      url: assign-access-policy-portal.md
   - linkListType: tutorial
     links:
     - text: Uso de Private Link
       url: private-link-service.md
-    - text: Uso de una identidad administrada
-      url: managed-identity.md
-    - text: Uso de una directiva de acceso
-      url: group-permissions-for-apps.md
+- title: Bibliotecas de clientes
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Bibliotecas cliente para Azure Key Vault
+      url: client-libraries.md
+    - text: Biblioteca cliente de .NET
+      url: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+    - text: Biblioteca cliente de Python
+      url: /python/api/overview/azure/key-vault-index?view=azure-python
+    - text: Biblioteca cliente de Java
+      url: https://azure.github.io/azure-sdk-for-java/keyvault.html
+    - text: Biblioteca cliente de Node.js
+      url: /javascript/api/overview/azure/key-vault-index?view=azure-node-latest
 - title: Microsoft Learn
   linkLists:
   - linkListType: learn

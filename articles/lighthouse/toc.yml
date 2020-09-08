@@ -10,9 +10,6 @@
     - name: Índice
       displayName: 'template, sample'
       href: ./samples/index.md
-    - name: Elementos integrados de Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./samples/policy-samples.md
 - name: Conceptos
   items:
     - name: Administración de recursos delegados de Azure
@@ -50,6 +47,9 @@
     - name: Visualización y administración de clientes
       displayName: my customers
       href: ./how-to/view-manage-customers.md
+    - name: Vínculo a su identificador de asociado
+      displayName: 'partner earned credit, pec, mpn'
+      href: ./how-to/partner-earned-credit.md
     - name: Quitar el acceso a una delegación
       displayName: 'delete, undelegate'
       href: ./how-to/remove-delegation.md
@@ -81,12 +81,12 @@
           href: ./how-to/view-service-provider-activity.md
 - name: Referencia
   items:
-    - name: Azure CLI
-      href: /cli/azure/managedservices?view=azure-cli-latest
+    - name: CLI de Azure
+      href: /cli/azure/managedservices
     - name: Azure PowerShell
-      href: /powershell/module/az.managedservices/?view=azps-2.4.0#managed_services
+      href: /powershell/module/az.managedservices#managed_services
     - name: SDK de Azure para .NET
-      href: /dotnet/api/Microsoft.Azure.Management.ManagedServices?view=azure-dotnet
+      href: /dotnet/api/Microsoft.Azure.Management.ManagedServices
     - name: SDK de Azure para .NET (NuGet)
       href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/'
     - name: SDK de Azure para Python
@@ -95,6 +95,9 @@
       href: /rest/api/managedservices/
     - name: OpenAPI
       href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/preview/2018-06-01-preview'
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./samples/policy-reference.md
 - name: Recursos
   items:
     - name: Preguntas y respuestas de Microsoft para Azure Lighthouse
@@ -103,5 +106,5 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Calculadora de precios
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: UserVoice
+    - name: Comentarios sobre el producto
       href: 'https://feedback.azure.com/forums/922753'

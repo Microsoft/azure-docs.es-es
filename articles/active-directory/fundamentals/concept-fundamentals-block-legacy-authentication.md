@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1e17421b27082a079d078f53c38d0c942db7ae71
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: b50c942d2e05d7f5234a17f1cf36137309c7ce97
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200539"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320960"
 ---
 # <a name="blocking-legacy-authentication"></a>Bloqueo de la autenticación heredada
  
@@ -50,7 +50,7 @@ En esta sección se ofrece una introducción paso a paso sobre cómo actualizar 
 
 El primer paso para habilitar la autenticación moderna es asegurarse de que el directorio admite la autenticación moderna. La autenticación moderna está habilitada de forma predeterminada para los directorios que creó el día 1 de agosto de 2017 o a partir de esta fecha. Si el directorio se creó antes de esta fecha, deberá habilitar manualmente la autenticación moderna para su directorio mediante los pasos siguientes:
 
-1. Compruebe si el directorio ya admite la autenticación moderna mediante la ejecución de  `Get-CsOAuthConfiguration`  desde el  [módulo de PowerShell de Skype Empresarial en la Web](https://docs.microsoft.com/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell).
+1. Compruebe si el directorio ya admite la autenticación moderna mediante la ejecución de  `Get-CsOAuthConfiguration`  desde el  [módulo de PowerShell de Skype Empresarial en la Web](/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell).
 1. Si el comando devuelve una propiedad  `OAuthServers`  vacía, la autenticación moderna se deshabilita. Actualice la configuración para habilitar la autenticación moderna mediante  `Set-CsOAuthConfiguration`. Si la propiedad  `OAuthServers`  contiene una entrada, significa que está listo para empezar.
 
 Asegúrese de completar este paso antes de continuar. Es fundamental cambiar primero las configuraciones de directorio, ya que estas dictan qué protocolo usarán todos los clientes de Office. Aunque use clientes de Office que admitan la autenticación moderna, usarán de manera predeterminada protocolos heredados si la autenticación moderna está deshabilitada en su directorio.
@@ -59,7 +59,7 @@ Asegúrese de completar este paso antes de continuar. Es fundamental cambiar pri
 
 Una vez que haya habilitado la autenticación moderna en su directorio, puede empezar a actualizar las aplicaciones mediante la habilitación de la autenticación moderna para clientes de Office. Office 2016 o los clientes posteriores admiten la autenticación moderna de forma predeterminada. No se requiere ningún paso adicional.
 
-Si usa clientes de Windows con Office 2013 o una versión anterior, se recomienda actualizar a Office 2016 o posterior. Incluso después de completar el paso anterior para habilitar la autenticación moderna en su directorio, las aplicaciones de Office anteriores seguirán usando protocolos de autenticación heredados. Si usa clientes de Office 2013 y no puede actualizar inmediatamente a Office 2016 o posterior, siga los pasos descritos en el siguiente artículo para  [Habilitar la autenticación moderna para Office 2013 en los dispositivos Windows](https://docs.microsoft.com/office365/admin/security-and-compliance/enable-modern-authentication). Para ayudar a proteger su cuenta mientras usa la autenticación heredada, le recomendamos que use contraseñas seguras en su directorio. Consulte el artículo sobre  [protección con contraseña de Azure AD](../authentication/concept-password-ban-bad.md)  para prohibir las contraseñas no seguras en su directorio.
+Si usa clientes de Windows con Office 2013 o una versión anterior, se recomienda actualizar a Office 2016 o posterior. Incluso después de completar el paso anterior para habilitar la autenticación moderna en su directorio, las aplicaciones de Office anteriores seguirán usando protocolos de autenticación heredados. Si usa clientes de Office 2013 y no puede actualizar inmediatamente a Office 2016 o posterior, siga los pasos descritos en el siguiente artículo para  [Habilitar la autenticación moderna para Office 2013 en los dispositivos Windows](/office365/admin/security-and-compliance/enable-modern-authentication). Para ayudar a proteger su cuenta mientras usa la autenticación heredada, le recomendamos que use contraseñas seguras en su directorio. Consulte el artículo sobre  [protección con contraseña de Azure AD](../authentication/concept-password-ban-bad.md)  para prohibir las contraseñas no seguras en su directorio.
 
 Office 2010 no admite la autenticación moderna. Deberá actualizar todos los usuarios con Office 2010 a una versión más reciente de Office. Le recomendamos que actualice a Office 2016 o posterior, ya que bloquea la autenticación heredada de forma predeterminada.
 
@@ -69,13 +69,13 @@ Si usa macOS, se recomienda actualizar a Office para Mac 2016 o posterior. Si u
 
 Para que los clientes de Outlook basado en Windows usen la autenticación moderna, Exchange Online también debe tener habilitada la autenticación moderna. Si se deshabilita la autenticación moderna para Exchange Online, los clientes de Outlook basado en Windows que admiten la autenticación moderna (Outlook 2013 o versiones posteriores) usarán la autenticación básica para conectarse a buzones de Exchange Online.
 
-SharePoint Online está habilitado de forma predeterminada para la autenticación moderna. En el caso de los directorios creados a partir del 1 de agosto de 2017, la autenticación moderna está habilitada de forma predeterminada en Exchange Online. Sin embargo, si anteriormente tenía deshabilitada la autenticación moderna o usa un directorio creado antes de esta fecha, siga los pasos descritos en el artículo  [Habilitar la autenticación moderna en Exchange Online](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
+SharePoint Online está habilitado de forma predeterminada para la autenticación moderna. En el caso de los directorios creados a partir del 1 de agosto de 2017, la autenticación moderna está habilitada de forma predeterminada en Exchange Online. Sin embargo, si anteriormente tenía deshabilitada la autenticación moderna o usa un directorio creado antes de esta fecha, siga los pasos descritos en el artículo  [Habilitar la autenticación moderna en Exchange Online](/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
 
 ### <a name="step-4-skype-for-business"></a>Paso 4: Skype Empresarial
 
 Para evitar las solicitudes de autenticación heredadas realizadas por Skype Empresarial, es necesario habilitar la autenticación moderna para Skype Empresarial en la Web. En el caso de los directorios creados a partir del 1 de agosto de 2017, la autenticación moderna está habilitada de forma predeterminada en Skype Empresarial.
 
-Le sugerimos que realice la transición a Microsoft Teams, que admite la autenticación moderna de forma predeterminada. Sin embargo, si no puede migrar en este momento, deberá habilitar la autenticación moderna para Skype Empresarial en la Web para que Skype Empresarial empiece a usar la autenticación moderna. Consulte los pasos del artículo  [Topologías de Skype Empresarial admitidas con la autenticación moderna](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported) para habilitar la autenticación moderna para Skype Empresarial.
+Le sugerimos que realice la transición a Microsoft Teams, que admite la autenticación moderna de forma predeterminada. Sin embargo, si no puede migrar en este momento, deberá habilitar la autenticación moderna para Skype Empresarial en la Web para que Skype Empresarial empiece a usar la autenticación moderna. Consulte los pasos del artículo  [Topologías de Skype Empresarial admitidas con la autenticación moderna](/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported) para habilitar la autenticación moderna para Skype Empresarial.
 
 Además de habilitar la autenticación moderna para Skype Empresarial en la Web, le recomendamos que habilite la autenticación moderna para Exchange Online cuando habilite la autenticación moderna para Skype Empresarial. Este proceso permitirá sincronizar el estado de la autenticación moderna en Exchange Online y Skype Empresarial en la Web y evitará que se realicen varias solicitudes de inicio de sesión de los clientes de Skype Empresarial.
 
@@ -93,11 +93,11 @@ Antes de poder empezar a habilitar la autenticación moderna en el entorno local
 
 Los pasos para habilitar la autenticación moderna se encuentran en los artículos siguientes:
 
-* [Cómo configurar Exchange Server local para usar la autenticación moderna híbrida](https://docs.microsoft.com/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
-* [Cómo usar la autenticación moderna (ADAL) con Skype Empresarial](https://docs.microsoft.com/skypeforbusiness/manage/authentication/use-adal)
+* [Cómo configurar Exchange Server local para usar la autenticación moderna híbrida](/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
+* [Cómo usar la autenticación moderna (ADAL) con Skype Empresarial](/skypeforbusiness/manage/authentication/use-adal)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Cómo configurar Exchange Server local para usar la autenticación moderna híbrida](https://docs.microsoft.com/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
-- [Cómo usar la autenticación moderna (ADAL) con Skype Empresarial](https://docs.microsoft.com/skypeforbusiness/manage/authentication/use-adal)
+- [Cómo configurar Exchange Server local para usar la autenticación moderna híbrida](/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
+- [Cómo usar la autenticación moderna (ADAL) con Skype Empresarial](/skypeforbusiness/manage/authentication/use-adal)
 - [Bloquear la autenticación heredada](../conditional-access/block-legacy-authentication.md)

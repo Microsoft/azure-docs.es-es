@@ -8,12 +8,12 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 27fb165c36c17cee83cd9f90eba3bdcb9e32d517
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 0cfa7b63d1ce9dd4d9b40cd0eedac247f9c56437
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206899"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935762"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Creación de un punto de conexión privado para una conexión segura a Azure Cognitive Search
 
@@ -22,11 +22,11 @@ En este artículo, usará Azure Portal para crear una nueva instancia del servi
 Los puntos de conexión privados se proporcionan mediante [Azure Private Link](../private-link/private-link-overview.md), como un servicio independiente. Para más información sobre los costos, consulte la [página de precios](https://azure.microsoft.com/pricing/details/private-link/).
 
 > [!Important]
-> El soporte técnico del punto de conexión privado de Azure Cognitive Search se puede configurar con Azure Portal o la [API REST de administración, versión 2020-03-13](https://docs.microsoft.com/rest/api/searchmanagement/). Cuando el punto de conexión de servicio es privado, se deshabilitan algunas características del portal. Podrá ver y administrar información de nivel de servicio, pero, por motivos de seguridad, se ha restringido el acceso del portal a los datos del índice y de los distintos componentes de este servicio, como índice, indizador y definiciones del conjunto de aptitudes.
+> El soporte técnico del punto de conexión privado de Azure Cognitive Search se puede configurar con Azure Portal o la [API REST de administración, versión 2020-03-13](/rest/api/searchmanagement/). Cuando el punto de conexión de servicio es privado, se deshabilitan algunas características del portal. Podrá ver y administrar información de nivel de servicio, pero, por motivos de seguridad, se ha restringido el acceso del portal a los datos del índice y de los distintos componentes de este servicio, como índice, indizador y definiciones del conjunto de aptitudes.
 
 ## <a name="why-use-a-private-endpoint-for-secure-access"></a>¿Por qué usar un punto de conexión privado para obtener un acceso seguro?
 
-Los [puntos de conexión privados](../private-link/private-endpoint-overview.md) para Azure Cognitive Search permiten a un cliente de una red virtual obtener acceso de forma segura a los datos de un índice de búsqueda a través de un [vínculo privado](../private-link/private-link-overview.md). El punto de conexión privado usa una dirección IP del [espacio de direcciones de la red virtual](../virtual-network/virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) para el servicio de búsqueda. El tráfico de red entre el cliente y el servicio de búsqueda atraviesa la red virtual y un vínculo privado de la red troncal de Microsoft, lo que elimina la exposición a la red pública de Internet. Para obtener una lista de otros servicios de PaaS que admiten Private Link, compruebe la [sección de disponibilidad](../private-link/private-link-overview.md#availability) en la documentación del producto.
+Los [puntos de conexión privados](../private-link/private-endpoint-overview.md) para Azure Cognitive Search permiten a un cliente de una red virtual obtener acceso de forma segura a los datos de un índice de búsqueda a través de un [vínculo privado](../private-link/private-link-overview.md). El punto de conexión privado usa una dirección IP del [espacio de direcciones de la red virtual](../virtual-network/private-ip-addresses.md) para el servicio de búsqueda. El tráfico de red entre el cliente y el servicio de búsqueda atraviesa la red virtual y un vínculo privado de la red troncal de Microsoft, lo que elimina la exposición a la red pública de Internet. Para obtener una lista de otros servicios de PaaS que admiten Private Link, compruebe la [sección de disponibilidad](../private-link/private-link-overview.md#availability) en la documentación del producto.
 
 Los puntos de conexión privados para su servicio de búsqueda le permiten:
 

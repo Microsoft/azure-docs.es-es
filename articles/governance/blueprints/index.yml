@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 06/29/2020
-  ms.openlocfilehash: a0b800e12143cce428f0e5fcd26d9f9c0b690ee0
-  ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+  ms.date: 08/27/2020
+  ms.openlocfilehash: 1ec5453abd9d33b475b732a853294933cda02117
+  ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/07/2020
-  ms.locfileid: "88009552"
+  ms.lasthandoff: 08/28/2020
+  ms.locfileid: "89051379"
 landingContent:
 - title: Acerca de Azure Blueprints
   linkLists:

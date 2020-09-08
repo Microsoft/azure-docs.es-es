@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: kenwith
-ms.openlocfilehash: fdcea318fcd0796a790818794f6dd7cd949c17cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 09a930778e35897671d10f14a95f3fa48ea5e9eb
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367791"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642425"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planear una implementación de Azure AD Application Proxy
 
@@ -271,7 +271,7 @@ Las siguientes funcionalidades pueden usarse para admitir Azure AD Application 
 
 * Acceso condicional basado en el riesgo: Proteja sus datos de hackers malintencionados con una [directiva de acceso condicional basada en el riesgo](https://www.microsoft.com/cloud-platform/conditional-access).
 
-* Panel de acceso de Azure AD: Con el servicio Application Proxy implementado y las aplicaciones publicadas de forma segura, ofrezca a sus usuarios un centro sencillo para detectar y acceder a todas sus aplicaciones. Aumente la productividad con funcionalidades de autoservicio, como la capacidad para solicitar acceso a nuevas aplicaciones y grupos o para administrar el acceso a estos recursos en nombre de otros mediante el [Panel de acceso](https://aka.ms/AccessPanelDPDownload).
+* Aplicaciones de Azure AD: Con el servicio Application Proxy implementado y las aplicaciones publicadas de forma segura, ofrezca a sus usuarios un centro sencillo para detectar y acceder a todas sus aplicaciones. Aumente la productividad con funcionalidades de autoservicio, como la capacidad para solicitar acceso a nuevas aplicaciones y grupos o para administrar el acceso a estos recursos en nombre de otros mediante [Aplicaciones](https://aka.ms/AccessPanelDPDownload).
 
 ## <a name="manage-your-implementation"></a>Administrar la implementación
 

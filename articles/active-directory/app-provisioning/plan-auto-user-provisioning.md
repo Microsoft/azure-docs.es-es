@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: cecea24fe002ee64d54052635a6d7dec982aeee2
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 24de1b2cfc5e0804039923f23b6a5cd9f6c6fb80
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445651"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235712"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planeamiento de una implementación del aprovisionamiento automático de usuarios
 
@@ -157,7 +157,7 @@ Los pasos que son necesarios para habilitar y configurar el aprovisionamiento au
 
 Si no es así, siga estos pasos:
 
-1. [Cree una solicitud](../develop/howto-app-gallery-listing.md) para un conector de aprovisionamiento de usuarios integrado previamente. Nuestro equipo trabajará con usted y con el desarrollador de la aplicación para incorporar la aplicación a nuestra plataforma si es compatible con SCIM.
+1. [Cree una solicitud](../azuread-dev/howto-app-gallery-listing.md) para un conector de aprovisionamiento de usuarios integrado previamente. Nuestro equipo trabajará con usted y con el desarrollador de la aplicación para incorporar la aplicación a nuestra plataforma si es compatible con SCIM.
 
 1. Use la compatibilidad con el aprovisionamiento genérico de usuarios [BYOA SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) de la aplicación. Este es un requisito de Azure AD para aprovisionar usuarios en la aplicación sin un conector de aprovisionamiento integrado previamente.
 

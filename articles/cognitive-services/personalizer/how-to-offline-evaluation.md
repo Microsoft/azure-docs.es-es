@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: d1e11ffcb96bc233604464e90edb7dd42578bf08
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: a473085f9c94ca42a75d01b342d60cc33836b096
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132711"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244846"
 ---
 # <a name="analyze-your-learning-loop-with-an-offline-evaluation"></a>Análisis del bucle de aprendizaje con una evaluación sin conexión
 
@@ -30,7 +30,7 @@ Consulte [Evaluaciones sin conexión](concepts-offline-evaluation.md) para más 
 
 ## <a name="run-an-offline-evaluation"></a>Ejecución de una evaluación sin conexión
 
-1. En [Azure Portal](https://azure.microsoft.com/free/), busque el recurso de Personalizer.
+1. En [Azure Portal](https://azure.microsoft.com/free/cognitive-services), busque el recurso de Personalizer.
 1. En Azure Portal, vaya a la sección **Evaluaciones** y seleccione **Crear evaluación**.
     ![En Azure Portal, vaya a la sección **Evaluaciones** y seleccione **Crear evaluación**.](./media/offline-evaluation/create-new-offline-evaluation.png)
 1. Configure los valores siguientes:

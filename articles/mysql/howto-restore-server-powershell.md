@@ -7,12 +7,13 @@ ms.service: mysql
 ms.devlang: azurepowershel
 ms.topic: how-to
 ms.date: 4/28/2020
-ms.openlocfilehash: 85c04c875e543a5c41e9ad5e736a7de77ac1dad0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 5571d5a937fc48030c38ebe78c86ef27d6727a67
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119878"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837319"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mysql-server-using-powershell"></a>Copia de seguridad y restauración de un servidor de Azure Database for MySQL mediante PowerShell
 
@@ -132,4 +133,4 @@ El servidor creado durante una restauración no tiene los puntos de conexión de
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Personalización de parámetros de servidor de Azure Database for MySQL mediante PowerShell](howto-configure-server-parameters-using-powershell.md)
+> [Generación de una cadena de conexión de Azure Database for MySQL con PowerShell](howto-connection-string-powershell.md)

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
-ms.openlocfilehash: 9754636063e29592595ee57d09164ae1134341a1
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 81480bea735017d3fc59e9c6cf126c2146a0c968
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300613"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798472"
 ---
 # <a name="system-requirements"></a>Requisitos del sistema
 
@@ -24,7 +24,7 @@ En este capítulo se enumeran los requisitos mínimos del sistema para trabajar 
 
 * Windows 10 versión 1903 o posterior.
 * Controladores gráficos actualizados.
-* Opcional: Descodificador de vídeo de hardware de H265, si desea usar la versión preliminar local del contenido representado de forma remota (por ejemplo, en Unity).
+* Opcional: [Descodificador de vídeo de hardware de H265](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7), si desea usar la versión preliminar local del contenido representado de forma remota (por ejemplo, en Unity).
 
 > [!IMPORTANT]
 > Windows Update no siempre entrega los controladores de GPU más recientes; consulte el sitio web del fabricante de la GPU para obtenerlos:
@@ -52,7 +52,7 @@ Es importante usar el códec HEVC más reciente, ya que las versiones más recie
 1. Inicie **Microsoft Store**.
 1. Haga clic en el botón **"..."** en la esquina superior derecha.
 1. Seleccione **Descargas y actualizaciones**.
-1. Busque en la lista las **extensiones de vídeo HEVC del fabricante del dispositivo**.
+1. Busque en la lista las **extensiones de vídeo HEVC del fabricante del dispositivo**. Si este elemento no aparece en actualizaciones, la versión más reciente ya está instalada.
 1. Asegúrese de que el códec de la lista tiene al menos la versión **1.0.21821.0**.
 1. Haga clic en el botón **Obtener actualizaciones** y espere a que se instalen.
 
@@ -74,7 +74,7 @@ El software siguiente debe estar instalado:
   * **Desarrollo de Plataforma universal de Windows (UWP)**
 * **Windows SDK 10.0.18362.0** [(descargar)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * **GIT** [(descargar)](https://git-scm.com/downloads)
-* Opcional: para ver la secuencia de vídeo desde el servidor en un equipo de escritorio, necesita las **extensiones de vídeo de HEVC** [(vínculo de Microsoft Store)](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7).
+* Opcional: para ver la secuencia de vídeo desde el servidor en un equipo de escritorio, necesita las **extensiones de vídeo de HEVC** [(vínculo de Microsoft Store)](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7). Asegúrese de que se ha instalado la última versión comprobando si hay actualizaciones en el almacén.
 
 ## <a name="unity"></a>Unity
 

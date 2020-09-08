@@ -3,15 +3,16 @@ title: Inicio rápido para agregar marcas de características a ASP.NET Core
 description: Adición de marcas de características a aplicaciones de ASP.NET Core y su administración en Azure App Configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
+ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 01/14/2020
 ms.author: lcozzens
-ms.openlocfilehash: a25a40346d588f56028bf08294b070823b729e25
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 12b66dc173a8d3f93f97fb369ce03533299a65d7
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760148"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235271"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Inicio rápido: Adición de marcas de características a una aplicación web de ASP.NET Core
 
@@ -114,7 +115,7 @@ La herramienta Secret Manager almacena información confidencial para el trabajo
 
 1. Agregue un secreto llamado **ConnectionStrings:AppConfig** a Secret Manager.
 
-    Este secreto contiene la cadena de conexión necesaria para acceder a su almacén de App Configuration. Sustituya el valor `<your_connection_string>` en el comando siguiente por la cadena de conexión de su almacén de App Configuration. Puede encontrar la cadena de conexión en **Claves de acceso** en Azure Portal.
+    Este secreto contiene la cadena de conexión necesaria para acceder a su almacén de App Configuration. Sustituya el valor `<your_connection_string>` en el comando siguiente por la cadena de conexión de su almacén de App Configuration. Puede encontrar la cadena de conexión de la clave de solo lectura principal en **Claves de acceso** en Azure Portal.
 
     Este comando debe ejecutarse en el mismo directorio que el archivo *.csproj*.
 
@@ -186,7 +187,7 @@ La herramienta Secret Manager almacena información confidencial para el trabajo
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllersWithViews();
-        services.AddSingleton(Configuration).AddFeatureManagement();
+        services.AddFeatureManagement();
     }
 
     ---

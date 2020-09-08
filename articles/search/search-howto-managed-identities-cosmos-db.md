@@ -9,18 +9,17 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 107cd113645a2cbd4b452f9350fa67d734ee6df8
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: df37b7f1c5b1ed35b6c3779eea470b2fb0936ecf
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143653"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936663"
 ---
 # <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity-preview"></a>Configuración de una conexión de indexador a una base de datos de Cosmos DB mediante una identidad administrada (versión preliminar)
 
 > [!IMPORTANT] 
-> El soporte técnico para la configuración de una conexión a un origen de datos mediante una identidad administrada se encuentra actualmente en versión preliminar pública controlada. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción.
-> Para solicitar acceso a las versión preliminar, puede rellenar [este formulario](https://aka.ms/azure-cognitive-search/mi-preview-request).
+> La compatibilidad con la configuración de una conexión en un origen de datos mediante una identidad administrada se encuentra actualmente en versión preliminar pública. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción.
 
 En esta página se describe cómo configurar una conexión de indexador a una base de datos de Azure Cosmos DB mediante una identidad administrada en lugar de proporcionar credenciales en la cadena de conexión del objeto de origen de datos.
 
@@ -58,11 +57,9 @@ En este paso, concederá permiso a su servicio de Azure Cognitive Search para le
 
 ### <a name="3---create-the-data-source"></a>3 - Crear el origen de datos
 
-A **origen de datos** especifica los datos para indexar, las credenciales y las directivas para identificar cambios en los datos (por ejemplo, los documentos modificados o eliminados dentro de la colección). El origen de datos se define como un recurso independiente para que puedan usarlo múltiples indizadores.
+La [API REST](/rest/api/searchservice/create-data-source), Azure Portal y el [SDK de .NET](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) admiten la cadena de conexión de identidad administrada. A continuación se muestra un ejemplo de cómo crear un origen de datos para indexar los datos de Cosmos DB mediante la [API REST](/rest/api/searchservice/create-data-source) y una cadena de conexión de identidad administrada. El formato de la cadena de conexión de identidad administrada es el mismo para la API REST, el SDK de .NET y Azure Portal.
 
-Si se utilizan identidades administradas para autenticarse en el origen de datos, las **credenciales** no incluirán una clave de cuenta.
-
-Ejemplo de cómo crear un objeto de origen de datos de Cosmos DB mediante la [API de REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source):
+Si se utilizan identidades administradas para autenticarse, las **credenciales** no incluirán una clave de cuenta.
 
 ```
 POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
@@ -94,13 +91,11 @@ El cuerpo de la solicitud contiene la definición del origen de datos, que debe 
 | **dataChangeDetectionPolicy** | Recomendado |
 |**dataDeletionDetectionPolicy** | Opcional |
 
-Azure Portal y el [SDK de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) también admiten la cadena de conexión de identidades administradas. Azure Portal requiere una marca de características que se le proporcionará al registrarse en la versión preliminar mediante el vínculo de la parte superior de esta página. 
-
 ### <a name="4---create-the-index"></a>4 - Crear el índice
 
 El índice especifica los campos de un documento, los atributos y otras construcciones que conforman la experiencia de búsqueda.
 
-Aquí se muestra cómo crear un índice con un campo de `booktitle` que se pueda buscar:
+Aquí se muestra cómo crear un índice con un campo `booktitle` que admite búsquedas:
 
 ```
 POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
@@ -116,7 +111,7 @@ api-key: [admin key]
 }
 ```
 
-Para obtener más información sobre la creación de índices, vea el artículo de [creación de índices](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Para obtener más información sobre la creación de índices, vea el artículo de [creación de índices](/rest/api/searchservice/create-index).
 
 ### <a name="5---create-the-indexer"></a>5 - Crear el indexador
 
@@ -141,7 +136,7 @@ Ejemplo de definición del indexador:
 
 Este indizador se ejecutará cada dos horas (el intervalo de programación se establece en PT2H). Para ejecutar un indizador cada 30 minutos, establézcalo en PT30M. El intervalo más breve que se admite es de 5 minutos. La programación es opcional: si se omite, el indizador solo se ejecuta una vez cuando se crea. Sin embargo, puede ejecutarlo a petición en cualquier momento.   
 
-Para más información sobre la API Create Indexer, consulte [Crear indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Para más información sobre la API Create Indexer, consulte [Crear indexador](/rest/api/searchservice/create-indexer).
 
 Para más información sobre cómo definir las programaciones del indexador, consulte [Programación de indexadores para Azure Cognitive Search](search-howto-schedule-indexers.md).
 

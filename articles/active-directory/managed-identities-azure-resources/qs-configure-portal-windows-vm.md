@@ -3,7 +3,7 @@ title: 'Configuración de identidades administradas mediante Azure Portal: Azure
 description: Instrucciones detalladas para configurar identidades administradas para recursos de Azure en una VM de Azure mediante Azure Portal.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/10/2018
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da8b6abe343a3f8bf7231d4b8f23a5e10f614e58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2ed19b9dae179c3e4fe89a9ce28df4ad0cd080af
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609160"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263219"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-vm-using-the-azure-portal"></a>Configurar identidades administradas para recursos de Azure en una VM mediante Azure Portal
 
@@ -41,7 +41,7 @@ En esta sección, aprenderá a habilitar y deshabilitar la identidad administrad
 
 ### <a name="enable-system-assigned-managed-identity-during-creation-of-a-vm"></a>Habilitación de una identidad administrada asignada por el sistema durante la creación de una VM
 
-Para habilitar una identidad administrada asignada por el sistema en una máquina virtual durante su creación, la cuenta necesita la asignación de roles [Colaborador de la máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).  No se requiere ninguna otra asignación de roles de directorio de Azure AD.
+Para habilitar una identidad administrada asignada por el sistema en una máquina virtual durante su creación, la cuenta necesita la asignación de roles [Colaborador de la máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).  No se requiere ninguna otra asignación de roles de directorio de Azure AD.
 
 - En el pestaña **Administración** de la sección **Identidad** cambie **Managed Service Identity** a **Activado**.  
 
@@ -55,7 +55,7 @@ Consulte las siguientes guías de inicio rápido para crear una máquina virtual
 
 ### <a name="enable-system-assigned-managed-identity-on-an-existing-vm"></a>Habilitación de una identidad administrada asignada por el sistema en una VM existente
 
-Para habilitar una identidad administrada asignada por el sistema en una máquina virtual que en un principio se aprovisionó sin dicha identidad, la cuenta necesita la asignación de roles [Colaborador de la máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).  No se requiere ninguna otra asignación de roles de directorio de Azure AD.
+Para habilitar una identidad administrada asignada por el sistema en una máquina virtual que en un principio se aprovisionó sin dicha identidad, la cuenta necesita la asignación de roles [Colaborador de la máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).  No se requiere ninguna otra asignación de roles de directorio de Azure AD.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta asociada a la suscripción de Azure que contiene la máquina virtual.
 
@@ -67,7 +67,7 @@ Para habilitar una identidad administrada asignada por el sistema en una máquin
 
 ### <a name="remove-system-assigned-managed-identity-from-a-vm"></a>Quitar una identidad administrada asignada por el sistema de una VM
 
-Para eliminar una identidad administrada asignada por el sistema de una máquina virtual, la cuenta necesita la asignación de roles [Colaborador de la máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).  No se requiere ninguna otra asignación de roles de directorio de Azure AD.
+Para eliminar una identidad administrada asignada por el sistema de una máquina virtual, la cuenta necesita la asignación de roles [Colaborador de la máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).  No se requiere ninguna otra asignación de roles de directorio de Azure AD.
 
 Si tiene una máquina virtual que ya no necesita la identidad administrada asignada por el sistema:
 
@@ -85,7 +85,7 @@ Si tiene una máquina virtual que ya no necesita la identidad administrada asign
 
 ### <a name="assign-a-user-assigned-identity-during-the-creation-of-a-vm"></a>Asignación de una identidad asignada por el usuario durante la creación de una VM
 
-Para asignar una identidad asignada por un usuario a una máquina virtual, la cuenta debe tener las asignaciones de roles [Colaborador de la máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) y [Operador de identidades administradas](/azure/role-based-access-control/built-in-roles#managed-identity-operator). No se requiere ninguna otra asignación de roles de directorio de Azure AD.
+Para asignar una identidad asignada por un usuario a una máquina virtual, la cuenta debe tener las asignaciones de roles [Colaborador de la máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) y [Operador de identidades administradas](../../role-based-access-control/built-in-roles.md#managed-identity-operator). No se requiere ninguna otra asignación de roles de directorio de Azure AD.
 
 En la actualidad, Azure Portal no permite asignar una identidad administrada asignada por el usuario durante la creación de una VM. En su lugar, consulte uno de los artículos de inicio rápido sobre la creación de VM para crear primero una VM y continúe en la siguiente sección, donde encontrará información acerca de cómo asignar la identidad administrada asignada por el usuario a la VM:
 
@@ -94,7 +94,7 @@ En la actualidad, Azure Portal no permite asignar una identidad administrada asi
 
 ### <a name="assign-a-user-assigned-managed-identity-to-an-existing-vm"></a>Asignación de una identidad administrada asignada por el usuario a una VM existente
 
-Para asignar una identidad asignada por un usuario a una máquina virtual, la cuenta debe tener las asignaciones de roles [Colaborador de la máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) y [Operador de identidades administradas](/azure/role-based-access-control/built-in-roles#managed-identity-operator). No se requiere ninguna otra asignación de roles de directorio de Azure AD.
+Para asignar una identidad asignada por un usuario a una máquina virtual, la cuenta debe tener las asignaciones de roles [Colaborador de la máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) y [Operador de identidades administradas](../../role-based-access-control/built-in-roles.md#managed-identity-operator). No se requiere ninguna otra asignación de roles de directorio de Azure AD.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta asociada a la suscripción de Azure que contiene la máquina virtual.
 2. Vaya a la máquina virtual que desee y haga clic en **Identidad**, **Asignado por el usuario** y en **\+Agregar**.
@@ -107,7 +107,7 @@ Para asignar una identidad asignada por un usuario a una máquina virtual, la cu
 
 ### <a name="remove-a-user-assigned-managed-identity-from-a-vm"></a>Eliminación de una identidad administrada asignada por el usuario de una VM
 
-Para eliminar una identidad asignada por el usuario de una máquina virtual, la cuenta necesita la asignación de roles [Colaborador de la máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor). No se requiere ninguna otra asignación de roles de directorio de Azure AD.
+Para eliminar una identidad asignada por el usuario de una máquina virtual, la cuenta necesita la asignación de roles [Colaborador de la máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor). No se requiere ninguna otra asignación de roles de directorio de Azure AD.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta asociada a la suscripción de Azure que contiene la máquina virtual.
 2. Vaya a la VM que quiera y haga clic en **Identidad**, en **Asignado por el usuario**, en el nombre de la identidad administrada asignada por el usuario que quiera eliminar y en **Quitar** (haga clic en **Sí** en el panel de confirmación).
@@ -117,4 +117,3 @@ Para eliminar una identidad asignada por el usuario de una máquina virtual, la 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Con Azure Portal, dé a la identidad administrada de una VM de Azure [acceso a otro recurso de Azure](howto-assign-access-portal.md).
-

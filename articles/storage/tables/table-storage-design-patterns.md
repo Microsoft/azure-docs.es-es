@@ -1,6 +1,6 @@
 ---
 title: Patrones de diseño de tablas de almacenamiento de Azure | Microsoft Docs
-description: Use patrones para soluciones de Azure Table service.
+description: Examine los patrones de diseño que son adecuados para usarlos con las soluciones del servicio Table en Azure. Solucione los problemas y las desventajas que se explican en otros artículos.
 services: storage
 author: tamram
 ms.service: storage
@@ -8,12 +8,13 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: cbafe7c3e3b76ea13a8ca7a82b2968662b43685a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b200782d10ae3637fcade63feab1e638d40acddb
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081237"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006353"
 ---
 # <a name="table-design-patterns"></a>Patrones de diseño de tabla
 En este artículo se describen algunos patrones adecuados para su uso con soluciones de Table service. Además, verá cómo puede abordar de manera práctica algunos de los problemas, y las ventajas e inconvenientes descritos en otros artículos de diseño de Table Storage. En el diagrama siguiente se resumen las relaciones entre los distintos patrones:  
@@ -310,7 +311,7 @@ Observe que **RowKey** es ahora una clave compuesta formada por el identificador
 
 El ejemplo siguiente describe cómo se pueden recuperar todos los datos de revisión para un empleado concreto (como employee 000123 en el departamento de ventas):  
 
-$filter=(PartitionKey eq 'Ventas') y (RowKey ge 'empid_000123') y (RowKey lt 'empid_000124')&$select=RowKey,Manager Rating,Peer Rating,Comments  
+$filter=(PartitionKey eq "Sales") y (RowKey ge "empid_000123") y (RowKey lt "000123_2012")&$select=RowKey,Manager Rating,Peer Rating,Comments  
 
 ### <a name="issues-and-considerations"></a>Problemas y consideraciones
 Tenga en cuenta los puntos siguientes al decidir cómo implementar este patrón:  

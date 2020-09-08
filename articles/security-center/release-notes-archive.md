@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: cebc2c3d364cdb93c4b528c186dcef79c58ac6ea
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: d7ac2777ffd500082bd0b8a9700d53bffd9d6931
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167018"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177319"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Archivo de novedades de Azure Security Center
 
@@ -141,7 +141,7 @@ Las nuevas capacidades de esta versión preliminar pública incluyen:
 
 Las aplicaciones que se instalan en máquinas virtuales a menudo pueden tener vulnerabilidades que podrían provocar una infracción de la máquina virtual. Estamos anunciando que el nivel estándar de Security Center incluye una evaluación de vulnerabilidades integrada para máquinas virtuales sin costo adicional. La evaluación de vulnerabilidades, con la tecnología de Qualys en la versión preliminar pública, le permitirá examinar continuamente todas las aplicaciones instaladas en una máquina virtual para encontrar aplicaciones vulnerables y presentar las conclusiones en la experiencia del portal de Security Center. Security Center se encarga de todas las operaciones de implementación para que no sea necesario ningún trabajo adicional por parte del usuario. En adelante, tenemos previsto proporcionar opciones de evaluación de vulnerabilidades para satisfacer las necesidades empresariales únicas de nuestros clientes.
 
-[Más información acerca de evaluaciones de vulnerabilidades para Azure Virtual Machines](security-center-vulnerability-assessment-recommendations.md).
+[Más información acerca de evaluaciones de vulnerabilidades para Azure Virtual Machines](deploy-vulnerability-assessment-vm.md).
 
 
 ### <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-preview"></a>Advanced Data Security para servidores SQL Server en Azure Virtual Machines (versión preliminar)

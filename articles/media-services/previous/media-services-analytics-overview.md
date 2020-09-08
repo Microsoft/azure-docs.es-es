@@ -15,14 +15,17 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: juliako
 ms.reviewer: milanga; johndeu
-ms.openlocfilehash: d9efb1e9256bccd04a76b4f63edaaf7c2c6ac708
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 79665531e5faa9766c62b87a002efafdea2f3221
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955223"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264732"
 ---
-# <a name="media-analytics-on-the-media-services-platform"></a>Análisis multimedia en la plataforma Media Services 
+# <a name="media-analytics-on-the-media-services-platform"></a>Análisis multimedia en la plataforma Media Services
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 ## <a name="retirement-plans"></a>Planes de retirada
 

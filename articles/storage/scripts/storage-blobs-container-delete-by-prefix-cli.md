@@ -1,6 +1,6 @@
 ---
 title: 'Ejemplo de script de la CLI de Azure: eliminación de contenedores por prefijo | Microsoft Docs'
-description: Elimine contenedores de blobs de Azure Storage según un prefijo de nombre de contenedor.
+description: Elimine los contenedores de blobs de Azure Storage en función de un prefijo de nombre de contenedor y, después, limpie la implementación. Vea los vínculos de ayuda para los comandos usados en el ejemplo de script.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,12 +10,12 @@ ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 66869b7dc38e11b614ebc89538c2c195122b5bb3
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: aeccf255004cd4512fbc591942324341504b20f7
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87479564"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87901902"
 ---
 # <a name="use-an-azure-cli-script-to-delete-containers-based-on-container-name-prefix"></a>Uso de un script de la CLI de Azure para eliminar contenedores según el prefijo de nombre del contenedor
 

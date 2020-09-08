@@ -2,14 +2,14 @@
 title: Ejecución de tareas en cuentas de usuario
 description: Obtenga información acerca de los tipos de cuentas de usuario y cómo configurarlas.
 ms.topic: how-to
-ms.date: 11/18/2019
+ms.date: 08/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 412947b939d95be29dde374b311776829fa12582
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: cce374e7d7ffb513bed882b048ea54bcbad81b0b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142680"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719366"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Ejecución de tareas en cuentas de usuario en Batch
 
@@ -49,18 +49,13 @@ El nivel de elevación de la cuenta de usuario indica si una tarea se ejecuta co
 
 ## <a name="auto-user-accounts"></a>Cuentas de usuario automático
 
-De forma predeterminada, las tareas se ejecutan en Batch en una cuenta de usuario automático, como usuario estándar sin acceso con privilegios elevados y con el ámbito de la tarea. Cuando se configura la especificación de usuario automático para el ámbito de la tarea, el servicio Batch crea una cuenta de usuario automático solo para esa tarea.
+De forma predeterminada, las tareas se ejecutan en Batch en una cuenta de usuario automático, como usuario estándar sin acceso con privilegios elevados y con el ámbito del grupo. El ámbito del grupo significa que la tarea se ejecuta en una cuenta de usuario automático que está disponible para cualquier tarea del grupo. Para más información sobre el ámbito de grupo, consulte [Ejecución de una tarea como usuario automático con ámbito de grupo](#run-a-task-as-an-auto-user-with-pool-scope).
 
-La alternativa al ámbito de la tarea es el ámbito de grupo. Cuando se configura la especificación de usuario automático de una tarea para el ámbito de grupo, la tarea se ejecuta en una cuenta de usuario automático que está disponible para cualquier tarea del grupo. Para más información sobre el ámbito de grupo, consulte [Ejecución de una tarea como usuario automático con ámbito de grupo](#run-a-task-as-an-auto-user-with-pool-scope).
-
-El ámbito predeterminado es diferente en los nodos de Windows y Linux:
-
-- En los nodos de Windows, las tareas se ejecutan en el ámbito de la tarea de forma predeterminada.
-- En los nodos de Linux, se ejecutan siempre en el ámbito de grupo.
+La alternativa al ámbito del grupo es el ámbito de tarea. Cuando se configura la especificación de usuario automático para el ámbito de la tarea, el servicio Batch crea una cuenta de usuario automático solo para esa tarea.
 
 Existen cuatro configuraciones posibles para la especificación de usuario automático, cada una de las cuales corresponde a una cuenta de usuario automático única:
 
-- Acceso sin privilegios de administrador con ámbito de la tarea (la especificación de usuario automático predeterminada)
+- Acceso sin privilegios de administrador con ámbito de tarea
 - Acceso de administrador (elevado) con ámbito de la tarea
 - Acceso sin privilegios de administrador con ámbito de grupo
 - Acceso de administrador con ámbito de grupo
@@ -75,7 +70,7 @@ Puede configurar la especificación de usuario automático con privilegios de ad
 > [!NOTE]
 > Use el acceso con privilegios elevados solo cuando sea necesario. Según los procedimientos recomendados, es aconsejable conceder los privilegios mínimos necesarios para lograr el resultado deseado. Por ejemplo, si una tarea de inicio instala software para el usuario actual, en lugar de para todos los usuarios, es posible que pueda evitar conceder acceso con privilegios elevados a tareas. Puede configurar la especificación de usuario automático con ámbito de grupo y sin acceso con privilegios elevados para todas las tareas que haya que ejecutar en la misma cuenta, incluida la de inicio.
 
-En los fragmentos de código siguientes, se muestra cómo configurar la especificación de usuario automático. En los ejemplos se establece el nivel de elevación en `Admin` y el ámbito en `Task`. El ámbito de tarea es la configuración predeterminada, pero se incluye aquí a modo informativo.
+En los fragmentos de código siguientes, se muestra cómo configurar la especificación de usuario automático. En los ejemplos se establece el nivel de elevación en `Admin` y el ámbito en `Task`.
 
 #### <a name="batch-net"></a>.NET de Batch
 
@@ -90,7 +85,7 @@ taskToAdd.withId(taskId)
             .withAutoUser(new AutoUserSpecification()
                 .withElevationLevel(ElevationLevel.ADMIN))
                 .withScope(AutoUserScope.TASK));
-        .withCommandLine("cmd /c echo hello");                        
+        .withCommandLine("cmd /c echo hello");
 ```
 
 #### <a name="batch-python"></a>Python de Batch
@@ -113,7 +108,7 @@ Cuando se aprovisiona un nodo, se crean dos cuentas de usuario automático para 
 
 Cuando se especifica el ámbito de grupo para el usuario automático, todas las tareas que se ejecutan con acceso de administrador se ejecutan en la misma cuenta de usuario automático para todo el grupo. De forma similar, las tareas que se ejecutan sin permisos de administrador también se ejecutan en una sola cuenta de usuario automático para todo el grupo.
 
-> [!NOTE] 
+> [!NOTE]
 > Las dos cuentas de usuario automático para todo el grupo son independientes. Las tareas que se ejecutan en la cuenta administrativa para todo el grupo no pueden compartir datos con las que se ejecutan en la cuenta estándar y viceversa.
 
 La ventaja de ejecutarlas en la misma cuenta de usuario automático es que las tareas pueden compartir datos con otras tareas que se ejecuten en el mismo nodo.

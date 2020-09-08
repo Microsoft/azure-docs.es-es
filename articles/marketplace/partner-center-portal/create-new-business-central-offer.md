@@ -1,18 +1,18 @@
 ---
 title: 'Creación de una oferta de Dynamics 365 Business Central: marketplace comercial de Microsoft'
-description: Conozca los pasos y las consideraciones para crear una nueva oferta de Dynamics 365 Business Central en el portal de marketplace comercial en el Centro de partners. Puede mostrar o vender su oferta en Azure Marketplace o a través del programa Proveedor de soluciones en la nube (CSP).
+description: Conozca los pasos y las consideraciones para crear una oferta de Dynamics 365 Business Central en el marketplace comercial de Microsoft del Centro de partners. Puede mostrar o vender su oferta en Azure Marketplace o a través del programa Proveedor de soluciones en la nube (CSP).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: navits09
 ms.author: navits
-ms.date: 06/17/2020
-ms.openlocfilehash: 456764ae2b08b9852e56b2ab3f7cd9238b540b58
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 08/07/2020
+ms.openlocfilehash: 4226f9cc45589b8c555d3d54918e31a04acbfc6b
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121952"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88817058"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Creación de una oferta de Dynamics 365 Business Central
 
@@ -29,7 +29,7 @@ Antes de comenzar, debe [crear una cuenta de marketplace comercial en el Centro 
     ![Muestra el menú de navegación izquierdo.](./media/new-offer-dynamics-365-business-central.png)
 
 > [!NOTE]
-> Después de publicar una oferta, las modificaciones que se realicen en el Centro de partners solo aparecen en los escaparates cuando la oferta se vuelve a publicar. Asegúrese de volver a realizar la publicación siempre después de realizar cambios.
+> Después de publicar una oferta, las modificaciones que se realicen en el Centro de partners solo aparecen en las tiendas en línea cuando la oferta se vuelve a publicar. Asegúrese de volver a realizar la publicación siempre después de realizar cambios.
 
 ## <a name="new-offer"></a>Nueva oferta
 
@@ -182,10 +182,16 @@ Proporcione al menos un documento de marketing relacionado (y un máximo de tres
 
 ### <a name="marketplace-images"></a>Imágenes de Marketplace
 
-Proporcione logotipos e imágenes para la oferta. Todas las imágenes deben estar en formato PNG. Cargue el logotipo de la oferta en dos tamaños:
+Proporcione un archivo PNG para el logotipo de tamaño **Grande**. El Centro de partners lo usará para crear un logotipo **Pequeño**. Opcionalmente, puede reemplazarlo por una imagen diferente.
 
-* **Pequeño** (48 x 48 píxeles)
-* **Grande** (216 x 216 píxeles)
+- **Grande** (de 216 x 216 a 350 x 350 píxeles, obligatorio)
+- **Pequeño** (48 x 48 píxeles, opcional)
+
+Estos logotipos se usan en distintos lugares de la publicación:
+
+[!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 >[!NOTE]
 >Si tiene un problema al cargar archivos, asegúrese de que la red local no bloquee el servicio `https://upload.xboxlive.com` que usa el Centro de partners.

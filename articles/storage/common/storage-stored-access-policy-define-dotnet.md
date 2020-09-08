@@ -1,7 +1,7 @@
 ---
 title: Creación de una directiva de acceso almacenada con .NET
 titleSuffix: Azure Storage
-description: Obtenga información sobre cómo crear una directiva de acceso almacenada mediante la biblioteca cliente de .NET.
+description: Use Azure Storage y .NET para crear una directiva de acceso almacenada. Ejerza niveles adicionales de control sobre las firmas de acceso compartido de nivel de servicio en el servidor.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,12 +10,13 @@ ms.date: 06/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: f4a0d69f3687f0dcc174a2d8a1275a2bf55d9ecf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 6cd6147fbe38710bcefd580e71be1d6f5d446a21
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504396"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010756"
 ---
 # <a name="create-a-stored-access-policy-with-net"></a>Creación de una directiva de acceso almacenada con .NET
 
@@ -41,7 +42,7 @@ La operación de REST subyacente para crear una directiva de acceso almacenada e
 
 Los ejemplos de código siguientes crean una directiva de acceso almacenada en un contenedor. Puede usar la directiva de acceso para especificar restricciones para una SAS de servicio en el contenedor o sus blobs.
 
-# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Para crear una directiva de acceso almacenada en un contenedor con la versión 12 de la biblioteca cliente de .NET para Azure Storage, llame a uno de los métodos siguientes:
 
@@ -92,7 +93,7 @@ async static Task CreateStoredAccessPolicyAsync(string containerName)
 }
 ```
 
-# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Para crear una directiva de acceso almacenada en un contenedor con la versión 12 de la biblioteca cliente de .NET para Azure Storage, llame a uno de los métodos siguientes:
 

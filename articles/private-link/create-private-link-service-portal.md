@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 02/03/2020
 ms.author: allensu
-ms.openlocfilehash: f21b440ee0e2c53d9824300e85b683629c1575da
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0d873401d377a03581a319769604f3d976f365be
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78252545"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927245"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>Inicio rápido: Creación de un servicio Private Link mediante Azure Portal
 
@@ -33,16 +33,16 @@ En primer lugar, cree una red virtual. Luego, cree un equilibrador de carga inte
 
 En esta sección, creará una red virtual. También puede crear la subred que va a hospedar el equilibrador de carga que accede a su servicio Private Link.
 
-En los pasos de esta sección, tendrá que reemplazar los siguientes parámetros por la siguiente información:
+En los pasos de esta sección, tendrá que reemplazar los siguientes parámetros por la información a continuación:
 
 | Parámetro                   | Value                |
 |-----------------------------|----------------------|
 | **\<resource-group-name>**  | myResourceGroupLB |
 | **\<virtual-network-name>** | myVNet          |
-| **\<nombre-de-región>**          | Este de EE. UU. 2      |
-| **\<IPv4-address-space>**   | 10.3.0.0\16          |
+| **\<region-name>**          | Este de EE. UU. 2      |
+| **\<IPv4-address-space>**   | 10.3.0.0/16          |
 | **\<subnet-name>**          | myBackendSubnet        |
-| **\<subnet-address-range>** | 10.3.0.0\24          |
+| **\<subnet-address-range>** | 10.3.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -133,7 +133,7 @@ Para crear una regla del equilibrador de carga:
 
 ## <a name="create-a-private-link-service"></a>Creación de un servicio Private Link
 
-En esta sección, se crea un servicio Private Link detrás de un equilibrador de carga estándar.
+En esta sección, creará un servicio Private Link detrás de un equilibrador de carga estándar.
 
 1. En la parte superior izquierda de la página en Azure Portal, seleccione **Crear un recurso** > **Redes** > **Private Link Center (versión preliminar)** . También puede usar el cuadro de búsqueda del portal para buscar Private Link.
 
@@ -160,7 +160,7 @@ En esta sección, se crea un servicio Private Link detrás de un equilibrador de
     | **Dirección IP de front-end del equilibrador de carga** | Seleccione la dirección IP del front-end de **myLoadBalancer**.                                |
     | **Red virtual NAT de origen**        | Seleccione **myVNet**.                                                                   |
     | **Subred NAT de origen**                 | Seleccione **myBackendSubnet**.                                                          |
-    | **Habilitar proxy TCP v2**               | Seleccione **Sí** o **No** en función de si la aplicación espera un encabezado proxy TCP versión 2. |
+    | **Habilitar proxy TCP V2**               | Seleccione **Sí** o **No** en función de si la aplicación espera un encabezado proxy TCP versión 2. |
     | **Configuración de dirección IP privada**       | Configure el método de asignación y la dirección IP para cada dirección IP de NAT.                  |
 
 1. Seleccione **Siguiente: Seguridad de acceso**

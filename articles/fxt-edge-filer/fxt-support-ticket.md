@@ -1,17 +1,17 @@
 ---
 title: Apertura de una incidencia de soporte técnico para Microsoft Azure FXT Edge Filer
-description: Procedimiento para abrir un vale para obtener ayuda con el sistema Azure FXT Edge Filer
+description: Abra una incidencia de soporte técnico en el servicio de atención al cliente y soporte técnico de Microsoft para obtener ayuda con el sistema Azure FXT Edge Filer.
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: rohogue
-ms.openlocfilehash: 292844f611008b6dafbed4e46cad07c45dbecc54
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 16b219afa329cc105fb70000d8a088d67883feed
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72255987"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184676"
 ---
 # <a name="open-a-support-ticket-for-the-azure-fxt-edge-filer"></a>Apertura de una incidencia de soporte técnico para Azure FXT Edge Filer
 

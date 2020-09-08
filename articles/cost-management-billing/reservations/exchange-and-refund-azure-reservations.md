@@ -3,15 +3,16 @@ title: Autoservicio de cambios y reembolsos de reservas de Azure
 description: Obtenga información sobre cómo puede obtener cambios o reembolsos para las reservas de Azure. Para cambiar o recibir el reembolso de las reservas, debe tener acceso de propietario para el pedido de reserva.
 author: yashesvi
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: f1323d21ee59386220a35cc31b17cab3441f0e0d
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 553652832f3f4ce84a0a141455551e4977215184
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87457641"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684429"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Autoservicio de cambios y reembolsos de reservas de Azure
 

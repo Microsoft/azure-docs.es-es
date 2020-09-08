@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: 898f63cbfba082f8c268587bcd2ea7f575d07f81
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 602a36964d4a6d5f3660499570327db3479c980e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420335"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299208"
 ---
 # <a name="what-is-azure-load-balancer"></a>¿Qué es Azure Load Balancer?
 
@@ -74,6 +74,10 @@ Load Balancer Básico está abierto a Internet de forma predeterminada. Además,
 Para más información sobre los precios de Standard Load Balancer, consulte [Precios de Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
 Load Balancer Básico se ofrece sin cargo.
 Consulte [Acuerdo de Nivel de Servicio para Load Balancer](https://aka.ms/lbsla). Load Balancer Básico no tiene Acuerdo de Nivel de Servicio.
+
+## <a name="whats-new"></a>Novedades
+
+Suscríbase a la fuente RSS y vea las actualizaciones más recientes de las características de Azure Load Balancer en la página [Actualizaciones de Azure](https://azure.microsoft.com/updates/?category=networking&query=load%20balancer).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte [Actualización de la versión Básico de un equilibrador de carga](upgrade-basic-standard.md) para actualizar a la versión Estándar.

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/07/2019
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48a7e5e810e509a97b6010218532f6e7dff0b73f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a0efc4bc8f89b0fbefbba171d80a3f8a1ed5e7f6
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77425551"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318937"
 ---
 # <a name="whats-new-for-azure-active-directory-in-microsoft-365-government"></a>Novedades de Azure Active Directory en Microsoft 365 Government
 
@@ -57,18 +57,18 @@ En la siguiente tabla se muestran los puntos de conexión para todos los cliente
 | Punto de conexión de Azure Active Directory Authority | https://login.microsoftonline.us |
 | Microsoft Graph API para Microsoft 365 Government - GCC High | https://graph.microsoft.us |
 | Microsoft Graph API para Microsoft 365 Government - DoD | https://dod-graph.microsoft.us |
-| Puntos de conexión de servicio de Azure Government | Para obtener más información, vea [Guía para desarrolladores de Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide) |
-| Puntos de conexión de Microsoft 365 Government - GCC High | Para obtener más información, consulte [Office 365 U.S. Government GCC High endpoints](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-gcc-high-endpoints) (Puntos de conexión de Office 365 U.S. Government GCC High) |
-| Microsoft 365 Government - DoD | Para obtener más información, consulte [Office 365 U.S. Government DoD endpoints](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-dod-endpoints) (Puntos de conexión de Office 365 U.S. Government DoD) |
+| Puntos de conexión de servicio de Azure Government | Para obtener más información, vea [Guía para desarrolladores de Azure Government](../../azure-government/documentation-government-developer-guide.md) |
+| Puntos de conexión de Microsoft 365 Government - GCC High | Para obtener más información, consulte [Office 365 U.S. Government GCC High endpoints](/office365/enterprise/office-365-u-s-government-gcc-high-endpoints) (Puntos de conexión de Office 365 U.S. Government GCC High) |
+| Microsoft 365 Government - DoD | Para obtener más información, consulte [Office 365 U.S. Government DoD endpoints](/office365/enterprise/office-365-u-s-government-dod-endpoints) (Puntos de conexión de Office 365 U.S. Government DoD) |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información, consulte estos artículos:
 
-- [¿Qué es Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)
+- [¿Qué es Azure Government?](../../azure-government/documentation-government-welcome.md)
 
 - [Azure Government AAD Authority Endpoint Update](https://devblogs.microsoft.com/azuregov/azure-government-aad-authority-endpoint-update/) (Actualización del punto de conexión de la entidad de AAD de Azure Government)
 
 - [Puntos de conexión de Microsoft Graph en la nube del US Gov](https://developer.microsoft.com/graph/blogs/new-microsoft-graph-endpoints-in-us-government-cloud/)
 
-- [Office 365 US Government GCC High y DoD](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod)
+- [Office 365 US Government GCC High y DoD](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod)

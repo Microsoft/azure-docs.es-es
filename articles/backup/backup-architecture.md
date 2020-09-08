@@ -3,12 +3,12 @@ title: Introducción a la arquitectura
 description: Proporciona información general sobre la arquitectura, los componentes y los procesos usados por el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: eab820c2a045c8602bfdbf77b5e2dba4cb2318af
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1081de6b467b896bd8cc62b84c9a67c329b11e02
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514312"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824039"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitectura y componentes de Azure Backup
 
@@ -42,7 +42,7 @@ Los almacenes de Recovery Services tienen las siguientes características:
 - Los almacenes facilitan la tarea de organizar los datos de copia de seguridad, al mismo tiempo que reducen al mínimo su sobrecarga administrativa.
 - En cada suscripción de Azure, puede crear hasta 500 almacenes.
 - Puede supervisar elementos de copia de seguridad de un almacén, como las máquinas virtuales de Azure y las máquinas locales.
-- Puede administrar el acceso del almacén con [control de acceso basado en rol (RBAC)](../role-based-access-control/role-assignments-portal.md) de Azure.
+- Puede administrar el acceso al almacén con el [control de acceso basado en rol de Azure (RBAC de Azure)](../role-based-access-control/role-assignments-portal.md).
 - Especificará cómo se replican los datos en el almacén para la redundancia:
   - **Almacenamiento con redundancia local (LRS)** : Para protegerse frente a los errores de un centro de datos, puede usar LRS. LRS replica los datos en una unidad de escalado de almacenamiento. [Más información](../storage/common/storage-redundancy.md).
   - **Almacenamiento con redundancia geográfica (GRS)** : Para protegerse contra las interrupciones de toda la región, puede usar GRS. GRS replica los datos en una región secundaria. [Más información](../storage/common/storage-redundancy.md).
@@ -120,16 +120,15 @@ Copia de seguridad de discos desduplicados | | | ![Parcialmente][yellow]<br/><br
 - Cuando se crea un almacén, también se crea una directiva "DefaultPolicy" que se puede usar para crear copias de seguridad de los recursos.
 - Cualquier cambio en el período de retención de una directiva de copia de seguridad se aplicará con efectos retroactivos a todos los puntos de recuperación anteriores, además de a los nuevos.
 
-### <a name="additional-reference"></a>Referencia adicional 
+### <a name="additional-reference"></a>Referencia adicional
 
--   Máquina virtual de Azure: ¿Cómo [crear](./backup-azure-vms-first-look-arm.md#back-up-from-azure-vm-settings) y [modificar](./backup-azure-manage-vms.md#manage-backup-policy-for-a-vm) una directiva? 
--   Base de datos de SQL Server en una máquina virtual de Azure: ¿Cómo [crear](./backup-sql-server-database-azure-vms.md#create-a-backup-policy) y [modificar](./manage-monitor-sql-database-backup.md#modify-policy) una directiva? 
--   Recurso compartido de archivos de Azure: ¿Cómo [crear](./backup-afs.md#discover-file-shares-and-configure-backup) y [modificar](./manage-afs-backup.md#modify-policy) una directiva? 
--   SAP HANA: ¿Cómo [crear](./backup-azure-sap-hana-database.md#create-a-backup-policy) y [modificar](./sap-hana-db-manage.md#change-policy) una directiva? 
--   MARS: ¿Cómo [crear](./backup-windows-with-mars-agent.md#create-a-backup-policy) y [modificar](./backup-azure-manage-mars.md#modify-a-backup-policy) una directiva? 
--   [¿Existen límites sobre la programación de copia de seguridad en función del tipo de carga de trabajo?](./backup-azure-backup-faq.md#are-there-limits-on-backup-scheduling)
+- Máquina virtual de Azure: ¿Cómo [crear](./backup-azure-vms-first-look-arm.md#back-up-from-azure-vm-settings) y [modificar](./backup-azure-manage-vms.md#manage-backup-policy-for-a-vm) una directiva?
+- Base de datos de SQL Server en una máquina virtual de Azure: ¿Cómo [crear](./backup-sql-server-database-azure-vms.md#create-a-backup-policy) y [modificar](./manage-monitor-sql-database-backup.md#modify-policy) una directiva?
+- Recurso compartido de archivos de Azure: ¿Cómo [crear](./backup-afs.md) y [modificar](./manage-afs-backup.md#modify-policy) una directiva?
+- SAP HANA: ¿Cómo [crear](./backup-azure-sap-hana-database.md#create-a-backup-policy) y [modificar](./sap-hana-db-manage.md#change-policy) una directiva?
+- MARS: ¿Cómo [crear](./backup-windows-with-mars-agent.md#create-a-backup-policy) y [modificar](./backup-azure-manage-mars.md#modify-a-backup-policy) una directiva?
+- [¿Existen límites sobre la programación de copia de seguridad en función del tipo de carga de trabajo?](./backup-azure-backup-faq.md#are-there-limits-on-backup-scheduling)
 - [¿Qué ocurre con los puntos de recuperación existentes cuando se cambia mi directiva de recuperación?](./backup-azure-backup-faq.md#what-happens-when-i-change-my-backup-policy)
-
 
 ## <a name="architecture-built-in-azure-vm-backup"></a>Arquitectura: Copia de seguridad integrada de máquina virtual de Azure
 
@@ -194,9 +193,8 @@ Las máquinas virtuales de Azure usan discos para almacenar su sistema operativo
 
 Para obtener más información sobre el almacenamiento en discos y los tipos de discos disponibles para las máquinas virtuales, consulte estos artículos:
 
-- [Introducción a los discos administrados de Azure](../virtual-machines/windows/managed-disks-overview.md)
-- [Introducción a los discos administrados de Azure](../virtual-machines/linux/managed-disks-overview.md)
-- [¿Qué tipos de disco están disponibles en Azure?](../virtual-machines/windows/disks-types.md)
+- [Introducción a los discos administrados de Azure](../virtual-machines/managed-disks-overview.md)
+- [¿Qué tipos de disco están disponibles en Azure?](../virtual-machines/disks-types.md)
 
 ### <a name="back-up-and-restore-azure-vms-with-premium-storage"></a>Copia de seguridad y restauración de máquinas virtuales de Azure con Premium Storage
 
@@ -205,7 +203,7 @@ Puede realizar una copia de seguridad de máquinas virtuales de Azure mediante P
 - Durante el proceso de copia de seguridad de máquinas virtuales con Premium Storage, el servicio Backup crea una ubicación de almacenamiento provisional, llamada *AzureBackup-* en la cuenta de almacenamiento. El tamaño de la ubicación de ensayo equivale al de la instantánea del punto de recuperación.
 - Asegúrese de que haya espacio disponible suficiente en la cuenta de Premium Storage para dar cabida a la ubicación de almacenamiento provisional. Para obtener más información, consulte [Objetivos de escalabilidad de las cuentas de almacenamiento de blob en páginas prémium](../storage/blobs/scalability-targets-premium-page-blobs.md). No modifique la ubicación de almacenamiento provisional.
 - Una vez finalizado el trabajo de copia de seguridad, se elimina esta ubicación.
-- El precio del almacenamiento usado para la ubicación de almacenamiento provisional es coherente con todos los [precios de Premium Storage](../virtual-machines/windows/disks-types.md#billing).
+- El precio del almacenamiento usado para la ubicación de almacenamiento provisional es coherente con todos los [precios de Premium Storage](../virtual-machines/disks-types.md#billing).
 
 Al restaurar máquinas virtuales de Azure mediante Premium Storage, puede restaurarlas a Premium Storage o Standard Storage. Normalmente, las restaurará a Premium Storage. Pero si necesita solo un subconjunto de archivos de la máquina virtual, podría ser más rentable restaurarlas a Standard Storage.
 

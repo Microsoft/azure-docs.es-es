@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: acd030d8108ef3983be29fe85de6d7b3caf620af
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: b20612756050ae2e9d39f59d049b8c097e3b8010
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849342"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651223"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Entrenamiento con conjuntos de datos en Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -115,7 +115,7 @@ En el ejemplo siguiente se crea un conjunto de datos FileDataset y se monta el c
 
 ### <a name="create-a-filedataset"></a>Creación de un objeto FileDataset
 
-En el ejemplo siguiente se crea un objeto FileDataset no registrado a partir de direcciones URL web. Más información sobre [cómo crear conjuntos de datos](https://aka.ms/azureml/howto/createdatasets) desde otros orígenes.
+En el ejemplo siguiente se crea un objeto FileDataset no registrado a partir de direcciones URL web. Más información sobre [cómo crear conjuntos de datos](how-to-create-register-datasets.md) desde otros orígenes.
 
 ```Python
 from azureml.core.dataset import Dataset

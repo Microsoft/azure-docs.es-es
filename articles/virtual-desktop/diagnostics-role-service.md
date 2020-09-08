@@ -1,19 +1,17 @@
 ---
 title: 'Problemas de diagnóstico de Windows Virtual Desktop: Azure'
 description: Procedimientos para usar la característica de diagnóstico de Windows Virtual Desktop para diagnosticar problemas.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 04/30/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6ff1e3d8eb9cb40d46ae0624be9d37fd199accd2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 50fe1eb6e5aed551b56bcd1526daa5d441185501
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288755"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121415"
 ---
 # <a name="identify-and-diagnose-windows-virtual-desktop-issues"></a>Identificación y diagnóstico de problemas de Windows Virtual Desktop
 
@@ -62,6 +60,14 @@ En la siguiente tabla se enumeran los errores comunes que los administradores pu
 |8|ConnectionBroken|La conexión entre el cliente y la puerta de enlace o servidor se ha interrumpido. No es necesario hacer nada a menos que esto ocurra de forma inesperada.|
 |14|UnexpectedNetworkDisconnect|La conexión a la red se ha interrumpido. Pida al usuario que vuelva a conectarse.|
 |24|ReverseConnectFailed|La máquina virtual host no tiene línea de visión directa a la puerta de enlace de Escritorio remoto. Asegúrese de que la dirección IP de la puerta de enlace se puede resolver.|
+
+## <a name="error-cant-add-user-assignments-to-an-app-group"></a>Error: No se pueden agregar asignaciones de usuario a un grupo de aplicaciones
+
+Después de asignar un usuario a un grupo de aplicaciones, Azure Portal muestra una advertencia que indica "La sesión está finalizando" o "Experimentando problemas de autenticación: extensión Microsoft_Azure_WVD". Seguidamente, la página de asignación no se carga y, después de eso, las páginas dejan de cargarse en Azure Portal (por ejemplo, Azure Monitor, Log Analytics, Service Health, etc.).
+
+**Causa:** Hay un problema con la directiva de acceso condicional. Azure Portal está intentando obtener un token para Microsoft Graph, que depende de SharePoint Online. El cliente tiene una directiva de acceso condicional denominada "Términos de uso de almacenamiento de datos de Microsoft Office 365" que requiere que los usuarios acepten los términos de uso para acceder al almacenamiento de datos. Sin embargo, aún no han iniciado sesión, por lo que Azure Portal no puede obtener el token.
+
+**Solución:** Antes de iniciar sesión en Azure Portal, el administrador primero debe iniciar sesión en SharePoint y aceptar los términos de uso. Después, debería poder iniciar sesión en Azure Portal con normalidad.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

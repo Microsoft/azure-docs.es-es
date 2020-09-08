@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 04/03/2020
-ms.openlocfilehash: 04b4feb1219f6a51a1f0a7ac0d19fc3fd70029c6
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 8ee6449f357a578b30809bb03723ac1556e4f459
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133527"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816202"
 ---
 # <a name="troubleshoot-mobility-service-push-installation"></a>Solución de problemas de instalación de inserción del servicio de movilidad
 
@@ -129,6 +129,28 @@ Para resolver el error:
 ## <a name="connectivity-failure-errorid-95523"></a>Error de conectividad (ErrorID: 95523)
 
 Este error se produce cuando la red en la que reside la máquina de origen no se encuentra o puede que se haya eliminado o que ya no está disponible. La única manera de resolver el error es asegurarse de que la red existe.
+
+## <a name="check-access-for-network-shared-folders-on-source-machine-errorid-9510595523"></a>Compruebe el acceso a las carpetas compartidas de red en la máquina de origen (ErrorID: 95105,95523)
+
+Compruebe si las carpetas compartidas de red de la máquina de origen son accesibles desde el servidor de procesos (PS) de forma remota mediante las credenciales especificadas. Para confirmar el acceso: 
+
+1. Inicie sesión en la máquina del servidor de procesos.
+2. Abra el Explorador de archivos. En la barra de direcciones, escriba `\\<SOURCE-MACHINE-IP>\C$` y haga clic en Entrar.
+
+    ![Apertura de la carpeta en PS](./media/vmware-azure-troubleshoot-push-install/open-folder-process-server.PNG)
+
+3. El Explorador de archivos pedirá las credenciales. Escriba el nombre de usuario y la contraseña y haga clic en Aceptar. <br><br/>
+
+    ![Provisión de las credenciales](./media/vmware-azure-troubleshoot-push-install/provide-credentials.PNG)
+
+    >[!NOTE]
+    > Si la máquina de origen está unida a un dominio, proporcione el nombre de dominio junto con el nombre de usuario en el formato `<domainName>\<username>`. Si la máquina de origen está en un grupo de trabajo, proporcione solo el nombre de usuario.
+
+4. Si la conexión se establece correctamente, las carpetas de la máquina de origen podrán verse de manera remota desde el servidor de procesos.
+
+    ![Carpetas visibles desde la máquina de origen](./media/vmware-azure-troubleshoot-push-install/visible-folders-from-source.png)
+
+Si la conexión no se establece correctamente, compruebe si se cumplen todos los requisitos previos.
 
 ## <a name="file-and-printer-sharing-services-check-errorid-95105--95106"></a>Comprobación de servicios de uso compartido de archivos e impresoras (ErrorID: 95105 y 95106)
 
@@ -257,6 +279,10 @@ A partir de la [versión 9.20](https://support.microsoft.com/help/4478871/updat
 ## <a name="insufficient-space-errorid-95524"></a>Espacio insuficiente (ErrorID: 95524)
 
 Cuando el agente de movilidad se copia en la máquina de origen, se necesita un mínimo de 100 MB de espacio disponible. Asegúrese de que la máquina de origen tenga la cantidad necesaria de espacio disponible y reintente la operación.
+
+## <a name="low-system-resources"></a>Recursos del sistema bajos
+
+Los posibles identificadores de error que se ven para este problema son 95572 y 95573. Este problema se produce cuando el sistema tiene poca memoria disponible y no puede asignar memoria para la instalación del servicio Mobility. Asegúrese de que se ha liberado suficiente memoria para que la instalación continúe y se complete correctamente.
 
 ## <a name="vss-installation-failures"></a>Errores de instalación de VSS
 

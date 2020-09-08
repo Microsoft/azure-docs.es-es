@@ -3,16 +3,16 @@ title: Implementación de recursos en el grupo de administración
 description: Se describe cómo implementar recursos en el ámbito de un grupo de administración en una plantilla de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: a17387aef4d35c042d1fe0b02f1c6fd447e4a918
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 992882859ed1c67cf66c31f69f21e151081cf087
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321809"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002899"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Creación de recursos a nivel de grupo de administración
 
-A medida que la organización madura, puede implementar una plantilla de Azure Resource Manager (plantilla de ARM) para crear recursos a nivel de grupo de administración. Por ejemplo, es posible que necesite definir y asignar [directivas](../../governance/policy/overview.md) o [controles de acceso basados en rol](../../role-based-access-control/overview.md) para un grupo de administración. Con las plantillas de nivel de grupo de administración, puede aplicar directivas y asignar roles mediante declaración en el nivel de grupo de administración.
+A medida que la organización madura, puede implementar una plantilla de Azure Resource Manager (plantilla de ARM) para crear recursos a nivel de grupo de administración. Por ejemplo, es posible que deba definir y asignar [directivas](../../governance/policy/overview.md) o el [control de acceso basado en rol de Azure (RBAC de Azure)](../../role-based-access-control/overview.md) para un grupo de administración. Con las plantillas de nivel de grupo de administración, puede aplicar directivas y asignar roles mediante declaración en el nivel de grupo de administración.
 
 ## <a name="supported-resources"></a>Recursos compatibles
 
@@ -357,6 +357,6 @@ En una implementación de nivel de grupo de administración, puede establecer co
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para aprender sobre los roles de asignación, consulte [Administración del acceso a los recursos de Azure mediante RBAC y plantillas de Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
+* Para más información sobre la asignación de roles, consulte [Incorporación de asignaciones de roles mediante plantillas de Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
 * Para un ejemplo de implementación de la configuración del área de trabajo para Azure Security Center, consulte [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
 * También puede implementar plantillas en el [nivel de suscripción](deploy-to-subscription.md) y en el [nivel de inquilino](deploy-to-tenant.md).

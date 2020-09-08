@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 864b37c9e59786546ad2c29faf8457cfc3a21f6b
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: c8868cd6f5c50b84f263155518ee553145afcfa9
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82161153"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88602217"
 ---
 **Volumen de colección de datos y retención** 
 
@@ -54,7 +54,7 @@ ms.locfileid: "82161153"
 | Número máximo de registros devueltos por una única consulta | 500.000 | |
 | Tamaño máximo de los datos devueltos | 64 000 000 bytes (~61 MiB)| |
 | Tiempo máximo de ejecución de la consulta | 10 minutos | Consulte [Tiempos de espera](https://dev.loganalytics.io/documentation/Using-the-API/Timeouts) para obtener más detalles.  |
-| Velocidad máxima de solicitud | 200 solicitudes cada 30 segundos por usuario AAD o dirección IP de cliente | Consulte [Límites de velocidad](https://dev.loganalytics.io/documentation/Using-the-API/Limits) para obtener más detalles. |
+| Velocidad máxima de solicitud | 200 solicitudes por 30 segundos por dirección IP de cliente o usuario de Azure AD | Consulte [Límites de velocidad](https://dev.loganalytics.io/documentation/Using-the-API/Limits) para obtener más detalles. |
 
 **Límites generales del área de trabajo**
 
@@ -64,21 +64,27 @@ ms.locfileid: "82161153"
 | Número máximo de caracteres para el nombre de columna | 500 | |
 | Exportación de datos | No está disponible actualmente | Use Azure Function o Logic App para agregar y exportar datos. | 
 
-**Velocidad de volumen de ingesta de datos**
+**<a name="data-ingestion-volume-rate">Velocidad de volumen de ingesta de datos</a>**
 
+Azure Monitor es un servicio de datos a gran escala que atiende a miles de clientes que envían terabytes de datos cada mes a un ritmo creciente. Lo que se pretende con el límite de velocidad de volumen es evitar que los clientes de Azure Monitor tengan clientes de picos de ingesta repentinos en entornos con varios inquilinos. En las áreas de trabajo se define un umbral de velocidad de volumen de ingesta de datos de 500 MB (comprimidos), lo que se traduce en, aproximadamente, **6 GB/min** sin comprimir (el tamaño real puede variar entre los tipos de datos en función de la longitud del registro y su relación de compresión). El límite de velocidad de volumen se aplica a todos los datos ingeridos, tanto si se envían desde recursos de Azure mediante la [configuración de diagnóstico](../articles/azure-monitor/platform/diagnostic-settings.md), [Data Collector API](../articles/azure-monitor/platform/data-collector-api.md) o agentes.
 
-Azure Monitor es un servicio de datos a gran escala que atiende a miles de clientes que envían terabytes de datos cada mes a un ritmo creciente. El límite de velocidad de volumen de ingesta predeterminado para los datos enviados desde los recursos de Azure mediante la [configuración del diagnóstico](../articles/azure-monitor/platform/diagnostic-settings.md) es de aproximadamente **6 GB/min** por área de trabajo. Este es un valor aproximado, ya que el tamaño real puede variar entre los tipos de datos en función de la longitud del registro y su razón de compresión. Este límite no se aplica a los datos que se envían desde agentes o la [Data Collector API](../articles/azure-monitor/platform/data-collector-api.md).
+Cuando se envían datos a un área de trabajo a una velocidad superior al 80 % del umbral configurado en el área de trabajo, se envía un evento a la tabla *Operación* del área de trabajo cada 6 horas mientras se siga superando el umbral. Cuando la velocidad de ingesta del volumen supera el umbral, se quitan algunos datos y se envía un evento a la tabla *Operación* del área de trabajo cada 6 horas mientras se siga superando el umbral. Si la velocidad de ingesta del sigue superando el umbral o prevé que lo va a alcanzar pronto, puede abrir una solicitud de soporte técnico para solicitar su aumento. 
 
-Si envía datos a una velocidad superior a una sola área de trabajo, se quitan algunos datos y se envía un evento a la tabla *Operación* del área de trabajo cada 6 horas mientras se siga superando el umbral. Si el volumen de ingesta sigue superando el límite de velocidad o prevé que pronto lo alcanzará, puede solicitar un aumento en el área de trabajo mediante el envío de un correo electrónico a LAIngestionRate@microsoft.com o mediante la apertura de una solicitud de soporte técnico.
- 
-Para recibir notificaciones de este tipo de evento en el área de trabajo, cree una [regla de alerta de registro](../articles/azure-monitor/platform/alerts-log.md) mediante la siguiente consulta con la base de la lógica de alerta en el número de resultados mayor que cero.
+Para recibir una notificación tanto si se acerca al límite de ingesta de datos del volumen del área de trabajo como si lo ha alcanzado, cree una [regla de alerta de registro](../articles/azure-monitor/platform/alerts-log.md) mediante la siguiente consulta cuya base lógica de alerta sea el número de resultados mayores que cero, un período de evaluación de 5 minutos y una frecuencia de 5 minutos.
 
-``` Kusto
+La velocidad de ingesta del volumen ha alcanzado el 80 % del umbral:
+```Kusto
 Operation
 |where OperationCategory == "Ingestion"
-|where Detail startswith "The rate of data crossed the threshold"
-``` 
+|where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"
+```
 
+La velocidad de ingesta del volumen ha alcanzado el umbral:
+```Kusto
+Operation
+|where OperationCategory == "Ingestion"
+|where Detail startswith "The data ingestion volume rate crossed the threshold"
+```
 
 >[!NOTE]
 >Dependiendo del tiempo que lleve utilizando Log Analytics, es posible que tenga acceso a planes de tarifa heredados. Obtenga más información sobre los [planes de tarifa heredados de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#legacy-pricing-tiers). 

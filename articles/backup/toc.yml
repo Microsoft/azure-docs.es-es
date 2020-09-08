@@ -44,11 +44,6 @@
           href: tutorial-sap-hana-restore-cli.md
         - name: 'Administración de bases de datos de SAP HANA con copia de seguridad: CLI'
           href: tutorial-sap-hana-manage-cli.md
-- name: Ejemplos
-  items:
-    - name: Elementos integrados de Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceptos
   items:
     - name: Matrices de compatibilidad
@@ -103,7 +98,7 @@
           href: backup-azure-delete-vault.md
         - name: Move
           href: backup-azure-move-recovery-services-vault.md
-        - name: Administración
+        - name: Administrar
           href: backup-azure-manage-windows-server.md
     - name: Copia de seguridad de máquina virtual de Azure
       items:
@@ -137,7 +132,7 @@
               href: backup-azure-vms-encryption.md
             - name: Restauración de la clave y el secreto para máquinas virtuales cifradas
               href: backup-azure-restore-key-secret.md
-        - name: Administración
+        - name: Administrar
           items:
             - name: Administración de copias de seguridad de máquinas virtuales de Azure
               href: backup-azure-manage-vms.md
@@ -146,10 +141,14 @@
         - name: Información general
           href: backup-azure-sql-database.md
         - name: Copia de seguridad
-          href: backup-sql-server-database-azure-vms.md
+          items:
+            - name: Copia de seguridad de varias máquinas virtuales con SQL Server desde el almacén
+              href: backup-sql-server-database-azure-vms.md
+            - name: Copia de seguridad de una máquina virtual con SQL Server desde el panel de la máquina virtual
+              href: backup-sql-server-vm-from-vm-pane.md
         - name: Restauración
           href: restore-sql-database-azure-vm.md
-        - name: Administración
+        - name: Administrar
           href: manage-monitor-sql-database-backup.md
     - name: Copia de seguridad de Windows mediante el agente de MARS
       items:
@@ -185,7 +184,7 @@
               href: backup-afs.md
             - name: Restauración
               href: restore-afs.md
-            - name: Administración
+            - name: Administrar
               href: manage-afs-backup.md
         - name: Con la CLI de Azure
           items:
@@ -193,7 +192,7 @@
               href: backup-afs-cli.md
             - name: Restauración
               href: restore-afs-cli.md
-            - name: Administración
+            - name: Administrar
               href: manage-afs-backup-cli.md
         - name: Con PowerShell
           items:
@@ -287,8 +286,10 @@
       items:
         - name: Información general
           href: offline-backup-overview.md
-        - name: Copia de seguridad sin conexión con Azure Data Box
+        - name: Copia de seguridad sin conexión con Azure Data Box (MARS)
           href: offline-backup-azure-data-box.md
+        - name: Copia de seguridad sin conexión con Azure Data Box (DPM/MABS)
+          href: offline-backup-azure-data-box-dpm-mabs.md
         - name: Copia de seguridad sin conexión con Import/Export (MARS)
           href: backup-azure-backup-import-export.md
         - name: Copia de seguridad sin conexión con Import/Export (DPM/MABS)
@@ -422,6 +423,9 @@
       href: /rest/api/recoveryservices/
     - name: Plantilla de Resource Manager
       href: /azure/templates/microsoft.recoveryservices/allversions
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Cumplimiento normativo

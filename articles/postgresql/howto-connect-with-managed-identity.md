@@ -6,22 +6,23 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.openlocfilehash: ec9e53ecaa95f6407a00c149abb6ed7e4a671d74
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 1b9603e43541ec1a364e4653caeeafc751f7e4f0
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102300"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012099"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-postgresql"></a>Conexión con identidad administrada a Azure Database for PostgreSQL
 
-En este artículo se muestra cómo usar una identidad asignada por el usuario en una máquina virtual (VM) de Azure para acceder a un servidor de Azure Database for PostgreSQL. Las identidades de MSI son administradas automáticamente por Azure y le permiten autenticar los servicios que admiten la autenticación de Azure AD sin necesidad de insertar credenciales en el código. Aprenderá a:
+En este artículo se muestra cómo usar una identidad asignada por el usuario en una máquina virtual (VM) de Azure para acceder a un servidor de Azure Database for PostgreSQL. Las identidades de MSI son administradas automáticamente por Azure y le permiten autenticar los servicios que admiten la autenticación de Azure AD sin necesidad de insertar credenciales en el código. 
 
-> [!div class="checklist"]
-> * Conceder a la VM acceso a un servidor de Azure Database for PostgreSQL.
-> * Crear un usuario en la base de datos que represente la identidad asignada por el usuario de la VM.
-> * Obtener un token de acceso mediante la identidad de la VM y usarlo para consultar un servidor de Azure Database for PostgreSQL.
-> * Implementar la recuperación del token en una aplicación de ejemplo de C#.
+Aprenderá a:
+- Conceder a la VM acceso a un servidor de Azure Database for PostgreSQL.
+- Crear un usuario en la base de datos que represente la identidad asignada por el usuario de la VM.
+- Obtener un token de acceso mediante la identidad de la VM y usarlo para consultar un servidor de Azure Database for PostgreSQL.
+- Implementar la recuperación del token en una aplicación de ejemplo de C#.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

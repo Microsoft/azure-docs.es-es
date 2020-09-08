@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ba94f15f21696c87b336dc1f17b6f9f9def75c6c
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: d0ac8e0cf187d1a6a329f2c7332c9ec37018d4cf
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220701"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962526"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Creación de una aplicación web en una instancia de App Service Environment v1
 
@@ -24,7 +24,7 @@ ms.locfileid: "86220701"
 Este tutorial muestra cómo crear aplicaciones web y planes de App Service en una instancia de [App Service Environment v1](app-service-app-service-environment-intro.md) (ASE). 
 
 > [!NOTE]
-> Si quiere obtener información sobre cómo crear una aplicación web pero no necesita hacerlo en un entorno de App Service, consulte [Creación de una aplicación web de .NET](../app-service-web-get-started-dotnet.md) o uno de los tutoriales relacionados para otros lenguajes y marcos.
+> Si quiere obtener información sobre cómo crear una aplicación web pero no necesita hacerlo en un entorno de App Service, consulte [Creación de una aplicación web de .NET](../quickstart-dotnetcore.md) o uno de los tutoriales relacionados para otros lenguajes y marcos.
 > 
 > 
 
@@ -40,7 +40,7 @@ En este tutorial se supone que ha creado un entorno de App Service. Si no es as�
     Si tiene varias suscripciones, tenga en cuenta que para crear una aplicación en el entorno de App Service, debe usar la misma suscripción que usó para crear el entorno. 
 3. Seleccione o cree un grupo de recursos.
    
-    *Los grupos de recursos* le permiten administrar los recursos de Azure relacionados como una unidad y resultan útiles al establecer las *reglas del control de acceso basado en rol* (RBAC) para las aplicaciones. Para más información, consulte [Información general de Azure Resource Manager][ResourceGroups]. 
+    *Los grupos de recursos* le permiten administrar los recursos de Azure relacionados como una unidad y resultan útiles al establecer las *reglas del control de acceso basado en rol (RBAC de Azure)* para las aplicaciones. Para más información, consulte [Información general de Azure Resource Manager][ResourceGroups]. 
 4. Seleccione o cree un plan de App Service.
    
     Los *planes de App Service* son conjuntos administrados de aplicaciones web.  Normalmente, cuando se selecciona el precio, el precio que se cobra se aplica al plan de App Service y no a las aplicaciones individuales. En un ASE, paga por las instancias de proceso que se han asignado al ASE en lugar de lo que ha enumerado con su ASP.  Para escalar verticalmente el número de instancias de una aplicación web, escale verticalmente las instancias de su plan de App Service. Esto afecta a todas las aplicaciones web de ese plan.  Algunas características como las ranuras de sitio o la integración de la red virtual también tienen restricciones de cantidad dentro del plan.  Para obtener más información, consulte [Información general sobre los planes de Azure App Service](../overview-hosting-plans.md)
@@ -105,4 +105,4 @@ Después de crear la aplicación web y el plan de App Service, es una buena idea
 [HowtoScale]: app-service-web-scale-a-web-app-in-an-app-service-environment.md
 [HowtoConfigureASE]: app-service-web-configure-an-app-service-environment.md
 [ResourceGroups]: ../../azure-resource-manager/management/overview.md
-[AzurePowershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[AzurePowershell]: /powershell/azure/?view=azps-3.8.0

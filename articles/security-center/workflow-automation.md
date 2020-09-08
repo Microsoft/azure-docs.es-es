@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 08/13/2020
 ms.author: memildin
-ms.openlocfilehash: 0eac72832d75c0c26addaef283015155c09b3935
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ff358f3c90edfcdabb5a1225ad1efa122818b070
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529376"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89375268"
 ---
 # <a name="workflow-automation"></a>Automatización de flujos de trabajo
 
@@ -28,19 +28,14 @@ En este artículo se describe la característica de automatización de flujos de
 
 ## <a name="availability"></a>Disponibilidad
 
-- Estado de la versión: **Disponibilidad general**
-- Roles y permisos necesarios:
-    - **Lector** en la suscripción que contiene la configuración de exportación.
-    - **Rol de administrador de seguridad** en el grupo de recursos (o **Propietario**).
-    - También debe tener permisos de escritura para el recurso de destino.
-    - Además, para trabajar con flujos de trabajo de Azure Logic Apps, debe tener los siguientes roles o permisos de Logic Apps:
-        - Son necesarios los permisos del [Operador de aplicaciones lógicas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) o el acceso de lectura o desencadenamiento de la aplicación lógica (este rol no puede crear ni editar aplicaciones lógicas, solo puede *ejecutar* las existentes).
-        - Los permisos del [Colaborador de la aplicación lógica](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) son necesarios para la creación y modificación de aplicaciones lógicas.
-        - Si quiere usar conectores de aplicaciones lógicas, es posible que necesite credenciales adicionales para iniciar sesión en sus servicios respectivos (por ejemplo, en las instancias de Outlook, Teams o Slack).
-- Nubes: 
-    - ✔ Nubes comerciales
-    - ✔ Nube del gobierno de EE. UU.
-    - ✘ Nube del gobierno de China, otras nubes gubernamentales
+|Aspecto|Detalles|
+|----|:----|
+|Estado de la versión:|Disponibilidad general|
+|Precios:|Nivel gratis|
+|Roles y permisos necesarios:|**Rol Administrador de seguridad** o **Propietario** en el grupo de recursos<br>También debe tener permisos de escritura para el recurso de destino.<br><br>Para trabajar con flujos de trabajo de Azure Logic Apps, también debe tener los siguientes roles o permisos de Logic Apps:<br> Son necesarios los permisos de - [Operador de aplicación lógica](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) o el acceso de lectura o desencadenamiento de aplicación lógica (este rol no puede crear ni editar aplicaciones lógicas, solo *ejecutar* las existentes).<br> Los permisos de - [Colaborador de la aplicación lógica](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) son necesarios para la creación y modificación de aplicaciones lógicas.<br>Si quiere usar conectores de aplicaciones lógicas, es posible que necesite credenciales adicionales para iniciar sesión en sus servicios respectivos (por ejemplo, en las instancias de Outlook, Teams o Slack).|
+|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) US Gov<br>![Sí](./media/icons/yes-icon.png) China Gov, otros gobiernos|
+|||
+
 
 
 ## <a name="create-a-logic-app-and-define-when-it-should-automatically-run"></a>Crear una aplicación lógica y definir cuándo debe ejecutarse automáticamente 
@@ -49,7 +44,8 @@ En este artículo se describe la característica de automatización de flujos de
 
     [![Lista de automatizaciones de flujos de trabajo](media/workflow-automation/list-of-workflow-automations.png)](media/workflow-automation/list-of-workflow-automations.png#lightbox)
 
-    Desde esta página puede crear nuevas reglas de automatización, así como habilitar, deshabilitar o eliminar las existentes.  
+    Desde esta página puede crear nuevas reglas de automatización, así como habilitar, deshabilitar o eliminar las existentes.
+
 1. Para definir un nuevo flujo de trabajo, haga clic en **Add workflow automation** (Agregar automatización de flujos de trabajo). 
 
     Aparecerá un panel con las opciones de la nueva automatización. Aquí puede escribir lo siguiente:
@@ -91,9 +87,9 @@ En este artículo se describe la característica de automatización de flujos de
 
 ## <a name="manually-trigger-a-logic-app"></a>Desencadenar manualmente una aplicación lógica
 
-También se puede ejecutar Logic Apps manualmente al ver una alerta de seguridad o cualquier recomendación que ofrezca [Solución por corrección rápida](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#quick-fix-remediation).
+También puede ejecutar Logic Apps manualmente al ver una alerta o recomendación de seguridad.
 
-Para ejecutar manualmente una aplicación lógica, abra una alerta o una recomendación que admita Solución por corrección rápida y haga clic en **Desencadenar la aplicación lógica**:
+Para ejecutar manualmente una aplicación lógica, abra una alerta o recomendación y haga clic en **Desencadenar aplicación lógica**:
 
 [![Desencadenar manualmente una aplicación lógica](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: d420f244b0d1e5ccf9a7aaa78c10f613cdbad38f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aca2c51ff14b99ba41b159cf32e59dc861de7a53
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564276"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826218"
 ---
 # <a name="move-logic-app-resources-to-other-azure-resource-groups-regions-or-subscriptions"></a>Traslado de recursos de aplicaciones lógicas a otros grupos de recursos, regiones o suscripciones de Azure
 
@@ -31,7 +31,7 @@ Para migrar la aplicación lógica o los recursos relacionados a otro grupo de r
 
 * La misma suscripción de Azure que se usó para crear la aplicación lógica o la cuenta de integración que desea trasladar
 
-* Permisos de propietario de recursos para trasladar y configurar los recursos que desee. Más información sobre el [control de acceso basado en rol (RBAC)](../role-based-access-control/built-in-roles.md#owner).
+* Permisos de propietario de recursos para trasladar y configurar los recursos que desee. Aprenda sobre el [control de acceso basado en rol de Azure (RBAC de Azure)](../role-based-access-control/built-in-roles.md#owner).
 
 <a name="move-subscription"></a>
 
@@ -94,7 +94,7 @@ Algunos recursos de Azure, como los recursos de puerta de enlace de datos locale
 
 Por ejemplo, para vincular una aplicación lógica a una cuenta de integración, ambos recursos deben existir en la misma región. En escenarios como la recuperación ante desastres, normalmente se quieren cuentas de integración que tengan la misma configuración y artefactos. En otros escenarios, es posible que necesite cuentas de integración con diferentes configuraciones y artefactos.
 
-Los conectores personalizados de Azure Logic Apps están visibles para los autores y usuarios de los conectores que tienen la misma suscripción de Azure y el mismo inquilino de Azure Active Directory. Estos conectores están disponibles en la misma región donde se implementan las aplicaciones lógicas. Para más información, consulte [Uso compartido de conectores personalizados en su organización](https://docs.microsoft.com/connectors/custom-connectors/share).
+Los conectores personalizados de Azure Logic Apps están visibles para los autores y usuarios de los conectores que tienen la misma suscripción de Azure y el mismo inquilino de Azure Active Directory. Estos conectores están disponibles en la misma región donde se implementan las aplicaciones lógicas. Para más información, consulte [Uso compartido de conectores personalizados en su organización](/connectors/custom-connectors/share).
 
 La plantilla que se obtiene de Visual Studio solo incluye las definiciones de recursos para la aplicación lógica y sus conexiones. Por lo tanto, si la aplicación lógica usa otros recursos, por ejemplo, una cuenta de integración y artefactos B2B, como asociados, acuerdos y esquemas, debe exportar la plantilla de la cuenta de integración mediante Azure Portal. Esta plantilla incluye las definiciones de recursos para la cuenta de integración y los artefactos. Sin embargo, la plantilla no está completamente parametrizada. Por lo tanto, debe parametrizar manualmente los valores que desea usar para la implementación.
 

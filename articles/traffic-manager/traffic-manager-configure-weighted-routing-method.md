@@ -3,20 +3,20 @@ title: 'Tutorial: Configuración del enrutamiento de tráfico round robin ponde
 description: En este tutorial se explica cómo equilibrar la carga del tráfico mediante un método round robin en Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: rohink
-ms.openlocfilehash: b06df3814661b64f7fa46cd5e3b8f4dea9d51710
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.author: duau
+ms.openlocfilehash: dff7d4ec02c5a17b51d73b9d81f93984b95a7d22
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84711673"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401357"
 ---
 # <a name="tutorial-configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Tutorial: Configuración del método de enrutamiento de tráfico ponderado en Traffic Manager
 

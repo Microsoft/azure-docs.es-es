@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: ef0ee6047bd23206a2c0122b9409e00cee5f0ddf
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 5a2811b9bfda663892296c6194b401a610d2bbbe
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400434"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226261"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -29,7 +29,7 @@ Antes de comenzar, compruebe lo siguiente:
 
 1. En este nuevo archivo, reemplace la cadena `YourSubscriptionKey` por su clave de suscripción del servicio Voz.
 
-1. Reemplace la cadena `YourServiceRegion` por el **identificador de región** de la [región](https://aka.ms/speech/sdkregion) asociada a su suscripción (por ejemplo, `westus` para la suscripción de evaluación gratuita).
+1. Reemplace la cadena `YourServiceRegion` por el valor de **Identificador de región** de la [región](https://aka.ms/speech/sdkregion) asociada a su suscripción.
 
 1. Reemplace la cadena `whatstheweatherlike.wav` por su propio nombre de archivo.
 

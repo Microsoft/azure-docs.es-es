@@ -10,14 +10,15 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
+ms.custom: devx-track-csharp
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 1f0d60d1f76523beca6567517ef44d50b910b221
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b8935b9f2c3c598aee7c5d0eb37f21d8114dac42
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537622"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997462"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-version-1-pipeline"></a>Uso de actividades personalizadas en una canalización de Azure Data Factory versión 1
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]

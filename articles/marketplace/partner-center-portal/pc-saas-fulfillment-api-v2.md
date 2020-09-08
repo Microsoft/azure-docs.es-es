@@ -7,20 +7,20 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: f40da30ff0d702078861367dea810cc8ca1ab91b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4a98207ef5b03f77a4f741894ec210f7551c5933
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87305149"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378141"
 ---
-# <a name="saas-fulfillment-apis-version-2-in-microsoft-commercial-marketplace"></a>API de suministro de SaaS v2 en el marketplace comercial de Microsoft
+# <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>API de cumplimiento de SaaS versión 2 en el marketplace comercial
 
 En este artículo se describen las API que permiten a los partners vender sus ofertas de SaaS en Microsoft AppSource y Azure Marketplace. Se requiere un editor a fin de implementar la integración con estas API para publicar una oferta de SaaS comercializable en el Centro de partners.
 
 ## <a name="managing-the-saas-subscription-life-cycle"></a>Administrar el ciclo de vida de la suscripción a SaaS
 
-Azure Marketplace administra todo el ciclo de vida de una suscripción de SaaS una vez que la haya comprado el cliente final.  Usa la página de aterrizaje, las API de suministro, las API de operaciones y el webhook como mecanismo para impulsar la activación y el uso reales de la suscripción de SaaS, las actualizaciones y la cancelación de la suscripción.  La factura que recibe el cliente final se basa en el estado de la suscripción de SaaS que mantiene Microsoft. 
+El marketplace comercial administra todo el ciclo de vida de una suscripción de SaaS una vez que la ha comprado el cliente final.  Usa la página de aterrizaje, las API de suministro, las API de operaciones y el webhook como mecanismo para impulsar la activación y el uso reales de la suscripción de SaaS, las actualizaciones y la cancelación de la suscripción.  La factura que recibe el cliente final se basa en el estado de la suscripción de SaaS que mantiene Microsoft. 
 
 ### <a name="states-of-a-saas-subscription"></a>Estados de una suscripción a SaaS
 
@@ -35,7 +35,7 @@ Una vez que un cliente final (o CSP) compra una oferta de SaaS en Marketplace, s
 Para que tenga lugar la creación de una cuenta:
 
 1. El cliente debe hacer clic en el botón **Configurar** que está disponible para una oferta de SaaS después de realizar la compra correctamente en Microsoft AppSource o Azure Portal. También puede hacerlo en el correo electrónico que recibirá poco después de la compra.
-2. Después, Microsoft notifica al partner la compra, para lo que abre en la nueva pestaña del explorador la dirección URL de la página de aterrizaje con el parámetro token (el token de identificación de la compra en Marketplace).
+2. Después, Microsoft notifica al partner la compra, para lo que abre en la nueva pestaña del explorador la dirección URL de la página de aterrizaje con el parámetro token (el token de identificación de la compra en el marketplace comercial).
 
 Un ejemplo de este tipo de llamada es `https://contoso.com/signup?token=<blob>`, donde la dirección URL de la página de aterrizaje de esta oferta de SaaS en el Centro de partners está configurada como `https://contoso.com/signup`. Este token proporciona al editor un identificador que distingue de forma única la compra de SaaS y el cliente.
 
@@ -46,12 +46,12 @@ La dirección URL de la página de aterrizaje debe estar en funcionamiento de fo
 
 Después, debe devolverse el *token* a Microsoft desde el editor mediante una llamada a la [API Resolve de SaaS](#resolve-a-purchased-subscription), como valor del parámetro de encabezado `x-ms-marketplace-token header`.  Como resultado de la llamada a la API Resolve, se intercambia el token para los detalles de la compra de SaaS, como el identificador único de la compra, el de la oferta y el plan adquiridos, etc.
 
-En la página de aterrizaje, el cliente debe haber iniciado sesión en la cuenta de SaaS nueva o existente mediante el inicio de sesión único (SSO) de Azure Active Directory (AAD).
+En la página de aterrizaje, el cliente debe haber iniciado sesión en la cuenta de SaaS nueva o existente mediante el inicio de sesión único (SSO) de Azure Active Directory (Azure AD).
 
 El editor debe implementar el inicio de sesión único para proporcionar la experiencia de usuario que Microsoft necesita para este flujo.  Asegúrese de usar la aplicación de Azure AD multiinquilino y de permitir tanto cuentas profesionales y educativas como cuentas personales de Microsoft al configurar el SSO.  Este requisito solo se aplica a la página de aterrizaje y a los usuarios a los que se redirige al servicio de SaaS cuando ya han iniciado sesión con las credenciales de Microsoft. No se aplica a todos los inicios de sesión en el servicio de SaaS.
 
 > [!NOTE]
->Si el inicio de sesión único requiere que un administrador conceda permiso a una aplicación, la descripción de la oferta en el Centro de partners debe indicar que se requiere acceso de nivel de administrador. Esto está pensado para cumplir con las [directivas de certificación de Marketplace comercial](https://docs.microsoft.com/legal/marketplace/certification-policies#10003-authentication-options).
+>Si el inicio de sesión único requiere que un administrador conceda permiso a una aplicación, la descripción de la oferta en el Centro de partners debe indicar que se requiere acceso de nivel de administrador. Esto está pensado para cumplir con las [directivas de certificación del marketplace comercial](https://docs.microsoft.com/legal/marketplace/certification-policies#10003-authentication-options).
 
 Después de iniciar sesión, el cliente debe completar la configuración de SaaS en el lado del editor. Luego, el editor debe llamar a la [API Activate Subscription](#activate-a-subscription) para enviar una señal a Marketplace que indique que el aprovisionamiento de la cuenta de SaaS se ha completado.
 Esto dará comienzo al ciclo de facturación del cliente. Si la llamada a la API Activate Subscription no se realiza correctamente, no se facturará la compra al cliente.
@@ -69,14 +69,14 @@ Cuando la suscripción de SaaS ya esté activa y el cliente opte por iniciar la 
 
 Esta acción significa que tanto Microsoft como el editor están procesando una actualización de una suscripción de SaaS activa existente. Pueden iniciar esta actualización:
 
-* El cliente desde Marketplace
-* El CSP desde Marketplace
-* El cliente desde el sitio de SaaS del editor (no se aplica a las compras realizadas por el CSP)
+- El cliente desde el marketplace comercial.
+- El CSP desde el marketplace comercial.
+- El cliente desde el sitio de SaaS del editor (no se aplica a las compras realizadas por el CSP).
 
 Hay disponibles dos tipos de actualizaciones para una suscripción de SaaS:
 
-1. Actualización del plan cuando el cliente elige otro plan para la suscripción.
-1. Actualización de la cantidad cuando el cliente cambia el número de puestos comprados para la suscripción.
+- Actualización del plan cuando el cliente elige otro plan para la suscripción.
+- Actualización de la cantidad cuando el cliente cambia el número de puestos comprados para la suscripción.
 
 Solo se puede actualizar una suscripción activa. Mientras se actualiza la suscripción, su estado permanece activo en el lado de Microsoft.
 
@@ -976,6 +976,6 @@ Consulte [Soporte técnico para el programa Marketplace comercial en el Centro d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte las [API del servicio de medición](marketplace-metering-service-apis.md) de Marketplace si quiere descubrir más opciones para las ofertas de SaaS en Marketplace.
+Consulte las [API del servicio de medición del marketplace comercial](marketplace-metering-service-apis.md) si quiere descubrir más opciones para las ofertas de SaaS en el marketplace comercial.
 
 Revise y use el [SDK de SaaS](https://github.com/Azure/Microsoft-commercial-marketplace-transactable-SaaS-offer-SDK) basado en las API descritas en este documento.

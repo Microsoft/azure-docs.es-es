@@ -4,23 +4,25 @@ titleSuffix: Azure Media Services
 description: Obtenga información sobre el filtrado, la ordenación y la paginación de entidades de Azure Media Services v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
-ms.date: 01/21/2020
-ms.author: juliako
-ms.custom: seodec18
-ms.openlocfilehash: a9f9463cd1cac49e36ea52cafaf4d07f4e709ca7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: overview
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: 9a8cff3685cdaad011332adf58dc76f74976cd44
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053250"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300194"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtrado, ordenación y paginación de entidades de Media Services
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 En este tema se describen las opciones de consulta de OData y la compatibilidad con la paginación disponible al enumerar entidades de Azure Media Services v3.
 

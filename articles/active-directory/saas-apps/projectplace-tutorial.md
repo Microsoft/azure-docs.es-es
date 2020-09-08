@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Projectplace | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Projectplace.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-ms.assetid: 298059ca-b652-4577-916a-c31393d53d7a
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/29/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 179721075484c35c5ebbb3d936b83bc407b75a8d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: cbc65e64dfd18cdc16873a2d82aecadabeec4c28
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67093537"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88553519"
 ---
 # <a name="tutorial-integrate-projectplace-with-azure-active-directory"></a>Tutorial: Integración de Projectplace con Azure Active Directory
 

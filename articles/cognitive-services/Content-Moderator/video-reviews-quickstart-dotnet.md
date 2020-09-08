@@ -10,12 +10,13 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: 7130ed43183d64b00f8f5ef1697b9a3b456ad396
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b2fb06c838de480bb73501307ab11cb3d6831921
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "72931669"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919325"
 ---
 # <a name="create-video-reviews-using-net"></a>Creación de revisiones de vídeo con .NET
 
@@ -157,7 +158,7 @@ Cree una revisión del vídeo con **ContentModeratorClient.Reviews.CreateVideoRe
 **CreateVideoReviews** tiene los siguientes parámetros requeridos:
 1. Una cadena que contiene un tipo MIME, que debe ser "application/json". 
 1. El nombre del equipo de Content Moderator.
-1. Un objeto **IList\<CreateVideoReviewsBodyItem>** . Cada objeto **CreateVideoReviewsBodyItem** representa una revisión del vídeo. Esta guía de inicio rápido crea una revisión a la vez.
+1. Un objeto **IList\<CreateVideoReviewsBodyItem>**. Cada objeto **CreateVideoReviewsBodyItem** representa una revisión del vídeo. Esta guía de inicio rápido crea una revisión a la vez.
 
 **CreateVideoReviewsBodyItem** tiene varias propiedades. Como mínimo, establezca las propiedades siguientes:
 - **Content**. La dirección URL del vídeo para revisar.
@@ -165,7 +166,7 @@ Cree una revisión del vídeo con **ContentModeratorClient.Reviews.CreateVideoRe
 - **Status**. Establezca el valor en "Sin publicar" Si no se establece, el valor predeterminado es "Pendiente", lo que significa que se publica la revisión del vídeo y queda pendiente de revisión humana. Una vez que se publique una revisión del vídeo, ya no se le podrá agregar fotogramas de vídeo, una transcripción o un resultado de moderación de la transcripción.
 
 > [!NOTE]
-> **CreateVideoReviews** devuelve un objeto IList\<string>. Cada una de estas cadenas contiene un identificador para una revisión de vídeo. Estos identificadores son GUID y no son los mismos que el valor de la propiedad **ContentId**. 
+> **CreateVideoReviews** devuelve un valor IList\<string>. Cada una de estas cadenas contiene un identificador para una revisión de vídeo. Estos identificadores son GUID y no son los mismos que el valor de la propiedad **ContentId**. 
 
 Agregue la siguiente definición de método al espacio de nombres VideoReviews, clase Program.
 
@@ -215,18 +216,18 @@ Agregue fotogramas de vídeo a una revisión de vídeo con **ContentModeratorCli
 1. Una cadena que contiene un tipo MIME, que debe ser "application/json".
 1. El nombre del equipo de Content Moderator.
 1. Identificador de revisión de vídeo que **CreateVideoReviews** devuelve.
-1. Un objeto **IList\<VideoFrameBodyItem>** . Cada objeto **VideoFrameBodyItem** representa un fotograma de vídeo.
+1. Un objeto **IList\<VideoFrameBodyItem>**. Cada objeto **VideoFrameBodyItem** representa un fotograma de vídeo.
 
 **VideoFrameBodyItem** tiene las siguientes propiedades:
 - **Timestamp**. Cadena que contiene, en segundos, el tiempo en el vídeo a partir del cuál se tomó el fotograma de vídeo.
 - **FrameImage**. Dirección URL del fotograma de vídeo.
-- **Metadata**. Un objeto IList\<VideoFrameBodyItemMetadataItem>. **VideoFrameBodyItemMetadataItem** es simplemente un par de clave-valor. Las claves válidas son:
+- **Metadata**. Valor de IList\<VideoFrameBodyItemMetadataItem>. **VideoFrameBodyItemMetadataItem** es simplemente un par de clave-valor. Las claves válidas son:
 - **reviewRecommended**. Es True si se recomienda la revisión humana del fotograma de vídeo.
 - **adultScore**. Valor de 0 a 1 que clasifica la gravedad de contenido para adultos en el fotograma de vídeo.
 - **a**. Es True si el vídeo incluye contenido para adultos.
 - **racyScore**. Valor de 0 a 1 que clasifica la gravedad de contenido subido de tono en el fotograma de vídeo.
 - **r**. Es True si el fotograma de vídeo incluye contenido subido de tono.
-- **ReviewerResultTags**. Un objeto IList\<VideoFrameBodyItemReviewerResultTagsItem>. **VideoFrameBodyItemReviewerResultTagsItem** es simplemente un par de clave-valor. Una aplicación puede utilizar estas etiquetas para organizar los fotogramas de vídeo.
+- **ReviewerResultTags**. Valor de IList\<VideoFrameBodyItemReviewerResultTagsItem>. **VideoFrameBodyItemReviewerResultTagsItem** es simplemente un par de clave-valor. Una aplicación puede utilizar estas etiquetas para organizar los fotogramas de vídeo.
 
 > [!NOTE]
 > Esta guía de inicio rápido genera valores aleatorios para las propiedades **adultScore** y **racyScore**. En una aplicación de producción, estos valores se obtienen en el [servicio de moderación de vídeo](video-moderation-api.md), implementado como un servicio de Azure Media Services.

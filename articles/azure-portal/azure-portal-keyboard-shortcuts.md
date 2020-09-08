@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 12/20/2019
 ms.author: mblythe
 ms.custom: accessibility
-ms.openlocfilehash: e42dfc82fa0db028894dd77225621e867d79dac6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e3f078cdaa54246d91e6bff5393171c05935d755
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75641340"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826793"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Métodos abreviados de teclado de Azure Portal
 
@@ -53,7 +53,11 @@ Este artículo enumera los métodos abreviados de teclado que funcionan en Azure
 |Ir a **Grupos de recursos**|G + R |
 |Abrir el elemento de barra lateral izquierda en esta posición |G + número|
 
+## <a name="keyboard-shortcuts-for-specific-pages-in-the-azure-portal"></a>Métodos abreviados de teclado para páginas específicas en Azure Portal
+
+- [Azure Resource Graph Explorer](../governance/resource-graph/reference/keyboard-shortcuts.md)
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Activación del contraste alto o cambio de tema](azure-portal-change-theme-high-contrast.md)
-- [Exploradores y dispositivos compatibles](../azure-preview-portal-supported-browsers-devices.md)
+- [Activación del contraste alto o cambio de tema](set-preferences.md#choose-a-theme-or-enable-high-contrast)
+- [Exploradores y dispositivos compatibles](azure-portal-supported-browsers-devices.md)

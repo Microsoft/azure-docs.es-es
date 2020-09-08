@@ -9,12 +9,12 @@ tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c344d7bd7007dfbea366ea597ec622e35bf1e2eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d3f8208af9d5997f5a9e025a54b54b5b035fb85
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85561777"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934980"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>Uso de la sintaxis de búsqueda "completa" de Lucene (consultas avanzadas en Azure Cognitive Search)
 
@@ -147,7 +147,7 @@ Puede definir una operación de búsqueda clasificada por campos con la sintaxis
 
 Asegúrese de colocar varias cadenas entre comillas si desea que las dos cadenas se evalúen como una sola entidad, como en este caso buscando dos ciudades distintas en el campo `state`. Además, asegúrese del operador está en mayúsculas como puede ver en NOT y AND.
 
-El campo especificado en **fieldName:searchExpression** debe ser un campo que permita búsquedas. Consulte [Creación de un índice (API REST de Azure Cognitive Search)](https://docs.microsoft.com/rest/api/searchservice/create-index) para más información sobre cómo se usan los atributos de índice en las definiciones de campo.
+El campo especificado en **fieldName:searchExpression** debe ser un campo que permita búsquedas. Consulte [Creación de un índice (API REST de Azure Cognitive Search)](/rest/api/searchservice/create-index) para más información sobre cómo se usan los atributos de índice en las definiciones de campo.
 
 > [!NOTE]
 > En el ejemplo anterior, no era necesario usar el parámetro `searchFields` porque cada parte de la consulta tiene un nombre de campo especificado explícitamente. Pero tenga en cuenta que todavía puede usar el parámetro `searchFields` si quiere ejecutar una consulta donde algunas partes se limitan a un campo específico y el resto se podría aplicar a varios campos. Por ejemplo, la consulta `search=business_title:(senior NOT junior) AND external&searchFields=posting_type` coincidiría con `senior NOT junior` únicamente con el campo `business_title`, aunque coincidiría con "external" con el campo `posting_type`. El nombre de campo proporcionado en **fieldName:searchExpression** siempre tiene prioridad sobre el parámetro `searchFields`. Por eso en este ejemplo no es necesario incluir `business_title` en el parámetro `searchFields`.
@@ -256,7 +256,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
   ![Consulta de Regex](media/search-query-lucene-examples/regex.png)
 
 > [!Note]
-> Las consultas Regex no se [analizan](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis). La única transformación que se realiza en los términos de consulta incompletos es el establecimiento de minúsculas.
+> Las consultas Regex no se [analizan](./search-lucene-query-architecture.md#stage-2-lexical-analysis). La única transformación que se realiza en los términos de consulta incompletos es el establecimiento de minúsculas.
 >
 
 ## <a name="example-7-wildcard-search"></a>Ejemplo 7: Búsqueda con caracteres comodín
@@ -278,18 +278,18 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
   ![Consulta de carácter comodín](media/search-query-lucene-examples/wildcard.png)
 
 > [!Note]
-> Las consultas con caracteres comodín no se [analizan](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis). La única transformación que se realiza en los términos de consulta incompletos es el establecimiento de minúsculas.
+> Las consultas con caracteres comodín no se [analizan](./search-lucene-query-architecture.md#stage-2-lexical-analysis). La única transformación que se realiza en los términos de consulta incompletos es el establecimiento de minúsculas.
 >
 
 ## <a name="next-steps"></a>Pasos siguientes
 Intente especificar el Analizador de consultas de Lucene en el código. Los vínculos siguientes explican cómo configurar las consultas de búsqueda para la API de REST y .NET. Los vínculos usan la sintaxis simple de forma predeterminada, por lo que deberá aplicar lo aprendido en este artículo para especificar el valor de **queryType**.
 
-* [Consultas del índice con el SDK para .NET](search-query-dotnet.md)
-* [Consultas del índice con la API REST](search-create-index-rest-api.md)
+* [Consultas del índice con el SDK para .NET](./search-get-started-dotnet.md)
+* [Consultas del índice con la API REST](./search-get-started-powershell.md)
 
 En los vínculos siguientes, se puede encontrar una referencia de la sintaxis, la arquitectura de las consultas y ejemplos:
 
 + [Ejemplos de consulta de sintaxis sencilla](search-query-simple-examples.md)
 + [Funcionamiento de la búsqueda de texto completo en Azure Cognitive Search](search-lucene-query-architecture.md)
-+ [Sintaxis de consulta simplificada](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
-+ [Sintaxis de consulta completa de Lucene ](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
++ [Sintaxis de consulta simplificada](/rest/api/searchservice/simple-query-syntax-in-azure-search)
++ [Sintaxis de consulta completa de Lucene ](/rest/api/searchservice/lucene-query-syntax-in-azure-search)

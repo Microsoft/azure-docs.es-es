@@ -1,6 +1,6 @@
 ---
 title: Preguntas frecuentes sobre Azure Dedicated HSM | Microsoft Docs
-description: Preguntas frecuentes que abarcan diferentes temas sobre Azure Dedicated HSM
+description: Encuentre respuestas a preguntas habituales sobre el módulo de seguridad de hardware dedicado de Azure, como la información básica, la interoperabilidad, la alta disponibilidad y el soporte técnico.
 services: dedicated-hsm
 author: johncdawson
 manager: rkarlin
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 16c3676a881dc5dc979891dfd870274581be255b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d3309283279c887c00a475ccedfe1edaf311ae5
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84310392"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88189866"
 ---
 # <a name="frequently-asked-questions-faq"></a>Preguntas más frecuentes
 

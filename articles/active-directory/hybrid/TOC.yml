@@ -31,7 +31,7 @@
         - name: ¿Qué es Azure AD Connect y Connect Health?
           href: whatis-azure-ad-connect.md
         - name: Selección de la autenticación adecuada
-          href: 'https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn'
+          href: ./choose-ad-authn.md
         - name: Sincronización de identidades y resistencia de atributos duplicados
           href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
     - name: Sincronización de hash de contraseña
@@ -262,6 +262,8 @@
           href: how-to-connect-health-diagnose-sync-errors.md
         - name: Catálogo de alertas de Azure AD Connect Health
           href: how-to-connect-health-alert-catalog.md
+        - name: "Recuperación de datos de Azure\_AD Connect Health"
+          href: how-to-connect-health-data-retrieval.md
     - name: Administración de Azure AD Connect Sync
       items:
         - name: Almacenamiento provisional y recuperación ante desastres
@@ -339,7 +341,7 @@
     - name: "Historial de versiones del agente de autenticación de paso a través de Azure\_AD"
       href: reference-connect-pta-version-history.md
     - name: Historial de versiones del conector
-      href: reference-connect-sync-connector-version-history.md
+      href: /microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history
     - name: Cuentas y permisos
       href: reference-connect-accounts-permissions.md
     - name: Preguntas más frecuentes sobre Azure AD Connect

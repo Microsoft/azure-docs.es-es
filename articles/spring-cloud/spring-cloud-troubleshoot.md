@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: b7b3236fe1e4052689657316df851753de7edbe5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5a67ebbf0f83f2dc3a340f52cab7437bbfaa350e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083691"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299174"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Solución de problemas comunes de Azure Spring Cloud
 
@@ -138,7 +138,7 @@ Si se interrumpe el sondeo, se puede seguir usando el siguiente comando para cap
 
 `az spring-cloud app show-deploy-log -n <app-name>`
 
-Sin embargo, tenga en cuenta que una instancia de servicio de Azure Spring Cloud solo puede desencadenar un trabajo de compilación para un paquete de origen a la vez. Para obtener más información, vea [Implementación de una aplicación](spring-cloud-quickstart-launch-app-portal.md) y [Configuración de un entorno de ensayo en Azure Spring Cloud](spring-cloud-howto-staging-environment.md).
+Sin embargo, tenga en cuenta que una instancia de servicio de Azure Spring Cloud solo puede desencadenar un trabajo de compilación para un paquete de origen a la vez. Para obtener más información, vea [Implementación de una aplicación](spring-cloud-quickstart.md) y [Configuración de un entorno de ensayo en Azure Spring Cloud](spring-cloud-howto-staging-environment.md).
 
 ### <a name="my-application-cant-be-registered"></a>No se puede registrar mi aplicación
 

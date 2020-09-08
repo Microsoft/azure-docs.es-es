@@ -94,9 +94,11 @@
           href: cache-how-to-manage-redis-cache-powershell.md
         - name: Implementar y administrar con la CLI de Azure
           href: cli-samples.md
-        - name: Aprovisionamiento de una instancia de Azure Cache for Redis
+        - name: 'Creación de Redis Cache: plantilla de Resource Manager'
+          displayName: Resource Manager
           href: cache-redis-cache-arm-provision.md
-        - name: Aprovisionamiento de una aplicación web con Azure Cache for Redis
+        - name: 'Creación de aplicación web con Redis Cache: plantilla de Resource Manager'
+          displayName: Resource Manager
           href: cache-web-app-arm-with-redis-cache-provision.md
     - name: Administrar
       items:
@@ -159,7 +161,8 @@
     - name: Plantilla de Resource Manager
       href: /azure/templates/microsoft.cache/allversions
     - name: Elementos integrados de Azure Policy
-      href: ./policy-samples.md
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
     - name: Comandos de Redis
       href: 'https://redis.io/commands#'
 - name: Recursos

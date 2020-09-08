@@ -12,16 +12,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/01/2019
+ms.date: 08/31/2020
 ms.author: willzhan
-ms.openlocfilehash: d5d6c7738516337b3db90bbc5d1a94515e96b3ce
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 9e0c4daeae9884bdb5feaceccc23046866f0d59c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87060596"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266687"
 ---
 # <a name="offline-playready-streaming-for-windows-10-with-media-services-v3"></a>Streaming de PlayReady sin conexión para Windows 10 con Media Services v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Azure Media Services admite la descarga o reproducción sin conexión con protección DRM. En este artículo, se explica la compatibilidad sin conexión de Azure Media Services para clientes de Windows 10/PlayReady. Para obtener información sobre la compatibilidad del modo sin conexión para iOS/FairPlay y dispositivos Android/Widevine, vea los artículos siguientes:
 

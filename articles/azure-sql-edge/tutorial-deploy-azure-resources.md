@@ -9,12 +9,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 8c17351c049ef419ab95f46a54aa9f8cc523f7cf
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 76c45e586ea7101015cb878d198cab73ed32498e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84887455"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018253"
 ---
 # <a name="install-software-and-set-up-resources-for-the-tutorial"></a>Instalación del software y configuración de recursos para el tutorial
 
@@ -30,7 +30,7 @@ En este tutorial de tres partes, creará un modelo de aprendizaje automático pa
 4. Instale [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio/).
 5. Abra Azure Data Studio y configure Python para Notebooks. Para obtener más información, consulte [Configuración de Python para Notebooks](/sql/azure-data-studio/sql-notebooks#configure-python-for-notebooks). Este paso puede tardar varios minutos.
 6. Instale la versión más reciente de la [CLI de Azure](https://github.com/Azure/azure-powershell/releases/tag/v3.5.0-February2020). Los scripts siguientes requieren que AZ PowerShell esté en la versión más reciente (3.5.0, febrero de 2020).
-7. Descargue el [paquete de aplicación de capa de datos](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/DACPAC) y los [archivos de imagen de Docker de AMD/ARM](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/tar-files) que se utilizarán en el tutorial.
+7. Descargue el [paquete de aplicación de capa de datos](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/DACPAC) y los [archivos de imagen de Docker de AMD/ARM](https://www.docker.com/blog/multi-arch-images/) que se utilizarán en el tutorial.
 
 ## <a name="deploy-azure-resources-using-powershell-script"></a>Implementación de recursos de Azure mediante el script de PowerShell
 

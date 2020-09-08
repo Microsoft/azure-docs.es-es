@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/05/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 29c57411a2a35c36d0b4a9d4def931821b795094
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: e9faea3462ae953e474b5053b651808b03f07c23
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121143"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855449"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>API web que llama a API web: Configuración del código
 
@@ -71,7 +71,7 @@ Microsoft.Identity.Web proporciona varias maneras de describir certificados, tan
 
 ## <a name="startupcs"></a>Startup.cs
 
-Con Microsoft.Identity.Web, si desea que la API web llame a las API web de nivel inferior, agregue la línea `.AddMicrosoftWebApiCallsWebApi()` después de `.AddMicrosoftWebApiAuthentication(Configuration)` y, después, elija una implementación de la caché de tokens, por ejemplo `.AddInMemoryTokenCaches()`, en *Startup.cs*:
+Con Microsoft.Identity.Web, si desea que la API web llame a las API web de nivel inferior, agregue la línea `.EnableTokenAcquisitionToCallDownstreamApi()` después de `.AddMicrosoftIdentityWebApi(Configuration)` y, después, elija una implementación de la caché de tokens, por ejemplo `.AddInMemoryTokenCaches()`, en *Startup.cs*:
 
 ```csharp
 using Microsoft.Identity.Web;
@@ -82,9 +82,10 @@ public class Startup
   public void ConfigureServices(IServiceCollection services)
   {
    // ...
-   services.AddMicrosoftWebApiAuthentication(Configuration)
-           .AddMicrosoftWebApiCallsWebApi(Configuration)
-           .AddInMemoryTokenCaches();
+    services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddMicrosoftIdentityWebApi(Configuration, "AzureAd")
+                .EnableTokenAcquisitionToCallDownstreamApi()
+                .AddInMemoryTokenCaches();
   // ...
   }
   // ...
@@ -92,8 +93,6 @@ public class Startup
 ```
 
 Al igual que con las aplicaciones web, puede elegir varias implementaciones de la caché de tokens. Para obtener más información, consulte el [wiki de Microsoft.Identity.Web: Serialización de la caché de tokens](https://aka.ms/ms-id-web/token-cache-serialization) en GitHub.
-
-Si está seguro de que la API web necesitará ámbitos específicos, puede pasarlos opcionalmente como argumentos a `AddMicrosoftWebApiCallsWebApi`.
 
 # <a name="java"></a>[Java](#tab/java)
 

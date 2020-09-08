@@ -1,6 +1,6 @@
 ---
 title: Recuperación de la lista de direcciones IP POP actual para Azure CDN| Microsoft Docs
-description: Aprenda a recuperar la lista POP actual.
+description: Obtenga información sobre cómo obtener servidores POP mediante la API REST. Los servidores POP realizan solicitudes a los servidores de origen asociados a los puntos de conexión de Azure Content Delivery Network.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/22/2019
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 7b98bb446fc400007e4061d09db8084960702943
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13d4587a80cbbe66e18eb1bec8f3154221ac62b5
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84668294"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192562"
 ---
 # <a name="retrieve-the-current-pop-ip-list-for-azure-cdn"></a>Recuperación de la lista de direcciones IP POP para Azure CDN
 

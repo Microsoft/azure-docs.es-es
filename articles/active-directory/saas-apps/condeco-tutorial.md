@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Condeco | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Condeco.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 4601c17d-ad93-4865-8885-b378c4bbe82b
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07e29c3c9c9c5512283a62a50ca69c7736464104
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a07b5977969c5a895f55fd61fb36e5b20ef1b0a5
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73159352"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547246"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-condeco"></a>Tutorial: Integración de Azure Active Directory con Condeco
 

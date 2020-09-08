@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 0c48116c285ee5b9f0de0d9333a49d5f8ac183af
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: a8c61b526f0f0292909cc1b90391dbae2166ccaa
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87425049"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88186299"
 ---
 :::row:::
     :::column span="3":::

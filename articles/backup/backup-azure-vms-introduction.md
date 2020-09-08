@@ -3,12 +3,12 @@ title: Acerca de la copia de seguridad de máquina virtual de Azure
 description: En este artículo, aprenderá cómo el servicio Azure Backup realiza copias de seguridad de las máquinas virtuales de Azure y cómo seguir los procedimientos recomendados.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 3c73b489404d1e8198fbd984b5188a7a2ccb973f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 04ea9fa49d95ced3245f88fee58a23ba67aaa0d7
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091052"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587504"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Información general sobre la copia de seguridad de máquinas virtuales de Azure
 
@@ -51,8 +51,8 @@ Al realizar la copia de seguridad de máquinas virtuales de Azure con Azure Back
 
 **Cifrado** | **Detalles** | **Soporte técnico**
 --- | --- | ---
+**SSE** | Con SSE, Azure Storage proporciona cifrado en reposo al cifrar automáticamente los datos antes de almacenarlos. Azure Storage también descifra los datos antes de recuperarlos. Azure Backup admite copias de seguridad de máquinas virtuales con dos tipos de Storage Service Encryption:<li> **SEE con claves administradas por la plataforma**: Este cifrado es el predeterminado para todos los discos de las máquinas virtuales. Consulte más información [aquí](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#platform-managed-keys).<li> **SEE con claves administradas por el cliente**. Con CMK, puede administrar las claves usadas para cifrar los discos. Consulte más información [aquí](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys). | Azure Backup usa SSE para el cifrado en reposo de las VM de Azure.
 **Azure Disk Encryption** | Azure Disk Encryption cifra los discos de datos y de sistema operativo para VM de Azure.<br/><br/> Azure Disk Encryption se integra con las claves de cifrado de BitLocker (BEK), que se protegen en un almacén de claves como secretos. Azure Disk Encryption también se integra con las claves de cifrado de las claves de Azure Key Vault (KEK). | Azure Backup admite la copia de seguridad de VM de Azure administradas y no administradas cifradas con solo BEK solo o con BEK junto con KEK.<br/><br/> Se crea una copia de seguridad tanto de las BEK como las KEK y estas se cifran.<br/><br/> Dado que se crea una copia de seguridad de las KEK y BEK, los usuarios con los permisos necesarios pueden restaurar las claves y los secretos en el almacén de claves, si fuera necesario. Estos usuarios también pueden recuperar la VM cifrada.<br/><br/> Los usuarios no autorizados o Azure no pueden leer las claves y los secretos cifrados.
-**SSE** | Con SSE, Azure Storage proporciona cifrado en reposo al cifrar automáticamente los datos antes de almacenarlos. Azure Storage también descifra los datos antes de recuperarlos. | Azure Backup usa SSE para el cifrado en reposo de las VM de Azure.
 
 Para VM de Azure administradas y no administradas, Azure Backup admite VM cifradas con solo BEK o VM cifradas con BEK y KEK.
 
@@ -140,4 +140,4 @@ El tamaño real de la máquina virtual en este caso es de 17 GB + 30 GB + 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora, [prepárese para la copia de seguridad de VM de Azure](backup-azure-arm-vms-prepare.md).
+- [Preparación para la copia de seguridad de máquinas virtuales de Azure](backup-azure-arm-vms-prepare.md).

@@ -2,17 +2,17 @@
 title: Implementación de una especificación de plantilla como una plantilla vinculada
 description: Obtenga información sobre cómo implementar una especificación de plantilla existente en una implementación vinculada.
 ms.topic: conceptual
-ms.date: 07/20/2020
-ms.openlocfilehash: 5d4824ea432d804418fda2cdc90d49154d496722
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/26/2020
+ms.openlocfilehash: dacf2fba3ff78f3ff92741b49edad8fdf5bffe29
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095120"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918390"
 ---
 # <a name="tutorial-deploy-a-template-spec-as-a-linked-template-preview"></a>Tutorial: Implementación de una especificación de plantilla como una plantilla vinculada (versión preliminar)
 
-Obtenga información sobre cómo implementar una [especificación de plantilla](template-specs.md) existente mediante una [implementación vinculada](linked-templates.md#linked-template). Las especificaciones de plantilla se usan para compartir plantillas de ARM con otros usuarios de la organización. Después de crear una especificación de plantilla, puede implementarla mediante Azure PowerShell. También puede implementar la especificación de plantilla como parte de la solución mediante una plantilla vinculada.
+Obtenga información sobre cómo implementar una [especificación de plantilla](template-specs.md) existente mediante una [implementación vinculada](linked-templates.md#linked-template). Las especificaciones de plantilla se usan para compartir plantillas de ARM con otros usuarios de la organización. Después de haber creado una especificación de plantilla, puede implementarla mediante Azure PowerShell o la CLI de Azure. También puede implementar la especificación de plantilla como parte de la solución mediante una plantilla vinculada.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -117,9 +117,22 @@ Para crear una especificación de plantilla en una plantilla de ARM, agregue un 
 
 El identificador de especificación de plantilla se genera mediante la función [`resourceID()`](template-functions-resource.md#resourceid). El argumento del grupo de recursos de la función resourceID() es opcional si templateSpec está en el mismo grupo de recursos de la implementación actual.  También puede pasar directamente el identificador de recurso como un parámetro. Para obtener el identificador, use:
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell-interactive
 $id = (Get-AzTemplateSpec -ResourceGroupName $resourceGroupName -Name $templateSpecName -Version $templateSpecVersion).Version.Id
 ```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli-interactive
+id = $(az template-specs show --name $templateSpecName --resource-group $resourceGroupName --version $templateSpecVersion --query "id")
+```
+
+> [!NOTE]
+> Existe un problema conocido al obtener el identificador de especificación de plantilla y luego asignárselo a una variable en Windows PowerShell.
+
+---
 
 La sintaxis para pasar parámetros a la especificación de plantilla es la siguiente:
 
@@ -138,6 +151,8 @@ La sintaxis para pasar parámetros a la especificación de plantilla es la sigui
 
 Al implementar la plantilla vinculada, se implementa tanto la aplicación web como la cuenta de almacenamiento. La implementación es la misma que la de otras plantillas de ARM.
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
 New-AzResourceGroup `
   -Name webRG `
@@ -147,6 +162,21 @@ New-AzResourceGroupDeployment `
   -ResourceGroupName webRG `
   -TemplateFile "c:\Templates\deployTS\azuredeploy.json"
 ```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az group create \
+  --name webRG \
+  --location westus2
+
+az deployment group create \
+  --resource-group webRG \
+  --template-file "c:\Templates\deployTS\azuredeploy.json"
+
+```
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 

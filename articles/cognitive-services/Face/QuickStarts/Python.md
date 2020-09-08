@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 4fa0603868f1cc8bb2c879dbac7811ebbe6bf0dd
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: d870372f418cb8873f6664d6a501e0abe0ebe374
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875122"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548487"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>Inicio rápido: Detección de caras en una imagen mediante Face REST API y Python
 
@@ -24,7 +24,7 @@ En esta guía de inicio rápido, usará la API REST de Azure Face con Python par
 
 ![Un hombre y una mujer, cada uno con un rectángulo dibujado alrededor de sus caras y mostrando información sobre la edad y el sexo en la imagen.](../images/labelled-faces-python.png)
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar. 
 
 
 ## <a name="prerequisites"></a>Requisitos previos

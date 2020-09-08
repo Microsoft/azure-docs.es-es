@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: 250be11f498e825c3e487abfac1c0acc585e5317
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: ff408f114784fa3f0b8fab49521b5ec7ec2be102
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85297948"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797724"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicación de un sitio de Hugo en Azure Static Web Apps, versión preliminar
 
@@ -53,7 +53,7 @@ Cree una aplicación de Hugo mediante la interfaz de la línea de comandos (CLI
    cd static-app
    ```
 
-1. Inicialice un repositorio GIT.
+1. Inicialice un repositorio de Git.
 
    ```bash
     git init

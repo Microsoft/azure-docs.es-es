@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Spotinst | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Spotinst.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 2f6dbd70-c2db-4ae9-99ee-976c3090d214
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5490ff6c6143dff258d74e013bb9d4c821aab625
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3b8297175c24aac132fd7d83580e0889e0da4730
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76263292"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587965"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-spotinst"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Spotinst
 
@@ -79,18 +75,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
+1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por IDP, complete estos pasos:
 
-    a. Seleccione **Establecer direcciones URL adicionales**.
-
-    b. En el cuadro de texto **Estado de la retransmisión**, escriba un valor: `<ID>`
-
-1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
-
-    En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://console.spotinst.com/auth/saml`
-
-    > [!NOTE]
-    > El valor del estado de la retransmisión no es real. El valor se actualizará con el valor del estado de la retransmisión real, que se explica más adelante en el tutorial.
+   1. Asegúrese de que la **URL de respuesta** esté establecida en https://console.spotinst.com/auth/saml.
+   1. En **Estado de la retransmisión**, escriba el identificador de la organización de Spotinst, que también puede confirmar en la pestaña **SSO**.
+   1. La **dirección URL de inicio de sesión** debe estar vacía.
 
 1. Haga clic en **Save**(Guardar).
 

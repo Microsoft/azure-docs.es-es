@@ -16,13 +16,8 @@
       href: data-lake-analytics-data-lake-tools-for-vscode.md
     - name: Azure PowerShell
       href: data-lake-analytics-get-started-powershell.md
-    - name: CLI de Azure
+    - name: Azure CLI
       href: data-lake-analytics-get-started-cli.md
-- name: Ejemplos
-  items:
-    - name: Elementos integrados de Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceptos
   items:
     - name: Seguridad
@@ -32,11 +27,11 @@
           href: ./security-controls-policy.md
         - name: Línea de base de seguridad para Azure Security Benchmark
           href: security-baseline.md
-- name: Procedimientos
+- name: Guías paso a paso
   items:
     - name: Administración con Data Lake Analytics
       items:
-        - name: Azure portal
+        - name: Azure Portal
           href: data-lake-analytics-manage-use-portal.md
         - name: Línea de comandos
           items:
@@ -164,6 +159,9 @@
       href: /azure/templates/microsoft.datalakeanalytics/allversions
     - name: Azure CLI
       href: 'https://docs.microsoft.com/cli/azure/dla'
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Blog de Azure Data Lake

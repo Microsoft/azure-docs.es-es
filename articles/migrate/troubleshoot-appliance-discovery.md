@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: eafe13adb5b37de2de2bc4eb8bf15c775af0b039
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 1ddcdfd9efddd050f996e5c2b953baba242967fa
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171855"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640589"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Solución de problemas del dispositivo de Azure Migrate y la detección
 
@@ -117,6 +117,28 @@ Se produce el error 50004: No se puede conectar a un host o un clúster porque n
     3. Agregue la dirección IP y el nombre de host en una fila. Repita el procedimiento para cada host o clúster en el que observe este error.
     4. Guarde el archivo de hosts y ciérrelo.
     5. Compruebe si el dispositivo puede conectarse a los hosts mediante la aplicación de administración del dispositivo. Después de 30 minutos, debería ver la información más reciente sobre estos hosts en Azure Portal.
+
+
+## <a name="error-60001-unable-to-connect-to-server"></a>Error 60001: No se puede establecer la conexión con el servidor 
+
+- Asegúrese de que haya conectividad entre el dispositivo y el servidor.
+- Si se trata de un servidor Linux, asegúrese de que la autenticación basada en contraseña está habilitada mediante los pasos siguientes:
+    1. Inicie sesión en la máquina Linux y abra el archivo de configuración SSH con el comando "vi/etc/ssh/sshd_config".
+    2. Establezca la opción "PasswordAuthentication" en Sí. Guarde el archivo.
+    3. Reinicie el servicio SSH ejecutando "service sshd restart".
+- Si es un servidor de Windows, asegúrese de que el puerto 5985 está abierto para permitir llamadas WMI remotas.
+- Si detecta un servidor Linux GCP y usa un usuario raíz, utilice los siguientes comandos para cambiar la configuración predeterminada del inicio de sesión raíz.
+    1. Inicie sesión en la máquina Linux y abra el archivo de configuración SSH con el comando "vi/etc/ssh/sshd_config".
+    2. Establezca la opción "PermitRootLogin" en Sí.
+    3. Reinicie el servicio SSH ejecutando "service sshd restart".
+
+## <a name="error-no-suitable-authentication-method-found"></a>Error: No se encontró ningún método de autenticación adecuado
+
+Asegúrese de que la autenticación basada en contraseña está habilitada en el servidor Linux mediante los pasos siguientes:
+    1. Inicie sesión en la máquina Linux y abra el archivo de configuración SSH con el comando "vi/etc/ssh/sshd_config".
+    2. Establezca la opción "PasswordAuthentication" en Sí. Guarde el archivo.
+    3. Reinicie el servicio SSH ejecutando "service sshd restart".
+
 
 ## <a name="discovered-vms-not-in-portal"></a>Máquinas virtuales detectadas no en el portal
 

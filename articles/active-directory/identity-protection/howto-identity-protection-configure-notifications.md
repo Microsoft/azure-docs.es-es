@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9090ca5b8057179b0cbef1d0a87ae563303ed2c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 291afbdd902c7563e47595132d56b354dab28a3a
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85130439"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950398"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Notificaciones de Azure Active Directory Identity Protection
 
@@ -29,7 +29,7 @@ En este artículo se proporciona una introducción de ambos correos electrónico
 
 ## <a name="users-at-risk-detected-email"></a>Correo electrónico de los usuarios en riesgo detectados
 
-En respuesta a una cuenta detectada en riesgo, Azure AD Identity Protection genera una alerta de correo electrónico con el asunto **Usuarios en riesgo detectados**. El correo electrónico incluye un vínculo al informe **[Usuarios marcados en riesgo](../reports-monitoring/concept-user-at-risk.md)** . Como práctica recomendada, debería investigar inmediatamente los usuarios en peligro.
+En respuesta a una cuenta detectada en riesgo, Azure AD Identity Protection genera una alerta de correo electrónico con el asunto **Usuarios en riesgo detectados**. El correo electrónico incluye un vínculo al informe **[Usuarios marcados en riesgo](./overview-identity-protection.md)** . Como práctica recomendada, debería investigar inmediatamente los usuarios en peligro.
 
 La configuración de esta alerta permite especificar a qué nivel de riesgo del usuario desea que se genere la alerta. El correo electrónico se generará cuando el nivel de riesgo del usuario alcance lo que haya especificado. Por ejemplo, si establece la directiva para alertar sobre el riesgo de usuario medio y la puntuación del riesgo del usuario John pasa a riesgo medio debido a un riesgo de inicio de sesión en tiempo real, recibirá el correo electrónico de usuarios en riesgo detectados. Si el usuario tiene detecciones de riesgo posteriores que hacen que el cálculo de su nivel de riesgo sea el especificado (o superior), recibirá correos electrónicos de usuarios en riesgo detectados cuando se vuelva a calcular la puntuación del riesgo del usuario. Por ejemplo, si un usuario pasa a un riesgo medio el 1 de enero, recibirá una notificación por correo electrónico si la configuración está establecida para alertar sobre el riesgo medio. Si ese mismo usuario tiene otra detección de riesgos el 5 de enero que también es de riesgo medio y su puntuación de riesgo se vuelve a calcular y sigue siendo de nivel medio, recibirá otra notificación por correo electrónico. 
 
@@ -70,4 +70,4 @@ Configure el correo electrónico de resumen semanal en **Azure Portal** bajo **A
 
 ## <a name="see-also"></a>Consulte también
 
-- [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
+- [Azure Active Directory Identity Protection](./overview-identity-protection.md)

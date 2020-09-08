@@ -1,7 +1,7 @@
 ---
 title: Introducción a las cuentas de almacenamiento
 titleSuffix: Azure Storage
-description: Compruebe qué opciones tiene para crear y usar una cuenta de Azure Storage.
+description: Lea la información general de las cuentas de almacenamiento en Azure Storage. Revise la nomenclatura de las cuentas, los niveles de rendimiento, los niveles de acceso, la redundancia, el cifrado, los puntos de conexión y mucho más.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 6ae5f4ba88880a53db765ab0ad9fde5bd9a4e4f9
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 8342ffc122f56f4e2a3a41e249007b2ceaad22a6
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043652"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034658"
 ---
 # <a name="storage-account-overview"></a>Introducción a las cuentas de almacenamiento
 
@@ -30,7 +30,7 @@ Para obtener información sobre cómo crear una cuenta de Azure Storage, consult
 
 Las cuentas de almacenamiento de uso general v2 son compatibles con las últimas características de Azure Storage, e incorporan todas las funcionalidades de las cuentas de Blob Storage y de uso general v1. Las cuentas de uso general v2 ofrecen los precios de capacidad por gigabyte más bajos para Azure Storage, así como los precios de transacción más competitivos del sector. Las cuentas de almacenamiento de uso general v2 son compatibles con estos servicios de Azure Storage:
 
-- Blobs (todos los tipos: en bloques, en páginas y en anexos).
+- Blobs (todos los tipos: en bloques, adjuntos, en páginas)
 - Data Lake Gen2
 - Archivos
 - Discos
@@ -78,7 +78,7 @@ Las cuentas FileStorage ofrecen características dedicadas de rendimiento único
 
 Cuando especifique un nombre para la cuenta de almacenamiento, tenga en cuenta estas reglas:
 
-- Los nombres de las cuentas de almacenamiento deben tener entre 3 y 24 caracteres y solo pueden incluir números y letras en minúscula.
+- Los nombres de las cuentas de almacenamiento deben tener entre 3 y 24 caracteres, y solo pueden incluir números y letras en minúscula.
 - El nombre de la cuenta de almacenamiento debe ser único dentro de Azure. No puede haber dos cuentas de almacenamiento con el mismo nombre.
 
 ## <a name="performance-tiers"></a>Niveles de rendimiento

@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a solucionar problemas relacionados c
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: e588ce4e3458634be32a7129b40906c98fc02ac0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 56593176e705176b87cf955eb116909c1912e723
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513859"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824277"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Solución de problemas en la copia de seguridad del estado del sistema
 
@@ -17,7 +17,7 @@ En este artículo se describen soluciones para problemas que puede encontrar al 
 
 ## <a name="basic-troubleshooting"></a>Pasos básicos para solucionar problemas
 
-Antes de empezar a solucionar problemas de copia de seguridad del estado del sistema, se recomienda realizar la validación siguiente:
+Antes de empezar a solucionar problemas de copia de seguridad del estado del sistema, se recomienda realizar los siguientes pasos de validación:
 
 - [Asegúrese de que el agente de Microsoft Azure Recovery Services (MARS) esté actualizado](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409).
 - [Asegúrese de que haya conectividad de red entre el agente de MARS y Azure](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
@@ -42,7 +42,7 @@ Antes de empezar a solucionar problemas de copia de seguridad del estado del sis
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Antes de solucionar problemas de copia de seguridad del estado del sistema con Azure Backup, realice la comprobación de los requisitos previos siguientes.  
+Antes de solucionar problemas de copia de seguridad del estado del sistema con Azure Backup, realice la comprobación de los requisitos previos a continuación.  
 
 ### <a name="verify-windows-server-backup-is-installed"></a>Comprobación de que Copias de seguridad de Windows Server está instalado
 
@@ -56,7 +56,7 @@ Si en la salida se muestra **Instalar estado** como **disponible**, significa qu
 
 #### <a name="method-1-install-windows-server-backup-using-powershell"></a>Método 1: Instalación de Copias de seguridad de Windows Server mediante PowerShell
 
-Para instalar Copias de seguridad de Windows Server con PowerShell, ejecute el comando siguiente:
+Para instalar Copias de seguridad de Windows Server con PowerShell, ejecute el comando a continuación:
 
   ```powershell
   Install-WindowsFeature -Name Windows-Server-Backup
@@ -64,7 +64,7 @@ Para instalar Copias de seguridad de Windows Server con PowerShell, ejecute el c
 
 #### <a name="method-2-install-windows-server-backup-using-server-manager"></a>Método 2: Instalación de Copias de seguridad de Windows Server mediante Administrador del servidor
 
-Para instalar Copias de seguridad de Windows Server mediante Administrador del servidor, ejecute los pasos siguientes:
+Para instalar Copias de seguridad de Windows Server mediante el Administrador del servidor, ejecute los pasos a continuación:
 
 1. En **Administrador del servidor**, haga clic en **Agregar roles y características**. Aparecerá el **Asistente para agregar roles y características**.
 
@@ -77,20 +77,20 @@ Para instalar Copias de seguridad de Windows Server mediante Administrador del 
 3. Seleccione un servidor del grupo de servidores y haga clic en **Siguiente**. En Rol de servidor, deje la selección predeterminada y haga clic en **Siguiente**.
 4. Seleccione **Copias de seguridad de Windows Server** en la pestaña **Características** y haga clic en **Siguiente**.
 
-    ![features](./media/backup-azure-system-state-troubleshoot/features.png)
+    ![Ventana Seleccionar características](./media/backup-azure-system-state-troubleshoot/features.png)
 
 5. En la pestaña **Confirmación**, haga clic en **Instalar** para iniciar el proceso de instalación.
 6. En la pestaña **Resultados** se mostrará la característica Copias de seguridad de Windows Server instalada correctamente en el servidor de Windows.
 
-    ![resultado](./media/backup-azure-system-state-troubleshoot/results.jpg)
+    ![Resultados de la instalación](./media/backup-azure-system-state-troubleshoot/results.jpg)
 
 ### <a name="system-volume-information-permission"></a>Permiso Información de volumen del sistema
 
-Asegúrese de que el sistema local tiene control total sobre la carpeta **Información del volumen de sistema** ubicada en el volumen donde está instalado Windows. Normalmente es **C:\Información de volumen del sistema**. Se puede producir un error en Copias de seguridad de Windows Server si los permisos anteriores no están establecidos correctamente
+Asegúrese de que el sistema local tiene control total sobre la carpeta **Información del volumen de sistema** ubicada en el volumen donde está instalado Windows. Normalmente es **C:\Información de volumen del sistema**. Se puede producir un error en Copias de seguridad de Windows Server si los permisos anteriores no están configurados correctamente.
 
 ### <a name="dependent-services"></a>Servicios dependientes
 
-Asegúrese de que todos los servicios siguientes están en estado de ejecución:
+Asegúrese de que los servicios a continuación se encuentran en el estado en ejecución:
 
 **Nombre del servicio** | **Tipo de inicio**
 --- | ---
@@ -113,7 +113,7 @@ Para validar el estado de Copias de seguridad de Windows Server, siga estos paso
 
     - Si se produce este error, vuelva a instalar la característica Copias de seguridad de Windows Server en la máquina del servidor como se ha mencionado en los requisitos previos del paso 1.
 
-  - Asegúrese de que la copia de seguridad de WSB funciona correctamente, mediante la ejecución del comando siguiente desde el símbolo del sistema con privilegios elevados:
+  - Asegúrese de que la copia de seguridad de WSB funciona correctamente mediante la ejecución del comando siguiente desde un símbolo del sistema con privilegios elevados:
 
       `wbadmin start systemstatebackup -backuptarget:X: -quiet`
 

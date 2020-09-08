@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 043a37c604f56c70fb568fd027913380b80e3452
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: ab5a106d077713c1332bfb1ba4608d9410086c9f
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87425103"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88186223"
 ---
 :::row:::
     :::column span="3":::
@@ -40,7 +40,7 @@ npm install microsoft-cognitiveservices-speech-sdk
 Como alternativa, podría incluir directamente una etiqueta `<script>` en el elemento HTML `<head>`, confiando en la distribución NPM <a href="https://www.jsdelivr.com/package/npm/microsoft-cognitiveservices-speech-sdk" target="_blank">**JSDelivr** <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/microsoft-cognitiveservices-speech-sdk@latest/distrib/lib/microsoft.cognitiveservices.speech.sdk.min.js">
+<script src="https://cdn.jsdelivr.net/npm/microsoft-cognitiveservices-speech-sdk@latest/distrib/browser/microsoft.cognitiveservices.speech.sdk.bundle-min.js">
 </script>
 ```
 

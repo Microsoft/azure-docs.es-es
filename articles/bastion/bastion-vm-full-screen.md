@@ -1,18 +1,18 @@
 ---
 title: 'Azure Bastion: Vista de la sesión de máquina virtual: pantalla completa'
-description: En este artículo, aprenda a cambiar la vista a pantalla completa.
+description: Obtenga información sobre cómo cambiar la vista de la máquina virtual a pantalla completa y de nuevo en el explorador para obtener una conexión RDP o SSH en Azure Bastion.
 services: bastion
 author: charwen
 ms.service: bastion
 ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: charwen
-ms.openlocfilehash: f4aa2c5aa3f40802db7be64eeb778866819bfe67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa795d7b066733aba54f8612bbabecf264a11c70
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84744228"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270298"
 ---
 # <a name="change-to-full-screen-view-for-a-vm-session-azure-bastion"></a>Cambio a la vista de pantalla completa para una sesión de máquina virtual: Azure Bastion
 

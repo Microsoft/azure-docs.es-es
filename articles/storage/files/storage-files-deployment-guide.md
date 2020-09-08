@@ -1,25 +1,25 @@
 ---
 title: Implementación de Azure Files | Microsoft Docs
-description: Obtenga información sobre cómo implementar Azure Files de principio a fin.
+description: Obtenga información sobre cómo implementar Azure Files de principio a fin. Transfiera datos a Azure Files. Montaje automático en los equipos y servidores en que sea necesario.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b9df9375dee59df987cea01a4142a22a78eb533e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08bcb41dd8d9f4643b03d855960d8632b778ff84
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510795"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034505"
 ---
 # <a name="how-to-deploy-azure-files"></a>Implementación de Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede acceder mediante el protocolo SMB estándar. Este artículo le mostrará cómo implementar de forma práctica Azure Files dentro de su organización.
 
 Se recomienda encarecidamente leer [Planning for an Azure Files deployment](storage-files-planning.md) (Planear una implementación de Azure Files) antes de seguir los pasos descritos en este artículo.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 En este artículo se supone que ya ha completado los siguientes pasos:
 
 - Ha creado una cuenta de Azure Storage con las opciones de resistencia y cifrado deseadas en la región que quería. Consulte [Acerca de las cuentas de almacenamiento de Azure](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obtener instrucciones paso a paso sobre cómo crear una cuenta de almacenamiento.

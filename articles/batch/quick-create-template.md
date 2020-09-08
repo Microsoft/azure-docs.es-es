@@ -2,14 +2,14 @@
 title: 'Inicio rápido de Azure: creación de una cuenta de Batch (plantilla de Azure Resource Manager)'
 description: Aprenda rápidamente a ejecutar un trabajo de Batch con la CLI de Azure. Cree y administre los recursos de Azure desde la línea de comandos o en scripts.
 ms.topic: quickstart
-ms.date: 05/19/2020
+ms.date: 08/17/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: d92751d1463a20c8fb0cb83fe678789860957189
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 606862b31ba4921e39e693735507fca39282091c
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086133"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642408"
 ---
 # <a name="quickstart-create-a-batch-account-by-using-arm-template"></a>Inicio rápido: Creación de una cuenta de Batch mediante una plantilla de ARM
 
@@ -31,7 +31,7 @@ Debe contar con una suscripción de Azure activa.
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-batchaccount-with-storage/).
 
-:::code language="json" source="~/quickstart-templates/101-batchaccount-with-storage/azuredeploy.json" range="1-80" highlight="36-69":::
+:::code language="json" source="~/quickstart-templates/101-batchaccount-with-storage/azuredeploy.json":::
 
 En la plantilla se definen dos recursos de Azure:
 
@@ -54,7 +54,7 @@ En la plantilla se definen dos recursos de Azure:
    - **Nombre de la cuenta de Batch**: Deje el valor predeterminado.
    - **Storage Accountsku** (SKU de la cuenta de almacenamiento): seleccione un tipo de cuenta de almacenamiento. Por ejemplo, **Standard_LRS**.
    - **Ubicación**: deje el valor predeterminado para que los recursos estén en la misma ubicación que el grupo de recursos.
-   - Acepto los términos y condiciones anteriores: **Seleccionar**.
+   - Acepto los términos y condiciones indicados anteriormente: **Seleccionar**.
 
 1. Seleccione **Comprar**.
 

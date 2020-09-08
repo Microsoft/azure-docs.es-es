@@ -10,12 +10,12 @@ ms.custom: subject-armqs
 ms.workload: identity
 ms.date: 05/21/2020
 ms.author: rolyon
-ms.openlocfilehash: 9320a68684a25949e8a0b4e2c7d72a6267401add
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 622f37fa4fda20fdc854edf5cd7c192b4113c4e3
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252358"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690449"
 ---
 # <a name="quickstart-add-an-azure-role-assignment-using-an-arm-template"></a>Inicio rápido: Incorporación de una asignación de roles de Azure mediante una plantilla de Resource Manager
 
@@ -39,7 +39,7 @@ Para agregar asignaciones de roles, debe tener:
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-rbac-builtinrole-resourcegroup/). La plantilla tiene tres parámetros y una sección de recursos. En la sección de recursos, observe que tiene los tres elementos de una asignación de roles: entidad de seguridad, definición de roles y ámbito.
 
-:::code language="json" source="~/quickstart-templates/101-rbac-builtinrole-resourcegroup/azuredeploy.json" highlight="30-32":::
+:::code language="json" source="~/quickstart-templates/101-rbac-builtinrole-resourcegroup/azuredeploy.json":::
 
 El recurso definido en la plantilla es el siguiente:
 

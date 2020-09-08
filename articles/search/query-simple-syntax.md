@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 5b585a903267386358552154228705c1921df619
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d07364e20cc11abc52ad9b308eb5daed8a65c146
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255337"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923388"
 ---
 # <a name="simple-query-syntax-in-azure-cognitive-search"></a>Sintaxis de consulta simple en Azure Cognitive Search
 
@@ -21,7 +21,7 @@ Azure Cognitive Search implementa dos lenguajes de consulta basados en Lucene: [
 
 El analizador simple es más flexible e intentará interpretar una solicitud incluso si no está perfectamente compuesta. Debido a esta flexibilidad, es el valor predeterminado para las consultas en Azure Cognitive Search. 
 
-La sintaxis simple se usa para las expresiones de consulta que se pasan en el parámetro `search` de una [solicitud de búsqueda de documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents), no se debe confundir con la [sintaxis de OData](query-odata-filter-orderby-syntax.md) que se usa para el parámetro [$filter expressions](search-filters.md) de la misma API de búsqueda de documentos. Los parámetros `search` y `$filter` tienen diferente sintaxis, con sus propias reglas para construir consultas, cadenas de escape, etc.
+La sintaxis simple se usa para las expresiones de consulta que se pasan en el parámetro `search` de una [solicitud de búsqueda de documentos](/rest/api/searchservice/search-documents), no se debe confundir con la [sintaxis de OData](query-odata-filter-orderby-syntax.md) que se usa para el parámetro [$filter expressions](search-filters.md) de la misma API de búsqueda de documentos. Los parámetros `search` y `$filter` tienen diferente sintaxis, con sus propias reglas para construir consultas, cadenas de escape, etc.
 
 Aunque el analizador simple se basa en la clase del [analizador de consultas simples de Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html), la implementación en Azure Cognitive Search excluye la búsqueda aproximada. Si necesita [búsqueda aproximada](search-query-fuzzy.md) u otros formularios de consulta avanzados, considere la [sintaxis de consulta completa de Lucene](query-lucene-syntax.md) alternativa en su lugar.
 
@@ -66,7 +66,7 @@ Los caracteres no seguros son ``" ` < > # % { } | \ ^ ~ [ ]``. Los caracteres re
 
 En algunas circunstancias, es posible que quiera buscar un carácter especial, como el emoji "❤" o el signo "€". En ese caso, asegúrese de que el analizador que usa no filtre esos caracteres.  El analizador estándar omite muchos de los caracteres especiales para que no se conviertan en tokens del índice.
 
-Por lo tanto, el primer paso consiste en asegurarse de que se usa un analizador que tomará en cuenta los tokens de los elementos. Por ejemplo, el analizador "whitespace" incluye todas las secuencias de caracteres separadas por espacios en blanco como tokens, por lo que la cadena "❤" se consideraría un token. Además, un analizador como el del idioma inglés de Microsoft ("en.microsoft") debe incluir la cadena "€" como un token. Puede [probar un analizador](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) para ver qué tokens genera para una consulta determinada.
+Por lo tanto, el primer paso consiste en asegurarse de que se usa un analizador que tomará en cuenta los tokens de los elementos. Por ejemplo, el analizador "whitespace" incluye todas las secuencias de caracteres separadas por espacios en blanco como tokens, por lo que la cadena "❤" se consideraría un token. Además, un analizador como el del idioma inglés de Microsoft ("en.microsoft") debe incluir la cadena "€" como un token. Puede [probar un analizador](/rest/api/searchservice/test-analyzer) para ver qué tokens genera para una consulta determinada.
 
 Al usar caracteres Unicode, asegúrese de que los símbolos se escapen correctamente en la dirección URL de la consulta (por ejemplo, para "❤" usaría la secuencia de escape `%E2%9D%A4+`). Postman realiza esta traducción automáticamente.
 
@@ -119,6 +119,6 @@ Una búsqueda de términos es una consulta para uno o varios términos, donde cu
 + [Funcionamiento de la búsqueda de texto completo en Azure Cognitive Search](search-lucene-query-architecture.md)
 + [Ejemplos de consulta para una búsqueda simple](search-query-simple-examples.md)
 + [Ejemplos de consulta para una búsqueda completa de Lucene](search-query-lucene-examples.md)
-+ [API de REST de documentos de búsqueda](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
++ [API de REST de documentos de búsqueda](/rest/api/searchservice/Search-Documents)
 + [Sintaxis de consulta de Lucene](query-lucene-syntax.md)
-+ [Sintaxis de expresión de OData](query-odata-filter-orderby-syntax.md) 
++ [Sintaxis de expresión de OData](query-odata-filter-orderby-syntax.md)

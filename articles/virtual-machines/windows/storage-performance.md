@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: joelpell
-ms.openlocfilehash: 666f84da8f0999268b09dfd06ff5b3fe21bbef96
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 82554982cd55b6c5fb2b96b2752b00401cb896d8
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525575"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653637"
 ---
-# <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Optimización del rendimiento en las máquinas virtuales de la serie Lsv2
+# <a name="optimize-performance-on-the-lsv2-series-windows-virtual-machines"></a>Optimización del rendimiento en las máquinas virtuales Windows de la serie Lsv2
 
 Las máquinas virtuales de la serie Lsv2 admiten una variedad de cargas de trabajo que necesitan una elevada cantidad de E/S y rendimiento en el almacenamiento local en una amplia gama de sectores y aplicaciones.  La serie Lsv2 es ideal para macrodatos, SQL, bases de datos NoSQL, almacenamiento de datos y bases de datos transaccionales de gran tamaño, como Cassandra, MongoDB, Cloudera y Redis.
 
@@ -75,7 +75,7 @@ Los escenarios que borran de forma segura los datos para proteger al cliente inc
 - La máquina virtual pasa a un estado incorrecto y es necesario recurrir a otro nodo debido a un problema de hardware.
 - Un pequeño número de las operaciones de servicio de mantenimiento planeado que requiere que la VM se reasigne a otro host para el servicio.
 
-Para más información acerca de las opciones de la copia de seguridad de datos en el almacenamiento local, consulte [Copia de seguridad y recuperación ante desastres para discos IaaS de Azure](backup-and-disaster-recovery-for-azure-iaas-disks.md).
+Para más información acerca de las opciones de la copia de seguridad de datos en el almacenamiento local, consulte [Copia de seguridad y recuperación ante desastres para discos IaaS de Azure](../backup-and-disaster-recovery-for-azure-iaas-disks.md).
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 

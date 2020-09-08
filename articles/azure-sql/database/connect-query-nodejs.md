@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 05/29/2020
-ms.custom: seo-javascript-september2019, seo-javascript-october2019, sqldbrb=2, devx-track-javascript 
-ms.openlocfilehash: 8c2df57f56ad30c6cf6a2ac84a32baa79ea91955
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: seo-javascript-september2019, seo-javascript-october2019, sqldbrb=2, devx-track-javascript
+ms.openlocfilehash: c079d9bad15de6dac93cd9be23631786673bd009
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87384759"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756391"
 ---
 # <a name="quickstart-use-nodejs-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Inicio rápido: Uso de Node.js para consultar una base de datos de Azure SQL Database o Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -149,7 +149,7 @@ Abra un símbolo del sistema y cree una carpeta denominada *sqltest*. Abra la ca
           console.log("%s\t%s", column.metadata.colName, column.value);
         });
       });
-      
+
       connection.execSql(request);
     }
     ```

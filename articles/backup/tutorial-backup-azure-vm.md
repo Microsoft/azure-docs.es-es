@@ -3,13 +3,13 @@ title: 'Tutorial: Copia de seguridad de varias máquinas virtuales de Azure con 
 description: En este tutorial se detalla la copia de seguridad de varias máquinas virtuales de Azure en un almacén de Recovery Services mediante Azure PowerShell.
 ms.topic: tutorial
 ms.date: 03/05/2019
-ms.custom: mvc
-ms.openlocfilehash: a0f6bd2bebb0961388d4f81663167d9e579958a2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 33090a0156d147fee5ab362b284ec503039617c4
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513224"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181738"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>Copia de seguridad de máquinas virtuales de Azure con PowerShell
 

@@ -3,12 +3,12 @@ title: Administración y supervisión de bases de datos de SQL Server en una m�
 description: En este artículo se describe cómo administrar y supervisar las bases de datos de SQL Server que se ejecutan en una máquina virtual de Azure.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 14e3a4797fe60a3d1857f1e6d947fa0c669bdcfe
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 26a1a6cf7bc011edce61a8bb60926dad2cb29a16
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537311"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826640"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Administración y supervisión de bases de datos SQL Server con copia de seguridad
 
@@ -16,15 +16,11 @@ En este artículo se describen las tareas comunes para administrar y supervisar 
 
 Si todavía no ha configurado las copias de seguridad para las bases de datos de SQL Server, consulte [Copia de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure](backup-azure-sql-database.md).
 
-## <a name="monitor-manual-backup-jobs-in-the-portal"></a>Supervisión de trabajos de copia de seguridad manuales en el portal
+## <a name="monitor-backup-jobs-in-the-portal"></a>Supervisión de trabajos de copia de seguridad en el portal
 
-Azure Backup muestra todos los trabajos desencadenados manualmente en el portal **Trabajos de copia de seguridad**. Los trabajos que vea en este portal incluyen operaciones de detección y registro de base de datos, y copia de seguridad y restauración.
+En Azure Backup se muestran todas las operaciones programadas y a petición en la sección **Trabajos de copia de seguridad** en el portal, excepto las copias de seguridad de registros programadas, ya que pueden ser muy frecuentes. Los trabajos que se muestren en este portal incluyen operaciones de detección y registro de base de datos, configuración de copia de seguridad y la realización y restauración de copias de seguridad.
 
 ![Portal Trabajos de copia de seguridad](./media/backup-azure-sql-database/jobs-list.png)
-
-> [!NOTE]
-> Los trabajos de copia de seguridad programados no se muestran en el portal **Trabajos de copia de seguridad**. Use SQL Server Management Studio para supervisar los trabajos de copia de seguridad programados, como se describe en la sección siguiente.
->
 
 Para más información sobre los escenarios de supervisión, consulte [Supervisión en Azure Portal](backup-azure-monitoring-built-in-monitor.md) y [Supervisión con Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).  
 
@@ -57,7 +53,7 @@ Puede detener la copia de seguridad de una base de datos SQL Server de las dos f
 
 Si decide dejar los puntos de recuperación, tenga en cuenta estos detalles:
 
-- Todos los puntos de recuperación permanecerán intactos para siempre; al detenerse la protección de los datos se detendrá la eliminación de todos los puntos y se conservarán los datos.
+- Todos los puntos de recuperación permanecerán intactos para siempre y, al detenerse la protección de los datos, se detendrá la eliminación de todos los puntos y se conservarán los datos.
 - Se le cobrará la instancia protegida y el almacenamiento consumido. Para más información, consulte [Precios de Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
 - Si elimina un origen de datos sin detener las copias de seguridad, las nuevas copias de seguridad producirán errores. Los puntos de recuperación anteriores expirarán según la directiva, pero siempre se mantendrá el último punto de recuperación hasta que detenga la copia de seguridad y elimine los datos.
 
@@ -117,24 +113,6 @@ Aunque puede que tenga que especificar la duración de la retención de la copia
 
 Para más información, vea [Tipos de copia de seguridad en SQL Server](backup-architecture.md#sql-server-backup-types).
 
-## <a name="unregister-a-sql-server-instance"></a>Anulación del registro de una instancia de SQL Server
-
-Anule el registro de una instancia de SQL Server después de deshabilitar la protección, pero antes de eliminar el almacén:
-
-1. En el panel del almacén, en **Administrar**, seleccione **Infraestructura de Backup**.  
-
-   ![Seleccionar Infraestructura de Backup](./media/backup-azure-sql-database/backup-infrastructure-button.png)
-
-2. En **Servidores de administración**, seleccione **Servidores protegidos**.
-
-   ![Seleccionar servidores protegidos](./media/backup-azure-sql-database/protected-servers.png)
-
-3. En **Servidores protegidos**, seleccione el servidor del que desea anular el registro. Para eliminar el almacén, debe anular el registro de todos los servidores.
-
-4. Haga clic con el botón derecho en el servidor protegido y seleccione **Anular registro**.
-
-   ![Seleccionar Eliminar](./media/backup-azure-sql-database/delete-protected-server.jpg)
-
 ## <a name="modify-policy"></a>Modificación de directivas
 
 Modifique la directiva para cambiar la frecuencia de las copias de seguridad o la duración de retención.
@@ -160,11 +138,31 @@ Puede corregir la versión de directiva de todos los elementos afectados en un s
 
   ![Corrección de la directiva incoherente](./media/backup-azure-sql-database/fix-inconsistent-policy.png)
 
+## <a name="unregister-a-sql-server-instance"></a>Anulación del registro de una instancia de SQL Server
+
+Anule el registro de una instancia de SQL Server después de deshabilitar la protección, pero antes de eliminar el almacén:
+
+1. En el panel del almacén, en **Administrar**, seleccione **Infraestructura de Backup**.  
+
+   ![Seleccionar Infraestructura de Backup](./media/backup-azure-sql-database/backup-infrastructure-button.png)
+
+2. En **Servidores de administración**, seleccione **Servidores protegidos**.
+
+   ![Seleccionar servidores protegidos](./media/backup-azure-sql-database/protected-servers.png)
+
+3. En **Servidores protegidos**, seleccione el servidor del que desea anular el registro. Para eliminar el almacén, debe anular el registro de todos los servidores.
+
+4. Haga clic con el botón derecho en el servidor protegido y seleccione **Anular registro**.
+
+   ![Seleccionar Eliminar](./media/backup-azure-sql-database/delete-protected-server.jpg)
+
 ## <a name="re-register-extension-on-the-sql-server-vm"></a>Volver a registrar la extensión en la máquina virtual de SQL Server
 
-A veces, la extensión de la carga de trabajo en la máquina virtual puede verse afectada por diversas razones. En tales casos, todas las operaciones que se desencadenen en la máquina virtual comenzarán a generar errores. Quizás tenga que volver a registrar la extensión en la máquina virtual. La operación **Volver a registrar** vuelve a instalar la extensión de copia de seguridad de cargas de trabajo en la máquina virtual para que las operaciones puedan continuar.
+A veces, la extensión de la carga de trabajo en la máquina virtual puede verse afectada por diversas razones. En tales casos, todas las operaciones que se desencadenen en la máquina virtual comenzarán a generar errores. Quizás tenga que volver a registrar la extensión en la máquina virtual. La operación de **repetición del registro** vuelve a instalar la extensión de copia de seguridad de cargas de trabajo en la máquina virtual para que las operaciones puedan continuar. Puede encontrar esta opción en **Infraestructura de Backup** en el almacén de Recovery Services.
 
-Use esta opción con precaución; cuando se desencadena en una máquina virtual que ya tiene una extensión correcta, esta operación hará que la extensión se reinicie. Esto puede dar lugar a errores en todos los trabajos en curso. Compruebe uno o varios de los [síntomas](backup-sql-server-azure-troubleshoot.md#re-registration-failures) antes de desencadenar la operación de repetición del registro.
+![Servidores protegidos en Infraestructura de Backup](./media/backup-azure-sql-database/protected-servers-backup-infrastructure.png)
+
+Esta opción se debe utilizar con precaución. Cuando se desencadena en una máquina virtual que ya tiene una extensión correcta, esta operación hará que la extensión se reinicie. Esto puede dar lugar a errores en todos los trabajos en curso. Compruebe uno o varios de los [síntomas](backup-sql-server-azure-troubleshoot.md#re-registration-failures) antes de desencadenar la operación de repetición del registro.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

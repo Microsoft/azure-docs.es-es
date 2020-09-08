@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con BGS Online | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y BGS Online.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 4fd6b29b-1b46-4fd1-9f5e-16b1c9d892cd
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: bccd90340fe8f8dfd5393a391899caf92dd2251f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: cf73b15e42afd95f6e7dd09db630957be02ea257
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73158874"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88517411"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bgs-online"></a>Tutorial: Integración de Azure Active Directory con BGS Online
 

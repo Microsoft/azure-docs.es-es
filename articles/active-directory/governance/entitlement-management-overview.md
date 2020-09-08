@@ -12,22 +12,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 08/25/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 710c81c7b5c6abbf499f2cb43570db94df1a3db5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: contperfq1
+ms.openlocfilehash: dbcd8ab2f2825e18943436dcc1a9ca4ff38e2d8d
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034409"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871214"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>¿Qué es la administración de derechos de Azure AD?
 
 La administración de derechos de Azure Active Directory (Azure AD) es una característica de [control de identidad](identity-governance-overview.md) que permite a las organizaciones administrar el ciclo de vida de identidad y acceso a escala, mediante la automatización de los flujos de trabajo de solicitud de acceso, las asignaciones de acceso, las revisiones y la expiración.
 
-Los empleados de las organizaciones necesitan tener acceso a varios grupos, aplicaciones y sitios para realizar su trabajo. La administración de este acceso es complicada, dado que los requisitos cambian, se agregan nuevas aplicaciones o los usuarios necesitan derechos de acceso adicionales.  Este escenario es más complejo cuando se colabora con organizaciones externas: puede que no sepa qué usuarios de la otra organización necesitan tener acceso a los recursos de su organización y no sabrán qué aplicaciones, grupos o sitios usa esta.
+Los empleados de las organizaciones necesitan tener acceso a varios grupos, aplicaciones y sitios para realizar su trabajo. La administración de este acceso es complicada, dado que los requisitos cambian, se agregan nuevas aplicaciones o los usuarios necesitan derechos de acceso adicionales.  Este escenario se complica si se colabora con organizaciones externas: puede que no sepa qué usuarios de la otra organización necesitan acceder a los recursos de su organización y ellos no sabrán qué aplicaciones, grupos o sitios usa esta.
 
 La administración de derechos de Azure AD puede ayudarle a administrar de manera más eficiente el acceso a grupos, aplicaciones y sitios de SharePoint Online para usuarios internos y también para usuarios de fuera de la organización que necesitan acceso a esos recursos.
 
@@ -54,7 +55,10 @@ Estas son algunas de las funcionalidades de la administración de derechos:
 - Delegue a los usuarios que no son administradores la posibilidad de crear paquetes de acceso. Estos paquetes de acceso contienen recursos que los usuarios pueden solicitar, y los administradores de paquetes de acceso delegados pueden definir directivas con reglas sobre lo que los usuarios pueden solicitar, quién debe aprobar su acceso y cuándo expira este.
 - Seleccione las organizaciones conectadas cuyos usuarios pueden solicitar acceso.  Cuando un usuario que todavía no está en su directorio solicita acceso y este acceso se aprueba, se le invita automáticamente al directorio y se le asigna acceso.  Cuando expira su acceso, si no tiene otras asignaciones de paquete de acceso, su cuenta de B2B en el directorio se puede quitar automáticamente.
 
-Empiece a trabajar con nuestro [tutorial para crear su primer paquete de acceso](entitlement-management-access-package-first.md). También puede leer los [escenarios comunes](entitlement-management-scenarios.md) o ver los vídeos siguientes:
+>[!NOTE]
+>Si está preparado para probar la administración de derechos, puede empezar a trabajar con el [tutorial para crear el primer paquete de acceso](entitlement-management-access-package-first.md).
+
+También puede leer los [escenarios comunes](entitlement-management-scenarios.md) o ver los vídeos siguientes:
 
 - [Implementación de la administración de derechos de Azure AD en su organización](https://www.youtube.com/watch?v=zaaKvaaYwI4)
 - [Supervisión y escala del uso de la administración de derechos de Azure AD](https://www.youtube.com/watch?v=omtNJ7ySjS0)
@@ -68,7 +72,7 @@ La administración de derechos introduce en Azure AD el concepto de un *paquete
 
 - Pertenencia a grupos de seguridad de Azure AD
 - Pertenencia a Teams y Grupos de Microsoft 365
-- Asignación a aplicaciones empresariales de Azure AD, incluidas las aplicaciones SaaS y aplicaciones integradas personalizadas que admiten la federación o el inicio de sesión único o el aprovisionamiento.
+- Asignación a aplicaciones empresariales de Azure AD, incluidas las aplicaciones SaaS y las aplicaciones integradas personalizadas que admitan la federación o el inicio de sesión único o el aprovisionamiento
 - Pertenencia a sitios de SharePoint Online
 
 También puede controlar el acceso a otros recursos que dependen de los grupos de seguridad de Azure AD o de Grupos de Microsoft 365.  Por ejemplo:
@@ -101,8 +105,8 @@ El siguiente diagrama muestra un ejemplo de los diferentes elementos de la admin
 
 Los paquetes de acceso no reemplazan a otros mecanismos de asignación de acceso.  Son más adecuadas en situaciones como las siguientes:
 
-- Los empleados necesitan acceso por tiempo limitado para una tarea determinada.  Por ejemplo, podría usar licencias basadas en grupos y un grupo dinámico para asegurarse de que todos los empleados tengan un buzón de Exchange Online y usar luego los paquetes de acceso en situaciones en las que los empleados necesiten acceso adicional, por ejemplo, para leer recursos de un departamento desde otro departamento.
-- El responsable del empleado o la persona designada debe aprobar el acceso.
+- Los empleados necesitan acceso por tiempo limitado para una tarea determinada.  Por ejemplo, podría usar licencias basadas en grupos y un grupo dinámico para asegurarse de que todos los empleados tengan un buzón de Exchange Online y usar luego los paquetes de acceso en situaciones en las que los empleados necesiten acceso adicional, por ejemplo, para leer los recursos de un departamento desde otro departamento.
+- Acceso que requiera la aprobación del administrador de un empleado o de otras personas designadas.
 - Los departamentos desean administrar sus propias directivas de acceso a los recursos sin la intervención del departamento de TI.  
 - Dos o más organizaciones colaboran en un proyecto y, como resultado, varios usuarios de una organización deberán incorporarse mediante Azure AD B2B para tener acceso a los recursos de la otra organización.
 
@@ -149,7 +153,7 @@ Las licencias de Azure AD Premium P2 **no** son necesarias para las tareas sigu
 - No se requiere ninguna licencia para usuarios en los que se han delegado tareas administrativas, como el creador de catálogos, el propietario de catálogos y el administrador de paquetes de acceso.
 - No se requiere ninguna licencia para invitados que **pueden** solicitar paquetes de acceso, pero **no** solicitan un paquete de acceso.
 
-Para cada una de las licencias Azure AD Premium P2 de pago que compre para sus usuarios miembros, puede usar Azure AD B2B para invitar a un máximo de cinco usuarios invitados. Los usuarios invitados también pueden usar las características de Azure AD Premium P2. Para más información, consulte [Guía de concesión de licencias de colaboración B2B de Azure Active Directory](../b2b/licensing-guidance.md).
+Para cada una de las licencias Azure AD Premium P2 de pago que compre para sus usuarios miembros, puede usar Azure AD B2B a fin de invitar a un máximo de cinco usuarios invitados. Los usuarios invitados también pueden usar las características de Azure AD Premium P2. Para más información, consulte [Guía de concesión de licencias de colaboración B2B de Azure Active Directory](../external-identities/licensing-guidance.md).
 
 Para más información sobre las licencias, consulte [Asignación o eliminación de licencias mediante el portal de Azure Active Directory](../fundamentals/license-users-groups.md).
 

@@ -5,12 +5,13 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: fd510f90887353d7486908ee076d5308db72c59d
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 7e8e2f3f9dd49693faa26eaaab309fcad58f6f9f
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81687081"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89076164"
 ---
 # <a name="get-service-access-tokens"></a>Obtención de tokens de acceso de servicio
 

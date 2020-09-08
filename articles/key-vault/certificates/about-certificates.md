@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 74007f5d10d58cf9680d4531304098cabe9b6d8b
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: e7bae2ad19aaf4f1c93d8d2bdefa7fa9f0414860
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115673"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923694"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Acerca de los certificados de Azure Key Vault
 
@@ -44,7 +44,8 @@ Cuando se crea un certificado de Key Vault, este se puede recuperar desde el sec
 
 La clave direccionable cobra más relevancia con los certificados de Key Vault no exportables. Las operaciones de la clave de Key Vault direccionable se asignan desde el campo *keyusage* de la directiva del certificado de Key Vault utilizada para crear el certificado de Key Vault.  
 
-Se admiten dos tipos de clave con los certificados: *RSA* o *RSA HSM*. Los exportables solo se permiten con RSA, no se admiten en RSA HSM.  
+ - Tipos de clave permitidos: RSA, RSA-HSM, EC, EC-HSM, Oct (se enumeran [aquí](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)). Exportable solo se permite con RSA y EC. Las claves HSM serían no exportables.
+
 
 ## <a name="certificate-attributes-and-tags"></a>Etiquetas y atributos de certificado
 
@@ -84,7 +85,8 @@ Cuando se crea un certificado de Key Vault desde el principio, debe proporcionar
 En un nivel general, una directiva de certificado contiene la siguiente información (sus decisiones se pueden encontrar [aquí](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0):  
 
 -   Propiedades del certificado X509: contiene el nombre de asunto, nombres alternativos de asunto y otras propiedades que se usan para crear una solicitud de certificado X509.  
--   Propiedades de clave: contiene el tipo de clave, la longitud y los campos de ReuseKeyOnRenewal. Estos campos indican a Key Vault cómo generar una clave.  
+-   Propiedades de clave: contiene el tipo de clave, la longitud y los campos de ReuseKeyOnRenewal. Estos campos indican a Key Vault cómo generar una clave. 
+     - Tipos de clave permitidos: RSA, RSA-HSM, EC, EC-HSM, Oct (se enumeran [aquí](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) 
 -   Propiedades del secreto: contiene las propiedades del secreto, como el tipo de contenido del secreto direccionable para generar el valor secreto, para recuperar el certificado como un secreto.  
 -   Acciones de vigencia: contiene las acciones de vigencia del certificado de Key Vault. Cada acción de vigencia contiene:  
 

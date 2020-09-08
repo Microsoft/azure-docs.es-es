@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: overview
-ms.date: 04/29/2020
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3370a2631a81ce36fd994da73c871fb1e409c667
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f36e5d8974caea0eecff7e0b399b6aab5d200664
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84728374"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797112"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Reglas de pertenencia dinámica a grupos de Azure Active Directory
 
-En Azure Active Directory (Azure AD), puede crear reglas basadas en atributos complejos para habilitar la pertenencia dinámica a grupos. La pertenencia dinámica a grupos reduce la sobrecarga administrativa que conlleva agregar y eliminar usuarios. En este artículo se detallan las propiedades y la sintaxis para crear reglas de pertenencia dinámica para usuarios o dispositivos. Puede configurar una regla de pertenencia dinámica a grupos de seguridad o en grupos de Office 365.
+En Azure Active Directory (Azure AD), puede crear reglas basadas en atributos complejos para habilitar la pertenencia dinámica a grupos. La pertenencia dinámica a grupos reduce la sobrecarga administrativa que conlleva agregar y eliminar usuarios. En este artículo se detallan las propiedades y la sintaxis para crear reglas de pertenencia dinámica para usuarios o dispositivos. Puede configurar una regla de pertenencia dinámica en grupos de seguridad o grupos de Microsoft 365.
 
 Cuando cambia cualquier atributo de un usuario, el sistema evalúa todas las reglas de grupos dinámicos de un directorio para ver si la modificación desencadenaría adiciones o retiradas en el grupo. Si un usuario o dispositivo cumple una regla de un grupo, se agrega a este como miembro. Cuando ya no cumple la regla, se quita. No se puede agregar o quitar un miembro de un grupo dinámico de forma manual.
 
@@ -269,7 +269,7 @@ assignedPlans es una propiedad de varios valores que muestra todos los planes de
 user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-Una regla como esta se puede utilizar para agrupar a todos los usuarios para los que la funcionalidad de Office 365 (u otro servicio en línea de Microsoft) está habilitada. A continuación, podría solicitar la admisión en el grupo con un conjunto de directivas.
+Una regla como esta se puede utilizar para agrupar todos los usuarios en los que la funcionalidad de Microsoft 365 (u otro servicio en línea de Microsoft) está habilitada. A continuación, podría solicitar la admisión en el grupo con un conjunto de directivas.
 
 #### <a name="example-2"></a>Ejemplo 2
 
@@ -341,13 +341,13 @@ device.objectId -ne null
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>Propiedades de extensión y propiedades de extensión personalizadas
 
-Las reglas de pertenencia dinámica admiten los atributos de extensión y las propiedades de extensión personalizadas como propiedades de cadena. Los [atributos de extensión](https://docs.microsoft.com/graph/api/resources/onpremisesextensionattributes?view=graph-rest-1.0) se sincronizan desde Windows Server AD local y tienen el formato "ExtensionAttributeX", donde X es igual a un número del 1 al 15. Este es un ejemplo de una regla que utiliza un atributo de extensión como propiedad:
+Las reglas de pertenencia dinámica admiten los atributos de extensión y las propiedades de extensión personalizadas como propiedades de cadena. Los [atributos de extensión](/graph/api/resources/onpremisesextensionattributes?view=graph-rest-1.0) se sincronizan desde Windows Server AD local y tienen el formato "ExtensionAttributeX", donde X es igual a un número del 1 al 15. Este es un ejemplo de una regla que utiliza un atributo de extensión como propiedad:
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-Las [propiedades de extensión personalizadas](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions) se sincronizan desde una instancia de Windows Server AD local o desde una aplicación SaaS conectada y presentan el formato `user.extension_[GUID]_[Attribute]`, donde:
+Las [propiedades de extensión personalizadas](../hybrid/how-to-connect-sync-feature-directory-extensions.md) se sincronizan desde una instancia de Windows Server AD local o desde una aplicación SaaS conectada y presentan el formato `user.extension_[GUID]_[Attribute]`, donde:
 
 * [GUID] es el identificador único de Azure AD para la aplicación que creó la propiedad en Azure AD
 * [Attribute] es el nombre de la propiedad tal y como se creó
@@ -393,7 +393,7 @@ Pueden utilizarse los siguientes atributos del dispositivo.
  systemLabels | cualquier cadena que coincida con la propiedad de dispositivo de Intune para etiquetar dispositivos del área de trabajo moderno | (device.systemLabels -contains "M365Managed")
 
 > [!Note]  
-> Para deviceOwnership, al crear grupos dinámicos para dispositivos, tiene que establecer el valor igual a "Compañía". En Intune la propiedad del dispositivo se representa en su lugar como Corporativa. Consulte [OwnerTypes](https://docs.microsoft.com/intune/reports-ref-devices#ownertypes) para obtener más detalles. 
+> Para deviceOwnership, al crear grupos dinámicos para dispositivos, tiene que establecer el valor igual a "Compañía". En Intune la propiedad del dispositivo se representa en su lugar como Corporativa. Consulte [OwnerTypes](/intune/reports-ref-devices#ownertypes) para obtener más detalles. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

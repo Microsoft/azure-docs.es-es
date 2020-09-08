@@ -4,12 +4,12 @@ description: Supervise las cargas de trabajo de Azure Backup y cree alertas pers
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: fbd1c7f5e7fab9f77815e782160e855a9a854dc9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3f5f663a2f0ed0f91cc414d352e975a2ff3b9649
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054615"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827161"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Supervisión a escala mediante Azure Monitor
 
@@ -46,7 +46,7 @@ La característica que define una alerta es su condición desencadenadora. Selec
 Si es necesario, puede editar la consulta de Kusto. Elija un umbral, un período y una frecuencia. El umbral determina cuándo se generará la alerta. El período es el período de tiempo en el que se ejecuta la consulta. Por ejemplo, si el umbral es superior a 0, el período será de 5 minutos y, si la frecuencia equivale a ese tiempo, la regla ejecutará la consulta cada 5 minutos, lo que conlleva que se revisen los 5 minutos anteriores. Si el número de resultados es mayor que 0, se le notificará a través del grupo de acciones seleccionado.
 
 > [!NOTE]
-> Para ejecutar la regla de alerta una vez al día, en todos los eventos y registros que se crearon en el día en cuestión, cambie el valor de "período" y "frecuencia" a 1440, es decir, 24 horas.
+> Para ejecutar la regla de alerta una vez al día, en todos los eventos o registros que se crearon en el día en cuestión, cambie el valor de "período" y "frecuencia" a 1440, es decir, 24 horas.
 
 #### <a name="alert-action-groups"></a>Grupos de acciones de alerta
 

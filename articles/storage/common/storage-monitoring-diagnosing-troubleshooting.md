@@ -8,13 +8,13 @@ ms.date: 09/23/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.custom: monitoring
-ms.openlocfilehash: 7af711ebe21c46663ecd8e803b0f636c34c362ee
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: monitoring, devx-track-csharp
+ms.openlocfilehash: 93015427dddfe2b311783c20587792e34c098ce8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076056"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011045"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -468,7 +468,7 @@ Si la aplicación cliente inicia errores HTTP 403 (prohibido), uno de los motivo
 | Source | Nivel de detalle | Nivel de detalle | Id. de solicitud de cliente | Texto de operación |
 | --- | --- | --- | --- | --- |
 | Microsoft.Azure.Storage |Información |3 |85d077ab-… |Iniciando operación con ubicación Primary según modo de ubicación PrimaryOnly. |
-| Microsoft.Azure.Storage |Información |3 |85d077ab -… |Iniciando solicitud sincrónica a <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14>. |
+| Microsoft.Azure.Storage |Información |3 |85d077ab -… |Iniciando solicitud sincrónica a <https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Synchronous_and_Asynchronous_Requests#Synchronous_request>. |
 | Microsoft.Azure.Storage |Información |3 |85d077ab -… |Esperando respuesta. |
 | Microsoft.Azure.Storage |Advertencia |2 |85d077ab -… |Excepción que se produce mientras se espera una respuesta: Error en el servidor remoto: 403 Prohibido. |
 | Microsoft.Azure.Storage |Información |3 |85d077ab -… |Respuesta recibida. Código de estado = 403, Id. de solicitud = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |

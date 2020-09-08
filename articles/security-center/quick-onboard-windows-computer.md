@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: ecbdb6dc73082fc0fab04c8802c43219cabb6a79
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2cec55b7c9450070d2e692fae50eff9ea880c54e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519769"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013748"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Inicio rápido: Incorporación de equipos Windows a Azure Security Center
 Después de incorporar las suscripciones de Azure, puede habilitar Security Center para recursos que se ejecutan fuera de Azure, por ejemplo, en entornos locales o en otras nubes, mediante el aprovisionamiento del agente de Log Analytics.
@@ -74,7 +74,7 @@ Ahora, debe instalar el archivo descargado en el equipo de destino.
 
 Una vez completado el proceso, el **agente de Log Analytics** aparece en el **Panel de control**. Puede revisar ahí la configuración y verificar que el agente esté conectado.
 
-Para más información sobre cómo instalar y configurar el agente, vea [Conexión de equipos Windows](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
+Para más información sobre cómo instalar y configurar el agente, vea [Conexión de equipos Windows](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
 
 Ahora puede supervisar las máquinas virtuales de Azure y los equipos que no son de Azure en un único lugar. En **Compute**, dispone de información general de todas las máquinas virtuales y los equipos junto con recomendaciones. Cada columna representa un conjunto de recomendaciones. El color representa el estado de seguridad actual del equipo o de la máquina virtual para dicha recomendación. Security Center también expone todas las detecciones de estos equipos en las alertas de seguridad.
 

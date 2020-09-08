@@ -1,20 +1,23 @@
 ---
 title: Implementación de Azure Policy en suscripciones delegadas a escala
 description: Obtenga información sobre cómo Azure Lighthouse permite implementar una definición de directivas y una asignación de directivas en varios inquilinos.
-ms.date: 07/07/2020
+ms.date: 08/12/2020
 ms.topic: how-to
-ms.openlocfilehash: 6d7c6206916f87072f68cc0fe953c8049896cd0b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 27d32a68c1a3806e514533efbae581aa97bc6d0c
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111803"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167290"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Implementación de Azure Policy en suscripciones delegadas a escala
 
 Como proveedor de servicios, es posible que haya incorporado varios inquilinos de cliente para [Azure Lighthouse](../overview.md). Azure Lighthouse permite a los proveedores de servicios realizar operaciones a escala a través de varios inquilinos a la vez, lo que hace que las tareas de administración sean más eficaces.
 
 En este tema se muestra cómo usar [Azure Policy](../../governance/policy/index.yml) para implementar una definición de directivas y una asignación de directivas en varios inquilinos mediante comandos de PowerShell. En este ejemplo, la definición de directivas garantiza que las cuentas de almacenamiento estén protegidas al permitir solo el tráfico HTTPS.
+
+> [!TIP]
+> Aunque en este tema hacemos referencia a los proveedores de servicios y clientes, las [empresas que administran varios inquilinos](../concepts/enterprise.md) pueden usar los mismos procesos.
 
 ## <a name="use-azure-resource-graph-to-query-across-customer-tenants"></a>Uso de Azure Resource Graph para consultar entre inquilinos de cliente
 

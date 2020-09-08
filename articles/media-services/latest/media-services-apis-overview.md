@@ -4,23 +4,25 @@ titleSuffix: Azure Media Services
 description: Conozca las reglas que se aplican a las entidades y las API cuando se desarrolla con Media Services v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
-ms.date: 10/21/2019
-ms.author: juliako
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 703c08cd5a884c8bfdd027b4ecf457c9e954a2dc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 371cfdc8bf2b09f703e1c7bd0153a433ff60ad16
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043416"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89298970"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Desarrollo con las API de Media Services v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Como desarrollador, puede usar la [API de REST](/rest/api/media/) de Media Services o bibliotecas de cliente que le permitan interactuar con la API de REST para crear, administrar y mantener fácilmente flujos de trabajo multimedia personalizados. La API de [Media Services v3](https://aka.ms/ams-v3-rest-sdk) se basa en la especificación OpenAPI (anteriormente conocida como Swagger).
 
@@ -86,7 +88,7 @@ Los nombres de los archivos o blobs dentro de un recurso deben seguir los [requi
 
 Las operaciones marcadas con `x-ms-long-running-operation` en los [archivos de Swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) de Azure Media Services son operaciones de larga duración. 
 
-Para obtener detalles sobre cómo realizar un seguimiento de las operaciones asincrónicas de Azure, consulte [Operaciones asincrónicas](../../azure-resource-manager/management/async-operations.md#monitor-status-of-operation).
+Para obtener detalles sobre cómo realizar un seguimiento de las operaciones asincrónicas de Azure, consulte [Operaciones asincrónicas](../../azure-resource-manager/management/async-operations.md).
 
 Media Services tiene las siguientes operaciones de larga duración:
 

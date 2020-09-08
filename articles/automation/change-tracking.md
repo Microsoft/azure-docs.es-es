@@ -3,14 +3,14 @@ title: Información general de Change Tracking e Inventario en Azure Automation
 description: En este artículo se describe la característica Change Tracking e Inventario, que ayuda a identificar los cambios en el software y el servicio de Microsoft que se producen en su entorno.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 06/08/2020
+ms.date: 08/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: ca96f817407aaef808fa10fbedec7af7b5912dc8
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 2fe92942e263cf53b9827ccbcb13a2d7bafc367c
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447935"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511055"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Información general de Change Tracking e Inventario
 
@@ -26,10 +26,10 @@ En este artículo se presenta la solución Change Tracking e Inventario de Azure
 > [!NOTE]
 > Para hacer el seguimiento de los cambios en las propiedades de Azure Resource Manager, consulte [Historial de cambios](../governance/resource-graph/how-to/get-resource-changes.md) de Azure Resource Graph.
 
-Change Tracking e Inventario obtiene sus datos de Azure Monitor. Las máquinas virtuales conectadas a las áreas de trabajo de Log Analytics usan agentes de Log Analytics para recopilar datos sobre los cambios en el software instalado, los servicios de Microsoft, los archivos y el Registro de Windows, y demonios de Linux de los servidores supervisados. Cuando los datos están disponibles, los agentes los envían a Azure Monitor para su procesamiento. Azure Monitor aplica la lógica a los datos recibidos, los registra y hace que estén disponibles. 
+Change Tracking e Inventario obtiene sus datos de Azure Monitor. Las máquinas virtuales conectadas a las áreas de trabajo de Log Analytics usan agentes de Log Analytics para recopilar datos sobre los cambios en el software instalado, los servicios de Microsoft, los archivos y el Registro de Windows, y demonios de Linux de los servidores supervisados. Cuando los datos están disponibles, los agentes los envían a Azure Monitor para su procesamiento. Azure Monitor aplica la lógica a los datos recibidos, los registra y hace que estén disponibles.
 
 > [!NOTE]
-> Para usar la característica Change Tracking e Inventario, debe buscar todas sus máquinas virtuales en la misma suscripción y región de la cuenta de Automation.
+> Change Tracking e Inventario requiere vincular un área de trabajo de Log Analytics a la cuenta de Automation. Para ver una lista definitiva de regiones admitidas, consulte [Asignaciones de áreas de trabajo](./how-to/region-mappings.md). Las asignaciones de regiones no afectan a la capacidad de administrar VM en una región independiente de la cuenta de Automation.
 
 Actualmente, la solución Change Tracking e Inventario no admite los elementos siguientes:
 
@@ -53,7 +53,7 @@ Actualmente, la solución Change Tracking e Inventario tiene los siguientes prob
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
-Change Tracking e Inventario se admite en todos los sistemas operativos que cumplen los requisitos del agente de Log Analytics. Las versiones de sistema operativo oficiales son Windows Server 2008 SP1 o posterior y Windows 7 SP1 o posterior. La característica también se admite en varios sistemas operativos Linux. Para los sistemas operativos que admiten Log Analytics, consulte [Introducción al agente de Log Analytics](../azure-monitor/platform/log-analytics-agent.md).
+Change Tracking e Inventario se admite en todos los sistemas operativos que cumplen los requisitos del agente de Log Analytics. Las versiones de sistema operativo oficiales son Windows Server 2008 SP1 o posterior y Windows 7 SP1 o posterior. La característica también se admite en varios sistemas operativos Linux. Para obtener una lista de sistemas operativos compatibles, vea [Introducción al agente de Log Analytics](../azure-monitor/platform/log-analytics-agent.md).
 
 Para comprender los requisitos de cliente para TLS 1.2, consulte el artículo sobre el [cumplimiento de TLS 1.2 para Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 

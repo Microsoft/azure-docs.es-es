@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con The Funding Portal | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y The Funding Portal.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 4663cc8a-976a-4c6c-b3b4-1e5df9b66744
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/27/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f707e9e56ea5386f1ccb438aa06aac066784e7cc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e8b54d3a9f4a9b0fd74a1aabd2b5b696db213bab
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "70174291"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88516800"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-the-funding-portal"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con The Funding Portal
 

@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Soloinsight CloudGate SSO | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Soloinsight CloudGate SSO.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-ms.assetid: 9263c241-85a4-4724-afac-0351d6275958
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/06/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b88822f164e0fe8cdf55eddfa981644f725e01f3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5ac0f0777ea341036950550e19c5d8e7fb71a91f
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73159921"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545070"
 ---
 # <a name="tutorial-integrate-soloinsight-cloudgate-sso-with-azure-active-directory"></a>Tutorial: Integración de Soloinsight-CloudGate SSO con Azure Active Directory
 

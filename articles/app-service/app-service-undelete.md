@@ -5,26 +5,25 @@ author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
-ms.openlocfilehash: c3c79944aa4add0a32dbb584b13606e32e146a1a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 04e496806f2c388eb3a69df1b4cc3897b8132f6c
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050301"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962917"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>Restauración de aplicaciones de App Service eliminadas con PowerShell
 
-Si por accidente ha eliminado su aplicación de Azure App Service, puede restaurarla mediante los comandos del [módulo de PowerShell Az](https://docs.microsoft.com/powershell/azure/?view=azps-2.6.0&viewFallbackFrom=azps-2.2.0).
+Si por accidente ha eliminado su aplicación de Azure App Service, puede restaurarla mediante los comandos del [módulo de PowerShell Az](/powershell/azure/?view=azps-2.6.0&viewFallbackFrom=azps-2.2.0).
 
 > [!NOTE]
-> Las aplicaciones eliminadas se purgan del sistema 30 días después de la eliminación inicial. Una vez que se ha purgado una aplicación, no se puede recuperar.
->
-
-> [!NOTE]
-> La funcionalidad de deshacer eliminación no es compatible con el plan de consumo.
+> - Las aplicaciones eliminadas se purgan del sistema 30 días después de la eliminación inicial. Después de purgar una aplicación, no se puede recuperar.
+> - La funcionalidad de deshacer eliminación no es compatible con el plan de consumo.
+> - Las aplicaciones de App Services que se ejecutan en una instancia de App Service Environment no admiten instantáneas. Por lo tanto, la funcionalidad de deshacer eliminación y la funcionalidad de clonación no se admiten para las aplicaciones de App Service que se ejecutan en una instancia de App Service Environment.
 >
 
 ## <a name="re-register-app-service-resource-provider"></a>Volver a registrar el proveedor de recursos de App Service
+
 Algunos clientes pueden encontrarse con una incidencia por la que no se recupera la lista de aplicaciones eliminadas. Para resolver el problema, ejecute el siguiente comando:
 
 ```powershell
@@ -52,6 +51,7 @@ La información detallada incluye:
 - **Hora de eliminación**: cuándo se eliminó la aplicación.  
 
 ## <a name="restore-deleted-app"></a>Restauración de la aplicación eliminada
+
 >[!NOTE]
 > `Restore-AzDeletedWebApp` no se admite para aplicaciones de funciones.
 
@@ -73,7 +73,7 @@ Las entradas del comando son:
 De forma predeterminada `Restore-AzDeletedWebApp` restaurará también la configuración de la aplicación y todo el contenido. Si solo quiere restaurar el contenido, use la marca `-RestoreContentOnly` con este cmdlet.
 
 > [!NOTE]
-> Si la aplicación se hospedaba en una instancia de App Service Environment y después se eliminó de ella, solo se puede restaurar si la instancia de App Service Environment correspondiente sigue existiendo.
+> Si la aplicación se hospedaba en una instancia de App Service Environment y después se eliminó de dicha instancia, solo se puede restaurar si la instancia de App Service Environment correspondiente sigue existiendo.
 >
 
-Aquí puede encontrar la referencia de commandlet completa: [Restore-AzDeletedWebApp](https://docs.microsoft.com/powershell/module/az.websites/restore-azdeletedwebapp).
+Aquí puede encontrar la referencia de commandlet completa: [Restore-AzDeletedWebApp](/powershell/module/az.websites/restore-azdeletedwebapp).

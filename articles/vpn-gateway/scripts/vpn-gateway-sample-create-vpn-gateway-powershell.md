@@ -1,6 +1,6 @@
 ---
 title: 'Script de ejemplo de Azure PowerShell: creación de una instancia de VPN Gateway | Microsoft Docs'
-description: Cree una instancia de VPN Gateway con PowerShell.
+description: Aprenda a usar un script de PowerShell para crear una red virtual, una subred de red y una puerta de enlace VPN basada en rutas.
 services: vpn-gateway
 documentationcenter: vpn-gateway
 author: kumudD
@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 01/09/2020
 ms.author: alzam
-ms.openlocfilehash: 1531bf7fdb2ec23be49f5a31145e3d8c2487aedc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1fc8339b3d5d5f02611c750e8016c2fc3df1d8a3
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087023"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035389"
 ---
 # <a name="create-a-vpn-gateway-with-powershell"></a>Creación de una instancia de VPN Gateway con PowerShell
 

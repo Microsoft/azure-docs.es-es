@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 992c29cb8380cf6acbe970b2fd5e958b6b2b33dc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 50de800c94bd0a65fafcff3ef6613d6f063a3797
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026720"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855485"
 ---
 # <a name="protected-web-api-code-configuration"></a>API web protegida: Configuración del código
 
@@ -144,7 +144,19 @@ using Microsoft.Identity.Web;
 public void ConfigureServices(IServiceCollection services)
 {
  // Adds Microsoft Identity platform (AAD v2.0) support to protect this API
- services.AddMicrosoftWebApiAuthentication(Configuration, "AzureAd");
+ services.AddMicrosoftIdentityWebApiAuthentication(Configuration, "AzureAd");
+
+ services.AddControllers();
+}
+```
+
+también puede escribir lo siguiente (que es equivalente).
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+ // Adds Microsoft Identity platform (AAD v2.0) support to protect this API
+ services.AddMicrosoftIdentityWebApiAuthentication(Configuration, "AzureAd");
 
  services.AddControllers();
 }
@@ -194,7 +206,8 @@ En la mayoría de los casos, no es necesario cambiar los parámetros. Las aplica
 En ASP.NET Core, si desea personalizar los parámetros de validación de tokens, use el siguiente fragmento de código en *Startup.cs*:
 
 ```c#
-services.AddMicrosoftWebApiAuthentication(Configuration);
+services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+        .AddMicrosoftIdentityWebApi(Configuration);
 services.Configure<JwtBearerOptions>(JwtBearerDefaults.AuthenticationScheme, options =>
 {
   var existingOnTokenValidatedHandler = options.Events.OnTokenValidated;

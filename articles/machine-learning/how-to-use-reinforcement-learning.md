@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 0a043bf79818480e045fb1f82640639fd7dcb232
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: b5ad09925c4a81dd09bd1ddf171ffccb8413b12b
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87847642"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650832"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Aprendizaje de refuerzo (versión preliminar) con Azure Machine Learning
 
@@ -34,7 +34,7 @@ En este artículo, aprenderá a:
 > * Enviar un experimento para iniciar una ejecución
 > * Vista de resultados
 
-Este artículo se basa en el [ejemplo RLlib Pong](https://aka.ms/azureml-rl-pong) que puede encontrarse en el cuaderno de Azure Machine Learning del [repositorio de GitHub](https://aka.ms/azureml-rl-notebooks).
+Este artículo se basa en el [ejemplo RLlib Pong](https://aka.ms/azureml-rl-pong) que puede encontrarse en el cuaderno de Azure Machine Learning del [repositorio de GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/reinforcement-learning/README.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -433,4 +433,4 @@ Gracias a este breve trabajo, ha aprendido a configurar varios recursos de proce
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, aprendió a entrenar un agente de aprendizaje de refuerzo mediante un agente de aprendizaje de IMPALA. Para ver más ejemplos, vaya al [repositorio de GitHub de aprendizaje de refuerzo de Azure Machine Learning](https://aka.ms/azureml-rl-notebooks).
+En este artículo, aprendió a entrenar un agente de aprendizaje de refuerzo mediante un agente de aprendizaje de IMPALA. Para ver más ejemplos, vaya al [repositorio de GitHub de aprendizaje de refuerzo de Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/reinforcement-learning/README.md).

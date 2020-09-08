@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: tutorial
 ms.author: sgilley
 author: sdgilley
-ms.date: 02/10/2020
+ms.date: 08/25/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: be8f0c85f62779dec9231a9f44155d4608e88b52
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: fb380e4b71ba68daf694ab725c41be64f066805e
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852708"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854931"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Tutorial: Entrenamiento del primer modelo de Machine Learning
 
@@ -43,21 +43,24 @@ En esta parte del tutorial se ejecuta el código del cuaderno de Jupyter de mues
 
 1. Abra **tutorial-1st-experiment-sdk-train.ipynb** en la carpeta, tal y como se muestra en la [primera parte](tutorial-1st-experiment-sdk-setup.md#open).
 
-
-> [!Warning]
-> **No** debe crear un cuaderno *nuevo* en la interfaz de Jupyter. En el cuaderno *tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb* se incluyen **todos los códigos y datos necesarios** para este tutorial.
+**No** debe crear un cuaderno *nuevo* en la interfaz de Jupyter. En el cuaderno *tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb* se incluyen **todos los códigos y datos necesarios** para este tutorial.
 
 ## <a name="connect-workspace-and-create-experiment"></a>Conexión con el área de trabajo y creación de un experimento
 
-> [!Important]
-> El resto de este artículo contiene el mismo contenido que se ve en el cuaderno.  
->
-> Cambie ahora al cuaderno de Jupyter Notebook si desea leer a medida que ejecuta el código. 
-> Para ejecutar una sola celda de código en un cuaderno, haga clic en la celda y presione **Mayús + Entrar**. O bien, ejecute el cuaderno completo, para lo que debe elegir **Ejecutar todo** en la barra de herramientas superior.
+<!-- nbstart https://raw.githubusercontent.com/Azure/MachineLearningNotebooks/master/tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb -->
 
-Importe la clase `Workspace` y cargue la información de suscripción del archivo `config.json` mediante la función `from_config().`. Esto busca el archivo JSON en el directorio actual de forma predeterminada, pero también puede especificar un parámetro de ruta de acceso para que apunte al archivo utilizando `from_config(path="your/file/path")`. En un servidor de cuadernos en la nube, el archivo se encuentra automáticamente en el directorio raíz.
+> [!TIP]
+> Contenido de _tutorial-1st-experiment-sdk-train.ipynb_. Cambie ahora al cuaderno de Jupyter Notebook si desea leer a medida que ejecuta el código. Para ejecutar una sola celda de código en un cuaderno, haga clic en la celda y presione **Mayús + Entrar**. O bien, ejecute el cuaderno completo, para lo que debe elegir **Ejecutar todo** en la barra de herramientas superior.
 
-Si el código siguiente solicita autenticación adicional, simplemente pegue el vínculo en un explorador y escriba el token de autenticación.
+
+Importe la clase `Workspace` y cargue la información de suscripción del archivo `config.json` mediante la función `from_config().`. Esto busca el archivo JSON en el directorio actual de forma predeterminada, pero también puede especificar un parámetro de ruta de acceso para que apunte al archivo utilizando `from_config(path="your/file/path")`. Si está ejecutando este cuaderno en un servidor de cuadernos en la nube en el área de trabajo, el archivo se encuentra automáticamente en el directorio raíz.
+
+Si el código siguiente solicita autenticación adicional, simplemente pegue el vínculo en un explorador y escriba el token de autenticación. Además, si tiene más de un inquilino vinculado a su usuario, tendrá que agregar las siguientes líneas:
+```
+from azureml.core.authentication import InteractiveLoginAuthentication
+interactive_auth = InteractiveLoginAuthentication(tenant_id="your-tenant-id")
+Additional details on authentication can be found here: https://aka.ms/aml-notebook-auth 
+```
 
 ```python
 from azureml.core import Workspace
@@ -105,16 +108,16 @@ alphas = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
 for alpha in alphas:
     run = experiment.start_logging()
     run.log("alpha_value", alpha)
-
+    
     model = Ridge(alpha=alpha)
     model.fit(X=X_train, y=y_train)
     y_pred = model.predict(X=X_test)
     rmse = math.sqrt(mean_squared_error(y_true=y_test, y_pred=y_pred))
     run.log("rmse", rmse)
-
+    
     model_name = "model_alpha_" + str(alpha) + ".pkl"
     filename = "outputs/" + model_name
-
+    
     joblib.dump(value=model, filename=filename)
     run.upload_file(name=model_name, path_or_stream=filename)
     run.complete()
@@ -162,7 +165,7 @@ for run in experiment.get_runs():
     # each logged metric becomes a key in this returned dict
     run_rmse = run_metrics["rmse"]
     run_id = run_details["runId"]
-
+    
     if minimum_rmse is None:
         minimum_rmse = run_rmse
         minimum_rmse_runid = run_id
@@ -172,15 +175,15 @@ for run in experiment.get_runs():
             minimum_rmse_runid = run_id
 
 print("Best run_id: " + minimum_rmse_runid)
-print("Best run_id rmse: " + str(minimum_rmse))
+print("Best run_id rmse: " + str(minimum_rmse))    
 ```
-
 ```output
 Best run_id: 864f5ce7-6729-405d-b457-83250da99c80
 Best run_id rmse: 57.234760283951765
 ```
 
 Use el mejor identificador de ejecución para capturar la ejecución individual mediante el constructor `Run` junto con el objeto de experimento. A continuación, llame a `get_file_names()` para ver todos los archivos disponibles para su descarga desde esta ejecución. En este caso, solo cargó un archivo para cada ejecución durante el entrenamiento.
+
 
 ```python
 from azureml.core import Run
@@ -194,9 +197,11 @@ print(best_run.get_file_names())
 
 Llame a `download()` en el objeto de ejecución, especificando el nombre del archivo de modelo que se va a descargar. De forma predeterminada, esta función se descarga en el directorio actual.
 
+
 ```python
 best_run.download_file(name="model_alpha_0.1.pkl")
 ```
+<!-- nbend -->
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

@@ -2,15 +2,16 @@
 title: Referencia de punto de conexión RESTful de C# del proveedor personalizado
 description: Proporciona una referencia básica de un punto de conexión RESTful de C# de los proveedores personalizados de Azure. El punto de conexión se proporciona mediante una aplicación de función de Azure.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
-ms.openlocfilehash: b6ecb22cb968e0d963242c8c2d5dd1a6cb24229c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ce329e7cd8db73e217162fa0bc1bb433d57e9971
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75649420"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935643"
 ---
 # <a name="custom-provider-c-restful-endpoint-reference"></a>Referencia de punto de conexión RESTful de C# del proveedor personalizado
 

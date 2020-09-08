@@ -1,6 +1,6 @@
 ---
 title: Introducción a la seguridad de Azure | Microsoft Docs
-description: Aprenda acerca de la seguridad de Azure, sus servicios y cómo funciona.
+description: Familiarícese con la seguridad de Azure, sus distintos servicios y cómo funciona con esta información general.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: 9c107789fe4a88b3cd73a2f290871016b95cae19
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: d00b897f41ab00f0e3c23292eeb5f431bf5c070c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371403"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835942"
 ---
 # <a name="introduction-to-azure-security"></a>Introducción a la seguridad de Azure
 ## <a name="overview"></a>Información general
@@ -142,7 +142,7 @@ En Diagnóstico de aplicaciones, puede ver los eventos agrupados de las siguient
 En esta sección se proporciona información adicional acerca de características fundamentales para la seguridad del almacenamiento de Azure y un resumen de estas funcionalidades.
 
 ### <a name="role-based-access-control-rbac"></a>Control de acceso basado en rol (RBAC)
-Puede proteger su cuenta de almacenamiento con el control de acceso basado en rol (RBAC). En organizaciones que quieren aplicar directivas de seguridad para el acceso a los datos, es imprescindible restringir el acceso en función de los principios de seguridad [necesidad de saber](https://en.wikipedia.org/wiki/Need_to_know) y [mínimo privilegio](https://en.wikipedia.org/wiki/Principle_of_least_privilege). Estos derechos de acceso se conceden al asignar el rol RBAC adecuado a grupos y aplicaciones de un determinado ámbito. Puede aprovechar los [roles integrados de Azure](../../role-based-access-control/built-in-roles.md), tales como el de colaborador de la cuenta de almacenamiento, para asignar privilegios a los usuarios. El acceso a las claves de almacenamiento para una cuenta de almacenamiento mediante el modelo de [Azure Resource Manager](../../storage/blobs/security-recommendations.md) puede controlarse con el control de acceso basado en rol (RBAC).
+Puede proteger su cuenta de almacenamiento con el control de acceso basado en rol (RBAC). En organizaciones que quieren aplicar directivas de seguridad para el acceso a los datos, es imprescindible restringir el acceso en función de los principios de seguridad [necesidad de saber](https://en.wikipedia.org/wiki/Need_to_know) y [mínimo privilegio](https://en.wikipedia.org/wiki/Principle_of_least_privilege). Estos derechos de acceso se conceden al asignar el rol de Azure adecuado a grupos y aplicaciones de un determinado ámbito. Puede aprovechar los [roles integrados de Azure](../../role-based-access-control/built-in-roles.md), tales como el de colaborador de la cuenta de almacenamiento, para asignar privilegios a los usuarios. El acceso a las claves de almacenamiento para una cuenta de almacenamiento mediante el modelo de [Azure Resource Manager](../../storage/blobs/security-recommendations.md) puede controlarse con el control de acceso basado en rol (RBAC).
 
 ### <a name="shared-access-signature"></a>Firma de acceso compartido
 Una [firma de acceso compartido (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) ofrece acceso delegado a los recursos en la cuenta de almacenamiento. Esto significa que puede conceder a un cliente permisos limitados para objetos en su cuenta de almacenamiento durante un período específico y con un conjunto determinado de permisos sin tener que compartir las claves de acceso a las cuentas.
@@ -336,7 +336,7 @@ Microsoft utiliza varias tecnologías y procedimientos recomendados de seguridad
 
 -   La [autenticación basada en tokens](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/) habilita la autenticación a través de Azure Active Directory.
 
--   El [control de acceso basado en rol (RBAC)](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/) permite conceder acceso en función del rol asignado al usuario, lo que hace más fácil proporcionar a los usuarios únicamente la cantidad de acceso que necesitan para realizar sus tareas. Puede personalizar RBAC según el modelo de negocio de su organización y su tolerancia al riesgo.
+-   El [control de acceso basado en rol de Azure (Azure RBAC)](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/) permite conceder acceso en función del rol asignado al usuario, lo que hace más fácil proporcionar a los usuarios únicamente la cantidad de acceso que necesitan para realizar sus tareas. Puede personalizar RBAC según el modelo de negocio de su organización y su tolerancia al riesgo.
 
 -   La [administración de identidades integrada (identidad híbrida)](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/) le permite mantener el control del acceso de los usuarios en centros de datos internos y plataformas en la nube, al crear una única identidad de usuario para la autenticación y autorización en todos los recursos.
 

@@ -7,19 +7,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 08/17/2020
 ms.author: swmachan
-ms.openlocfilehash: fc81b0c01bf749bf7f643833026e364fa7c8ebd2
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: d8713d20503dc788175a408f5ec652505090396e
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996336"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510834"
 ---
 # <a name="what-are-trainings-and-models"></a>¿Qué son los entrenamientos y los modelos?
 
 Un modelo es el sistema que proporciona una traducción para pares de idiomas específicos.
-El resultado de un entrenamiento correcto es un modelo. Cuando se entrena un modelo, se requieren tres tipos de documentos mutuamente exclusivos: aprendizaje, ajuste y pruebas. También se puede proporcionar el tipo de documento de diccionario. Consulte [Alineación de frases](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment#suggested-minimum-number-of-sentences).
+El resultado de un entrenamiento correcto es un modelo. Cuando se entrena un modelo, se requieren tres tipos de documentos mutuamente exclusivos: aprendizaje, ajuste y pruebas. También se puede proporcionar el tipo de documento de diccionario. Vea [Alineación de frases](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment#suggested-minimum-number-of-sentences).
 
 Si solo se proporcionan datos de aprendizaje al poner en cola un entrenamiento, Custom Translator reunirá automáticamente los datos de pruebas y de ajuste. Usará un subconjunto aleatorio de frases de los documentos de aprendizaje y excluirá estas frases de los propios datos de aprendizaje.
 
@@ -27,7 +27,7 @@ Si solo se proporcionan datos de aprendizaje al poner en cola un entrenamiento, 
 
 Custom Translator usa los documentos incluidos en el conjunto de aprendizaje como base para generar el modelo. Durante la ejecución del entrenamiento, se alinean (o emparejan) las oraciones que están presentes en estos documentos. Puede tomarse libertades durante la creación del conjunto de documentos de aprendizaje. Puede incluir documentos que crea que son de importancia tangencial en un modelo. Vuelva a incluirlos en otro entrenamiento para ver el efecto que esto tiene en la puntuación [BLEU (suplente de evaluación bilingüe)](what-is-bleu-score.md). Siempre que el conjunto de ajuste y el de pruebas sean constantes, no dude en experimentar con la creación del conjunto de aprendizaje. Este enfoque es una forma eficaz de modificar la calidad de su sistema de traducción.
 
-Puede ejecutar varios entrenamientos dentro de un proyecto y comparar las [puntuaciones BLEU ](what-is-bleu-score.md) en todas las ejecuciones del entrenamiento. Cuando ejecute varios entrenamientos para compararlos, asegúrese de usar los mismos datos de prueba o de ajuste cada vez. También asegúrese de inspeccionar los resultados manualmente en la pestaña ["Pruebas"](how-to-view-system-test-results.md).
+Puede ejecutar varios entrenamientos dentro de un proyecto y comparar las [puntuaciones BLEU ](what-is-bleu-score.md) en todas las ejecuciones del entrenamiento. Cuando ejecute varios entrenamientos para compararlos, asegúrese de usar los mismos datos de prueba o de ajuste cada vez. También asegúrese de inspeccionar los resultados manualmente en la pestaña de [pruebas](how-to-view-system-test-results.md).
 
 ## <a name="tuning-document-type-for-custom-translator"></a>Tipo de documento de ajuste para Custom Translator
 

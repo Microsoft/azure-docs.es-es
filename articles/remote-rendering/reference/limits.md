@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: 17f98f452764abdc8458cdc38661d464ecb0a60d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af935aeaaeee11ab50b327b7f7b5b77246cb974b
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808540"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566053"
 ---
 # <a name="limitations"></a>Limitaciones
 
@@ -35,18 +35,17 @@ Algunas características tienen limitaciones de tamaño, recuento u otras.
 
 El número de polígonos permitidos para todos los modelos cargados depende del tamaño de la máquina virtual que se pasa a [la API REST de administración de sesión](../how-tos/session-rest-api.md#create-a-session):
 
-| Tamaño de VM | Número máximo de polígonos |
+| Tamaño del servidor | Número máximo de polígonos |
 |:--------|:------------------|
 |estándar| 20 millones |
 |prémium| ilimitado |
 
-Vea el capítulo [Tamaños de máquina virtual](../reference/vm-sizes.md) para obtener información más detallada sobre esta limitación.
+Vea el capítulo [Tamaño del servidor](../reference/vm-sizes.md) para obtener información más detallada sobre esta limitación.
 
 ## <a name="platform-limitations"></a>Limitaciones de la plataforma
 
 **Escritorio de Windows 10**
 
-* UWP/x86 es la única plataforma UWP compatible. UWP/x64 no es compatible.
 * Win32/x64 es la única plataforma Win32 compatible. Win32/x86 no es compatible.
 
 **HoloLens 2**

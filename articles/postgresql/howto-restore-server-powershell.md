@@ -8,12 +8,12 @@ ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6fe9fdd68f9419a9f730ea64b5aea19f583d751c
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: f582159b0ce1355b34c42496dc7516264b62d365
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496753"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902055"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-postgresql-server-using-powershell"></a>Cómo hacer una copia de seguridad y restauración de un servidor de Azure Database for PostgreSQL mediante PowerShell
 
@@ -133,4 +133,4 @@ El servidor creado durante una restauración no tiene los puntos de conexión de
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Personalización de parámetros de servidor de Azure Database for PostgreSQL mediante PowerShell](howto-configure-server-parameters-using-powershell.md)
+> [Procedimientos para generar una cadena de conexión de Azure Database for PostgreSQL con PowerShell](howto-connection-string-powershell.md)

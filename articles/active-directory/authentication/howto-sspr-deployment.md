@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a56f7248d5782b63befc55c4215360e0f5cb52b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c9f59c7bb9b3977bdff7e3fd1ab78ed6fa2e412
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84338573"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717751"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Plan de implementación de autoservicio de restablecimiento de contraseña de Azure Active Directory
 
@@ -30,7 +30,7 @@ El [autoservicio de restablecimiento de contraseña (SSPR)](https://www.youtube.
 SSPR ofrece las siguientes funcionalidades clave:
 
 * El autoservicio permite a los usuarios finales restablecer sus contraseñas expiradas o no expiradas sin necesidad de ponerse en contacto con un administrador o el departamento de soporte técnico.
-* La [escritura diferida de contraseñas](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-writeback) permite la administración de contraseñas locales y la resolución de bloqueos de cuenta a través de la nube.
+* La [escritura diferida de contraseñas](./concept-sspr-writeback.md) permite la administración de contraseñas locales y la resolución de bloqueos de cuenta a través de la nube.
 * Los informes de actividad de administración de contraseñas proporcionan a los administradores información sobre una actividad de registro y restablecimiento de contraseña en su organización.
 
 En esta guía de implementación se muestra cómo planear y probar una implementación de SSPR.
@@ -42,7 +42,7 @@ Para ver rápidamente SSPR en acción y, a continuación, volver para conocer la
 
 ## <a name="learn-about-sspr"></a>Más información acerca de SSPR
 
-Más información acerca de SSPR. Consulte [Funcionamiento: Autoservicio de restablecimiento de contraseña de Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks).
+Más información acerca de SSPR. Consulte [Funcionamiento: Autoservicio de restablecimiento de contraseña de Azure AD](./concept-sspr-howitworks.md).
 
 ### <a name="key-benefits"></a>Ventajas principales
 
@@ -60,7 +60,7 @@ Las ventajas clave de habilitar SSPR son:
 
 Las licencias de Azure Active Directory se otorgan por usuario; es decir, cada usuario requiere una licencia adecuada para las características que usa. Se recomiendan las licencias basadas en grupos para SSPR. 
 
-Para comparar las ediciones y las características y habilitar las licencias basadas en grupos o usuarios, consulte [Requisitos de concesión de licencias del autoservicio de restablecimiento de contraseña de Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-licensing).
+Para comparar las ediciones y las características y habilitar las licencias basadas en grupos o usuarios, consulte [Requisitos de concesión de licencias del autoservicio de restablecimiento de contraseña de Azure AD](./concept-sspr-licensing.md).
 
 Para obtener más información sobre los precios, consulte [Precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -83,10 +83,10 @@ Para obtener más información sobre los precios, consulte [Precios de Azure Act
 | Cursos en línea|[Administración de identidades en Microsoft Azure Active Directory](https://www.pluralsight.com/courses/microsoft-azure-active-directory-managing-identities) Use SSPR para ofrecer a los usuarios una experiencia moderna y protegida. Consulte especialmente el módulo "[Administración de usuarios y grupos de Azure Active Directory](https://app.pluralsight.com/library/courses/microsoft-azure-active-directory-managing-identities/table-of-contents)". |
 |Cursos de pago de Pluralsight |[Problemas de la administración de identidades y acceso](https://www.pluralsight.com/courses/identity-access-management-issues) Obtenga información IAM y los problemas de seguridad que deben tenerse en cuenta en su organización. Consulte especialmente el módulo "Otros métodos de autenticación".|
 | |[Introducción a Microsoft Enterprise Mobility Suite](https://www.pluralsight.com/courses/microsoft-enterprise-mobility-suite-getting-started) Conozca los procedimientos recomendados para ampliar los recursos locales en la nube de forma que se permita la autenticación, la autorización, el cifrado y una experiencia móvil segura. Consulte especialmente el módulo "Configuración de características avanzadas de Microsoft Azure Active Directory Premium".
-|Tutoriales |[Realización de una implementación piloto del autoservicio de restablecimiento de contraseñas en Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-pilot) |
-| |[Habilitación de la escritura diferida de contraseñas](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-writeback) |
-| |[Restablecimiento de la contraseña de Azure AD desde la pantalla de inicio de sesión de Windows 10](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-windows) |
-| Preguntas más frecuentes|[Preguntas más frecuentes sobre la administración de contraseñas](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-faq) |
+|Tutoriales |[Realización de una implementación piloto del autoservicio de restablecimiento de contraseñas en Azure AD](./tutorial-enable-sspr.md) |
+| |[Habilitación de la escritura diferida de contraseñas](./tutorial-enable-sspr-writeback.md) |
+| |[Restablecimiento de la contraseña de Azure AD desde la pantalla de inicio de sesión de Windows 10](./howto-sspr-windows.md) |
+| Preguntas más frecuentes|[Preguntas más frecuentes sobre la administración de contraseñas](./active-directory-passwords-faq.md) |
 
 
 ### <a name="solution-architecture"></a>Arquitectura de la solución
@@ -103,7 +103,7 @@ Para restablecer la contraseña, los usuarios van al [portal de restablecimiento
 
 * Para los usuarios híbridos, SSPR escribe la contraseña en diferido en la instancia local de Active Directory a través del servicio de Azure AD Connect. 
 
-Nota: En el caso de los usuarios que tienen la [sincronización de hash de contraseñas (PHS)](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-phs) deshabilitada, SSPR solo almacena las contraseñas localmente en Active Directory.
+Nota: En el caso de los usuarios que tienen la [sincronización de hash de contraseñas (PHS)](../hybrid/whatis-phs.md) deshabilitada, SSPR solo almacena las contraseñas localmente en Active Directory.
 
 ### <a name="best-practices"></a>Procedimientos recomendados
 
@@ -141,9 +141,9 @@ La comunicación es fundamental para el éxito de cualquier servicio nuevo. Debe
 
 ### <a name="plan-a-pilot"></a>Planeamiento de un piloto
 
-Se recomienda que la configuración inicial de SSPR esté en un entorno de prueba. Comience con un grupo piloto habilitando SSPR para un subconjunto de usuarios de la organización. Consulte [Procedimientos recomendados para un piloto](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans).
+Se recomienda que la configuración inicial de SSPR esté en un entorno de prueba. Comience con un grupo piloto habilitando SSPR para un subconjunto de usuarios de la organización. Consulte [Procedimientos recomendados para un piloto](../fundamentals/active-directory-deployment-plans.md).
 
-Para crear un grupo, consulte [Creación de un grupo y adición de miembros en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-groups-create-azure-portal). 
+Para crear un grupo, consulte [Creación de un grupo y adición de miembros en Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md). 
 
 ## <a name="plan-configuration"></a>Planeamiento de la configuración
 
@@ -172,7 +172,7 @@ Al habilitar SSPR, elija un grupo de seguridad adecuado en el entorno piloto.
 
 ### <a name="authentication-methods"></a>Métodos de autenticación
 
-Cuando SSPR está habilitado, los usuarios solo pueden restablecer su contraseña si tienen datos en los métodos de autenticación que el administrador haya habilitado. Los métodos incluyen el teléfono, una notificación de la aplicación Authenticator, preguntas de seguridad, etc. Para más información, consulte [¿Qué son los métodos de autenticación?](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods).
+Cuando SSPR está habilitado, los usuarios solo pueden restablecer su contraseña si tienen datos en los métodos de autenticación que el administrador haya habilitado. Los métodos incluyen el teléfono, una notificación de la aplicación Authenticator, preguntas de seguridad, etc. Para más información, consulte [¿Qué son los métodos de autenticación?](./concept-authentication-methods.md).
 
 Se recomienda la siguiente configuración de método de autenticación:
 
@@ -180,7 +180,7 @@ Se recomienda la siguiente configuración de método de autenticación:
 
 * Establezca **Número de métodos requeridos para el restablecimiento** en un nivel apropiado para su organización. Uno requiere la menor fricción, mientras que Dos puede aumentar la posición de seguridad. 
 
-Nota: El usuario debe tener configurados los métodos de autenticación en las [Restricciones y directivas de contraseñas en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy).
+Nota: El usuario debe tener configurados los métodos de autenticación en las [Restricciones y directivas de contraseñas en Azure Active Directory](./concept-sspr-policy.md).
 
 ### <a name="registration-settings"></a>Configuración de registro
 
@@ -196,11 +196,11 @@ Configure tanto **¿Quiere notificar a los usuarios los restablecimientos de con
 
 Es fundamental personalizar el correo electrónico o la dirección URL del departamento de soporte técnico para asegurarse de que los usuarios que tengan problemas puedan obtener ayuda inmediatamente. Establezca esta opción en una dirección de correo electrónico o página web de soporte técnico comunes con los que los usuarios estén familiarizados. 
 
-Para más información, consulte [Personalizar la funcionalidad del autoservicio de restablecimiento de contraseña de Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-customization).
+Para más información, consulte [Personalizar la funcionalidad del autoservicio de restablecimiento de contraseña de Azure AD](./howto-sspr-customization.md).
 
 ### <a name="password-writeback"></a>Escritura diferida de contraseñas
 
-La [escritura diferida de contraseñas](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity) se habilita con **Azure AD Connect** y escribe en diferido los restablecimientos de contraseña en la nube en un directorio local existente en tiempo real. Para más información, consulte [¿Qué es la escritura diferida de contraseñas?](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-writeback)
+La [escritura diferida de contraseñas](../hybrid/whatis-hybrid-identity.md) se habilita con **Azure AD Connect** y escribe en diferido los restablecimientos de contraseña en la nube en un directorio local existente en tiempo real. Para más información, consulte [¿Qué es la escritura diferida de contraseñas?](./concept-sspr-writeback.md)
 
 Se recomienda la configuración siguiente:
 
@@ -220,7 +220,7 @@ Se recomienda no sincronizar las cuentas de administrador locales de Active Dire
 
 ### <a name="environments-with-multiple-identity-management-systems"></a>Entornos con varios sistemas de administración de identidades
 
-Algunos entornos tienen varios sistemas de administración de identidades. Los administradores de identidades locales, como Oracle AM y SiteMinder, requieren la sincronización con AD para las contraseñas. Para ello, puede usar una herramienta como el servicio de notificación de cambio de contraseña (PCNS) con Microsoft Identity Manager (MIM). Para información sobre el escenario más complejo, consulte el artículo [Implementación del servicio de notificación de cambio de contraseña de MIM en un controlador de dominio](https://docs.microsoft.com/microsoft-identity-manager/deploying-mim-password-change-notification-service-on-domain-controller).
+Algunos entornos tienen varios sistemas de administración de identidades. Los administradores de identidades locales, como Oracle AM y SiteMinder, requieren la sincronización con AD para las contraseñas. Para ello, puede usar una herramienta como el servicio de notificación de cambio de contraseña (PCNS) con Microsoft Identity Manager (MIM). Para información sobre el escenario más complejo, consulte el artículo [Implementación del servicio de notificación de cambio de contraseña de MIM en un controlador de dominio](/microsoft-identity-manager/deploying-mim-password-change-notification-service-on-domain-controller).
 
 ## <a name="plan-testing-and-support"></a>Planeamiento de pruebas y soporte técnico
 
@@ -228,7 +228,7 @@ En cada fase de la implementación, desde los grupos piloto iniciales hasta toda
 
 ### <a name="plan-testing"></a>Planeamiento de pruebas
 
-Para asegurarse de que la implementación funciona según lo previsto, planee un conjunto de casos de prueba para validar la implementación. Para evaluar los casos de prueba, necesita un usuario de prueba que no sea administrador con una contraseña. Si necesita crear un usuario, consulte [Adición de nuevos usuarios a Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
+Para asegurarse de que la implementación funciona según lo previsto, planee un conjunto de casos de prueba para validar la implementación. Para evaluar los casos de prueba, necesita un usuario de prueba que no sea administrador con una contraseña. Si necesita crear un usuario, consulte [Adición de nuevos usuarios a Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
 
 En la tabla siguiente se incluyen escenarios de prueba útiles que puede usar para documentar los resultados esperados por la organización según las directivas.
 <br>
@@ -246,7 +246,7 @@ En la tabla siguiente se incluyen escenarios de prueba útiles que puede usar pa
 | Restablecer la contraseña de usuario desde la pantalla de bloqueo de un dispositivo Windows 10 unido a Azure AD o Azure AD híbrido| El usuario puede restablecer la contraseña |
 | Los datos de uso y de registro de SSPR están disponibles para los administradores casi en tiempo real| Están disponibles a través de los registros de auditoría |
 
-También puede consultar [Realización de una implementación piloto del autoservicio de restablecimiento de contraseñas en Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-pilot). En este tutorial, habilitará una implementación piloto de SSPR de Azure AD en la organización y la probará con una cuenta sin privilegios de administrador.
+También puede consultar [Realización de una implementación piloto del autoservicio de restablecimiento de contraseñas en Azure AD](./tutorial-enable-sspr.md). En este tutorial, habilitará una implementación piloto de SSPR de Azure AD en la organización y la probará con una cuenta sin privilegios de administrador.
 
 ### <a name="plan-support"></a>Planeamiento de soporte técnico
 
@@ -289,20 +289,20 @@ Antes de la implementación, asegúrese de haber realizado lo siguiente:
 
 **¡Ahora ya puede realizar la implementación de SSPR!**
 
-Consulte [Habilitar el autoservicio de restablecimiento de contraseña](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-pilot#enable-self-service-password-reset) para obtener instrucciones paso a paso sobre la configuración de las áreas siguientes.
+Consulte [Habilitar el autoservicio de restablecimiento de contraseña](./tutorial-enable-sspr.md#enable-self-service-password-reset) para obtener instrucciones paso a paso sobre la configuración de las áreas siguientes.
 
-1. [Métodos de autenticación](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods)
+1. [Métodos de autenticación](./concept-authentication-methods.md)
 
-1. [Configuración de registro](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined)
+1. [Configuración de registro](./concept-registration-mfa-sspr-combined.md)
 
 1. [Configuración de notificaciones](#notifications-settings)
 
-1. [Configuración de personalización](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-customization)
+1. [Configuración de personalización](./howto-sspr-customization.md)
 
-1. [Integración local](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-writeback)
+1. [Integración local](./tutorial-enable-sspr-writeback.md)
 
 ### <a name="enable-sspr-in-windows"></a>Habilitar SSPR en Windows
-En el caso de los equipos que ejecutan Windows 7, 8, 8.1 y 10, puede [permitir que los usuarios restablezcan su contraseña en la pantalla de inicio de sesión de Windows](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-windows).
+En el caso de los equipos que ejecutan Windows 7, 8, 8.1 y 10, puede [permitir que los usuarios restablezcan su contraseña en la pantalla de inicio de sesión de Windows](./howto-sspr-windows.md).
 
 ## <a name="manage-sspr"></a>Administrar SSPR
 
@@ -310,41 +310,41 @@ Azure AD puede proporcionar información adicional sobre el rendimiento de SSPR
 
 ### <a name="password-management-activity-reports"></a>Informes de actividad de administración de contraseñas 
 
-Puede usar informes pregenerados en Azure Portal para medir el rendimiento de SSPR. Si está debidamente protegido por licencia, también puede crear consultas personalizadas. Para más información, consulte [Opciones de creación de informes para la administración de contraseñas de Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-reporting).
+Puede usar informes pregenerados en Azure Portal para medir el rendimiento de SSPR. Si está debidamente protegido por licencia, también puede crear consultas personalizadas. Para más información, consulte [Opciones de creación de informes para la administración de contraseñas de Azure AD](./howto-sspr-reporting.md).
 
 > [!NOTE]
->  Debe ser [administrador global](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) y habilitar la opción para que estos datos se recopilen para su organización. Para habilitarla, debe visitar la pestaña Informes o los registros de auditoría en Azure Portal como mínimo una vez. Hasta entonces, los datos no se recopilan para su organización.
+>  Debe ser [administrador global](../users-groups-roles/directory-assign-admin-roles.md) y habilitar la opción para que estos datos se recopilen para su organización. Para habilitarla, debe visitar la pestaña Informes o los registros de auditoría en Azure Portal como mínimo una vez. Hasta entonces, los datos no se recopilan para su organización.
 
-Los registros de auditoría para el registro y el restablecimiento de contraseña están disponibles durante 30 días. Si la auditoría de seguridad dentro su una empresa requiere una retención más prolongada, los registros deben exportarse y consumirse en una herramienta SIEM, como [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-active-directory), Splunk o ArcSight.
+Los registros de auditoría para el registro y el restablecimiento de contraseña están disponibles durante 30 días. Si la auditoría de seguridad dentro su una empresa requiere una retención más prolongada, los registros deben exportarse y consumirse en una herramienta SIEM, como [Azure Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk o ArcSight.
 
 ![Captura de pantalla de informes de SSPR](./media/howto-sspr-deployment/sspr-reporting.png)
 
 ### <a name="authentication-methods--usage-and-insights"></a>Métodos de autenticación: uso y conclusiones
 
-[El uso y las conclusiones](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-methods-usage-insights) le permiten comprender cómo funcionan en su organización los métodos de autenticación para características como Azure MFA y SSPR. Esta funcionalidad de informes proporciona a la organización los medios para comprender qué métodos se registran y cómo usarlos.
+[El uso y las conclusiones](./howto-authentication-methods-usage-insights.md) le permiten comprender cómo funcionan en su organización los métodos de autenticación para características como Azure MFA y SSPR. Esta funcionalidad de informes proporciona a la organización los medios para comprender qué métodos se registran y cómo usarlos.
 
 ### <a name="troubleshoot"></a>Solución de problemas
 
-* Consulte [Solución de problemas del autoservicio de restablecimiento de contraseñas](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-troubleshoot) 
+* Consulte [Solución de problemas del autoservicio de restablecimiento de contraseñas](./active-directory-passwords-troubleshoot.md) 
 
-* Siga [Preguntas más frecuentes sobre la administración de contraseñas](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-faq) 
+* Siga [Preguntas más frecuentes sobre la administración de contraseñas](./active-directory-passwords-faq.md) 
 
 ### <a name="helpful-documentation"></a>Documentación útil
 
-* [¿Qué son los métodos de autenticación?](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods)
+* [¿Qué son los métodos de autenticación?](./concept-authentication-methods.md)
 
-* [Funcionamiento: Autoservicio de restablecimiento de contraseña de Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks)
+* [Funcionamiento: Autoservicio de restablecimiento de contraseña de Azure AD](./concept-sspr-howitworks.md)
 
-* [Personalizar la funcionalidad del autoservicio de restablecimiento de contraseña de Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-customization)
+* [Personalizar la funcionalidad del autoservicio de restablecimiento de contraseña de Azure AD](./howto-sspr-customization.md)
 
-* [Restricciones y directivas de contraseñas en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy)
+* [Restricciones y directivas de contraseñas en Azure Active Directory](./concept-sspr-policy.md)
 
-* [¿Qué es la escritura diferida de contraseñas?](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-writeback)
+* [¿Qué es la escritura diferida de contraseñas?](./concept-sspr-writeback.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para empezar con la implementación de SSPR, consulte [Habilitación del autoservicio de restablecimiento de contraseña de Azure AD](tutorial-enable-sspr.md)
 
-* [Implementar la protección de contraseña de Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad)
+* [Implementar la protección de contraseña de Azure AD](./concept-password-ban-bad.md)
 
-* [Implementar el bloqueo inteligente de Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout)
+* [Implementar el bloqueo inteligente de Azure AD](./howto-password-smart-lockout.md)

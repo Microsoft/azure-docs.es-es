@@ -3,20 +3,20 @@ title: Admisión de protocolos para encabezados HTTP en Azure Front Door | Mic
 description: En este artículo se describen los protocolos de encabezado HTTP que admite Front Door.
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: a1060cbf1b2204c3feba413b8c8ce0cba58941c6
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.author: duau
+ms.openlocfilehash: 6864a854215d899043607b3d01cffbd343ee7751
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799130"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399521"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door"></a>Admisión de protocolos para encabezados HTTP en Azure Front Door
 Este artículo describe el protocolo que admite el servicio Front Door con partes de la ruta de acceso de llamada (consulte la imagen). Las secciones siguientes proporcionan más información acerca de los encabezados HTTP admitidos por el servicio Front Door.

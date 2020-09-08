@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Uberflip | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Uberflip.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 754b1f5b-6694-4fd6-9e1e-9fad769c64db
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: d20c05e6ec5a413b81ede9cb4906de2595967115
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8936c2150c32a22877f9b56736ecc4b8f3424b32
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80048470"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88533187"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Tutorial: Integración de Azure Active Directory con Uberflip
 
@@ -153,7 +149,7 @@ En esta sección, creará un usuario de prueba llamado B. Simon en Azure Porta
 
     1. En el cuadro **Nombre**, escriba **BSimon**.
   
-    1. En el cuadro **Nombre de usuario**, escriba **BSimon\@\<dominiodeempresa>.\<extensión>** . Por ejemplo, **BSimon\@contoso.com**.
+    1. En el cuadro **Nombre de usuario**, escriba **BSimon\@\<yourcompanydomain>.\<extension>** . Por ejemplo, **BSimon\@contoso.com**.
 
     1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
 

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 7539b951a4a138802150d9408221b6e4ad19e92b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f381afa69d1a445d2bdb14dd663341e4a18f8cd9
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075546"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648673"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>¿Qué son los conjuntos de escalado de máquina virtual?
 Los conjuntos de escalado de máquinas virtuales de Azure permiten crear y administrar un grupo de máquinas virtuales con equilibrio de carga. El número de instancias de máquina virtual puede aumentar o disminuir automáticamente según la demanda, o de acuerdo a una programación definida. Los conjuntos de escalado proporcionan una alta disponibilidad a las aplicaciones y le permiten administrar, configurar y actualizar de forma centralizada un gran número de máquinas virtuales. Con los conjuntos de escalado de máquinas virtuales, puede crear servicios a gran escala para áreas como proceso, macrodatos y cargas de trabajo de contenedor.
@@ -40,7 +40,7 @@ Los conjuntos de escalado de máquinas virtuales de Azure proporcionan las capac
 
 - **Funciona a gran escala**
     - Los conjuntos de escalado admiten hasta 1000 instancias de máquina virtual. Si crea y carga sus propias imágenes de máquina virtual personalizadas, el límite es 600 instancias.
-    - Para el mejor rendimiento con cargas de trabajo de producción, use [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md).
+    - Para el mejor rendimiento con cargas de trabajo de producción, use [Azure Managed Disks](../virtual-machines/managed-disks-overview.md).
 
 
 ## <a name="differences-between-virtual-machines-and-scale-sets"></a>Diferencias entre las máquinas virtuales y los conjuntos de escalado
@@ -60,6 +60,10 @@ No hay costo adicional por usar conjuntos de escalado. Solo se paga por los recu
 Use [Azure Monitor para VM](../azure-monitor/insights/vminsights-overview.md), que tiene un proceso de incorporación sencillo y automatiza la recopilación de contadores de rendimiento de CPU, memoria, disco y red importantes de las máquinas virtuales en el conjunto de escalado. También incluye funcionalidades de supervisión adicionales y visualizaciones predefinidas que le ayudan a centrarse en la disponibilidad y el rendimiento de los conjuntos de escalado.
 
 Habilite la supervisión de la [aplicación del conjunto de escalado de máquinas virtuales](../azure-monitor/app/azure-vm-vmss-apps.md) con Application Insights para recopilar la información detallada acerca de la aplicación, como vistas de página, solicitudes de aplicación y excepciones. Compruebe de forma más exhaustiva la disponibilidad de la aplicación configurando una [prueba de disponibilidad](../azure-monitor/app/monitor-web-app-availability.md) para simular el tráfico de usuarios.
+
+## <a name="singapore-data-residency"></a>Residencia de datos en Singapur
+
+En Azure, la característica que permite almacenar los datos de clientes en una sola región solo está disponible actualmente en la región de Sudeste Asiático (Singapur) de la geoárea Asia Pacífico. En todas las demás regiones, los datos del cliente se almacenan en la geoárea. Para más información, consulte el [Centro de confianza](https://azuredatacentermap.azurewebsites.net/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para empezar cree su primer conjunto de escalado de máquinas virtuales en Azure Portal.

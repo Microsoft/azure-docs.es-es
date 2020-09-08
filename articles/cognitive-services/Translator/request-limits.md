@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: d9fda476a184731cd00317facbeceaf7bdf55edf
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 9ce2ea7da562372e5c1c25d4c0fe9ab410b02a1d
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85561474"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903414"
 ---
 # <a name="request-limits-for-translator"></a>Límites de solicitudes de Translator
 
@@ -23,18 +23,18 @@ En este artículo se proporcionan los valores de limitación de Translator. Los 
 
 ## <a name="character-and-array-limits-per-request"></a>Límites de caracteres y matriz por solicitud
 
-Cada solicitud de traducción está limitada a 5000 caracteres, en todos los idiomas de destino a los que se va a traducir. Por ejemplo, si se envía una solicitud de traducción de 1500 caracteres para traducir a 3 idiomas diferentes, se obtiene un tamaño de solicitud de 1500 x 3 = 4500 caracteres, que satisface el límite de solicitudes. Se le cobrará por cada carácter, no por el número de solicitudes. Se recomienda enviar solicitudes más cortas.
+Cada solicitud de traducción está limitada a 10 000 caracteres, en todos los idiomas de destino a los que se va a traducir. Por ejemplo, si se envía una solicitud de traducción de 3000 caracteres para traducir a 3 idiomas diferentes, se obtiene un tamaño de solicitud de 3000 x 3 = 9000 caracteres, que satisface el límite de solicitudes. Se le cobrará por cada carácter, no por el número de solicitudes. Se recomienda enviar solicitudes más cortas.
 
 En la siguiente tabla se muestran los límites de caracteres y elementos de matriz correspondientes a cada una de las operaciones de Translator.
 
 | Operación | Tamaño máximo del elemento de matriz |    Número máximo de elementos de matriz |    Tamaño máximo de la solicitud (caracteres) |
 |:----|:----|:----|:----|
-| Translate | 5\.000    | 100    | 5\.000 |
-| Transliterar | 5\.000    | 10    | 5\.000 |
-| Detect | 10 000 |    100 |    50.000 |
-| BreakSentence | 10 000    | 100 |    50.000 |
-| Búsqueda en diccionario| 100 |    10    | 1,000 |
-| Ejemplos de diccionario | 100 para texto y 100 para traducción (200 en total)| 10|    2\.000 |
+| Translate | 10 000    | 100   | 10 000 |
+| Transliterar | 5\.000 | 10    | 5\.000 |
+| Detect | 10 000 | 100 |   50.000 |
+| BreakSentence | 50.000    | 100 | 50.000 |
+| Búsqueda en diccionario| 100 |  10  | 1,000 |
+| Ejemplos de diccionario | 100 para texto y 100 para traducción (200 en total)| 10|   2\.000 |
 
 ## <a name="character-limits-per-hour"></a>Límites de caracteres por hora
 

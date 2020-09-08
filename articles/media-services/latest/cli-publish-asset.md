@@ -3,26 +3,28 @@ title: 'Ejemplo de script de la CLI de Azure: publicación de un recurso | Micro
 description: En este artículo se muestra cómo utilizar el script de la CLI de Azure para publicar un recurso.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: media-services
 ms.devlang: azurecli
-ms.topic: sample
+ms.topic: how-to
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/25/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 95bdd3b3dddd1a04e00d705449681985400e9621
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 3b3c358a84dd74595c476f029a1c8f28bc3c901f
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87487639"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295876"
 ---
 # <a name="cli-example-publish-an-asset"></a>Ejemplo de CLI: publicación de un recurso
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 El script de la CLI de Azure de este artículo muestra cómo crear un localizador de streaming y regresar a las direcciones URL de streaming. 
 

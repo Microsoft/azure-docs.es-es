@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 901815ba40459bd50562e557a0a766474c731ce0
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: a3f2a23da5baa3a5d1955b10d18411fcedc3acd1
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475907"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798302"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Solución de problemas de roles asignados a grupos en la nube
 
@@ -40,8 +40,8 @@ Estas son algunas preguntas y sugerencias para solucionar problemas comunes para
 
 **R:** el usuario podría ser propietario de un grupo al que se pueden asignar roles. Protegemos a los propietarios de grupos a los que se pueden asignar roles para evitar la elevación de privilegios. Un ejemplo podría ser si se asigna un grupo Contoso_Security_Admins al rol Administrador de seguridad, donde Bob es el propietario del grupo y Alice es el administrador de contraseñas de la organización. Si no estuviera presente esta protección, Alice podría restablecer las credenciales de Bob y asumir su identidad. A continuación, Alice podría agregarse a sí misma o a cualquier persona al grupo Contoso_Security_Admins para convertirse en Administrador de seguridad de la organización. Para averiguar si un usuario es el propietario de un grupo, obtenga la lista de objetos pertenecientes a dicho usuario y compruebe si alguno de los grupos tiene isAssignableToRole establecido en true. En caso afirmativo, ese usuario está protegido y el comportamiento es por diseño. Consulte estos documentos para obtener objetos en propiedad:
 
-- [Get-AzureADUserOwnedObject](https://docs.microsoft.com/powershell/module/azuread/get-azureaduserownedobject?view=azureadps-2.0)  
-- [Enumeración de ownedObjects](https://docs.microsoft.com/graph/api/user-list-ownedobjects?view=graph-rest-1.0&tabs=http)
+- [Get-AzureADUserOwnedObject](/powershell/module/azuread/get-azureaduserownedobject?view=azureadps-2.0)  
+- [Enumeración de ownedObjects](/graph/api/user-list-ownedobjects?tabs=http&view=graph-rest-1.0)
 
 **P:** ¿puedo crear una revisión de acceso en grupos que puedan asignarse a roles de Azure AD (en concreto, grupos con la propiedad isAssignableToRole establecida en true)?  
 
@@ -51,7 +51,7 @@ Estas son algunas preguntas y sugerencias para solucionar problemas comunes para
 
 **R:**  Sí, puede hacerlo. El administrador global y el administrador de usuarios tienen la capacidad de incluir cualquier grupo en un paquete de acceso. En el caso del administrador global, no se produce ningún cambio. Sin embargo, hay un ligero cambio en los permisos del rol Administrador de usuarios. Para incluir un grupo asignable del rol en un paquete de acceso, debe ser administrador de usuarios y también propietario del grupo asignable del rol. Esta es la tabla completa donde se muestra quién puede crear un paquete de acceso en la administración de licencias Enterprise:
 
-Rol de directorio de Azure AD | Rol de administración de derechos | Puede agregar grupos de seguridad\* | Puede agregar grupos de Office 365\* | Puede agregar aplicaciones | Puede agregar sitios de SharePoint Online
+Rol de directorio de Azure AD | Rol de administración de derechos | Puede agregar grupos de seguridad\* | Puede agregar grupos de Microsoft 365\* | Puede agregar aplicaciones | Puede agregar sitios de SharePoint Online
 ----------------------- | --------------------------- | ----------------------- | ------------------------- | ----------- |  -----------------------------
 Administrador global | N/D | ✔️ | ✔️ | ✔️  | ✔️
 Administrador de usuarios  | N/D  | ✔️  | ✔️  | ✔️

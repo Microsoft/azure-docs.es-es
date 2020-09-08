@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 96ebfecf01ff147a874674861c7cb64cb3725d52
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 82e984b629c8d838ba179b25a78262eccf078a04
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88164927"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377869"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-ad-application-proxy"></a>Acceso remoto a aplicaciones locales a través de Azure AD Application Proxy
 
@@ -57,6 +57,11 @@ En el siguiente diagrama se muestra cómo funcionan conjuntamente Azure AD y App
 4. Si se ha configurado el inicio de sesión único, el conector realiza cualquier autenticación adicional necesaria en nombre del usuario.
 5. El conector envía la solicitud a la aplicación local.
 6. La respuesta se envía al usuario través del conector y el servicio Application Proxy.
+
+> [!NOTE]
+> Como la mayoría de los agentes híbridos de Azure AD, el conector Application Proxy no necesita que abra conexiones entrantes a través del firewall. El tráfico de usuario en el paso 3 finaliza en el servicio Application Proxy (en Azure AD). El conector Application Proxy (local) es responsable del resto de la comunicación.
+>
+
 
 | Componente | Descripción |
 | --------- | ----------- |

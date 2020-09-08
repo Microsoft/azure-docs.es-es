@@ -1,6 +1,6 @@
 ---
 title: Introducción a la creación de imágenes de Linux para Azure
-description: Información general sobre cómo traer imágenes de máquinas virtuales Linux o crear imágenes para usarlas en Azure.
+description: Uso de imágenes de máquinas virtuales Linux o creación de imágenes para usarlas en Azure.
 author: danielsollondon
 ms.service: virtual-machines-linux
 ms.subservice: imaging
@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: aa372d4e1b377ecdcbeb49b47f0f9a3a217ee7ad
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 781cc10895f3a77afe71d508c1194b425010ec41
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502187"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319549"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Creación y uso de imágenes de Linux en Azure
 
@@ -25,7 +25,7 @@ En este artículo se describirán los requisitos y los distintos aspectos de las
 ## <a name="difference-between-managed-disks-and-images"></a>Diferencia entre discos administrados e imágenes
 
 
-Azure permite llevar un disco duro virtual a la plataforma, con el fin de usarlo como [disco administrado](../windows/faq-for-disks.md#managed-disks) o como origen de una imagen. 
+Azure permite llevar un disco duro virtual a la plataforma, con el fin de usarlo como [disco administrado](../faq-for-disks.md#managed-disks) o como origen de una imagen. 
 
 Los discos administrados de Azure son discos duros virtuales únicos. Puede tomar un disco duro virtual existente y crear un disco administrado a partir de él, o bien crear un disco administrado vacío desde cero. Puede crear máquinas virtuales a partir de discos administrados. Para ello, debe conectar el disco a la máquina virtual, pero solo puede usar un disco duro virtual con una máquina virtual. No puede modificar las propiedades del sistema operativo, Azure solo intentará encender la máquina virtual y empezar a usar ese disco. 
 
@@ -46,7 +46,7 @@ Azure ofrece dos tipos principales de imágenes, generalizadas y especializadas.
 
 ### <a name="generalized-images"></a>Imágenes generalizadas
 
-Una imagen generalizada es una imagen que requiere que se complete la configuración en el primer arranque. Por ejemplo, la primera vez que arranque establezca el nombre de host, el usuario administrador y otras configuraciones específicas de la máquina virtual. Esto resulta útil no solo si desea reutilizar la imagen varias veces, sino también si desea usar parámetros durante la creación. Si la imagen generalizada contiene el agente de Azure, este procesará los parámetros y transmitirá a la plataforma la señal de que se ha completado la configuración inicial. Este proceso se denomina **aprovisionamiento**. 
+Una imagen generalizada es una imagen que requiere que se complete la configuración en el primer arranque. Por ejemplo, la primera vez que arranque establezca el nombre de host, el usuario administrador y otras configuraciones específicas de la máquina virtual. Esto resulta útil no solo si desea reutilizar la imagen varias veces, sino también si desea usar parámetros durante la creación. Si la imagen generalizada contiene el agente de Azure, este procesará los parámetros y transmitirá a la plataforma la señal de que se ha completado la configuración inicial. Este proceso se denomina [aprovisionamiento](https://docs.microsoft.com/azure/virtual-machines/linux/provisioning). 
 
 El aprovisionamiento requiere que se incluya un aprovisionador en la imagen. Hay dos aprovisionadores:
 - [Agente Linux de Azure](../extensions/agent-linux.md)

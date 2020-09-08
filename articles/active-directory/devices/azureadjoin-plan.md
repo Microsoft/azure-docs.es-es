@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d43e6e89faa8eca720e3aeafc873af1a18b9753b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0863a782b7f4531b900bc3c005a39387c83d983
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555028"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268234"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedimientos: Planeación de la implementación de la unión a Azure AD
 
@@ -26,7 +26,7 @@ Este artículo proporciona la información que necesita para planear su implemen
  
 ## <a name="prerequisites"></a>Requisitos previos
 
-En este artículo se da por hecho que está familiarizado con la [introducción a la administración de dispositivos en Azure Active Directory](../device-management-introduction.md).
+En este artículo se da por hecho que está familiarizado con la [introducción a la administración de dispositivos en Azure Active Directory](./overview.md).
 
 ## <a name="plan-your-implementation"></a>Planeamiento de la implementación
 
@@ -58,7 +58,7 @@ Unión a Azure AD funciona con entornos tanto administrados como federados.
 
 ### <a name="managed-environment"></a>Entorno administrado
 
-Un entorno administrado se puede implementar mediante [Sincronización de hash de contraseña](/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) o [Autenticación de paso a través](/azure/active-directory/hybrid/how-to-connect-pta-quick-start) con Inicio de sesión único de conexión directa.
+Un entorno administrado se puede implementar mediante [Sincronización de hash de contraseña](../hybrid/how-to-connect-password-hash-synchronization.md) o [Autenticación de paso a través](../hybrid/how-to-connect-pta-quick-start.md) con Inicio de sesión único de conexión directa.
 
 Estos escenarios no requieren que se configure un servidor de federación para la autenticación.
 
@@ -90,7 +90,7 @@ No se puede usar las tarjetas inteligentes ni la autenticación basada en certif
 
 Si crea usuarios en:
 
-- **Active Directory local**, debe sincronizarlos con Azure AD mediante [Azure AD Connect](/azure/active-directory/hybrid/how-to-connect-sync-whatis). 
+- **Active Directory local**, debe sincronizarlos con Azure AD mediante [Azure AD Connect](../hybrid/how-to-connect-sync-whatis.md). 
 - **Azure AD**, no se requiere ninguna configuración adicional.
 
 Los nombres principales de usuario locales son distintos de los nombres principales de usuario de Azure AD no se admiten en los dispositivos unidos a Azure AD. Si los usuarios usan un UPN local, debe planear usar su UPN principal en Azure AD.
@@ -162,7 +162,7 @@ Si usa AD FS, consulte [Comprobar y administrar el inicio de sesión único con 
 
 Los usuarios obtienen inicio de sesión único desde dispositivos unidos a Azure AD si el dispositivo tiene acceso a un controlador de dominio. 
 
-**Recomendación:** Implemente el [proxy de aplicación de Azure AD](/azure/active-directory/manage-apps/application-proxy) para permitir el acceso seguro para estas aplicaciones.
+**Recomendación:** Implemente el [proxy de aplicación de Azure AD](../manage-apps/application-proxy.md) para permitir el acceso seguro para estas aplicaciones.
 
 ### <a name="on-premises-network-shares"></a>Recursos compartidos de red local
 
@@ -190,7 +190,7 @@ A partir de la actualización 2004 de Windows 10, los usuarios también pueden 
 
 Puede aprovisionar la unión a Azure AD con los siguientes enfoques:
 
-- **Autoservicio en la configuración o en Configuración**: en el modo de autoservicio, los usuarios se someten al proceso de unión a Azure AD durante la experiencia de configuración rápida o desde la Configuración de Windows. Para obtener más información, consulte [Una su dispositivo de trabajo a la red de su organización](/azure/active-directory/user-help/user-help-join-device-on-network). 
+- **Autoservicio en la configuración o en Configuración**: en el modo de autoservicio, los usuarios se someten al proceso de unión a Azure AD durante la experiencia de configuración rápida o desde la Configuración de Windows. Para obtener más información, consulte [Una su dispositivo de trabajo a la red de su organización](../user-help/user-help-join-device-on-network.md). 
 - **Windows Autopilot**: permite la configuración previa de dispositivos para una experiencia más fluida en la configuración rápida para realizar una unión a Azure AD. Para obtener más información, consulte [Introducción a Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot). 
 - **Inscripción masiva**: permite la unión a Azure AD controlada por un administrador mediante una herramienta de aprovisionamiento en bloque para configurar dispositivos. Para obtener más información, consulte [Inscripción masiva para dispositivos Windows](/intune/windows-bulk-enroll).
  
@@ -297,7 +297,7 @@ Puede usar esta implementación para [requerir dispositivos administrados para e
 
 > [!div class="nextstepaction"]
 > [Unir un nuevo dispositivo Windows 10 con Azure AD durante la primera ejecución](azuread-joined-devices-frx.md)
-> [Unir el dispositivo de trabajo a la red de la organización](/azure/active-directory/user-help/user-help-join-device-on-network)
+> [Unir el dispositivo de trabajo a la red de la organización](../user-help/user-help-join-device-on-network.md)
 
 <!--Image references-->
 [1]: ./media/azureadjoin-plan/12.png

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-table
 ms.topic: overview
 ms.date: 07/26/2019
 ms.author: sngun
-ms.openlocfilehash: 91a6ae308faf31b3d3eb0c9f287dd5bd791f628e
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 6cf9dddbfa6eb6f754c529981307f8ee80cfe7d1
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85557524"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377002"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Introducción a Azure Cosmos DB: Table API
 
@@ -36,7 +36,7 @@ Si actualmente usa Azure Table Storage, obtendrá las siguientes ventajas al act
 | --- | --- | --- |
 | Latencia | Rápido, pero no hay límites máximos en la latencia. | Latencia en milisegundos de un solo dígito para lecturas y escrituras, respaldada con lecturas y escrituras con una latencia inferior a 10 ms en el percentil 99, a cualquier escala, en cualquier lugar del mundo. |
 | Throughput | Modelo de rendimiento variable. Las tablas tienen un límite de escalabilidad de 20.000 operaciones por segundo. | Altamente escalable con [rendimiento reservado dedicado por tabla](request-units.md) respaldado por los SLA. Las cuentas no tienen límite máximo en el rendimiento y admiten más de 10 millones de operaciones por segundo por tabla. |
-| Distribución global | Una sola región, con una región de lectura secundaria legible opcional para alta disponibilidad. No se puede iniciar la conmutación por error. | [Distribución global inmediata](distribute-data-globally.md) desde una a cualquier cantidad de regiones. Admite [conmutaciones por error automáticas y manuales](high-availability.md) en cualquier momento y en cualquier lugar del mundo. Funcionalidad de arquitectura multimaestro para permitir que cualquier región acepte operaciones de escritura. |
+| Distribución global | Una sola región, con una región de lectura secundaria legible opcional para alta disponibilidad. | [Distribución global inmediata](distribute-data-globally.md) desde una a cualquier cantidad de regiones. Admite [conmutaciones por error automáticas y manuales](high-availability.md) en cualquier momento y en cualquier lugar del mundo. Funcionalidad de arquitectura multimaestro para permitir que cualquier región acepte operaciones de escritura. |
 | Indización | Índice principal solo en PartitionKey y RowKey. No hay índices secundarios. | Indexación automática y completa en todas las propiedades de forma predeterminada, sin administración de índices. |
 | Consultar | La ejecución de consultas usa el índice de la clave principal y, en caso contrario, examina. | Las consultas pueden aprovechar la indexación automática en las propiedades para reducir el tiempo de consulta. |
 | Coherencia | Seguro dentro de la región principal. Ocasional en la región secundaria. | [Cinco niveles de coherencia bien definidos](consistency-levels.md) para compensar la disponibilidad, la latencia, el rendimiento y la coherencia en función de las necesidades de la aplicación. |

@@ -192,3 +192,5 @@
       href: web-service-input-output.md
 - name: Errores del módulo y solución de problemas
   href: designer-error-codes.md
+- name: Sintaxis de consulta de búsqueda de Graph
+  href: graph-search-syntax.md

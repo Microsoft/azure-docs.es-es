@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con InstaVR Viewer | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory e InstaVR Viewer.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: 13ffa29f-d0a5-4b21-b296-cfd76f380940
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8de94f83c260a86f313a2dd04cdd5a7ae8fc1cda
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ba3c504819eb30da8d21aa47aafc313d16eec51d
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73155314"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550388"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-instavr-viewer"></a>Tutorial: Integración de Azure Active Directory con InstaVR Viewer
 

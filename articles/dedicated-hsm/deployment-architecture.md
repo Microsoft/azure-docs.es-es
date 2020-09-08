@@ -9,15 +9,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 89e3bf95a6b048e5e97cfb151ef9302b70eac1c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d0989c31611b2f42c0219324fa517adc5c216c6c
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77048567"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586612"
 ---
 # <a name="azure-dedicated-hsm-deployment-architecture"></a>Arquitectura de implementación de Azure Dedicated HSM
 

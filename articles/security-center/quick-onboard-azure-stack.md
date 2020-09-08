@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: memildin
-ms.openlocfilehash: 67017bdc98b997c728c4d5dcfab92e0804498060
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7469d60095026c8a016fc1ecaa1a4f92361800f3
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084014"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019386"
 ---
 # <a name="quickstart-onboard-your-azure-stack-virtual-machines-to-security-center"></a>Inicio rápido: Incorporación de máquinas virtuales de Azure Stack a Security Center
 Después de incorporar la suscripción de Azure, puede habilitar Security Center para proteger las máquinas virtuales que se ejecutan en Azure Stack mediante la incorporación de la extensión de máquina virtual de **Azure Monitor, Update and Configuration Management** desde el Marketplace de Azure Stack.
@@ -72,7 +72,7 @@ Ahora debe agregar la extensión de máquina virtual **Azure Monitor, Update and
 7. Cuando haya terminado de especificar los valores de configuración necesarios, haga clic en **Aceptar**.
 8. Una vez que se complete la instalación de la extensión, su estado se mostrará como **Aprovisionamiento realizado correctamente**. La máquina virtual puede tardar hasta una hora en aparecer en el portal de Security Center.
 
-Para más información acerca de cómo instalar y configurar el agente para Windows, consulte [Conexión de equipos Windows](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
+Para más información acerca de cómo instalar y configurar el agente para Windows, consulte [Conexión de equipos Windows](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
 
 Para solucionar problemas en Linux del agente, consulte [Solución de problemas relacionados con el agente Azure Log Analytics para Linux](../azure-monitor/platform/agent-linux-troubleshoot.md).
 

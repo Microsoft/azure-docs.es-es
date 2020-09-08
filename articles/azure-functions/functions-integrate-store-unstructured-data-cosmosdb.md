@@ -3,13 +3,13 @@ title: Almacenamiento de datos no estructurados mediante Azure Cosmos DB y Func
 description: Almacenamiento de datos no estructurados mediante Azure Functions y Cosmos DB
 ms.topic: quickstart
 ms.date: 04/14/2020
-ms.custom: mvc
-ms.openlocfilehash: 09d9bbca7119539f31a4cea056f338cf28dfcd23
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.custom: devx-track-csharp, mvc
+ms.openlocfilehash: a242f1ffc0a7738ce7cdf33aeeef214fb4f63e61
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121956"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210882"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Almacenamiento de datos no estructurados mediante Azure Functions y Cosmos DB
 

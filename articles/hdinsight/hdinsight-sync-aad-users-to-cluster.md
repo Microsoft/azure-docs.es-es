@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
-ms.openlocfilehash: 5b2a195e0a3145e97bf101b3354c2781fff15801
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 83e168c5f1d1bad58a193937a4b97fe686dde2a3
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085980"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004424"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Sincronización de los usuarios de Azure Active Directory en un clúster de HDInsight
 
-[Los clústeres de HDInsight con Enterprise Security Package (ESP)](hdinsight-domain-joined-introduction.md) pueden usar una autenticación segura con los usuarios de Azure Active Directory (Azure AD) y las directivas de *control de acceso basado en rol* (RBAC). A medida que se agregan usuarios y grupos a Azure AD, se pueden sincronizar los usuarios que necesitan tener acceso al clúster.
+[Los clústeres de HDInsight con Enterprise Security Package (ESP)](hdinsight-domain-joined-introduction.md) pueden usar una autenticación sólida con los usuarios de Azure Active Directory (Azure AD) y las directivas de *control de acceso basado en roles* (RBAC de Azure). A medida que se agregan usuarios y grupos a Azure AD, se pueden sincronizar los usuarios que necesitan tener acceso al clúster.
 
 ## <a name="prerequisites"></a>Prerequisites
 

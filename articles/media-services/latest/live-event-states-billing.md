@@ -3,24 +3,26 @@ title: Estados y facturación de LiveEvent en Azure Media Services | Microsoft D
 description: En este tema se proporciona información general sobre los estados y facturación de LiveEvent en Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
-ms.date: 10/24/2019
-ms.author: juliako
-ms.openlocfilehash: dd63152776e0268b8f9e3e0ce116fea897cdf4e2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 1b058eefe22238b60c3482c55b5ae340f4e597f0
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000880"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296743"
 ---
 # <a name="live-event-states-and-billing"></a>Estados y facturación de LiveEvent
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 En Azure Media Services, un objeto LiveEvent comienza la facturación tan pronto como su estado realiza la transición a **En ejecución**. Se le facturará incluso si no hay ningún flujo de vídeo a través del servicio. Para detener la facturación del objeto LiveEvent, debe pararlo. El objeto LiveTranscription se factura igual que el objeto LiveEvent.
 

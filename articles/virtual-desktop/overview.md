@@ -3,15 +3,15 @@ title: ¿Qué es Windows Virtual Desktop? - Azure
 description: Una información general de Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 07/10/2020
+ms.date: 08/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 003662beefcb2ee8f99a5f565ed680d406421a62
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: cc5ad91c779a3445712db962fb97bab309eda973
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002377"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661119"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>¿Qué es Windows Virtual Desktop?
 
@@ -46,7 +46,7 @@ Con Windows Virtual Desktop, puede configurar un entorno flexible y escalable:
 
 Puede implementar y administrar escritorios virtuales:
 
-* Use las interfaces de PowerShell y REST de Windows Virtual Desktop para configurar los grupos host, crear grupos de aplicaciones, asignar usuarios y publicar recursos.
+* Use las interfaces de Azure Portal, Windows Virtual Desktop PowerShell y REST para configurar los grupos de hosts, crear grupos de aplicaciones, asignar usuarios y publicar recursos.
 * Publique aplicaciones de escritorio completo o aplicaciones remotas individuales desde un único grupo host, cree grupos de aplicaciones individuales para distintos conjuntos de usuarios o incluso asigne usuarios a varios grupos de aplicaciones para reducir el número de imágenes.
 * A medida que administre su entorno, usará el acceso delegado integrado para asignar roles y recopilar diagnósticos con el fin de comprender diversos errores de configuración o de los usuarios.
 * Use el nuevo servicio de diagnóstico para solucionar los errores.
@@ -61,7 +61,7 @@ También puede asignar y conectar a los usuarios a los escritorios virtuales:
 
 Es necesario cumplir una serie de requisitos para configurar Windows Virtual Desktop y conectar correctamente sus usuarios a los escritorios y aplicaciones de Windows.
 
-Está previsto agregar compatibilidad con los siguientes sistemas operativos, así que asegúrese de que dispone de las [licencias adecuadas](https://azure.microsoft.com/pricing/details/virtual-desktop/) para los usuarios según el escritorio y las aplicaciones que tenga pensado implementar:
+Admitimos los siguientes sistemas operativos, por lo que debe asegurarse de que tiene las [licencias apropiadas](https://azure.microsoft.com/pricing/details/virtual-desktop/) para sus usuarios en función del escritorio y de las aplicaciones que planee implementar:
 
 |SO|Licencia necesaria|
 |---|---|
@@ -71,11 +71,17 @@ Está previsto agregar compatibilidad con los siguientes sistemas operativos, as
 
 Su infraestructura necesita cumplir los siguientes requisitos para ser compatible con Windows Virtual Desktop:
 
-* Una instancia de [Azure Active Directory](/azure/active-directory/).
-* Una instancia de Windows Server Active Directory sincronizada con Azure Active Directory. Puede configurarla con uno de los siguientes elementos:
-  * Azure AD Connect (para organizaciones híbridas)
-  * Azure AD Domain Services (para organizaciones híbridas o de nube)
-* Una suscripción a Azure que contenga una red virtual que conste de la instancia de Windows Server Active Directory o esté conectada a ella
+* [Azure Active Directory](/azure/active-directory/).
+* Una instancia de Windows Server Active Directory sincronizada con Azure Active Directory. Se puede configurar mediante Azure AD Connect (para organizaciones híbridas) o Azure AD Domain Services (para organizaciones híbridas o en la nube).
+  * Una instancia de Windows Server AD sincronizada con Azure Active Directory. El usuario tiene como origen Windows Server AD y la máquina virtual con Windows Virtual Desktop está unida al dominio de Windows Server AD.
+  * Una instancia de Windows Server AD sincronizada con Azure Active Directory. El usuario tiene como origen Windows Server AD y la máquina virtual con Windows Virtual Desktop está unida al dominio de Azure AD Domain Services.
+  * Un dominio de Azure AD Domain Services. El usuario tiene como origen Azure Active Directory y la máquina virtual con Windows Virtual Desktop está unida al dominio de Azure AD Domain Services.
+* Una suscripción a Azure, cuyo elemento primario es el mismo inquilino de Azure AD, que contenga una red virtual que contenga Windows Server Active Directory o una instancia de Azure AD DS, o esté conectada a ellos.
+
+Requisitos de usuario para conectarse a Windows Virtual Desktop:
+
+* El origen del usuario debe ser el mismo Active Directory que está conectado a Azure AD. Windows Virtual Desktop no admite cuentas B2B o MSA.
+* El nombre principal de usuario que se usa para suscribirse a Windows Virtual Desktop debe existir en el dominio de Active Directory al que se une la máquina virtual.
 
 Las máquinas virtuales de Azure que cree para Windows Virtual Desktop deben cumplir estos requisitos:
 
@@ -91,7 +97,7 @@ Windows Virtual Desktop consta de los escritorios y las aplicaciones de Windows 
 
 Para obtener un rendimiento óptimo, asegúrese de que la red cumple los requisitos siguientes:
 
-* La latencia de ida y vuelta (RTT) desde la red del cliente hasta la región de Azure donde se han implementado grupos host debe ser inferior a 150 ms.
+* La latencia de ida y vuelta (RTT) desde la red del cliente hasta la región de Azure donde se han implementado grupos host debe ser inferior a 150 ms. Use el [estimador de experiencia](https://azure.microsoft.com/services/virtual-desktop/assessment) para ver el estado de la conexión y la región de Azure recomendada.
 * El tráfico de red puede fluir fuera de las fronteras del país o la región si las máquinas virtuales que hospedan los escritorios y las aplicaciones se conectan al servicio de administración.
 * Para optimizar el rendimiento de la red, se recomienda que las máquinas virtuales del host de sesión se coloquen en la misma región de Azure que el servicio de administración.
 
@@ -111,7 +117,7 @@ Los clientes de Escritorio remoto siguientes admiten Windows Virtual Desktop:
 > [!IMPORTANT]
 > Windows Virtual Desktop no es compatible actualmente con el cliente de Escritorio remoto de la tienda Windows. La compatibilidad con este cliente se agregará en una versión futura.
 
-Para más información sobre las direcciones URL que debe desbloquear para usar los clientes remotos, consulte la [lista de direcciones URL seguras](safe-url-list.md).
+Para más información sobre las direcciones URL que debe desbloquear para usar los clientes, consulte la [lista de direcciones URL seguras](safe-url-list.md).
 
 ## <a name="supported-virtual-machine-os-images"></a>Imágenes de SO de máquinas virtuales admitidas
 
@@ -130,10 +136,10 @@ Las opciones de automatización y de implementación disponibles dependen del si
 
 |Sistema operativo|Galería de imágenes de Azure|Implementación manual de la máquina virtual|Integración de la plantilla de Azure Resource Manager|Aprovisionamiento de grupos host en Azure Marketplace|
 |--------------------------------------|:------:|:------:|:------:|:------:|
-|Sesión múltiple de Windows 10, versión 1903|Sí|Sí|Sí|Sí|
-|Sesión múltiple de Windows 10, versión 1809|Sí|Sí|No|No|
-|Windows 10 Enterprise, versión 1903|Sí|Sí|Sí|Sí|
-|Windows 10 Enterprise, versión 1809|Sí|Sí|No|No|
+|Windows 10 Enterprise (multisesión), versión 2004|Sí|Sí|Sí|Sí|
+|Windows 10 Enterprise (multisesión), versión 1909|Sí|Sí|Sí|Sí|
+|Windows 10 Enterprise (multisesión), versión 1903|Sí|Sí|No|No|
+|Windows 10 Enterprise (multisesión), versión 1809|Sí|Sí|No|No|
 |Windows 7 Enterprise|Sí|Sí|No|No|
 |Windows Server 2019|Sí|Sí|No|No|
 |Windows Server 2016|Sí|Sí|Sí|Sí|

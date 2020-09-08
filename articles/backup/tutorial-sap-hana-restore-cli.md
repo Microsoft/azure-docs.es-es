@@ -4,12 +4,12 @@ description: En este tutorial aprenderá a restaurar las bases de datos de SAP H
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 282f0ee61ffae455d6d3e49ea445d5ddc2fe56ac
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d0a6cec234c367ceb1c6032e99d64d6ca5bc4805
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500834"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180276"
 ---
 # <a name="tutorial-restore-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutorial: Restauración de las bases de datos de SAP HANA en una máquina virtual de Azure con la CLI de Azure
 
@@ -24,7 +24,7 @@ Al final de este tutorial podrá realizar lo siguiente:
 > * Ver los puntos de restauración de una base de datos con copia de seguridad
 > * Restaurar una base de datos
 
-En este tutorial se presupone que tiene una base de datos de SAP HANA que se ejecuta en una máquina virtual de Azure con copia de seguridad realizada mediante Azure Backup. Si ha usado [Realización de una copia de seguridad de una base de datos de SAP HANA en Azure mediante la CLI](tutorial-sap-hana-backup-cli.md) para realizar la copia de seguridad de la base de datos de SAP HANA, estará usando los siguientes recursos:
+En este tutorial se presupone que tiene una base de datos de SAP HANA que se ejecuta en una máquina virtual de Azure con copia de seguridad realizada mediante Azure Backup. Si ha usado [Realización de una copia de seguridad de una base de datos de SAP HANA en Azure mediante la CLI](tutorial-sap-hana-backup-cli.md) para realizar la copia de seguridad de la base de datos de SAP HANA, estará usando los siguientes recursos:
 
 * un grupo de recursos denominado *saphanaResourceGroup*,
 * un almacén denominado *saphanaVault*,
@@ -63,7 +63,7 @@ Como puede ver, la lista anterior contiene tres puntos de recuperación: para la
 
 Antes de restaurar una base de datos, asegúrese de que se cumplen los requisitos previos siguientes:
 
-* Solo puede restaurar la base de datos en una instancia de SAP HANA que se encuentre en la misma región.
+* Solo puede restaurar la base de datos en una instancia de SAP HANA que se encuentre en la misma región.
 * La instancia de destino debe estar registrada en el mismo almacén que la de origen.
 * Azure Backup no puede identificar dos instancias de SAP HANA diferentes en la misma máquina virtual. Por lo tanto, no es posible restaurar los datos de una instancia en otra en la misma máquina virtual.
 
@@ -89,7 +89,7 @@ En este tutorial se realizará la restauración a un punto de restauración ante
 Con el nombre de punto de restauración anterior y el modo de restauración, vamos a crear el objeto de configuración de recuperación mediante el cmdlet [az backup recoveryconfig show](/cli/azure/backup/recoveryconfig?view=azure-cli-latest#az-backup-recoveryconfig-show). Echemos un vistazo a lo que significa cada uno de los parámetros restantes de este cmdlet:
 
 * **--target-item-name** es el nombre que utilizará la base de datos restaurada. En este caso, *restored_database*.
-* **--target-server-name** es el nombre de un servidor SAP HANA que se ha registrado correctamente en un almacén de Recovery Services y se encuentra en la misma región que la base de datos que se va a restaurar. En este tutorial se va a restaurar la base de datos en el mismo servidor SAP HANA que se ha protegido, denominado *hxehost*.
+* **--target-server-name** es el nombre de un servidor de SAP HANA que se ha registrado correctamente en un almacén de Recovery Services y se encuentra en la misma región que la base de datos que se va a restaurar. En este tutorial se va a restaurar la base de datos en el mismo servidor SAP HANA que se ha protegido, denominado *hxehost*.
 * **--target-server-type**; para la restauración de las bases de datos de SAP HANA, se debe usar **SapHanaDatabase**.
 
 ```azurecli-interactive
@@ -181,7 +181,7 @@ En este tutorial, para la restauración elegiremos el momento anterior `28-11-20
 
 Con el nombre de punto de restauración anterior y el modo de restauración, vamos a crear el objeto de configuración de recuperación mediante el cmdlet [az backup recoveryconfig show](/cli/azure/backup/recoveryconfig?view=azure-cli-latest#az-backup-recoveryconfig-show). Echemos un vistazo a lo que significa cada uno de los parámetros restantes de este cmdlet:
 
-* **--target-container-name** es el nombre de un servidor de SAP HANA que se ha registrado correctamente en un almacén de Recovery Services y se encuentra en la misma región que la base de datos que se va a restaurar. En este tutorial, se va a restaurar la base de datos como archivos en el mismo servidor de SAP HANA que se ha protegido, llamado *hxehost*.
+* **--target-container-name** es el nombre de un servidor de SAP HANA que se ha registrado correctamente en un almacén de Recovery Services y se encuentra en la misma región que la base de datos que se va a restaurar. En este tutorial, se va a restaurar la base de datos como archivos en el mismo servidor de SAP HANA que se ha protegido, llamado *hxehost*.
 * **--rp-name** Para una restauración a un momento dado, el nombre del punto de restauración será **DefaultRangeRecoveryPoint**.
 
 ```azurecli-interactive

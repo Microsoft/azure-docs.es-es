@@ -1,24 +1,24 @@
 ---
-title: Actualización de una oferta existente de Marketplace comercial
-description: Cómo realizar actualizaciones en una oferta de Marketplace comercial existente, lo que incluye editar y eliminar un borrador, cancelar una solicitud de publicación, detener la venta de una oferta o plan, y sincronizar audiencias privadas.
+title: Actualización de una oferta existente de marketplace comercial
+description: En este artículo se describe cómo realizar actualizaciones en una oferta de marketplace comercial existente, por ejemplo, editar y eliminar un borrador, cancelar una solicitud de publicación, dejar de vender una oferta o plan y sincronizar audiencias privadas.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 01/16/2020
-ms.openlocfilehash: 113808a3e2bab6c4cb9d2ea5f155a027abf1b5bc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ca106625acf28aded0009fd09022843f1016faf3
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086343"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056149"
 ---
-# <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Actualización de una oferta existente en Marketplace comercial
+# <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Actualización de una oferta existente en el marketplace comercial
 
 Puede ver las ofertas existentes en la pestaña **Información general** del [portal de Marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) en Centro de partners.
 
-Para actualizar una oferta existente que actualmente está en directo en Marketplace:
+Para actualizar una oferta existente que actualmente está activa en el marketplace comercial, siga estos pasos:
 
 1. Seleccione el nombre de la oferta que desea actualizar. El estado de la oferta puede aparecer como **Preview** (Versión preliminar), **Live** (Activa), **Publish in progress** (Publicación en curso), **Draft** (Borrador), **Attention needed** (Requiere atención) o **Not available** (No disponible) (si anteriormente ha elegido dejar de vender la oferta). Una vez seleccionado, se abrirá la página **Información general de la oferta** para dicha oferta.
 2. Seleccione **Update** (Actualizar) en la tarjeta de la página de información general de la oferta, o el elemento de menú del panel de navegación izquierdo correspondiente al área que quiere actualizar. Puede que desee actualizar alguno de estos elementos: **Configuración de la oferta**, **Propiedades**, **Descripción de la oferta**, **Vista previa**, **Configuración técnica** , **Información general del plan** o **Versión de prueba**.
@@ -43,7 +43,7 @@ Para realizar cambios en un plan dentro de una oferta existente que ya haya publ
 
 1. Con la página de **Información general de la oferta** de la oferta existente abierta, vaya a la página de **Información general del plan** y, a continuación, seleccione **Crear un nuevo plan**.
 1. Cree un nuevo plan de acuerdo con las [directrices](./create-new-saas-offer.md#plan-overview) mediante el **modelo de precios de planes existentes**.
-1. Seleccione **Guardar borrador** después de cambiar el nombre del plan. 
+1. Seleccione **Guardar borrador** después de cambiar el nombre del plan.
 1. Seleccione **Publicar** cuando esté listo para publicar las actualizaciones. Se abrirá la página **[Revisar y publicar](#review-and-publish-an-updated-offer)** proporcionando un estado de finalización para las actualizaciones.
 
 ## <a name="update-a-plan-within-an-existing-offer"></a>Actualización de un plan dentro de una oferta existente
@@ -56,7 +56,25 @@ Para realizar cambios en un plan dentro de una oferta existente que ya haya publ
 1. Si está listo para publicar sus actualizaciones, seleccione **Review and publish** (Revisar y publicar). Se abrirá la página **[Revisar y publicar](#review-and-publish-an-updated-offer)** proporcionando un estado de finalización para las actualizaciones.
 1. Seleccione **Publish** (Publicar) para publicar el plan actualizado. Le enviaremos un correo electrónico cuando haya alguna versión preliminar de la oferta actualizada disponible para su revisión y aprobación.
 
-## <a name="compare-changes-to-marketplace-offers"></a>Comparación de cambios en las ofertas de Marketplace
+## <a name="offer-a-virtual-machine-plan-at-a-new-price"></a>Oferta de un plan de máquina virtual a un nuevo precio
+
+Una vez publicado un plan de máquina virtual, no se puede cambiar su precio. Para ofrecer el mismo plan a un precio diferente, debe ocultar el plan y crear otro con el precio actualizado. En primer lugar, oculte el plan con el precio que quiere cambiar:
+
+1. Con la página de **Información general de la oferta** de la oferta existente abierta, elija el plan que quiera cambiar. Si el plan no es accesible desde la lista de **Información general del plan**, seleccione **Ver todos los planes**.
+1. Active la casilla **Ocultar plan**. Guarde el borrador antes de continuar.
+
+Ahora que ha ocultado el plan con el precio anterior, cree una copia de ese plan con el precio actualizado:
+
+1. En el Centro de partners, vuelva a **Plan overview** (Información general del plan).
+2. Seleccione **Crear nuevo plan**. Rellene los campos **Id. de plan** y **Nombre del plan** y, luego, seleccione **Crear**.
+1. Para volver a usar la configuración técnica del plan que ha ocultado, active la casilla **Reuse technical configuration** (Reutilizar la configuración técnica). Lea [Información general del plan](azure-vm-create-offer.md#plan-overview) para más información.
+    > [!IMPORTANT]
+    > Si selecciona **This plan reuses technical configuration from another plan** (Este plan reutiliza la configuración técnica de otro plan), no podrá dejar de vender el plan principal más adelante. No use esta opción si quiere dejar de vender el plan principal.
+3. Complete todas las secciones necesarias del nuevo plan, incluido el nuevo precio.
+1. Seleccione **Guardar borrador**.
+1. Cuando haya completado todas las secciones necesarias del nuevo plan, seleccione **Review and publish** (Revisar y publicar). Esta acción envía la oferta para su revisión y publicación. Lea [Revisión y publicación de una oferta en el marketplace comercial](../review-publish-offer.md) para más información.
+
+## <a name="compare-changes-to-commercial-marketplace-offers"></a>Comparación de cambios en las ofertas de marketplace comercial
 
 Puede auditar los cambios que realice en una oferta [publicada](#compare-changes-to-published-offer) o de [versión preliminar](#compare-changes-to-a-preview-offer) antes de que estén en directo utilizando **Comparar**.
 
@@ -143,15 +161,17 @@ Si desea publicar la oferta más adelante, tendrá que volver a empezar el proce
 
 ## <a name="stop-selling-an-offer-or-plan"></a>Detención de la venta de una oferta o un plan
 
+Son varios los motivos por los que podría decidir eliminar el catálogo de ofertas del marketplace comercial de Microsoft. La eliminación de ofertas garantiza que los nuevos clientes ya no puedan adquirir ni implementar la oferta, pero no afecta a los clientes existentes.
+
 Para dejar de vender una oferta publicada, seleccione **Stop selling** (Dejar de vender) desde la página **Overview** (Información general) de la oferta.
 
-Tras confirmar que quiere dejar de vender la oferta, al cabo de unas horas ya no estará visible en el marketplace y ningún nuevo cliente podrá descargarla.
+Tras confirmar que quiere dejar de vender la oferta, al cabo de unas horas ya no estará visible en el marketplace comercial y ningún nuevo cliente podrá descargarla.
 
 Para detener la venta de un plan, seleccione **Dejar de vender** desde la página **Información general del plan**. La opción de dejar de vender un plan solo está disponible si tiene más de un plan en la oferta. Puede elegir dejar de vender un plan sin que otros planes dentro de la oferta se vean afectados. Una vez que confirme que quiere dejar de vender el plan, debe volver a publicar la oferta para que se aplique el cambio. Después de que se vuelva a publicar la oferta, el plan dejará de estar visible en el marketplace y ningún cliente nuevo podrá descargarlo.
 
 Los clientes que hayan adquirido anteriormente la oferta o el plan, podrán seguir usándolos. Aunque pueden volver a descargarlos, no recibirán actualizaciones si más adelante actualiza y vuelve a publicar la oferta o el plan.
 
-Una vez completada la solicitud para dejar de vender la oferta o el plan, los seguirá viendo en el portal de Marketplace comercial en el Centro de partners con el estado **Not available** (No disponible).
+Una vez completada la solicitud para dejar de vender la oferta o el plan, los seguirá viendo en el portal de marketplace comercial del Centro de partners con el estado **Not available** (No disponible).
 
 Si decide volver a mostrar o vender esta oferta o este plan, siga las instrucciones para [actualizar una oferta existente](#update-an-existing-offer-in-the-commercial-marketplace). No olvide que después de realizar cualquier cambio tiene que volver a **publicar** la oferta o el plan.
 
@@ -172,4 +192,4 @@ Para actualizar y sincronizar la audiencia privada de sus planes:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Comprobación del estado de publicación de una oferta de Marketplace comercial](./publishing-status.md)
+- [Comprobación del estado de publicación de la oferta de marketplace comercial](./publishing-status.md)

@@ -17,12 +17,12 @@ ms.date: 04/09/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0822bdd886a9a29f2cdb6843d3dc4404d7360f32
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: f4253fe52346890eaa993a18e8e9bc9b270bffd7
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261030"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229861"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Registros de actividad de Azure AD en Azure Monitor
 
@@ -126,7 +126,7 @@ En la tabla siguiente se incluyen los costos estimados al mes para un centro de 
 
 
 
-Para revisar los costos relacionados con la administración de registros de Azure Monitor, consulte [Administración de los costos mediante el control del volumen de datos y la retención en registros de Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage).
+Para revisar los costos relacionados con la administración de registros de Azure Monitor, consulte [Administración de los costos mediante el control del volumen de datos y la retención en registros de Azure Monitor](../../azure-monitor/platform/manage-cost-storage.md).
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
@@ -180,13 +180,13 @@ En esta sección se responden las preguntas más frecuentes y se abordan los pro
 
 **P: ¿Qué herramientas SIEM se admiten actualmente?** 
 
-**R.** : **R.** : Actualmente, Azure Monitor es compatible con [Splunk](tutorial-integrate-activity-logs-with-splunk.md), IBM QRadar, [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory), [ArcSight](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-arcsight), LogRhythm y Logz.io. Para más información sobre cómo funcionan los conectores, consulte [Flujo de datos de supervisión de Azure a un centro de eventos para que lo consuma una herramienta externa](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+**R.** : **R.** : Actualmente, Azure Monitor es compatible con [Splunk](./howto-integrate-activity-logs-with-splunk.md), IBM QRadar, [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory), [ArcSight](./howto-integrate-activity-logs-with-arcsight.md), LogRhythm y Logz.io. Para más información sobre cómo funcionan los conectores, consulte [Flujo de datos de supervisión de Azure a un centro de eventos para que lo consuma una herramienta externa](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 ---
 
 **P: ¿Cómo se integran los registros de actividad de Azure AD con mi instancia de Splunk?**
 
-**R.** : En primer lugar, [enrute los registros de actividad de Azure AD a un centro de eventos](quickstart-azure-monitor-stream-logs-to-event-hub.md) y, después, siga los pasos necesarios para [integrar los registros de actividad con Splunk](tutorial-integrate-activity-logs-with-splunk.md).
+**R.** : En primer lugar, [enrute los registros de actividad de Azure AD a un centro de eventos](./tutorial-azure-monitor-stream-logs-to-event-hub.md) y, después, siga los pasos necesarios para [integrar los registros de actividad con Splunk](./howto-integrate-activity-logs-with-splunk.md).
 
 ---
 
@@ -198,7 +198,7 @@ En esta sección se responden las preguntas más frecuentes y se abordan los pro
 
 **P: ¿Puedo acceder a los datos desde un centro de eventos sin utilizar una herramienta SIEM externa?** 
 
-**R.** : Sí. Para acceder a los registros desde la aplicación personalizada, puede usar la [API de Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md). 
+**R.** : Sí. Para acceder a los registros desde la aplicación personalizada, puede usar la [API de Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md). 
 
 ---
 
@@ -206,5 +206,5 @@ En esta sección se responden las preguntas más frecuentes y se abordan los pro
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Archivado de registros de actividad en una cuenta de almacenamiento](quickstart-azure-monitor-route-logs-to-storage-account.md)
-* [Enrutamiento de registros de actividad a un centro de eventos](quickstart-azure-monitor-stream-logs-to-event-hub.md)
+* [Enrutamiento de registros de actividad a un centro de eventos](./tutorial-azure-monitor-stream-logs-to-event-hub.md)
 * [Integración de registros de actividad con Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md)

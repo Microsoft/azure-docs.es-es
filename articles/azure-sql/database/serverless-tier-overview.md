@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 7/9/2020
-ms.openlocfilehash: 38ca6528b77d9f36c84f5aacaa34a64d113b5978
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.date: 8/7/2020
+ms.openlocfilehash: 7697ba514b74935f8da6d71cdfb380e704d66f56
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206939"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121364"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database sin servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -88,7 +88,7 @@ La memoria para bases de datos sin servidor se reclama con mayor frecuencia que 
 
 #### <a name="cache-reclamation"></a>Reclamación de memoria caché
 
-A diferencia de las bases de datos de proceso aprovisionadas, la memoria de la caché de SQL se reclama desde una base de datos sin servidor cuando el uso de CPU o de la memoria caché activa es bajo.  Tenga en cuenta que cuando el uso de la CPU es bajo, el uso de la memoria caché activa puede ser alto en función del patrón de uso y prevenir la reclamación de memoria.
+A diferencia de las bases de datos de proceso aprovisionadas, la memoria de la caché de SQL se reclama desde una base de datos sin servidor cuando el uso de CPU o de la memoria caché activa es bajo.
 
 - La utilización de la memoria caché activa se considera baja cuando el tamaño total de las entradas de caché más recientes está por debajo de un determinado umbral durante un período de tiempo.
 - Cuando se desencadena la reclamación de la memoria caché, el tamaño de la caché de destino se reduce de forma incremental a una fracción del tamaño anterior y la reclamación solo continúa si el uso sigue siendo bajo.
@@ -96,6 +96,8 @@ A diferencia de las bases de datos de proceso aprovisionadas, la memoria de la c
 - El tamaño de la memoria caché no se reduce nunca por debajo del límite de memoria mínimo definido por el número mínimo de núcleos virtuales cuyo valor se puede configurar.
 
 En el caso de las bases de datos sin servidor y las de proceso aprovisionadas, se pueden expulsar entradas de la caché si se usa toda la memoria disponible.
+
+Tenga en cuenta que cuando el uso de la CPU es bajo, el uso de la memoria caché activa puede ser alto en función del patrón de uso y prevenir la reclamación de memoria.  Además, puede haber un retraso adicional después de que la actividad del usuario se detenga antes de que se produzca la recuperación de memoria, debido a que los procesos en segundo plano periódicos responden a la actividad anterior del usuario.  Por ejemplo, las operaciones de eliminación generan registros fantasma marcados para su eliminación, pero no se eliminan físicamente hasta que se ejecuta el proceso de limpieza de registros fantasma, lo que puede implicar la lectura de páginas de datos en la memoria caché.
 
 #### <a name="cache-hydration"></a>Hidratación de la memoria caché
 
@@ -117,7 +119,7 @@ Las características siguientes no admiten la pausa automática, pero admiten el
 - Replicación geográfica (replicación geográfica activa y grupos de conmutación por error automáticos).
 - Retención de copia de seguridad a largo plazo (LTR).
 - La base de datos de sincronización utilizada en la sincronización de datos SQL.  A diferencia de las bases de datos de sincronización, las bases de datos centrales y miembro admiten las pausas automáticas.
-- La base de datos de trabajo utilizada en trabajos elásticos.
+- La base de datos de trabajo utilizada en trabajos elásticos (versión preliminar).
 
 Se impide temporalmente la pausa automática durante la implementación de algunas actualizaciones de servicio que requieren que la base de datos esté en línea.  En tales casos, se vuelve a permitir la pausa automática una vez finalizada la actualización del servicio.
 

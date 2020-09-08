@@ -4,12 +4,12 @@ description: Proporciona un resumen de limitaciones y configuraciones de compati
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: raynew
-ms.openlocfilehash: fae5af9c8717604d71ec2bf2628ea25125d5b2d5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: aac7b7d39102a1fe115ddea483aee36af79e7fc4
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87022725"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612119"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de compatibilidad para Azure Migrate
 
@@ -45,7 +45,7 @@ Migración de servidores de Azure Migrate | N/D | Migrar [máquinas virtuales de
 [DMA](/sql/dma/dma-overview?view=sql-server-2017) | Evaluar bases de datos de SQL Server. | N/D
 [DMS](../dms/dms-overview.md) | N/D | Migrar SQL Server, Oracle, MySQL, PostgreSQL y MongoDB. 
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Evaluar infraestructura de escritorio virtual (VDI) | N/D
-[Movere](https://www.movere.io/) | Evaluar máquinas virtuales de VMWare, máquinas virtuales de Hyper-V, máquinas virtuales de Xen, máquinas físicas, estaciones de trabajo (incluida VDI) y cargas de trabajo en la nube pública | N/D
+[Movere](https://www.movere.io/) | Evaluar máquinas virtuales de VMware, máquinas virtuales de Hyper-V, máquinas virtuales de Xen, máquinas físicas, estaciones de trabajo (incluida VDI) y cargas de trabajo en la nube pública | N/D
 [RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | N/D | Migrar máquinas virtuales de VMWare, máquinas virtuales de Hyper-V, máquinas virtuales de Xen, máquinas virtuales de KVM, máquinas físicas y cargas de trabajo en la nube pública 
 [Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295)  | Evaluar máquinas virtuales de VMware, máquinas virtuales de Hyper-V, servidores físicos y cargas de trabajo en la nube pública. | N/D
 [UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) | Evaluar máquinas virtuales de VMware, máquinas virtuales de Hyper-V, servidores físicos, cargas de trabajo en la nube pública y bases de datos de SQL Server. | N/D

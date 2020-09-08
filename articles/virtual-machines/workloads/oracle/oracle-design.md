@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogardle
-ms.openlocfilehash: 78eedb9bd4f12644a1bc992d0786a43b8af767a9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0dd787916159637ce92a29a5d4baa1ffe7a09ba4
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507937"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510018"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Diseño e implementación de una base de datos de Oracle en Azure
 
@@ -187,7 +187,7 @@ Una vez que se haya hecho una idea de los requisitos de E/S, puede elegir la com
 - Use la compresión de datos para reducir la E/S (para datos e índices).
 - Separe los registros de rehacer, sistema, temporales y de deshacer TS en discos de datos independientes.
 - No colocar ningún archivo de aplicación en el disco predeterminado del sistema operativo (/dev/sda). Estos discos están optimizados para un tiempo de arranque rápido de la máquina virtual y podría no proporcionar un buen rendimiento para la aplicación.
-- Al usar VM de la serie M en el almacenamiento Premium, habilite el [acelerador de escritura](../../linux/how-to-enable-write-accelerator.md) en el disco de registros de fase de puesta al día.
+- Al usar VM de la serie M en el almacenamiento Premium, habilite el [acelerador de escritura](../../how-to-enable-write-accelerator.md) en el disco de registros de fase de puesta al día.
 
 ### <a name="disk-cache-settings"></a>Configuración de la caché de disco
 

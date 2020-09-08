@@ -13,12 +13,12 @@ ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e52083b2413f28b0c95b3a86be44c501e97cfd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd16dd5a20a677568c928f805c1aaa5f2c222f24
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359762"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279948"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Corrección de las reglas predeterminadas modificadas en Azure AD Connect
 
@@ -89,7 +89,7 @@ Deje **Scoping filter** (Filtro de ámbito) vacío. Esto significa que la regla 
 
 Deje **Join rules** (Reglas de unión) vacío. Esto significa que esta regla utiliza la condición de combinación definida en la regla predeterminada estándar. Este es otro motivo para no deshabilitar o eliminar la regla predeterminada estándar. Si no hay ninguna condición de combinación, el atributo no fluirá. 
 
-Agregue las transformaciones adecuadas para el atributo. Puede asignar una constante, para que el valor de esa constante fluya hacia el atributo de destino. Puede utilizar la asignación directa entre el atributo de origen o destino. O bien puede utilizar una expresión para el atributo. Estas son varias [funciones de expresión](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-functions-reference) que puede utilizar.
+Agregue las transformaciones adecuadas para el atributo. Puede asignar una constante, para que el valor de esa constante fluya hacia el atributo de destino. Puede utilizar la asignación directa entre el atributo de origen o destino. O bien puede utilizar una expresión para el atributo. Estas son varias [funciones de expresión](./reference-connect-sync-functions-reference.md) que puede utilizar.
 
 #### <a name="add-an-outbound-sync-rule"></a>Agregar una regla de sincronización de salida
 Para vincular el atributo con el directorio de destino, deberá crear una regla de salida. Esto significa que el origen es el metaverso y el destino es el sistema conectado. Para crear una regla de salida, inicie el **Editor de reglas de sincronización**, cambie la **dirección** a **saliente** y seleccione **Agregar nueva regla**. 
@@ -102,7 +102,7 @@ Al igual que con la regla de entrada, puede utilizar su propia convención de no
 
 Mantenga los campos **Scoping filter** (filtro de ámbito) y **Join rules** (reglas de unión) vacíos. Rellene la transformación como constante, directa o expresión. 
 
-Ahora sabe cómo crear un nuevo atributo para un flujo de objeto de usuario de Active Directory a Azure Active Directory. Puede utilizar estos pasos para asignar cualquier atributo de cualquier objeto a un origen y un destino. Para obtener más información, consulte [creación de reglas de sincronización personalizadas](how-to-connect-create-custom-sync-rule.md) y [preparación para aprovisionar usuarios](https://docs.microsoft.com/office365/enterprise/prepare-for-directory-synchronization).
+Ahora sabe cómo crear un nuevo atributo para un flujo de objeto de usuario de Active Directory a Azure Active Directory. Puede utilizar estos pasos para asignar cualquier atributo de cualquier objeto a un origen y un destino. Para obtener más información, consulte [creación de reglas de sincronización personalizadas](how-to-connect-create-custom-sync-rule.md) y [preparación para aprovisionar usuarios](/office365/enterprise/prepare-for-directory-synchronization).
 
 ### <a name="override-the-value-of-an-existing-attribute"></a>Invalidar el valor de un atributo existente
 Es posible que quiera invalidar el valor de un atributo que ya está asignado. Por ejemplo, si quiere establecer siempre un valor null a un atributo en Azure AD, basta con crear una regla de solo entrada. Haga que el constante (`AuthoritativeNull`) fluya al atributo de destino. 
@@ -194,6 +194,3 @@ Para corregir las reglas y cambiarlas a su configuración predeterminada, elimin
 - [Hardware y requisitos previos](how-to-connect-install-prerequisites.md) 
 - [Configuración rápida](how-to-connect-install-express.md)
 - [Configuración personalizada](how-to-connect-install-custom.md)
-
-
-

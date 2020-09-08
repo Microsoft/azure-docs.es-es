@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: azuread-dev
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/06/2019
+ms.date: 08/20/2020
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: dcb8f709bc75fdf9fe80ee26497acb78cc023327
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 662bda03fc2d389ed316bd2c7141d5e6a30cef1a
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116349"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814649"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Aprenda a mostrar su aplicación en la galería de aplicaciones de Azure Active Directory
 
@@ -113,7 +113,7 @@ Cree una aplicación web que tenga una página de inicio de sesión HTML para co
 
 ![Escala de tiempo para agregar la aplicación de SSO con contraseña a la lista de galería](./media/howto-app-gallery-listing/passwordsso.png)
 
-* Si desea agregar la aplicación a la lista de la galería mediante SSO con contraseña, seleccione **Password SSO** (SSO con contraseña) como se muestra.
+* Si quiere agregar la aplicación a la lista de la galería mediante SSO con contraseña, seleccione **Password SSO** (SSO con contraseña) (nombre de usuario y contraseña) como se muestra.
 * Si tiene algún problema con el acceso, póngase en contacto con el [equipo de integración del SSO de Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## <a name="request-for-user-provisioning"></a>Solicitud de aprovisionamiento de usuarios

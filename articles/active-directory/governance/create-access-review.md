@@ -11,20 +11,24 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 08/09/2020
+ms.date: 08/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bb290106c5ceafe8c636bbeeab38b74ea475eb4
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: c2b3a838e52bb0b9f3a3be7195bd528c08e499c0
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056200"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783661"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Creación de una revisión de acceso de los grupos y las aplicaciones en las revisiones de acceso de Azure AD
 
 El acceso a los grupos y las aplicaciones para empleados e invitados cambia a lo largo del tiempo. Para reducir el riesgo derivado de las asignaciones de acceso obsoletas, los administradores pueden usar Azure Active Directory (Azure AD) para crear revisiones de acceso para los miembros de grupo o el acceso de aplicación. Si necesita revisar el acceso de manera rutinaria, también puede crear revisiones de acceso periódicas. Para más información sobre estos escenarios, vea [Administración del acceso de los usuarios con las revisiones de acceso de Azure AD](manage-user-access-with-access-reviews.md) y [Administración del acceso de los invitados con las revisiones de acceso de Azure AD](manage-guest-access-with-access-reviews.md).
+
+Puede ver un vídeo rápido en el que se habla sobre la habilitación de revisiones de acceso:
+
+>[!VIDEO https://www.youtube.com/embed/X1SL2uubx9M]
 
 En este artículo se describe cómo crear una o varias revisiones de acceso para el acceso de los miembros de un grupo o aplicación.
 
@@ -55,7 +59,12 @@ Para obtener más información, consulte [Requisitos de licencia](access-reviews
 
 1. Para que la revisión de acceso sea periódica, cambie la opción **Frecuencia** de **Una vez** a **Semanal**, **Mensual**,  **Trimestral**, **Semestral** o **Anual**. Use el control deslizante o el cuadro de texto **Duración** para definir cuántos días se abrirá cada revisión de la serie periódica para que los revisores escriban datos. Por ejemplo, la duración máxima que puede establecer para una revisión mensual es 27 días, con el fin de evitar la superposición de revisiones.
 
-1. Use el valor **Fin** para especificar cómo finalizar la serie de revisión de acceso periódica. La serie puede terminar de tres formas: se ejecuta continuamente para iniciar revisiones indefinidamente, hasta una fecha concreta, o hasta que se haya completado un número definido de veces. Un administrador de usuarios o un administrador de empresa puede detener la serie después de su creación cambiando la fecha en **Configuración**, de manera que termine en esa fecha.
+1. Use el valor **Fin** para especificar cómo finalizar la serie de revisión de acceso periódica. La serie puede finalizar de tres formas: 
+    1. Se ejecuta continuamente para iniciar revisiones de manera indefinida
+    1. Hasta una fecha específica,
+    1. Hasta después de que se haya completado un número definido de repeticiones. 
+  
+    Un administrador de usuarios o un administrador de empresa puede detener la serie después de su creación cambiando la fecha en **Configuración**, de manera que termine en esa fecha.
 
 1. En la sección **Usuarios**, especifique los usuarios a los que se aplica esa revisión de acceso. Las revisiones de acceso pueden ser de los miembros de un grupo o de los usuarios que se hayan asignado a una aplicación. Puede limitar aún más el ámbito de la revisión de acceso para revisar solo los usuarios invitados que sean miembros (o se hayan asignado a la aplicación), en lugar de revisar todos los usuarios miembros o que tengan acceso a la aplicación.
 
@@ -83,9 +92,9 @@ Para obtener más información, consulte [Requisitos de licencia](access-reviews
 
     ![Creación de una revisión de acceso: programas](./media/create-access-review/programs.png)
 
-    Puede simplificar el seguimiento y la recopilación de revisiones de acceso para distintos fines organizándolos en programas. Cada revisión de acceso se puede vincular a un programa. Por lo tanto, cuando prepare los informes para un auditor, puede centrarse en las revisiones de acceso en el ámbito de una iniciativa determinada. Los programas y los resultados de la revisión de acceso son visibles para los usuarios con los roles Administrador global, Administrador de usuario, Administrador de seguridad o Lector de seguridad.
+    Puede simplificar la colección y el seguimiento de revisiones de acceso organizándolas en programas. Cada revisión de acceso se puede vincular a un programa. Por lo tanto, cuando prepare los informes para un auditor, puede centrarse en las revisiones de acceso en el ámbito de una iniciativa determinada. Los programas y los resultados de la revisión de acceso son visibles para los usuarios con los roles Administrador global, Administrador de usuario, Administrador de seguridad o Lector de seguridad.
 
-    Para ver una lista de los programas, vaya a la página de revisiones de acceso y seleccione **Programas**. Si tiene el rol Administrador global o Administrador de usuario, puede crear programas adicionales. Por ejemplo, puede elegir tener un programa cada para iniciativa de cumplimiento de normas u objetivo empresarial. Si ya no necesita un programa y no tiene ningún control vinculado a él, puede eliminarlo.
+    Para ver una lista de los programas, vaya a la página de revisiones de acceso y seleccione **Programas**. Si tiene el rol Administrador global o Administrador de usuario, puede crear programas adicionales. Por ejemplo, puede elegir tener un programa cada para iniciativa de cumplimiento de normas u objetivo empresarial. Cuando ya no necesite un programa y no tenga ningún control vinculado a él, podrá eliminarlo.
 
 ### <a name="upon-completion-settings"></a>Configuración de finalización
 
@@ -119,7 +128,7 @@ Para obtener más información, consulte [Requisitos de licencia](access-reviews
     >[!NOTE]
     > De forma predeterminada, Azure AD envía automáticamente un recordatorio, hacia la mitad del plazo de finalización, a los revisores que no hayan respondido.
 
-1. (Versión preliminar) El contenido del correo electrónico enviado a los revisores se genera automáticamente en función de los detalles de la revisión, como el nombre de la revisión, el nombre del recurso, la fecha de vencimiento, etc. Si necesita una forma de comunicar más información, como instrucciones adicionales o información de contacto, puede especificar estos detalles en el correo electrónico de contenido adicional para el revisor que se incluirá en la invitación y en los correos electrónicos de recordatorio enviados a los revisores asignados. La sección resaltada a continuación es donde se mostrará esta información.
+1. (Versión preliminar) El contenido del correo electrónico enviado a los revisores se genera automáticamente en función de los detalles de la revisión, como el nombre de la revisión, el nombre del recurso, la fecha de vencimiento, etc. Si necesita una forma de comunicar más información, como instrucciones adicionales o información de contacto, puede especificar estos detalles en el **correo electrónico de contenido adicional para el revisor** que se incluirá en la invitación y en los correos electrónicos de recordatorio enviados a los revisores asignados. La sección resaltada a continuación es donde se mostrará esta información.
 
     ![Revisión del acceso de los usuarios a un grupo](./media/create-access-review/review-users-access-group.png)
 
@@ -142,14 +151,14 @@ Si ha asignado como revisores a invitados y no han aceptado la invitación, no r
 |Iniciando | La revisión se está iniciando. Si se habilitan las notificaciones por correo electrónico, se envían mensajes de correo electrónico a los revisores. |
 |InProgress | La revisión se ha iniciado. Si se habilitan las notificaciones por correo electrónico, se habrán enviado mensajes de correo electrónico a los revisores. Los revisores pueden enviar decisiones hasta la fecha de vencimiento. |
 |Completando | La revisión se ha completado y se están enviando mensajes de correo electrónico al propietario de la revisión. |
-|AutoReviewing (En autorrevisión) | La revisión se encuentra en una fase de revisión del sistema. El sistema está registrando decisiones para los usuarios que no se han revisado en función de las recomendaciones o decisiones previamente configuradas. |
-|AutoReviewed (Autorrevisado) | El sistema ha registrado decisiones para todos los usuarios que no se han revisado. La revisión está lista para continuar con **Aplicando** si está habilitada la opción de aplicación automática. |
+|Revisando automáticamente | La revisión se encuentra en una fase de revisión del sistema. El sistema está registrando decisiones para los usuarios que no se han revisado en función de las recomendaciones o decisiones previamente configuradas. |
+|Revisado automáticamente | El sistema ha registrado decisiones para todos los usuarios que no se han revisado. La revisión está lista para continuar con **Aplicando** si está habilitada la opción de aplicación automática. |
 |Aplicando | No habrá ningún cambio en el acceso para los usuarios que se han aprobado. |
 |Aplicado | Los usuarios denegados, si los hay, se han quitado del recurso o directorio. |
 
 ## <a name="create-reviews-via-apis"></a>Creación de revisiones mediante API
 
-También puede crear las revisiones de acceso mediante API. Qué hacer para administrar las revisiones de acceso de grupos y usuarios de aplicación en Azure Portal también pueden realizarse mediante Microsoft Graph API. Para más información, consulte [Azure AD Access Reviews API reference](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta) (Referencia de API de revisiones de acceso de Azure AD). Para obtener un ejemplo de código, consulte [Example of retrieving Azure AD Access Reviews via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096) (Ejemplo de recuperación de las revisiones de acceso de Azure AD a través de Microsoft Graph).
+También puede crear las revisiones de acceso mediante API. Qué hacer para administrar las revisiones de acceso de grupos y usuarios de aplicación en Azure Portal también pueden realizarse mediante Microsoft Graph API. Para más información, consulte [Azure AD Access Reviews API reference](/graph/api/resources/accessreviews-root?view=graph-rest-beta) (Referencia de API de revisiones de acceso de Azure AD). Para obtener un ejemplo de código, consulte [Example of retrieving Azure AD Access Reviews via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096) (Ejemplo de recuperación de las revisiones de acceso de Azure AD a través de Microsoft Graph).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

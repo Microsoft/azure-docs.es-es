@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e3b0b8ab4a432254835e43bff4893aaee81b04e
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 3f17f6fd881243d91428c6025fd63469a38afa0f
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541879"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268815"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planeación de la implementación de dispositivos de Azure Active Directory
 
@@ -48,7 +48,7 @@ Principales ventajas de ofrecer a los dispositivos una identidad de Azure AD:
 
 * Mejor experiencia del usuario: tener las identidades de dispositivo en Azure AD permite ofrecer a los usuarios un acceso sencillo a los recursos basados en la nube de su organización desde sus dispositivos personales y corporativos. Los administradores pueden habilitar [Enterprise State Roaming](enterprise-state-roaming-overview.md) para obtener una experiencia unificada en todos los dispositivos Windows.
 
-* Implementación y administración simplificadas: la administración de identidades de dispositivos simplifica el proceso de incorporación de dispositivos a Azure AD mediante [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot), [aprovisionamiento masivo](https://docs.microsoft.com/mem/intune/enrollment/windows-bulk-enroll) y [autoservicio: configuración rápida (OOBE)](../user-help/user-help-join-device-on-network.md). Puede administrar los dispositivos con herramientas de administración de dispositivos móviles (MDM) como [Microsoft Intune](https://docs.microsoft.com/mem/intune/fundamentals/what-is-intune), y sus identidades en [Azure Portal](https://portal.azure.com/).
+* Implementación y administración simplificadas: la administración de identidades de dispositivos simplifica el proceso de incorporación de dispositivos a Azure AD mediante [Windows AutoPilot](/windows/deployment/windows-autopilot/windows-10-autopilot), [aprovisionamiento masivo](/mem/intune/enrollment/windows-bulk-enroll) y [autoservicio: configuración rápida (OOBE)](../user-help/user-help-join-device-on-network.md). Puede administrar los dispositivos con herramientas de administración de dispositivos móviles (MDM) como [Microsoft Intune](/mem/intune/fundamentals/what-is-intune), y sus identidades en [Azure Portal](https://portal.azure.com/).
 
 ### <a name="training-resources"></a>Recursos de aprendizaje
 
@@ -127,21 +127,21 @@ Acceso condicional <br>(Requiere dispositivos con unión a Azure AD híbrido)| 
 
 ## <a name="azure-ad-registration"></a>Registro en Azure AD 
 
-Los dispositivos registrados se suelen administrar con [Microsoft Intune](https://docs.microsoft.com/mem/intune/enrollment/device-enrollment). Los dispositivos se inscriben en Intune de varias maneras, según el sistema operativo. 
+Los dispositivos registrados se suelen administrar con [Microsoft Intune](/mem/intune/enrollment/device-enrollment). Los dispositivos se inscriben en Intune de varias maneras, según el sistema operativo. 
 
 Los dispositivos registrados en Azure AD permiten que los dispositivos BYOD y los dispositivos propiedad de la empresa usen el inicio de sesión único en los recursos en la nube. El acceso a los recursos se basa en las [directivas de acceso condicional](../conditional-access/require-managed-devices.md) de Azure AD que se aplican al dispositivo y al usuario.
 
 ### <a name="registering-devices"></a>Registro de dispositivos
 
-Los dispositivos registrados se suelen administrar con [Microsoft Intune](https://docs.microsoft.com/mem/intune/enrollment/device-enrollment). Los dispositivos se inscriben en Intune de varias maneras, según el sistema operativo. 
+Los dispositivos registrados se suelen administrar con [Microsoft Intune](/mem/intune/enrollment/device-enrollment). Los dispositivos se inscriben en Intune de varias maneras, según el sistema operativo. 
 
 Los usuarios que instalan la aplicación Portal de empresa registran los dispositivos móviles BYOD y propiedad de la empresa.
 
-* [iOS](https://docs.microsoft.com/mem/intune/user-help/install-and-sign-in-to-the-intune-company-portal-app-ios)
+* [iOS](/mem/intune/user-help/install-and-sign-in-to-the-intune-company-portal-app-ios)
 
-* [Android](https://docs.microsoft.com/mem/intune/user-help/enroll-device-android-company-portal)
+* [Android](/mem/intune/user-help/enroll-device-android-company-portal)
 
-* [Windows 10](https://docs.microsoft.com/mem/intune/user-help/enroll-windows-10-device)
+* [Windows 10](/mem/intune/user-help/enroll-windows-10-device)
 
 Si el registro de sus dispositivos es la mejor opción para su organización, consulte los siguientes recursos:
 
@@ -171,9 +171,9 @@ Si tiene Windows 10 Professional o Windows 10 Enterprise instalado en un disposi
 
 * [Configuración rápida (OOBE) de Windows o desde la Configuración de Windows](../user-help/user-help-join-device-on-network.md)
 
-* [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-autopilot)
+* [Windows Autopilot](/windows/deployment/windows-autopilot/windows-autopilot)
 
-* [Inscripción masiva](https://docs.microsoft.com/mem/intune/enrollment/windows-bulk-enroll)
+* [Inscripción masiva](/mem/intune/enrollment/windows-bulk-enroll)
 
 Elija el procedimiento de implementación después [comparar cuidadosamente estos enfoques](azureadjoin-plan.md).
 
@@ -216,7 +216,7 @@ Puede determinar que la unión a Azure AD híbrido es la mejor solución para u
 | Estado actual del dispositivo| Estado deseado del dispositivo| Instrucciones |
 | - | - | - |
 | Unión a un dominio local| Unión a Azure AD híbrido| Use Azure AD Connect o AD FS para unirse a Azure |
-| Unido a un grupo de trabajo local o nuevo| Unión a Azure AD híbrido| Admitido con [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-autopilot) De lo contrario, el dispositivo debe estar unido a un dominio local antes de la unión a Azure AD híbrido |
+| Unido a un grupo de trabajo local o nuevo| Unión a Azure AD híbrido| Admitido con [Windows Autopilot](/windows/deployment/windows-autopilot/windows-autopilot) De lo contrario, el dispositivo debe estar unido a un dominio local antes de la unión a Azure AD híbrido |
 | Unido a Azure AD| Unión a Azure AD híbrido| Separar de Azure AD; esto lo coloca en el grupo de trabajo local o en estado Nuevo. |
 | Registrado en Azure AD| Unión a Azure AD híbrido| Depende de la versión de Windows. [Vea estas consideraciones](hybrid-azuread-join-plan.md). |
 
@@ -239,13 +239,13 @@ Revise las plataformas admitidas y no admitidas para los dispositivos integrados
 
 | Herramientas de administración de dispositivos| Registrado en Azure AD| Unión a Azure AD| Unión a Azure AD híbrido|
 | - | - | - | - |
-| [Administración de dispositivos móviles (MDM)](https://docs.microsoft.com/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Ejemplo: Microsoft Intune| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png)|  |
-| [Administración conjunta con Microsoft Intune y Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/mem/configmgr/comanage/overview) <br>(Windows 10 y versiones posteriores)| | ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png)|  |
-| [Directiva de grupo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Solo Windows)| | | ![check](./media/plan-device-deployment/check.png)|  |
+| [Administración de dispositivos móviles (MDM)](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Ejemplo: Microsoft Intune| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png)|  |
+| [Administración conjunta con Microsoft Intune y Microsoft Endpoint Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 y versiones posteriores)| | ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png)|  |
+| [Directiva de grupo](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Solo Windows)| | | ![check](./media/plan-device-deployment/check.png)|  |
 
 
 
- Para los dispositivos iOS o Android registrados, es recomendable usar la [administración de aplicaciones móviles (MAM) de Microsoft Intune](https://docs.microsoft.com/mem/intune/apps/app-management) con o sin administración de dispositivos.
+ Para los dispositivos iOS o Android registrados, es recomendable usar la [administración de aplicaciones móviles (MAM) de Microsoft Intune](/mem/intune/apps/app-management) con o sin administración de dispositivos.
 
  Los administradores también pueden [implementar plataformas de infraestructura de escritorio virtual (VDI)](howto-device-identity-virtual-desktop-infrastructure.md) para hospedar los sistemas operativos Windows en sus organizaciones con el fin de centralizar y consolidar los recursos y así simplificar la administración y reducir los costos. 
 

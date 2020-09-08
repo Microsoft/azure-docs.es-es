@@ -5,15 +5,15 @@ author: ramonarguelles
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
-ms.date: 02/24/2019
+ms.date: 07/31/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3b377f87bdba40c90cb3af6caef2c089d7b7de49
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 12a15a2d0cd45207b4adefc7315e48c6d642c0f7
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77615499"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810192"
 ---
 # <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices"></a>Tutorial: Uso compartido de Azure Spatial Anchors entre sesiones y dispositivos
 
@@ -34,7 +34,7 @@ Aprenderá a:
 
 [!INCLUDE [Share Anchors Sample Prerequisites](../../../includes/spatial-anchors-share-sample-prereqs.md)]
 
-Es importante destacar que, aunque se va a usar Unity y una aplicación web de ASP.NET Core en este tutorial, es solo para mostrar un ejemplo sobre cómo compartir los identificadores espaciales de Azure Spatial Anchors con otros dispositivos. Se pueden usar otros lenguajes y tecnologías de back-end para lograr el mismo objetivo. Además, la aplicación web de ASP.NET Core usada en este tutorial tiene una dependencia del SDK de .NET Core 2.2. Funciona bien en aplicaciones web de Azure normales (para Windows), pero no funciona en aplicaciones web de Azure para Linux.
+Es importante destacar que, aunque se va a usar Unity y una aplicación web de ASP.NET Core en este tutorial, es solo para mostrar un ejemplo sobre cómo compartir los identificadores espaciales de Azure Spatial Anchors con otros dispositivos. Se pueden usar otros lenguajes y tecnologías de back-end para lograr el mismo objetivo.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -56,7 +56,7 @@ Tendrá que crear un grupo de recursos y un plan de App Service antes de impleme
 
 ### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Vaya a <a href="https://portal.azure.com/" target="_blank">Azure Portal</a> e inicie sesión con su suscripción de Azure.
+Vaya a <a href="https://portal.azure.com/" target="_blank">Azure Portal</a> e inicie sesión en la suscripción de Azure.
 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -76,25 +76,19 @@ En el cuadro de diálogo **Configurar un plan de hospedaje**, use estos valores:
 
 | Configuración | Valor sugerido | Descripción |
 |-|-|-|
-|Plan de servicio de aplicación| MySharingServicePlan | Nombre del plan de App Service. |
+|Plan de App Service| MySharingServicePlan | Nombre del plan de App Service. |
 | Location | Oeste de EE. UU. | El centro de datos donde se hospeda la aplicación web. |
 | Size | Gratuito | El [plan de tarifa](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) que determina las características de hospedaje. |
 
 Seleccione **Aceptar**.
 
-Abra Visual Studio Code y abra el proyecto en la carpeta `Sharing\SharingServiceSample`. Siga <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">este tutorial</a> para implementar el servicio de uso compartido mediante Visual Studio Code. Puede seguir los pasos a partir de la sección "Abrirlo con Visual Studio Code". No cree otro proyecto de MVC, tal como se explicó en el paso anterior, porque ya tiene el proyecto que debe implementarse y publicarse: SharingServiceSample.
+Abra Visual Studio Code y abra el proyecto en la carpeta `Sharing\SharingServiceSample`. Siga <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">este tutorial</a> para implementar el servicio de uso compartido mediante Visual Studio Code. Puede seguir los pasos a partir de la sección "Abrirlo con Visual Studio Code". No cree otro proyecto de ASP.NET, tal como se explicó en el paso anterior, porque ya tiene el proyecto que debe implementarse y publicarse: SharingServiceSample.
 
 ---
 
 ## <a name="deploy-the-sample-app"></a>Implementación de la aplicación de ejemplo
 
 [!INCLUDE [Run Share Anchors Sample](../../../includes/spatial-anchors-run-share-sample.md)]
-
-## <a name="troubleshooting"></a>Solución de problemas
-
-### <a name="unity-20193"></a>Unity 2019.3
-
-Debido a cambios importantes, Unity 2019.3 no se admite actualmente. Use Unity 2019.1 o 2019.2.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

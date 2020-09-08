@@ -1,6 +1,6 @@
 ---
 title: Directivas de Azure API Management | Microsoft Docs
-description: Aprenda sobre las directivas de transformación disponibles para su uso en Azure API Management.
+description: Aprenda sobre las directivas de transformación disponibles para su uso en Azure API Management. Las directivas permiten que el publicador cambie el comportamiento de la API mediante la configuración.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 069fc95d226e4417bb650b6092a7d00953f69e8d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4cdd9b7ace107d09ec14b23e02c56d2b13f264e6
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252863"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905676"
 ---
 # <a name="api-management-policies"></a>Directivas de administración de API
 En esta sección se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](api-management-howto-policies.md).  
@@ -40,14 +40,14 @@ En esta sección se proporciona una referencia para las siguientes directivas de
     -   [Flujo de control](api-management-advanced-policies.md#choose): aplica condicionalmente instrucciones de directiva basadas en la evaluación de expresiones booleanas.  
     -   [Reenviar solicitud](api-management-advanced-policies.md#ForwardRequest) : reenvía la solicitud al servicio back-end.
     -   [Limitar la simultaneidad](api-management-advanced-policies.md#LimitConcurrency): evita que las directivas delimitadas las ejecute simultáneamente un número de solicitudes mayor que el especificado.
-    -   [Log to Event Hub](api-management-advanced-policies.md#log-to-eventhub) (Registrar en el centro de eventos): envía mensajes en el formato especificado a un destino de mensaje definido por una entidad del registrador.
+    -   [Registro en el centro de eventos](api-management-advanced-policies.md#log-to-eventhub): envía mensajes en el formato especificado a un destino de mensaje definido por una entidad del registrador.
     -   [Mock response](api-management-advanced-policies.md#mock-response) (Simular respuesta): anula la ejecución de la canalización y devuelve la respuesta ficticia directamente al llamador.
     -   [Reintentar](api-management-advanced-policies.md#Retry) : reintenta ejecutar las instrucciones de directiva adjuntas, si y hasta que se cumple la condición. La ejecución se repite en los intervalos de tiempo especificados y hasta el número de reintentos indicado.  
     -   [Devolver respuesta](api-management-advanced-policies.md#ReturnResponse) : anula la ejecución de la canalización y devuelve la respuesta especificada directamente al llamador.  
     -   [Enviar solicitud unidireccional](api-management-advanced-policies.md#SendOneWayRequest) : envía una solicitud a la dirección URL especificada sin esperar una respuesta.  
     -   [Enviar solicitud](api-management-advanced-policies.md#SendRequest) : envía una solicitud a la dirección URL especificada.
     -   [Establecer el proxy HTTP](api-management-advanced-policies.md#SetHttpProxy): permite enrutar las solicitudes reenviadas a través de un proxy HTTP.
-    -   [Set variable](api-management-advanced-policies.md#set-variable) (Establecer variable): conserva un valor en una variable de contexto con nombre para el acceso posterior.  
+    -   [Establecer variable](api-management-advanced-policies.md#set-variable): conserva un valor en una variable de contexto con nombre para el acceso posterior.  
     -   [Establecer método de solicitud](api-management-advanced-policies.md#SetRequestMethod) : le permite cambiar el método HTTP de una solicitud.  
     -   [Establecimiento de código de estado](api-management-advanced-policies.md#SetStatus): cambia el código de estado HTTP al valor especificado.  
     -   [Trace](api-management-advanced-policies.md#Trace): agrega seguimientos personalizados a la salida de la [inspección de la API](./api-management-howto-api-inspector.md), a la telemetría de Application Insights y a los registros de recursos.  
@@ -56,7 +56,7 @@ En esta sección se proporciona una referencia para las siguientes directivas de
     -   [Autenticar con opción básica](api-management-authentication-policies.md#Basic) : autenticar con un servicio de back-end mediante la autenticación básica.  
     -   [Autenticar con certificado de cliente](api-management-authentication-policies.md#ClientCertificate) : autenticar con un servicio de back-end mediante certificados de cliente.  
     -   [Autenticar con identidad administrada](api-management-authentication-policies.md#ManagedIdentity): autenticar con un servicio de back-end mediante una [identidad administrada](../active-directory/managed-identities-azure-resources/overview.md).  
--   [Caching policies](api-management-caching-policies.md#CachingPolicies)  
+-   [Directivas de almacenamiento en caché](api-management-caching-policies.md#CachingPolicies)  
     -   [Obtener de caché](api-management-caching-policies.md#GetFromCache) : realiza una búsqueda en caché y devuelve una respuesta en caché válida cuando esté disponible.  
     -   [Almacenar en caché](api-management-caching-policies.md#StoreToCache) : almacena en caché la respuesta de acuerdo con la configuración de control de caché especificada.  
     -   [Obtener valor de caché](api-management-caching-policies.md#GetFromCacheByKey) : recupere un elemento almacenado en caché por clave.  

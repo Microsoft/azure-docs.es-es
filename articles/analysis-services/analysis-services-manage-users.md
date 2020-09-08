@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b1f848b5e6fa053d81754d441fd4845c1a24ee5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 15ae1ca6902c27732812a591f492430150c84ecb
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361496"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926185"
 ---
 # <a name="authentication-and-user-permissions"></a>Autenticación y permisos de usuario
 
@@ -68,7 +68,7 @@ Los **usuarios de bases de datos** se conectan a las bases de datos modelo media
 
 ![Control de acceso en Azure Portal](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
 
-Los roles en este nivel se aplican a los usuarios o cuentas que necesitan realizar tareas que se pueden completar en el portal o mediante plantillas de Azure Resource Manager. Para más información, consulte el artículo sobre el [control de acceso basado en roles](../role-based-access-control/overview.md). 
+Los roles en este nivel se aplican a los usuarios o cuentas que necesitan realizar tareas que se pueden completar en el portal o mediante plantillas de Azure Resource Manager. Aprenda sobre el [control de acceso basado en roles de Azure (RBAC de Azure)](../role-based-access-control/overview.md). 
 
 ## <a name="database-roles"></a>Roles de base de datos
 
@@ -81,4 +81,4 @@ Los roles en este nivel se aplican a los usuarios o cuentas que necesitan realiz
 [Administración del acceso a recursos con grupos de Azure Active Directory](../active-directory/fundamentals/active-directory-manage-groups.md)   
 [Administración de usuarios y roles de base de datos](analysis-services-database-users.md)  
 [Administración de administradores de servidor](analysis-services-server-admins.md)  
-[Control de acceso basado en roles](../role-based-access-control/overview.md)  
+[Control de acceso basado en roles de Azure (Azure RBAC)](../role-based-access-control/overview.md)  

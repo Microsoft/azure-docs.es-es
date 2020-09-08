@@ -2,13 +2,14 @@
 title: Aplicación híbrida en la nube o local (.NET) de Windows Communication Foundation (WCF) con Azure Relay | Microsoft Docs
 description: Aprenda a exponer un servicio WCF local a una aplicación web en la nube con Azure Relay
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 06/23/2020
-ms.openlocfilehash: a9ac01beb28b1246122f437bcf1c7a7be7a1dfd9
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: d6299899ee45bbad8b5e5fdbca01805604794d62
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079967"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922555"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Exposición de un servicio WCF local a una aplicación web en la nube con Azure Relay
 

@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: ec050f3dfd2537f8cffde353772d61c32cb9d676
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 5104783aff5684471819ecf04e965670fff2798b
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422387"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798149"
 ---
 # <a name="view-how-your-organization-uses-your-privacy-related-data"></a>Visualizar cómo se usan los datos relacionados con la privacidad en la organización
 
@@ -42,7 +42,7 @@ Puede ver cómo la organización usa los datos desde la página **Configuración
 
 Después de ver cómo usa la organización los datos, puede:
 
-- Ver o administrar la [información de seguridad](user-help-security-info-overview.md).
+- Ver o administrar la [información de seguridad](./security-info-setup-signin.md).
 
 - Ver o administrar los dispositivos [conectados](my-account-portal-devices-page.md).
 

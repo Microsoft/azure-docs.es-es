@@ -4,15 +4,15 @@ description: Esta inicio rápido le ayudará a configurar un firewall para el se
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 05/19/2020
+ms.date: 08/12/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 48618815519fad31bff5d6a8d2d2edc82535f437
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: e4953137cf939c35c6ac73fe51ca43eca6e99edc
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697903"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192443"
 ---
 # <a name="quickstart-configure-server-firewall---portal"></a>Inicio rápido: Configuración del firewall del servidor: Portal
 
@@ -22,8 +22,9 @@ Esta guía de inicio rápido le ayudará a configurar un firewall para el servid
 
 - Un servidor de Analysis Services en la suscripción. Para más información, vea esta [Inicio rápido: Creación de un servidor (Portal)](analysis-services-create-server.md) o [Inicio rápido: Creación de un servidor (PowerShell)](analysis-services-create-powershell.md)
 - Uno o más intervalos de direcciones IP para los equipos cliente (si es necesario).
-- Algunos escenarios en los que Power BI Premium se conecta a Azure Analysis Services, incluidos los informes paginados y de importación de datos (actualización), no se admiten ni siquiera si está habilitada la opción Permitir el acceso desde Power BI. El escenario más común en el que se usa Live Connect desde Power BI Premium sí se admite. Se admiten todos los escenarios de Power BI Pro.
 
+> [!NOTE]
+> La importación de datos (actualización) y las conexiones de informes paginados de Power BI Premium en Microsoft Cloud Germany no se admiten actualmente cuando está habilitado un firewall, incluso si la opción Allow access from Power BI (Permitir el acceso desde Power BI) está activada.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal 
 
@@ -32,8 +33,8 @@ Esta guía de inicio rápido le ayudará a configurar un firewall para el servid
 ## <a name="configure-a-firewall"></a>Configuración de un firewall
 
 1. Haga clic en el servidor para abrir la página Información general. 
-2. En **Configuración** > **Firewall** > **Habilitar firewall**, haga clic en **Activar**.
-3. Para permitir el acceso de DirectQuery desde el servicio Power BI, en **Permitir el acceso desde Power BI**, haga clic en **Activar**.  
+2. En **Configuración** > **Firewall** > **Habilitar firewall**, seleccione **Activar**.
+3. Para habilitar las conexiones desde Power BI y Power BI Premium, en **Allow access from Power BI** (Permitir el acceso desde Power BI), seleccione **Activar**.  
 4. (Opcional) Especifique uno o más intervalos de direcciones IP. Escriba un nombre y una dirección IP inicial y final para cada intervalo. El nombre de la regla de firewall debe estar limitado a 128 caracteres y solo puede contener caracteres en mayúsculas, caracteres en minúsculas, números, caracteres de subrayado y guiones. No se permiten espacios en blanco ni otros caracteres especiales.
 5. Haga clic en **Save**(Guardar).
 

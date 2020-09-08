@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 6f4c18d0fb2a4414dc98100dcec85161fdda85f0
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
+ms.openlocfilehash: 97a040ec166894197520b2e3a6dfc720262b7f1c
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85554085"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691299"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Inicio rápido: Adición del inicio de sesión de la plataforma de identidad de Microsoft a una aplicación web de ASP.NET
 En este inicio rápido, utilizará un código de ejemplo para aprender cómo una aplicación web ASP.NET puede iniciar sesión en cuentas personales (hotmail.com, outlook.com y otras), profesionales y educativas desde cualquier instancia de Azure Active Directory (Azure AD).  (Para ilustrar este tema, consulte el apartado en el que se explica el [funcionamiento del ejemplo](#how-the-sample-works).)
@@ -159,7 +159,7 @@ public void Configuration(IAppBuilder app)
 > |Where  | Descripción |
 > |---------|---------|
 > | `ClientId`     | El identificador de la aplicación registrada en Azure Portal |
-> | `Authority`    | El punto de conexión STS para el usuario que se autenticará. Normalmente es <https://login.microsoftonline.com/{tenant}/v2.0> para la nube pública, donde {tenant} es el nombre del inquilino, el identificador del inquilino o *common* para hacer referencia al punto de conexión común (que se usa para las aplicaciones multiinquilino) |
+> | `Authority`    | El punto de conexión STS para el usuario que se autenticará. Normalmente es `https://login.microsoftonline.com/{tenant}/v2.0` para la nube pública, donde {tenant} es el nombre del inquilino, el identificador del inquilino o *common* para hacer referencia al punto de conexión común (que se usa para las aplicaciones multiinquilino) |
 > | `RedirectUri`  | Dirección URL a donde se envían a los usuarios después de la autenticación en el punto de conexión de la Plataforma de identidad de Microsoft |
 > | `PostLogoutRedirectUri`     | Dirección URL a donde se redirige a los usuarios después de cerrar sesión |
 > | `Scope`     | La lista de ámbitos que se solicitan, separados por espacios |

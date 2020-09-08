@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Novatus | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Novatus.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: d2f13779-bdb7-4408-9738-be67ed3de4e5
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: fd4fdbdee4a7f01e0abf11121b8b53f29217b9ee
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: aee62046356f9b9c6edfe10722cf53cc24f5f6c8
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73160274"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88554319"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-novatus"></a>Tutorial: integración de Azure Active Directory con Novatus
 

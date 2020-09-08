@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo rotar los certificados en un clús
 services: container-service
 ms.topic: article
 ms.date: 11/15/2019
-ms.openlocfilehash: 2e48a05a36fdbd56fb78cd1394c512485b521e50
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 90526b78e65c335f07a2a9d2d152b54b47233082
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255360"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211032"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Rotación de certificados en Azure Kubernetes Service (AKS)
 
@@ -37,7 +37,7 @@ AKS genera y usa los siguientes certificados, entidades de certificación y cuen
 > [!NOTE]
 > Los clústeres de AKS creados antes de marzo de 2019 tienen certificados que expiran después de dos años. Los clústeres creados después de marzo del 2019 o cualquier clúster que tenga rotados sus certificados tienen certificados de CA del clúster que expiran a los 30 años. El resto de certificados expira transcurridos dos años. Para comprobar cuándo se creó el clúster, use `kubectl get nodes` para ver la *Antigüedad* de los grupos de nodos.
 > 
-> Además, puede comprobar la fecha de expiración del certificado del clúster. Por ejemplo, el comando siguiente muestra los detalles del certificado para el clúster *myAKSCluster*.
+> Además, puede comprobar la fecha de expiración del certificado del clúster. Por ejemplo, el comando de Bash siguiente muestra los detalles del certificado para el clúster *myAKSCluster*.
 > ```console
 > kubectl config view --raw -o jsonpath="{.clusters[?(@.name == 'myAKSCluster')].cluster.certificate-authority-data}" | base64 -d | openssl x509 -text | grep -A2 Validity
 > ```

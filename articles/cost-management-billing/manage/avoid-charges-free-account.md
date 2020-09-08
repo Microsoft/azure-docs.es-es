@@ -4,15 +4,16 @@ description: Comprenda por qué ve cargos en su cuenta gratuita de Azure. Aprend
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 557e099b4250d5514920aa6c22399ce225f35d92
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f81c33f3b49352933801c8b89a2c3a1787c2356a
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200955"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88682933"
 ---
 # <a name="avoid-charges-with-your-azure-free-account"></a>Evitar cargos en su cuenta gratuita de Azure
 
@@ -23,7 +24,6 @@ Veamos algunas de las razones por las que se le puede cobrar en su cuenta gratui
 ## <a name="your-credit-runs-out-or-is-expired"></a>El crédito se agota o ha expirado
 
 Tanto la suscripción como los servicios se deshabilitan cuando el crédito se agota o expira al terminar los 30 días. Para seguir usando los servicios de Azure, debe actualizar la cuenta. Para más información consulte el sitio de [Actualización de una cuenta gratuita de Azure](upgrade-azure-subscription.md). Después de la actualización, seguirá teniendo acceso a los servicios gratuitos durante 12 meses y se le cobrará solo por el uso que supere las cantidades y los servicios gratuitos.
-
 
 ## <a name="usage-exceeds-the-limits-of-free-services"></a>El uso supera los límites de los servicios gratuitos
 

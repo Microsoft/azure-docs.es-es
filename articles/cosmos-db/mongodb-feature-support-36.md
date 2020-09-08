@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 08/07/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 2b389b71e15edcf0558b2ce60290c1ad7b171eab
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 50414d48c3368ddf409630422d3316cdc45a63fe
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88030552"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587402"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>API de Azure Cosmos DB para MongoDB (versión 3.6): características y sintaxis que se admiten
 
@@ -137,7 +137,7 @@ La API de Azure Cosmos DB para MongoDB admite los siguientes comandos de base de
 |$lookup    |    Sí|
 |$out        |Sí|
 |$indexStats|        No|
-|$facet    |No|
+|$facet    |Sí|
 |$bucket|    No|
 |$bucketAuto|    No|
 |$sortByCount|    Sí|

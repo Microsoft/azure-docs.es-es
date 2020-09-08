@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: 8d94acabb434d0e722e352de46197a86e994e145
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 081da2b3f6fbe97ebce21940d7e0ca8978793b15
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290035"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652107"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>¿Qué es el aprendizaje automático automatizado (AutoML)?
 
@@ -201,8 +201,6 @@ Por ejemplo, la creación de un modelo __para cada instancia o individual__ en l
 * Predicción de ventas para cada tienda individual
 * Mantenimiento predictivo para cientos de pozos petrolíferos
 * Personalización de una experiencia para usuarios individuales
-
-Para obtener más información, vea el [Acelerador de soluciones Many Models](https://aka.ms/many-models) en GitHub.
 
 ## <a name="automl-in-azure-machine-learning"></a>AutoML en Azure Machine Learning
 

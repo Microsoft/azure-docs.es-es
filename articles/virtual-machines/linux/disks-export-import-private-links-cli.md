@@ -1,23 +1,23 @@
 ---
-title: 'CLI de Azure: restricción del acceso de importación y exportación a Managed Disks con vínculos privados (versión preliminar)'
-description: Habilite vínculos privados (versión preliminar) para los discos administrados con la CLI de Azure. Permite exportar e importar discos de forma segura solo dentro de la red virtual.
+title: 'CLI de Azure: Restricción del acceso para importar o exportar discos administrados con instancias de Private Link'
+description: Habilite instancias de Private Link para los discos administrados con la CLI de Azure. Permite exportar e importar discos de forma segura solo dentro de la red virtual.
 author: roygara
 ms.service: virtual-machines
 ms.topic: overview
-ms.date: 07/15/2020
+ms.date: 08/11/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 5df11e704987098d61ced7afbff5e6234d4d5f04
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2c9c63956144c6438dc0900fa9fdd06ce7d30f60
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420298"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322065"
 ---
-# <a name="azure-cli---restrict-importexport-access-for-managed-disks-with-private-links-preview"></a>CLI de Azure: restricción del acceso de importación y exportación a Managed Disks con vínculos privados (versión preliminar)
+# <a name="azure-cli---restrict-importexport-access-for-managed-disks-with-private-links"></a>CLI de Azure: restricción del acceso de importación y exportación de discos administrados con instancias de Private Link
 
-Puede usar [puntos de conexión privados](../../private-link/private-endpoint-overview.md) (versión preliminar) para restringir la exportación e importación de Managed Disks y el acceso seguro a los datos mediante un [vínculo privado](../../private-link/private-link-overview.md) desde los clientes a la red virtual de Azure. El punto de conexión privado usa una dirección IP del espacio de direcciones de la red virtual para el servicio Managed Disks. El tráfico de red entre los clientes de la red virtual y Managed Disks atraviesa la red virtual y un vínculo privado de la red troncal de Microsoft, lo que elimina la exposición a la red pública de Internet. 
+La compatibilidad de las instancias de Private Link con discos administrados se encuentra actualmente en versión preliminar. Puede usar [puntos de conexión privados](../../private-link/private-endpoint-overview.md) para restringir la exportación e importación de discos administrados y el acceso seguro a los datos mediante una instancia de [Private Link](../../private-link/private-link-overview.md) desde los clientes de la red virtual de Azure. El punto de conexión privado usa una dirección IP del espacio de direcciones de la red virtual para el servicio Managed Disks. El tráfico de red entre los clientes de su red virtual y los discos administrados solo atraviesa la red virtual y un vínculo privado de la red troncal de Microsoft, lo que elimina la exposición desde la red pública de Internet.
 
 Para usar vínculos privados para exportar e importar de Managed Disks, primero debe crear un recurso de acceso a disco y vincularlo a una red virtual en la misma suscripción mediante la creación de un punto de conexión privado. A continuación, asocie un disco o una instantánea con una instancia de acceso a disco. Finalmente, establezca la propiedad NetworkAccessPolicy del disco o la instantánea en `AllowPrivate`. Esto limitará el acceso a la red virtual. 
 
@@ -34,7 +34,6 @@ Puede establecer la propiedad NetworkAccessPolicy en `DenyAll` para evitar que a
 ## <a name="log-in-into-your-subscription-and-set-your-variables"></a>Inicio de sesión en la suscripción y establecimiento de las variables
 
 ```azurecli-interactive
-
 subscriptionId=yourSubscriptionId
 resourceGroupName=yourResourceGroupName
 region=northcentralus
@@ -58,7 +57,7 @@ az account set --subscription $subscriptionId
 
 ## <a name="create-a-disk-access-using-azure-cli"></a>Creación de un acceso a disco mediante la CLI de Azure
 ```azurecli-interactive
-az group deployment create -g $resourceGroupName \
+az deployment group create -g $resourceGroupName \
 --template-uri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/privatelinks/CreateDiskAccess.json" \
 --parameters "region=$region" "diskAccessName=$diskAccessName"
 
@@ -101,7 +100,7 @@ az network private-endpoint create --resource-group $resourceGroupName \
 Cree una zona DNS privada para el dominio del blob de almacenamiento, cree un vínculo de asociación con la red virtual y un grupo de zona DNS para asociar el punto de conexión privado con la zona DNS privada. 
 
 ```azurecli-interactive
-az network private-dns zone create --resource-group $resourceGroupName \ 
+az network private-dns zone create --resource-group $resourceGroupName \
     --name "privatelink.blob.core.windows.net"
 
 az network private-dns link vnet create --resource-group $resourceGroupName \
@@ -119,48 +118,48 @@ az network private-endpoint dns-zone-group create \
 ```
 
 ## <a name="create-a-disk-protected-with-private-links"></a>Creación de un disco protegido con vínculos privados
-  ```cli
-    resourceGroupName=yourResourceGroupName
-    region=northcentralus
-    diskAccessName=yourDiskAccessName
-    diskName=yourDiskName
-    diskSkuName=Standard_LRS
-    diskSizeGB=128
+```azurecli-interactive
+resourceGroupName=yourResourceGroupName
+region=northcentralus
+diskAccessName=yourDiskAccessName
+diskName=yourDiskName
+diskSkuName=Standard_LRS
+diskSizeGB=128
 
-    diskAccessId=$(az resource show -n $diskAccessName -g $resourceGroupName --namespace Microsoft.Compute --resource-type diskAccesses --query [id] -o tsv)
+diskAccessId=$(az resource show -n $diskAccessName -g $resourceGroupName --namespace Microsoft.Compute --resource-type diskAccesses --query [id] -o tsv)
 
-    az group deployment create -g $resourceGroupName \
-       --template-uri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/privatelinks/CreateDisksWithExportViaPrivateLink.json" \
-       --parameters "diskName=$diskName" \
-       "diskSkuName=$diskSkuName" \
-       "diskSizeGB=$diskSizeGB" \
-       "diskAccessId=$diskAccessId" \
-       "region=$region" \
-       "networkAccessPolicy=AllowPrivate"
+az deployment group create -g $resourceGroupName \
+   --template-uri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/privatelinks/CreateDisksWithExportViaPrivateLink.json" \
+   --parameters "diskName=$diskName" \
+   "diskSkuName=$diskSkuName" \
+   "diskSizeGB=$diskSizeGB" \
+   "diskAccessId=$diskAccessId" \
+   "region=$region" \
+   "networkAccessPolicy=AllowPrivate"
 ```
 
 ## <a name="create-a-snapshot-of-a-disk-protected-with-private-links"></a>Creación de una instantánea de un disco protegido con vínculos privados
-   ```cli
-    resourceGroupName=yourResourceGroupName
-    region=northcentralus
-    diskAccessName=yourDiskAccessName
-    sourceDiskName=yourSourceDiskForSnapshot
-    snapshotNameSecuredWithPL=yourSnapshotName
+```azurecli-interactive
+resourceGroupName=yourResourceGroupName
+region=northcentralus
+diskAccessName=yourDiskAccessName
+sourceDiskName=yourSourceDiskForSnapshot
+snapshotNameSecuredWithPL=yourSnapshotName
 
-    diskId=$(az disk show -n $sourceDiskName -g $resourceGroupName --query [id] -o tsv)
-   
-    diskAccessId=$(az resource show -n $diskAccessName -g $resourceGroupName --namespace Microsoft.Compute --resource-type diskAccesses --query [id] -o tsv)
-   
-    az group deployment create -g $resourceGroupName \
-      --template-uri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/privatelinks/CreateSnapshotWithExportViaPrivateLink.json" \
-      --parameters "snapshotName=$snapshotNameSecuredWithPL" \
-      "sourceResourceId=$diskId" \
-      "diskAccessId=$diskAccessId" \
-      "region=$region" \
-      "networkAccessPolicy=AllowPrivate" 
+diskId=$(az disk show -n $sourceDiskName -g $resourceGroupName --query [id] -o tsv)
+
+diskAccessId=$(az resource show -n $diskAccessName -g $resourceGroupName --namespace Microsoft.Compute --resource-type diskAccesses --query [id] -o tsv)
+
+az deployment group create -g $resourceGroupName \
+   --template-uri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/privatelinks/CreateSnapshotWithExportViaPrivateLink.json" \
+   --parameters "snapshotName=$snapshotNameSecuredWithPL" \
+   "sourceResourceId=$diskId" \
+   "diskAccessId=$diskAccessId" \
+   "region=$region" \
+   "networkAccessPolicy=AllowPrivate" 
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Preguntas más frecuentes sobre vínculos privados](faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
-- [Exportación o copia de instantáneas administradas como VHD a una cuenta de almacenamiento de otra región con CLI](../scripts/virtual-machines-linux-cli-sample-copy-managed-disks-vhd.md)
+- [Preguntas más frecuentes sobre vínculos privados](../faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
+- [Exportación o copia de instantáneas administradas como VHD a una cuenta de almacenamiento de otra región con CLI](../scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md)

@@ -3,12 +3,12 @@ title: Copia de seguridad de máquinas virtuales de Hyper-V con MABS
 description: Este artículo contiene los procedimientos para realizar copias de seguridad y recuperar máquinas virtuales mediante Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: bf267285e47f6695f2c6104cbc1817f5e733fa29
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fc4e34e11e2474521082b1c23f600e9a5ca7a9fe
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514564"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378005"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Copia de seguridad de máquinas virtuales de Hyper-V con Azure Backup Server
 
@@ -78,7 +78,7 @@ Estos son los requisitos previos para realizar copias de seguridad de máquinas 
 
 2. Configure el agente de protección de MABS en el servidor o en los nodos de clúster de Hyper-V. Si va a realizar una copia de seguridad de nivel de invitado, tendrá que instalar el agente en las máquinas virtuales de las que quiera realizar copias de seguridad en el nivel de invitado.
 
-3. En la consola de administrador de MABS, haga clic en **Protección** > **Crear grupo de protección** para abrir el asistente **Crear nuevo grupo de protección**.
+3. En la Consola de administrador MABS, seleccione **Protección** > **Crear grupo de protección** para abrir el **Asistente para crear nuevo grupo de protección**.
 
 4. En la página **Seleccionar miembros del grupo**, seleccione las máquinas virtuales que quiera proteger de los servidores host de Hyper-V en los que se encuentran. Se recomienda colocar en un grupo de protección todas las máquinas virtuales que vayan a tener la misma directiva de protección. Para hacer un uso eficaz del espacio, habilite la colocación. La colocación permite localizar datos de diferentes grupos de protección en el mismo almacenamiento en disco o en cinta, de modo que varios orígenes de datos tengan una sola réplica y un volumen de punto de recuperación.
 
@@ -128,13 +128,13 @@ Cuando se puede recuperar una máquina virtual con copia de seguridad, se usa el
 
 1. En la consola de administrador de MABS, escriba el nombre de la máquina virtual, o bien expanda la lista de elementos protegidos y seleccione la máquina virtual que quiera recuperar.
 
-2. En el panel **Puntos de recuperación para**, en el calendario, haga clic en cualquier fecha para ver los puntos de recuperación disponibles. Después, en el panel **Ruta de acceso**, seleccione el punto de recuperación que quiera usar en el Asistente para recuperación.
+2. En el panel **Puntos de recuperación para**, en el calendario, seleccione cualquier fecha para ver los puntos de recuperación disponibles. Después, en el panel **Ruta de acceso**, seleccione el punto de recuperación que quiera usar en el Asistente para recuperación.
 
-3. En el menú **Acciones**, haga clic en **Recuperar** para abrir el Asistente para recuperación.
+3. En el menú **Acciones**, seleccione **Recuperar** para abrir el Asistente para recuperación.
 
-    La máquina virtual y el punto de recuperación que ha seleccionado aparecen en la pantalla **Revisar selección de recuperación**. Haga clic en **Next**.
+    La máquina virtual y el punto de recuperación que ha seleccionado aparecen en la pantalla **Revisar selección de recuperación**. Seleccione **Next** (Siguiente).
 
-4. En la pantalla **Seleccionar tipo de recuperación**, seleccione dónde quiere restaurar los datos y, después, haga clic en **Siguiente**.
+4. En la pantalla **Seleccionar tipo de recuperación**, seleccione dónde quiere restaurar los datos y, después, elija **Siguiente**.
 
     - **Recuperar en instancia original**: Al recuperar en la instancia original, se elimina el disco duro virtual original. MABS recupera el disco duro virtual y otros archivos de configuración en la ubicación original mediante VSS Writer de Hyper-V. Al final del proceso de recuperación, las máquinas virtuales siguen siendo de alta disponibilidad.
         Para la recuperación, el grupo de recursos debe estar presente. Si no está disponible, realice la recuperación en una ubicación alternativa y, después, haga que la máquina virtual sea de alta disponibilidad.
@@ -143,13 +143,13 @@ Cuando se puede recuperar una máquina virtual con copia de seguridad, se usa el
 
     - **Copiar en una carpeta de red**: MABS admite la recuperación de nivel de elemento (ILR), que permite la recuperación de nivel de elemento de archivos, carpetas, volúmenes y discos duros virtuales (VHD) a partir de una copia de seguridad de nivel de host de máquinas virtuales de Hyper-V en un recurso compartido de red o un volumen en un servidor protegido de MABS. No es necesario que el agente de protección de MABS esté instalado dentro del invitado para realizar la recuperación de nivel de elemento. Si elige esta opción, el Asistente para recuperación presentará una pantalla adicional para identificar el destino y la ruta de acceso de destino.
 
-5. En **Especificar opciones de recuperación**, configure las opciones de recuperación y haga clic en **Siguiente**:
+5. En **Especificar opciones de recuperación**, configure las opciones de recuperación y elija **Siguiente**:
 
-    - Si va a recuperar una máquina virtual sobre ancho de banda reducido, haga clic en **Modificar** para habilitar **Límite de uso del ancho de banda de red**. Después de activar la opción de límite, puede especificar la cantidad de ancho de banda que quiere que esté disponible y la hora a la que lo está.
+    - Si va a recuperar una VM sobre ancho de banda reducido, seleccione **Modificar** para habilitar **Límite de uso del ancho de banda de red**. Después de activar la opción de límite, puede especificar la cantidad de ancho de banda que quiere que esté disponible y la hora a la que lo está.
     - Seleccione **Habilitar la recuperación basada en SAN mediante instantáneas de hardware** si ha configurado la red.
     - Seleccione **Send an e-mail when the recovery completes** (Enviar un correo electrónico cuando se complete la recuperación) y, después, proporcione las direcciones de correo electrónico, si quiere que se envíen notificaciones por correo electrónico una vez que se complete el proceso de recuperación.
 
-6. En la pantalla Resumen, asegúrese de que todos los detalles sean correctos. Si los detalles no son correctos, o si quiere realizar un cambio, haga clic en **Atrás**. Si está satisfecho con la configuración, haga clic en **Recuperar** para iniciar el proceso de recuperación.
+6. En la pantalla Resumen, asegúrese de que todos los detalles sean correctos. Si los detalles no son correctos o si quiere realizar un cambio, seleccione **Atrás**. Si está satisfecho con la configuración, seleccione **Recuperar** para iniciar el proceso de recuperación.
 
 7. En la pantalla **Estado de la recuperación** se proporciona información sobre el trabajo de recuperación.
 

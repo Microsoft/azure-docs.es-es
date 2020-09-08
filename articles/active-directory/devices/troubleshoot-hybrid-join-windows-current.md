@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 08f083fe60076c80b5b7d60f555daac499974254
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: bc926c385aeee40601c00b3b4ab68065a4260f2f
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611320"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268781"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Solución de problemas de dispositivos híbridos unidos a Azure Active Directory
 
@@ -28,8 +28,8 @@ Para otros clientes Windows, consulte el artículo [Solución de problemas de di
 En este artículo se da por supuesto que [configuró dispositivos híbridos unidos a Azure Active Directory](hybrid-azuread-join-plan.md) para que admitan los escenarios siguientes:
 
 - Acceso condicional basado en dispositivos
-- [Perfiles móviles de empresa](../active-directory-windows-enterprise-state-roaming-overview.md)
-- [Windows Hello para empresas](../active-directory-azureadjoin-passport-deployment.md)
+- [Perfiles móviles de empresa](./enterprise-state-roaming-overview.md)
+- [Windows Hello para empresas](/windows/security/identity-protection/hello-for-business/hello-identity-verification)
 
 En este documento se proporcionan instrucciones sobre la solución de posibles problemas.
 

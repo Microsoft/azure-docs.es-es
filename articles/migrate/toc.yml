@@ -86,9 +86,9 @@
       href: hyper-v-migration-architecture.md
     - name: Arquitectura de migración basada en agente de VMware
       href: agent-based-migration-architecture.md
-    - name: Introducción a las valoraciones de máquinas virtuales de Azure
+    - name: Introducción a la evaluación (migración a máquinas virtuales de Azure)
       href: concepts-assessment-calculation.md
-    - name: Introducción a las valoraciones de AVS
+    - name: Introducción a las evaluaciones (migración a AVS)
       href: concepts-azure-vmware-solution-assessment-calculation.md
     - name: Procedimientos recomendados de evaluación
       href: best-practices-assessment.md
@@ -168,6 +168,8 @@
       href: troubleshoot-appliance-discovery.md
     - name: Solución de problemas de evaluación o visualización de dependencias
       href: troubleshoot-assessment.md
+    - name: Solución de problemas de replicación en la migración de VMware sin agente
+      href: troubleshoot-changed-block-tracking-replication.md
 - name: Recursos
   items:
     - name: Migración en Cloud Adoption Framework

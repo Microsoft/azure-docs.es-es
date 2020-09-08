@@ -10,12 +10,12 @@ metadata:
   author: genlin
   ms.author: genli
   ms.date: 09/09/2019
-  ms.openlocfilehash: ca49aafcfa4911c97cff4a9187184ba420cd76da
-  ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+  ms.openlocfilehash: df855334f91899ab23625f7161792d0bec416782
+  ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/13/2020
-  ms.locfileid: "88168259"
+  ms.lasthandoff: 08/25/2020
+  ms.locfileid: "88816607"
 landingContent:
 - title: Solución de errores en la implementación
   linkLists:
@@ -104,13 +104,13 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Preguntas frecuentes sobre discos virtuales
-      url: ../windows/faq-for-disks.md
+      url: ../faq-for-disks.md
     - text: Solución de errores de asignación al cambiar el tamaño de una máquina virtual
       url: ./allocation-failure.md
     - text: Descripción de la unidad temporal de la máquina virtual
-      url: ../windows/managed-disks-overview.md#temporary-disk
+      url: ../managed-disks-overview.md#temporary-disk
     - text: Introducción a Azure Managed Disks
-      url: ../windows/managed-disks-overview.md
+      url: ../managed-disks-overview.md
 - title: Problemas de cifrado de disco
   linkLists:
   - linkListType: how-to-guide

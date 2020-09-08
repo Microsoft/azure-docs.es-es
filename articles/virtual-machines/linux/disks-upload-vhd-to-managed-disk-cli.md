@@ -8,12 +8,12 @@ ms.date: 06/15/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 8656f0396aff7f20c867a5fae3d929236a3aa0d5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c7eb50caa4e7f0505809da64dd0309c6e0b8709f
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510453"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691350"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-cli"></a>Carga de un VHD en Azure o copia de un disco administrado en otra región: CLI de Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "86510453"
 
 ## <a name="getting-started"></a>Introducción
 
-Si prefiere cargar discos a través de una interfaz gráfica de usuario, puede hacerlo mediante el Explorador de Azure Storage. Para obtener más detalles, consulte: [Uso del Explorador de Azure Storage para administrar discos administrados de Azure](disks-use-storage-explorer-managed-disks.md)
+Si prefiere cargar discos a través de una interfaz gráfica de usuario, puede hacerlo mediante el Explorador de Azure Storage. Para obtener más detalles, consulte: [Uso del Explorador de Azure Storage para administrar discos administrados de Azure](../disks-use-storage-explorer-managed-disks.md)
 
 Para cargar un disco duro virtual en Azure, deberá crear un disco administrado vacío que esté configurado para este proceso de carga. Antes de crearlo, hay información adicional que debe saber acerca de estos discos.
 

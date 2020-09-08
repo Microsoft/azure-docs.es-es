@@ -4,13 +4,13 @@ description: Aprenda a codificar y probar funciones de Azure en el símbolo del 
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: ae83d8f68b78a3b13f9ebafe3c7cedd18a29de53
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.custom: devx-track-csharp, 80e4ff38-5174-43
+ms.openlocfilehash: 8dfc1471955a6d10199a078922151ff3aeda4294
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449136"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929503"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Uso de Azure Functions Core Tools
 
@@ -37,7 +37,7 @@ Hay tres versiones de Azure Functions Core Tools. La versión que use depende de
 
 + **Versión 1.x**: es compatible con la versión 1.x del entorno en tiempo de ejecución de Azure Functions. Esta versión de las herramientas solo se admite en equipos con Windows y se instala desde un [paquete npm](https://www.npmjs.com/package/azure-functions-core-tools).
 
-A menos que se indique lo contrario, los ejemplos de este artículo son para la versión 3.x.
+Solo puede instalar una versión de Core Tools en un equipo determinado. A menos que se indique lo contrario, los ejemplos de este artículo son para la versión 3.x.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -165,6 +165,9 @@ En la ventana de terminal o desde un símbolo del sistema, ejecute el siguiente 
 func init MyFunctionProj
 ```
 
+>[!IMPORTANT]
+> Java utiliza un arquetipo de Maven para crear el proyecto de funciones local, junto con la primera función desencadenada por HTTP. Utilice el comando siguiente para crear el proyecto de Java: `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype`. Para obtener un ejemplo del uso del arquetipo de Maven, consulte la [guía de inicio rápido de línea de comandos](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java).  
+
 Al especificar un nombre de proyecto, se crea una carpeta con dicho nombre y posteriormente se inicializa. En caso contrario, se inicializa la carpeta actual.  
 En la versión 3.x o 2.x, cuando ejecute el comando, debe elegir un entorno de ejecución para el proyecto. 
 
@@ -205,7 +208,23 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 > [!IMPORTANT]
 > De manera predeterminada, con la versión 2.x y las posteriores de Core Tools se crean proyectos de aplicación de funciones para el entorno de ejecución de .NET como [proyectos de clase de C#](functions-dotnet-class-library.md) (.csproj). Estos proyectos de C#, que se pueden usar con Visual Studio o con Visual Studio Code, se compilan durante las pruebas y al publicar en Azure. Si en su lugar desea crear y trabajar con los mismos archivos de script de C# (.csx) creados en la versión 1.x y en el portal, debe incluir el parámetro `--csx` cuando cree e implemente las funciones.
 
-[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
+## <a name="register-extensions"></a>Registro de las extensiones
+
+A excepción de los desencadenadores de HTTP y del temporizador, los enlaces de Functions en las versiones 2.x y superiores del runtime se implementan como paquetes de extensión. Los enlaces HTTP y los desencadenadores de temporizador no requieren extensiones. 
+
+Para reducir las incompatibilidades entre los distintos paquetes de extensiones, Functions le permite hacer referencia a un conjunto de extensiones en el archivo de proyecto host.json. Si decide no usar conjuntos de extensiones, también debe instalar el SDK de .NET Core 2.x localmente y mantener un archivo extensions.csproj con el proyecto de funciones.  
+
+Tanto en la versión 2.x del runtime de Azure Functions como en las posteriores, debe registrar explícitamente las extensiones de los tipos de enlace que use en sus funciones. Puede instalar las extensiones de enlace individualmente o puede agregar una referencia de un conjunto de extensiones al archivo del proyecto host.json. Los conjuntos de extensiones eliminan la posibilidad de tener problemas de compatibilidad con los paquetes cuando se usan varios tipos de enlace. Este el enfoque recomendado para registrar extensiones de enlace. Los conjuntos de extensiones también eliminan el requisito de instalar el SDK de .NET Core 2.x. 
+
+### <a name="use-extension-bundles"></a>Uso de conjuntos de extensiones
+
+[!INCLUDE [Register extensions](../../includes/functions-extension-bundles.md)]
+
+Para obtener más información, consulte [Register Azure Functions binding extensions](functions-bindings-register.md#extension-bundles) (Registrar las extensiones de enlace de Azure Functions). Debe agregar los conjuntos de extensiones a host.json antes de agregar enlaces al archivo functions.json.
+
+### <a name="explicitly-install-extensions"></a>Instalación explícita de extensiones
+
+[!INCLUDE [functions-extension-register-core-tools](../../includes/functions-extension-register-core-tools.md)]
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
@@ -238,20 +257,21 @@ Incluso cuando se usa el Emulador de Microsoft Azure Storage para tareas de desa
 
   ![Copia de la cadena de conexión desde el Explorador de Azure Storage](./media/functions-run-local/storage-explorer.png)
 
-+ Utilice Core Tools para descargar la cadena de conexión de Azure con uno de los siguientes comandos:
++ Utilice Core Tools en el directorio raíz del proyecto para descargar la cadena de conexión de Azure mediante uno de los siguientes comandos:
 
   + Descargue toda la configuración de una aplicación de función existente:
 
     ```
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
+
   + Obtenga la cadena de conexión de una cuenta de almacenamiento concreta:
 
     ```
     func azure storage fetch-connection-string <StorageAccountName>
     ```
 
-    Si aún no ha iniciado sesión en Azure, se le pedirá que lo haga.
+    Si aún no ha iniciado sesión en Azure, se le pedirá que lo haga. Estos comandos sobrescriben cualquier configuración existente en el archivo local. settings.json. 
 
 ## <a name="create-a-function"></a><a name="create-func"></a>Creación de una función
 
@@ -294,7 +314,7 @@ También puede especificar estas opciones en el comando con los argumentos sigui
 | **`--csx`** | (Versión 2.x y posteriores). Genera las mismas plantillas de script de C# (.csx) que se usan en la versión 1.x y en el portal. |
 | **`--language`**, **`-l`**| Lenguaje de programación de la plantilla, como C#, F# o JavaScript. Esta opción es obligatoria en la versión 1.x. En la versión 2.x y las posteriores, no utilice esta opción o elija un lenguaje que coincida con el entorno de ejecución del trabajo. |
 | **`--name`**, **`-n`** | Nombre de función. |
-| **`--template`** , **`-t`** | Use el comando `func templates list` para ver la lista completa de plantillas disponibles para cada lenguaje compatible.   |
+| **`--template`**, **`-t`** | Use el comando `func templates list` para ver la lista completa de plantillas disponibles para cada lenguaje compatible.   |
 
 
 Por ejemplo, para crear un desencadenador HTTP de JavaScript en un único comando, ejecute:
@@ -318,6 +338,14 @@ Para ejecutar un proyecto de Functions, ejecute el host de Functions. El host ha
 ```
 func start --build
 ```
+
+# <a name="java"></a>[Java](#tab/java)
+
+```
+mvn clean package 
+mvn azure-functions:run
+```
+
 # <a name="javascript"></a>[JavaScript](#tab/node)
 
 ```
@@ -461,9 +489,9 @@ En la versión 1.x, también puede invocar una función directamente con `func r
 | Opción     | Descripción                            |
 | ------------ | -------------------------------------- |
 | **`--content`**, **`-c`** | Contenido alineado. |
-| **`--debug`** , **`-d`** | Se asocia un depurador al proceso de host antes de ejecutar la función.|
-| **`--timeout`** , **`-t`** | Tiempo de espera (en segundos) hasta que el host local de Functions está listo.|
-| **`--file`** , **`-f`** | Nombre del archivo que se usa como contenido.|
+| **`--debug`**, **`-d`** | Se asocia un depurador al proceso de host antes de ejecutar la función.|
+| **`--timeout`**, **`-t`** | Tiempo de espera (en segundos) hasta que el host local de Functions está listo.|
+| **`--file`**, **`-f`** | Nombre del archivo que se usa como contenido.|
 | **`--no-interactive`** | No pide entrada. Resulta útil en escenarios de automatización.|
 
 Por ejemplo, para llamar a una función desencadenada por HTTP y pasar cuerpo del contenido, ejecute el siguiente comando:
@@ -488,6 +516,9 @@ Para publicar su código local en una aplicación de funciones en Azure, use el 
 ```
 func azure functionapp publish <FunctionAppName>
 ```
+
+>[!IMPORTANT]
+> Java utiliza Maven para publicar el proyecto local en Azure. Para publicar proyectos en Azure, ejecute el siguiente comando: `mvn azure-functions:deploy`. Durante la implementación inicial se crean recursos de Azure.
 
 Este comando se publica en una aplicación de función existente en Azure. Obtendrá un error si intenta publicarla en un `<FunctionAppName>` que no exista en su suscripción. Para obtener información sobre cómo crear una aplicación de función desde el símbolo del sistema o la ventana de Terminal mediante la CLI de Azure, consulte [Creación de una instancia de Function App para la ejecución sin servidor](./scripts/functions-cli-create-serverless.md). De manera predeterminada, este comando usa la [compilación remota](functions-deployment-technologies.md#remote-build) e implementa la aplicación para [ejecutarla desde el paquete de implementación](run-functions-from-deployment-package.md). Para deshabilitar este modo de implementación recomendado, use la opción `--nozip`.
 

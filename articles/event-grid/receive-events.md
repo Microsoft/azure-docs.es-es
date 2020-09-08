@@ -3,13 +3,13 @@ title: Recepción de eventos de Azure Event Grid en un punto de conexión de HTT
 description: Describe cómo validar un punto de conexión HTTP y luego recibir y deserializar eventos procedentes de Azure Event Grid.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 3e79d292dfcbed9f572c88e913bc76d47e6ee37f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 9e89c6920c76914ccab6298b1404b0cae698b532
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87415115"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006081"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Recepción de eventos en un punto de conexión de HTTP
 

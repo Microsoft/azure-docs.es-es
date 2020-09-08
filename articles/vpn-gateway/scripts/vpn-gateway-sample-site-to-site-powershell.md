@@ -1,6 +1,6 @@
 ---
 title: Ejemplo de script de Azure PowerShell. Configurar una VPN de sitio a sitio | Microsoft Docs
-description: Configurar una VPN de sitio a sitio.
+description: Use PowerShell para crear una puerta de enlace VPN basada en rutas y configurar el dispositivo VPN para agregar conectividad de sitio a sitio.
 services: vpn-gateway
 documentationcenter: vpn-gateway
 author: kumudD
@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 04/30/2018
 ms.author: alzam
-ms.openlocfilehash: e55cbcbd27d9a2b6307f570d5e2bca37eba3e1e1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fab1f4862cd1f2907d9bdc9f989fe24f1730002c
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86998517"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032448"
 ---
 # <a name="create-a-vpn-gateway-and-add-a-site-to-site-connection-using-powershell"></a>Creación de una instancia de VPN Gateway y adición de una conexión de sitio a sitio mediante PowerShell
 

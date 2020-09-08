@@ -40,11 +40,6 @@
       href: tutorial-kubernetes-app-update.md
     - name: 7 - Actualización de un clúster
       href: tutorial-kubernetes-upgrade-cluster.md
-- name: Ejemplos
-  items:
-    - name: Elementos integrados de Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceptos
   items:
     - name: Clústeres y cargas de trabajo
@@ -129,6 +124,8 @@
       href: security-hardened-vm-host-image.md
     - name: Introducción a los diagnósticos de Azure Kubernetes Service
       href: concepts-diagnostics.md
+    - name: Ingeniería de software sostenible
+      href: concepts-sustainable-software-engineering.md
 - name: Guías paso a paso
   items:
     - name: Operaciones del clúster
@@ -141,7 +138,7 @@
           href: uptime-sla.md
         - name: Uso de grupos con ubicación por proximidad (versión preliminar)
           href: reduce-latency-ppg.md
-        - name: Actualización de la imagen de nodo (versión preliminar)
+        - name: Actualización de la imagen de nodo
           href: node-image-upgrade.md
         - name: Procesamiento de actualizaciones de sistema operativo del nodo
           href: node-updates-kured.md
@@ -190,6 +187,14 @@
           href: azure-netapp-files.md
         - name: Uso de Ultra Disks de Azure (versión preliminar)
           href: use-ultra-disks.md
+        - name: Controladores de almacenamiento CSI
+          items:
+            - name: Habilitación de controladores de almacenamiento CSI (versión preliminar)
+              href: csi-storage-drivers.md
+            - name: Controladores CSI de Azure Data Box Disk (versión preliminar)
+              href: azure-disk-csi.md
+            - name: Controladores CSI de Azure Files (versión preliminar)
+              href: azure-files-csi.md
     - name: Configuración de las redes
       items:
         - name: Creación o uso de una red virtual existente
@@ -255,9 +260,9 @@
           href: update-credentials.md
         - name: Habilitar la integración de Azure Active Directory
           items:
-            - name: 'AKS: AAD administrado'
+            - name: "Azure\_AD administrado por AKS"
               href: managed-aad.md
-            - name: Integración de AAD (heredado)
+            - name: "Integración de Azure\_AD (heredado)"
               href: azure-ad-integration-cli.md
         - name: Uso de Azure RBAC para la autorización de Kubernetes (versión preliminar)
           href: manage-azure-rbac.md
@@ -366,6 +371,8 @@
           href: ssh.md
         - name: Herramientas de rendimiento de Linux
           href: troubleshoot-linux.md
+        - name: Compruebe los eventos de Resource Health (versión preliminar)
+          href: aks-resource-health.md
 - name: Referencia
   items:
     - name: Azure CLI
@@ -384,6 +391,9 @@
       href: /javascript/api/overview/azure/container-service
     - name: Plantilla de Resource Manager
       href: /azure/templates/microsoft.containerservice/managedclusters
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Creación de aptitudes con Microsoft Learn

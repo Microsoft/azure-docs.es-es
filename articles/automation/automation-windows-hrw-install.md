@@ -3,14 +3,14 @@ title: Implementación de una instancia de Hybrid Runbook Worker de Windows en A
 description: En este artículo se describe cómo implementar una instancia de Hybrid Runbook Worker que puede usar para ejecutar runbooks en máquinas Windows en su centro de datos local o en su entorno de nube.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/24/2020
+ms.date: 08/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 634f200280a85ff865741cd03905101ff1e5c19f
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 74657743d14b9365f66ed3373592b708a07e11dc
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448039"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660519"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implementación de Hybrid Runbook Worker en Windows
 
@@ -29,6 +29,9 @@ El rol Hybrid Runbook Worker depende de un área de trabajo de Log Analytics de 
 Si no tiene ningún área de trabajo de Log Analytics de Azure Monitor, revise la [guía de diseño de registros de Azure Monitor](../azure-monitor/platform/design-logs-deployment.md) antes de crear el área de trabajo.
 
 Si tiene un área de trabajo, pero no está vinculada a su cuenta de Automation, la habilitación de una característica de Automation agrega funcionalidad para Azure Automation, incluida la compatibilidad con Hybrid Runbook Worker. Cuando habilita una de las características de Azure Automation en el área de trabajo de Log Analytics, en concreto, en [Update Management](update-management/update-mgmt-overview.md) o [Change Tracking e Inventario](change-tracking.md), los componentes de trabajo se insertan automáticamente en la máquina del agente.
+
+> [!NOTE]
+> Al habilitar las características Update Management, Change Tracking o Inventario, Azure Automation solo admite determinadas regiones para vincular un área de trabajo de Log Analytics y una cuenta de Automation. Para obtener una lista de los pares de asignación que se admiten, consulte [Asignación de región para la cuenta de Automation y el área de trabajo de Log Analytics](how-to/region-mappings.md). Antes de habilitar cualquiera de estas características, revise la información sobre [precios de Azure](https://azure.microsoft.com/pricing/details/automation/) para Azure Automation.
 
    Para agregar la característica Administración de actualizaciones al área de trabajo, ejecute el cmdlet de PowerShell siguiente:
 
@@ -124,9 +127,6 @@ Descargue el script **New-OnPremiseHybridWorker.ps1** de la [Galería de PowerSh
 | `TenantID` | Opcional | identificador de la organización del inquilino asociado a su cuenta de Automation. |
 | `WorkspaceName` | Opcional | Nombre del área de trabajo de Log Analytics. Si no tiene un área de trabajo de Log Analytics, el script creará y configurará una. |
 
-> [!NOTE]
-> Al habilitar las características, Azure Automation solo admite determinadas regiones para vincular un área de trabajo de Log Analytics y una cuenta de Automation. Para obtener una lista de los pares de asignación que se admiten, consulte [Asignación de región para la cuenta de Automation y el área de trabajo de Log Analytics](how-to/region-mappings.md).
-
 ### <a name="step-2---open-windows-powershell-command-line-shell"></a>Paso 2: Apertura del shell de la línea de comandos de Windows PowerShell
 
 Desde el **menú Inicio**, haga clic en **Inicio**, escriba **PowerShell**, haga clic con el botón derecho en **Windows PowerShell** y, a continuación, haga clic en **Ejecutar como administrador**.
@@ -138,9 +138,15 @@ En el shell de la línea de comandos de PowerShell, vaya a la carpeta que contie
 Se le solicitará que se autentique en Azure después de ejecutar el script. Debe iniciar sesión con una cuenta que sea miembro del rol Administradores de suscripciones y coadministrador de la suscripción.
 
 ```powershell-interactive
-.\New-OnPremiseHybridWorker.ps1 -AutomationAccountName <nameOfAutomationAccount> -AAResourceGroupName <nameOfResourceGroup>`
--OMSResourceGroupName <nameOfOResourceGroup> -HybridGroupName <nameOfHRWGroup> `
--SubscriptionID <subscriptionId> -WorkspaceName <nameOfLogAnalyticsWorkspace>
+$NewOnPremiseHybridWorkerParameters = @{
+  AutomationAccountName = <nameOfAutomationAccount>
+  AAResourceGroupName   = <nameOfResourceGroup>
+  OMSResourceGroupName  = <nameOfResourceGroup>
+  HybridGroupName       = <nameOfHRWGroup>
+  SubscriptionID        = <subscriptionId>
+  WorkspaceName         = <nameOfLogAnalyticsWorkspace>
+}
+.\New-OnPremiseHybridWorker.ps1 @NewOnPremiseHybridWorkerParameters
 ```
 
 ### <a name="step-4---install-nuget"></a>Paso 4: Instalación de NuGet

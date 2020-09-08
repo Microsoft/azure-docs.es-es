@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive
 ms.date: 02/25/2020
-ms.openlocfilehash: 92f56f3b405470bc8ae0e9ebab2450ddc31b3c6a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 8c22ff3cc79d326da09c44167519adbea48b5643
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77672181"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651342"
 ---
 # <a name="what-is-apache-kafka-in-azure-hdinsight"></a>Qué es Apache Kafka en Azure HDInsight
 
@@ -27,7 +27,7 @@ Las siguientes son características específicas de Kafka en HDInsight:
 
 * Utiliza Azure Managed Disks como memoria auxiliar para Kafka. Managed Disks puede ofrecer hasta 16 TB de almacenamiento por agente de Kafka. Para obtener información acerca de la configuración de discos administrados con Kafka en HDInsight, consulte [Increase scalability of Apache Kafka on HDInsight](apache-kafka-scalability.md) (Aumento de la escalabilidad de Apache Kafka en HDInsight).
 
-    Para más información acerca de los discos administrados, consulte [Introducción a Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md).
+    Para más información acerca de los discos administrados, consulte [Introducción a Azure Managed Disks](../../virtual-machines/managed-disks-overview.md).
 
 * Kafka se diseñó con una sola vista dimensional de bastidor. Azure separa un bastidor en dos dimensiones: dominios de actualización (UD) y dominios de error (FD). Microsoft proporciona herramientas que reequilibran las particiones de Kafka y las réplicas entre los dominios de actualización y de error.
 

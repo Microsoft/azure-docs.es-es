@@ -11,12 +11,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96846d75111fe11b225704a248baeb006a3df3fb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c87a965c96920ea2ce90dae0333147338c99018a
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "66473015"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279149"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Tutorial:  Integración de un único bosque de AD mediante la autenticación de paso a través (PTA)
 
@@ -26,9 +26,9 @@ El siguiente tutorial le guiará a través de la creación de un entorno de iden
 
 ## <a name="prerequisites"></a>Prerrequisitos
 A continuación, se indican los requisitos previos necesarios para completar este tutorial:
-- Un equipo con [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) instalado.  Se recomienda hacer esto en un equipo con [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) o [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
+- Un equipo con [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) instalado.  Se recomienda hacer esto en un equipo con [Windows 10](/virtualization/hyper-v-on-windows/about/supported-guest-os) o [Windows Server 2016](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 - [Una suscripción de Azure](https://azure.microsoft.com/free)
-- - Un [adaptador de red externo](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/connect-to-network) para permitir que la máquina virtual se comunique con Internet.
+- - Un [adaptador de red externo](/virtualization/hyper-v-on-windows/quick-start/connect-to-network) para permitir que la máquina virtual se comunique con Internet.
 - Una copia de Windows Server 2016.
 - Un [dominio personalizado](../../active-directory/fundamentals/add-custom-domain.md) que se pueda comprobar.
 

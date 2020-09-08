@@ -1,6 +1,6 @@
 ---
 title: Migración de datos del dispositivo de la serie 5000-7000 de StorSimple a la serie 8000 | Microsoft Docs
-description: Proporciona información general y los requisitos previos de la característica de migración.
+description: Obtenga información sobre cómo migrar datos en el dispositivo de la serie 5000-7000 de StorSimple a la serie 8000 y cuáles son los requisitos previos para el proceso de migración.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 721dffcaea64e949ac7a5230e24f3aa37261fa9e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 0fc18c6d67935889b0ba0c306dc326eca3b888f5
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206488"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184302"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Migración de datos del dispositivo de la serie 5000-7000 de StorSimple a la serie 8000
 

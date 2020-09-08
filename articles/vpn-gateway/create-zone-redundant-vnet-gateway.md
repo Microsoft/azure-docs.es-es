@@ -1,6 +1,6 @@
 ---
 title: Crear una puerta de enlace de red virtual con redundancia de zona en Azure Availability Zones
-description: Implementar puertas de enlace de VPN Gateway y ExpressRoute en Availability Zones
+description: Obtenga información sobre cómo implementar puertas de enlace de VPN con redundancia de zona y puertas de enlace de ExpressRoute en Azure Availability Zones.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6cd0b2f31af187d881fe650c0829bb28e353dcbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1404f5201ff5f543e34c6a4c8e5713cab3a4c51b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987631"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88033485"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Crear una puerta de enlace de red virtual con redundancia de zona en Azure Availability Zones
 

@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: c1ac3c1e312704f8a0afa751d0efc6d0cef897f9
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 76a31b10c15f2dff3d6d9304dcff6d0fb489ea7f
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371777"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210382"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Uso de reglas y puntos de conexión de servicio de red virtual para servidores de Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -59,7 +59,7 @@ Existe una separación de los roles de seguridad en la administración de puntos
 
 Los roles de administrador de red y de base de datos tienen más funcionalidades de las que se necesitan para administrar las reglas de red virtual. Solo se necesita un subconjunto de sus capacidades.
 
-Si quiere, puede optar por usar el [control de acceso basado en rol (RBAC)][rbac-what-is-813s] en Azure para crear un rol personalizado único que tenga solo el subconjunto necesario de funcionalidades. Se podría usar el rol personalizado en lugar del administrador de red o el administrador de la base de datos. El área expuesta de la exposición de seguridad es inferior si agrega un usuario a un rol personalizado, en lugar de agregar el usuario a los otros dos roles de administrador principales.
+Si lo desea, puede optar por usar el [control de acceso basado en rol de Azure (Azure RBAC)][rbac-what-is-813s] en Azure para crear un rol personalizado único que tenga solo el subconjunto necesario de funcionalidades. Se podría usar el rol personalizado en lugar del administrador de red o el administrador de la base de datos. El área expuesta de la exposición de seguridad es inferior si agrega un usuario a un rol personalizado, en lugar de agregar el usuario a los otros dos roles de administrador principales.
 
 > [!NOTE]
 > En algunos casos, la base de datos de Azure SQL Database y la subred de red virtual se encuentran en suscripciones diferentes. En estos casos debe garantizar las siguientes configuraciones:
@@ -106,15 +106,15 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 
 Azure Storage ha implementado la misma característica que permite limitar la conectividad con la cuenta de Azure Storage. Si decide usar esta característica con una cuenta de Azure Storage usada por Azure SQL Database, es posible que se produzcan errores. A continuación se muestra una lista de las características de Azure SQL Database y Azure SQL Data Warehouse afectadas por esto, junto a la correspondiente explicación.
 
-### <a name="azure-synapse-polybase"></a>PolyBase de Azure Synapse
+### <a name="azure-synapse-polybase-and-copy-statement"></a>PolyBase de Azure Synapse e instrucción COPY
 
-PolyBase se suele usar para cargar datos en Azure Synapse Analytics desde cuentas de Azure Storage. Si la cuenta de Azure Storage desde la que se cargan los datos limita el acceso a solo un conjunto de subredes de red virtual, se interrumpirá la conectividad de PolyBase a la cuenta. Para habilitar los escenarios de importación y exportación de PolyBase con la conexión de Azure Synapse Analytics a Azure Storage protegido para la red virtual, siga los pasos que se indican a continuación:
+PolyBase y la instrucción COPY se suelen usar para cargar datos en Azure Synapse Analytics desde cuentas de Azure Storage para la ingesta de datos de alto rendimiento. Si la cuenta de Azure Storage desde la que se cargan los datos limita el acceso a solo un conjunto de subredes de red virtual, se interrumpirá la conectividad cuando se utilice PolyBase y la instrucción COPY con la cuenta de almacenamiento. Para habilitar los escenarios de importación y exportación que usan COPY y PolyBase con la conexión de Azure Synapse Analytics a Azure Storage protegido para la red virtual, siga los pasos que se indican a continuación:
 
 #### <a name="prerequisites"></a>Requisitos previos
 
 - Instale Azure PowerShell mediante esta [guía](https://docs.microsoft.com/powershell/azure/install-az-ps).
 - Si tiene una cuenta de uso general v1 o de Blob Storage, primero debe actualizar a Uso general v2 mediante esta [guía](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
-- Debe activar **Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento** en el menú de configuración **Firewalls y redes virtuales** de la cuenta de Azure Storage. Consulte [esta guía](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) para obtener más información.
+- Debe activar **Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento** en el menú de configuración **Firewalls y redes virtuales** de la cuenta de Azure Storage. La habilitación de esta configuración permitirá que PolyBase y la instrucción COPY se conecten a la cuenta de almacenamiento mediante la autenticación segura en la que el tráfico de red permanece en la red troncal de Azure. Consulte [esta guía](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) para obtener más información.
 
 > [!IMPORTANT]
 > El módulo de Azure Resource Manager para PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. El módulo de AzureRM continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo.  Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos. Para obtener más información sobre la compatibilidad, vea [Presentación del nuevo módulo Az de Azure PowerShell](/powershell/azure/new-azureps-module-az).
@@ -136,7 +136,7 @@ PolyBase se suele usar para cargar datos en Azure Synapse Analytics desde cuenta
    > - Si tiene una cuenta de uso general v1 o de Blob Storage, **primero debe actualizar a Uso general v2** mediante esta [guía](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
    > - Para saber los problemas conocidos con Azure Data Lake Storage Gen2, consulte esta [guía](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
 
-1. En la cuenta de almacenamiento, vaya a **Control de acceso (IAM)** y seleccione **Agregar asignación de roles**. Asigne el rol de RBAC de **Colaborador de datos de blobs de almacenamiento** al servidor que hospeda la instancia de Azure Synapse Analytics que ha registrado con Azure Active Directory (AAD) en el paso 1.
+1. En la cuenta de almacenamiento, vaya a **Control de acceso (IAM)** y seleccione **Agregar asignación de roles**. Asigne el rol de Azure de **Colaborador de datos de blobs de almacenamiento** al servidor que hospede la instancia de Azure Synapse Analytics que haya registrado con Azure Active Directory (AAD) en el paso 1.
 
    > [!NOTE]
    > Solo los miembros con el privilegio Propietario sobre la cuenta de almacenamiento pueden realizar este paso. Para conocer los distintos roles integrados de Azure, consulte esta [guía](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
@@ -227,7 +227,7 @@ Internamente, los cmdlets de PowerShell para acciones de red virtual SQL llaman 
 
 - [Reglas de red virtual: Operaciones][rest-api-virtual-network-rules-operations-862r]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Ya debe tener una subred que esté etiquetada con el punto de conexión de servicio de red virtual *nombre de tipo* correspondiente a Azure SQL Database.
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 0a0feb6b638cb6e3a74fcd30baea5e8a04375699
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 5c638b434ceb31b57689b11971f48eb322b94726
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857793"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985621"
 ---
 # <a name="use-the-model-conversion-rest-api"></a>Uso de la API REST de conversión de modelos
 
@@ -53,6 +53,8 @@ Devuelve el identificador de la conversión en curso, encapsulado en un document
 
 #### <a name="request-body"></a>Cuerpo de la solicitud
 
+> [!NOTE]
+> Todo lo que hay en `input.folderPath` se recuperará para realizar la conversión en Azure. Si no se especifica `input.folderPath`, se recuperará todo el contenido del contenedor. Todos los blobs y carpetas que se recuperan deben tener [nombres de archivo de Windows válidos](https://docs.microsoft.com/windows/win32/fileio/naming-a-file#naming-conventions).
 
 ```json
 {
@@ -79,7 +81,7 @@ Si su cuenta de ARR no está vinculada a su cuenta de almacenamiento, esta inter
 |-----------|:-----------|
 | /v1/accounts/**accountID**/conversions/createWithSharedAccessSignature | POST |
 
-Devuelve el identificador de la conversión en curso, encapsulado en un documento JSON. El nombre del campo es "conversionId".
+Devuelve el identificador de la conversión en curso, encapsulado en un documento JSON. El nombre del campo es `conversionId`.
 
 #### <a name="request-body"></a>Cuerpo de la solicitud
 
@@ -88,6 +90,8 @@ El cuerpo de la solicitud es el mismo que en la creación de una llamada REST an
 > [!NOTE]
 > Estos tokens de URI de SAS son las cadenas de consulta y no el URI completo. 
 
+> [!NOTE]
+> Todo lo que hay en `input.folderPath` se recuperará para realizar la conversión en Azure. Si no se especifica `input.folderPath`, se recuperará todo el contenido del contenedor. Todos los blobs y carpetas que se recuperan deben tener [nombres de archivo de Windows válidos](https://docs.microsoft.com/windows/win32/fileio/naming-a-file#naming-conventions).
 
 ```json
 {

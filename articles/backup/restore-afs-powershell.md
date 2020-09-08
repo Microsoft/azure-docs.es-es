@@ -3,12 +3,12 @@ title: Restauración de Azure Files con PowerShell
 description: En este artículo se aprende a restaurar Azure Files mediante el servicio Azure Backup y PowerShell.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 23de6e1e352a1b72d1435fc65d6a59ab37d838b0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 60c9848e12de80bcafe4553a9e8f3e27e8876d41
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538554"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826504"
 ---
 # <a name="restore-azure-files-with-powershell"></a>Restauración de Azure Files con PowerShell
 
@@ -17,7 +17,7 @@ En este artículo se explica cómo restaurar un recurso compartido de archivos c
 Puede restaurar un recurso compartido de archivos al completo o archivos específicos de dicho recurso compartido. La restauración puede llevarse a cabo en la ubicación original o en una ubicación alternativa.
 
 > [!WARNING]
-> Asegúrese de que la versión de PS se actualice a la versión mínima de "Az.RecoveryServices 2.6.0" para las copias de seguridad de AFS. Para más información, consulte [la sección](backup-azure-afs-automation.md#important-notice-backup-item-identification) que describe el requisito de este cambio.
+> Asegúrese de que la versión de PowerShell se actualice a la versión mínima de "Az.RecoveryServices 2.6.0" para las copias de seguridad de AFS. Para más información, consulte [la sección](backup-azure-afs-automation.md#important-notice-backup-item-identification) que describe el requisito de este cambio.
 
 >[!NOTE]
 >Azure Backup admite ahora la restauración de varios archivos o carpetas en la ubicación original o alternativa mediante PowerShell. Consulte [esta sección](#restore-multiple-files-or-folders-to-original-or-alternate-location) del documento para más información sobre cómo hacerlo.

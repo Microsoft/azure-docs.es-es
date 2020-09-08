@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/15/2020
-ms.openlocfilehash: a4594ca1a992f158522eccb4ffa6e846a1f4f605
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 14a3a76ef4fefb7a33b272b846e1f1cb66644c3e
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406289"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225689"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Red virtual administrada de Azure Data Factory (versión preliminar)
 
@@ -49,7 +49,7 @@ Los puntos de conexión privados administrados se crean en la red virtual admini
 
 ![Nuevo punto de conexión privado administrado](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
-Azure Data Factory admite vínculos privados. El vínculo privado le permite acceder a servicios de Azure (PaaS) (como Azure Storage, Azure Cosmos DB o Azure SQL Data Warehouse).
+Azure Data Factory admite vínculos privados. El vínculo privado le permite acceder a servicios de Azure (PaaS) [como Azure Storage, Azure Cosmos DB o Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse)].
 
 Cuando se usa un vínculo privado, el tráfico entre los almacenes de datos y la red virtual administrada atraviesa completamente la red troncal de Microsoft. Private Link protege frente a los riesgos de la filtración de datos. El vínculo privado a un recurso se establece mediante la creación de un punto de conexión privado.
 
@@ -79,18 +79,14 @@ Los orígenes de datos siguientes pueden establecer una conexión a través de u
 - Azure Files
 - Azure Data Lake Gen2
 - Azure SQL Database (sin incluir Azure SQL Managed Instance)
-- Azure SQL Data Warehouse
+- Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse)
 - Azure CosmosDB SQL
 - Azure Key Vault
-- Azure Private Link
+- Servicio Azure Private Link
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Comunicaciones salientes a través del punto de conexión público desde la red virtual administrada de ADF
 - Solo se abre el puerto 443 para las comunicaciones salientes.
 - Azure Storage y Azure Data Lake Gen2 no pueden establecer una conexión a través del punto de conexión público desde la red virtual administrada de ADF.
-
-### <a name="other-known-issues"></a>Otros problemas conocidos
-La ejecución de depuración para la conectividad de CosmosDB no funciona, incluidas la depuración del flujo de datos y la de canalización.
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

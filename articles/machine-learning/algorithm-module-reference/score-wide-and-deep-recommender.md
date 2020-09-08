@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 06/12/2020
-ms.openlocfilehash: df723824b2d80694913e32904ed81972381c5bcb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/12/2020
+ms.openlocfilehash: 43dca9cd9f9000faae701e618e9a5fdf21d31ee3
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536222"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192744"
 ---
 # <a name="score-wide-and-deep-recommender"></a>Puntuación del recomendador ancho y profundo
 
@@ -148,9 +148,6 @@ El conjunto de datos puntuado devuelto por **Score Wide and Deep Recommender** (
 - La primera columna debe contener identificadores de usuario.
 - Se generan varias columnas adicionales, en función del valor establecido para **Número máximo de elementos para recomendar a un usuario**. Cada columna contiene un elemento recomendado (por identificador). Las recomendaciones se ordenan por afinidad de usuario-elemento, con el elemento con la mayor afinidad colocada en la columna, **Elemento 1**.
 
-> [!WARNING]
-> Este conjunto de datos puntuado no se puede evaluar con el módulo [Evaluación del recomendador](evaluate-recommender.md).
-
 ##  <a name="technical-notes"></a>Notas técnicas
 
 Esta sección contiene respuestas a algunas preguntas comunes sobre el uso del recomendador Wide & Deep para crear predicciones.  
@@ -183,4 +180,4 @@ Si ha experimentado con el recomendador Wide and Deep y, a continuación, pasa e
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) de Azure Machine Learning. 

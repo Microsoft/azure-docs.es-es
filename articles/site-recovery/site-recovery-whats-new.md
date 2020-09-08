@@ -2,13 +2,13 @@
 title: Novedades de Azure Site Recovery
 description: Proporciona un resumen de las nuevas características y las actualizaciones más recientes en el servicio Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 06/01/2020
-ms.openlocfilehash: 28bdf902ab74bf4bb94a6bc02a558bf200b25e52
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.date: 08/20/2020
+ms.openlocfilehash: 837344d10e21d20488760f6d5aa4749c039f9b07
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836639"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816956"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novedades de Site Recovery
 
@@ -22,17 +22,25 @@ En el caso de los componentes de Site Recovery, se admiten las versiones N-4, do
 
 **Actualizar** |  **Instalación unificada** | **Servidor de configuración OVA** | **Agente de Mobility Service** | **Proveedor de Site Recovery** | **Agente de Recovery Services**
 --- | --- | --- | --- | --- | ---
+[Paquete acumulativo 49](https://support.microsoft.com/help/4578241/) | 9.36.5696.1 | 5.1.6315.0 | 9.36.5696.1 | 5.1.6315.0 | 2.0.9188.0
 [Paquete acumulativo 48](https://support.microsoft.com/help/4573888/) | 9.35.5659.1 | 5.1.6200.0 | 9.35.5659.1 | 5.1.6200.0 | 2.0.9186.0
 [Paquete acumulativo 47](https://support.microsoft.com/help/4570609/) | 9.34.5634.1 | 5.1.6100.0 | 9.34.5634.1 | 5.1.6100.0 | Máquinas HyperV - 2.0.9183.0 <br> Máquinas de VMware - 2.0.9177.0
 [Paquete acumulativo 46](https://support.microsoft.com/help/4564347/) | 9.33.5598.1 | 5.1.5900.0 | 9.33.5598.1 | 5.1.5900.0 | 2.0.9175.0
 [Paquete acumulativo 45](https://support.microsoft.com/help/4550047/) | 9.32.5487.1 | 5.1.5400.0 | 9.32.5487.1 | 5.1.5400.0 | 2.0.9165.0
-[Paquete acumulativo 43](https://support.microsoft.com/help/4537047/) | 9.31.5449.1 | 5.1.5300.0 | 9.31.5449.1 | 5.1.5300.0 | 2.0.9165.0
-[Paquete acumulativo 42](https://support.microsoft.com/help/4531426/) | 9.30.5407.1 | 5.1.5200.0 | 9.30.5407.1 | 5.1.5200.0 | 2.0.9165.0
 
 [Más información](service-updates-how-to.md) sobre la instalación y el soporte técnico de las actualizaciones.
 
-> [!NOTE]
-> El paquete acumulativo de actualizaciones 44 no se muestra en la tabla porque no incluía actualizaciones para los proveedores y agentes de Site Recovery.
+
+## <a name="updates-august-2020"></a>Actualizaciones (agosto de 2020)
+
+### <a name="update-rollup-49"></a>Paquete acumulativo de actualizaciones 49
+
+El [paquete acumulativo de actualizaciones 49](https://support.microsoft.com/help/4578241/update-rollup-49-for-azure-site-recovery) proporciona las siguientes actualizaciones:
+
+**Actualizar** | **Detalles**
+--- | ---
+**Proveedores y agentes** | Actualizaciones de los proveedores y agentes de Site Recovery según se detalla en el paquete acumulativo de actualizaciones.
+**Mejoras y correcciones de problemas** | Un número de correcciones y mejoras (tal como se detalla en el paquete acumulativo).
 
 ## <a name="updates-july-2020"></a>Actualizaciones (julio de 2020)
 
@@ -370,7 +378,7 @@ Las características que se agregaron este mes se resumen en la tabla.
 **Característica** | **Detalles**
 --- | ---
 **Asignación de red** | Para la recuperación ante desastres de VM de Azure, puede usar cualquier red de destino disponible cuando se habilite la replicación.
-**SSD estándar** | Ahora puede configurar la recuperación ante desastres para VM de Azure con [discos SSD estándar](../virtual-machines/windows/disks-types.md#standard-ssd).
+**SSD estándar** | Ahora puede configurar la recuperación ante desastres para VM de Azure con [discos SSD estándar](../virtual-machines/disks-types.md#standard-ssd).
 **Espacios de almacenamiento directo** | Puede configurar la recuperación ante desastres para aplicaciones que se ejecutan en aplicaciones de la VM de Azure mediante el uso de [Espacios de almacenamiento directo ](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) para lograr alta disponibilidad.  Usar los Espacios de almacenamiento directo (S2D) junto con Site Recovery proporciona una protección exhaustiva de las cargas de trabajo de una VM de Azure. S2D le permite hospedar un clúster invitado en Azure. Esto es especialmente útil cuando una VM hospeda una aplicación crítica, como capa de ASCS de SAP, SQL Server o un servidor de archivos de escalabilidad horizontal.
 
 
@@ -530,7 +538,7 @@ Las características que se agregaron este mes se resumen en la tabla.
 
 **Característica** | **Detalles**
 --- | ---
-**Soporte técnico de Linux** | Se agregó compatibilidad para RedHat Enterprise Linux 6.10; CentOS 6.10.<br/><br/> Ahora se admiten las máquinas virtuales Linux que usan el estilo de partición de tabla de particiones de GUID (GPT) en el modo de compatibilidad BIOS heredado. Revise las [preguntas más frecuentes de VM de Azure](../virtual-machines/linux/faq-for-disks.md) para obtener más información.
+**Soporte técnico de Linux** | Se agregó compatibilidad para RedHat Enterprise Linux 6.10; CentOS 6.10.<br/><br/> Ahora se admiten las máquinas virtuales Linux que usan el estilo de partición de tabla de particiones de GUID (GPT) en el modo de compatibilidad BIOS heredado. Revise las [preguntas más frecuentes de VM de Azure](../virtual-machines/faq-for-disks.md) para obtener más información.
 **Recuperación ante desastres para VM después de la migración** | Compatibilidad para habilitar la recuperación ante desastres en una región secundaria para una VM de VMware local migrada a Azure, sin necesidad de desinstalar el servicio Mobility en la VM antes de habilitar la replicación.
 **Windows Server 2008** | Compatibilidad para migrar máquinas que ejecutan Windows Server 2008 R2/2008 de 64 bits y 32 bits.<br/><br/> Solo migración (conmutación por error y replicación). No se admite la conmutación por recuperación.
 

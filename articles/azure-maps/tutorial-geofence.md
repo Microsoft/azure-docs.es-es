@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Creación de una geovalla y seguimiento de dispositivos en un mapa de Microsoft Azure'
-description: Aprenderá a configurar una geovalla y a realizar un seguimiento de los dispositivos en relación con la geovalla mediante el servicio espacial de Microsoft Azure Maps.
+description: Obtenga información sobre cómo configurar una geovalla. Obtenga información sobre cómo realizar un seguimiento de los dispositivos con respecto a la geovalla mediante el servicio espacial de Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 7/15/2020
+ms.date: 8/11/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 775d98b992f2bca4441c868873ceaeb2389db81a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3ea9923dd98a49b1533defa3e95616655b7ea78d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517397"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299310"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutorial: Configuración de una geovalla con Azure Maps
 
@@ -25,7 +25,7 @@ Este tutorial le guía por los aspectos básicos de la creación y el uso de los
 Azure Maps proporciona una serie de servicios que admiten el seguimiento de los equipos que entren y salgan del área de construcción del escenario anterior. En este tutorial se explica cómo:
 
 > [!div class="checklist"]
-> * Cargue los [datos GeoJSON de geovalla](geofence-geojson.md) que definan las áreas del sitio de construcción que desee supervisar. Usaremos [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) para cargar geovallas como coordenadas de polígonos en su cuenta de Azure Maps.
+> * Cargue los [datos GeoJSON de geovalla](geofence-geojson.md) que definen las áreas del sitio de construcción que desea supervisar. Usaremos [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) para cargar geovallas como coordenadas de polígonos en su cuenta de Azure Maps.
 > * Configure dos [aplicaciones lógicas](https://docs.microsoft.com/azure/event-grid/handler-webhooks#logic-apps) que, cuando se desencadenen, envíen notificaciones de correo electrónico al administrador de operaciones del sitio de construcción, cuando el equipo entre y salga del área de geovalla.
 > * Use [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) para suscribirse a los eventos de entrada y salida de geovallas de Azure Maps. Instalaremos dos suscripciones de eventos de webhook que llamarán a los puntos de conexión HTTP definidos en las dos aplicaciones lógicas. A continuación, las aplicaciones lógicas enviarán las notificaciones de correo electrónico adecuadas sobre los equipos que salen o entran de la geovalla.
 > * Use [Search Geofence Get API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) para recibir notificaciones cuando una parte del equipo salga y entre de las áreas de la geovalla.
@@ -258,15 +258,15 @@ Siga estos pasos para crear una suscripción de eventos para los eventos de entr
 
 5. Repita los pasos 1 a 4 para el punto de conexión de salida de la aplicación lógica que creó en la sección anterior. En el paso 3, asegúrese de elegir `Geofence Exited` como tipo de evento.
 
-## <a name="use-search-geofence-get-api"></a>Uso de Search Geofence Get API
+## <a name="use-spatial-geofence-get-api"></a>Uso de Spatial Geofence Get API
 
-Ahora, usaremos [Search Geofence Get API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) para enviar notificaciones por correo electrónico al responsable de operaciones cuando un miembro del equipo entre o salga de las geovallas.
+Ahora, usaremos [Spatial Geofence Get API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) para enviar notificaciones por correo electrónico a Operations Manager cuando un miembro del equipo entre o salga de las geovallas.
 
 Cada equipo tiene un `deviceId`. En este tutorial, vamos a realizar un seguimiento de un solo equipo, cuyo identificador único es `device_1`.
 
 Para mayor claridad, en el siguiente diagrama se muestran las cinco ubicaciones del equipo a lo largo del tiempo, empezando por la ubicación de *inicio*, que se encuentra fuera de las geovallas. Para los fines de este tutorial, la ubicación de *inicio* no está definida, ya que no se consultará el dispositivo en esa ubicación.
 
-Cuando se realice una consulta a [Search Geofence Get API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) con una ubicación de equipo que indica la entrada o salida de la geovalla inicial, Event Grid llamará al punto de conexión de la aplicación lógica adecuado para enviar una notificación por correo electrónico al responsable de operaciones.
+Cuando se realice una consulta a [Spatial Geofence Get API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) con una ubicación de equipo que indica la entrada o salida de la geovalla inicial, Event Grid llamará al punto de conexión de la aplicación lógica adecuado para enviar una notificación por correo electrónico a Operations Manager.
 
 En cada una de las secciones siguientes se realizan solicitudes HTTP a GET Geofencing API con las cinco coordenadas de ubicación diferentes del equipo.
 

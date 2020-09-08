@@ -9,20 +9,20 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: 76eee4b0b029714a75b57e5d44e097a36de3181f
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 84ddc4b427f6dc168c044f34b41e81e3b0ff19e5
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371420"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935048"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administración de los servicios de Azure Cognitive Search en Azure Portal
 
 > [!div class="op_single_selector"]
 >
 > * [PowerShell](search-manage-powershell.md)
-> * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)
-> * [SDK de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
+> * [REST API](/rest/api/searchmanagement/)
+> * [SDK de .NET](/dotnet/api/microsoft.azure.management.search)
 > * [Portal](search-manage.md)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
@@ -33,9 +33,9 @@ Azure Cognitive Search es un servicio de búsqueda basado en la nube totalmente 
 * Administre el acceso con la página **Claves** que aparece a la izquierda.
 * Ajuste la capacidad con la página **Escala** que aparece a la izquierda.
 
-Las mismas tareas que se realizan en el portal también se pueden controlar mediante programación a través de las [API de Administración](https://docs.microsoft.com/rest/api/searchmanagement/) y del [módulo Az.Search PowerShell](search-manage-powershell.md). Las tareas administrativas se representan completamente en interfaces programáticas y el portal. No hay ninguna tarea administrativa específica que esté disponible solo en una modalidad.
+Las mismas tareas que se realizan en el portal también se pueden controlar mediante programación a través de las [API de Administración](/rest/api/searchmanagement/) y del [módulo Az.Search PowerShell](search-manage-powershell.md). Las tareas administrativas se representan completamente en interfaces programáticas y el portal. No hay ninguna tarea administrativa específica que esté disponible solo en una modalidad.
 
-Azure Cognitive Search aprovecha otros servicios de Azure para realizar una supervisión y administración más profundas. Por sí solos, los únicos datos almacenados con un servicio de búsqueda son contenido (índices, indexador y definiciones de orígenes de datos, además de otros objetos). Las métricas que se indican en las páginas del portal se extraen de los registros internos en un ciclo continuo de 30 días. Para la retención de registros controlada por el usuario y eventos adicionales, necesitará [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/). 
+Azure Cognitive Search aprovecha otros servicios de Azure para realizar una supervisión y administración más profundas. Por sí solos, los únicos datos almacenados con un servicio de búsqueda son contenido (índices, indexador y definiciones de orígenes de datos, además de otros objetos). Las métricas que se indican en las páginas del portal se extraen de los registros internos en un ciclo continuo de 30 días. Para la retención de registros controlada por el usuario y eventos adicionales, necesitará [Azure Monitor](../azure-monitor/index.yml). 
 
 ## <a name="fixed-service-properties"></a>Propiedades fijas del servicio
 
@@ -56,9 +56,9 @@ Con respecto al acceso al punto de conexión, cualquier persona que tenga acceso
 * El acceso de solo lectura al servicio es de derechos de consulta y habitualmente se concede a una aplicación cliente al proporcionarle la dirección URL y una clave de API de consulta.
 * El acceso de lectura y escritura proporciona la capacidad de agregar, eliminar o modificar objetos de servidor, como claves de API, índices, indexadores, orígenes de datos y programaciones. El acceso de lectura y escritura se concede al proporcionar la dirección URL y una clave de API de administración.
 
-Los derechos al aparato de aprovisionamiento de servicios se conceden a través de las asignaciones de roles. El [acceso basado en rol (RBAC)](../role-based-access-control/overview.md) es un sistema de autorización basado en [Azure Resource Manager](../azure-resource-manager/management/overview.md) para el aprovisionamiento de recursos de Azure. 
+Los derechos al aparato de aprovisionamiento de servicios se conceden a través de las asignaciones de roles. El [control de acceso basado en rol de Azure (Azure RBAC)](../role-based-access-control/overview.md) es un sistema de autorización basado en [Azure Resource Manager](../azure-resource-manager/management/overview.md) para el aprovisionamiento de recursos de Azure. 
 
-En el contexto de Azure Cognitive Search, las [asignaciones de roles de RBAC](search-security-rbac.md) determinarán quién puede realizar tareas, independientemente de si usan el [portal](search-manage.md), [PowerShell](search-manage-powershell.md) o las [API REST de Administración](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api):
+En el contexto de Azure Cognitive Search, las [asignaciones de roles de Azure](search-security-rbac.md) determinarán quién puede realizar tareas, independientemente de si usan el [portal](search-manage.md), [PowerShell](search-manage-powershell.md) o las [API REST de Administración](/rest/api/searchmanagement/search-howto-management-rest-api):
 
 * Creación o eliminación de un servicio
 * Escala del servicio
@@ -73,12 +73,12 @@ En el contexto de Azure Cognitive Search, las [asignaciones de roles de RBAC](se
 
 En el nivel básico, y en los superiores, Microsoft supervisa que todos los servicios de Azure Cognitive Search tengan una disponibilidad del 99,9 % por contrato de nivel de servicio (SLA). Si el servicio es lento o el rendimiento de las solicitudes no llega a los umbrales del SLA, los equipos de soporte técnico revisan los archivos de registro a los que pueden acceder y solucionan el problema.
 
-Azure Cognitive Search usa [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) para recopilar y almacenar la actividad de indexación y consulta. Un servicio de búsqueda almacena solo su contenido (índices, definiciones de indexador, definiciones de orígenes de datos, definiciones de conjuntos de aptitudes, asignaciones de sinónimos). La información registrada y almacenamiento en caché se almacena fuera del servicio, por lo general en una cuenta de Azure Storage. Para más información sobre cómo registrar cargas de trabajo de consulta e indexación, consulte [Recopilación y análisis de datos de registro](search-monitor-logs.md).
+Azure Cognitive Search usa [Azure Monitor](../azure-monitor/index.yml) para recopilar y almacenar la actividad de indexación y consulta. Un servicio de búsqueda almacena solo su contenido (índices, definiciones de indexador, definiciones de orígenes de datos, definiciones de conjuntos de aptitudes, asignaciones de sinónimos). La información registrada y almacenamiento en caché se almacena fuera del servicio, por lo general en una cuenta de Azure Storage. Para más información sobre cómo registrar cargas de trabajo de consulta e indexación, consulte [Recopilación y análisis de datos de registro](search-monitor-logs.md).
 
 En lo que respecta a la información general sobre el servicio, al usar solo las instalaciones integradas en Azure Cognitive Search, puede obtener información de las siguientes maneras:
 
 * Mediante la página **Información general** del servicio, a través de notificaciones, propiedades y mensajes de estado.
-* Mediante [PowerShell](search-manage-powershell.md) o la [API REST de Administración](https://docs.microsoft.com/rest/api/searchmanagement/) para [obtener las propiedades del servicio](https://docs.microsoft.com/rest/api/searchmanagement/services). No hay información nueva ni operaciones que se proporcionen en la capa programática. Las interfaces existen para que pueda escribir scripts.
+* Mediante [PowerShell](search-manage-powershell.md) o la [API REST de Administración](/rest/api/searchmanagement/) para [obtener las propiedades del servicio](/rest/api/searchmanagement/services). No hay información nueva ni operaciones que se proporcionen en la capa programática. Las interfaces existen para que pueda escribir scripts.
 
 ## <a name="monitor-resource-usage"></a>Supervisar el uso de recursos
 
@@ -86,8 +86,8 @@ En el panel, la supervisión de recursos se limita a la información que se mues
 
 Al usar la API de REST del servicio de búsqueda, puede obtener un recuento de los documentos e índices mediante programación: 
 
-* [Obtención de estadísticas de índice](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
-* [Documentos de recuento](https://docs.microsoft.com/rest/api/searchservice/count-documents)
+* [Obtención de estadísticas de índice](/rest/api/searchservice/Get-Index-Statistics)
+* [Documentos de recuento](/rest/api/searchservice/count-documents)
 
 ## <a name="disaster-recovery-and-service-outages"></a>Interrupciones de servicio y recuperación ante desastres
 
@@ -135,7 +135,7 @@ A diferencia de la eliminación de réplicas, que no requiere que haga nada más
 
 No existe un método de detección que indique qué particiones de índice se almacenan en particiones concretas. Cada partición proporciona un espacio de almacenamiento de aproximadamente 25 MB, de modo que será necesario reducirlo a un tamaño al que pueda ajustarse su número de particiones. Si quiere volver a una partición, las 12 particiones deberán ajustarse.
 
-Para ayudar en una futura planificación, es posible que quiera comprobar el espacio de almacenamiento (usando [Obtención de estadísticas de índice](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)) para ver cuánto usó en realidad. 
+Para ayudar en una futura planificación, es posible que quiera comprobar el espacio de almacenamiento (usando [Obtención de estadísticas de índice](/rest/api/searchservice/Get-Index-Statistics)) para ver cuánto usó en realidad. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

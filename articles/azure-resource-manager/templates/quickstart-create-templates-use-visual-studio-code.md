@@ -2,15 +2,15 @@
 title: 'Creación de plantilla: Visual Studio Code'
 description: Use Visual Studio Code y la extensión de herramientas de Azure Resource Manager para trabajar con plantillas de Resource Manager.
 author: neilpeterson
-ms.date: 04/17/2020
+ms.date: 08/09/2020
 ms.topic: quickstart
 ms.author: nepeters
-ms.openlocfilehash: 06e7d3f291d32cecdcbf4d1f22ff9976d8970109
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5375fedcd05aefa5d23ee872325373ce631d43bb
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040526"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034995"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>Inicio rápido: Creación de plantillas de Azure Resource Manager con Visual Studio Code
 
@@ -26,7 +26,7 @@ Cree y abra con Visual Studio Code un archivo llamado *azuredeploy.json*. Escri
 
 Seleccione `arm!` para crear una plantilla limitada a la implementación de un grupo de recursos de Azure.
 
-![Imagen que muestra la técnica scaffolding de Azure Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/1.png)
+![Imagen que muestra fragmentos de código de scaffolding de Azure Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/1.png)
 
 Este fragmento de código crea los bloques de creación básicos para una plantilla de Resource Manager.
 
@@ -68,7 +68,7 @@ Para usar las funcionalidades de finalización, quite `megaStorage`, coloque el 
 
 Ahora cree y use un parámetro para especificar el nombre de la cuenta de almacenamiento.
 
-Coloque el cursor en el bloque de parámetros, agregue un retorno de carro, escriba `par` y seleccione el fragmento de código `arm-param-value`. Esta acción agrega un parámetro genérico a la plantilla.
+Coloque el cursor en el bloque de parámetros, agregue un retorno de carro, escriba `"` y seleccione el fragmento de código `new-parameter`. Esta acción agrega un parámetro genérico a la plantilla.
 
 ![Imagen que muestra cómo se agrega un parámetro a la plantilla de Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/9.png)
 

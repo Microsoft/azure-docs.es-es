@@ -4,15 +4,15 @@ description: En este artículo, aprenderá a implementar y configurar Azure Fir
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.date: 4/10/2019
+ms.date: 08/28/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 50d870590fa6b8351838af9cb91b7be39b8d30db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c720d7c261421ade9dfce01f0b116123dcab1e55
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610666"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071710"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Implementación y configuración de Azure Firewall mediante Azure PowerShell
 
@@ -35,13 +35,13 @@ En este artículo, creará una red virtual única simplificada con tres subredes
 
 En este artículo aprenderá a:
 
-> [!div class="checklist"]
-> * Configurar un entorno de red de prueba
-> * Implementar un firewall
-> * Crear una ruta predeterminada
-> * Configurar una regla de aplicación para permitir el acceso a www.google.com
-> * Configuración de una regla de red para permitir el acceso a los servidores DNS externos
-> * Probar el firewall
+
+* Configurar un entorno de red de prueba
+* Implementar un firewall
+* Crear una ruta predeterminada
+* Configurar una regla de aplicación para permitir el acceso a www.google.com
+* Configuración de una regla de red para permitir el acceso a los servidores DNS externos
+* Probar el firewall
 
 Si lo prefiere, puede realizar los pasos de este procedimiento mediante [Azure Portal](tutorial-firewall-deploy-portal.md).
 

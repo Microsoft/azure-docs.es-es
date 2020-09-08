@@ -8,12 +8,14 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0ea962469d9f1dafb51cf047306d99758c3cc118
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.custom: seo-azure-migrate
+keywords: vms support, azure vmware solution by cloudsimple, cloudsimple azure, vms tools, vmware documentation
+ms.openlocfilehash: fffe0255bb905c0314e2ed59f5beab726e681e00
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88140707"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230643"
 ---
 # <a name="azure-vmware-solution-by-cloudsimple"></a>Azure VMware Solution by CloudSimple
 

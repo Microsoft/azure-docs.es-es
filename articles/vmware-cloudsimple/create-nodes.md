@@ -1,6 +1,6 @@
 ---
 title: 'Aprovisionamiento de nodos de VMware Solution by CloudSimple: Azure'
-description: Obtenga información sobre cómo agregar nodos a VMWare con la implementación de CloudSimple.
+description: Obtenga información sobre cómo agregar nodos a VMWare con la implementación de CloudSimple en Azure Portal. Puede configurar la capacidad de pago por uso para su entorno de nube privada.
 author: dikamath
 ms.author: dikamath
 ms.date: 08/14/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: eb033425d18b472c9da1a2d6a1bb6f166702905e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ccff5b4dc6ed5a571e25ab0569b9fa92674e1340
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77024813"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140741"
 ---
 # <a name="provision-nodes-for-azure-vmware-solution-by-cloudsimple"></a>Aprovisionamiento de nodos de la Azure VMware Solution by CloudSimple
 

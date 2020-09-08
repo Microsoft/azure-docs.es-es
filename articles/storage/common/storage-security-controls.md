@@ -1,7 +1,7 @@
 ---
 title: Controles de seguridad
 titleSuffix: Azure Storage
-description: Lista de comprobación de controles de seguridad para evaluar Azure Storage.
+description: Vea las listas de comprobación de controles de seguridad para evaluar Azure Storage. Las áreas que estas listas abarcan son la protección de datos, la red, la supervisión y el registro, la identidad y la configuración.
 services: storage
 author: msmbaldwin
 ms.author: mbaldwin
@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: 96fde15eb5071e157fedcff6154e6b0635a34721
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b816e7bd5e00b21700bc994fc0860195d39f2915
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128035"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826524"
 ---
 # <a name="security-controls-for-azure-storage"></a>Controles de seguridad para los servicios de Azure Storage
 

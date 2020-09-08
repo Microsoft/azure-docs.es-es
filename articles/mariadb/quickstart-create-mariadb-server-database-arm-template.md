@@ -1,18 +1,18 @@
 ---
-title: Creación de una instancia de Azure DB for MariaDB mediante una plantilla de Resource Manager
-description: En este artículo, aprenderá a crear un servidor de Azure Database for MariaDB mediante una plantilla de Azure Resource Manager.
+title: 'Inicio rápido: Creación de una instancia de Azure DB for MariaDB: plantilla de Resource Manager'
+description: En este inicio rápido, aprenderá a crear un servidor de Azure Database for MariaDB mediante una plantilla de Azure Resource Manager.
 author: mgblythe
 ms.service: mariadb
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/14/2020
-ms.openlocfilehash: fd560658a20a5b58d582332a88bf031d0e56ac91
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 108233892a89e6f6288e05476e37460a58b52b0e
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134109"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660553"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mariadb-server"></a>Inicio rápido: Uso de una plantilla de Resource Manager para crear un servidor de Azure Database for MariaDB
 
@@ -48,7 +48,7 @@ Se crea un servidor de Azure Database for MariaDB con un conjunto definido de re
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-managed-mariadb-with-vnet/).
 
-:::code language="json" source="~/quickstart-templates/101-managed-mariadb-with-vnet/azuredeploy.json" range="001-231" highlight="149,162,176,199,213":::
+:::code language="json" source="~/quickstart-templates/101-managed-mariadb-with-vnet/azuredeploy.json":::
 
 La plantilla define cinco recursos de Azure:
 

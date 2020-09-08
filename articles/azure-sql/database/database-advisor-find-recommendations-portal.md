@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 27fcbcec07012dc34c846f316fccf788a0d25329
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 72f0d361f69232894df3a9131d173411614a2055
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84025816"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921221"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Búsqueda y aplicación de recomendaciones de rendimiento
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ Puede usar Azure Portal para buscar recomendaciones de rendimiento que pueden op
 
 ## <a name="viewing-recommendations"></a>Visualización de recomendaciones
 
-Para ver y aplicar recomendaciones de rendimiento, necesita los permisos correctos de [control de acceso basado en rol](../../role-based-access-control/overview.md) en Azure. Se requieren permisos de **Lector** y **Colaborador de base de datos SQL** para ver recomendaciones, y permisos de **Propietario** y **Colaborador de base de datos SQL** para ejecutar acciones; por ejemplo, crear o quitar índices y cancelar la creación de índices.
+Para ver y aplicar recomendaciones de rendimiento, necesita los permisos correctos de [control de acceso basado en roles de Azure (RBAC de Azure)](../../role-based-access-control/overview.md) en Azure. Se requieren permisos de **Lector** y **Colaborador de base de datos SQL** para ver recomendaciones, y permisos de **Propietario** y **Colaborador de base de datos SQL** para ejecutar acciones; por ejemplo, crear o quitar índices y cancelar la creación de índices.
 
 Siga los pasos a continuación para buscar recomendaciones de rendimiento en Azure Portal:
 
@@ -172,4 +172,4 @@ Supervise las recomendaciones y siga aplicándolas para refinar el rendimiento. 
 
 * [Almacén de consultas](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [Control de acceso basado en rol](../../role-based-access-control/overview.md)
+* [Control de acceso basado en roles de Azure (Azure RBAC)](../../role-based-access-control/overview.md)

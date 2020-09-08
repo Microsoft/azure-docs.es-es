@@ -1,6 +1,6 @@
 ---
 title: Cifrado del lado servidor de Azure Managed Disks - CLI de Azure
-description: Azure Storage protege los datos mediante su cifrado en reposo antes de guardarlos en los clústeres de Storage. Puede confiar en las claves administradas por Microsoft para el cifrado de los discos administrados, o puede usar claves administradas por el cliente para administrar el cifrado con sus propias claves.
+description: Azure Storage protege los datos mediante su cifrado en reposo antes de guardarlos en los clústeres de Storage. Puede usar las claves administradas por el cliente para administrar el cifrado con sus propias claves, o bien puede utilizar las claves administradas por Microsoft para el cifrado de los discos administrados.
 author: roygara
 ms.date: 07/10/2020
 ms.topic: conceptual
@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: e0a1f97cc7467d115ecc8462a301e45f90d73818
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: e541fd90f0cb9c8f0e2763f16541824c5a7b3000
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449157"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816905"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Cifrado del lado servidor de Azure Disk Storage
 
@@ -31,7 +31,7 @@ En las secciones siguientes se describe cada una de las opciones de administraci
 
 ### <a name="platform-managed-keys"></a>Claves administradas por la plataforma
 
-De forma predeterminada, los discos administrados usan claves de cifrado administradas por la plataforma. Todos los discos administrados, instantáneas e imágenes, así como los datos escritos en los discos administrados existentes, se cifran automáticamente en reposo con claves administradas por la plataforma.
+De forma predeterminada, los discos administrados usan claves de cifrado administradas por la plataforma. Todos los discos administrados, instantáneas e imágenes, así como los datos nuevos que se escriban en discos administrados existentes, se cifran automáticamente en reposo con claves administradas por la plataforma.
 
 ### <a name="customer-managed-keys"></a>Claves administradas por el cliente
 
@@ -80,7 +80,7 @@ Los clientes confidenciales de alto nivel de seguridad que están preocupados po
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Habilite el cifrado de un extremo a otro mediante el cifrado en el host con la [CLI](disks-enable-host-based-encryption-cli.md) o [Azure Portal](disks-enable-host-based-encryption-portal.md).
-- Habilite el cifrado doble en reposo para discos administrados con la [CLI](disks-enable-double-encryption-at-rest-cli.md) o [Azure Portal](disks-enable-double-encryption-at-rest-portal.md).
-- Habilite las claves administradas por el cliente para discos administrados con la [CLI](disks-enable-customer-managed-keys-cli.md) o [Azure Portal](disks-enable-customer-managed-keys-portal.md).
+- Habilite el cifrado de un extremo a otro mediante el cifrado en el host con la [CLI](disks-enable-host-based-encryption-cli.md) o [Azure Portal](../disks-enable-host-based-encryption-portal.md).
+- Habilite el cifrado doble en reposo para discos administrados con la [CLI](disks-enable-double-encryption-at-rest-cli.md) o [Azure Portal](../disks-enable-double-encryption-at-rest-portal.md).
+- Habilite las claves administradas por el cliente para discos administrados con la [CLI](disks-enable-customer-managed-keys-cli.md) o [Azure Portal](../disks-enable-customer-managed-keys-portal.md).
 - [¿Qué es Azure Key Vault?](../../key-vault/general/overview.md)

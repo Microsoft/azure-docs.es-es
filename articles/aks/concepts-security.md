@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: a210098652a18959debfeabe36b390d1bdfca7fc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e5f137808bb5e4c6876206bca7950117edb85aab
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287469"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005676"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceptos de seguridad de las aplicaciones y los clústeres en Azure Kubernetes Service (AKS)
 
@@ -36,7 +36,7 @@ En AKS, los componentes maestros de Kubernetes forman parte del servicio adminis
 
 De forma predeterminada, el servidor de API de Kubernetes utiliza una dirección IP pública y un nombre de dominio completo (FQDN). Puede limitar el acceso al punto de conexión del servidor de API mediante los [intervalos IP autorizados][authorized-ip-ranges]. También puede crear un [clúster privado][private-clusters] por completo para limitar el acceso del servidor de la API a la red virtual.
 
-Puede controlar el acceso al servidor de API mediante controles de acceso basado en rol y Azure Active Directory. Para más información, consulte el artículo de [integración de Azure AD con AKS][aks-aad].
+Puede regular el acceso al servidor de API mediante el control de acceso basado en rol (RBAC) de Kubernetes y Azure Active Directory. Para más información, consulte el artículo de [integración de Azure AD con AKS][aks-aad].
 
 ## <a name="node-security"></a>Seguridad de nodos
 
@@ -50,7 +50,7 @@ Los nodos se implementan en una subred de una red privada virtual, sin ninguna d
 
 Para proporcionar almacenamiento, los nodos usan Azure Managed Disks. Para la mayoría de los tamaños de nodo de máquina virtual, estos son los discos Premium respaldados por SSD de alto rendimiento. Los datos almacenados en discos administrados se cifran automáticamente en reposo dentro de la plataforma Azure. Para mejorar la redundancia, estos discos también se replican de forma segura en el centro de datos de Azure.
 
-Los entornos de Kubernetes en AKS o en cualquier otro lugar no están completamente seguros en este momento ante la utilización de multiinquilinos hostiles. Utilizar otras características de seguridad adicionales, como las *directivas de seguridad de pod* o los controles de acceso basados en roles (RBAC) más específicos, puede dificultar las vulnerabilidades de seguridad. Sin embargo, para que la seguridad resulte efectiva cuando se ejecutan cargas de trabajo multiinquilino hostiles, el hipervisor es el único nivel de seguridad en el que debe confiar. El dominio de seguridad de Kubernetes se convierte en todo el clúster, no en un nodo específico. En el caso de estos tipos de cargas de trabajo multiinquilino hostiles, debe usar clústeres que estén físicamente aislados. Para obtener más información sobre las formas de aislar las cargas de trabajo, consulte [Procedimientos recomendados para el aislamiento de clústeres en AKS][cluster-isolation].
+Los entornos de Kubernetes en AKS o en cualquier otro lugar no están completamente seguros en este momento ante la utilización de multiinquilinos hostiles. Otras características de seguridad, como las *directivas de seguridad de pods* o un control de acceso basado en rol (RBAC) más detallado para los nodos, dificultan las vulnerabilidades. Sin embargo, para que la seguridad resulte efectiva cuando se ejecutan cargas de trabajo multiinquilino hostiles, el hipervisor es el único nivel de seguridad en el que debe confiar. El dominio de seguridad de Kubernetes se convierte en todo el clúster, no en un nodo específico. En el caso de estos tipos de cargas de trabajo multiinquilino hostiles, debe usar clústeres que estén físicamente aislados. Para obtener más información sobre las formas de aislar las cargas de trabajo, consulte [Procedimientos recomendados para el aislamiento de clústeres en AKS][cluster-isolation].
 
 ### <a name="compute-isolation"></a>Aislamiento de proceso
 

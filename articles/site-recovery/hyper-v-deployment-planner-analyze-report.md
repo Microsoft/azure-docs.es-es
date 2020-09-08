@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
-ms.openlocfilehash: 0d39f763d3cdc90f89e0bcd17d0facc67551ffc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2bb351de292ff2015cdcbd388155063a86a7359
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710276"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653586"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Análisis del informe de Azure Site Recovery Deployment Planner
 En este artículo se describen las hojas que contiene el informe de Excel generado por Azure Site Recovery Deployment Planner en un escenario de Hyper-V en Azure.
@@ -179,7 +179,7 @@ El informe de Excel generado por Azure Site Recovery Deployment Planner proporci
 
 **VM Name** (Nombre de la máquina virtual): el nombre de la máquina virtual que se utiliza en VMListFile cuando se genera un informe. Esta columna también muestra los discos (discos duros virtuales) que están conectados a las máquinas virtuales. Los nombres incluyen los nombres de host de Hyper-V donde se colocaron las máquinas virtuales cuando la herramienta los detectó durante el período de generación de perfiles.
 
-**VM Compatibility** (Compatibilidad de la máquina virtual): los valores son **Yes** (Sí) y **Yes**\* (Sí). **Sí**\* es para las instancias en las que la máquina virtual es una opción para [discos SSD Premium](../virtual-machines/windows/disks-types.md). En este caso, la renovación elevada de generación de perfiles o el disco IOPS encaja en un tamaño de disco Premium mayor que el tamaño asignado al disco. La cuenta de almacenamiento decide a qué tipo de disco de almacenamiento Premium se asigna un disco, en función de su tamaño: 
+**VM Compatibility** (Compatibilidad de la máquina virtual): los valores son **Yes** (Sí) y **Yes**\* (Sí). **Sí**\* es para las instancias en las que la máquina virtual es una opción para [discos SSD Premium](../virtual-machines/disks-types.md). En este caso, la renovación elevada de generación de perfiles o el disco IOPS encaja en un tamaño de disco Premium mayor que el tamaño asignado al disco. La cuenta de almacenamiento decide a qué tipo de disco de almacenamiento Premium se asigna un disco, en función de su tamaño: 
 * Menos de 128 GB es P10.
 * De 128 GB a 256 GB es P15
 * De 256 GB a 512 GB es P20.

@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/04/2019
+ms.date: 08/25/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38cffdcc9c99cdec2aeac8bf6fe1dc1575691c8d
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: e2a45e6cff7d62dd8841d9d482f799be6977340e
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924037"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826878"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Informes de aprovisionamiento en el portal de Azure Active Directory (versión preliminar)
 
@@ -242,6 +242,8 @@ Use la tabla siguiente para entender mejor cómo resolver los errores que puede 
 |LicenseLimitExceeded|No se pudo crear el usuario en la aplicación de destino porque no hay licencias disponibles para este usuario. Puede adquirir licencias adicionales para la aplicación de destino o revisar las asignaciones de usuario y la configuración de asignación de atributos para asegurarse de que se asignan los atributos correctos a los usuarios correctos.|
 |DuplicateTargetEntries  |No se pudo completar la operación porque se encontró más de un usuario en la aplicación de destino con los atributos coincidentes configurados. Quite el usuario duplicado de la aplicación de destino o vuelva a configurar las asignaciones de atributos como se describe [aquí](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
 |DuplicateSourceEntries | No se pudo completar la operación porque se encontró más de un usuario con los atributos coincidentes configurados. Quite el usuario duplicado o vuelva a configurar las asignaciones de atributos como se describe [aquí](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
+|ImportSkipped | Cuando se evalúa a cada usuario, se intenta importar al usuario desde el sistema de origen. Este error suele producirse cuando al usuario que se importará le falta la propiedad coincidente definida en las asignaciones de atributos. Sin un valor presente en el objeto user para el atributo coincidente, no se pueden evaluar los cambios de ámbito, coincidencia o exportación. Tenga en cuenta que la presencia de este error no indica que el usuario está en el ámbito, ya que aún no se ha evaluado su ámbito.|
+|EntrySynchronizationSkipped | El servicio de aprovisionamiento ha consultado correctamente el sistema de origen y ha identificado al usuario. No se realizó ninguna acción adicional en el usuario y se omitió. La omisión podría deberse a que el usuario está fuera del ámbito, o a que ya existe en el sistema de destino sin necesidad de realizar más cambios.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con iDiD Manager | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory e iDiD Manager.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: 5d2a0c25-168e-4842-b83b-74f8f50a8624
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/25/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 348baa046f31d945ba54a9d49a12ff3ff328551f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e656eb0062cafcf7a34008e0034ec0111242807d
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73155222"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545325"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-idid-manager"></a>Tutorial: Integración de Azure Active Directory con iDiD Manager
 

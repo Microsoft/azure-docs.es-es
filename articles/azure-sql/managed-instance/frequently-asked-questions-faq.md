@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 6713a1fbbbbca0aa212461cc966b42aaf2daa47e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fe779ebf8bb041fb90b8eb38a9469a783127ffd3
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498464"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661425"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Preguntas frecuentes acerca de Instancia administrada de Azure SQL (P+F)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -214,7 +214,7 @@ Sí, puede comprar el almacenamiento de complementos, independientemente del pro
 
 **¿Cómo puedo optimizar el rendimiento del almacenamiento en el nivel de servicio De uso general?**
 
-Para optimizar el rendimiento del almacenamiento, consulte [Procedimientos recomendados de almacenamiento en el nivel De uso general](https://techcommunity.microsoft.com/t5/datacat/storage-performance-best-practices-and-considerations-for-azure/ba-p/305525).
+Para optimizar el rendimiento del almacenamiento, consulte [Procedimientos recomendados de almacenamiento en el nivel De uso general](https://techcommunity.microsoft.com).
 
 ## <a name="backup-and-restore"></a>Copia de seguridad y restauración
 
@@ -223,12 +223,15 @@ Para optimizar el rendimiento del almacenamiento, consulte [Procedimientos recom
 No, el almacenamiento de copia de seguridad no se deduce del espacio de almacenamiento de su instancia administrada. El almacenamiento de copia de seguridad es independiente del espacio de almacenamiento de la instancia y su tamaño no está limitado. El almacenamiento de copia de seguridad está limitado por el período de tiempo durante el que se conserva la copia de seguridad de las bases de datos de la instancia; se puede configurar en un total de 35 días. Para más información, consulte [Copias de seguridad automatizadas](../database/automated-backups-overview.md).
 
 **¿Cómo puedo ver cuándo se realizan copias de seguridad automatizadas en mi instancia administrada?**
+
 Para hacer un seguimiento de cuándo se han realizado copias de seguridad automatizadas en la Instancia administrada, consulte [Cómo realizar un seguimiento de la copia de seguridad automatizada de una instancia de Azure SQL Managed Instance](https://techcommunity.microsoft.com/t5/azure-database-support-blog/lesson-learned-128-how-to-track-the-automated-backup-for-an/ba-p/1442355).
 
 **¿Se admite la copia de seguridad a petición?**
+
 Sí, puede crear una copia de seguridad completa de solo copia en su instancia de Azure Blob Storage, pero solo se puede restaurar en la Instancia administrada. Para obtener información, vea [Copias de seguridad de solo copia](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15). Sin embargo, no es posible realizar copias de seguridad de solo copia si la base de datos está cifrada mediante TDE administrado por el servicio, ya que no se puede obtener acceso al certificado que se usa para el cifrado. En ese caso, use la característica de restauración a un momento dado para mover la base de datos a otra instancia de SQL Managed Instance o cambie a una clave administrada por el cliente.
 
 **¿La restauración nativa (desde archivos .bak) es compatible con la Instancia administrada?**
+
 Sí, se admite y está disponible para las versiones de SQL Server 2005 y posteriores.  Para usar la restauración nativa, cargue el archivo.bak en Azure Blob Storage y ejecute comandos T-SQL. Para obtener más información, vea [Restauración nativa desde la URL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate#native-restore-from-url).
 
 ## <a name="business-continuity"></a>Continuidad empresarial
@@ -503,6 +506,14 @@ ALTER LOGIN <login_name> WITH CHECK_EXPIRATION = OFF;
 ```
 
 (reemplace "Test" por el nombre de inicio de sesión deseado y ajuste los valores de directiva y expiración)
+
+
+## <a name="service-updates"></a>Actualizaciones del servicio
+
+**¿Qué es un evento de mantenimiento planeado para SQL Managed Instance?**
+
+Consulte [Planeación de eventos de mantenimiento en SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/database/planned-maintenance). 
+
 
 ## <a name="azure-feedback-and-support"></a>Comentarios y soporte técnico de Azure
 

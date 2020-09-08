@@ -11,15 +11,15 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 04/19/2019
+ms.date: 08/12/2020
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: 3182961f928a9befc5a55fb6d58e22c74ba81089
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: devx-track-csharp, mvc
+ms.openlocfilehash: 3f8a43a1ff28206a4bcc5fd059f69492c83eb34d
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79473445"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224720"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutorial: Uso de marcas de características en una aplicación de ASP.NET Core
 
@@ -37,7 +37,7 @@ En este tutorial, aprenderá a:
 
 ## <a name="set-up-feature-management"></a>Configuración de la administración de características
 
-Agregue una referencia al paquete NuGet `Microsoft.FeatureManagement` para que use el administrador de características de .NET Core.
+Agregue una referencia a los paquetes NuGet `Microsoft.FeatureManagement.AspNetCore` y `Microsoft.FeatureManagement` para que utilicen el administrador de características de .NET Core.
     
 El administrador de características de .NET Core `IFeatureManager` obtiene las marcas de características del sistema de configuración nativo del marco. Como resultado, puede definir marcas de características de la aplicación con cualquier origen de configuración que admita .NET Core, incluido el archivo local *appsettings.json* o las variables de entorno. `IFeatureManager` se basa en la inserción de dependencias de .NET Core. Puede registrar los servicios de administración de características mediante las convenciones estándar:
 
@@ -206,6 +206,8 @@ public class HomeController : Controller
 En los controladores MVC, puede usar un atributo `FeatureGate` para controlar si se habilita una clase de controlador completa o una acción específica. El siguiente controlador `HomeController` requiere que `FeatureA` esté *activada* para ejecutar cualquier acción que contenga la clase del contenedor:
 
 ```csharp
+using Microsoft.FeatureManagement.Mvc;
+
 [FeatureGate(MyFeatureFlags.FeatureA)]
 public class HomeController : Controller
 {
@@ -216,6 +218,8 @@ public class HomeController : Controller
 La siguiente acción `Index` requiere que `FeatureA` esté *activada* para ejecutarse:
 
 ```csharp
+using Microsoft.FeatureManagement.Mvc;
+
 [FeatureGate(MyFeatureFlags.FeatureA)]
 public IActionResult Index()
 {

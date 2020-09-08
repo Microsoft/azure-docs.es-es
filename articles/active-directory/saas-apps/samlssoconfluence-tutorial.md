@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con SAML SSO for Confluence by resolution GmbH | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y SAML SSO for Confluence by resolution GmbH.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: 6b47d483-d3a3-442d-b123-171e3f0f7486
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9676a71940569b26d6b0b6bfef767108ae57d953
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 87c24cf61974c284772aae23e48ffc907792895b
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73161216"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543489"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>Tutorial: Integración de Azure Active Directory con SAML SSO for Confluence by resolution GmbH
 

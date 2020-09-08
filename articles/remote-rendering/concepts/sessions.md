@@ -5,12 +5,13 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 509375459d019ead5a7992b808044a75e2666393
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 74fae6a8aa0c59043db0ab816e09b16affb63580
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83758867"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021840"
 ---
 # <a name="remote-rendering-sessions"></a>Sesiones de Remote Rendering
 
@@ -40,10 +41,10 @@ Cada sesión experimenta varias fases.
 
 Cuando solicita a ARR que [cree una sesión](../how-tos/session-rest-api.md#create-a-session), lo primero que hace es devolver un [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) de la sesión. Este UUID permite consultar información sobre la sesión. El UUID y la información básica sobre la sesión se conservan durante 30 días, por lo que puede consultar esa información incluso después de que se haya finalizado la sesión. En este momento, el **estado de sesión** se notificará como **Iniciando**.
 
-A continuación, Azure Remote Rendering intenta encontrar un servidor que puede hospedar la sesión. Hay dos parámetros para esta búsqueda. Primero, solo reservará servidores que se encuentren en su [región](../reference/regions.md). Esto se debe a que la latencia de red entre regiones puede ser demasiado alta para garantizar una experiencia decente. El segundo factor es el *tamaño* deseado que haya especificado. En cada región hay un número limitado de servidores que pueden completar la solicitud de tamaño *Estándar* o *Premium*. Por lo tanto, si todos los servidores del tamaño solicitado están usándose actualmente en su región, la sesión no podrá crearse. El motivo del error [se puede consultar](../how-tos/session-rest-api.md#get-sessions-properties).
+A continuación, Azure Remote Rendering intenta encontrar un servidor que puede hospedar la sesión. Hay dos parámetros para esta búsqueda. Primero, solo reservará servidores que se encuentren en su [región](../reference/regions.md). Esto se debe a que la latencia de red entre regiones puede ser demasiado alta para garantizar una experiencia decente. El segundo factor es el *tamaño* deseado que haya especificado. En cada región hay un número limitado de servidores que pueden completar la solicitud de tamaño [*Estándar*](../reference/vm-sizes.md) o [*Premium*](../reference/vm-sizes.md). Por lo tanto, si todos los servidores del tamaño solicitado están usándose actualmente en su región, la sesión no podrá crearse. El motivo del error [se puede consultar](../how-tos/session-rest-api.md#get-sessions-properties).
 
 > [!IMPORTANT]
-> Si solicita un tamaño de máquina virtual *Estándar* y se produce un error en la solicitud debido a una demanda elevada, no implica que no se vaya a poder solicitar tampoco un servidor *Premium*. Por lo tanto, si es una opción, puede intentar revertir a una máquina virtual *Premium*.
+> Si solicita un tamaño de servidor *Estándar* y se produce un error en la solicitud debido a una demanda elevada, no implica que no se vaya a poder solicitar tampoco un servidor *Premium*. Por lo tanto, si es viable, puede intentar revertir a un tamaño de servidor *Premium*.
 
 Cuando el servicio encuentra un servidor adecuado, tiene que copiar la máquina virtual adecuada en él para convertirlo en un host de Azure Remote Rendering. Este proceso tarda varios minutos. Después, se arranca la máquina virtual y el **estado de sesión** pasa a ser **Listo**.
 
@@ -72,11 +73,11 @@ Una sesión también puede finalizarse debido a un error.
 En todos los casos, no se le facturará más una vez que se finalice una sesión.
 
 > [!WARNING]
-> El hecho de conectarse a una sesión, y el tiempo que dure, no afecta a la facturación. Lo que se paga por el servicio depende de la *duración de la sesión*, es decir, el tiempo que un servidor se reserva exclusivamente y las funcionalidades de hardware solicitadas (el tamaño de la máquina virtual). Si inicia una sesión, conéctese durante cinco minutos y, a continuación, no cierre la sesión, de modo que siga ejecutándose hasta que expire su concesión. De este modo, se le facturará el tiempo de la concesión de la sesión completa. Por el contrario, el *tiempo máximo de concesión* es principalmente una medida de seguridad. No importa si solicita una sesión con un tiempo de la concesión de ocho horas y, después, la usa solo durante cinco, si se finaliza manualmente la sesión después.
+> El hecho de conectarse a una sesión, y el tiempo que dure, no afecta a la facturación. Lo que se paga por el servicio depende de la *duración de la sesión*, es decir, el tiempo que un servidor se reserva exclusivamente y las funcionalidades de hardware solicitadas (el [tamaño asignado](../reference/vm-sizes.md)). Si inicia una sesión, conéctese durante cinco minutos y, a continuación, no cierre la sesión, de modo que siga ejecutándose hasta que expire su concesión. De este modo, se le facturará el tiempo de la concesión de la sesión completa. Por el contrario, el *tiempo máximo de concesión* es principalmente una medida de seguridad. No importa si solicita una sesión con un tiempo de la concesión de ocho horas y, después, la usa solo durante cinco, si se finaliza manualmente la sesión después.
 
 #### <a name="extend-a-sessions-lease-time"></a>Ampliación del tiempo de la concesión de una sesión
 
-Puede [ampliar el tiempo de la concesión](../how-tos/session-rest-api.md#update-a-session) de una sesión activa, en caso de que deje de ser necesaria.
+Puede [ampliar el tiempo de la concesión](../how-tos/session-rest-api.md#modify-and-query-session-properties) de una sesión activa, en caso de que deje de ser necesaria.
 
 ## <a name="example-code"></a>Ejemplo de código
 
@@ -107,6 +108,8 @@ while (true)
     {
         break;
     }
+    // REST calls must not be issued too frequently, otherwise the server returns failure code 429 ("too many requests"). So we insert the recommended delay of 10s
+    await Task.Delay(TimeSpan.FromSeconds(10));
 }
 
 if (sessionProperties.Status != RenderingSessionStatus.Ready)

@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: f030e382a5378c84df347c545e9426adee6eacb1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18646fc92dda7cebb7a8c1030285956d8fe4df74
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85566012"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924170"
 ---
 # <a name="how-to-shape-and-export-enrichments"></a>Dar forma y exportar enriquecimientos
 
@@ -206,7 +206,7 @@ En Azure Storage, la proyección en tablas es útil para la generación de infor
 Vamos a crear un panel para visualizar las frases clave extraídas de los documentos como una nube de palabras. Para crear la estructura de datos correcta, agregamos la aptitud Conformador al conjunto de aptitudes para crear una forma personalizada que tenga los detalles específicos del documento y frases clave. La forma personalizada se llamará `pbiShape` en el nodo raíz `document`.
 
 > [!NOTE] 
-> Las proyecciones de tabla son tablas de Azure Storage, reguladas por los límites de almacenamiento que impone Azure Storage. Para más información, consulte el artículo acerca de los [límites del almacenamiento en tablas](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model). Debe saber que el tamaño de la entidad no puede superar 1 MB, y que una sola propiedad no puede ser mayor que 64 KB. Estas restricciones hacen que las tablas sean una buena solución para almacenar un gran número de entidades pequeñas.
+> Las proyecciones de tabla son tablas de Azure Storage, reguladas por los límites de almacenamiento que impone Azure Storage. Para más información, consulte el artículo acerca de los [límites del almacenamiento en tablas](/rest/api/storageservices/understanding-the-table-service-data-model). Debe saber que el tamaño de la entidad no puede superar 1 MB, y que una sola propiedad no puede ser mayor que 64 KB. Estas restricciones hacen que las tablas sean una buena solución para almacenar un gran número de entidades pequeñas.
 
 ### <a name="using-a-shaper-skill-to-create-a-custom-shape"></a>Uso de una aptitud modeladora para crear una forma personalizada
 
@@ -677,4 +677,3 @@ Para obtener información general sobre las proyecciones, obtenga más informaci
 
 > [!div class="nextstepaction"]
 > [Proyecciones en un almacén de conocimiento](knowledge-store-projection-overview.md)
-

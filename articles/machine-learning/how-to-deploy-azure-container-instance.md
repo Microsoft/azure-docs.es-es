@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/12/2020
-ms.openlocfilehash: 9ee0fbd69c0004306b67cbff0aca3b257d905eeb
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: cbba0dd5341ad148831ac3b1f94685bf2beddd5a
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541131"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855275"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Implementación de un modelo en Azure Container Instances
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -57,7 +57,8 @@ Para implementar un modelo en Azure Container Instances, cree una __configuraci�
 
 > [!NOTE]
 > * ACI solo es adecuado para pequeños modelos con un tamaño inferior a 1 GB. 
-> * Se recomienda usar AKS de nodo único para desarrollo y pruebas de modelos más grandes.
+> * Se recomienda el uso de AKS de un solo nodo para modelos de desarrollo y pruebas más grandes.
+> * El número de modelos que se implementará se limita a 1000 modelos por implementación (por contenedor). 
 
 ### <a name="using-the-sdk"></a>Uso del SDK
 

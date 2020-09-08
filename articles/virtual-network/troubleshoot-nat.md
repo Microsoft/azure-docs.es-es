@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/20/2020
 ms.author: allensu
-ms.openlocfilehash: 690543ebc91e346e77509fbf993493f6978374ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d75f13f6a0621158bdb9a2f1682d0c85eaacb59d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84688288"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836112"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Solución de problemas de conectividad de Azure Virtual Network NAT
 
@@ -195,6 +195,14 @@ _**Solución:**_
 No es necesario reiniciar una máquina virtual configurando una subred para un recurso de puerta de enlace NAT.  Sin embargo, si se reinicia una máquina virtual, el estado de la conexión se vacía.  Cuando el estado de la conexión se ha vaciado, todas las conexiones empezarán a usar las direcciones IP del recurso de puerta de enlace NAT.  Sin embargo, esto es un efecto secundario de la máquina virtual que se reinicia, no un indicador de que se requiere un reinicio.
 
 Si sigue teniendo problemas, abra un caso de soporte técnico para solucionar el problema.
+
+### <a name="connection-setup-time"></a>Tiempo de configuración de conexión
+
+Como las reglas de salida de Load Balancer asigna de manera estática grupos de puertos SNAT a máquinas virtuales específicas, la creación de flujos de salida nuevos es más rápida que usar Virtual Network NAT. Por lo tanto, al cambiar de las reglas de salida de Load Balancer, puede que vea una mayor latencia al crear una conexión de salida nueva. Como se explicó anteriormente, para maximizar el rendimiento de la aplicación, debe usar flujos de larga duración (por ejemplo, conexiones TCP reutilizadas).
+
+_**Solución:**_
+
+Si está interesado principalmente en la latencia de configuración de instalación mínima, use las reglas de salida de Load Balancer.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

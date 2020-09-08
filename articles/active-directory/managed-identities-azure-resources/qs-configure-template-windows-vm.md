@@ -3,7 +3,7 @@ title: 'Configuración de identidades administradas en VM de Azure con una plant
 description: Instrucciones detalladas para configurar identidades administradas para recursos de Azure en una VM de Azure mediante una plantilla de Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2019
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7970f321f301cc394732b1557d65974e7902574
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18d38d3ab8cbbfb1f409b368cddc1df854baa8e0
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609034"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266891"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-templates"></a>Configuración de identidades administradas para recursos de Azure en una máquina virtual de Azure mediante plantillas
 
@@ -41,7 +41,7 @@ Al igual que con Azure Portal y los scripts, las plantillas de [Azure Resource M
 
    - Usar una [plantilla personalizada de Azure Marketplace](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template), que permite crear una plantilla desde cero, o bien basada en una plantilla común existente o en una [plantilla de inicio rápido](https://azure.microsoft.com/documentation/templates/).
    - Derivar a partir de un grupo de recursos existente, exportando una plantilla de [la implementación original](../../azure-resource-manager/templates/export-template-portal.md) o del [estado actual de la implementación](../../azure-resource-manager/templates/export-template-portal.md).
-   - Usar un [editor de JSON (por ejemplo, VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md) local y, a continuación, cargarla e implementarla con PowerShell o la CLI.
+   - Usar un [editor de JSON (por ejemplo, VS Code)](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) local y, a continuación, cargarla e implementarla con PowerShell o la CLI.
    - Usar el [proyecto del grupo de recursos de Azure](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) de Visual Studio tanto para crear como para implementar una plantilla.  
 
 Independientemente de la opción que elija, la sintaxis de la plantilla es la misma durante la implementación inicial y posteriores implementaciones. La habilitación de una identidad administrada asignada por el sistema o el usuario en una VM existente o nueva se realiza de la misma forma. Además, de forma predeterminada, Azure Resource Manager realiza una [actualización incremental](../../azure-resource-manager/templates/deployment-modes.md) en las implementaciones.
@@ -52,7 +52,7 @@ En esta sección, se habilita y deshabilita una identidad administrada asignada 
 
 ### <a name="enable-system-assigned-managed-identity-during-creation-of-an-azure-vm-or-on-an-existing-vm"></a>Habilitación de una identidad administrada asignada por el sistema durante la creación de una VM o en una VM existente de Azure
 
-Para habilitar una identidad administrada asignada por el sistema en una máquina virtual, la cuenta necesita la asignación de roles [Colaborador de la máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).  No se requiere ninguna otra asignación de roles de directorio de Azure AD.
+Para habilitar una identidad administrada asignada por el sistema en una máquina virtual, la cuenta necesita la asignación de roles [Colaborador de la máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).  No se requiere ninguna otra asignación de roles de directorio de Azure AD.
 
 1. Independientemente de que inicie sesión localmente en Azure o mediante Azure Portal, use una cuenta que esté asociada a la suscripción de Azure que contiene la máquina virtual.
 
@@ -107,7 +107,7 @@ Para habilitar una identidad administrada asignada por el sistema en una máquin
 
 Después de haber habilitado la identidad administrada asignada por el sistema en la VM, es aconsejable concederle un rol con el acceso de **lector** al grupo de recursos en el que se creó.
 
-Para asignar un rol a una identidad asignada por el sistema de la máquina virtual, la cuenta debe tener la asignación del rol [Administrador de acceso de usuario](/azure/role-based-access-control/built-in-roles#user-access-administrator).
+Para asignar un rol a una identidad asignada por el sistema de la máquina virtual, la cuenta debe tener la asignación del rol [Administrador de acceso de usuario](../../role-based-access-control/built-in-roles.md#user-access-administrator).
 
 1. Independientemente de que inicie sesión localmente en Azure o mediante Azure Portal, use una cuenta que esté asociada a la suscripción de Azure que contiene la máquina virtual.
 
@@ -151,7 +151,7 @@ Para asignar un rol a una identidad asignada por el sistema de la máquina virtu
 
 ### <a name="disable-a-system-assigned-managed-identity-from-an-azure-vm"></a>Deshabilitación de una identidad administrada asignada por el sistema en una VM de Azure
 
-Para eliminar una identidad administrada asignada por el sistema de una máquina virtual, la cuenta necesita la asignación de roles [Colaborador de la máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).  No se requiere ninguna otra asignación de roles de directorio de Azure AD.
+Para eliminar una identidad administrada asignada por el sistema de una máquina virtual, la cuenta necesita la asignación de roles [Colaborador de la máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).  No se requiere ninguna otra asignación de roles de directorio de Azure AD.
 
 1. Independientemente de que inicie sesión localmente en Azure o mediante Azure Portal, use una cuenta que esté asociada a la suscripción de Azure que contiene la máquina virtual.
 
@@ -188,7 +188,7 @@ En esta sección, asignará una identidad administrada asignada por el usuario a
 
 ### <a name="assign-a-user-assigned-managed-identity-to-an-azure-vm"></a>Asignación de una identidad administrada asignada por el usuario a una VM de Azure
 
-Para asignar una identidad asignada por un usuario a una máquina virtual, la cuenta debe tener las asignaciones de roles [Colaborador de la máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) y [Operador de identidades administradas](/azure/role-based-access-control/built-in-roles#managed-identity-operator). No se requiere ninguna otra asignación de roles de directorio de Azure AD.
+Para asignar una identidad asignada por un usuario a una máquina virtual, la cuenta debe tener las asignaciones de roles [Colaborador de la máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) y [Operador de identidades administradas](../../role-based-access-control/built-in-roles.md#managed-identity-operator). No se requiere ninguna otra asignación de roles de directorio de Azure AD.
 
 1. En el elemento `resources`, agregue la siguiente entrada para asignar una identidad administrada asignada por el usuario a la VM.  No olvide reemplazar `<USERASSIGNEDIDENTITY>` con el nombre de la identidad administrada asignada por el usuario que ha creado.
 
@@ -312,7 +312,7 @@ Para asignar una identidad asignada por un usuario a una máquina virtual, la cu
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Eliminación de una identidad administrada asignada por el usuario de una VM de Azure
 
-Para eliminar una identidad asignada por el usuario de una máquina virtual, la cuenta necesita la asignación de roles [Colaborador de la máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor). No se requiere ninguna otra asignación de roles de directorio de Azure AD.
+Para eliminar una identidad asignada por el usuario de una máquina virtual, la cuenta necesita la asignación de roles [Colaborador de la máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor). No se requiere ninguna otra asignación de roles de directorio de Azure AD.
 
 1. Independientemente de que inicie sesión localmente en Azure o mediante Azure Portal, use una cuenta que esté asociada a la suscripción de Azure que contiene la máquina virtual.
 

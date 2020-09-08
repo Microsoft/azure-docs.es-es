@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9658175b0d42db9acfc94d39e4ab226bfe2cfc4b
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: ee49ae905622b4b76d782f6a31e0c2333b6d54be
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187326"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055299"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Administración de variables en Azure Automation
 
@@ -30,7 +30,7 @@ Las variables de Automation son útiles para los siguientes escenarios:
 
 Azure Automation conserva las variables y hace que estén disponibles aunque se produzca un error en un runbook o en la configuración de DSC. Este comportamiento permite que un runbook o configuración de DSC establezca un valor para que otro runbook lo use, o bien que lo use el mismo runbook o la misma configuración de DSC la siguiente vez que se ejecute.
 
-Azure Automation almacena cada variable cifrada de forma segura. Al crear una variable, puede especificar su cifrado y almacenamiento de Azure Automation como recursos seguros. 
+Azure Automation almacena cada variable cifrada de forma segura. Al crear una variable, puede especificar su cifrado y almacenamiento por Azure Automation como recurso seguro. Después de crear la variable, no se puede cambiar su estado de cifrado sin volver a crearla. Una recomendación de Azure Security Center es cifrar todas las variables de Azure Automation como se describe en [Las variables de la cuenta de Automation deben estar cifradas](../../security-center/recommendations-reference.md#recs-computeapp). 
 
 >[!NOTE]
 >Los recursos protegidos en Azure Automation incluyen credenciales, certificados, conexiones y variables cifradas. Estos recursos se cifran y se almacenan en Azure Automation con una clave única que se genera para cada cuenta de Automation. Azure Automation almacena la clave en la instancia de Key Vault administrada por el sistema. Antes de almacenar un recurso seguro, Azure Automation carga la clave desde Key Vault y después la usa para cifrar el recurso. 
@@ -196,4 +196,4 @@ La imagen siguiente muestra las actividades de ejemplo para actualizar una varia
 
 * Para más información sobre los cmdlets que se usan para acceder a las variables, consulte [Administración de módulos en Azure Automation](modules.md).
 * Para información general sobre los runbooks, consulte [Ejecución de un runbook en Azure Automation](../automation-runbook-execution.md).
-* Para más información sobre las configuraciones DSC, vea [Introducción a State Configuration de Azure Automation](../automation-dsc-overview.md).
+* Para obtener más información sobre las configuraciones DSC, consulte [Introducción a State Configuration](../automation-dsc-overview.md).

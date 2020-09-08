@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 73e23f24717616ef417460d2fdae6116cfdbdb3a
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 39dd9604cf0e58eda94acf6528ab31eca26355d0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810418"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936782"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Uso de las API y los SDK de Azure Digital Twins
 
@@ -65,7 +65,7 @@ El SDK de .NET (C#) para Azure Digital Twins forma parte del SDK de Azure para .
 > [!NOTE]
 > Para más información sobre el diseño del SDK, consulte los [principios de diseño generales para los SDK de Azure](https://azure.github.io/azure-sdk/general_introduction.html) y las [directrices de diseño de .NET](https://azure.github.io/azure-sdk/dotnet_introduction.html) específicas.
 
-Para usar el SDK, incluya el paquete NuGet **Azure.DigitalTwins.Core** con el proyecto. También necesitará el paquete **Azure.Identity**.
+Para usar el SDK, incluya el paquete NuGet **Azure.DigitalTwins.Core** con el proyecto. También necesitará la versión más reciente del paquete **Azure.Identity**.
 
 * En Visual Studio, puede agregar paquetes con el administrador de paquetes NuGet (al que se accede a través de *Herramientas > Administrador de paquetes NuGet > Administrar paquetes NuGet para la solución*). 
 * Con la herramienta de línea de comandos de .NET, puede ejecutar:
@@ -143,7 +143,7 @@ También puede encontrar más ejemplos en el [repositorio de GitHub para el SDK 
 
 #### <a name="serialization-helpers"></a>Asistentes de serialización
 
-Como se ha descrito anteriormente, los métodos principales del SDK devuelven datos gemelas como JSON. Sin embargo, el SDK también contiene las clases de asistentes para la serialización. Estas funciones de asistentes permiten crear o deserializar rápidamente datos gemelos para el acceso a información básica.
+Las aplicaciones auxiliares de serialización son funciones auxiliares disponibles en el SDK para crear o deserializar rápidamente datos gemelos para el acceso a información básica. Dado que los métodos principales del SDK devuelven los datos gemelos como JSON de forma predeterminada, puede resultar útil usar estas clases auxiliares para reducir aún más los datos gemelos.
 
 Las clases de asistente disponibles son:
 * `BasicDigitalTwin`: Representa los datos principales de un gemelo digital.
@@ -230,7 +230,7 @@ foreach (string prop in rel.CustomProperties.Keys)
 
 ##### <a name="create-a-relationship"></a>Creación de una relación
 
-Con la clase `BasicDigitalTwin`, también puede preparar los datos para crear relaciones en una instancia gemela:
+Con la clase `BasicRelationship`, también puede preparar los datos para crear relaciones en una instancia gemela:
 
 ```csharp
 BasicRelationship rel = new BasicRelationship();

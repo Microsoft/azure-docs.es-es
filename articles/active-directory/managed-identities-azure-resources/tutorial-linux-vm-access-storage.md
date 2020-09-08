@@ -3,7 +3,7 @@ title: 'Tutorial`:` Uso de identidades administradas para acceder a Azure Storag
 description: Este tutorial contiene directrices acerca de cómo utilizar una identidad administrada asignada por el sistema de una máquina virtual Linux para acceder a Azure Storage.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/14/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b11df2e1a6140d251801a3243f3eaa9458b77d29
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9b61d3ed21d053fc7166b47c94a9ec61e355d199
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75971930"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263168"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Tutorial: Uso de identidades administradas asignadas por el sistema de una máquina virtual Linux para acceder a Azure Storage 
 
@@ -44,7 +44,7 @@ En este tutorial, se explica cómo se utiliza una identidad administrada asignad
 Para ejecutar los ejemplos de script de la CLI de este tutorial, tiene dos opciones:
 
 - Use [Azure Cloud Shell](~/articles/cloud-shell/overview.md) desde Azure Portal o mediante el botón **Pruébelo**, situado en la esquina superior derecha de cada bloque de código.
-- [Instale la versión más reciente de la CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 o posterior), si prefiere usar una consola de la CLI local.
+- [Instale la versión más reciente de la CLI 2.0](/cli/azure/install-azure-cli) (2.0.23 o posterior), si prefiere usar una consola de la CLI local.
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento 
 
@@ -95,7 +95,7 @@ Puede usar la identidad Managed Identity de la máquina virtual para recuperar l
 
 Azure Storage admite de manera nativa la autenticación de Azure AD, por lo que puede aceptar directamente los tokens de acceso obtenidos mediante una identidad Managed Identity. Forma parte de la integración de Azure Storage con Azure AD y es diferente de proporcionar las credenciales en la cadena de conexión.
 
-Para completar los pasos siguientes, deberá trabajar desde la máquina virtual que creó anteriormente y necesitará un cliente SSH para conectarse a ella. Si usa Windows, puede usar el cliente SSH en el [Subsistema de Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about). Si necesita ayuda para configurar las claves del cliente de SSH, consulte [Uso de SSH con Windows en Azure](~/articles/virtual-machines/linux/ssh-from-windows.md) o [Creación y uso de un par de claves SSH pública y privada para máquinas virtuales Linux en Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
+Para completar los pasos siguientes, deberá trabajar desde la máquina virtual que creó anteriormente y necesitará un cliente SSH para conectarse a ella. Si usa Windows, puede usar el cliente SSH en el [Subsistema de Windows para Linux](/windows/wsl/about). Si necesita ayuda para configurar las claves del cliente de SSH, consulte [Uso de SSH con Windows en Azure](~/articles/virtual-machines/linux/ssh-from-windows.md) o [Creación y uso de un par de claves SSH pública y privada para máquinas virtuales Linux en Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. En Azure Portal, vaya a **Máquinas virtuales**, vaya a la máquina virtual Linux y, a continuación, desde la página **Información general**, haga clic en **Conectar**. Copie la cadena para conectarse a la máquina virtual.
 2. **Conéctese** a la máquina virtual con el cliente SSH que elija. 
@@ -121,4 +121,4 @@ Para completar los pasos siguientes, deberá trabajar desde la máquina virtual 
 En este tutorial, ha aprendido a habilitar una identidad administrada asignada por el sistema de una máquina virtual Linux para acceder a Azure Storage.  Para más información sobre Azure Storage, consulte:
 
 > [!div class="nextstepaction"]
-> [Almacenamiento de Azure](/azure/storage/common/storage-introduction)
+> [Almacenamiento de Azure](../../storage/common/storage-introduction.md)

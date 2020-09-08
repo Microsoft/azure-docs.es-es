@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Pega Systems | Microsoft Docs'
 description: En este tutorial, aprenderá a configurar el inicio de sesión único entre Azure Active Directory y Pega Systems.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 31acf80f-1f4b-41f1-956f-a9fbae77ee69
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: bd54466e054055ff84cd5bb2b28c5cc074ac0017
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3dd09770ef5f747f008090368c35b1f274374c5f
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72026805"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549082"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Tutorial: integración de Azure Active Directory con Pega Systems
 
@@ -234,7 +230,7 @@ En esta sección creará un usuario de prueba llamado Britta Simon en Azure Por
 
     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
   
-    b. En el cuadro **Nombre de usuario**, escriba **brittasimon@\<dominioDeSuEmpresa>.\<extensión>** . (Por ejemplo, BrittaSimon@contoso.com).
+    b. En el cuadro **Nombre de usuario**, escriba **brittasimon@\<yourcompanydomain>.\<extension>** (Por ejemplo, BrittaSimon@contoso.com).
 
     c. Seleccione **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
 

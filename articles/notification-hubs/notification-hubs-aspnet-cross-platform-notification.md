@@ -16,12 +16,13 @@ ms.date: 09/30/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 467664f4c102a81f6469765ea1742995f04c60e6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3acfc9e3a856ec777bfada68d535b6a1e9878a08
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87022011"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017930"
 ---
 # <a name="send-cross-platform-notifications-with-azure-notification-hubs"></a>Envío de notificaciones entre plataformas con Azure Notification Hubs
 

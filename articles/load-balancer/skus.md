@@ -6,25 +6,25 @@ documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: overview
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/01/2020
 ms.author: allensu
-ms.openlocfilehash: d08d7a81fddfe70593c31ac3ebd2191679ea1220
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 3509b99d1b222fc4f0bfa48effe42496c209d9ae
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206357"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654487"
 ---
 # <a name="azure-load-balancer-skus"></a>SKU de Azure Load Balancer
 
-Azure Load Balancer tiene dos tipos o SKU.
+Azure Load Balancer tiene dos SKU.
 
 ## <a name="sku-comparison"></a><a name="skus"></a>Comparación de SKU
 
-El equilibrador de carga admite las SKU básica y estándar. Estas SKU difieren en la escala, las características y los precios del escenario. Cualquier escenario que sea posible con Basic Load Balancer se puede crear con Standard Load Balancer.
+Load balancer admite SKU estándar y básicas. Estas SKU difieren en la escala, las características y los precios del escenario. Cualquier escenario que sea posible con Basic Load Balancer se puede crear con Standard Load Balancer.
 
 Para comparar y comprender las diferencias, consulte la siguiente tabla. Para más información, consulte [Información general sobre Standard Load Balancer de Azure](load-balancer-standard-overview.md).
 
@@ -37,11 +37,11 @@ Las máquinas virtuales independientes, los conjuntos de disponibilidad y los co
 | **[Tamaño de grupo de back-end](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer)** | Admite hasta 1000 instancias. | Admite hasta 300 instancias. |
 | **Puntos de conexión del grupo de back-end** | Todas las máquinas virtuales o conjuntos de escalado de máquinas virtuales de una red virtual individual. | Máquinas virtuales en un único conjunto de disponibilidad o conjunto de escalado de máquinas virtuales. |
 | **[Sondeos de estado](./load-balancer-custom-probe-overview.md#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
-| **[Comportamiento del sondeo de mantenimiento](./load-balancer-custom-probe-overview.md#probedown)** | Las conexiones TCP permanecen activas en el sondeo de la instancia __y__ en todos los sondeos. | Las conexiones TCP permanecen activas en un sondeo de instancia. Todas las conexiones TCP finalizan cuando todos los sondeos están inactivos. |
+| **[Comportamiento del sondeo de mantenimiento](./load-balancer-custom-probe-overview.md#probedown)** | Las conexiones TCP permanecen activas en el sondeo de la instancia __y__ en todos los sondeos. | Las conexiones TCP permanecen activas en un sondeo de instancia. Todas las conexiones TCP terminan cuando todos los sondeos están inactivos. |
 | **Zonas de disponibilidad** | Servidores front-end con redundancia de zona y zonales para el tráfico de entrada y salida. | No disponible |
 | **Diagnóstico** | [Métricas multidimensionales de Azure Monitor](./load-balancer-standard-diagnostics.md) | [Registros de Azure Monitor](./load-balancer-monitor-log.md) |
 | **Puertos de alta disponibilidad** | [Disponibles para el equilibrador de carga interno](./load-balancer-ha-ports-overview.md) | No disponible |
-| **Seguro de forma predeterminada** | Cerrado a los flujos de entrada, a menos que lo permita un grupo de seguridad de red. Tenga en cuenta que se permite el tráfico interno de la red virtual al equilibrador de carga interno. | Abrir de forma predeterminada. Grupo de seguridad de red opcional. |
+| **Seguro de forma predeterminada** | Cerrado a los flujos de entrada, a menos que lo permita un grupo de seguridad de red. Se permite el tráfico interno desde la red virtual al equilibrador de carga interno. | Abrir de forma predeterminada. Grupo de seguridad de red opcional. |
 | **Reglas de salida** | [Configuración declarativa de NAT de salida](./load-balancer-outbound-rules-overview.md) | No disponible |
 | **Restablecimiento de TCP en tiempo de espera de inactividad** | [Disponible en cualquier regla](./load-balancer-tcp-reset.md) | No disponible |
 | **[Varios servidores front-end](./load-balancer-multivip-overview.md)** | Entrada y [salida](./load-balancer-outbound-connections.md) | Solo de entrada |

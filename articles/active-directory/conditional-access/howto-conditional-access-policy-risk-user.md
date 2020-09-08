@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a015f7dd58bae328a8c18e3de3202c0ca615c9cf
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: d5423a61c8febee72f32935f3dee4e9f9e868630
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86034731"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049084"
 ---
 # <a name="conditional-access-user-risk-based-conditional-access"></a>Acceso condicional: Acceso condicional basado en el riesgo del usuario
 
@@ -29,7 +29,7 @@ Hay dos ubicaciones en las que se puede asignar esta directiva. Las organizacion
 1. Inicie sesión en **Azure Portal** como administrador global, administrador de seguridad o administrador de acceso condicional.
 1. Vaya a **Azure Active Directory** > **Seguridad** > **Acceso condicional**.
 1. Seleccione **Nueva directiva**.
-1. Asigne un nombre a la directiva. Se recomienda que las organizaciones creen un estándar significativo para los nombres de sus directivas.
+1. Asigne un nombre a la directiva. Se recomienda que las organizaciones creen un estándar significativo para los nombres de sus directivas. Para obtener más información, [establezca pautas de nomenclatura para sus directivas](./plan-conditional-access.md#set-naming-standards-for-your-policies).
 1. En **Asignaciones**, seleccione **Usuarios y grupos**.
    1. En **Incluir**, seleccione **Todos los usuarios**.
    1. En **Excluir**, seleccione **Usuarios y grupos** y, luego, elija las cuentas de acceso de emergencia de la organización. 
@@ -62,8 +62,8 @@ Hay dos ubicaciones en las que se puede asignar esta directiva. Las organizacion
 
 [Acceso condicional basado en el riesgo de inicio de sesión](howto-conditional-access-policy-risk.md)
 
-[Determinación del impacto mediante el modo de solo informe de acceso condicional](howto-conditional-access-report-only.md)
+[Determinación del impacto mediante el modo de solo informe de acceso condicional](howto-conditional-access-insights-reporting.md)
 
 [Simulación del comportamiento de inicio de sesión mediante la herramienta What If de acceso condicional](troubleshoot-conditional-access-what-if.md)
 
-[¿Qué es Azure Active Directory Identity Protection?](../identity-protection/overview.md)
+[¿Qué es Azure Active Directory Identity Protection?](../identity-protection/overview-identity-protection.md)

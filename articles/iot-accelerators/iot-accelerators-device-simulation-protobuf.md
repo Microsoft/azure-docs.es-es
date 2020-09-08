@@ -6,17 +6,15 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.custom:
-- mvc
-- amqp
+ms.custom: mvc, amqp, devx-track-csharp
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: c49745b30d2c4acc115a72af095f3e941dc4d509
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: c9c8aa86aa8a374a33750e306529ef212c9a8bfc
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81684003"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012337"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serialización de datos de telemetría con búferes de protocolo
 

@@ -13,12 +13,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5b35815e42b6c9fa5cbd874c0a58f5285c99539
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6afba520db399cc4eb99c8716540886cc88f6ae7
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85355920"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89275885"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Solución de problemas de inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -74,9 +74,9 @@ Examine **Azure Active Directory** > **Inicios de sesión** en el [centro de adm
 Use la siguiente lista de comprobación para solucionar problemas de SSO de conexión directa:
 
 - Asegúrese de que la característica SSO de conexión directa está habilitada en Azure AD Connect. Si no puede habilitarla (por ejemplo, debido a que hay un puerto bloqueado), asegúrese de que cumple todos los [requisitos previos](how-to-connect-sso-quick-start.md#step-1-check-the-prerequisites).
-- Si ha habilitado tanto [Azure AD Join](../active-directory-azureadjoin-overview.md) como SSO de conexión directa en el inquilino, asegúrese de que el problema no está relacionado con Azure AD Join. SSO de Azure AD Join tiene prioridad sobre SSO de conexión directa, si el dispositivo está tanto registrado con Azure AD como unido a un dominio. Con SSO de Azure AD Join, el usuario ve un icono de inicio de sesión que dice "Conectado a Windows".
+- Si ha habilitado tanto [Azure AD Join](../devices/overview.md) como SSO de conexión directa en el inquilino, asegúrese de que el problema no está relacionado con Azure AD Join. SSO de Azure AD Join tiene prioridad sobre SSO de conexión directa, si el dispositivo está tanto registrado con Azure AD como unido a un dominio. Con SSO de Azure AD Join, el usuario ve un icono de inicio de sesión que dice "Conectado a Windows".
 - Asegúrese de que la dirección URL de Azure AD (`https://autologon.microsoftazuread-sso.com`) forma parte de la configuración de zonas de intranet del usuario.
-- Asegúrese de que el dispositivo corporativo se ha unido al dominio de Active Directory. El dispositivo _no_ tiene que [unirse a Azure AD](../active-directory-azureadjoin-overview.md) para que SSO de conexión directa funcione.
+- Asegúrese de que el dispositivo corporativo se ha unido al dominio de Active Directory. El dispositivo _no_ tiene que [unirse a Azure AD](../devices/overview.md) para que SSO de conexión directa funcione.
 - Asegúrese de que el usuario ha iniciado sesión en el dispositivo a través de una cuenta de dominio de Active Directory.
 - Asegúrese de que la cuenta del usuario provenga de un bosque de Active Directory donde esté configurado SSO de conexión directa.
 - Asegúrese de que el dispositivo está conectado a la red corporativa.
@@ -106,7 +106,7 @@ Si el procedimiento de solución de problemas no sirve de ayuda, restablezca man
 
 ### <a name="step-1-import-the-seamless-sso-powershell-module"></a>Paso 1: Importación del módulo de PowerShell de SSO de conexión directa
 
-1. Primero, descargue e instale [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+1. Primero, descargue e instale [Azure AD PowerShell](/powershell/azure/active-directory/overview).
 2. Examine la carpeta `%programfiles%\Microsoft Azure Active Directory Connect`.
 3. Importe el módulo de PowerShell de SSO de conexión directa mediante este comando: `Import-Module .\AzureADSSO.psd1`.
 

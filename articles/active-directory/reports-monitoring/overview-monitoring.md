@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84353dd3c8b803f27073d113d6946152f059d9be
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: efa4b625afb641209d3920c8663ed810ee27e1ad
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873422"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228654"
 ---
 # <a name="what-is-azure-active-directory-monitoring"></a>¿Qué es la supervisión de Azure Active Directory?
 
@@ -63,7 +63,7 @@ Enrutar los registros a un centro de eventos de Azure le permite integrarse con 
 
 ## <a name="send-logs-to-azure-monitor-logs"></a>Envío de registros a registros de Azure Monitor
 
-[Registros de Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) es una solución que consolida la supervisión de los datos de diferentes orígenes y proporciona un lenguaje de consulta y un motor de análisis que ofrece información sobre el funcionamiento de las aplicaciones y los recursos. Al enviar los registros de actividad de Azure AD a los registros de Azure Monitor, puede recuperar, supervisar y alertar rápidamente sobre los datos recopilados. Aprenda a [enviar datos a los registros de Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md).
+[Registros de Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) es una solución que consolida la supervisión de los datos de diferentes orígenes y proporciona un lenguaje de consulta y un motor de análisis que ofrece información sobre el funcionamiento de las aplicaciones y los recursos. Al enviar los registros de actividad de Azure AD a los registros de Azure Monitor, puede recuperar, supervisar y alertar rápidamente sobre los datos recopilados. Aprenda a [enviar datos a los registros de Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md).
 
 También puede instalar las vistas pregeneradas de los registros de actividad de Azure AD para supervisar escenarios comunes que incluyen inicios de sesión y eventos de auditoría. Aprenda a [instalar y utilizar las vistas de Log Analytics para los registros de actividad de Azure AD](howto-install-use-log-analytics-views.md).
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: 72acd5c3c5fbab08b2e97421689b4f562b2ae2e8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 9b23fbe55589bbbe6d560967119206fb1ea1d85c
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119725"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607262"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Guía de publicación por tipo de oferta
 
@@ -22,7 +22,7 @@ Antes de crear una oferta y después de [elegir una opción de publicación](det
 
 Un tipo de oferta se puede configurar de modos diferentes para habilitar distintas opciones de publicación, llamadas a la acción, aprovisionamiento o precios. La opción de publicación y la configuración del tipo de oferta también se alinea con la idoneidad de la oferta y los requisitos técnicos.
 
-Asegúrese de revisar los requisitos de idoneidad del tipo de oferta y el escaparate, así como los requisitos técnicos de publicación antes de crear la oferta.
+Asegúrese de revisar los requisitos de idoneidad del tipo de oferta y la tienda en línea, así como los requisitos técnicos de publicación antes de crear la oferta.
 
 ## <a name="list-of-offer-types"></a>Lista de tipos de oferta
 
@@ -45,4 +45,4 @@ Para obtener información sobre los requisitos de inicio de sesión único media
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Revise los requisitos de idoneidad en el artículo correspondientes para el tipo de oferta (secciones siguientes) para finalizar la selección y la configuración de la oferta.
-- Revise los patrones de publicación por escaparate para ver ejemplos de cómo la solución se asigna a un tipo de oferta y configuración.
+- Revise los patrones de publicación por tienda en línea para ver ejemplos de cómo la solución se asigna a un tipo de oferta y configuración.

@@ -1,14 +1,14 @@
 ---
 title: Controles del ejemplo de plano técnico de la norma SWIFT CSP-CSCF v2020
 description: Asignación de controles del ejemplo de plano técnico SWIFT CSP-CSCF v2020. Cada control se asigna a una o varias directivas de Azure que ayudan en la evaluación.
-ms.date: 05/13/2020
+ms.date: 08/18/2020
 ms.topic: sample
-ms.openlocfilehash: 10c46b11fc3c4243914c48629f082ad83db8d138
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 06a334ff05db1cfc7ad1fb09e370963486ee1515
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657079"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297424"
 ---
 # <a name="control-mapping-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico SWIFT CSP-CSCF v2020
 
@@ -34,14 +34,14 @@ Este proyecto le ayudará a revisar las cuentas que pueda que no cumplan los req
 Azure implementa el [control de acceso basado en rol](../../../../role-based-access-control/overview.md) (RBAC) para permitirle administrar quién tiene acceso a los recursos de Azure. Mediante Azure Portal, puede revisar quién tiene acceso a los recursos de Azure y sus permisos. Este proyecto también asigna definiciones de [Azure Policy](../../../policy/overview.md) para auditar el uso de la autenticación de Azure Active Directory de los servidores SQL Server y Service Fabric. El uso de la autenticación de Azure Active Directory simplifica la administración de permisos y centraliza la administración de identidades de usuarios de base de datos y otros servicios de Microsoft. Además, este proyecto asigna una definición de Azure Policy para auditar el uso de reglas RBAC personalizadas. Conocer dónde se implementan las reglas RBAC personalizadas ayuda a verificar que la implementación se necesita y se realiza correctamente, ya que estas suelen producir errores.
 
 - El administrador de Azure Active Directory debe aprovisionarse para servidores SQL Server
-- Auditar el uso de reglas de RBAC personalizadas
+- Auditar las máquinas virtuales que no utilizan discos administrados
 - Los clústeres de Service Fabric solo deben usar Azure Active Directory para la autenticación de cliente
 
 ## <a name="29a--account-management--account-monitoring--atypical-usage"></a>2.9A Administración de cuentas | Supervisión o uso inusual de cuentas
 
 El acceso a máquinas virtuales Just-In-Time (JIT) bloquea el tráfico entrante a las máquinas virtuales de Azure, lo que reduce la exposición a ataques y, al mismo tiempo, se proporciona acceso sencillo para conectarse a las máquinas virtuales cuando sea necesario. Todas las solicitudes JIT para tener acceso a las máquinas virtuales se registran en el registro de actividad que le permiten supervisar el uso inusual. Esta instancia de proyecto asigna una definición de [Azure Policy](../../../policy/overview.md) que le ayuda a supervisar las máquinas virtuales que pueden admitir el acceso just-in-time pero aún no se han configurado.
 
-- El control de acceso de red Just-In-Time se debe aplicar en las máquinas virtuales.
+- Los puertos de administración de las máquinas virtuales deben protegerse con el control de acceso de red Just-In-Time.
 
 ## <a name="13-51-and-64-separation-of-duties"></a>1.3, 5.1 y 6.4 Separación de obligaciones
 
@@ -57,8 +57,8 @@ Tener solo un propietario de la suscripción de Azure no permite la redundancia 
 Azure implementa el [control de acceso basado en rol](../../../../role-based-access-control/overview.md) (RBAC) para permitirle administrar quién tiene acceso a los recursos de Azure. Mediante Azure Portal, puede revisar quién tiene acceso a los recursos de Azure y sus permisos. Este proyecto asigna definiciones de [Azure Policy](../../../policy/overview.md) para auditar las cuentas cuya revisión es prioritaria. Revisar estos indicadores de la cuenta puede ayudarle a asegurarse de que se han implementado los controles de privilegios mínimos.
 
 - Debe designar un máximo de tres propietarios para la suscripción
-- Mostrar los resultados de las auditorías de las máquinas virtuales Windows en las que el grupo Administradores no contenga todos los miembros especificados
-- Implementar los requisitos previos para auditar las máquinas virtuales Windows en las que el grupo Administradores no contenga todos los miembros especificados
+- Mostrar los resultados de la auditoría de las VM Windows que no estén unidas al dominio especificado
+- Implementar los requisitos previos para realizar una auditoría de las VM Windows que no estén unidas al dominio especificado
 - Debe haber más de un propietario asignado a su suscripción
 
 ## <a name="22-and-27-security-attributes"></a>2.2 y 2.7 Atributos de seguridad
@@ -72,9 +72,9 @@ La funcionalidad de detección y clasificación de datos de seguridad avanzada d
 
 Este proyecto le ayuda a supervisar y controlar el acceso remoto mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) para supervisar que la depuración remota de la aplicación de Azure App Service está desactivada y para auditar las máquinas virtuales Linux que permiten las conexiones remotas desde cuentas sin contraseñas. Este proyecto también asigna una definición de Azure Policy que le ayuda a supervisar el acceso sin restricciones a las cuentas de almacenamiento. La supervisión de estos indicadores puede ayudarle a garantizar que los métodos de acceso remoto cumplan con la directiva de seguridad.
 
-- \[Versión preliminar\]: mostrar los resultados de las auditorías de máquinas virtuales Linux que permitan conexiones remotas desde cuentas sin contraseña
-- \[Versión preliminar\]: implementar los requisitos previos para auditar máquinas virtuales Linux que permitan conexiones remotas desde cuentas sin contraseña
-- Auditar el acceso de red sin restricciones a cuentas de almacenamiento
+- mostrar los resultados de las auditorías de máquinas virtuales Linux que permitan conexiones remotas desde cuentas sin contraseña
+- implementar los requisitos previos para auditar máquinas virtuales Linux que permitan conexiones remotas desde cuentas sin contraseña
+- Se debe restringir el acceso de red a las cuentas de almacenamiento.
 - Se debe desactivar la depuración remota para aplicaciones de API
 - Recomendación de desactivación de la depuración remota para Function App
 - Recomendación de desactivación de la depuración remota para aplicaciones web
@@ -84,10 +84,8 @@ Este proyecto le ayuda a supervisar y controlar el acceso remoto mediante la asi
 Los datos de registro que recopila Azure Monitor se almacenan en un área de trabajo de Log Analytics que permite la configuración y administración centralizados. Este proyecto le ayuda a garantizar que los eventos se registran mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) que auditan y exigen la implementación del agente de Log Analytics en máquinas virtuales de Azure.
 
 - \[Versión preliminar\]: Auditoría de la implementación del agente de Log Analytics: la imagen de la VM (SO) no está en la lista
-- \[Versión preliminar\]: Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Linux
-- \[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Linux
-- \[Versión preliminar\]: Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Windows
-- \[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Windows
+- Implementar el agente de Log Analytics en máquinas virtuales Linux
+- Implementar el agente de Log Analytics en máquinas virtuales Windows
 
 ## <a name="22-27-and-64-response-to-audit-processing-failures"></a>2.2, 2.7 y 6.4 Respuesta a errores de procesamiento de auditoría
 
@@ -95,51 +93,50 @@ Este proyecto asigna definiciones de [Azure Policy](../../../policy/overview.md)
 
 - La seguridad avanzada de datos debe estar habilitada en los servidores SQL Server
 - Auditar la configuración de diagnóstico
-- Implementar auditorías en SQL Server
+- La auditoría de SQL Server debe estar habilitada
 
 ## <a name="13-and-64-audit-review-analysis-and-reporting--central-review-and-analysis"></a>1.3 y 6.4 Revisión, análisis e informes de auditorías | Revisión y análisis centralizados
 
 Los datos de registro que recopila Azure Monitor se almacenan en un área de trabajo de Log Analytics que permite el análisis y los informes centralizados. Este proyecto le ayuda a garantizar que los eventos se registran mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) que auditan y exigen la implementación del agente de Log Analytics en máquinas virtuales de Azure.
 
 - \[Versión preliminar\]: Auditoría de la implementación del agente de Log Analytics: la imagen de la VM (SO) no está en la lista
-- \[Versión preliminar\]: Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Linux
-- \[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Linux
-- \[Versión preliminar\]: Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Windows
-- \[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Windows
+- Implementar el agente de Log Analytics en máquinas virtuales Linux
+- Implementar el agente de Log Analytics en máquinas virtuales Windows
 
 ## <a name="13-22-27-64-and-65a-audit-generation"></a>1.3, 2.2, 2.7, 6.4 y 6.5A Generación de auditoría
 
 Este plano técnico ayuda a garantizar que los eventos del sistema se registran mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) que auditan las configuraciones de registro de los recursos de Azure. Estas definiciones de directiva auditan y aplican la implementación del agente de Log Analytics en las máquinas virtuales Azure y la configuración de la auditoría para otros tipos de recursos de Azure. Estas definiciones de directiva también auditan la configuración de los registros de diagnóstico para proporcionar información detallada sobre las operaciones realizadas dentro de los recursos de Azure. Además, la auditoría y Advanced Data Security se configuran en los servidores SQL Server.
 
-- \[Versión preliminar\]: Auditoría de la implementación del agente de Log Analytics: la imagen de la VM (SO) no está en la lista
-- \[Versión preliminar\]: Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Linux
-- \[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Linux
-- \[Versión preliminar\]: Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Windows
-- \[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Windows
+- Auditoría de la implementación del agente de Log Analytics: la imagen de la VM (SO) no está en la lista
+- Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Linux
+- Implementar el agente de Log Analytics en máquinas virtuales Linux
+- Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Windows
+- Implementar el agente de Log Analytics en máquinas virtuales Windows
 - Auditar la configuración de diagnóstico
 - Auditar configuración de auditoría de SQL en el nivel de servidor
 - La seguridad avanzada de datos debe estar habilitada en los servidores SQL Server
 - Implementación de Advanced Data Security en los servidores de SQL Server
-- Implementación de auditorías en servidores SQL Server
+- La auditoría de SQL Server debe estar habilitada
 - Implementación de la configuración de diagnóstico de grupos de seguridad de red
 
 ## <a name="11-least-functionality--prevent-program-execution"></a>1.1 Funcionalidad mínima | Evitación de la ejecución de programas
 
-El control de aplicaciones adaptable en Azure Security Center es una solución de creación de listas de aplicaciones permitidas integral, inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones puede ejecutarse en modo de aplicación que prohíbe que la aplicación no autorizada se ejecute. Este proyecto asigna una definición de Azure Policy que le ayuda a supervisar las máquinas virtuales cuando se recomienda crear una lista de aplicaciones permitidas, pero aún no se ha configurado.
+El control de aplicaciones adaptable en Azure Security Center es una solución de filtrado de aplicaciones de un extremo a otro, inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones puede ejecutarse en modo de aplicación que prohíbe que la aplicación no autorizada se ejecute. Este plano técnico asigna una definición de Azure Policy que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero esta aún no se ha configurado.
 
-- Deben habilitarse los controles de aplicaciones adaptables en las máquinas virtuales
+- Los controles de aplicaciones adaptables para definir aplicaciones seguras deben estar habilitados en las máquinas.
 
 ## <a name="11-least-functionality--authorized-software--whitelisting"></a>1.1 Funcionalidad mínima | Inclusión en listas blancas de software autorizado
 
-El control de aplicaciones adaptable en Azure Security Center es una solución de creación de listas de aplicaciones permitidas integral, inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones le permite crear listas de aplicaciones aprobadas para las máquinas virtuales. Este proyecto asigna una definición de [Azure Policy](../../../policy/overview.md) que le ayuda a supervisar las máquinas virtuales cuando se recomienda crear una lista de aplicaciones permitidas, pero aún no se ha configurado.
+El control de aplicaciones adaptable en Azure Security Center es una solución de filtrado de aplicaciones de un extremo a otro, inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones le permite crear listas de aplicaciones aprobadas para las máquinas virtuales. Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero esta aún no se ha configurado.
 
-- Deben habilitarse los controles de aplicaciones adaptables en las máquinas virtuales
+- Los controles de aplicaciones adaptables para definir aplicaciones seguras deben estar habilitados en las máquinas.
 
 ## <a name="11-user-installed-software"></a>1.1 Software instalado por el usuario
 
-El control de aplicaciones adaptable en Azure Security Center es una solución de creación de listas de aplicaciones permitidas integral, inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones puede ayudarle a aplicar y supervisar el cumplimiento con las directivas de restricción de software. Este proyecto asigna una definición de [Azure Policy](../../../policy/overview.md) que le ayuda a supervisar las máquinas virtuales cuando se recomienda crear una lista de aplicaciones permitidas, pero aún no se ha configurado.
+El control de aplicaciones adaptable en Azure Security Center es una solución de filtrado de aplicaciones de un extremo a otro, inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones puede ayudarle a aplicar y supervisar el cumplimiento con las directivas de restricción de software. Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero esta aún no se ha configurado.
 
-- Deben habilitarse los controles de aplicaciones adaptables en las máquinas virtuales
+- Los controles de aplicaciones adaptables para definir aplicaciones seguras deben estar habilitados en las máquinas.
+- Se deben migrar las máquinas virtuales a nuevos recursos de Azure Resource Manager
 
 ## <a name="42-identification-and-authentication-organizational-users--network-access-to-privileged-accounts"></a>4.2 Identificación y autenticación (usuarios de la organización) | Acceso de red a cuentas con privilegios
 
@@ -158,36 +155,36 @@ Este proyecto ayuda a restringir y controlar el acceso; para ello, asigna una de
 
 Este proyecto asigna definiciones de [Azure Policy](../../../policy/overview.md) que auditan las máquinas virtuales Linux que permitan conexiones remotas desde cuentas sin contraseña o que tengan permisos incorrectos establecidos en el archivo de contraseñas. Este proyecto también asigna definiciones de directiva que auditan la configuración del tipo de cifrado de contraseña en las máquinas virtuales Windows. La supervisión de estos indicadores le ayuda a asegurarse de que los autenticadores del sistema cumplen con la directiva de identificación y autenticación de la organización.
 
-- \[Versión preliminar\]: mostrar los resultados de las auditorías de las máquinas virtuales Linux que no tengan los permisos del archivo de contraseñas establecidos en 0644
-- \[Versión preliminar\]: implementación de los requisitos para auditar las máquinas virtuales Linux que no tengan los permisos del archivo de contraseñas establecidos en 0644
-- \[Versión preliminar\]: mostrar los resultados de las auditorías de las máquinas virtuales Linux que tengan cuentas sin contraseña
-- \[Versión preliminar\]: implementación de los requisitos para auditar las máquinas virtuales Linux que tengan cuentas sin contraseña
-- \[Versión preliminar\]: mostrar los resultados de las auditorías de las máquinas virtuales Windows que no almacenen contraseñas mediante el cifrado reversible
-- \[Versión preliminar\]: implementación de los requisitos para auditar las máquinas virtuales Windows que no almacenen las contraseñas mediante el cifrado reversible
+- mostrar los resultados de las auditorías de las máquinas virtuales Linux que no tengan los permisos del archivo de contraseñas establecidos en 0644
+- implementación de los requisitos para auditar las máquinas virtuales Linux que no tengan los permisos del archivo de contraseñas establecidos en 0644
+- mostrar los resultados de las auditorías de las máquinas virtuales Linux que tengan cuentas sin contraseña
+- implementación de los requisitos para auditar las máquinas virtuales Linux que tengan cuentas sin contraseña
+- mostrar los resultados de las auditorías de las máquinas virtuales Windows que no almacenen contraseñas mediante el cifrado reversible
+- implementación de los requisitos para auditar las máquinas virtuales Windows que no almacenen las contraseñas mediante el cifrado reversible
 
 ## <a name="23-and-41-authenticator-management--password-based-authentication"></a>2.3 y 4.1 Administración de autenticadores | Autenticación basada en contraseña
 
 Este proyecto ayuda a exigir contraseñas seguras mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) que auditan las máquinas virtuales Windows que no exigen unos requisitos mínimos de seguridad de contraseña y de otros tipos. Conocer las máquinas virtuales que infringen la directiva de seguridad de las contraseñas ayuda a tomar medidas correctivas para garantizar que las contraseñas de todas las cuentas de usuario de máquina virtual cumplen la directiva de contraseñas de la organización.
 
-- \[Versión preliminar\]: mostrar los resultados de las auditorías de las máquinas virtuales Windows que permitan volver a usar las 24 contraseñas anteriores
-- \[Versión preliminar\]: mostrar los resultados de las auditorías de las máquinas virtuales Windows cuyas contraseñas no tengan una vigencia máxima de 70 días
-- \[Versión preliminar\]: mostrar los resultados de las auditorías de las máquinas virtuales Windows cuyas contraseñas no tengan una vigencia mínima de 1 día
-- \[Versión preliminar\]: mostrar los resultados de las auditorías de las máquinas virtuales Windows que no tengan habilitada la configuración de complejidad de la contraseña
-- \[Versión preliminar\]: mostrar los resultados de las auditorías de las máquinas virtuales Windows que no restrinjan la longitud mínima de las contraseñas en 14 caracteres
-- \[Versión preliminar\]: mostrar los resultados de las auditorías de las máquinas virtuales Windows que no almacenen contraseñas mediante el cifrado reversible
-- \[Versión preliminar\]: implementar los requisitos previos para auditar las máquinas virtuales Windows que permitan volver a usar las 24 contraseñas anteriores
-- \[Versión preliminar\]: implementar los requisitos previos para auditar las máquinas virtuales Windows cuyas contraseñas no tengan una vigencia máxima de 70 días
-- \[Versión preliminar\]: implementar los requisitos previos para auditar las máquinas virtuales Windows cuyas contraseñas no tengan una vigencia mínima de 1 día
-- \[Versión preliminar\]: implementar los requisitos previos para auditar las máquinas virtuales que no tengan habilitada la configuración de complejidad de la contraseña
-- \[Versión preliminar\]: implementar los requisitos previos para auditar las máquinas virtuales Windows que no restrinjan la longitud mínima de las contraseñas a 14 caracteres
-- \[Versión preliminar\]: implementar los requisitos previos para auditar las máquinas virtuales Windows que no almacenen las contraseñas mediante el cifrado reversible
+- mostrar los resultados de las auditorías de las máquinas virtuales Windows que permitan volver a usar las 24 contraseñas anteriores
+- mostrar los resultados de las auditorías de las máquinas virtuales Windows cuyas contraseñas no tengan una vigencia máxima de 70 días
+- mostrar los resultados de las auditorías de las máquinas virtuales Windows cuyas contraseñas no tengan una vigencia mínima de 1 día
+- mostrar los resultados de las auditorías de las máquinas virtuales Windows que no tengan habilitada la configuración de complejidad de la contraseña
+- mostrar los resultados de las auditorías de las máquinas virtuales Windows que no restrinjan la longitud mínima de las contraseñas en 14 caracteres
+- mostrar los resultados de las auditorías de las máquinas virtuales Windows que no almacenen contraseñas mediante el cifrado reversible
+- implementar los requisitos previos para auditar las máquinas virtuales Windows que permitan volver a usar las 24 contraseñas anteriores
+- implementar los requisitos previos para auditar las máquinas virtuales Windows cuyas contraseñas no tengan una vigencia máxima de 70 días
+- implementar los requisitos previos para auditar las máquinas virtuales Windows cuyas contraseñas no tengan una vigencia mínima de 1 día
+- implementar los requisitos previos para auditar las máquinas virtuales que no tengan habilitada la configuración de complejidad de la contraseña
+- implementar los requisitos previos para auditar las máquinas virtuales Windows que no restrinjan la longitud mínima de las contraseñas a 14 caracteres
+- implementar los requisitos previos para auditar las máquinas virtuales Windows que no almacenen las contraseñas mediante el cifrado reversible
 
 ## <a name="22-and-27-vulnerability-scanning"></a>2.2 y 2.7 Examen de vulnerabilidades
 
 Este proyecto ayuda a administrar las vulnerabilidades del sistema de información mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) que supervisan las vulnerabilidades del sistema operativo, las de SQL o las de las máquinas virtuales en Azure Security Center. Azure Security Center proporciona funcionalidades de informes que permiten tener información en tiempo real sobre el estado de seguridad de los recursos de Azure implementados. Este proyecto asigna también definiciones de directiva que auditan y exigen Advanced Data Security en servidores SQL. Advanced Data Security incluía la evaluación de vulnerabilidades y funcionalidades de protección contra amenazas avanzada para ayudarle a entender las vulnerabilidades en los recursos implementados.
 
 - La seguridad avanzada de datos debe estar habilitada en los servidores SQL Server
-- Implementación de Advanced Data Security en los servidores de SQL Server
+- La auditoría de SQL Server debe estar habilitada
 - Se deben corregir las vulnerabilidades en la configuración de seguridad de los conjuntos de escalado de máquinas virtuales
 - Se deben corregir las vulnerabilidades de las bases de datos SQL 
 - Se deben corregir las vulnerabilidades en la configuración de seguridad en las máquinas
@@ -196,14 +193,14 @@ Este proyecto ayuda a administrar las vulnerabilidades del sistema de informaci�
 
 El nivel estándar de denegación de servicio distribuido (DDoS) de Azure proporciona características adicionales y funcionalidades de mitigación en el nivel de servicio básico. Estas características adicionales incluyen la integración de Azure Monitor y la capacidad de revisar los informes de mitigación posteriores al ataque. Este proyecto asigna una definición de [Azure Policy](../../../policy/overview.md) que audita si está habilitado el nivel estándar de DDoS. Conocer la diferencia de capacidad entre los niveles de servicio puede ayudarle a seleccionar la mejor solución para abordar la denegación de protecciones de servicio para el entorno de Azure.
 
-- Se debe habilitar DDoS Protection estándar
+- Azure DDoS Protection Estándar debe estar habilitado.
 
 ## <a name="11-and-61-boundary-protection"></a>1.1 y 6.1 Protección de límites
 
 Este proyecto le ayuda a administrar y controlar el límite del sistema mediante la asignación de una definición de [Azure Policy](../../../policy/overview.md) que supervisa las recomendaciones de protección del grupo de seguridad de red en Azure Security Center. Azure Security Center analiza los patrones de tráfico de las máquinas virtuales de Internet y proporciona recomendaciones de reglas de grupo de seguridad de red para reducir la superficie potencial de ataque.
 Además, este proyecto también asigna definiciones de directiva que supervisan las cuentas de almacenamiento, las aplicaciones y los puntos de conexión desprotegidos. Los puntos de conexión y las aplicaciones que no están protegidos por firewall y las cuentas de almacenamiento con acceso sin restricciones pueden permitir el acceso no deseado a la información contenida en el sistema de información.
 
-- Se deben proteger las reglas del grupo de seguridad de red para máquinas virtuales accesibles desde Internet
+- Las recomendaciones de protección de red adaptable se deben aplicar en las máquinas virtuales accesibles desde Internet
 - Debe restringirse el acceso a través de un punto de conexión accesible desde Internet
 - Auditar el acceso de red sin restricciones a cuentas de almacenamiento
 
@@ -211,13 +208,13 @@ Además, este proyecto también asigna definiciones de directiva que supervisan 
 
 El acceso a máquinas virtuales Just-In-Time (JIT) bloquea el tráfico entrante a las máquinas virtuales de Azure, lo que reduce la exposición a ataques y, al mismo tiempo, se proporciona acceso sencillo para conectarse a las máquinas virtuales cuando sea necesario. El acceso a máquinas virtuales JIT le ayuda a limitar el número de conexiones externas a los recursos de Azure. Esta instancia de proyecto asigna una definición de [Azure Policy](../../../policy/overview.md) que le ayuda a supervisar las máquinas virtuales que pueden admitir el acceso just-in-time pero aún no se han configurado.
 
-- El control de acceso de red Just-In-Time se debe aplicar en las máquinas virtuales.
+- Los puertos de administración de las máquinas virtuales deben protegerse con el control de acceso de red Just-In-Time.
 
 ## <a name="29a-boundary-protection--external-telecommunications-services"></a>2.9A Protección de límites | Servicios de telecomunicaciones externos
 
 El acceso a máquinas virtuales Just-In-Time (JIT) bloquea el tráfico entrante a las máquinas virtuales de Azure, lo que reduce la exposición a ataques y, al mismo tiempo, se proporciona acceso sencillo para conectarse a las máquinas virtuales cuando sea necesario. El acceso a máquinas virtuales JIT le ayuda a administrar las excepciones a la directiva de flujo de tráfico al facilitar los procesos de solicitud y aprobación de acceso. Esta instancia de proyecto asigna una definición de [Azure Policy](../../../policy/overview.md) que le ayuda a supervisar las máquinas virtuales que pueden admitir el acceso just-in-time pero aún no se han configurado.
 
-- El control de acceso de red Just-In-Time se debe aplicar en las máquinas virtuales.
+- Los puertos de administración de las máquinas virtuales deben protegerse con el control de acceso de red Just-In-Time.
 
 ## <a name="21-24-24a-25a-and-26-transmission-confidentiality-and-integrity--cryptographic-or-alternate-physical-protection"></a>2.1, 2.4, 2.4A, 2.5A y 2.6 Integridad y confidencialidad de la transmisión | Protección criptográfica o protección física alternativa
 
@@ -247,6 +244,8 @@ Este proyecto ayuda a administrar los errores del sistema de información median
 - Exigir la aplicación automática de revisiones de imágenes del sistema operativo en Virtual Machine Scale Sets
 - Se deben instalar las actualizaciones del sistema en los conjuntos de escalado de máquinas virtuales
 - Se deben instalar las actualizaciones del sistema en las máquinas virtuales
+- Auditoría de la implementación de Dependency Agent en conjuntos de escalado de máquinas virtuales: la imagen (SO) de la máquina virtual no está en la lista
+- Las variables de cuenta de automatización deben cifrarse
 - Se deben corregir las vulnerabilidades en la configuración de seguridad de los conjuntos de escalado de máquinas virtuales
 - Se deben corregir las vulnerabilidades en la configuración de seguridad de las máquinas virtuales
 - Se deben corregir las vulnerabilidades de las bases de datos SQL
@@ -258,6 +257,7 @@ Este proyecto le ayuda a administrar la protección de los puntos de conexión, 
 - Implementación de la extensión de Microsoft IaaSAntimalware predeterminada para Windows Server
 - La solución de protección del punto de conexión debe instalarse en las máquinas virtuales
 - Supervisión de la falta de Endpoint Protection en Azure Security Center
+- Se deben migrar las cuentas de almacenamiento a los nuevos recursos de Azure Resource Manager
 
 ## <a name="61-malicious-code-protection--central-management"></a>6.1 Protección frente a código malintencionado | Administración central
 
@@ -270,11 +270,11 @@ Este proyecto le ayuda a administrar la protección de los puntos de conexión, 
 
 Este proyecto le ayuda a supervisar el sistema de auditoría y cumplimiento de seguridad de datos y registro en los recursos de Azure. En concreto, las directivas asignaban la auditoría e implementación del agente de Log Analytics, y mejoraban la configuración de seguridad de las bases de datos SQL, las cuentas de almacenamiento y los recursos de red. Estas funcionalidades pueden ayudarle a detectar los comportamientos anómalos y los indicadores de ataques para que pueda tomar las acciones adecuadas.
 
-- \[Versión preliminar\]: Auditoría de la implementación del agente de Log Analytics: la imagen de la VM (SO) no está en la lista
-- \[Versión preliminar\]: Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Linux
-- \[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Linux
-- \[Versión preliminar\]: Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Windows
-- \[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Windows
+- Mostrar los resultados de la auditoría de las máquinas virtuales Windows en que el agente de Log Analytics no esté conectado según lo esperado
+- Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Linux
+- Implementar el agente de Log Analytics en máquinas virtuales Linux
+- Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Windows
+- Implementar el agente de Log Analytics en máquinas virtuales Windows
 - La seguridad avanzada de datos debe estar habilitada en los servidores SQL Server
 - La configuración de seguridad de datos avanzada para SQL Server debe contener una dirección de correo electrónico para recibir alertas de seguridad
 - Se deben habilitar los registros de diagnóstico en Azure Stream Analytics

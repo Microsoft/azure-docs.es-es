@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/15/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8b4d58163c28e00c30c5b0f9db3a6ff259fbf5ae
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d6f72231e84650a17850932979b43c21dd045f30
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536939"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069330"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implementación y configuración de Azure Firewall mediante Azure Portal
 
@@ -47,6 +47,8 @@ En este tutorial, aprenderá a:
 > * Probar el firewall
 
 Si lo prefiere, puede seguir los pasos de este tutorial mediante [Azure PowerShell](deploy-ps.md).
+
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -103,7 +105,7 @@ Ahora cree la máquina virtual de la carga de trabajo y colóquela en la subred 
 3. **Windows Server 2016 Datacenter** en la lista de destacados.
 4. Especifique estos valores para la máquina virtual:
 
-   |Configuración  |Valor  |
+   |Configuración  |Value  |
    |---------|---------|
    |Resource group     |**Test-FW-RG**|
    |Nombre de la máquina virtual     |**Srv-Work**|
@@ -130,9 +132,9 @@ Implemente el firewall en la red virtual.
 3. Seleccione **Firewall** y después **Crear**.
 4. En la página **Creación de un firewall**, utilice la tabla siguiente para configurar el firewall:
 
-   |Configuración  |Valor  |
+   |Configuración  |Value  |
    |---------|---------|
-   |Suscripción     |\<your subscription\>|
+   |Subscription     |\<your subscription\>|
    |Resource group     |**Test-FW-RG** |
    |Nombre     |**Test-FW01**|
    |Location     |Seleccione la misma ubicación que usó anteriormente.|

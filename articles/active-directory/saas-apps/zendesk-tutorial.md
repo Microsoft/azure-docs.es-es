@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Zendesk | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Zendesk.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: 9d7c91e5-78f5-4016-862f-0f3242b00680
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 03/26/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f70e7067a78b439d3dcaf0b83460296cad7b4485
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 85e198def03ab4f6d3e18047ccea0152f96694fd
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585798"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815128"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zendesk"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Zendesk
 
@@ -45,7 +41,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * Zendesk admite el inicio de sesión único iniciado por **SP**
 * Zendesk admite el [aprovisionamiento **automático** de usuarios](zendesk-provisioning-tutorial.md)
-* Una vez configurado Zendesk, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Una vez configurado Zendesk, puede aplicar el control de sesión, que protege contra la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-zendesk-from-the-gallery"></a>Adición de Zendesk desde la galería
 
@@ -58,7 +54,7 @@ Para configurar la integración de Zendesk en Azure AD, es preciso agregar dicha
 1. En la sección **Agregar desde la galería**, escriba **Zendesk** en el cuadro de búsqueda.
 1. Seleccione **Zendesk** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-zendesk"></a>Configuración y prueba del inicio de sesión único de Azure AD para Zendesk
+## <a name="configure-and-test-azure-ad-sso-for-zendesk"></a>Configuración y prueba del inicio de sesión único de Azure AD para Zendesk
 
 Configure y pruebe el inicio de sesión único de Azure AD con Zendesk mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Zendesk.
 
@@ -143,52 +139,39 @@ En esta sección, va a permitir que B.Simon acceda a Zendesk mediante el inicio 
 
 ## <a name="configure-zendesk-sso"></a>Configuración del inicio de sesión único de Zendesk
 
+1. Para automatizar la configuración en **Zendesk**, es necesario que instale la **extension del explorador de inicio de sesión seguro de Mis aplicaciones**. Para ello, haga clic en **Instalar la extensión**.
+
+    ![imagen](./media/target-process-tutorial/install_extension.png)
+
+1. Después de agregar la extensión al explorador, haga clic en **Setup Zendesk** (Configurar Zendesk) para ir a la aplicación Zendesk. Desde allí, proporcione las credenciales de administrador para iniciar sesión en Zendesk. La extensión de explorador configurará automáticamente la aplicación y automatizará los pasos 3 a 6.
+
+    ![Configuración](common/setup-sso.png)
+
 1. Si quiere configurar Zendesk manualmente, abra una nueva ventana del explorador web, inicie sesión en el sitio de empresa de Zendesk como administrador y realice los pasos siguientes:
 
-2. Haga clic en **Administrador**.
+1. En el **Centro de administración de Zendesk**, haga clic en **Configuración de seguridad** en la pestaña **Seguridad**.
 
-3. En el panel de navegación izquierdo, haga clic en **Settings** (Configuración) y luego en **Security** (Seguridad).
+    ![Seguridad](./media/zendesk-tutorial/settings.png "Seguridad")
 
-4. En la pestaña **Security** (Seguridad), lleve a cabo los pasos siguientes:
+1. Vaya a la página **Inicio de sesión único** y haga clic en **Editar** en **SAML**.
 
-    ![Seguridad](./media/zendesk-tutorial/ic773089.png "Seguridad")
+    ![Seguridad](./media/zendesk-tutorial/saml-sso.png "Seguridad")
 
-    ![Inicio de sesión único](./media/zendesk-tutorial/ic773090.png "Inicio de sesión único")
+1. Realice los siguientes pasos en la página **SSO**.
 
-    a. Haga clic en la pestaña **Admin & Agents** (Administración y agentes).
+    ![Inicio de sesión único](./media/zendesk-tutorial/saml-configuration.png "Inicio de sesión único")
 
-    b. Seleccione **Single sign-on (SSO) and SAML** (Inicio de sesión único (SSO) y SAML) y, luego, seleccione **SAML**.
+    a. En el cuadro de texto **Dirección URL de inicio de sesión único de SAML**, pegue el valor de la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
-    c. En el cuadro de texto **Dirección URL de inicio de sesión único de SAML**, pegue el valor de la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
+    b. En el cuadro de texto **Certificate Fingerprint** (Huella digital de certificado), pegue el valor de **Huella digital** del certificado que haya copiado de Azure Portal.
 
-    d. En el cuadro de texto **Dirección URL de cierre de sesión remoto**, pegue el valor de **URL de cierre de sesión** que copió de Azure Portal.
+    c. En el cuadro de texto **Dirección URL de cierre de sesión remoto**, pegue el valor de **URL de cierre de sesión** que copió de Azure Portal.
 
-    e. En el cuadro de texto **Certificate Fingerprint** (Huella digital de certificado), pegue el valor de **Huella digital** del certificado que haya copiado de Azure Portal.
-
-    f. Haga clic en **Save**(Guardar).
+    d. Haga clic en **Save**(Guardar).
 
 ### <a name="create-zendesk-test-user"></a>Creación de un usuario de prueba de Zendesk
 
 El objetivo de esta sección es crear un usuario llamado Britta Simon en Zendesk. Zendesk admite el aprovisionamiento automático de usuarios, que está habilitado de forma predeterminada. [Aquí](Zendesk-provisioning-tutorial.md) puede encontrar más información sobre cómo configurar el aprovisionamiento automático de usuarios.
-
-**Para crear un usuario manualmente, siga los pasos siguientes:**
-
-> [!NOTE]
-> Las cuentas de **usuario final** se aprovisionan automáticamente al iniciar sesión. Las cuentas de **agente** y **administrador** se deben aprovisionar manualmente en **Zendesk** antes de iniciar la sesión.
-
-1. Inicie sesión en el inquilino de **Zendesk**.
-
-2. Seleccione la pestaña **Customer List** (Lista de clientes).
-
-3. Seleccione la pestaña **User** (Usuario) y haga clic en **Add** (Agregar).
-
-    ![Agregar usuario](./media/zendesk-tutorial/ic773632.png "Agregar usuario")
-4. Escriba el **nombre** y la **dirección de correo electrónico** de una cuenta de Azure AD existente que quiera aprovisionar y, luego, haga clic en **Guardar**.
-
-    ![New User (Nuevo usuario)](./media/zendesk-tutorial/ic773633.png "Nuevo usuario")
-
-> [!NOTE]
-> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Zendesk ofrecida por Zendesk para aprovisionar cuentas de usuario de Azure AD.
 
 ## <a name="test-sso"></a>Prueba de SSO 
 

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: bpham
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfc60eacd70576d9cfa79dbc03368c8e8c4a8636
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: f47ae9b087615a77f6bd4d3f14f1b0052037cba6
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797400"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321980"
 ---
 # <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>Incorporación de información de privacidad de su organización con Azure Active Directory
 En este artículo se explica cómo un administrador de inquilinos puede agregar información relacionada con la privacidad al inquilino de Azure Active Directory (Azure AD) de una organización, a través de Azure Portal.
@@ -56,5 +56,5 @@ Puede agregar información de privacidad de su organización en el área de **Pr
 4. Seleccione **Guardar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Canje de invitación de colaboración B2B de Azure Active Directory](../b2b/redemption-experience.md)
+- [Canje de invitación de colaboración B2B de Azure Active Directory](../external-identities/redemption-experience.md)
 - [Adición o modificación de la información de perfil de un usuario en Azure Active Directory](active-directory-users-profile-azure-portal.md)

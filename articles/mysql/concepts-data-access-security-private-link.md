@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: f780bf946e81e9873a1828f9d697f69c81cef513
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6391b21faaf6cd2a61dbe84af50ae12e4289dff9
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84509328"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837296"
 ---
 # <a name="private-link-for-azure-database-for-mysql"></a>Private Link para Azure Database for MySQL
 
@@ -20,7 +20,7 @@ Private Link permite conectarse a varios servicios PaaS en Azure mediante un pun
 Para una lista de los servicios PaaS que admiten la funcionalidad Private Link, consulte la página de [documentación](https://docs.microsoft.com/azure/private-link/index) de Private Link. Un punto de conexión privado es una dirección IP privada dentro de una [red virtual](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) y una subred específicas.
 
 > [!NOTE]
-> Esta característica está disponible en todas las regiones de Azure donde Azure Database for MySQL admita los planes de tarifa de uso general y optimizado para memoria.
+> La característica de vínculo privado solo está disponible para servidores de Azure Database for MySQL en los planes de tarifa De uso general u Optimizado para memoria. Asegúrese de que el servidor de bases de datos esté incluido en uno de estos planes de tarifa.
 
 ## <a name="data-exfiltration-prevention"></a>Prevención de la filtración de datos
 

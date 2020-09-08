@@ -11,13 +11,13 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 02/27/2020
 ms.author: aahi
-ms.custom: devx-track-python
-ms.openlocfilehash: 4b18a45d60ef9a87d80be8c55d934d61b6305ad8
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-python, devx-track-csharp
+ms.openlocfilehash: 384a8ccefb5273186a24f54aced41a31f176c5be
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850685"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934776"
 ---
 # <a name="quickstart-use-the-bing-custom-search-client-library"></a>Inicio rápido: Uso de la biblioteca cliente de Bing Custom Search
 

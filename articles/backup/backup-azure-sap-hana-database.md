@@ -3,12 +3,12 @@ title: Copia de seguridad de una base de datos de SAP HANA a Azure con Azure Bac
 description: En este artículo, aprenderá a realizar copias de seguridad de una base de datos de SAP HANA en máquinas virtuales de Azure con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 0efd26272bbfc4c8f63f7f02a605d48e53577390
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: b808038c9b973cbf4ba9e0b2e54d97bd41664297
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809143"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378260"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure
 
@@ -65,7 +65,7 @@ Si emplea grupos de seguridad de red (NSG), use la etiqueta de servicio de *Azur
 
 1. Seleccione **Agregar**. Escriba todos los detalles necesarios para crear una nueva regla, como se explica en [Configuración de reglas de seguridad](../virtual-network/manage-network-security-group.md#security-rule-settings). Asegúrese de que la opción **Destino** esté establecida en *Etiqueta de servicio* y de que **Etiqueta de servicio de destino** esté establecido en *AzureBackup*.
 
-1. Haga clic en **Agregar** para guardar la regla de seguridad de salida recién creada.
+1. Seleccione **Agregar** para guardar la regla de seguridad de salida recién creada.
 
 Puede crear reglas de seguridad de salida de NSG para Azure Storage y Azure AD de forma similar. Para más información sobre las etiquetas de servicio, consulte [este artículo](../virtual-network/service-tags-overview.md).
 
@@ -95,16 +95,16 @@ Al hacer una copia de seguridad de una base de datos SAP HANA que se ejecuta en 
 
 ## <a name="discover-the-databases"></a>Detección de bases de datos
 
-1. En el almacén, en **Introducción**, haga clic en **Copia de seguridad**. En **¿Dónde se ejecuta su carga de trabajo?** , seleccione **SAP HANA en máquina virtual de Azure**.
-2. Haga clic en **Iniciar detección**. Se iniciará la detección de máquinas virtuales de Linux no protegidas en la región del almacén.
+1. En el almacén, en **Introducción**, seleccione **Copia de seguridad**. En **¿Dónde se ejecuta su carga de trabajo?** , seleccione **SAP HANA en máquina virtual de Azure**.
+2. Seleccione **Iniciar detección**. Se iniciará la detección de máquinas virtuales de Linux no protegidas en la región del almacén.
 
    * Tras la detección, las máquinas virtuales no protegidas aparecen en el portal, enumeradas por nombre y grupo de recursos.
    * Si una máquina virtual no aparece en la lista como cabría esperar, compruebe que no se haya copiado ya en un almacén.
    * Varias máquinas virtuales pueden tener el mismo nombre pero pertenecer a distintos grupos de recursos.
 
-3. En **Seleccionar máquinas virtuales**, haga clic en el vínculo para descargar el script que proporciona permisos para que el servicio Azure Backup obtenga acceso a las máquinas virtuales de SAP HANA para la detección de bases de datos
+3. En **Seleccionar máquinas virtuales**, seleccione el vínculo para descargar el script que proporciona permisos para que el servicio Azure Backup obtenga acceso a las máquinas virtuales de SAP HANA para la detección de bases de datos.
 4. Ejecute el script en cada máquina virtual que hospede bases de datos de SAP HANA de las que desee hacer una copia de seguridad.
-5. Tras ejecutar el script en las máquinas virtuales, seleccione las máquinas virtuales en **Seleccionar máquinas virtuales**. A continuación, haga clic en **Detectar bases de datos**.
+5. Tras ejecutar el script en las máquinas virtuales, seleccione las máquinas virtuales en **Seleccionar máquinas virtuales**. A continuación, seleccione **Detectar bases de datos**.
 6. Azure Backup detecta todas las bases de datos de SAP HANA en la máquina virtual. Durante la detección, Azure Backup registra la máquina virtual con el almacén e instala una extensión en la máquina virtual. No se instala ningún agente en la base de datos.
 
     ![Detectar bases de datos de SAP HANA](./media/backup-azure-sap-hana-database/hana-discover.png)
@@ -113,7 +113,7 @@ Al hacer una copia de seguridad de una base de datos SAP HANA que se ejecuta en 
 
 Ahora habilite la copia de seguridad.
 
-1. En el paso 2, haga clic en **Configurar copia de seguridad**.
+1. En el paso 2, seleccione **Configurar copia de seguridad**.
 
     ![Configurar la copia de seguridad](./media/backup-azure-sap-hana-database/configure-backup.png)
 2. En **Seleccione los elementos de los que desea hacer una copia de seguridad**, seleccione todas las bases de datos que desee proteger y haga clic en **Aceptar**.
@@ -122,7 +122,7 @@ Ahora habilite la copia de seguridad.
 3. En **Directiva de copia de seguridad** > **Elegir directiva de copia de seguridad**, cree una directiva de copia de seguridad para las bases de datos, según las instrucciones siguientes.
 
     ![Elegir directiva de copia de seguridad](./media/backup-azure-sap-hana-database/backup-policy.png)
-4. Tras crear la directiva, en el menú **Copia de seguridad**, haga clic en **Habilitar la copia de seguridad**.
+4. Tras crear la directiva, en el **menú Copia de seguridad**, seleccione **Habilitar copia de seguridad**.
 
     ![Habilitación de la copia de seguridad](./media/backup-azure-sap-hana-database/enable-backup.png)
 5. Realice el seguimiento del progreso de la configuración de copia de seguridad en el área **Notificaciones** del portal.
@@ -147,7 +147,7 @@ Especifique la configuración de la directiva como se muestra a continuación:
 2. En el menú **Full Backup policy** (Directiva de copia de seguridad completa), seleccione un valor para **Backup Frequency** (Frecuencia de copia de seguridad) entre **Daily** (Diaria) o **Weekly** (Semanal).
    * **Diaria**: Seleccione la zona horaria y la hora a la que comienza el trabajo de copia de seguridad.
        * Debe ejecutar una copia de seguridad completa. No se puede desactivar esta opción.
-       * Haga clic en **Full Backup** (Copia de seguridad completa) para ver la directiva.
+       * Seleccione **Copia de seguridad completa** para ver la directiva.
        * No puede crear copias de seguridad diferenciales para copias de seguridad completas diarias.
    * **Semanal**: seleccione el día de la semana, la hora y la zona horaria en la que se ejecuta el trabajo de copia de seguridad.
 
@@ -160,7 +160,7 @@ Especifique la configuración de la directiva como se muestra a continuación:
     * La copia de seguridad de un día específico se etiqueta y se retiene según la duración de retención semanal y la configuración.
     * La duración de retención mensual y anual se comporta de forma similar.
 
-4. En el menú **Directiva de copia de seguridad completa**, haga clic en **Aceptar** para aceptar la configuración.
+4. En el menú de la **directiva de copia de seguridad completa**, seleccione **Aceptar** para aceptar la configuración.
 5. Para agregar una directiva de copia de seguridad diferencial, seleccione **Copia de seguridad diferencial**.
 6. En **Differential Backup policy** (Directiva de copia de seguridad diferencial), seleccione **Enable** (Habilitar) para abrir los controles de retención y frecuencia.
     * A lo sumo, puede desencadenar una copia de seguridad diferencial al día.
@@ -171,7 +171,7 @@ Especifique la configuración de la directiva como se muestra a continuación:
     > [!NOTE]
     > Las copias de seguridad incrementales no se admiten en la actualidad.
 
-7. Haga clic en **Aceptar** para guardar la directiva y volver al menú principal **Directiva de copia de seguridad**.
+7. Seleccione **Aceptar** para guardar la directiva y volver al menú principal de la **directiva de copia de seguridad**.
 8. Para agregar una directiva de copia de seguridad del registro de transacciones, seleccione **Copia de seguridad de registros**.
     * En **Copia de seguridad de registros**, seleccione **Habilitar**.  No se puede deshabilitar, dado que SAP HANA administra todas las copias de seguridad de registros.
     * Establezca los controles de frecuencia y retención.
@@ -179,20 +179,22 @@ Especifique la configuración de la directiva como se muestra a continuación:
     > [!NOTE]
     > Las copias de seguridad de registros comienzan el flujo solo después de que se haya completado correctamente una copia de seguridad completa.
 
-9. Haga clic en **Aceptar** para guardar la directiva y volver al menú principal **Directiva de copia de seguridad**.
-10. Cuando haya terminado de definir la directiva de copia de seguridad, haga clic en **Aceptar**.
+9. Seleccione **Aceptar** para guardar la directiva y volver al menú principal de la **directiva de copia de seguridad**.
+10. Al acabar de definir la directiva de copia de seguridad, seleccione **Aceptar**.
 
 > [!NOTE]
-> Cada copia de seguridad de registros está encadenada a la copia de seguridad completa anterior para formar una cadena de recuperación. Esta copia de seguridad completa se conservará hasta que expire la retención de la última copia de seguridad de registros. Esto puede significar que la copia de seguridad completa se conservará durante un período adicional para asegurarse de que se pueden recuperar todos los registros. Supongamos que el usuario tiene una copia de seguridad completa semanal, una copia diferencial diaria y registros de 2 horas. Todos ellos se conservan 30 días. Sin embargo, la copia completa semanal puede limpiarse o eliminarse en realidad solo después de que esté disponible la siguiente copia de seguridad completa, es decir, después de 30+7 días. Por ejemplo, una copia de seguridad completa semanal se produce el 16 de noviembre. Según la directiva de retención, debe conservarse hasta el 16 de diciembre. La última copia de seguridad de registros de esta copia completa se produce antes de la siguiente copia completa programada, el 22 de noviembre. Hasta que este registro esté disponible el 22 de diciembre, no se puede eliminar la copia completa del 16 de noviembre. Por lo tanto, la copia completa del 16 de noviembre se conserva hasta el 22 de diciembre.
+> Cada copia de seguridad de registros está encadenada a la copia de seguridad completa anterior para formar una cadena de recuperación. Esta copia de seguridad completa se conservará hasta que expire la retención de la última copia de seguridad de registros. Esto puede significar que la copia de seguridad completa se conservará durante un período adicional para asegurarse de que se pueden recuperar todos los registros. Supongamos que el usuario tiene una copia de seguridad completa semanal, una copia diferencial diaria y registros de 2 horas. Todos ellos se conservan 30 días. Sin embargo, la copia completa semanal puede limpiarse o eliminarse en realidad solo después de que esté disponible la siguiente copia de seguridad completa, es decir, después de 30+7 días. Por ejemplo, una copia de seguridad completa semanal se produce el 16 de noviembre. Según la directiva de retención, debe conservarse hasta el 16 de diciembre. La última copia de seguridad de registros de esta copia completa se produce antes de la siguiente copia completa programada, el 22 de noviembre. Hasta que este registro esté disponible el 22 de diciembre, no se puede eliminar la copia completa del 16 de noviembre. Por lo tanto, la copia completa del 16 de noviembre se conserva hasta el 22 de diciembre.
 
 ## <a name="run-an-on-demand-backup"></a>Ejecución de una copia de seguridad a petición
 
 Las copias de seguridad se ejecutan según la programación de la directiva. Puede ejecutar una copia de seguridad a petición siguiendo estos pasos:
 
-1. En el menú Almacén, haga clic en **Elementos de copia de seguridad**.
-2. En **Elementos de copia de seguridad**, seleccione la máquina virtual que ejecuta la base de datos de SAP HANA y, a continuación, haga clic en **Hacer copia de seguridad ahora**.
-3. En **Hacer copia de seguridad ahora**, elija el tipo de copia de seguridad que desea realizar. A continuación, haga clic en **Aceptar**. Esta copia de seguridad se conservará de acuerdo con la directiva asociada a este elemento de copia de seguridad.
+1. En el menú del almacén, seleccione **Elementos de copia de seguridad**.
+2. En **Elementos de copia de seguridad**, seleccione la VM que ejecuta la base de datos de SAP HANA y, a continuación, seleccione **Hacer copia de seguridad ahora**.
+3. En **Hacer copia de seguridad ahora**, elija el tipo de copia de seguridad que desea realizar. Después, seleccione **Aceptar**. Esta copia de seguridad se conservará de acuerdo con la directiva asociada a este elemento de copia de seguridad.
 4. Supervise las notificaciones del portal. Puede supervisar el progreso del trabajo en el panel del almacén > **Trabajos de copia de seguridad** > **En curso**. Según el tamaño de la base de datos, la creación de la copia de seguridad inicial puede tardar un tiempo.
+
+De forma predeterminada, la retención de copias de seguridad a petición es de 45 días.
 
 ## <a name="run-sap-hana-studio-backup-on-a-database-with-azure-backup-enabled"></a>Ejecutar una copia de seguridad de SAP HANA Studio en una base de datos con Azure Backup habilitado
 

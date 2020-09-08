@@ -62,17 +62,20 @@
           href: use-key-vault-references-dotnet-core.md
         - name: Spring Boot
           href: use-key-vault-references-spring-boot.md
-    - name: Integración con una canalización de CI/CD
-      href: integrate-ci-cd-pipeline.md
+    - name: Integración de la canalización de CI/CD
+      items:
+        - name: Inserción mediante Azure Pipelines
+          href: push-kv-devops-pipeline.md
+        - name: Inserción mediante Acciones de GitHub
+          href: concept-github-action.md
+        - name: Compilación de un proyecto mediante la configuración exportada
+          href: integrate-ci-cd-pipeline.md
     - name: Integración con la implementación de Kubernetes mediante Helm
       href: integrate-kubernetes-deployment-helm.md
 - name: Ejemplos
   items:
     - name: Azure CLI
       href: cli-samples.md
-    - name: Elementos integrados de Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceptos
   items:
     - name: Claves y valores
@@ -81,8 +84,6 @@
       href: concept-point-time-snapshot.md
     - name: Administración de características
       href: concept-feature-management.md
-    - name: Sincronización mediante acciones de GitHub
-      href: concept-github-action.md
     - name: Control de eventos
       href: concept-app-configuration-event.md
     - name: Seguridad
@@ -128,7 +129,7 @@
         - name: SDK de Azure para .NET
           href: 'https://go.microsoft.com/fwlink/?linkid=2092056'
         - name: Proveedor de Java Spring
-          href: 'https://go.microsoft.com/fwlink/?linkid=2074659'
+          href: 'https://github.com/microsoft/spring-cloud-azure/tree/master/'
         - name: SDK de Azure para Java
           href: 'https://go.microsoft.com/fwlink/?linkid=2098196'
         - name: SDK de Azure para Python
@@ -147,13 +148,20 @@
       items:
         - name: API DE REST
           href: 'https://docs.microsoft.com/rest/api/appconfiguration/'
+        - name: PowerShell
+          href: 'https://docs.microsoft.com/powershell/module/az.appconfiguration/'
+        - name: Terraform
+          href: 'https://www.terraform.io/docs/providers/azurerm/r/app_configuration.html'
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/app-configuration/'
     - name: Vídeos
       items:
-        - name: Introducción
+        - name: Introducción a App Configuration
           href: 'https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration'
         - name: Administración de características
           href: 'https://channel9.msdn.com/Shows/NET-Community-Standups/ASPNET-Community-Standup-May-21st-2019-Introducing-MicrosoftFeatureManagement'
@@ -161,5 +169,7 @@
           href: 'https://channel9.msdn.com/Events/dotnetConf/NET-Conf-2019/B210'
         - name: Azure App Configuration en Cloud Native Show
           href: 'https://www.youtube.com/watch?v=DJqmA5PcfzE'
+        - name: Implementación de nuevas características
+          href: 'https://channel9.msdn.com/Shows/Azure-Friday/How-Azure-App-Configuration-helps-developers-roll-out-new-features?ocid=AID747781&wt.mc_id=azfr-c9-scottha&wt.mc_id=CFID0553'
     - name: Proporcionar comentarios sobre el producto
       href: 'https://github.com/Azure/AppConfiguration/issues'

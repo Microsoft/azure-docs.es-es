@@ -6,22 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/02/2020
+ms.date: 08/19/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: cd8771afdc9c4462faaff758ffdd073382f69f53
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c6c2774e0d71ec33449565efab797c040aa264f
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550978"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640606"
 ---
 # <a name="blob-snapshots"></a>Instantáneas de blob
 
 Una instantánea es una versión de solo lectura de un blob que se ha realizado en un momento dado.
 
 > [!NOTE]
-> El control de versiones de blobs (versión preliminar) ofrece una manera alternativa de mantener copias históricas de un blob. Para más información, consulte [Control de versiones de blobs (versión preliminar)](versioning-overview.md).
+> El control de versiones de blobs (versión preliminar) ofrece una forma alternativa de mantener versiones anteriores de un blob. Para más información, consulte [Control de versiones de blobs (versión preliminar)](versioning-overview.md).
 
 ## <a name="about-blob-snapshots"></a>Sobre las instantáneas de blob
 
@@ -33,7 +33,7 @@ Una instantánea de un blob es idéntica a su blob base, salvo que el identifica
 > Todas las instantáneas comparten el identificador URI del blob base. La única distinción entre el blob base y la instantánea es el valor **DateTime** anexado.
 >
 
-Un blob puede tener cualquier número de instantáneas. Las instantáneas se conservan hasta que se eliminan explícitamente, lo que significa que una instantánea no puede durar más que su blob base. Puede enumerar las instantáneas asociadas al blob base para llevar un seguimiento de las instantáneas actuales.
+Un blob puede tener cualquier número de instantáneas. Las instantáneas se conservan hasta que se eliminan de forma explícita, ya sea de forma independiente o como parte de la operación [Eliminar blob](/rest/api/storageservices/delete-blob) del blob de base. Puede enumerar las instantáneas asociadas al blob base para llevar un seguimiento de las instantáneas actuales.
 
 Cuando se crea una instantánea de un blob, las propiedades del sistema se copian en la instantánea con los mismos valores. Los metadatos del blob base también se copian en la instantánea, a menos que especifique metadatos independientes para la instantánea al crearla. Después de crear una instantánea, puede leerla, copiarla o eliminarla, pero no puede modificarla.
 
@@ -51,15 +51,15 @@ La lista siguiente incluye los puntos clave que hay que tener en cuenta a la hor
 
 - La cuenta de almacenamiento genera cargos para páginas o bloques únicos, bien se encuentren en el blob o en la instantánea. La cuenta no generará gastos adicionales para instantáneas asociadas a un blob hasta que actualice el blob en el que se basan. Después de actualizar el blob base, discrepa de sus instantáneas. Cuando esto sucede, se le cobra por las páginas o bloques únicos en cada blob o instantánea.
 - Al reemplazar un bloque en un blob en bloques, ese bloque será considerado como un bloque único a la hora de aplicar cargos. Esto es así incluso aunque el bloque tenga el mismo identificador de bloque y los mismos datos que tiene en la instantánea. Cuando se vuelva a confirmar el bloque, divergirá de su equivalente en cualquier instantánea y se aplicarán cargos por sus datos. Lo mismo sucede con una página de un blob en páginas que se haya actualizado con datos idénticos.
-- Si se reemplaza un blob en bloques llamando a los métodos [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream] o [UploadFromByteArray][dotnet_UploadFromByteArray], se reemplazan todos los bloques del blob. Si una instantánea está asociada a ese blob, todos los bloques del blob y la instantánea de base divergen ahora y se aplicarán cargos por todos los bloques en ambos blobs. Esto es así incluso si los datos del blob e instantánea de base siguen siendo idénticos.
+- Al actualizar un blob en bloques mediante la llamada a un método que sobrescribe todo el contenido del blob, se reemplazarán todos los bloques del blob. Si una instantánea está asociada a ese blob, todos los bloques del blob y la instantánea de base divergen ahora y se aplicarán cargos por todos los bloques en ambos blobs. Esto es así incluso si los datos del blob e instantánea de base siguen siendo idénticos.
 - Azure Blob service no dispone de medios para determinar si dos bloques contienen datos idénticos. Cada bloque que se carga y confirma se trata como único, incluso si tiene los mismos datos y el mismo identificador de bloque. Dado que los cargos se acumulan en bloques únicos, es importante tener en cuenta que la actualización de un blob que tiene una instantánea genera bloques únicos y cargos adicionales.
 
-### <a name="minimize-cost-with-snapshot-management"></a>Minimización del costo con la administración de instantáneas
+### <a name="minimize-costs-with-snapshot-management"></a>Minimización de los costos con la administración de instantáneas
 
 Se recomienda administrar las instantáneas con cuidado para evitar cargos adicionales. El seguimiento de estas prácticas recomendadas le ayudará a minimizar los costos que acarreará el almacenamiento de las instantáneas:
 
 - Elimine y vuelva a crear las instantáneas asociadas a un blob siempre que lo actualice, incluso si lo hace con datos idénticos, a menos que el diseño de la aplicación requiera que se conserven las instantáneas. Si elimina y vuelve a crear las instantáneas del blob, puede estar seguro de que el blob y las instantáneas no van a divergir.
-- Si va a mantener las instantáneas de un blob, evite llamar a [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream] o [UploadFromByteArray][dotnet_UploadFromByteArray] para actualizar el blob. Dichos métodos reemplazan todos los bloques del blob, lo que provoca que el blob base y sus instantáneas diverjan considerablemente. En su lugar, actualice el menor número posible de bloques mediante los métodos [PutBlock][dotnet_PutBlock] y [PutBlockList][dotnet_PutBlockList].
+- Si va a mantener instantáneas de un blob, evite llamar a métodos que sobrescriban todo el blob cuando lo actualice. En cambio, actualice el menor número posible de bloques con el fin de reducir al mínimo los costos.
 
 ### <a name="snapshot-billing-scenarios"></a>Escenarios de facturación de instantáneas
 
@@ -85,9 +85,12 @@ En el escenario 3, el blob de base está actualizado, pero no así la instantán
 
 #### <a name="scenario-4"></a>Escenario 4
 
-En la situación 4, el blob de base se ha actualizado totalmente y no contiene ninguno de los bloques originales. Como resultado, se aplicarán cargos a la cuenta por la totalidad de los ocho bloques únicos. Esta situación se puede dar si usa un método de actualización como [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream] o [UploadFromByteArray][dotnet_UploadFromByteArray], ya que estos métodos reemplazan todos los contenidos de un blob.
+En la situación 4, el blob de base se ha actualizado totalmente y no contiene ninguno de los bloques originales. Como resultado, se aplicarán cargos a la cuenta por la totalidad de los ocho bloques únicos.
 
 ![Recursos de Azure Storage](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-4.png)
+
+> [!TIP]
+> Evite llamar a métodos que sobrescriban el blob entero y, en su lugar, actualice bloques individuales para mantener los costos al mínimo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

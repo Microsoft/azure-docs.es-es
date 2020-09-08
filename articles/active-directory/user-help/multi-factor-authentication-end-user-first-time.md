@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 05/28/2020
 ms.author: curtand
-ms.openlocfilehash: fc95e988b3f89402967cdbedd06c4b945a99f99a
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: e5b07f8f7ae766d110c87a495a3e1623b815e526
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266260"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795990"
 ---
 # <a name="what-is-the-additional-verification-page"></a>¿Qué es la página Comprobación adicional?
 
@@ -33,7 +33,7 @@ La verificación en dos fases es más segura que solo una contraseña, porque se
 La verificación en dos fases puede servir de ayuda para evitar que hackers malintencionados se hagan pasar por usted, ya que, aunque tengan su contraseña, es muy improbable que tengan también el dispositivo.
 
 >[!Important]
->Si es un administrador que busca información acerca de cómo activar la verificación en dos fases para los empleados u otros usuarios, consulte la [documentación de autenticación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/). Este artículo está destinado a aquellos usuarios que quieren usar la verificación en dos fases con una cuenta profesional o educativa (por ejemplo, alain@contoso.com).
+>Si es un administrador que busca información acerca de cómo activar la verificación en dos fases para los empleados u otros usuarios, consulte la [documentación de autenticación de Azure Active Directory](../authentication/index.yml). Este artículo está destinado a aquellos usuarios que quieren usar la verificación en dos fases con una cuenta profesional o educativa (por ejemplo, alain@contoso.com).
 
 ## <a name="who-decides-if-you-use-this-feature"></a>¿Quién decide si usa esta característica?
 

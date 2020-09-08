@@ -3,12 +3,12 @@ title: Configuración de los valores de diagnóstico del almacén a gran escala
 description: Configuración de diagnóstico de Log Analytics de diagnóstico para todos los almacenes de un ámbito determinado mediante Azure Policy
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 2400be15dcd46084e9a605076c00cf5c5ac92463
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 25946bb742c7666e7d394477318f647009b2f50e
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498056"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378056"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Configuración de los valores de diagnóstico del almacén a gran escala
 
@@ -20,9 +20,9 @@ Para simplificar la creación de la configuración de diagnóstico a gran escala
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 
-* La directiva se puede aplicar al mismo tiempo a todos los almacenes de Recovery Services de una suscripción determinada (o a un grupo de recursos dentro de la suscripción). El usuario que asigna la directiva debe tener acceso de "propietario" a la suscripción a la que la asigna.
+* La directiva se puede aplicar al mismo tiempo a todos los almacenes de Recovery Services de una suscripción determinada (o a un grupo de recursos dentro de la suscripción). El usuario que asigna la directiva debe tener acceso de **propietario** a la suscripción a la que se asigna la directiva.
 
-* El área de trabajo de LA especificada por el usuario (a la que se enviarán los datos de diagnóstico) puede estar en una suscripción distinta de la de los almacenes a los que se asigna la directiva. El usuario debe tener acceso de "lector", "colaborador" o "propietario" a la suscripción en la que existe el área de trabajo de LA especificado.
+* El área de trabajo de LA especificada por el usuario (a la que se enviarán los datos de diagnóstico) puede estar en una suscripción distinta de la de los almacenes a los que se asigna la directiva. El usuario debe tener acceso de **lector**, **colaborador** o **propietario** a la suscripción en la que existe el área de trabajo de LA especificado.
 
 * Actualmente no se admite el ámbito del grupo de administración.
 
@@ -36,15 +36,15 @@ Para asignar la directiva a almacenes del ámbito necesario, siga estos pasos:
 2. Seleccione **Definiciones** en el menú de la izquierda para obtener una lista de todas las directivas integradas en los recursos de Azure.
 3. Filtre la lista por **Categoría = Supervisión**. Busque la directiva denominada **[Preview]: Deploy Diagnostic Settings for Recovery Services Vault to Log Analytics workspace for resource specific categories** ([Versión preliminar]: Implementación de la configuración de diagnóstico para el almacén de Recovery Services en el área de trabajo de Log Analytics para categorías de recursos específicas).
 
-    ![Hoja Definición de directiva](./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png)
+    ![Panel de definición de directiva](./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png)
 
-4. Haga clic en el nombre de la directiva. Se le redirigirá a la definición detallada de dicha directiva.
+4. Seleccione el nombre de la directiva. Se le redirigirá a la definición detallada de dicha directiva.
 
     ![Definición de directiva detallada](./media/backup-azure-policy-configure-diagnostics/detailed-policy-definition.png)
 
-5. Haga clic en el botón **Asignar** en la parte superior de la hoja. Esta acción le redirigirá a la hoja **Asignar directiva**.
+5. Seleccione el botón **Asignar** en la parte superior del panel. Esta acción le redirigirá al panel **Asignar directiva**.
 
-6. En **Conceptos básicos**, haga clic en los tres puntos situados junto al campo **Ámbito**. Se abrirá la hoja de contexto adecuada, donde podrá seleccionar la suscripción en la que se va a aplicar la directiva. También puede seleccionar un grupo de recursos, de modo que la directiva se aplique solo a los almacenes de un grupo de recursos determinado.
+6. En **Conceptos básicos**, seleccione los tres puntos situados junto al campo **Ámbito**. Se abrirá el panel de contexto adecuado, donde podrá seleccionar la suscripción en la que se va a aplicar la directiva. También puede seleccionar un grupo de recursos, de modo que la directiva se aplique solo a los almacenes de un grupo de recursos determinado.
 
     ![Conceptos básicos de la asignación de directiva](./media/backup-azure-policy-configure-diagnostics/policy-assignment-basics.png)
 
@@ -53,7 +53,7 @@ Para asignar la directiva a almacenes del ámbito necesario, siga estos pasos:
     * **Nombre del perfil**: nombre que se asignará a la configuración de diagnóstico creada por la directiva.
     * **Área de trabajo de Log Analytics**: área de trabajo de Log Analytics a la que se debe asociar la configuración de diagnóstico. Los datos de diagnóstico de todos los almacenes del ámbito de la asignación de directiva se insertarán en el área de trabajo de LA especificada.
 
-    * **Exclusion Tag Name [Nombre de etiqueta de exclusión (opcional)] y Exclusion Tag Value [Valor de etiqueta de exclusión (opcional)]** : puede optar por excluir de la asignación de directiva aquellos almacenes que contengan un determinado nombre y valor de etiqueta. Por ejemplo, si **no** desea que se agregue una configuración de diagnóstico a los almacenes que tengan una etiqueta "isTest" establecida en el valor "yes", debe escribir "isTest" en el campo **Exclusion Tag Name** (Nombre de etiqueta de exclusión) y "yes" en el campo **Exclusion Tag Value** (Valor de etiqueta de exclusión). Si se deja en blanco alguno de estos dos campos (o ambos), la directiva se aplicará a todos los almacenes pertinentes, independientemente de las etiquetas que contengan.
+    * **Exclusion Tag Name [Nombre de etiqueta de exclusión (opcional)] y Exclusion Tag Value [Valor de etiqueta de exclusión (opcional)]** : puede optar por excluir de la asignación de directiva aquellos almacenes que contengan un determinado nombre y valor de etiqueta. Por ejemplo, si **no** desea que se agregue una configuración de diagnóstico a los almacenes que tengan una etiqueta "isTest" establecida en el valor "yes", debe escribir "isTest" en el campo **Nombre de etiqueta de exclusión** y "yes" en el campo **Valor de etiqueta de exclusión**. Si se deja en blanco alguno de estos dos campos (o ambos), la directiva se aplicará a todos los almacenes pertinentes, sean cuales sean las etiquetas que contengan.
 
     ![Parámetros de la asignación de directiva](./media/backup-azure-policy-configure-diagnostics/policy-assignment-parameters.png)
 
@@ -61,7 +61,7 @@ Para asignar la directiva a almacenes del ámbito necesario, siga estos pasos:
 
     ![Corrección de la asignación de directiva](./media/backup-azure-policy-configure-diagnostics/policy-assignment-remediation.png)
 
-9. Vaya a pestaña **Revisar y crear** y, a continuación, haga clic en **Crear**.
+9. Vaya a pestaña **Revisar y crear** y seleccione **Crear**.
 
 ## <a name="under-what-conditions-will-the-remediation-task-apply-to-a-vault"></a>¿En qué condiciones se aplica la tarea de corrección a un almacén?
 
@@ -78,7 +78,7 @@ Además, si un usuario tiene un almacén con solo un subconjunto de los seis eve
 >
 > Si un almacén tiene una configuración de diagnóstico existente con un **subconjunto de categorías Específico del recurso** habilitadas, que se ha configurado para enviar datos a un área de trabajo de LA específica (por ejemplo, "Área de trabajo X"), se producirá un error en la tarea de corrección (solo para ese almacén) si el área de trabajo de LA de destino proporcionada en la asignación de directiva es la **misma** "Área de trabajo X".
 >
->Esto se debe a que, si los eventos habilitados por dos configuraciones de diagnóstico diferentes en el mismo recurso se **superponen** de alguna forma, la configuración no puede tener la misma área de trabajo de LA que el destino. Tendrá que resolver manualmente este error; para ello, vaya al almacén pertinente y establezca una configuración de diagnóstico con un área de trabajo de LA distinta de la del destino.
+>Esto se debe a que si los eventos habilitados por dos configuraciones de diagnóstico diferentes en el mismo recurso se **superponen** de alguna forma, la configuración no puede tener la misma área de trabajo de LA que el destino. Tendrá que resolver manualmente este error; para ello, vaya al almacén pertinente y establezca una configuración de diagnóstico con un área de trabajo de LA distinta de la del destino.
 >
 > Tenga en cuenta que **no** se producirá un error en la tarea de corrección si la configuración de diagnóstico existente solo está habilitada por AzureBackupReport con Área de trabajo X como destino, ya que en este caso no habrá ninguna superposición entre los eventos habilitados por la configuración existente y los eventos habilitados por la configuración creada con la tarea de corrección.
 

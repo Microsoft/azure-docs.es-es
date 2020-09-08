@@ -1,6 +1,6 @@
 ---
-title: Copia de datos desde y hacia Snowflake
-description: Aprenda a copiar datos desde y hacia Snowflake mediante Azure Data Factory.
+title: Copia y transformación de datos en Snowflake
+description: Aprenda cómo copiar y transformar datos en Snowflake mediante Data Factory.
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -10,31 +10,34 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/30/2020
-ms.openlocfilehash: 48248b07b64278d5c8d4f297bf83df813aa486fe
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.date: 08/28/2020
+ms.openlocfilehash: fa8bb310d6a088db92b3dfd8eb6d2f584e9ffab7
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87529507"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181891"
 ---
-# <a name="copy-data-from-and-to-snowflake-by-using-azure-data-factory"></a>Copia de datos desde y hacia Snowflake mediante Azure Data Factory
+# <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>Copia y transformación de datos en Snowflake mediante Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos desde y hacia Snowflake. Para más información sobre Data Factory, consulte el [artículo de introducción](introduction.md).
+En este artículo se explica cómo usar la actividad de copia de Azure Data Factory para copiar datos de y en Snowflake, y el uso de Data Flow para transformar datos en Snowflake. Para más información sobre Data Factory, consulte el [artículo de introducción](introduction.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
 Este conector Snowflake es compatible con las actividades siguientes:
 
 - [Actividad de copia](copy-activity-overview.md) con tabla de [matriz de origen o receptor compatible](copy-activity-overview.md)
+- [Asignación de Data Flow](concepts-data-flow-overview.md)
 - [Actividad de búsqueda](control-flow-lookup-activity.md)
 
 Para la actividad de copia, este conector Snowflake admite las siguientes funciones:
 
 - Copie los datos de Snowflake que usan el comando [COPY into [ubicación]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html) de Snowflake para lograr el mejor rendimiento.
-- Copie los datos a Snowflake que aprovechan el comando [ [tabla]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) de Snowflake para lograr el mejor rendimiento. Es compatible con Snowflake en Azure.
+- Copie los datos a Snowflake que aprovechan el comando [ [tabla]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) de Snowflake para lograr el mejor rendimiento. Es compatible con Snowflake en Azure. 
+
+Snowflake como receptor no se admite cuando se usa el área de trabajo de Azure Synapse Analytics.
 
 ## <a name="get-started"></a>Introducción
 
@@ -105,8 +108,8 @@ Las siguientes propiedades son compatibles con el conjunto de datos de Snowflake
 | Propiedad  | Descripción                                                  | Obligatorio                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | La propiedad type del conjunto de datos se debe establecer en **SnowflakeTable**. | Sí                         |
-| esquema | Nombre del esquema. |No para el origen, sí para el receptor  |
-| table | Nombre de la tabla o vista. |No para el origen, sí para el receptor  |
+| esquema | Nombre del esquema. Tenga en cuenta que el nombre del esquema distingue mayúsculas de minúsculas en ADF. |No para el origen, sí para el receptor  |
+| table | Nombre de la tabla o vista. Tenga en cuenta que el nombre de la tabla distingue mayúsculas de minúsculas en ADF. |No para el origen, sí para el receptor  |
 
 **Ejemplo**:
 
@@ -143,7 +146,7 @@ Para copiar datos desde Snowflake, en la sección **source** de la actividad de 
 | Propiedad                     | Descripción                                                  | Obligatorio |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | La propiedad type del origen de la actividad de copia debe establecerse en **SnowflakeSource**. | Sí      |
-| Query          | Especifica la consulta SQL para leer datos de Snowflake.<br>No se admite la ejecución de procedimientos almacenados. | No       |
+| Query          | Especifica la consulta SQL para leer datos de Snowflake. Si los nombres del esquema, la tabla y las columnas contienen minúsculas, indique el identificador de objeto en la consulta, por ejemplo, `select * from "schema"."myTable"`.<br>No se admite la ejecución de procedimientos almacenados. | No       |
 | exportSettings | Configuración avanzada utilizada para recuperar datos de Snowflake. Se pueden configurar los parámetros que admite el comando COPY into que Data Factory pasará al invocar la instrucción. | No       |
 | ***En`exportSettings`:*** |  |  |
 | type | El tipo de comando de exportación, establecido en **SnowflakeExportCopyCommand**. | Sí |
@@ -163,7 +166,7 @@ Si el almacén de datos y el formulario del receptor cumplen los criterios descr
         - `rowDelimiter` es **\r\n** o cualquier carácter individual.
         - `compression` puede ser **no compression**, **gzip**, **bzip2**, o **deflate**.
         - `encodingName` se deja con el valor predeterminado o se establece en **utf-8**.
-        - `quoteChar` es **double quote**, **single quote** o **empty string** (ningún carácter de comillas).
+        - `quoteChar` es **double quote**, **single quote**, o **empty string** (ningún carácter de comillas).
     - Para el formato **JSON**, la copia directa solo admite el caso en que el resultado de la consulta o la tabla Snowflake de origen solo tiene una columna y el tipo de datos de esta columna es **VARIANT**, **OBJECT** o **ARRAY**.
         - `compression` puede ser **no compression**, **gzip**, **bzip2** o **deflate**.
         - `encodingName` se deja con el valor predeterminado o se establece en **utf-8**.
@@ -194,7 +197,7 @@ Si el almacén de datos y el formulario del receptor cumplen los criterios descr
         "typeProperties": {
             "source": {
                 "type": "SnowflakeSource",
-                "sqlReaderQuery": "SELECT * FROM MyTable",
+                "sqlReaderQuery": "SELECT * FROM MYTABLE",
                 "exportSettings": {
                     "type": "SnowflakeExportCopyCommand",
                     "additionalCopyOptions": {
@@ -295,7 +298,7 @@ Si el almacén de datos y el formulario de origen cumplen los criterios descrito
         - `rowDelimiter` es **\r\n** o cualquier carácter individual. Si el delimitador de filas no es "\r\n", `firstRowAsHeader` debe ser **false** y no se ha especificado `skipLineCount`.
         - `compression` puede ser **no compression**, **gzip**, **bzip2** o **deflate**.
         - `encodingName` se deja como valor predeterminado o se establece en "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "BIG5", "EUC-JP", "EUC-KR", "GB18030", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255".
-        - `quoteChar` es **double quote**, **single quote** o **empty string** (ningún carácter de comillas).
+        - `quoteChar` es **double quote**, **single quote**, o **empty string** (ningún carácter de comillas).
     - Para el formato **JSON**, la copia directa solo admite el caso en que la tabla Snowflake de receptor solo tiene una columna y el tipo de datos de esta columna es **VARIANT**, **OBJECT** o **ARRAY**.
         - `compression` puede ser **no compression**, **gzip**, **bzip2** o **deflate**.
         - `encodingName` se deja con el valor predeterminado o se establece en **utf-8**.
@@ -305,7 +308,7 @@ Si el almacén de datos y el formulario de origen cumplen los criterios descrito
 
    -  `additionalColumns` no se especifica.
    - Si el origen es una carpeta, `recursive` se establece en true.
-   - `prefix`, `modifiedDateTimeStart`, `modifiedDateTimeEnd` no se especifican.
+   - `prefix`, `modifiedDateTimeStart`, `modifiedDateTimeEnd` y `enablePartitionDiscovery` no se especifican.
 
 **Ejemplo**:
 
@@ -396,6 +399,83 @@ Para utilizar esta característica, cree un [servicio vinculado de Azure Blob St
 ]
 ```
 
+## <a name="mapping-data-flow-properties"></a>Propiedades de Asignación de instancias de Data Flow
+
+Al transformar datos en un flujo de datos de asignación, puede leer y escribir en tablas de Snowflake. Para más información, vea la [transformación de origen](data-flow-source.md) y la [transformación de receptor](data-flow-sink.md) en los flujos de datos de asignación. Puede optar por usar un conjunto de datos de Snowflake o un [conjunto de datos en línea](data-flow-source.md#inline-datasets) como tipo de origen y receptor.
+
+### <a name="source-transformation"></a>Transformación de origen
+
+En la tabla siguiente se indican las propiedades que admite el origen de Snowflake. Puede editar estas propiedades en la pestaña **Opciones del origen**. El conector emplea [transferencia de datos interna](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#internal-data-transfer) de Snowflake.
+
+| Nombre | Descripción | Obligatorio | Valores permitidos | Propiedad de script de flujo de datos |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Tabla | Si selecciona Tabla como entrada, el flujo de datos captura todos los datos de la tabla especificada en el conjunto de datos de Snowflake o en las opciones del origen al usar un conjunto de datos en línea. | No | String | *(solo para conjunto de datos en línea)*<br>tableName<br>schemaName |
+| Consultar | Si selecciona Consulta como entrada, escriba una consulta para capturar datos de Snowflake. Esta configuración invalida cualquier tabla que se haya elegido en el conjunto de datos.<br>Si los nombres del esquema, la tabla y las columnas contienen minúsculas, indique el identificador de objeto en la consulta, por ejemplo, `select * from "schema"."myTable"`. | No | String | Query |
+
+#### <a name="snowflake-source-script-examples"></a>Ejemplos de script de origen de Snowflake
+
+Cuando se usa un conjunto de datos de Snowflake como tipo de origen, el script de flujo de datos asociado es:
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    query: 'select * from MYTABLE',
+    format: 'query') ~> SnowflakeSource
+```
+
+Si se usa un conjunto de datos en línea, el script de flujo de datos asociado es:
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    format: 'query',
+    query: 'select * from MYTABLE',
+    store: 'snowflake') ~> SnowflakeSource
+```
+
+### <a name="sink-transformation"></a>Transformación de receptor
+
+En la tabla siguiente se indican las propiedades que admite el receptor de Snowflake. Puede editar estas propiedades en la pestaña **Configuración**. Al usar un conjunto de datos en línea, se ven opciones adicionales, que son las mismas que las propiedades descritas en la sección [Propiedades del conjunto de datos](#dataset-properties). El conector emplea [transferencia de datos interna](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#internal-data-transfer) de Snowflake.
+
+| Nombre | Descripción | Obligatorio | Valores permitidos | Propiedad de script de flujo de datos |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Método de actualización | Especifique qué operaciones se permiten en el destino de Snowflake.<br>Para actualizar, upsert o eliminar filas, se requiere una [transformación de alteración de fila](data-flow-alter-row.md) a fin de etiquetar filas para esas acciones. | Sí | `true` o `false` | deletable <br/>insertable <br/>updateable <br/>upsertable |
+| Columnas de clave | En el caso de las actualizaciones, upserts y eliminaciones, se debe establecer una o varias columnas de clave para determinar la fila que se va a modificar. | No | Array | claves |
+| Acción Table | determina si se deben volver a crear o quitar todas las filas de la tabla de destino antes de escribir.<br>- **Ninguno**: no se realizará ninguna acción en la tabla.<br>- **Volver a crear**: se quitará la tabla y se volverá a crear. Obligatorio si se crea una nueva tabla dinámicamente.<br>- **Truncar**: se quitarán todas las filas de la tabla de destino. | No | `true` o `false` | recreate<br/>truncate |
+
+#### <a name="snowflake-sink-script-examples"></a>Ejemplos de script de receptor de Snowflake
+
+Cuando se usa un conjunto de datos de Snowflake como tipo de receptor, el script de flujo de datos asociado es:
+
+```
+IncomingStream sink(allowSchemaDrift: true,
+    validateSchema: false,
+    deletable:true,
+    insertable:true,
+    updateable:true,
+    upsertable:false,
+    keys:['movieId'],
+    format: 'table',
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> SnowflakeSink
+```
+
+Si se usa un conjunto de datos en línea, el script de flujo de datos asociado es:
+
+```
+IncomingStream sink(allowSchemaDrift: true,
+    validateSchema: false,
+    format: 'table',
+    tableName: 'table',
+    schemaName: 'schema',
+    deletable: true,
+    insertable: true,
+    updateable: true,
+    upsertable: false,
+    store: 'snowflake',
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> SnowflakeSink
+```
 
 ## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda
 

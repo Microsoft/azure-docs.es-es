@@ -10,10 +10,12 @@
       href: overview-iot-central-developer.md
     - name: Actualizaciones recientes
       items:
+        - name: "Características nuevas y actualizadas de julio de\_2020"
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-july-2020/'
         - name: "Características nuevas y actualizadas de junio de\_2020"
-          href: 'https://azure.microsoft.com/en-us/updates/azure-iot-central-feature-updates-june-2020/'
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-june-2020/'
         - name: "Actualizaciones de la documentación y la interfaz de usuario de junio de\_2020"
-          href: 'https://azure.microsoft.com/en-us/updates/azure-iot-central-ui-documenation-updates-june-2020/'
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-ui-documenation-updates-june-2020/'
         - name: "Actualizaciones de trabajos y métricas de mayo de\_2020"
           href: 'https://azure.microsoft.com/updates/azure-iot-central-jobs-and-metrics-feature-updates-may-2020/'
         - name: Actualizaciones del panel de mayo de 2020
@@ -105,10 +107,10 @@
           href: howto-run-a-job.md
     - name: Transformación
       items:
-        - name: Exportación de datos a destinos de Azure (heredado)
-          href: howto-export-data.md
         - name: Exportación de datos a destinos en la nube (versión preliminar)
-          href: howto-use-data-export.md
+          href: howto-export-data.md
+        - name: Exportación de datos a destinos en la nube (heredados)
+          href: howto-export-data-legacy.md
         - name: Creación de webhooks en reglas
           href: howto-create-webhooks.md
         - name: Uso de flujos de trabajo para integrarlos con otros servicios
@@ -121,6 +123,8 @@
           href: howto-create-custom-analytics.md
         - name: Visualización de datos en Power BI
           href: howto-connect-powerbi.md
+        - name: Configuración y uso de cargas de archivos
+          href: howto-configure-file-uploads.md
     - name: Administración
       items:
         - name: Administración de una aplicación
@@ -159,6 +163,10 @@
               href: howto-manage-preferences.md
             - name: Alternancia de chat en directo
               href: howto-show-hide-chat.md
+    - name: Solución de problemas
+      items: null
+      '-name': Device connections
+      href: troubleshoot-connection.md
 - name: Referencia
   items:
     - name: Azure CLI

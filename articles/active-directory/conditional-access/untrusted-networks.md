@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7986ca441f7d274670d8fa0238e7dcfa01497b6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b2f9a6e13fdc39ab18a2056fab15982aa9fb0e4
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253178"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948171"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Procedimientos: Uso obligatorio de MFA para el acceso desde redes que no son de confianza con el acceso condicional   
 
@@ -69,4 +69,4 @@ Con el enfoque descrito en este artículo, ahora puede configurar una directiva 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre el acceso condicional, consulte [Acceso condicional de Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
+Para más información sobre el acceso condicional, consulte [Acceso condicional de Azure Active Directory](./overview.md).

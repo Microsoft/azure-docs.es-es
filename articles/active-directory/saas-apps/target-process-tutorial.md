@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con TargetProcess | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y TargetProcess.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 7cb91628-e758-480d-a233-7a3caaaff50d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 60cd043c34ba2aee365c59feb38cc9dd02d45746
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d5b0be147b8aa25e6c737d423eaf4a8a23cde083
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67089040"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546549"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-targetprocess"></a>Tutorial: Integración de Azure Active Directory con TargetProcess
 
@@ -70,7 +66,7 @@ Para configurar la integración de TargetProcess en Azure AD, deberá agregar Ta
 
      ![TargetProcess en la lista de resultados](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
+## <a name="configure-and-test-azure-ad-sso"></a>Configuración y prueba del inicio de sesión único de Azure AD
 
 En esta sección, configurará y probará el inicio de sesión único de Azure AD con TargetProcess con un usuario de prueba llamado **Britta Simon**.
 Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de TargetProcess.
@@ -133,25 +129,27 @@ Para configurar el inicio de sesión único de Azure AD con TargetProcess, reali
 
     ![imagen](./media/target-process-tutorial/install_extension.png)
 
-2. Después de agregar la extensión al explorador, haga clic en **Configurar TargetProcess** para ir a la aplicación TargetProcess. Desde allí, proporcione las credenciales de administrador para iniciar sesión en TargetProcess. La extensión de explorador configurará automáticamente la aplicación y automatizará los pasos 3 a 7.
+1. Después de agregar la extensión al explorador, haga clic en **Configurar TargetProcess** para ir a la aplicación TargetProcess. Desde allí, proporcione las credenciales de administrador para iniciar sesión en TargetProcess. La extensión de explorador configurará automáticamente la aplicación y automatizará los pasos 3 a 7.
+
+    ![Configuración](common/setup-sso.png)
 
     **Si desea configurar la aplicación manualmente, realice los siguientes pasos:**
 
-3. Inicie sesión en su aplicación TargetProcess como administrador.
+1. Inicie sesión en su aplicación TargetProcess como administrador.
 
-4. En el menú de la parte superior, haga clic en **Configuración**.
+1. En el menú de la parte superior, haga clic en **Configuración**.
 
-    ![Configurar](./media/target-process-tutorial/tutorial_target_process_05.png)
+    ![Configuración](./media/target-process-tutorial/tutorial_target_process_05.png)
 
-5. Haga clic en la pestaña **Configuración**.
+1. Haga clic en la pestaña **Configuración**.
 
     ![Configuración](./media/target-process-tutorial/tutorial_target_process_06.png)
 
-6. Haga clic en **Inicio de sesión único**.
+1. Haga clic en **Inicio de sesión único**.
 
     ![clic en Inicio de sesión único](./media/target-process-tutorial/tutorial_target_process_07.png)
 
-7. En el cuadro de diálogo Configuración de inicio de sesión único, siga estos pasos:
+1. En el cuadro de diálogo Configuración de inicio de sesión único, siga estos pasos:
 
     ![Configurar inicio de sesión único](./media/target-process-tutorial/tutorial_target_process_08.png)
 

@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Tableau Server | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Tableau Server.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: c1917375-08aa-445c-a444-e22e23fa19e0
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 05/07/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2325259cd5e613223ee77371d7e563e8ab1e94ca
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: cb052f4ce962b1757f47f64e3f26fa5db2a731fa
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648464"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999689"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tableau-server"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Tableau Server
 
@@ -145,7 +141,7 @@ En esta sección, va a permitir que B. Simon use el inicio de sesión único de
 
     b. Seleccione la casilla **Enable SAML Authentication for the server**(Habilitar autenticación SAML para el servidor).
 
-    c. Dirección URL de retorno de Tableau Server: dirección URL a la que accederán los usuarios de Tableau Server; por ejemplo, <http://tableau_server>. No se recomienda usar `http://localhost`. No se admiten las direcciones URL que tienen una barra diagonal al final (por ejemplo, `http://tableau_server/`). Copie el valor de **Tableau Server return URL** (Dirección URL de retorno de Tableau Server) y péguela en el cuadro de texto **URL de inicio de sesión** de la sección **Configuración básica de SAML** de Azure Portal
+    c. Dirección URL de retorno de Tableau Server: dirección URL a la que accederán los usuarios de Tableau Server; por ejemplo, `http://tableau_server`. No se recomienda usar `http://localhost`. No se admiten las direcciones URL que tienen una barra diagonal al final (por ejemplo, `http://tableau_server/`). Copie el valor de **Tableau Server return URL** (Dirección URL de retorno de Tableau Server) y péguela en el cuadro de texto **URL de inicio de sesión** de la sección **Configuración básica de SAML** de Azure Portal
 
     d. SAML entity ID (Id. de entidad SAML): el identificador de entidad identifica de forma exclusiva la instalación de Tableau Server en el IdP. Aquí, si quiere, puede especificar de nuevo la dirección URL de Tableau Server, pero no tiene que ser esa misma URL. Copie el valor de **SAML entity ID** (Id. de entidad SAML) y péguelo en el cuadro de texto **Identificador** de la sección **Configuración básica de SAML** de Azure Portal
 

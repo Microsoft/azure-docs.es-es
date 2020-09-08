@@ -6,13 +6,13 @@ ms.service: virtual-machines-linux
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: b0e8de797d66b875b65c1b6b593852707c587e6e
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 627c0c77cc206cd1b3210fcfc7b2a9bbc3c6daea
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446554"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401102"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Base de referencia de seguridad de Azure para Linux Virtual Machines
 
@@ -470,7 +470,7 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 **Responsabilidad**: Customer
 
-### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3.12: Alerta sobre las desviaciones de comportamiento en los inicios de sesión de las cuentas
+### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3.12: Alerta de las desviaciones de comportamiento en los inicios de sesión de las cuentas
 
 **Guía**: use las características de protección de identidad y detección de riesgo de Azure Active Directory para configurar respuestas automatizadas a las acciones sospechosas que se detecten en relación con los recursos de las cuentas de almacenamiento. Debe habilitar las respuestas automatizadas a través de Azure Sentinel para implementar las respuestas de seguridad de su organización.
 
@@ -562,11 +562,11 @@ Microsoft usa el protocolo Seguridad de la capa de transporte (TLS) para protege
 
 **Responsabilidad**: Customer
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Uso del control de acceso basado en rol para controlar el acceso a los recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Uso de RBAC de Azure para controlar el acceso a los recursos
 
-**Guía**: mediante el control de acceso basado en rol (RBAC), puede repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan en la máquina virtual para realizar su trabajo. En lugar de proporcionar a todos los empleados permisos no restringidos en la máquina virtual, puede permitir solo determinadas acciones. Puede configurar el control de acceso para la máquina virtual en Azure Portal, mediante la CLI de Azure o Azure PowerShell.
+**Guía**: Mediante el control de acceso basado en roles de Azure (RBAC de Azure), puede repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan en la máquina virtual para realizar su trabajo. En lugar de proporcionar a todos los empleados permisos no restringidos en la máquina virtual, puede permitir solo determinadas acciones. Puede configurar el control de acceso para la máquina virtual en Azure Portal, mediante la CLI de Azure o Azure PowerShell.
 
-* [Control de acceso basado en rol (RBAC) para recursos de Azure](../../role-based-access-control/overview.md)
+* [Azure RBAC](../../role-based-access-control/overview.md)
 
 * [Roles integrados en los recursos de Azure](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 
@@ -920,11 +920,11 @@ En la mayoría de los escenarios, las plantillas de máquina virtual base de Mic
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: Almacene imágenes de sistema operativo personalizadas de forma segura
 
-**Guía**: si usa imágenes personalizadas (p. ej., un disco duro virtual), use el control de acceso basado en rol de Azure para asegurarse de que solo los usuarios autorizados pueden acceder a las imágenes.
+**Instrucciones**: si usa imágenes personalizadas (p. ej., un disco duro virtual), use el control de acceso basado en roles de Azure (RBAC de Azure) para asegurarse de que solo los usuarios autorizados pueden acceder a las imágenes.
 
-* [Descripción de RBAC en Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+* [Descripción de Azure RBAC](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-* [Configuración de RBAC en Azure](../../role-based-access-control/quickstart-assign-role-user-portal.md)
+* [Configuración de Azure RBAC](../../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 **Supervisión de Azure Security Center**: No disponible
 
@@ -980,7 +980,9 @@ En la mayoría de los escenarios, las plantillas de máquina virtual base de Mic
 
 * [Creación de un almacén de claves](../../key-vault/secrets/quick-create-portal.md)
 
-* [Cómo proporcionar la autenticación de Key Vault con una identidad administrada](../../key-vault/general/managed-identity.md)
+* [Autenticación en Key Vault](../../key-vault/general/authentication.md)
+
+* [Asignación de una directiva de acceso de Key Vault](../../key-vault/general/assign-access-policy-portal.md)
 
 **Supervisión de Azure Security Center**: Sí
 

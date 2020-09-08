@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 6a292201796ccb08f684d2c44a3cee71442edbfe
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: f991e38c184fe44f63af63809deb14eda22f8f4c
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848688"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716731"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Resolución de mensajes de error de la extensión de NPS para Azure Multi-Factor Authentication
 
@@ -43,7 +43,7 @@ Si encuentra errores en la extensión de NPS para Azure Multi-Factor Authenticat
 | Código de error | Mensaje de error | Pasos para solucionar problemas |
 | ---------- | ------------- | --------------------- |
 | **ALTERNATE_LOGIN_ID_ERROR** | Error: error de búsqueda de userObjectSid | Compruebe que el usuario existe en la instancia local de Active Directory. Si usa confianzas entre bosques, [póngase en contacto con el servicio de soporte técnico](#contact-microsoft-support) para más ayuda. |
-| **ALTERNATE_LOGIN_ID_ERROR** | Error: error en la búsqueda de LoginId alternativo | Compruebe que LDAP_ALTERNATE_LOGINID_ATTRIBUTE está establecido en un [atributo de directorio activo válido](https://msdn.microsoft.com/library/ms675090(v=vs.85).aspx). <br><br> Si LDAP_FORCE_GLOBAL_CATALOG está establecido en True, o LDAP_LOOKUP_FORESTS se configura con un valor no vacío, compruebe que ha configurado un catálogo global y que el atributo AlternateLoginId se agrega a él. <br><br> Si LDAP_LOOKUP_FORESTS está configurado con un valor no vacío, compruebe que el valor es correcto. Si hay más de un nombre de bosque, los nombres deben estar separados con puntos y coma, no espacios. <br><br> Si estos pasos no solucionan el problema, [póngase en contacto con soporte técnico](#contact-microsoft-support) para obtener más ayuda. |
+| **ALTERNATE_LOGIN_ID_ERROR** | Error: error en la búsqueda de LoginId alternativo | Compruebe que LDAP_ALTERNATE_LOGINID_ATTRIBUTE está establecido en un [atributo de directorio activo válido](/windows/win32/adschema/attributes-all). <br><br> Si LDAP_FORCE_GLOBAL_CATALOG está establecido en True, o LDAP_LOOKUP_FORESTS se configura con un valor no vacío, compruebe que ha configurado un catálogo global y que el atributo AlternateLoginId se agrega a él. <br><br> Si LDAP_LOOKUP_FORESTS está configurado con un valor no vacío, compruebe que el valor es correcto. Si hay más de un nombre de bosque, los nombres deben estar separados con puntos y coma, no espacios. <br><br> Si estos pasos no solucionan el problema, [póngase en contacto con soporte técnico](#contact-microsoft-support) para obtener más ayuda. |
 | **ALTERNATE_LOGIN_ID_ERROR** | Error: el valor de LoginId alternativo está vacío | Compruebe que el atributo de AlternateLoginId está configurado para el usuario. |
 
 ## <a name="errors-your-users-may-encounter"></a>Errores que pueden encontrar los usuarios
@@ -99,7 +99,7 @@ Si los usuarios [tienen problemas con la verificación en dos pasos](../user-hel
 
 ### <a name="health-check-script"></a>Script de comprobación de estado
 
-El [script de comprobación de estado de la extensión NPS para Azure MFA](https://docs.microsoft.com/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/) realiza una comprobación de estado básica al solucionar problemas de la extensión NPS. Ejecute el script y elija la opción 3.
+El [script de comprobación de estado de la extensión NPS para Azure MFA](/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/) realiza una comprobación de estado básica al solucionar problemas de la extensión NPS. Ejecute el script y elija la opción 3.
 
 ### <a name="contact-microsoft-support"></a>Consultar al soporte técnico de Microsoft
 

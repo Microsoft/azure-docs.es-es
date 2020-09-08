@@ -3,16 +3,17 @@ title: Acuerdos y enmiendas de Contrato Enterprise de Azure
 description: En este artículo se explica cómo los acuerdos y enmiendas del Contrato Enterprise de Azure afectan al uso del portal del Contrato Enterprise de Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/04/2020
+ms.date: 08/20/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: bc1749ba8246aa2181890c4c846f9159a0557aff
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 08cc6b7c6edb31d0a983943694ebb1dc55989bca
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563490"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88689888"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Acuerdos y enmiendas de Contrato Enterprise de Azure
 

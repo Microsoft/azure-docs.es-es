@@ -1,17 +1,17 @@
 ---
 title: 'Azure Data Lake Storage Gen1: optimización del rendimiento'
-description: Describe cómo optimizar el rendimiento de Azure Data Lake Storage Gen1.
+description: Aprenda a usar toda la potencia disponible en Azure Data Lake Storage Gen1 para obtener el mejor rendimiento mediante la realización de tantas lecturas y escrituras en paralelo como sea posible.
 author: stewu
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: 6b6dba101c7793198fe9d1e2bef1bcd99ddac618
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d18440b27d9429a2638a58be40e1ec583b9a85ad
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281742"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190248"
 ---
 # <a name="tune-azure-data-lake-storage-gen1-for-performance"></a>Optimización del rendimiento de Azure Data Lake Storage Gen1
 

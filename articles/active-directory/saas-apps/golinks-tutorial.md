@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con GoLinks | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y GoLinks.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 21243f3b-1e2e-4abf-b81f-a8b7d7f4e773
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 03/24/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f04ae6afc9eea94fb43a9b552c9f8c2e3aaaa9c9
-ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+ms.openlocfilehash: 2bb492a0b27f3ffc1474a42bdb08da4cb2302158
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80295604"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550715"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-golinks"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con GoLinks
 

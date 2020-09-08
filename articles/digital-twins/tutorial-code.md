@@ -1,22 +1,29 @@
 ---
-title: Programación de una aplicación cliente
+title: 'Tutorial: Programación de una aplicación cliente'
 titleSuffix: Azure Digital Twins
 description: Tutorial para escribir el código mínimo para una aplicación cliente mediante el SDK de .NET (C#).
-author: cschormann
-ms.author: cschorm
+author: baanders
+ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 6000bffb80c83ffce58605bcc7e5bfaf404329da
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: c000d48043a46ecdbdfee263cc5c8ce877f66b4b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986689"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923711"
 ---
-# <a name="coding-with-the-azure-digital-twins-apis"></a>Programación con las API de Azure Digital Twins
+# <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutorial: Programación con las API de Azure Digital Twins
 
 Es habitual que los desarrolladores que trabajan con Azure Digital Twins escriban una aplicación que interactúe con su instancia del servicio Azure Digital Twins. Este tutorial centrado en el desarrollado proporciona una introducción a la programación para el servicio Azure Digital Twins, mediante la [biblioteca de cliente de gemelos digitales de Azure IoT para .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). Le guía a través de la escritura de una aplicación cliente de consola paso a paso en C#, empezando desde cero.
+
+> [!div class="checklist"]
+> * Configuración del proyecto
+> * Introducción al código del proyecto   
+> * Ejemplo con todo el código
+> * Limpieza de recursos
+> * Pasos siguientes
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -419,7 +426,6 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Collections.Generic;
 using Azure;
-using Azure.DigitalTwins.Core.Models;
 using Azure.DigitalTwins.Core.Serialization;
 using System.Text.Json;
 
@@ -532,24 +538,7 @@ namespace minimal
  
 La instancia usada en este tutorial se puede reutilizar en [*Tutorial: Exploración de los conceptos básicos con una aplicación cliente de ejemplo*](tutorial-command-line-app.md). Si tiene previsto continuar con el siguiente tutorial, puede mantener la instancia de Azure Digital Twins que configuró aquí.
  
-Cuando ya no necesite los recursos creados en este tutorial, siga estos pasos para eliminarlos.
-
-Con [Azure Cloud Shell](https://shell.azure.com), puede eliminar todos los recursos de Azure de un grupo mediante el comando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). Esta acción quita el grupo de recursos y la instancia de Azure Digital Twins.
-
-> [!IMPORTANT]
-> La eliminación de un grupo de recursos es irreversible. El grupo de recursos y todos los recursos contenidos en él se eliminan permanentemente. Asegúrese de no eliminar por accidente el grupo de recursos o los recursos equivocados. 
-
-Abra una instancia de Azure Cloud Shell y ejecute el siguiente comando para eliminar el grupo de recursos y todo lo que contiene.
-
-```azurecli-interactive
-az group delete --name <your-resource-group>
-```
-
-A continuación, use este comando para eliminar el registro de aplicación de Azure Active Directory que creó para la aplicación cliente:
-
-```azurecli
-az ad app delete --id <your-application-ID>
-```
+[!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
 Por último, elimine la carpeta del proyecto que creó en la máquina local.
 
@@ -561,7 +550,3 @@ Continúe con el siguiente tutorial para explorar lo que puede hacer con esta ap
 
 > [!div class="nextstepaction"]
 > [*Tutorial: Exploración de los conceptos básicos con una aplicación cliente de ejemplo*](tutorial-command-line-app.md)
-
-También puede agregar más código al que ya escribiera en este tutorial si consulta los artículos de procedimientos, donde aprenderá más operaciones de administración, o puede comenzar a examinar la documentación de conceptos para conocer los elementos con los que ha trabajado en este tutorial.
-* [*Procedimiento: Administración de modelos personalizados*](how-to-manage-model.md)
-* [*Conceptos: Modelos personalizados*](concepts-models.md)

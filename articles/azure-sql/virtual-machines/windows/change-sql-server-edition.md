@@ -1,6 +1,6 @@
 ---
 title: Cambio local de la edición de SQL Server
-description: Aprenda a cambiar la edición de la máquina virtual de SQL Server en Azure.
+description: Aprenda a cambiar la edición de la máquina virtual de SQL Server en Azure por una versión anterior para reducir el costo o actualícela para habilitar más características.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -13,12 +13,12 @@ ms.date: 01/14/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 228f76c9ecb262ffca7851f4339b73c5574f09dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60020667126fe76d33264795ddb2e17e1241a7b2
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669175"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236291"
 ---
 # <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Cambio en contexto de la edición de SQL Server de la máquina virtual de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

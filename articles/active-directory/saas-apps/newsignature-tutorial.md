@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con el Portal de administración en la nube de Microsoft Azure | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y el Portal de administración en la nube de Microsoft Azure.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 4ea9f47c-25ca-42b0-a878-9e7aa6f34973
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5447222be9e60c5f8c38ceeafe6f8cc0eb3679e6
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: d45a3ddda44922c70080a09447866a9a4c6997a7
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800756"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88554458"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloud-management-portal-for-microsoft-azure"></a>Tutorial: Integración de Azure Active Directory con el Portal de administración en la nube de Microsoft Azure
 

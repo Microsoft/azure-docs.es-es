@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c26951d5ab7552dc6c63288ce92cdb8134bd58ed
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 468b874ae4a19b8b5ea2a9a91a258722cef60e3a
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498232"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798608"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>Delegación de administración en Azure Active Directory
 
@@ -60,7 +60,7 @@ Determine las tareas de Active Directory que llevan a cabo los administradores y
 Cada tarea se debe evaluar de acuerdo a su frecuencia, importancia y dificultad. Estos son criterios esenciales en la definición de una tarea, porque controlan si un permiso debe o no delegarse:
 
 * Las tareas que realiza de forma rutinaria, que tienen un riesgo limitado y cuya conclusión es trivial son idóneas para la delegación.
-* Las tareas que no se realizan casi nunca pero tienen una gran repercusión en toda la organización y requieren niveles altos de habilidad deben pensarse con mucho cuidado antes de delegarlas. En su lugar, puede [elevar temporalmente una cuenta al rol necesario](../active-directory-privileged-identity-management-configure.md) o volver a asignar la tarea.
+* Las tareas que no se realizan casi nunca pero tienen una gran repercusión en toda la organización y requieren niveles altos de habilidad deben pensarse con mucho cuidado antes de delegarlas. En su lugar, puede [elevar temporalmente una cuenta al rol necesario](../privileged-identity-management/pim-configure.md) o volver a asignar la tarea.
 
 ## <a name="delegate-app-administration"></a>Delegación de la administración de aplicaciones
 
@@ -110,7 +110,7 @@ Si un atacante toma el control de cuentas con privilegios, puede hacer un daño 
 
 ## <a name="elevate-privilege-temporarily"></a>Elevación temporal de privilegios
 
-Para la mayoría de las actividades diarias, no todos los usuarios necesitan derechos de administrador global y no todos ellos deben tener asignado de forma permanente el rol de administrador global. Cuando un usuario necesita los permisos de un administrador global, debe activar la asignación de roles en Azure AD [Privileged Identity Management](../active-directory-privileged-identity-management-configure.md) en su propia cuenta o en una cuenta administrativa alternativa.
+Para la mayoría de las actividades diarias, no todos los usuarios necesitan derechos de administrador global y no todos ellos deben tener asignado de forma permanente el rol de administrador global. Cuando un usuario necesita los permisos de un administrador global, debe activar la asignación de roles en Azure AD [Privileged Identity Management](../privileged-identity-management/pim-configure.md) en su propia cuenta o en una cuenta administrativa alternativa.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

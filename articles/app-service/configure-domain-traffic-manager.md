@@ -5,21 +5,21 @@ ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
 ms.topic: article
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5ae68a8871bc2894191644e4ab183be4b469bf16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e8d5fa14678a2a26234dfcd73f4a50af62ca7aa
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82610248"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962883"
 ---
 # <a name="configure-a-custom-domain-name-in-azure-app-service-with-traffic-manager-integration"></a>Configuración de un nombre de dominio personalizado en Azure App Service con la integración de Traffic Manager
 
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
 > [!NOTE]
-> Para Cloud Services, vea [Configuración de un nombre de dominio personalizado para un servicio en la nube de Azure](../cloud-services/cloud-services-custom-domain-name.md).
+> Para Cloud Services, vea [Configuración de un nombre de dominio personalizado para un servicio en la nube de Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
-Cuando se usa [Azure Traffic Manager](/azure/traffic-manager/) para equilibrar la carga de tráfico a [Azure App Service](overview.md), se puede acceder a la aplicación de App Service mediante **\<traffic-manager-endpoint>.trafficmanager.net**. También puede asignar un nombre de dominio personalizado, como www\.contoso.com, a la aplicación App Service con el fin de proporcionar un nombre de dominio más reconocible para los usuarios.
+Cuando se usa [Azure Traffic Manager](../traffic-manager/index.yml) para equilibrar la carga de tráfico a [Azure App Service](overview.md), se puede acceder a la aplicación de App Service mediante **\<traffic-manager-endpoint>.trafficmanager.net**. También puede asignar un nombre de dominio personalizado, como www\.contoso.com, a la aplicación App Service con el fin de proporcionar un nombre de dominio más reconocible para los usuarios.
 
 En este artículo se muestra cómo configurar un nombre de dominio personalizado con una aplicación App Service que se integra con [Traffic Manager](../traffic-manager/traffic-manager-overview.md).
 
@@ -55,7 +55,7 @@ Haga clic en **Aplicar**.
 
 ## <a name="create-traffic-manager-endpoint"></a>Creación de un punto de conexión de Traffic Manager
 
-Siga los pasos descritos en [Incorporación, deshabilitación, habilitación o eliminación de puntos de conexión](../traffic-manager/traffic-manager-endpoints.md) y agregue la aplicación App Service como un punto de conexión en su perfil de Traffic Manager.
+Siga los pasos descritos en [Incorporación, deshabilitación, habilitación o eliminación de puntos de conexión](../traffic-manager/traffic-manager-manage-endpoints.md) y agregue la aplicación App Service como un punto de conexión en su perfil de Traffic Manager.
 
 Una vez que la aplicación App Service se encuentre en un plan de tarifa admitido, se mostrará en la lista de destinos de App Service disponibles al agregar el punto de conexión. Si la aplicación no aparece en la lista, [compruebe su plan de tarifa](#prepare-the-app).
 

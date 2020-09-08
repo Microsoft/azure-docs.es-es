@@ -1,6 +1,6 @@
 ---
 title: Variables HTTP para el motor de reglas de Azure CDN | Microsoft Docs
-description: Las variables HTTP permiten recuperar metadatos de respuesta y solicitudes HTTP.
+description: Obtenga información sobre las variables HTTP, que le permiten obtener metadatos de solicitud y respuesta HTTP para algunas características del motor de reglas. Use metadatos para modificar una solicitud o respuesta.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: allensu
-ms.openlocfilehash: 6e601e3e06965faf8ec0fd238c54115570150b61
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a2d9fc98ba6f514afbd88e543a859a69e0fc6c6b
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203573"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192678"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Variables HTTP para el motor de reglas de Azure CDN
 Las variables HTTP proporcionan los medios para recuperar metadatos de respuesta y solicitudes HTTP. Estos metadatos pueden usarse después para alterar una solicitud o respuesta de forma dinámica. El uso de las variables HTTP se restringe a las siguientes características del motor de reglas:
@@ -102,7 +102,7 @@ Los delimitadores se describen en la tabla siguiente.
 | / | Delimita una variable HTTP o un patrón. |
 | // | Buscar y reemplazar todas las instancias del patrón especificado. |
 | /= | Busque, copie y reescriba todas las instancias del patrón especificado. |
-| . | Convertir en minúscula el valor asociado con la variable HTTP. |
+| , | Convertir en minúscula el valor asociado con la variable HTTP. |
 | ^ | Convertir en mayúscula el valor asociado con la variable HTTP. |
 | ,, | Convertir en minúscula todas las instancias del carácter especificado en el valor asociado a la variable HTTP. |
 | ^^ | Convertir en mayúscula todas las instancias del carácter especificado en el valor asociado a la variable HTTP. |

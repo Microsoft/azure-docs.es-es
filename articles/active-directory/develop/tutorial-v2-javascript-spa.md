@@ -1,6 +1,7 @@
 ---
-title: 'Tutorial de aplicaciones de página única de JavaScript: Plataforma de identidad de Microsoft | Azure'
-description: Cómo pueden llamar las aplicaciones SPA de JavaScript a una API que requiera tokens de acceso mediante el punto de conexión de Azure Active Directory v2.0
+title: Tutorial de aplicación de página única de JavaScript | Azure
+titleSuffix: Microsoft identity platform
+description: En este tutorial, aprenderá cómo las aplicaciones de página única de JavaScript pueden llamar a una API que requiera tokens de acceso emitidos por la Plataforma de identidad de Microsoft.
 services: active-directory
 author: navyasric
 manager: CelesteDG
@@ -8,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 03/20/2019
+ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-javascript
-ms.openlocfilehash: 745132284ee48270b46b6bd2f785d8bec19404fb
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 71516104ce5711f716b6af9d37ba96b431749fa3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129685"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118202"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Inicio de sesión de usuarios y llamada a Microsoft Graph API desde una aplicación de página única (SPA) de JavaScript
 
@@ -25,8 +26,8 @@ En esta guía se muestra cómo una aplicación de una sola página (SPA) de Java
 - Adquisición de un token de acceso
 - Llamar a Microsoft Graph API o a otras API que requieran tokens de acceso del *punto de conexión de la Plataforma de identidad de Microsoft*.
 
->[!NOTE]
-> Si es la primera vez que usa la Plataforma de identidad de Microsoft, se recomienda que comience con [Inicio de sesión de los usuarios y obtención de un token de acceso en un inicio rápido de SPA de JavaScript](quickstart-v2-javascript.md).
+>[!TIP]
+> En este tutorial se usa MSAL.js v1.x, que se limita al uso del flujo de concesión implícita para las aplicaciones de página única. En su lugar, se recomienda que todas las aplicaciones nuevas usen [MSAL.js 2.x y el flujo de código de autorización con compatibilidad con PKCE y CORS](tutorial-v2-javascript-auth-code.md).
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Funcionamiento de la aplicación de ejemplo generada por esta guía
 
@@ -322,7 +323,7 @@ Cree un nuevo archivo .js llamado `authConfig.js`, que contendrá los parámetro
 
  Donde:
  - *\<Enter_the_Application_Id_Here>* es el **identificador de aplicación (cliente)** de la aplicación que registró.
- - *\<Enter_the_Cloud_Instance_Id_Here>* es la instancia de la nube de Azure. En el caso de la nube de Azure principal o global, simplemente escriba *https://login.microsoftonline.com* . Para nubes **nacionales** (por ejemplo, China), consulte [Nubes nacionales](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
+ - *\<Enter_the_Cloud_Instance_Id_Here>* es la instancia de la nube de Azure. En el caso de la nube de Azure principal o global, simplemente escriba *https://login.microsoftonline.com* . Para nubes **nacionales** (por ejemplo, China), consulte [Nubes nacionales](./authentication-national-cloud.md).
  - *\<Enter_the_Tenant_info_here>* se establece en una de las opciones siguientes:
    - Si la aplicación admite *solo las cuentas de este directorio organizativo*, reemplace este valor por el **identificador de inquilino** o el **nombre de inquilino** (por ejemplo, *contoso.microsoft.com*).
    - Si la aplicación admite *cuentas en cualquier directorio organizativo*, reemplace este valor por **organizaciones**.
@@ -446,7 +447,7 @@ El método `acquireTokenSilent` controla la renovación y las adquisiciones de t
    ```
 
    Donde:
-   - *\<Enter_the_Graph_Endpoint_Here>* es la instancia de Microsoft Graph API. En el caso del punto de conexión global de MS Graph API, basta con reemplazar esta cadena por `https://graph.microsoft.com`. En el caso de las implementaciones de nube nacional, consulte la [Documentación de Graph API](https://docs.microsoft.com/graph/deployments).
+   - *\<Enter_the_Graph_Endpoint_Here>* es la instancia de Microsoft Graph API. En el caso del punto de conexión global de MS Graph API, basta con reemplazar esta cadena por `https://graph.microsoft.com`. En el caso de las implementaciones de nube nacional, consulte la [Documentación de Graph API](/graph/deployments).
 
 1. A continuación, cree un archivo .js llamado `graph.js`, que realizará una llamada REST a Microsoft Graph API y agregue el código siguiente:
 

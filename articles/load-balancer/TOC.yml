@@ -4,22 +4,22 @@
   items:
     - name: ¿Qué es Azure Load Balancer?
       href: load-balancer-overview.md
-    - name: Novedades
-      href: whats-new.md
-    - name: Preguntas más frecuentes
-      href: load-balancer-faqs.md
-- name: Guía de inicio rápido
+- name: Guías de inicio rápido
   items:
     - name: 'Creación de un equilibrador de carga público: Azure Portal'
       href: quickstart-load-balancer-standard-public-portal.md
     - name: 'Creación de un equilibrador de carga público: PowerShell'
-      href: quickstart-create-standard-load-balancer-powershell.md
+      href: quickstart-load-balancer-standard-public-powershell.md
     - name: 'Creación de un equilibrador de carga público: CLI de Azure'
       href: quickstart-load-balancer-standard-public-cli.md
     - name: 'Creación de un equilibrador de carga público: plantilla de Resource Manager'
       href: quickstart-load-balancer-standard-public-template.md
     - name: 'Creación de un equilibrador de carga interno: Azure Portal'
       href: quickstart-load-balancer-standard-internal-portal.md
+    - name: 'Creación de un equilibrador de carga interno: PowerShell'
+      href: quickstart-load-balancer-standard-internal-powershell.md
+    - name: 'Creación de un equilibrador de carga interno: CLI de Azure'
+      href: quickstart-load-balancer-standard-internal-cli.md
   expanded: true
 - name: Tutoriales
   items:
@@ -130,14 +130,16 @@
           href: move-across-regions-internal-load-balancer-powershell.md
     - name: Configuración del equilibrador de carga solo de salida
       href: egress-only.md
-- name: Solución de problemas
-  items:
-    - name: Solución de problemas de Azure Load Balancer
-      href: load-balancer-troubleshoot.md
-    - name: Solución de errores de implementación comunes
-      href: load-balancer-common-deployment-errors.md
-    - name: Resolución de problemas comunes de la conexión saliente
-      href: troubleshoot-outbound-connection.md
+    - name: Solución de problemas
+      items:
+        - name: Solución de problemas de Azure Load Balancer
+          href: load-balancer-troubleshoot.md
+        - name: Solución de errores de implementación comunes
+          href: load-balancer-common-deployment-errors.md
+        - name: Solución de problemas comunes de la conexión saliente
+          href: troubleshoot-outbound-connection.md
+        - name: Solución de problemas de estado y disponibilidad de entrada de los recursos
+          href: troubleshoot-rhc.md
 - name: Referencia
   items:
     - name: Ejemplos de código
@@ -175,3 +177,5 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Actualizaciones del producto
       href: 'https://azure.microsoft.com/updates/?product=load-balancer'
+    - name: Preguntas más frecuentes
+      href: load-balancer-faqs.md

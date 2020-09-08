@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
-ms.date: 04/21/2020
-ms.openlocfilehash: 383c64c585f05869e1d01b5c99693fcf560cdedc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/02/2020
+ms.openlocfilehash: b30a7822511dc6b4c3ae7e852cba49ebff6e24ad
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87006678"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400864"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalización de los clústeres de Azure HDInsight mediante acciones de script en Azure
 
@@ -74,6 +74,8 @@ Una acción de script es un script de Bash que se ejecuta en los nodos de un cl�
 
 * Se pueden usar mediante Azure Portal, Azure PowerShell, la CLI de Azure o el SDK de .NET para HDInsight.
 
+* Las acciones de script que quitan o modifican archivos de servicio en la VM pueden afectar al estado y la disponibilidad del servicio.
+
 El clúster conserva un historial de todos los scripts que se han ejecutado. El historial resulta útil cuando se necesita buscar el identificador de un script para las operaciones de promoción o disminución de nivel.
 
 > [!IMPORTANT]  
@@ -124,7 +126,7 @@ Status            : Succeeded
 
 Los scripts de acciones de script se pueden usar con las utilidades siguientes:
 
-* Azure Portal
+* Azure portal
 * Azure PowerShell
 * Azure CLI
 * SDK .NET de HDInsight
@@ -322,7 +324,7 @@ El siguiente script de ejemplo muestra cómo utilizar los cmdlets para promover 
 | Get-Help | Descripción |
 | --- | --- |
 | [`az hdinsight script-action delete`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-delete) |Elimina una acción de script persistente específica en un clúster determinado. Este comando no deshace las acciones realizadas por un script, solo quita la marca persistente.|
-|[`az hdinsight script-action execute`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-execute)|Ejecuta acciones de script en el clúster de HDInsight especificado.|
+|[`az hdinsight script-action execute`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-execute)|Ejecución de acciones de script en el clúster de HDInsight especificado.|
 | [`az hdinsight script-action list`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-list) |Muestra una lista de todas las acciones de script persistentes para el clúster especificado. |
 |[`az hdinsight script-action list-execution-history`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-list-execution-history)|Muestra una lista del historial de ejecución de todos los scripts para el clúster especificado.|
 |[`az hdinsight script-action promote`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-promote)|Promueve la ejecución de script ad hoc especificada a un script persistente.|

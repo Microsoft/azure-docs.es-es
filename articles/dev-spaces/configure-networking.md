@@ -5,12 +5,12 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 description: Se describen los requisitos de red para ejecutar Azure Dev Spaces en Azure Kubernetes Services.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, CNI, Kubenet, SDN, red
-ms.openlocfilehash: c3ee84819172fe28aef779493d01e2433ccca336
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 0d9ebbec3e3c07a466acb58e88b67e6a32a20edb
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300698"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214174"
 ---
 # <a name="configure-networking-for-azure-dev-spaces-in-different-network-topologies"></a>Configuración de red para Azure Dev Spaces en distintas topologías de red
 
@@ -87,10 +87,10 @@ Azure Dev Spaces usa herramientas del lado cliente, como la extensión de la CLI
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información acerca de la forma en que Azure Dev Spaces le ayuda a desarrollar aplicaciones más complejas en varios contenedores y cómo puede simplificar el desarrollo en colaboración mediante el uso de distintas versiones o bifurcaciones del código en distintos espacios.
+Más información sobre cómo funciona Azure Dev Spaces.
 
 > [!div class="nextstepaction"]
-> [Desarrollo en equipo en Azure Dev Spaces][team-quickstart]
+> [Funcionamiento de Azure Dev Spaces](how-dev-spaces-works.md)
 
 [aks-cni]: ../aks/configure-azure-cni.md
 [aks-cni-ip-planning]: ../aks/configure-azure-cni.md#plan-ip-addressing-for-your-cluster
@@ -111,4 +111,3 @@ Obtenga información acerca de la forma en que Azure Dev Spaces le ayuda a desar
 [nginx-ingress]: how-to/ingress-https-nginx.md
 [sample-repo]: https://github.com/Azure/dev-spaces/tree/master/advanced%20networking
 [service-tags]: ../virtual-network/service-tags-overview.md#available-service-tags
-[team-quickstart]: quickstart-team-development.md

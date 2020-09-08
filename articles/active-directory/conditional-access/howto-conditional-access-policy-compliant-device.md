@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c65b4ede6f4851418bf17d42db5b3215dafa9234
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c98269f9851272e8caa9b26ae0c57ed13e9a99f2
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83995180"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049135"
 ---
 # <a name="conditional-access-require-compliant-devices"></a>Acceso condicional: Requerir dispositivos compatibles
 
@@ -44,7 +44,7 @@ Los pasos siguientes le ayudarán a crear una directiva de acceso condicional pa
 1. En **Aplicaciones en la nube o acciones** > **Incluir**, seleccione **Todas las aplicaciones en la nube**.
    1. Si debe excluir aplicaciones específicas de la directiva, puede seleccionarlas en la pestaña **Excluir** en **Seleccionar las aplicaciones en la nube excluidas** y elegir **Seleccionar**.
    1. Seleccione **Listo**.
-1. En **Condiciones** > **Aplicaciones cliente (versión preliminar)** , establezca **Configurar** en **Sí**, y seleccione **Listo**.
+1. En **Condiciones** > **Aplicaciones cliente (versión preliminar)**  > **Seleccionar aplicaciones cliente a las que se aplicará la directiva** mantenga todos los valores seleccionados y haga clic en **Listo**.
 1. En **Controles de acceso** > **Conceder**, seleccione **Requerir que el dispositivo esté marcado como compatible**.
    1. Elija **Seleccionar**.
 1. Confirme la configuración y establezca **Habilitar directiva** en **Activado**.
@@ -61,7 +61,7 @@ En Windows 7, iOS, Android, macOS y algunos exploradores web de terceros, Azure
 
 [Directivas de acceso condicional habituales](concept-conditional-access-policy-common.md)
 
-[Determinación del impacto mediante el modo de solo informe de acceso condicional](howto-conditional-access-report-only.md)
+[Determinación del impacto mediante el modo de solo informe de acceso condicional](howto-conditional-access-insights-reporting.md)
 
 [Simulación del comportamiento de inicio de sesión mediante la herramienta What If de acceso condicional](troubleshoot-conditional-access-what-if.md)
 

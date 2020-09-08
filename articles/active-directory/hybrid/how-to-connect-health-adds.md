@@ -16,12 +16,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc7e8e3219cc2b11ed123889973c375edd22664d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d75b439c2753db17cffecdc97b6389a7b31b833e
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359405"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279880"
 ---
 # <a name="using-azure-ad-connect-health-with-ad-ds"></a>Uso de Azure AD Connect Health con AD DS
 La siguiente documentación es específica de la supervisión de Active Directory Domain Services con Azure AD Connect Health. Las versiones compatibles de AD DS son: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 y Windows Server 2016.
@@ -57,11 +57,10 @@ Esta característica proporciona tendencias gráficas de diferentes contadores d
 De forma predeterminada, hemos preseleccionado cuatro contadores de rendimiento. Sin embargo, puede incluir otros haciendo clic en el comando de filtros y seleccionando o anulando la selección de cualquier contador de rendimiento que desee. Además, puede hacer doble clic en un gráfico del contador de rendimiento para que se abra una nueva hoja que incluye los puntos de datos correspondientes para cada uno de los controladores de dominio supervisados.
 
 ## <a name="related-links"></a>Vínculos relacionados
-* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
+* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Instalación del agente de Azure AD Connect Health](how-to-connect-health-agent-install.md)
 * [Operaciones de Azure AD Connect Health](how-to-connect-health-operations.md)
 * [Uso de Azure AD Connect Health con AD FS](how-to-connect-health-adfs.md)
 * [Uso de Azure AD Connect Health para sincronización](how-to-connect-health-sync.md)
 * [Preguntas más frecuentes de Azure AD Connect Health](reference-connect-health-faq.md)
 * [Historial de versiones de Azure AD Connect Health](reference-connect-health-version-history.md)
-

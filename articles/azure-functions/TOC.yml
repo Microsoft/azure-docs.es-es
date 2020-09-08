@@ -175,11 +175,12 @@
               href: functions-develop-vs.md
             - name: Desarrollo de Core Tools
               href: functions-run-local.md
+              displayName: 'local, runtime'
         - name: Creación de funciones
           items:
             - name: Desencadenador HTTP
               items:
-                - name: Azure portal
+                - name: Portal de Azure
                   href: functions-create-first-azure-function.md
                 - name: Línea de comandos
                   href: ./functions-create-first-azure-function-azure-cli.md
@@ -378,7 +379,7 @@
             - name: Output
               displayName: Blob storage
               href: functions-bindings-storage-blob-output.md
-        - name: Azure Cosmos DB
+        - name: "Azure Cosmos\_DB"
           items:
             - name: Functions 1.x
               href: functions-bindings-cosmosdb.md
@@ -398,6 +399,8 @@
                 - name: Output
                   href: functions-bindings-cosmosdb-v2-output.md
                   displayName: Azure Cosmos DB
+        - name: Dapr
+          href: 'https://github.com/dapr/azure-functions-extension'
         - name: Event Grid
           items:
             - name: Información general
@@ -431,6 +434,8 @@
             - name: Output
               href: functions-bindings-event-iot-output.md
               displayName: Azure IoT Hubs
+        - name: Kafka
+          href: 'https://github.com/azure/azure-functions-kafka-extension'
         - name: HTTP y webhooks
           items:
             - name: Información general
@@ -442,8 +447,6 @@
             - name: Output
               href: functions-bindings-http-webhook-output.md
               displayName: HTTP
-        - name: Microsoft Graph
-          href: functions-bindings-microsoft-graph.md
         - name: Mobile Apps
           href: functions-bindings-mobile-apps.md
         - name: Notification Hubs
@@ -459,6 +462,8 @@
             - name: Output
               href: functions-bindings-storage-queue-output.md
               displayName: Queue storage
+        - name: RabbitMQ
+          href: 'https://github.com/azure/azure-functions-rabbitmq-extension'
         - name: SendGrid
           href: functions-bindings-sendgrid.md
         - name: Azure Service Bus

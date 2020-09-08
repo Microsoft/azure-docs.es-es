@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 05/04/2020
 ms.topic: tutorial
-ms.openlocfilehash: fff032d37fa0746695736e0dbdde73c6bcaade4b
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: 9457323b2642d0e7c5a623c13ec8440520bd5b8b
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85445685"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88891783"
 ---
 # <a name="tutorial-integrate-remote-rendering-into-a-hololens-holographic-app"></a>Tutorial: Integración de Remote Rendering en una aplicación de HoloLens Holographic
 
@@ -99,14 +99,15 @@ En primer lugar, agregaremos las instrucciones include necesarias. Agregue la si
 #include <AzureRemoteRendering.h>
 ```
 
-...y esta directiva `include` adicional al archivo HolographicAppMain.cpp:
+...y estas directivas `include` adicionales al archivo HolographicAppMain.cpp:
 
 ```cpp
 #include <AzureRemoteRendering.inl>
 #include <RemoteRenderingExtensions.h>
+#include <windows.perception.spatial.h>
 ```
 
-Para simplificar el código, definimos el siguiente acceso directo del espacio de nombres en la parte superior del archivo HolographicAppMain.h, después de la directiva `include`:
+Para simplificar el código, definimos el siguiente acceso directo al espacio de nombres en la parte superior del archivo HolographicAppMain.h, después de las directivas `include`:
 
 ```cpp
 namespace RR = Microsoft::Azure::RemoteRendering;
@@ -199,9 +200,9 @@ HolographicAppMain::HolographicAppMain(std::shared_ptr<DX::DeviceResources> cons
             auto createSessionAsync = *m_frontEnd->CreateNewRenderingSessionAsync(init);
             createSessionAsync->Completed([&](auto handler)
                 {
-                    if (handler->Result())
+                    if (handler->GetStatus() == RR::Result::Success)
                     {
-                        SetNewSession(*handler->Result());
+                        SetNewSession(handler->GetResult());
                     }
                     else
                     {
@@ -297,7 +298,8 @@ namespace HolographicApp
         bool m_modelLoadTriggered = false;
         float m_modelLoadingProgress = 0.f;
         bool m_modelLoadFinished = false;
-
+        double m_timeAtLastRESTCall = 0;
+        bool m_needsCoordinateSystemUpdate = true;
     }
 ```
 
@@ -318,7 +320,7 @@ void HolographicAppMain::StartModelLoading()
         m_loadModelAsync = *loadModel;
         m_loadModelAsync->Completed([this](const RR::ApiHandle<RR::LoadModelAsync>& async)
         {
-            m_modelLoadResult = *async->Status();
+            m_modelLoadResult = async->GetStatus();
             m_modelLoadFinished = true; // successful if m_modelLoadResult==RR::Result::Success
             m_loadModelAsync = nullptr;
             char buffer[1024];
@@ -367,6 +369,7 @@ void HolographicAppMain::SetNewSession(RR::ApiHandle<RR::AzureSession> newSessio
 {
     SetNewState(AppConnectionStatus::StartingSession, nullptr);
 
+    m_timeAtLastRESTCall = m_timer.GetTotalSeconds();
     m_session = newSession;
     m_api = m_session->Actions();
     m_graphicsBinding = m_session->GetGraphicsBinding().as<RR::GraphicsBindingWmrD3d11>();
@@ -420,9 +423,13 @@ void HolographicAppMain::OnConnectionStatusChanged(RR::ConnectionStatus status, 
 
 ### <a name="per-frame-update"></a>Actualización por fotograma
 
-Tenemos que marcar el cliente una vez por cada tic de simulación. La clase `HolographicApp1Main` proporciona un buen enlace para las actualizaciones por fotograma. Además, es necesario sondear el estado de la sesión para ver si ha pasado al estado `Ready`. Si la conexión se ha establecido correctamente, finalmente iniciamos la carga del modelo a través de `StartModelLoading`.
+Tenemos que actualizar el cliente una vez por cada paso de simulación y realizar algunas actualizaciones de estado adicionales. La clase `HolographicAppMain::Update` proporciona un buen enlace para las actualizaciones por fotograma.
 
-Agregue el siguiente código al cuerpo de la función`HolographicApp1Main::Update`:
+#### <a name="state-machine-update"></a>Actualización de la máquina de estados
+
+Es necesario sondear el estado de la sesión para ver si ha pasado al estado `Ready`. Si la conexión se ha establecido correctamente, finalmente iniciamos la carga del modelo a través de `StartModelLoading`.
+
+Agregue el siguiente código al cuerpo de la función`HolographicAppMain::Update`:
 
 ```cpp
 // Updates the application state once per frame.
@@ -433,51 +440,58 @@ HolographicFrame HolographicAppMain::Update()
         // Tick the client to receive messages
         m_api->Update();
 
-        // query session status periodically until we reach 'session started'
-        if (!m_sessionStarted && m_sessionPropertiesAsync == nullptr)
+        if (!m_sessionStarted)
         {
-            if (auto propAsync = m_session->GetPropertiesAsync())
-            {
-                m_sessionPropertiesAsync = *propAsync;
-                m_sessionPropertiesAsync->Completed([this](const RR::ApiHandle<RR::SessionPropertiesAsync>& async)
-                    {
-                        if (auto res = async->Result())
-                        {
-                            switch (res->Status)
-                            {
-                            case RR::RenderingSessionStatus::Ready:
-                            {
-                                // The following is async, but we'll get notifications via OnConnectionStatusChanged
-                                m_sessionStarted = true;
-                                SetNewState(AppConnectionStatus::Connecting, nullptr);
-                                RR::ConnectToRuntimeParams init;
-                                init.ignoreCertificateValidation = false;
-                                init.mode = RR::ServiceRenderMode::Default;
-                                m_session->ConnectToRuntime(init);
-                            }
-                            break;
-                            case RR::RenderingSessionStatus::Error:
-                                SetNewState(AppConnectionStatus::ConnectionFailed, "Session error");
-                                break;
-                            case RR::RenderingSessionStatus::Stopped:
-                                SetNewState(AppConnectionStatus::ConnectionFailed, "Session stopped");
-                                break;
-                            case RR::RenderingSessionStatus::Expired:
-                                SetNewState(AppConnectionStatus::ConnectionFailed, "Session expired");
-                                break;
-                            }
+            // Important: To avoid server-side throttling of the requests, we should call GetPropertiesAsync very infrequently:
+            const double delayBetweenRESTCalls = 10.0;
 
-                        }
-                        else
+            // query session status periodically until we reach 'session started'
+            if (m_sessionPropertiesAsync == nullptr && m_timer.GetTotalSeconds() - m_timeAtLastRESTCall > delayBetweenRESTCalls)
+            {
+                m_timeAtLastRESTCall = m_timer.GetTotalSeconds();
+                if (auto propAsync = m_session->GetPropertiesAsync())
+                {
+                    m_sessionPropertiesAsync = *propAsync;
+                    m_sessionPropertiesAsync->Completed([this](const RR::ApiHandle<RR::SessionPropertiesAsync>& async)
                         {
-                            SetNewState(AppConnectionStatus::ConnectionFailed, "Failed to retrieve session status");
-                        }
-                        m_sessionPropertiesAsync = nullptr; // next try
-                        m_needsStatusUpdate = true;
-                    });
+                            if (async->GetStatus() == RR::Result::Success)
+                            {
+                                auto res = async->GetResult();
+                                switch (res.Status)
+                                {
+                                case RR::RenderingSessionStatus::Ready:
+                                {
+                                    // The following is async, but we'll get notifications via OnConnectionStatusChanged
+                                    m_sessionStarted = true;
+                                    SetNewState(AppConnectionStatus::Connecting, nullptr);
+                                    RR::ConnectToRuntimeParams init;
+                                    init.ignoreCertificateValidation = false;
+                                    init.mode = RR::ServiceRenderMode::Default;
+                                    m_session->ConnectToRuntime(init);
+                                }
+                                break;
+                                case RR::RenderingSessionStatus::Error:
+                                    SetNewState(AppConnectionStatus::ConnectionFailed, "Session error");
+                                    break;
+                                case RR::RenderingSessionStatus::Stopped:
+                                    SetNewState(AppConnectionStatus::ConnectionFailed, "Session stopped");
+                                    break;
+                                case RR::RenderingSessionStatus::Expired:
+                                    SetNewState(AppConnectionStatus::ConnectionFailed, "Session expired");
+                                    break;
+                                }
+    
+                            }
+                            else
+                            {
+                                SetNewState(AppConnectionStatus::ConnectionFailed, "Failed to retrieve session status");
+                            }
+                            m_sessionPropertiesAsync = nullptr; // next try
+                            m_needsStatusUpdate = true;
+                        });
+                }
             }
         }
-
         if (m_isConnected && !m_modelLoadTriggered)
         {
             m_modelLoadTriggered = true;
@@ -485,9 +499,56 @@ HolographicFrame HolographicAppMain::Update()
         }
     }
 
+    if (m_needsCoordinateSystemUpdate && m_stationaryReferenceFrame && m_graphicsBinding)
+    {
+        // Set the coordinate system once. This must be called again whenever the coordinate system changes.
+        winrt::com_ptr<ABI::Windows::Perception::Spatial::ISpatialCoordinateSystem> ptr{ m_stationaryReferenceFrame.CoordinateSystem().as<ABI::Windows::Perception::Spatial::ISpatialCoordinateSystem>() };
+        m_graphicsBinding->UpdateUserCoordinateSystem(ptr.get());
+        m_needsCoordinateSystemUpdate = false;
+    }
+
     // Rest of the body:
     ...
 }
+```
+
+#### <a name="coordinate-system-update"></a>Actualización del sistema de coordenadas
+
+Es necesario acordar el servicio de representación que se va a usar en un sistema de coordenadas. Para acceder al sistema de coordenadas que queremos usar, necesitamos el elemento `m_stationaryReferenceFrame` que se crea al final de la función `HolographicAppMain::OnHolographicDisplayIsAvailableChanged`.
+
+Normalmente, este sistema de coordenadas no cambia, por lo que se trata de una inicialización puntual. Se debe llamar de nuevo si la aplicación cambia el sistema de coordenadas.
+
+El código anterior establece el sistema de coordenadas una vez dentro de la función `Update` en cuanto ambos tienen un sistema de coordenadas de referencia y una sesión conectada.
+
+#### <a name="camera-update"></a>Actualización de la cámara
+
+Necesitamos actualizar los planos de clip de la cámara para que la cámara del servidor se mantenga sincronizada con la cámara local. Podemos hacerlo al final de la función `Update`:
+
+```cpp
+    ...
+    if (m_isConnected)
+    {
+        // Any near/far plane values of your choosing.
+        constexpr float fNear = 0.1f;
+        constexpr float fFar = 10.0f;
+        for (HolographicCameraPose const& cameraPose : prediction.CameraPoses())
+        {
+            // Set near and far to the holographic camera as normal
+            cameraPose.HolographicCamera().SetNearPlaneDistance(fNear);
+            cameraPose.HolographicCamera().SetFarPlaneDistance(fFar);
+        }
+
+        // The API to inform the server always requires near < far. Depth buffer data will be converted locally to match what is set on the HolographicCamera.
+        auto settings = m_api->GetCameraSettings();
+        settings->SetNearAndFarPlane(std::min(fNear, fFar), std::max(fNear, fFar));
+        settings->SetEnableDepth(true);
+    }
+
+    // The holographic frame will be used to get up-to-date view and projection matrices and
+    // to present the swap chain.
+    return holographicFrame;
+}
+
 ```
 
 ### <a name="rendering"></a>Representación

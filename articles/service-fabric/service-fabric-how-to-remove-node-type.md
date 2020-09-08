@@ -4,14 +4,14 @@ description: Aprenda a quitar un tipo de nodo de un clúster de Service Fabric q
 author: inputoutputcode
 manager: sridmad
 ms.topic: conceptual
-ms.date: 02/21/2020
+ms.date: 08/11/2020
 ms.author: chrpap
-ms.openlocfilehash: 6cc7cbcc8344c5015d60d9721c682b6a856cbb6e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ede999bee9ce1a4a9dd10652a2c52a840d5b24be
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247241"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163584"
 ---
 # <a name="how-to-remove-a-service-fabric-node-type"></a>Eliminación de un tipo de nodo de Service Fabric
 En este artículo, se explica cómo escalar un clúster de Azure Service Fabric quitando un tipo de nodo existente de un clúster. Un clúster de Service Fabric es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios. Un equipo o máquina virtual que forma parte de un clúster se denomina nodo. Los conjuntos de escalado de máquinas virtuales son un recurso de proceso de Azure que se puede usar para implementar y administrar una colección de máquinas virtuales de forma conjunta. Cada tipo de nodo que se define en un clúster de Azure está [configurado como un conjunto de escalado independiente](service-fabric-cluster-nodetypes.md). Cada tipo de nodo, a continuación, se puede administrar por separado. Después de crear un clúster de Service Fabric, puede escalarlo horizontalmente quitando un tipo de nodo (conjunto de escalado de máquinas virtuales) junto con todos sus nodos.  Puede escalar el clúster en cualquier momento, incluso con cargas de trabajo en ejecución en el clúster.  Según se escala el clúster, las aplicaciones se escalan automáticamente.
@@ -59,7 +59,7 @@ Al quitar un tipo de nodo Bronze, todos los nodos del tipo de nodo dejarán de e
     - El clúster está en buen estado.
     - Ninguno de los nodos que pertenecen al tipo de nodo están marcados como nodo de inicialización.
 
-4. Deshabilite los datos para el tipo de nodo.
+4. Deshabilite todos los nodos del tipo de nodo.
 
     Conéctese al clúster mediante PowerShell y, luego, ejecute el siguiente paso.
     
@@ -98,8 +98,20 @@ Al quitar un tipo de nodo Bronze, todos los nodos del tipo de nodo dejarán de e
     ```
     
     Espere a que todos los nodos del tipo de nodo estén marcados como inactivos.
+
+6. Desasignación de nodos en el conjunto de escalado de máquinas virtuales original
     
-6. Quite los datos para el tipo de nodo.
+    Inicie sesión en la suscripción de Azure en la que se implementó el conjunto de escalado y elimine el conjunto de escalado de máquinas virtuales. 
+
+    ```powershell
+    $scaleSetName="myscaleset"
+    $scaleSetResourceType="Microsoft.Compute/virtualMachineScaleSets"
+    
+    Remove-AzResource -ResourceName $scaleSetName -ResourceType $scaleSetResourceType -ResourceGroupName $resourceGroupName -Force
+    ```
+
+    
+7. Quite los datos para el tipo de nodo.
 
     Conéctese al clúster mediante PowerShell y, luego, ejecute el siguiente paso.
     
@@ -117,7 +129,7 @@ Al quitar un tipo de nodo Bronze, todos los nodos del tipo de nodo dejarán de e
 
     Espere hasta que se quiten todos los nodos del clúster. Los nodos no se deben mostrar en SFX.
 
-7. Quite el tipo de nodo de la sección Service Fabric.
+8. Quite el tipo de nodo de la sección Service Fabric.
 
     - Busque la plantilla de Azure Resource Manager usada para la implementación.
     - Busque la sección relacionada con el tipo de nodo en la sección Service Fabric.
@@ -165,7 +177,7 @@ Al quitar un tipo de nodo Bronze, todos los nodos del tipo de nodo dejarán de e
     A continuación, asegúrese de que:
     - El recurso de Service Fabric en el portal muestra Listo.
 
-8. Quite todas las referencias a los recursos relacionados con el tipo de nodo.
+9. Quite todas las referencias a los recursos relacionados con el tipo de nodo de la plantilla de Resource Manager.
 
     - Busque la plantilla de Azure Resource Manager usada para la implementación.
     - Elimine de la plantilla el conjunto de escalado de máquinas virtuales y otros recursos relacionados con el tipo de nodo.
@@ -173,6 +185,13 @@ Al quitar un tipo de nodo Bronze, todos los nodos del tipo de nodo dejarán de e
 
     A continuación:
     - Espere a que la implementación finalice.
+    
+10. Quite los recursos relacionados con el tipo de nodo que ya no se usen. Recursos Equilibrador de carga e IP pública de ejemplo. 
+
+    - Para quitar estos recursos, puede usar el mismo comando de PowerShell que se usa en el paso 6, pero debe especificar el tipo de recurso específico y la versión de la API. 
+
+> [!Note]
+> Este paso es opcional si se reutilizan los recursos Equilibrador de carga e IP entre los tipos de nodo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Obtenga más información sobre las [características de durabilidad](./service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) del clúster.

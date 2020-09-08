@@ -10,12 +10,12 @@ author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
 ms.custom: devx-track-python
-ms.openlocfilehash: 4de8b50b82765499b504dac27bcef439681d58f0
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 1bf9c80e754ca4d728e35767f0a1a768734d587d
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874918"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236818"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Introducción a Azure Table Storage y a Table API de Azure Cosmos DB mediante Python
 
@@ -209,7 +209,7 @@ También puede restringir qué propiedades se devuelven para cada entidad en una
 La consulta del código siguiente devuelve solo las descripciones de las entidades de la tabla.
 
 > [!NOTE]
-> El siguiente fragmento de código funciona solo con Azure Storage. Esto no es compatible con el emulador de almacenamiento.
+> El siguiente fragmento de código funciona solo con Azure Storage. Emulador de Storage no lo admite.
 
 ```python
 tasks = table_service.query_entities(

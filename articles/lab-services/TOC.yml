@@ -24,6 +24,8 @@
       href: classroom-labs-fundamentals.md
     - name: Límites de capacidad
       href: capacity-limits.md
+    - name: Cost Management para laboratorios
+      href: cost-management-guide.md
     - name: Escenarios
       items:
         - name: Uso de servicios de laboratorio para impartir clases
@@ -66,7 +68,7 @@
           href: how-to-manage-lab-accounts.md
         - name: Administración de laboratorios en una cuenta de laboratorio
           href: manage-labs.md
-        - name: Configuración del apagado automático de las máquinas virtuales
+        - name: Configuración del apagado automático de máquinas virtuales para una cuenta de laboratorio
           href: how-to-configure-lab-accounts.md
         - name: Incorporación de un creador de laboratorio
           href: add-lab-creator.md
@@ -86,8 +88,6 @@
           href: specify-marketplace-images.md
         - name: Especificación de información de soporte técnico (propietario de cuenta de laboratorio)
           href: lab-account-owner-support-information.md
-        - name: Cost Management para laboratorios
-          href: cost-management-guide.md
     - name: Creación y configuración de laboratorios educativos (formador)
       items:
         - name: Creación y administración de laboratorios educativos
@@ -106,7 +106,7 @@
           href: how-to-use-shared-image-gallery.md
         - name: Habilitar conexión de escritorio remoto para Linux
           href: how-to-enable-remote-desktop-linux.md
-        - name: Habilitación del apagado automático al desconectar
+        - name: Configuración del apagado automático de máquinas virtuales para un laboratorio
           href: how-to-enable-shutdown-disconnect.md
         - name: Habilitación de la virtualización anidada en una máquina virtual de plantilla
           items:

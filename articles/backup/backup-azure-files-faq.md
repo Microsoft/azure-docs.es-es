@@ -3,12 +3,12 @@ title: Preguntas frecuentes sobre la copia de seguridad de archivos de Azure
 description: En este artículo, encontrará respuestas a preguntas habituales sobre cómo proteger los recursos compartidos de archivos de Azure con el servicio Azure Backup.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6c2ef95a6303fd061b1ce486e893ba9812b83e14
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 0db30de655bfc0b98baa81a4ef20532e697fc1f8
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87382719"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824736"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Preguntas acerca de la copia de seguridad de archivos de Azure
 
@@ -36,7 +36,7 @@ Al intentar realizar una copia de seguridad, si selecciono una cuenta de almacen
 
 ### <a name="why-cant-i-change-the-vault-to-configure-backup-for-the-file-share"></a>¿Por qué no puedo cambiar el almacén para configurar la copia de seguridad del recurso compartido de archivos?
 
-Si la cuenta de almacenamiento ya está registrada con un almacén u otros recursos compartidos de archivos de la cuenta de almacenamiento están protegidos mediante un almacén, no se le ofrece la opción de cambiarla, ya que todos los recursos compartidos de archivos de una cuenta de almacenamiento solo se pueden proteger en el mismo almacén. En caso de que quiera cambiar el almacén, deberá [detener la protección de todos los recursos compartidos de archivos de la cuenta de almacenamiento](manage-afs-backup.md#stop-protection-on-a-file-share) desde el almacén conectado, [anular el registro](manage-afs-backup.md#unregister-a-storage-account) de la cuenta de almacenamiento y, a continuación, elegir otro almacén para la protección.
+Si la cuenta de almacenamiento ya está registrada con un almacén u otros recursos compartidos de archivos de la cuenta de almacenamiento están protegidos mediante un almacén, no se le ofrece la opción de cambiarla. Todos los recursos compartidos de archivos de una cuenta de almacenamiento solo se pueden proteger en el mismo almacén. Si quiere cambiar el almacén, deberá [detener la protección de todos los recursos compartidos de archivos de la cuenta de almacenamiento](manage-afs-backup.md#stop-protection-on-a-file-share) desde el almacén conectado, [anule el registro](manage-afs-backup.md#unregister-a-storage-account) de la cuenta de almacenamiento y, a continuación, elija otro almacén para la protección.
 
 ### <a name="can-i-change-the-vault-to-which-i-back-up-my-file-shares"></a>¿Puedo cambiar el almacén en el que hago la copia de seguridad de mis recursos compartidos de archivos?
 

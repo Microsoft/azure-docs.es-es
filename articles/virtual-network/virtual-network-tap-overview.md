@@ -15,45 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2019
 ms.author: kaanan
-ms.openlocfilehash: 47db03460ad3c5194a5445f0b25cb8e742e60c21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7013c8ed338e727dd79a3845ff3b85749c0f5cee
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707844"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836095"
 ---
 # <a name="virtual-network-tap"></a>TAP de red virtual
+> [!IMPORTANT]
+> La versión preliminar de TAP de red virtual actualmente está en espera en todas las regiones de Azure. Puede enviarnos un correo electrónico a <azurevnettap@microsoft.com> con su identificador de suscripción y le notificaremos las actualizaciones futuras sobre la versión preliminar. Mientras tanto, puede usar soluciones basadas en agentes o NVA que proporcionen funcionalidad de visibilidad de red o TAP a través de las [soluciones de partners de agentes de paquetes](#virtual-network-tap-partner-solutions) disponibles en las [ofertas de Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/networking?page=1&subcategories=appliances%3Ball&search=Network%20Traffic&filters=partners).
 
 Azure Virtual Network TAP (punto de acceso del terminal) permite transmitir continuamente el tráfico de red de la máquina virtual a un recopilador de paquetes de red o a una herramienta de análisis. Un asociado de la [aplicación virtual de red](https://azure.microsoft.com/solutions/network-appliances/) proporciona el recopilador o la herramienta de análisis de la herramienta. Para ver una lista de soluciones de asociados que estén validadas para funcionar con Virtual Network TAP, consulte las [soluciones de asociados](#virtual-network-tap-partner-solutions).
-
-> [!IMPORTANT]
-> TAP de red virtual se encuentra actualmente en versión preliminar en todas las regiones de Azure. Para usar TAP de red virtual, debe inscribirse en la versión preliminar enviando un correo electrónico a  <azurevnettap@microsoft.com> con su identificador de suscripción. Recibirá un correo electrónico una vez inscrita la suscripción. No puede usar la funcionalidad hasta que reciba un correo electrónico de confirmación. Esta versión preliminar se proporciona sin un contrato de nivel de servicio y no debe usarse para cargas de trabajo de producción. Puede que algunas características no se admitan, que tengan funcionalidades limitadas o que no estén disponibles en todas las ubicaciones de Azure. Para más información, consulte  [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) .
-
-## <a name="virtual-network-tap-partner-solutions"></a>Soluciones de los partners de Virtual Network TAP
-
-### <a name="network-packet-brokers"></a>Agentes de paquetes de red
-
-- [Big Monitoring Fabric de Big Switch](https://www.bigswitch.com/products/big-monitoring-fabric/public-cloud/microsoft-azure)
-- [GigaSECURE de Gigamon](https://blog.gigamon.com/2018/09/13/why-microsofts-new-vtap-service-works-even-better-with-gigasecure-for-azure)
-- [CloudLens de Ixia](https://www.ixiacom.com/cloudlens/cloudlens-azure)
-- [Prisms de Nubeva](https://www.nubeva.com/azurevtap)
-
-### <a name="security-analytics-networkapplication-performance-management"></a>Análisis de seguridad, administración del rendimiento de red o de la aplicación
-
-- [Awake Security](https://awakesecurity.com/technology-partners/microsoft-azure/)
-- [Cisco Stealthwatch Cloud](https://blogs.cisco.com/security/cisco-stealthwatch-cloud-and-microsoft-azure-reliable-cloud-infrastructure-meets-comprehensive-cloud-security)
-- [Darktrace](https://www.darktrace.com/en/azure/)
-- [Reveal(x) de ExtraHop](https://www.extrahop.com/partners/tech-partners/microsoft/)
-- [Cybersecurity de Fidelis](https://www.fidelissecurity.com/technology-partners/microsoft-azure )
-- [Flowmon](https://www.flowmon.com/blog/azure-vtap)
-- [NetFort LANGuardian](https://www.netfort.com/languardian/solutions/visibility-in-azure-network-tap/)
-- [vSTREAM de Netscout]( https://www.netscout.com/technology-partners/microsoft/azure-vtap)
-- [Riverbed SteelCentral AppResponse]( https://www.riverbed.com/products/steelcentral/steelcentral-appresponse-11.html)
-- [NetWitness® Platform de RSA](https://www.rsa.com/azure)
-- [Cognito de Vectra](https://vectra.ai/microsoftazure)
-
-En la siguiente imagen se muestra cómo funciona Virtual Network TAP. Puede agregar una configuración de TAP en una [interfaz de red](virtual-network-network-interface.md) adjunta a una máquina virtual implementada en la red virtual. El destino es una dirección IP de red virtual en la misma red virtual que la interfaz de red supervisada o una red [virtual emparejada](virtual-network-peering-overview.md). La solución del recopilador para el punto de acceso de terminal de red virtual se puede implementar detrás de un equilibrador de carga interno de Azure para lograr alta disponibilidad. Para evaluar las opciones de implementación para una solución individual, consulte las [soluciones de partners](#virtual-network-tap-partner-solutions).
-
+En la siguiente imagen se muestra cómo funciona Virtual Network TAP. Puede agregar una configuración de TAP en una [interfaz de red](virtual-network-network-interface.md) adjunta a una máquina virtual implementada en la red virtual. El destino es una dirección IP de red virtual en la misma red virtual que la interfaz de red supervisada o una red [virtual emparejada](virtual-network-peering-overview.md). La solución del recopilador para el punto de acceso de terminal de red virtual se puede implementar detrás de un equilibrador de carga interno de Azure para lograr alta disponibilidad.
 ![Cómo funciona Virtual Network TAP](./media/virtual-network-tap/architecture.png)
 
 ## <a name="prerequisites"></a>Prerrequisitos
@@ -69,6 +43,32 @@ Las cuentas que utiliza para aplicar la configuración del TAP en interfaces de 
 | Microsoft.Network/virtualNetworkTaps/* | Necesaria para crear, actualizar, leer y eliminar un recurso de Virtual Network TAP |
 | Microsoft.Network/networkInterfaces/read | Necesaria para leer el recurso de la interfaz de red en que el TAP se configurará |
 | Microsoft.Network/tapConfigurations/* | Necesaria para crear, actualizar, leer y eliminar la configuración del TAP en una interfaz de red |
+
+
+## <a name="virtual-network-tap-partner-solutions"></a>Soluciones de los partners de Virtual Network TAP
+
+### <a name="network-packet-brokers"></a>Agentes de paquetes de red
+
+- [GigaSECURE de Gigamon](https://blog.gigamon.com/2018/09/13/why-microsofts-new-vtap-service-works-even-better-with-gigasecure-for-azure)
+- [CloudLens de Ixia](https://www.ixiacom.com/cloudlens/cloudlens-azure)
+- [Prisms de Nubeva](https://www.nubeva.com/azurevtap)
+- [Big Monitoring Fabric de Big Switch](https://www.bigswitch.com/products/big-monitoring-fabric/public-cloud/microsoft-azure)
+
+### <a name="security-analytics-networkapplication-performance-management"></a>Análisis de seguridad, administración del rendimiento de red o de la aplicación
+
+- [Awake Security](https://awakesecurity.com/technology-partners/microsoft-azure/)
+- [Cisco Stealthwatch Cloud](https://blogs.cisco.com/security/cisco-stealthwatch-cloud-and-microsoft-azure-reliable-cloud-infrastructure-meets-comprehensive-cloud-security)
+- [Darktrace](https://www.darktrace.com/en/azure/)
+- [Reveal(x) de ExtraHop](https://www.extrahop.com/partners/tech-partners/microsoft/)
+- [Cybersecurity de Fidelis](https://www.fidelissecurity.com/technology-partners/microsoft-azure )
+- [Flowmon](https://www.flowmon.com/blog/azure-vtap)
+- [NetFort LANGuardian](https://www.netfort.com/languardian/solutions/visibility-in-azure-network-tap/)
+- [vSTREAM de Netscout]( https://www.netscout.com/technology-partners/microsoft/azure-vtap)
+- [Riverbed SteelCentral AppResponse]( https://www.riverbed.com/products/steelcentral/steelcentral-appresponse-11.html)
+- [NetWitness® Platform de RSA](https://www.rsa.com/azure)
+- [Cognito de Vectra](https://vectra.ai/microsoftazure)
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

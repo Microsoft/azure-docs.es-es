@@ -11,12 +11,12 @@ ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7eb632405ef17ef4100503f30168c1207179f48
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7cf072ae9544cd479aeca02d9b9fcd670b8eb5fe
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85373869"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226903"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Requisitos previos del aprovisionamiento en la nube de Azure AD Connect
 En este artículo se proporcionan instrucciones sobre cómo elegir y usar el aprovisionamiento en la nube de Azure Active Directory (Azure AD) Connect como solución de identidad.
@@ -27,7 +27,7 @@ En este artículo se proporcionan instrucciones sobre cómo elegir y usar el apr
 Se necesita lo siguiente para usar el aprovisionamiento en la nube de Azure AD Connect:
     
 - Una cuenta de administrador de identidades híbridas para su inquilino de Azure AD que no sea un usuario invitado.
-- Un servidor local para el agente de aprovisionamiento con Windows 2012 R2 o posterior.  Este servidor debe ser un servidor de nivel 0 basado en el [modelo de nivel administrativo de Active Directory](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
+- Un servidor local para el agente de aprovisionamiento con Windows 2012 R2 o posterior.  Este servidor debe ser un servidor de nivel 0 basado en el [modelo de nivel administrativo de Active Directory](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
 - Configuraciones de firewall locales.
 
 >[!NOTE]
@@ -37,12 +37,12 @@ En el resto del documento se proporcionan instrucciones paso a paso para estos r
 
 ### <a name="in-the-azure-active-directory-admin-center"></a>En el Centro de administración de Azure Active Directory
 
-1. Cree una cuenta de administrador de identidades híbridas exclusiva para la nube en su inquilino de Azure AD. De esta manera, puede administrar la configuración del inquilino en caso de que los servicios locales fallen o no estén disponibles. Descubra cómo [agregar una cuenta de administrador de identidades híbridas exclusiva para la nube](../active-directory-users-create-azure-portal.md). La finalización de este paso es esencial para garantizar que no queda bloqueado fuera de su inquilino.
-1. Agregue uno o varios [nombres de dominio personalizados](../active-directory-domains-add-azure-portal.md) al inquilino de Azure AD. Los usuarios pueden iniciar sesión con uno de estos nombres de dominio.
+1. Cree una cuenta de administrador de identidades híbridas exclusiva para la nube en su inquilino de Azure AD. De esta manera, puede administrar la configuración del inquilino en caso de que los servicios locales fallen o no estén disponibles. Descubra cómo [agregar una cuenta de administrador de identidades híbridas exclusiva para la nube](../fundamentals/add-users-azure-active-directory.md). La finalización de este paso es esencial para garantizar que no queda bloqueado fuera de su inquilino.
+1. Agregue uno o varios [nombres de dominio personalizados](../fundamentals/add-custom-domain.md) al inquilino de Azure AD. Los usuarios pueden iniciar sesión con uno de estos nombres de dominio.
 
 ### <a name="in-your-directory-in-active-directory"></a>En su directorio de Azure Active Directory
 
-Ejecute la [herramienta IdFix](https://docs.microsoft.com/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix) para preparar los atributos del directorio para la sincronización.
+Ejecute la [herramienta IdFix](/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix) para preparar los atributos del directorio para la sincronización.
 
 ### <a name="in-your-on-premises-environment"></a>En el entorno local
 
@@ -96,4 +96,3 @@ Para habilitar TLS 1.2, siga estos pasos.
 
 - [¿Qué es el aprovisionamiento?](what-is-provisioning.md)
 - [¿Qué es el aprovisionamiento en la nube de Azure AD Connect?](what-is-cloud-provisioning.md)
-

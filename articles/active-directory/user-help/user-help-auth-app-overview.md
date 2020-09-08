@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
-ms.openlocfilehash: 60c2b3ed1f367dc5c501a51ed52440f7d9d3ed6b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d630fac1f848e691ddb96dc47596a2e9927309f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83741185"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799441"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>¿Qué es la aplicación Microsoft Authenticator?
 
@@ -33,7 +33,7 @@ Puede usar la aplicación Microsoft Authenticator de varias formas, por ejemplo:
 > [!Important]
 > La aplicación Microsoft Authenticator funciona con cualquier cuenta que use la comprobación en dos fases y admita los estándares de contraseña de un solo uso y duración definida (TOTP).
 >
->Este artículo está destinado a los usuarios que intentan descargar y usar la aplicación Microsoft Authenticator como método de comprobación de seguridad. Si es un administrador que desea obtener información acerca de cómo activar el inicio de sesión sin contraseña mediante la aplicación Authenticator para los empleados y otros usos, consulte la [Habilitar el inicio de sesión sin contraseña en Azure AD con la aplicación Microsoft Authenticator (versión preliminar)](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-phone).
+>Este artículo está destinado a los usuarios que intentan descargar y usar la aplicación Microsoft Authenticator como método de comprobación de seguridad. Si es un administrador que desea obtener información acerca de cómo activar el inicio de sesión sin contraseña mediante la aplicación Authenticator para los empleados y otros usos, consulte la [Habilitar el inicio de sesión sin contraseña en Azure AD con la aplicación Microsoft Authenticator (versión preliminar)](../authentication/howto-authentication-passwordless-phone.md).
 
 ## <a name="terminology"></a>Terminología
 

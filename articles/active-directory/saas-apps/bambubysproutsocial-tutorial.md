@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Bambu by Sprout Social | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Bambu by Sprout Social.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: d2b9ddbc-cab7-40d6-aca1-5b171cab4199
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/22/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68e20a2551fbd8e937330c565888c18f96642fc8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f56d15fc3d30a9b031ac7bfaafffc70a57faa8a9
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73158941"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549371"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bambu-by-sprout-social"></a>Tutorial: Integración de Azure Active Directory con Bambu by Sprout Social
 

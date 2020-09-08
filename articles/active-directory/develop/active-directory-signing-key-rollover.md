@@ -8,26 +8,28 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/20/2018
+ms.date: 8/11/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 42f100618ac6ce8769c4a7da67a5bd586794c63b
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: b65ad1f22d20686a1ee47631f9209e1b15b0ab58
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115601"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948137"
 ---
 # <a name="signing-key-rollover-in-microsoft-identity-platform"></a>Sustitución de claves de firma en la Plataforma de identidad de Microsoft
-En este artículo se describe lo que necesita saber de las claves públicas que se usan en la Plataforma de identidad de Microsoft para firmar los tokens de seguridad. Es importante tener en cuenta que estas claves se sustituyen de forma periódica y, en caso de emergencia, podrían ser sustituidas inmediatamente. Todas las aplicaciones que usan la Plataforma de identidad de Microsoft deben poder manejar mediante programación el proceso de sustitución de claves o establecer un proceso de sustitución manual periódico. Siga leyendo para comprender cómo funcionan las claves, cómo evaluar el impacto de la sustitución en la aplicación y cómo actualizar la aplicación o establecer un proceso de sustitución manual periódico para controlar la sustitución de claves si fuera necesario.
+En este artículo se describe lo que necesita saber de las claves públicas que se usan en la Plataforma de identidad de Microsoft para firmar los tokens de seguridad. Es importante tener en cuenta que estas claves se sustituyen de forma periódica y, en caso de emergencia, podrían ser sustituidas inmediatamente. Todas las aplicaciones que usan Plataforma de identidad de Microsoft deben poder controlar mediante programación el proceso de sustitución de claves. Siga leyendo para comprender cómo funcionan las claves, cómo evaluar el impacto de la sustitución en la aplicación y cómo actualizar la aplicación o establecer un proceso de sustitución manual periódico para controlar la sustitución de claves si fuera necesario.
 
 ## <a name="overview-of-signing-keys-in-microsoft-identity-platform"></a>Introducción a las claves de firma en la Plataforma de identidad de Microsoft
-La Plataforma de identidad de Microsoft emplea una criptografía de clave pública basada en estándares del sector con el fin de establecer una relación de confianza entre ella y las aplicaciones que la utilizan. En la práctica, esto funciona de la manera siguiente: La Plataforma de identidad de Microsoft usa una clave de firma que consta de un par de claves pública y privada. Cuando un usuario inicia sesión en una aplicación que usa la Plataforma de identidad de Microsoft para la autenticación, esta plataforma crea un token de seguridad que contiene información sobre el usuario. La Plataforma de identidad de Microsoft firma este token con su clave privada antes de enviarlo a la aplicación. Para comprobar que el token es válido y que se originó en la Plataforma de identidad de Microsoft, la aplicación debe validar la firma del token usando la clave pública expuesta por la Plataforma de identidad de Microsoft que se encuentra en el [documento de detección de OpenID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html) del inquilino o en el [documento de metadatos de federación](../azuread-dev/azure-ad-federation-metadata.md) de SAML/WS-Fed.
+La Plataforma de identidad de Microsoft emplea una criptografía de clave pública basada en estándares del sector con el fin de establecer una relación de confianza entre ella y las aplicaciones que la utilizan. En la práctica, esto funciona de la manera siguiente: La Plataforma de identidad de Microsoft usa una clave de firma que consta de un par de claves pública y privada. Cuando un usuario inicia sesión en una aplicación que usa la Plataforma de identidad de Microsoft para la autenticación, esta plataforma crea un token de seguridad que contiene información sobre el usuario. La Plataforma de identidad de Microsoft firma este token con su clave privada antes de enviarlo a la aplicación. Para comprobar que el token es válido y que se ha originado en Plataforma de identidad de Microsoft, la aplicación debe validar la firma del token mediante las claves públicas expuestas por Plataforma de identidad de Microsoft incluidas en el [documento de detección de OpenID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html) del inquilino o el [documento de metadatos de federación](../azuread-dev/azure-ad-federation-metadata.md) de SAML/WS-FED.
 
-Por motivos de seguridad, la Plataforma de identidad de Microsoft firma la sustitución de claves de forma periódica y, en caso de emergencia, podrían sustituirse inmediatamente. Cualquier aplicación que se integre con la Plataforma de identidad de Microsoft debe estar preparada para controlar un evento de sustitución de claves, con independencia de la frecuencia con que se produzca. Si no es así y la aplicación trata de utilizar una clave expirada para comprobar la firma de un token, se producirá un error en la solicitud de inicio de sesión.
+Por motivos de seguridad, la Plataforma de identidad de Microsoft firma la sustitución de claves de forma periódica y, en caso de emergencia, podrían sustituirse inmediatamente. No hay ningún tiempo establecido o garantizado entre estas sustituciones de claves: cualquier aplicación que se integre con Plataforma de identidad de Microsoft debe estar preparada para controlar un evento de sustitución de claves independientemente de la frecuencia con que se produzca. Si no es así y la aplicación trata de utilizar una clave expirada para comprobar la firma de un token, se producirá un error en la solicitud de inicio de sesión.  La comprobación de actualizaciones cada 24 horas es un procedimiento recomendado, con actualizaciones inmediatas limitadas (una vez cada cinco minutos como máximo) del documento de claves si se encuentra un token con identificador de clave desconocido. 
 
-Siempre hay más de una clave válida disponible en el documento de detección de OpenID Connect y en el de metadatos de federación. La aplicación debe estar preparada para utilizar cualquiera de las claves especificadas del documento, ya que una de ellas puede sustituirse pronto, otra puede ser su reemplazo, etc.
+Siempre hay más de una clave válida disponible en el documento de detección de OpenID Connect y en el de metadatos de federación. La aplicación debe estar preparada para usar todas y cada una de las claves especificadas en el documento, ya que una clave se puede sustituir pronto, otra puede ser su reemplazo, etc.  El número de claves presentes puede cambiar con el tiempo en función de la arquitectura interna de Plataforma de identidad de Microsoft a media que se admitan nuevas plataformas, nuevas nubes o nuevos protocolos de autenticación. Ni el orden de las claves en la respuesta JSON ni el orden en el que se hayan expuesto se deben considerar significativos para la aplicación. 
+
+Las aplicaciones que solo admiten una única clave de firma, o las que requieren actualizaciones manuales de las claves de firma, son intrínsecamente menos seguras y confiables.  Deben actualizarse para usar [bibliotecas estándar](reference-v2-libraries.md) a fin de garantizar que siempre usen claves de firma actualizadas, entre otros procedimientos recomendados. 
 
 ## <a name="how-to-assess-if-your-application-will-be-affected-and-what-to-do-about-it"></a>Cómo evaluar si su aplicación se verá afectada y qué hacer al respecto
 La forma que tiene la aplicación de controlar la sustitución de claves depende de ciertas variables, como el tipo de aplicación o qué protocolo de identidad y biblioteca se han usado. Las secciones siguientes evalúan si los tipos más comunes de aplicaciones se ven afectados por la sustitución de claves y ofrecen orientación sobre cómo actualizar la aplicación para admitir la sustitución automática o actualizar manualmente la clave.
@@ -58,7 +60,7 @@ Las aplicaciones de cliente nativo, ya sean de escritorio o móviles, entran en 
 ### <a name="web-applications--apis-accessing-resources"></a><a name="webclient"></a>Aplicaciones y API web que acceden a recursos
 Las aplicaciones que solo acceden a los recursos (es decir, Microsoft Graph, KeyVault, API de Outlook y otras API de Microsoft) únicamente obtienen por lo general un token y lo pasan al propietario del recurso. Como no protegen ningún recurso, no inspeccionan el token y, por tanto, no tienen que asegurar de que se firmó correctamente.
 
-Las aplicaciones web y las API web que usan el flujo solo de aplicación (credenciales del cliente o el certificado de cliente), entran en esta categoría y, por tanto, no se verán afectadas por la sustitución.
+Las aplicaciones web y las API web que usan el flujo solo de aplicación (credenciales de cliente o certificado de cliente) para solicitar tokens entran en esta categoría y, por tanto, no se ven afectadas por la sustitución.
 
 ### <a name="web-applications--apis-protecting-resources-and-built-using-azure-app-services"></a><a name="appservices"></a>Aplicaciones y API web que protegen recursos y creadas mediante Azure App Service
 La funcionalidad de autenticación o autorización (EasyAuth) de Azure App Service ya cuenta con la lógica necesaria para controlar automáticamente la sustitución de claves.
@@ -148,7 +150,7 @@ Si creó una aplicación API web en Visual Studio 2013 con la plantilla de API w
 
 Si configura manualmente la autenticación, siga estas instrucciones para aprender a configurar la API web con el fin de actualizar automáticamente la información de claves.
 
-El fragmento de código siguiente muestra cómo obtener las claves más recientes del documento de metadatos de federación y utilizar el [Controlador de token web de JSON](/previous-versions/dotnet/framework/security/json-web-token-handler) para validar el token. En el fragmento de código se da por hecho que va a utilizar su propio mecanismo de almacenamiento en caché para conservar la clave con el fin de validar los tokens futuros de la Plataforma de identidad de Microsoft, ya sea en una base de datos, un archivo de configuración o en otro lugar.
+El fragmento de código siguiente muestra cómo obtener las claves más recientes del documento de metadatos de federación y utilizar el [Controlador de token web de JSON](https://msdn.microsoft.com/library/dn205065.aspx) para validar el token. En el fragmento de código se da por hecho que va a utilizar su propio mecanismo de almacenamiento en caché para conservar la clave con el fin de validar los tokens futuros de la Plataforma de identidad de Microsoft, ya sea en una base de datos, un archivo de configuración o en otro lugar.
 
 ```
 using System;
@@ -239,7 +241,7 @@ namespace JWTValidation
 ```
 
 ### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2012"></a><a name="vs2012"></a>Aplicaciones web de protección de recursos y creadas con Visual Studio 2012
-Si la aplicación se compiló en Visual Studio 2012, probablemente ha utilizado la herramienta de identidad y acceso para configurar la aplicación. También es probable que esté utilizando el [registro de nombres de emisor de validación (VINR)](/previous-versions/dotnet/framework/security/validating-issuer-name-registry). El VINR se encarga de mantener la información sobre los proveedores de identidad de confianza (Plataforma de identidad de Microsoft) y las claves utilizadas para validar los tokens que emiten. El VINR también facilita la tarea de actualizar automáticamente la información de claves almacenada en un archivo Web.config descargando el documento de metadatos de federación más reciente asociado a su directorio, comprobando si la configuración está actualizada con respecto al último documento y actualizando la aplicación para usar la nueva clave según sea necesario.
+Si la aplicación se compiló en Visual Studio 2012, probablemente ha utilizado la herramienta de identidad y acceso para configurar la aplicación. También es probable que esté utilizando el [registro de nombres de emisor de validación (VINR)](https://msdn.microsoft.com/library/dn205067.aspx). El VINR se encarga de mantener la información sobre los proveedores de identidad de confianza (Plataforma de identidad de Microsoft) y las claves utilizadas para validar los tokens que emiten. El VINR también facilita la tarea de actualizar automáticamente la información de claves almacenada en un archivo Web.config descargando el documento de metadatos de federación más reciente asociado a su directorio, comprobando si la configuración está actualizada con respecto al último documento y actualizando la aplicación para usar la nueva clave según sea necesario.
 
 Si ha creado la aplicación utilizando cualquiera de los ejemplos de código o la documentación de tutorial que proporciona Microsoft, la lógica de sustitución de claves ya estará incluida en el proyecto. Observará que el código siguiente ya existe en el proyecto. Si la aplicación aún no tiene esta lógica, siga estos pasos para agregarla y comprobar que funciona correctamente.
 
@@ -288,14 +290,14 @@ Siga los pasos que figuran a continuación para comprobar que la lógica de sust
 Si ha compilado una aplicación en la versión 1.0 de WIF, no habrá ningún mecanismo para actualizar automáticamente la configuración de la aplicación con el fin de usar una nueva clave.
 
 * *manera más sencilla* es usar las herramientas de FedUtil incluidas en el SDK de WIF, que pueden recuperar el documento de metadatos más reciente y actualizar la configuración.
-* Actualice la aplicación a .NET 4.5, que incluye la versión más reciente de WIF ubicada en el espacio de nombres del sistema. Después, podrá utilizar el [registro de nombres de emisor de validación (VINR)](/previous-versions/dotnet/framework/security/validating-issuer-name-registry) para realizar las actualizaciones automáticas de la configuración de la aplicación.
+* Actualice la aplicación a .NET 4.5, que incluye la versión más reciente de WIF ubicada en el espacio de nombres del sistema. Después, podrá utilizar el [registro de nombres de emisor de validación (VINR)](https://msdn.microsoft.com/library/dn205067.aspx) para realizar las actualizaciones automáticas de la configuración de la aplicación.
 * Realice una sustitución manual de acuerdo con las instrucciones al final de este documento de orientación.
 
 Instrucciones para usar FedUtil para actualizar la configuración:
 
 1. Compruebe que tiene instalado el SDK de la versión 1.0 de WIF en la máquina de desarrollo de Visual Studio 2008 o 2010. También puede [descargarlo desde aquí](https://www.microsoft.com/en-us/download/details.aspx?id=4451) si aún no lo ha instalado.
 2. En Visual Studio, abra la solución, haga clic con el botón derecho en el proyecto correspondiente y seleccione **Update federation metadata**(Actualizar metadatos de federación). Si esta opción no está disponible, significa que no se ha instalado FedUtil o el SDK de la versión 1.0 de WIF.
-3. En el símbolo del sistema, seleccione **Actualizar** para iniciar la actualización de los metadatos de federación. Si tiene acceso al entorno de servidor donde está hospedada la aplicación, puede utilizar el [Programador de actualización automática de metadatos](/previous-versions/windows-identity-foundation/ee517272(v=msdn.10))de FedUtil.
+3. En el símbolo del sistema, seleccione **Actualizar** para iniciar la actualización de los metadatos de federación. Si tiene acceso al entorno de servidor donde está hospedada la aplicación, puede utilizar el [Programador de actualización automática de metadatos](https://msdn.microsoft.com/library/ee517272.aspx)de FedUtil.
 4. Haga clic en **Finalizar** para completar el proceso de actualización.
 
 ### <a name="web-applications--apis-protecting-resources-using-any-other-libraries-or-manually-implementing-any-of-the-supported-protocols"></a><a name="other"></a>Aplicaciones y API web de protección de recursos que usan cualquier otra biblioteca o que implementan manualmente cualquiera de los protocolos admitidos

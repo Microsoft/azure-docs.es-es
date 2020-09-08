@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
 ms.custom: devx-track-javascript
-ms.openlocfilehash: d6a25e7c36118f6a11bd1a177159bc9050ee69ca
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 4dd253aa5dc1b8b89b1b387a555dde416c601f9c
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431007"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691503"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Incorporación de una API en la versión preliminar de Azure Static Web Apps con Azure Functions
 
@@ -28,7 +28,7 @@ Puede agregar API sin servidor a Azure Static Web Apps a través de la integraci
 - Extensión [Live Server de Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer).
 - [Node.js](https://nodejs.org/download/) para ejecutar la aplicación de API localmente
 
-## <a name="create-a-git-repository"></a>Creación de un repositorio Git
+## <a name="create-a-git-repository"></a>Crear un repositorio de Git
 
 En los pasos siguientes se muestra cómo crear un nuevo repositorio y clonar los archivos en el equipo.
 
@@ -147,7 +147,7 @@ Visual Studio Code se integra con [Azure Functions Core Tools](../azure-functio
 
     :::image type="content" source="media/add-api/create-azure-functions-vscode-2.png" alt-text="Creación de una nueva instancia de Azure Functions mediante Visual Studio Code":::
 
-1. Con las herramientas principales en ejecución, vaya a la siguiente dirección URL para comprobar que la API se está ejecutando correctamente: <http://localhost:7071/api/message>.
+1. Con las herramientas principales en ejecución, vaya a la siguiente dirección URL para comprobar que la API se está ejecutando correctamente: `http://localhost:7071/api/message`.
 
    La respuesta en el explorador debe ser similar a la del ejemplo siguiente:
 

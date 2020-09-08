@@ -1,18 +1,18 @@
 ---
 title: 'Inicio rápido: Creación de un servidor de Analysis Services en Azure Portal | Microsoft Docs'
-description: Obtenga información sobre cómo crear rápidamente una instancia de Azure Analysis Services Server mediante Azure Portal.
+description: Esta guía de inicio rápido describe cómo crear una instancia de servidor de Azure Analysis Services mediante Azure Portal.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 05/19/2020
+ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 36899aa789f4947fe860621bc1795bfbe2ff1ecf
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 488e7c84e481edd1b136fe90ab948d3cfb51ed2c
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697469"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230788"
 ---
 # <a name="quickstart-create-a-server---portal"></a>Inicio rápido: Creación de un servidor (Portal)
 
@@ -58,6 +58,4 @@ Cuando ya no lo necesite, elimine el servidor. En la **Información general** de
 En esta guía de inicio rápido aprendió a crear un servidor en la suscripción de Azure. Ahora que tiene un servidor, puede protegerlo si configura un firewall de servidor (opcional). También puede agregar un modelo de datos de ejemplo básico al servidor directamente desde el portal. Tener un modelo de ejemplo es útil al aprender cómo configurar los roles de la base de datos del modelo y probar las conexiones de cliente. Para más información, puede seguir el tutorial para agregar un modelo de ejemplo.
 
 > [!div class="nextstepaction"]
-> [Guía de inicio rápido: Configuración del firewall del servidor: Portal](analysis-services-qs-firewall.md)   
-> [!div class="nextstepaction"]
-> [Tutorial: Incorporación de un modelo de ejemplo al servidor](analysis-services-create-sample-model.md)
+> [Inicio rápido: Configuración del firewall del servidor: Portal](analysis-services-qs-firewall.md)   

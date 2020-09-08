@@ -11,18 +11,18 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 04/07/2020
 ms.author: curtand
-ms.openlocfilehash: 7de8a5bcc2f7883b00ec25e2674b1dc6bd6871c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 016e0de26bf3a9513940be161cfecf6d1c2b9d02
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83747267"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798506"
 ---
 # <a name="set-up-your-security-info-from-a-sign-in-prompt"></a>Configuración de la información de seguridad desde un mensaje de inicio de sesión
 
 Puede seguir estos pasos si se le pide que configure la información de seguridad inmediatamente después de que iniciar sesión con su cuenta profesional o educativa.
 
-Solo verá este mensaje si no ha configurado la información de seguridad que requiere su organización. Si ya ha configurado la información de seguridad, pero desea realizar cualquier cambio, puede seguir los pasos descritos en los distintos artículos de procedimientos basados en métodos. Para más información, consulte [Add or update your security info overview](security-info-add-update-methods-overview.md) (Introducción a la adición o actualización de la información de seguridad).
+Solo verá este mensaje si no ha configurado la información de seguridad que requiere su organización. Si ya ha configurado la información de seguridad, pero desea realizar cualquier cambio, puede seguir los pasos descritos en los distintos artículos de procedimientos basados en métodos. Para más información, consulte [Add or update your security info overview](./security-info-setup-auth-app.md) (Introducción a la adición o actualización de la información de seguridad).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 

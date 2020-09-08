@@ -2,7 +2,7 @@
 title: 'Tutorial: Configuración del enrutamiento geográfico del tráfico con Azure Traffic Manager'
 description: En este tutorial se explica cómo configurar el método de enrutamiento geográfico del tráfico mediante Azure Traffic Manager
 services: traffic-manager
-author: rohinkoul
+author: duongau
 manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -10,13 +10,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
-ms.author: rohink
-ms.openlocfilehash: 3eb3f354d51833e55f405ed35679f1a5882c057a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.author: duau
+ms.openlocfilehash: 71219eea1c7cdeeefbf63e5a5715fb10fcf68682
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76938790"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401085"
 ---
 # <a name="tutorial-configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Tutorial: Configuración del método de enrutamiento de tráfico geográfico con Traffic Manager
 

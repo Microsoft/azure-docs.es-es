@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: ff7472b764b0e65d69d9b694603e145440e89c0d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a78e1b9cc1d9ca8a815fdb586287983020232fd1
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318120"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782947"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure Monitor
 
@@ -81,6 +81,10 @@ El Explorador de datos de Azure es un servicio de exploración de datos altament
 ### <a name="how-do-i-retrieve-log-data"></a>¿Cómo puedo recuperar los datos de registro?
 Todos los datos se recuperan de un área de trabajo de Log Analytics mediante una consulta de registro escrita en el lenguaje de consulta Kusto (KQL). Puede escribir sus propias consultas o usar soluciones e Insights que incluyan consultas de registro para una aplicación o servicio determinados. Consulte [Introducción a las consultas de registro en Azure Monitor](log-query/log-query-overview.md).
 
+### <a name="can-i-delete-data-from-a-log-analytics-workspace"></a>¿Puedo eliminar datos de un área de trabajo de Log Analytics?
+Los datos se eliminan de un área de trabajo en función del [período de retención](platform/manage-cost-storage.md#change-the-data-retention-period). Puede eliminar datos específicos por motivos de privacidad o de cumplimiento. Consulte [Cómo exportar y eliminar datos privados](platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) para más información.
+
+
 ### <a name="what-is-a-log-analytics-workspace"></a>¿Qué es un área de trabajo de Log Analytics?
 Todos los datos de registro que recopila Azure Monitor se almacenan en un área de trabajo de Log Analytics. Un área de trabajo es esencialmente un contenedor donde los datos de registro se recopilan de diversos orígenes. Puede tener una sola área de trabajo de Log Analytics para todos los datos de supervisión o puede tener requisitos para varias áreas de trabajo. Consulte [Diseño de la implementación de registros de Azure Monitor](platform/design-logs-deployment.md).
 
@@ -121,7 +125,7 @@ Un grupo de acciones es una colección de notificaciones y acciones que pueden s
 
 
 ### <a name="what-is-an-action-rule"></a>¿Qué es una regla de acción?
-Una regla de acción le permite modificar el comportamiento de un conjunto de alertas que coinciden con determinados criterios. Esto le permite realizar requisitos como deshabilitar las acciones de alertas durante una ventana de mantenimiento. También puede aplicar un grupo de acciones a un conjunto de alertas en lugar de aplicarlo directamente a las reglas de alertas. Consulte [Reglas de acción](platform/alerts-action-rules.md).
+Una regla de acción le permite modificar el comportamiento de un conjunto de alertas que coinciden con determinados criterios. Esto permite satisfacer requisitos como la desactivación de las acciones de alerta durante una ventana de mantenimiento. También puede aplicar un grupo de acciones a un conjunto de alertas en lugar de aplicarlo directamente a las reglas de alertas. Consulte [Reglas de acción](platform/alerts-action-rules.md).
 
 ## <a name="agents"></a>Agentes
 
@@ -137,7 +141,7 @@ La extensión de diagnósticos de Azure es para máquinas virtuales de Azure y r
 El tráfico a Azure Monitor utiliza el circuito de ExpressRoute de emparejamiento de Microsoft. En la [documentación de ExpressRoute](../expressroute/expressroute-faqs.md#supported-services), se describen los distintos tipos de tráfico de ExpressRoute. 
 
 ### <a name="how-can-i-confirm-that-the-log-analytics-agent-is-able-to-communicate-with-azure-monitor"></a>¿Cómo puedo confirmar que el agente de Log Analytics puede comunicarse con Azure Monitor?
-En el panel de control del equipo del agente, seleccione **Seguridad y configuración**, **Microsoft Monitoring Agent**. En la pestaña **Azure Log Analytics (OMS)** , un icono de marca de verificación verde confirma que el agente puede comunicarse con Azure Monitor. Un icono de advertencia amarillo significa que el agente tiene problemas. Una causa habitual es que el servicio **Microsoft Monitoring Agent** se ha detenido. Use el Administrador de control de servicios para reiniciar el servicio.
+En el panel de control del equipo del agente, seleccione **Seguridad y configuración**, **Microsoft Monitoring Agent. En la pestaña **Azure Log Analytics (OMS)** , un icono de marca de verificación verde confirma que el agente puede comunicarse con Azure Monitor. Un icono de advertencia amarillo significa que el agente tiene problemas. Una causa habitual es que el servicio **Microsoft Monitoring Agent** se ha detenido. Use el Administrador de control de servicios para reiniciar el servicio.
 
 ### <a name="how-do-i-stop-the-log-analytics-agent-from-communicating-with-azure-monitor"></a>¿Cómo puedo detener la comunicación del agente de Log Analytics con Azure Monitor?
 En el caso de los agentes conectados a Log Analytics directamente, abra el panel de control y seleccione **Seguridad y configuración**, **Microsoft Monitoring Agent**. Elimine todas las áreas de trabajo enumeradas en la pestaña **Azure Log Analytics (OMS)** . En System Center Operations Manager, quite el equipo de la lista de equipos que administra Log Analytics. Operations Manager actualiza la configuración del agente para que ya no informe a Log Analytics. 
@@ -207,7 +211,7 @@ El Diseñador de vistas solo está disponible para los usuarios asignados que te
 * [Configurar un servidor ASP.NET](app/monitor-performance-live-website-now.md)
 * [Configurar un servidor de Java](app/java-agent.md)
 
-*¿Cuántos recursos de Application Insights se deben implementar?:*
+*Cuántos recursos de Application Insights se deben implementar:*
 
 * [¿Cómo diseñar la implementación de Application Insights: uno frente a muchos recursos?](app/separate-resources.md)
 
@@ -315,7 +319,7 @@ Buscamos la dirección IP (IPv4 o IPv6) del cliente web mediante [GeoLite2](http
 
 * Telemetría del explorador: recopilamos la dirección IP del remitente.
 * Telemetría del servidor: el módulo de Application Insights recopila la dirección IP del cliente. No se recopila si `X-Forwarded-For` está establecido.
-* Para más información acerca de cómo se recopilan los datos de la dirección IP y la ubicación geográfica en Application Insights, consulte este [artículo](./app/ip-collection.md).
+* Para obtener más información sobre cómo se recopilan la dirección IP y los datos de geolocalización en Application Insights, vea este [artículo](./app/ip-collection.md).
 
 
 Puede configurar `ClientIpHeaderTelemetryInitializer` para tomar la dirección IP de un encabezado distinto. En algunos sistemas, por ejemplo, se mueve mediante un servidor proxy, un equilibrador de carga o la red CDN `X-Originating-IP`. [Más información](https://apmtips.com/posts/2016-07-05-client-ip-address/).
@@ -509,6 +513,15 @@ La mayoría de los datos de Application Insights tienen una latencia de menos de
 [start]: app/app-insights-overview.md
 [windows]: app/app-insights-windows-get-started.md
 
+### <a name="http-502-and-503-responses-are-not-always-captured-by-application-insights"></a>Application Insights no siempre captura las respuestas HTTP 502 y 503
+
+Application Insights no siempre captura los errores "502 Puerta de enlace incorrecta" y "503 Servicio no disponible". Si solo se usa JavaScript del lado cliente para la supervisión, este sería el comportamiento esperado, ya que la respuesta de error se devuelve antes que la página que contiene el encabezado HTML con el fragmento de código de JavaScript de supervisión que se está representando. 
+
+Si la respuesta 502 o 503 se ha enviado desde un servidor con la supervisión del lado servidor habilitada, el SDK de Application Insights recopila los errores. 
+
+Pero todavía hay casos en los que, incluso con la supervisión del lado servidor habilitada en el servidor web de una aplicación, Application Insights no captura un error 502 o 503. Muchos servidores web modernos no permiten a un cliente comunicarse directamente, sino que emplean soluciones como los servidores proxy inversos para pasar información entre el cliente y los servidores web front-end. 
+
+En este escenario, se puede devolver una respuesta 502 o 503 a un cliente debido a un problema en la capa de proxy inverso que no sería capturado de serie por Application Insights. Para ayudar a detectar problemas en esta capa, es posible que tenga que reenviar registros desde el proxy inverso a Log Analytics y crear una regla personalizada para buscar respuestas 502/503. Para obtener más información sobre las causas comunes de los errores 502 y 503, vea el artículo de solución de problemas de Azure App Service ["502 Puerta de enlace no válida" y "503 Servicio no disponible"](../app-service/troubleshoot-http-502-http-503.md).     
 
 ## <a name="azure-monitor-for-containers"></a>Azure Monitor para contenedores
 
@@ -661,7 +674,7 @@ Si las máquinas virtuales ya están conectadas a un área de trabajo de Log Ana
 ### <a name="can-i-onboard-to-a-new-workspace"></a>¿Puede incorporarse a una nueva área de trabajo? 
 Si las máquinas virtuales no están conectadas actualmente a un área de trabajo de Log Analytics existente, deberá crear un área de trabajo para almacenar los datos. Un área de trabajo predeterminada se crea automáticamente si configura una sola máquina virtual de Azure para Azure Monitor para máquinas virtuales a través de Azure Portal.
 
-Si decide usar el método basado en scripts, estos pasos se describen en el artículo [Habilitar Azure Monitor para VM mediante Azure PowerShell o una plantilla de Resource Manager](insights/vminsights-enable-at-scale-powershell.md). 
+Si decide usar el método basado en scripts, estos pasos se describen en el artículo [Habilitar Azure Monitor para VM mediante Azure PowerShell o una plantilla de Resource Manager](./insights/vminsights-enable-powershell.md). 
 
 ### <a name="what-do-i-do-if-my-vm-is-already-reporting-to-an-existing-workspace"></a>¿Qué puedo hacer si mi máquina virtual ya está generando informes para un área de trabajo?
 Si ya está recopilando datos de las máquinas virtuales, es posible que ya las haya configurado para que generen ubfirnes de datos a un área de trabajo de Log Analytics existente.  Siempre y cuando el área de trabajo se encuentre en una de nuestras regiones admitidas, podrá habilitar Azure Monitor para máquinas virtuales en esa área de trabajo preexistente.  Si el área de trabajo que ya está usando no está en una de nuestras regiones admitidas, no podrá incorporar Azure Monitor para VM en este momento.  Estamos trabajando para admitir más regiones.
@@ -682,7 +695,7 @@ Si ha iniciado la incorporación y puede ver los mensajes que indican que la má
 ### <a name="i-dont-see-some-or-any-data-in-the-performance-charts-for-my-vm"></a>No veo algunos o ninguno de los datos en el gráfico de rendimiento de la VM
 Los gráficos de rendimiento se han actualizado para usar los datos almacenados en la tabla *InsightsMetrics*.  Si desea ver los datos en estos diagramas, es necesario que los actualice para poder usar la solución VM Insights.  Consulte las [preguntas frecuentes sobre disponibilidad general](insights/vminsights-ga-release-faq.md) para más información.
 
-Si no ve los datos de rendimiento en la tabla del disco o en algunos de los gráficos de rendimiento, es posible que los contadores de rendimiento en el área de trabajo no estén configurados. Para solucionar este problema, ejecute el siguiente [script de PowerShell](insights/vminsights-enable-at-scale-powershell.md#enable-with-powershell).
+Si no ve los datos de rendimiento en la tabla del disco o en algunos de los gráficos de rendimiento, es posible que los contadores de rendimiento en el área de trabajo no estén configurados. Para solucionar este problema, ejecute el siguiente [script de PowerShell](./insights/vminsights-enable-powershell.md).
 
 
 ### <a name="how-is-azure-monitor-for-vms-map-feature-different-from-service-map"></a>¿En qué se diferencian la característica de asignación de Azure Monitor para máquinas virtuales y Service Map?

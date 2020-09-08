@@ -34,9 +34,6 @@
       href: /samples/browse/?products=azure-logic-apps
     - name: Plantillas de inicio rápido de Resource Manager
       href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Logic'
-    - name: Elementos integrados de Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceptos
   items:
     - name: Conectores de Logic Apps
@@ -210,7 +207,7 @@
           href: logic-apps-http-endpoint.md
         - name: Azure Service Bus
           href: ../connectors/connectors-create-api-servicebus.md
-        - name: Azure SQL Database
+        - name: "Azure\_SQL\_Database"
           href: ../connectors/connectors-create-api-sqlazure.md
         - name: Bing Search
           href: ../connectors/connectors-create-api-bingsearch.md
@@ -396,6 +393,9 @@
           href: logic-apps-track-integration-account-x12-tracking-schema.md
         - name: Esquema de seguimiento personalizado
           href: logic-apps-track-integration-account-custom-tracking-schema.md
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Desarrollo de aptitudes con Microsoft Learn

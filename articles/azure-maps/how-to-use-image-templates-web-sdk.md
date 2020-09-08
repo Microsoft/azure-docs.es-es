@@ -1,6 +1,6 @@
 ---
 title: Plantillas de imagen en el SDK web de Azure Maps | Microsoft Azure Maps
-description: En este artículo aprenderá a usar plantillas de imagen con marcadores HTML y varias capas en el SDK web de Microsoft Azure Maps.
+description: Aprenda a agregar iconos de imagen y polígonos rellenados por patrones a los mapas mediante el SDK Web de Azure Maps. Vea las plantillas de patrón de relleno y de imagen disponibles.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 8/6/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 2942ae25e3ac84ae6f91ebbba08581eb87bcd169
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ae3fa4684e4e71115d2d4ddce3c34ccb4f1cb703
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285686"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004653"
 ---
 # <a name="how-to-use-image-templates"></a>Uso de plantillas de imagen
 

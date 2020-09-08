@@ -1,7 +1,7 @@
 ---
 title: Componentes de VMware de nube privada
 titleSuffix: Azure VMware Solution by CloudSimple
-description: Se describe la instalación de componentes de VMware en nubes privadas
+description: Vea cómo el servicio CloudSimple permite implementar de forma nativa VMware en ubicaciones de Azure. Las nubes privadas se integran con el resto de la nube de Azure.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/15/2019
@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9c9b80cd4d8a7a7ac5597d10bbb87095564bd461
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff9aec1904be754990958869666e9d67038e4fb3
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84702829"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142509"
 ---
 # <a name="private-cloud-vmware-components"></a>Componentes de VMware de nube privada
 
@@ -38,7 +38,7 @@ Una pila de VMware de nube privada se implementa con la versión de software sig
 
 ## <a name="esxi"></a>ESXi
 
-VMware ESXi se instala en los nodos de CloudSimple aprovisionados al crear una nube privada.  ESXi proporciona el hipervisor para implementar máquinas virtuales (VM) de carga de trabajo.  Los nodos proporcionan infraestructuras hiperconvergidas (proceso y almacenamiento) en la nube privada.  Los nodos forman parte del clúster de vSphere en la nube privada.  Cada nodo tiene cuatro interfaces de red físicas conectadas a la red subyacente.  Se usan dos interfaces de red físicas para crear un **conmutador distribuido de vSphere (VDS)** en vCenter y dos para crear un **conmutador virtual distribuido administrado por NSX (N-VDS)** .  Las interfaces de red se configuran en modo activa/activa para la alta disponibilidad.
+VMware ESXi se instala en los nodos de CloudSimple aprovisionados al crear una nube privada.  ESXi proporciona el hipervisor para implementar máquinas virtuales (VM) de carga de trabajo.  Los nodos proporcionan infraestructuras hiperconvergidas (proceso y almacenamiento) en la nube privada.  Los nodos forman parte del clúster de vSphere en la nube privada.  Cada nodo tiene cuatro interfaces de red físicas conectadas a la red subyacente.  Se usan dos interfaces de red físicas para crear un **conmutador distribuido de vSphere (VDS)** en vCenter y dos para crear un **conmutador virtual distribuido administrado por NSX (N-VDS)**.  Las interfaces de red se configuran en modo activa/activa para la alta disponibilidad.
 
 Más información sobre VMware ESXi
 

@@ -14,12 +14,12 @@ ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb464f758aca33e0b6547f69e2a9cc842582ea3f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 230ccb3d10c7ba6f3abcac9d83309fd7fa3c5c3f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025224"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797690"
 ---
 # <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Ejemplos de PowerShell y Graph para licencias basadas en grupos de Azure AD
 
@@ -445,7 +445,7 @@ HTTP/1.1 200 OK
 
 ## <a name="remove-direct-licenses-for-users-with-group-licenses"></a>Retirada de licencias directas a usuarios con licencias de grupo
 
-El propósito de este script es quitar las licencias directas no necesarias a los usuarios que heredan la misma licencia de un grupo; por ejemplo, como parte de una [migración de usuarios individuales con licencia a licencias basadas en grupos](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-migration-azure-portal).
+El propósito de este script es quitar las licencias directas no necesarias a los usuarios que heredan la misma licencia de un grupo; por ejemplo, como parte de una [migración de usuarios individuales con licencia a licencias basadas en grupos](./licensing-groups-migrate-users.md).
 > [!NOTE]
 > Es importante validar en primer lugar que las licencias directas que va a quitar no habilitan más funcionalidades de servicio que las licencias heredadas. De lo contrario, quitar la licencia directa podría deshabilitar el acceso a servicios y datos a esos usuarios. Actualmente no es posible comprobar a través de PowerShell si los servicios se han habilitado por licencias heredadas o por licencias directas. En el script, se especifica el nivel mínimo de servicios que sabemos que se heredan de grupos y se comprobará con él para asegurarse de que los usuarios no pierdan acceso a los servicios de manera inesperada.
 

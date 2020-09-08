@@ -11,25 +11,26 @@ metadata:
   ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.date: 07/30/2020
-  ms.openlocfilehash: 40a8fc105dd297ec4bc70ecc0a27b9fa295d3fe1
-  ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+  ms.date: 08/17/2020
+  ms.custom: contperfq1
+  ms.openlocfilehash: 63e1e9216a5150b957a34e15def9726167694978
+  ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/31/2020
-  ms.locfileid: "87474519"
+  ms.lasthandoff: 08/16/2020
+  ms.locfileid: "88258697"
 landingContent:
 - title: Introducción al aprendizaje automático
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Cuadernos de Python
+    - text: Uso de cuadernos de Python
       url: tutorial-1st-experiment-sdk-setup.md
-    - text: Machine Learning automatizado (sin código/poco código)
+    - text: Con AutoML (sin código o poco código)
       url: tutorial-first-experiment-automated-ml.md
-    - text: Diseñador (arrastrar y colocar)
+    - text: En el diseñador (arrastrar y colocar)
       url: tutorial-designer-automobile-price-train-score.md
-    - text: RStudio
+    - text: Uso de RStudio
       url: tutorial-1st-r-experiment.md
 - title: Traer un modelo de Machine Learning a Azure
   linkLists:

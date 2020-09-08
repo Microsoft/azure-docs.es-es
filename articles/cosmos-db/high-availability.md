@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 2f464a0b519dd7f378790c135a05d04e02704ac8
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 8bae89e68e5a016dbdc10c763f1ea2daedece3c8
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027739"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605332"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Alta disponibilidad con Azure Cosmos DB
 
@@ -79,7 +79,7 @@ La redundancia de zona es una *funcionalidad complementaria* de la característi
 
 Al configurar las escrituras en varias regiones para la cuenta de Azure Cosmos, puede optar por recibir la redundancia de zona sin ningún costo adicional. En caso contrario, consulte la nota siguiente sobre los precios de la compatibilidad de la redundancia de zona. Puede habilitar la redundancia de zona en una región existente de su cuenta de Azure Cosmos si quita la región y la vuelve a agregar con la redundancia de zona habilitada.
 
-Esta característica está disponible en: regiones del *Sur de Reino Unido, Sudeste Asiático, Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Oeste de Europa, Oeste de EE. UU. 2, Este de Japón, Norte de Europa, Centro de Francia*.
+Esta característica está disponible en: regiones del *Sur de Reino Unido, Sudeste Asiático, Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Oeste de Europa, Oeste de EE. UU. 2, Este de Japón, Norte de Europa, Centro de Francia, Este de Australia*.
 
 > [!NOTE]
 > Si habilita Availability Zones en una cuenta de Azure Cosmos de una sola región, se ocasionarán cargos equivalentes a agregar una región adicional a su cuenta. Para obtener más información sobre los precios, consulte la [página de precios](https://azure.microsoft.com/pricing/details/cosmos-db/) y los artículos sobre [costos de varias regiones de Azure Cosmos DB](optimize-cost-regions.md).

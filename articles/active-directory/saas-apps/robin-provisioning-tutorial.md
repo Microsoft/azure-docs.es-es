@@ -2,25 +2,21 @@
 title: 'Tutorial: Configuración de Robin para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
 description: Aprenda a configurar Azure Active Directory para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario en Robin Powered.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: 178ca5b3-4155-43ab-84f5-650d25c5a74a
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: Zhchia
-ms.openlocfilehash: fabd8a1953bedf6c3db6da443903a6dbd965b01e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c025a0dfee92a523b00cdf0721078ae3caf61ac9
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77061017"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545172"
 ---
 # <a name="tutorial-configure-robin-for-automatic-user-provisioning"></a>Tutorial: Configuración de Robin para el aprovisionamiento automático de usuarios
 

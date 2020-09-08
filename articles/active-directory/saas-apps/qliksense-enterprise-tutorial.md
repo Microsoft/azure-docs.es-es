@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Qlik Sense Enterprise | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Qlik Sense Enterprise.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: 8c27e340-2b25-47b6-bf1f-438be4c14f93
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 03/03/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a2d4799966e070f7c50c39c350456b594664c9a
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 5344354c05547d6d2a5e2762c70a97cc4222c464
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800681"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88552363"
 ---
 # <a name="tutorial-integrate-qlik-sense-enterprise-with-azure-active-directory"></a>Tutorial: Integración de Qlik Sense Enterprise con Azure Active Directory
 

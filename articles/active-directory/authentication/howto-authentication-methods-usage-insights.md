@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 053b052abf6f23c385dc7447639aa40b6c2c58a1
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: f75c08f0a390e798435b70bbe2409ec4a9732214
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81680184"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717173"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Conclusiones y uso de los métodos de autenticación (versión preliminar)
 
@@ -98,6 +98,6 @@ Actualmente no se puede filtrar el informe para excluir a los usuarios externos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Trabajar con la API del informe de utilización de métodos de autenticación](https://docs.microsoft.com/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
+- [Trabajar con la API del informe de utilización de métodos de autenticación](/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
 - [Elegir los métodos de autenticación para la organización](concept-authentication-methods.md)
 - [Experiencia de registro combinada](concept-registration-mfa-sspr-combined.md)

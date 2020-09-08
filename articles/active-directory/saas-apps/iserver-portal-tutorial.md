@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con iServer Portal | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory e iServer Portal.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 2923fe11-954d-4f9a-9af9-5cde020432e0
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/28/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2af8f81636f7653049029b3c0d3a81cbfb8e6fd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 27a318fc13d97691b9f2d4d5f7f98a4c70f85c0e
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "70143086"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88552742"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-iserver-portal"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con iServer Portal
 

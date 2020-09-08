@@ -12,17 +12,19 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 04/20/2020
-ms.openlocfilehash: ee481067a3904c208061607b7109fcba0f3faaa7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ec1dfa3edea5364151c543889d974944a1a1cd5a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86504074"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920133"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance"></a>Replicación transaccional con Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-La replicación transaccional es una característica de Instancia administrada de Azure SQL y SQL Server que permite replicar datos de una tabla de Instancia administrada de Azure SQL o SQL Server en tablas colocadas en bases de datos remotas. Esta característica permite sincronizar varias tablas en bases de datos diferentes.
+La replicación transaccional es una característica de Instancia administrada de Azure SQL y SQL Server que permite replicar datos de una tabla de Instancia administrada de Azure SQL o SQL Server en tablas colocadas en bases de datos remotas. Esta característica permite sincronizar varias tablas en bases de datos diferentes. 
+
+La replicación transaccional está actualmente en versión preliminar pública para SQL Managed Instance. 
 
 ## <a name="overview"></a>Información general
 

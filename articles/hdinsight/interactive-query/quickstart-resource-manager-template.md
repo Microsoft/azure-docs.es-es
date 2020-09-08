@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: 5d8d9ba6d3152435382d180fe32dd78e62e5fd63
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 19bf43cfd305e74aadaf16dddc7bce318e193c84
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087595"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640249"
 ---
 # <a name="quickstart-create-interactive-query-cluster-in-azure-hdinsight-using-arm-template"></a>Inicio rápido: Creación de un clúster de Interactive Query en Azure HDInsight mediante una plantilla de Resource Manager
 
@@ -33,7 +33,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-interactive-hive/).
 
-:::code language="json" source="~/quickstart-templates/101-hdinsight-interactive-hive/azuredeploy.json" range="1-158" highlight="49-82":::
+:::code language="json" source="~/quickstart-templates/101-hdinsight-interactive-hive/azuredeploy.json":::
 
 En la plantilla se definen dos recursos de Azure:
 

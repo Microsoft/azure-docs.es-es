@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Creación de una biblioteca de contenido para implementar máquinas virtuales en Azure VMware Solution (AVS)'
-description: En este tutorial de Azure VMware Solution (AVS), creará una biblioteca de contenido para implementar una máquina virtual en una nube privada de AVS.
+title: 'Tutorial: Creación de una biblioteca de contenido para implementar máquinas virtuales en Azure VMware Solution'
+description: En este tutorial de Azure VMware Solution, creará una biblioteca de contenido para implementar una máquina virtual en una nube privada de Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 07/16/2020
-ms.openlocfilehash: d5f0f26293af9eb146cfb4b2f3adf47fe8cce94f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3abaafac0dbd6f3537d2ca30a093627230780eb5
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079390"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750559"
 ---
-# <a name="tutorial-create-a-content-library-to-deploy-vms-in-azure-vmware-solution-avs"></a>Tutorial: Creación de una biblioteca de contenido para implementar máquinas virtuales en Azure VMware Solution (AVS)
+# <a name="tutorial-create-a-content-library-to-deploy-vms-in-azure-vmware-solution"></a>Tutorial: Creación de una biblioteca de contenido para implementar máquinas virtuales en Azure VMware Solution
 
 Una biblioteca de contenido almacena y administra el contenido en forma de elementos de biblioteca. Un solo elemento de biblioteca consta de uno o varios archivos que se usan para implementar máquinas virtuales (VM). 
  
@@ -22,7 +22,7 @@ En este tutorial, aprenderá a:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para realizar este tutorial, se necesitan un segmento de conmutador lógico NSX-T y un servicio DHCP administrado.  Para más información, consulte [Administración de DHCP en la versión preliminar de Azure VMWare Solution (AVS)](manage-dhcp.md).
+Para realizar este tutorial, se necesitan un segmento de conmutador lógico NSX-T y un servicio DHCP administrado.  Para más información, consulte [Administración de DHCP en la versión preliminar de Azure VMware Solution](manage-dhcp.md).
 
 ## <a name="create-a-content-library"></a>Crear una biblioteca de contenido
 

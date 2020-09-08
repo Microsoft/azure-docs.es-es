@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 46560f067e020236031487677ad4f48a9560d4e1
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 4e65655f1809c6badc50e39a2a5e932516ef99d2
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679218"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509848"
 ---
 # <a name="use-the-session-management-rest-api"></a>Uso de la API REST de administración de sesión
 
@@ -71,9 +71,9 @@ Este comando permite crear una sesión. Devuelve el identificador de la nueva se
 
 **Cuerpo de la solicitud:**
 
-* maxLeaseTime (intervalo de tiempo): valor de tiempo de espera en el que la máquina virtual se retirará automáticamente
+* maxLeaseTime (intervalo de tiempo): valor de tiempo de espera en el que la máquina virtual se retirará automáticamente.
 * models (matriz): direcciones URL del contenedor de recursos para cargar previamente
-* size (cadena): el tamaño de la máquina virtual ( **"standard"** o **"premium"** ). Consulte las [limitaciones específicas del tamaño de la máquina virtual ](../reference/limits.md#overall-number-of-polygons).
+* tamaño (cadena): tamaño del servidor que se va a configurar ([ **"estándar"** ](../reference/vm-sizes.md) o [ **"premium"** ](../reference/vm-sizes.md)). Consulte las [limitaciones de tamaño](../reference/limits.md#overall-number-of-polygons) específicas.
 
 **Respuestas:**
 
@@ -130,7 +130,7 @@ Este comando actualiza los parámetros de una sesión. Actualmente solo se puede
 
 **Cuerpo de la solicitud:**
 
-* maxLeaseTime (intervalo de tiempo): valor de tiempo de espera en el que la máquina virtual se retirará automáticamente
+* maxLeaseTime (intervalo de tiempo): valor de tiempo de espera en el que la máquina virtual se retirará automáticamente.
 
 **Respuestas:**
 

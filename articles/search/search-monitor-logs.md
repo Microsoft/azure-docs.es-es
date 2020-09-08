@@ -8,26 +8,26 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: c940d0dd4c92aca92291bfe1dbd6c15f1091f0b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52230d6b13c4210e0ff8e85d0a3efe39af55f6e2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611618"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935065"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Recopilación y análisis de datos de registro para Azure Cognitive Search
 
 Los registros operativos o de diagnóstico proporcionan una visión general de las operaciones detalladas de Azure Cognitive Search y son útiles para supervisar los procesos de servicio y de carga de trabajo. Internamente, parte de la información del sistema se encuentra en el back-end durante un breve período de tiempo, suficiente para investigación y análisis si se archiva una incidencia de soporte técnico. Sin embargo, si desea autodireccionar datos operativos, debe establecer una configuración de diagnóstico para especificar dónde se recopila la información de registro.
 
-El registro de diagnóstico se habilita a través de la integración con [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/). 
+El registro de diagnóstico se habilita a través de la integración con [Azure Monitor](../azure-monitor/index.yml). 
 
 Al configurar el registro de diagnóstico, se le pedirá que especifique un mecanismo de almacenamiento. En la tabla siguiente se enumeran las opciones para recopilar y almacenar datos.
 
 | Recurso | Se usa para |
 |----------|----------|
-| [Envío al área de trabajo de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs) | Los eventos y las métricas se envían a un área de trabajo de Log Analytics que se puede consultar en el portal para devolver información detallada. Para ver una introducción, consulte [Introducción a los registros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata). |
-| [Archivado con Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Los eventos y las métricas se archivan en un contenedor de blobs y se almacenan en archivos JSON. Los registros pueden ser bastante detallados (por hora o minuto), útiles para investigar un incidente específico, pero no para una investigación abierta. Use un editor de JSON para ver un archivo de registro sin formato o Power BI para agregar y visualizar datos de registro.|
-| [Transmisión a Event Hubs](https://docs.microsoft.com/azure/event-hubs/) | Los eventos y las métricas se transmiten al servicio Azure Event Hubs. Elija esta opción como un servicio alternativo de recopilación de datos para registros muy grandes. |
+| [Envío al área de trabajo de Log Analytics](../azure-monitor/learn/tutorial-resource-logs.md) | Los eventos y las métricas se envían a un área de trabajo de Log Analytics que se puede consultar en el portal para devolver información detallada. Para ver una introducción, consulte [Introducción a los registros de Azure Monitor](../azure-monitor/log-query/get-started-portal.md). |
+| [Archivado con Blob Storage](../storage/blobs/storage-blobs-overview.md) | Los eventos y las métricas se archivan en un contenedor de blobs y se almacenan en archivos JSON. Los registros pueden ser bastante detallados (por hora o minuto), útiles para investigar un incidente específico, pero no para una investigación abierta. Use un editor de JSON para ver un archivo de registro sin formato o Power BI para agregar y visualizar datos de registro.|
+| [Transmisión a Event Hubs](../event-hubs/index.yml) | Los eventos y las métricas se transmiten al servicio Azure Event Hubs. Elija esta opción como un servicio alternativo de recopilación de datos para registros muy grandes. |
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -35,7 +35,7 @@ Cree recursos de antemano para que pueda seleccionar uno o más al configurar el
 
 + [Cree un área de trabajo de Log Analytics](../azure-monitor/learn/quick-create-workspace.md)
 
-+ [Cree una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md)
++ [Cree una cuenta de almacenamiento](../storage/common/storage-account-create.md)
 
 + [Creación de un Centro de eventos](../event-hubs/event-hubs-create.md)
 
@@ -122,9 +122,9 @@ Los eventos registrados capturados por Azure Monitor incluyen aquellos relaciona
 
 | OperationName | Descripción |
 |---------------|-------------|
-| ServiceStats | Esta operación es una llamada de una rutina a [Get Service Statistics](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics), que se realiza de forma directa o implícita para rellenar una página de información general del portal cuando se carga o se actualiza. |
+| ServiceStats | Esta operación es una llamada de una rutina a [Get Service Statistics](/rest/api/searchservice/get-service-statistics), que se realiza de forma directa o implícita para rellenar una página de información general del portal cuando se carga o se actualiza. |
 | Query.Search |  Consulte [Supervisión de consultas](search-monitor-queries.md) para ver información acerca de las consultas registradas.|
-| Indexing.Index  | Esta operación es una llamada a [Agregación, actualización o eliminación de documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). |
+| Indexing.Index  | Esta operación es una llamada a [Agregación, actualización o eliminación de documentos](/rest/api/searchservice/addupdate-or-delete-documents). |
 | indexes.Prototype | Este es un índice que crea el Asistente para importar datos. |
 | Indexers.Create | Cree un índice de forma explícita o implícita mediante el Asistente para importar datos. |
 | Indexers.Get | Devuelve el nombre de un indexador siempre que este se ejecuta. |

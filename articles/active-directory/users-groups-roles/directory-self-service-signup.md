@@ -10,40 +10,44 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: overview
 ms.workload: identity
-ms.date: 04/29/2020
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a61bd162baf6f079b625dc07d4faa397493ba618
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3ec578370d32664e36ffcc4bd075c3f6a3ed68ab
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015874"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795358"
 ---
 # <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>¿Qué es el registro de autoservicio de Azure Active Directory?
 
 En este artículo se explica cómo usar el registro de autoservicio para rellenar una organización en Azure Active Directory (Azure AD). Si desea asumir un nombre de dominio de una organización de Azure AD no administrado, consulte [Adquisición de un directorio no administrado como administrador](domains-admin-takeover.md).
 
 ## <a name="why-use-self-service-sign-up"></a>¿Por qué usar el registro de autoservicio?
+
 * Permita que los usuarios tengan acceso a los servicios que desean más rápido.
 * Cree ofertas basadas en correo electrónico para un servicio.
 * Cree flujos de registro basados en correo electrónico que permitan a los usuarios crear identidades rápidamente con sus alias de correo electrónico del trabajo fáciles de recordar.
 * Un directorio de Azure AD creado por autoservicio puede convertirse en un directorio administrado que se puede utilizar para otros servicios.
 
 ## <a name="terms-and-definitions"></a>Términos y definiciones
+
 * **Registro de autoservicio**: método por el que un usuario se registra en un servicio en la nube y por el que se le crea automáticamente una identidad en Azure AD basada en su dominio de correo electrónico.
 * **Directorio de Azure AD no administrado**: directorio donde se crea la identidad. Un directorio no administrado es un directorio que no tiene administrador global.
 * **Usuario comprobado por correo electrónico**: tipo de cuenta de usuario en Azure AD. Un usuario que tiene una identidad que se crean automáticamente después de suscribirse a una oferta de autoservicio se conoce como usuario comprobado por correo electrónico. Un usuario comprobado por correo electrónico es un miembro regular de un directorio etiquetado con creationmethod = EmailVerified.
 
 ## <a name="how-do-i-control-self-service-settings"></a>¿Cómo controlo la configuración de autoservicio?
+
 Actualmente, los administradores tienen dos controles de autoservicio . Pueden controlar:
 
 * Si los usuarios pueden unirse o no al directorio mediante el correo electrónico.
 * Si los usuarios pueden concederse o no licencias para aplicaciones y servicios.
 
 ### <a name="how-can-i-control-these-capabilities"></a>¿Cómo puedo controlar estas capacidades?
+
 Un administrador puede configurar estas capacidades con estos parámetros Set-MsolCompanySettings de cmdlet de Azure AD:
 
 * **AllowEmailVerifiedUsers** controla si un usuario puede crear un directorio o unirse a él. Si establece este parámetro en $false, ningún usuario verificado por correo electrónico podrá unirse al directorio.
@@ -57,10 +61,10 @@ AllowEmailVerifiedUsers y AllowAdHocSubscriptions son configuraciones de todo el
 
 Si se cumplen las condiciones anteriores, a continuación, se crea un usuario miembro en el directorio principal y un usuario invitado B2B en el directorio que invita.
 
-Los registros de evaluación de Flow y PowerApps no están controlados por el valor **AllowAdHocSubscriptions**. Para más información, consulte los siguientes artículos.
+Para más información sobre las suscripciones de Flow y PowerApps, consulte los siguientes artículos:
 
 * [¿Cómo puedo impedir que mis usuarios existentes comiencen a utilizar Power BI?](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
-* [Preguntas y respuestas sobre Flow en su organización](https://docs.microsoft.com/flow/organization-q-and-a)
+* [Preguntas y respuestas sobre Flow en su organización](/flow/organization-q-and-a)
 
 ### <a name="how-do-the-controls-work-together"></a>¿Cómo funciona los controles conjuntamente?
 Estos dos parámetros se pueden usar juntos para definir un control más preciso del registro de autoservicio. Por ejemplo, el comando siguiente permitirá a los usuarios realizar registros de autoservicio, pero solo si estos usuarios ya tienen una cuenta en Azure AD (es decir, los usuarios que necesitan crear primero una cuenta comprobada por correo electrónico no pueden realizar registros de autoservicio):

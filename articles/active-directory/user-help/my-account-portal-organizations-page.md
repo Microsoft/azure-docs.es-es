@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: bd8b8deed2afafc22e99ac15f2bcffdf65af83c4
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: bb0f0b93f3890a06f4ecbdc6cf39a173ea048940
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422457"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798183"
 ---
 # <a name="manage-your-connected-organizations-from-the-organizations-page"></a>Administración de las organizaciones conectadas desde la página Organizaciones
 
@@ -30,7 +30,7 @@ La página **Organizaciones** del portal **Mi cuenta** le ayuda a administrar la
 - **Otras organizaciones.** Las otras organizaciones son cualquier grupo en el que haya iniciado sesión anteriormente con la cuenta profesional o educativa. Puede salir de cualquiera de estas organizaciones en cualquier momento.
 
 >[!Important]
->Este artículo está destinado a los usuarios que intentan actualizar la información de la organización conectada a una cuenta profesional o educativa. Si es un administrador que busca información acerca de la administración de grupos y usuarios para los empleados y otros usuarios, consulte [Documentación de la administración de usuarios empresariales (Azure AD)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/index).
+>Este artículo está destinado a los usuarios que intentan actualizar la información de la organización conectada a una cuenta profesional o educativa. Si es un administrador que busca información acerca de la administración de grupos y usuarios para los empleados y otros usuarios, consulte [Documentación de la administración de usuarios empresariales (Azure AD)](../users-groups-roles/index.yml).
 
 ## <a name="view-your-organizations"></a>Visualización de las organizaciones
 
@@ -61,7 +61,7 @@ Puede salir de cualquier organización que no sea la organización principal.
 
 Después de ver las organizaciones, puede:
 
-- Ver o administrar la [información de seguridad](user-help-security-info-overview.md).
+- Ver o administrar la [información de seguridad](./security-info-setup-signin.md).
 
 - Ver o administrar los dispositivos [conectados](my-account-portal-devices-page.md).
 

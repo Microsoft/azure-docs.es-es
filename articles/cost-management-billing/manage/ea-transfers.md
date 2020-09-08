@@ -4,15 +4,16 @@ description: Describe las transferencias del Contrato Enterprise de Azure
 author: bandersmsft
 ms.reviewer: baolcsva
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: c49894c722897233afa6325def1d3e17562d2dab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fdbeaaf255277765c77900c10339dd3d473b590f
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075108"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88686928"
 ---
 # <a name="azure-enterprise-transfers"></a>Transferencias de Azure Enterprise
 
@@ -98,7 +99,7 @@ El portal del Contrato Enterprise de Azure puede transferir suscripciones de un 
 
 ## <a name="subscription-transfer-effects"></a>Efectos de la transferencia de la suscripción
 
-Si se transfiere una suscripción de Azure a una cuenta en el mismo inquilino de Azure Active Directory, todos los usuarios, grupos y entidades de servicio que tenían [control de acceso basado en rol (RBAC)](../../role-based-access-control/overview.md) para administrar recursos mantendrán el acceso.
+Si se transfiere una suscripción de Azure a una cuenta que se encuentra en el mismo inquilino de Azure Active Directory, todos los usuarios, grupos y entidades de servicio que tenían [control de acceso basado en rol de Azure (Azure RBAC)](../../role-based-access-control/overview.md) para administrar recursos mantendrán su acceso.
 
 Para ver los usuarios con acceso RBAC a la suscripción:
 

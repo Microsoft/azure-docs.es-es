@@ -1,6 +1,6 @@
 ---
-title: Accesibilidad del Explorador de Azure Storage (versión preliminar) | Microsoft Docs
-description: Accesibilidad del Explorador de Azure Storage (versión preliminar)
+title: Accesibilidad del Explorador de Azure Storage | Microsoft Docs
+description: Conozca la accesibilidad en el Explorador de Azure Storage. Revise los lectores de pantalla disponibles, la funcionalidad de zoom, los temas de contraste alto y las teclas de método abreviado.
 services: storage
 documentationcenter: na
 author: MrayermannMSFT
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/20/2018
 ms.author: marayerm
-ms.openlocfilehash: aa42d6b898a3cc474575f6c8dae65ff420fc8e30
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ca4a8d719277eaa1d853d53d282649f839256be9
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60457279"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035492"
 ---
 # <a name="storage-explorer-accessibility"></a>Accesibilidad al Explorador de Storage
 
@@ -45,7 +45,7 @@ La configuración del zoom aumenta el tamaño de la mayoría de los elementos de
 
 ## <a name="high-contrast-themes"></a>Temas de contraste alto
 
-El Explorador de Storage tiene dos temas de contraste alto: **Contraste alto (claro)** y **Contraste alto (oscuro)** . Para cambiar el tema, selecciónelo en el menú Ayuda > Temas.
+El Explorador de Storage tiene dos temas de contraste alto: **Contraste alto (claro)** y **Contraste alto (oscuro)**. Para cambiar el tema, selecciónelo en el menú Ayuda > Temas.
 
 ![Submenú Temas][1]
 
@@ -59,14 +59,14 @@ Get-Help       | Métodos abreviados de teclado
 --------------|--------------------
 Nueva ventana    | **Control + Mayús + N**
 Cerrar editor  | **Control + F4**
-Salir          | **Control + Mayús + W**
+Salga.          | **Control + Mayús + W**
 
 ### <a name="navigation-commands"></a>Comandos de navegación
 
 Get-Help                | Métodos abreviados de teclado
 -----------------------|----------------------
 Enfocar el panel siguiente       | **F6**
-Enfocar el panel anterior   | **Mayús + F6**
+Enfocar el panel anterior   | **Mayús+F6**
 Explorador               | **Control + Mayús + E**
 Administración de cuentas     | **Control + Mayús + A**
 Alternar barra lateral        | **Control + B**
@@ -87,17 +87,17 @@ Alejar | **Control + -**
 
 Get-Help | Métodos abreviados de teclado
 --------|--------------------
-Atrás    | **Alt + Flecha izquierda**
-Adelante | **Alt + Flecha derecha**
-Arriba      | **Alt + Flecha arriba**
+Atrás    | **Alt+Flecha izquierda**
+Adelante | **Alt+Flecha derecha**
+Arriba      | **Alt+Flecha arriba**
 
 ### <a name="editor-commands"></a>Comandos del Editor
 
 Get-Help | Métodos abreviados de teclado
 --------|------------------
-Copiar    | **Control + C**
-Cortar     | **Control + X**
-Pegar   | **Control + V**
+Copiar    | **Control+C**
+Cortar     | **Control+X**
+Pegar   | **Control+V**
 Actualizar  | **Control + R**
 
 ### <a name="other-commands"></a>Otros comandos

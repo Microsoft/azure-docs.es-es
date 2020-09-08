@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.custom: mvc
-ms.openlocfilehash: a12f74e1b96cd305ec7b7a89f8ad77725122ac75
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 997d74b1afc59e72b2c3fe7a7d47166d5efb8715
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83724588"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89072985"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Inicio rápido: Creación de un trabajo de Stream Analytics mediante Azure PowerShell
 

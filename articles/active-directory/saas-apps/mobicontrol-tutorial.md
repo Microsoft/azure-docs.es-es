@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con MobiControl | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y MobiControl.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: d656688f-245d-4d8f-b343-752d1656cd06
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: a5ec603b65161f3b0b2d9c88224aef0004cc686a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a828b194d1e274183d581e0cdc2c5e894d6c0148
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67096919"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88554692"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobicontrol"></a>Tutorial: Integración de Azure Active Directory con MobiControl
 

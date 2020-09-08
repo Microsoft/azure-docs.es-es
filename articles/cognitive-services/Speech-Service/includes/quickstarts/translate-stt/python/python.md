@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/09/2019
 ms.author: chlandsi
-ms.openlocfilehash: e869a6581ac29ac234c075d258b59dbd45045ee2
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 0d8128d02409072b2c43fb2c0de3766e7c8ed63d
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78925340"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226416"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -76,7 +76,7 @@ Antes de comenzar, compruebe lo siguiente:
 
 1. En el mismo archivo, reemplace la cadena `YourSubscriptionKey` por la clave de suscripción.
 
-1. Reemplace la cadena `YourServiceRegion` por la [región](../../../../regions.md) asociada a sus suscripción (por ejemplo, `westus` para la suscripción de evaluación gratuita).
+1. Reemplace la cadena `YourServiceRegion` por la [región](../../../../regions.md) asociada a su suscripción.
 
 1. Guarde los cambios realizados en `quickstart.py`.
 

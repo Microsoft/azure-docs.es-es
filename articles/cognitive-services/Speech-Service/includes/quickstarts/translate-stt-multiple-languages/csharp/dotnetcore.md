@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: erhopf
-ms.openlocfilehash: ebf24829c02d2dbf5ff2c04d6548e2004d6c3f21
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: bc1805202696fda2d57374e08e269045e1fe044c
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80671253"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226351"
 ---
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -106,7 +106,7 @@ Antes de comenzar, compruebe lo siguiente:
 
 1. En el mismo archivo, reemplace la cadena `YourSubscriptionKey` por la clave de suscripción.
 
-1. Reemplace la cadena `YourServiceRegion` por la [región](~/articles/cognitive-services/Speech-Service/regions.md) asociada a sus suscripción (por ejemplo, `westus` para la suscripción de evaluación gratuita).
+1. Reemplace la cadena `YourServiceRegion` por la [región](~/articles/cognitive-services/Speech-Service/regions.md) asociada a su suscripción.
 
 1. En la barra de menús, elija **Archivo** > **Guardar todo**.
 

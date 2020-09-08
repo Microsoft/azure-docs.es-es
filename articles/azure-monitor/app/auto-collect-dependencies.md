@@ -2,15 +2,16 @@
 title: 'Azure Application Insights: recopilación automática de dependencias | Microsoft Docs'
 description: Recopilación y visualización automática de dependencias de Application Insights
 ms.topic: reference
+ms.custom: devx-track-dotnet
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/06/2020
-ms.openlocfilehash: 2227facfcf469bc22034da0da504b390cc0deee1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ca1c63f042bd06c19f232c2ff8170d23741e73f2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324189"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936442"
 ---
 # <a name="dependency-auto-collection"></a>Recopilación automática de dependencias
 

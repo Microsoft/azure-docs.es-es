@@ -4,12 +4,12 @@ description: En este artículo se incluyen vínculos a ejemplos de scripts de Po
 ms.topic: sample
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 29af774c857f20b0ed4d5392f4933e8056f0d246
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 592cb2016cd86a1a7075fca6dc04ea7ccc673ffc
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170690"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756034"
 ---
 # <a name="azure-backup-powershell-samples"></a>Ejemplos de Azure Backup PowerShell
 

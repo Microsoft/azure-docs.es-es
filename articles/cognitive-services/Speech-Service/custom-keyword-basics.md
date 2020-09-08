@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/20/2019
 ms.author: trbye
-ms.openlocfilehash: cef47d1c6598e73d2c17c6799f3de90458206a8d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: d80f244f7b5e17d730451093070b971e9aa041b9
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095234"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919019"
 ---
 # <a name="custom-keyword-basics"></a>Conceptos básicos de palabras claves personalizadas
 

@@ -3,17 +3,17 @@ title: Invalidación de la subred de Azure Traffic Manager mediante Azure Pow
 description: Este artículo lo ayudará a entender cómo la invalidación de la subred de Traffic Manager se usa para reemplazar el método de enrutamiento de un perfil de Traffic Manager para dirigir el tráfico a un punto de conexión en función de la dirección IP del usuario final a través de un intervalo IP predefinido a las asignaciones de punto de conexión mediante Azure PowerShell.
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 ms.topic: how-to
 ms.service: traffic-manager
 ms.date: 09/18/2019
-ms.author: rohink
-ms.openlocfilehash: 3b58a0aef4df71649e657c04b44c31b6bbfe019c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 01bd3b1e945ee7c9ac16af7048536c0a9e2d731a
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689578"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401595"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-powershell"></a>Invalidación de la subred de Traffic Manager mediante Azure PowerShell
 

@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5f75ce20d24f98e5fcefde49b95a545281f8066
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: db76ec2bc2fc8640214f962a809fee559b4c4af3
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032890"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948205"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Solución de problemas con la herramienta What If en el acceso condicional
 
-[Acceso condicional](../active-directory-conditional-access-azure-portal.md) es una funcionalidad de Azure Active Directory (Azure AD) que le permite controlar cómo acceden los usuarios autorizados a las aplicaciones en la nube. ¿Cómo sabe qué esperar de las directivas de Acceso condicional en su entorno? Puede usar la **herramienta What If de Acceso condicional** para responder esta pregunta.
+[Acceso condicional](./overview.md) es una funcionalidad de Azure Active Directory (Azure AD) que le permite controlar cómo acceden los usuarios autorizados a las aplicaciones en la nube. ¿Cómo sabe qué esperar de las directivas de Acceso condicional en su entorno? Puede usar la **herramienta What If de Acceso condicional** para responder esta pregunta.
 
 En este artículo se explica cómo puede usar esta herramienta para probar las directivas de Acceso condicional.
 
@@ -105,4 +105,4 @@ En la lista de las directivas que no se aplican al usuario, también puede encon
 ## <a name="next-steps"></a>Pasos siguientes
 
 - En el libro [Conditional Access insights and reporting (Información detallada e informes del acceso condicional)](howto-conditional-access-insights-reporting.md) encontrará más información sobre la aplicación de directivas de acceso condicional a través del modo de solo informes de directivas.
-- Si lo tiene todo listo para configurar directivas de acceso condicional en su entorno, vea el artículo [Directivas de acceso condicional habituales](concept-conditional-access-policy-common.md). 
+- Si lo tiene todo listo para configurar directivas de acceso condicional en su entorno, vea el artículo [Directivas de acceso condicional habituales](concept-conditional-access-policy-common.md).

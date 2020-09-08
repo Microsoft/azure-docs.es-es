@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 78a8e0a46fd60f14ea3bae7485c737aa4fe3c60e
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 3ec556c6198a00f217568f6591bd4b43c7fc743e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86230781"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924306"
 ---
 # <a name="knowledge-store-in-azure-cognitive-search"></a>Almacén de conocimiento en Azure Cognitive Search
 
@@ -21,7 +21,7 @@ El almacén de conocimiento es una característica de Azure Cognitive Search que
 
 Si ha usado aptitudes cognitivas anteriormente, ya sabe que los *conjuntos de aptitudes* se usan para mover un documento por una secuencia de enriquecimientos. El resultado puede ser un índice de búsqueda o proyecciones en un almacén de conocimientos. Las dos salidas, el índice de búsqueda y el almacén de conocimiento, son productos de la misma canalización. Aunque se obtienen de las mismas entradas, se genera una salida estructurada y almacenada, que se emplea de maneras muy distintas.
 
-Físicamente, un almacén de conocimiento es como [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-overview), ya sea Azure Table Storage, Azure Blob Storage o ambos. Cualquier herramienta o proceso que pueda conectarse a Azure Storage puede consumir el contenido de un almacén de conocimiento.
+Físicamente, un almacén de conocimiento es como [Azure Storage](../storage/common/storage-account-overview.md), ya sea Azure Table Storage, Azure Blob Storage o ambos. Cualquier herramienta o proceso que pueda conectarse a Azure Storage puede consumir el contenido de un almacén de conocimiento.
 
 
 > [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3&start=235&end=426]
@@ -39,7 +39,7 @@ Entre las ventajas de Knowledge Store, se incluyen las siguientes:
 
 + Consumir documentos enriquecidos en [herramientas de informes y análisis](#tools-and-apps), además de buscar. Power BI con Power Query es una opción atractiva, pero cualquier herramienta o aplicación que se pueda conectar a Azure Storage puede beneficiarse de un almacén de conocimiento que cree.
 
-+ Refinar una canalización de indexación de IA durante la depuración de pasos y definiciones de conjuntos de aptitudes. Un almacén de conocimientos le muestra el producto de la definición de un conjunto de aptitudes en una canalización de indexación de IA. Puede usar estos resultados para diseñar un mejor conjunto de aptitudes, ya que puede ver exactamente la apariencia de los enriquecimientos. Puede usar el [Explorador de Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) en Azure Storage para ver el contenido de un almacén de conocimiento.
++ Refinar una canalización de indexación de IA durante la depuración de pasos y definiciones de conjuntos de aptitudes. Un almacén de conocimientos le muestra el producto de la definición de un conjunto de aptitudes en una canalización de indexación de IA. Puede usar estos resultados para diseñar un mejor conjunto de aptitudes, ya que puede ver exactamente la apariencia de los enriquecimientos. Puede usar el [Explorador de Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows) en Azure Storage para ver el contenido de un almacén de conocimiento.
 
 + Cambiar la forma de los datos. El cambio de formas se codifica en conjuntos de aptitudes, pero la idea es que ahora un conjunto de aptitudes puede proporcionar esta funcionalidad. La [aptitud Conformador](cognitive-search-skill-shaper.md) de Azure Cognitive Search se ha ampliado para dar cabida a esta tarea. Cambiar la forma le permite definir una proyección que se alinee con el uso previsto de los datos, al tiempo que conserva las relaciones.
 
@@ -84,7 +84,7 @@ Sin embargo, es posible crear varios conjuntos de proyecciones de `table`-`objec
 
 ## <a name="requirements"></a>Requisitos 
 
-Se requiere [Azure Storage](https://docs.microsoft.com/azure/storage/). Proporciona almacenamiento físico. Puede usar el almacenamiento de tablas o de blobs, o ambos. El almacenamiento de blobs se usa para documentos enriquecidos sin cambios, normalmente cuando la salida va a los procesos de nivel inferior. El almacenamiento de tablas se utiliza para segmentos de documentos enriquecidos, que se suelen usar para tareas de análisis y generación de informes.
+Se requiere [Azure Storage](../storage/index.yml). Proporciona almacenamiento físico. Puede usar el almacenamiento de tablas o de blobs, o ambos. El almacenamiento de blobs se usa para documentos enriquecidos sin cambios, normalmente cuando la salida va a los procesos de nivel inferior. El almacenamiento de tablas se utiliza para segmentos de documentos enriquecidos, que se suelen usar para tareas de análisis y generación de informes.
 
 Se requiere un [conjunto de aptitudes](cognitive-search-working-with-skillsets.md). Contiene la definición de `knowledgeStore` y determina la estructura y composición de un documento enriquecido. No se puede crear un almacén de conocimiento mediante un conjunto de aptitudes vacío. Un conjunto de aptitudes debe tener al menos una aptitud.
 
@@ -130,7 +130,7 @@ Una vez que el enriquecimiento existe en el almacenamiento, puede usarse cualqui
 
 + [Power BI](knowledge-store-connect-power-bi.md) para crear informes y realizar análisis. 
 
-+ [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) para manipulación adicional.
++ [Azure Data Factory](../data-factory/index.yml) para manipulación adicional.
 
 <a name="kstore-rest-api"></a>
 
@@ -138,8 +138,8 @@ Una vez que el enriquecimiento existe en el almacenamiento, puede usarse cualqui
 
 La versión de la API REST `2020-06-30` proporciona el almacén de conocimiento mediante definiciones adicionales en conjuntos de aptitudes. Además de la referencia, consulte [Creación de un almacén de conocimiento mediante Postman](knowledge-store-create-rest.md) para más información sobre cómo llamar a las API.
 
-+ [Creación de un conjunto de aptitudes (api-version=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-+ [Actualización de un conjunto de aptitudes (api-version=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/update-skillset)
++ [Creación de un conjunto de aptitudes (api-version=2020-06-30)](/rest/api/searchservice/create-skillset)
++ [Actualización de un conjunto de aptitudes (api-version=2020-06-30)](/rest/api/searchservice/update-skillset)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

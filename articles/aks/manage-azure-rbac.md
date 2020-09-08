@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/20/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 824146e7e0b1130b8e5f6c087dbf5ccbac2c8224
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: c1222f671c95d4475de93b9c9e085a94f864b2ae
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799368"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003090"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Uso de Azure RBAC para la autorización de Kubernetes (versión preliminar)
 
@@ -25,11 +25,7 @@ En este documento se describe un nuevo enfoque que permite la administración un
 
 La capacidad de administrar RBAC para los recursos de Kubernetes de Azure le ofrece la opción de administrar RBAC para los recursos del clúster mediante mecanismos de Kubernetes nativos o de Azure. Cuando está habilitada, las entidades de seguridad de Azure AD se validarán exclusivamente con Azure RBAC, mientras que las cuentas de servicio y los usuarios de Kubernetes normales se validan exclusivamente mediante el RBAC de Kubernetes. Para obtener más información sobre la autenticación, la autorización y RBAC en AKS, consulte [aquí](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview).
 
-> [!IMPORTANT]
-> Las características en versión preliminar de AKS están disponibles como opción de participación y autoservicio. Las versiones preliminares se proporcionan "tal cual" y "como están disponibles", y están excluidas de los Acuerdos de Nivel de Servicio y la garantía limitada. Las versiones preliminares de AKS reciben cobertura parcial del soporte al cliente en la medida de lo posible. Por lo tanto, estas características no están diseñadas para usarse en producción. Para más información, consulte los siguientes artículos de soporte:
->
-> - [Directivas de soporte técnico para AKS](support-policies.md)
-> - [Preguntas más frecuentes de soporte técnico de Azure](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### <a name="prerequisites"></a>Requisitos previos 
 - Suscríbase a la versión preliminar <https://aka.ms/aad-rbac-sign-up-form>.
@@ -48,7 +44,7 @@ Registro de `EnableAzureRBACPreview` la marca de característica con el comando 
 az feature register --namespace "Microsoft.ContainerService" --name "EnableAzureRBACPreview"
 ```
 
-Tarda unos minutos en que el estado muestre *Registrado*. Puede comprobar el estado de registro con el comando [az feature list][az-feature-list]:
+Tendrá que obtener la aprobación después de enviar el formulario de versión preliminar antes de que la marca se pueda registrar correctamente. Puede comprobar el estado de registro con el comando [az feature list][az-feature-list]:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableAzureRBACPreview')].{Name:name,State:properties.state}"

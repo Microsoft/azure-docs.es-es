@@ -1,7 +1,7 @@
 ---
 title: Registros de diagnóstico
 titleSuffix: Azure Content Delivery Network
-description: Los clientes pueden habilitar el análisis de registros para Azure CDN.
+description: Obtenga información sobre cómo usar los registros de diagnóstico de Azure para guardar los análisis básicos, que permiten exportar métricas de uso desde el punto de conexión de Azure Content Delivery Network.
 services: cdn
 author: asudbring
 manager: KumudD
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: allensu
-ms.openlocfilehash: dbaba67a163bb0f948de5ba2ebbdba5497ad5ff9
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 164560fff27adc2d4e63cc8471a26d1d710b89a5
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116978"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191283"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>Registros de diagnóstico: Azure Content Delivery Network
 

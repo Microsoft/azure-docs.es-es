@@ -9,25 +9,52 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 22eab216714d45e4b8a91fd58325424d4baef95e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ddd1f61ada539ebb00341dd83919f1c851a0f3e1
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87272953"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816378"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novedades en Form Recognizer
 
 El servicio Form Recognizer se actualiza de forma continuada. Use este artículo para mantenerse al día con mejoras de características, correcciones y actualizaciones de la documentación.
 
-> [!NOTE]
-> Los inicios rápidos y las guías de Form Recognizer usan siempre la versión más reciente de la API, a menos que se especifique lo contrario.
+## <a name="august-2020"></a>Agosto de 2020
+
+### <a name="new-features"></a>Nuevas características
+
+**Ya está disponible la versión preliminar pública de Form Recognizer v2.1.** Se ha publicado V2.1-preview.1, incluidas las siguientes características: 
+
+
+- **Está disponible la referencia de la API de REST**: vea la [referencia de v2.1-preview.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) 
+- **Se admiten nuevos idiomas además del inglés**: ahora se admiten los siguientes [idiomas](language-support.md) para `Layout` y `Train Custom Model`: inglés (`en`), chino (simplificado) (`zh-Hans`), neerlandés (`nl`), francés (`fr`), alemán (`de`), italiano (`it`), portugués (`pt`) y español (`es`).
+- **Detección de marcas de selección o casillas**: Form Recognizer admite la detección y extracción de marcas de selección, como casillas y botones de radio. Las marcas de selección se extraen de `Layout` y ahora también es posible etiquetar y entrenar en `Train Custom Model` - _Entrenamiento con etiquetas_ para extraer pares clave-valor de marcas de selección. 
+- **Composición de modelos** permite que se compongan varios modelos y que se llamen con un único identificador de modelo. Cuando se envía un documento para que se analice con un identificador de modelo compuesto, primero se realiza un paso de clasificación para enrutarlo al modelo personalizado correcto. La composición de modelos está disponible para `Train Custom Model` - _Entrenamiento con etiquetas_.
+- **Nombre de modelo**: agregue un nombre descriptivo a los modelos personalizados para facilitar su administración y seguimiento.
+- **[Nuevo modelo precompilado para tarjetas de presentación](concept-business-cards.md)** para extraer campos comunes de tarjetas de presentación (en inglés).
+- **[Nuevas configuraciones regionales para recibos precompilados](concept-receipts.md)** : además de EN-US, ahora se admiten EN-AU, EN-CA, EN-GB y EN-IN.
+- **Mejoras de calidad** para `Layout`, `Train Custom Model` - _Entrenamiento sin etiquetas_ y _Entrenamiento con etiquetas_.
+
+
+La **versión 2.0** incluye la siguiente actualización:
+-   Las [bibliotecas cliente](quickstarts/client-library.md) para NET, Python, Java y JavaScript ahora tienen disponibilidad general. 
+
+
+Hay **nuevos ejemplos** disponibles en GitHub. 
+- En el [cuaderno de estrategias de Forms: recetas de extracción de conocimientos](https://github.com/microsoft/knowledge-extraction-recipes-forms) se recopilan procedimientos recomendados de interacciones de clientes reales de Form Recognizer y se proporcionan ejemplos de código útiles, listas de comprobación y canalizaciones de ejemplo que se usan en el desarrollo de estos proyectos. 
+- La [herramienta de etiquetado de ejemplo](https://github.com/microsoft/OCR-Form-Tools) se ha actualizado para admitir la nueva funcionalidad de v2.1. Vea este [inicio rápido](quickstarts/label-tool.md) para empezar a trabajar con la herramienta. 
+- El ejemplo de Form Recognizer [Intelligent Kiosk](https://github.com/microsoft/Cognitive-Samples-IntelligentKiosk/blob/master/Documentation/FormRecognizer.md) muestra cómo integrar `Analyze Receipt` y `Train Custom Model` - _Entrenamiento sin etiquetas_.
+
+
 
 ## <a name="july-2020"></a>Julio de 2020
 
 ### <a name="new-features"></a>Nuevas características
+
 * **Referencia de v2.0 disponible** Consulte la [Referencia de la API v2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) y los SDK actualizados para [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre?view=azure-dotnet), [Python](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python), [Java](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview) y [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest).
-* **Las mejoras en las tablas y las mejoras en la extracción** incluyen las mejoras de precisión y en las extracciones de tablas, en concreto, la funcionalidad para obtener información sobre los encabezados y las estructuras de las tablas en el entrenamiento personalizado sin etiquetas. 
+* Las **mejoras en las tablas y extracciones** incluyen mejoras de precisión y de extracciones de tablas, en concreto, la posibilidad de conocer los encabezados y las estructuras de las tablas en el _entrenamiento personalizado sin etiquetas_. 
+
 * **La compatibilidad con divisas** permite detectar y extraer símbolos de divisas globales.
 * **En Azure Gov** también está disponible Form Recognizer.
 * **Características de seguridad mejoradas**: 
@@ -39,7 +66,7 @@ El servicio Form Recognizer se actualiza de forma continuada. Use este artículo
 
 ### <a name="new-features"></a>Nuevas características
 * **Se ha agregado la CopyModel API a los SDK de cliente**: ahora puede usar los SDK de cliente para copiar modelos de una suscripción a otra. Consulte [Copia de seguridad y recuperación de modelos](./disaster-recovery.md) para obtener información general sobre esta característica.
-* **Integración de Azure Active Directory**: ahora puede usar sus credenciales de AAD para autenticar los objetos de cliente de Form Recognizer en los SDK.
+* **Integración de Azure Active Directory**: ahora puede usar las credenciales de Azure AD para autenticar los objetos de cliente de Form Recognizer en los SDK.
 * **Cambios específicos de cada SDK**: esto incluye la adición de características secundarias y cambios importantes. Consulte el registro de cambios del SDK para obtener más información.
   * [Registro de cambios del SDK para C# versión preliminar 3](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md)
   * [Registro de cambios del SDK para Python versión preliminar 3](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
@@ -52,8 +79,8 @@ El servicio Form Recognizer se actualiza de forma continuada. Use este artículo
 * **Compatibilidad del SDK con la versión preliminar pública de la API de Form Recognizer v 2.0** Este mes hemos ampliado nuestro servicio de soporte técnico para incluir un SDK de versión preliminar para la versión v 2.0 (versión preliminar) de Form Recognizer. Use los vínculos siguientes para empezar a trabajar con el lenguaje que prefiera: 
    * [SDK de .NET](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre?view=azure-dotnet)
    * [SDK de Java](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview)
-   * [SDK de Python](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python)
-   * [SDK de JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest)
+   * [SDK de Python](https://docs.microsoft.com/python/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-python-preview)
+   * [SDK de JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme-pre?view=azure-node-preview)
 
   El nuevo SDK es compatible con todas las características de la API REST v 2.0 de Form Recognizer. Por ejemplo, puede entrenar un modelo con o sin etiquetas y extraer texto, pares clave-valor y tablas de los formularios; extraer datos de las confirmaciones con el servicio de confirmaciones pregeneradas; y extraer texto y tablas con el servicio de diseño de los documentos. Puede compartir sus comentarios sobre los SDK mediante el [formulario de comentarios de SDK](https://aka.ms/FR_SDK_v1_feedback).
  

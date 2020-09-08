@@ -3,12 +3,12 @@ title: Solución de problemas de copia de seguridad de recursos compartidos de a
 description: Este artículo contiene información para solución de problemas que se producen al proteger recursos compartidos de archivos de Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 7b007a9ef893bb772929584eb3137c7a5200d756
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b6f4c74f6e2e8c463d1bcbd78d6ff79d3fb6ee56
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524495"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88889815"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Solución de problemas al realizar copias de seguridad de recursos compartidos de archivos de Azure
 
@@ -25,7 +25,7 @@ En este artículo se proporciona información de solución de problemas para cua
   >Todos los recursos compartidos de archivos de una cuenta de almacenamiento solo se pueden proteger en un almacén de Recovery Services. Puede usar [este script](scripts/backup-powershell-script-find-recovery-services-vault.md) para encontrar el almacén de Recovery Services donde está registrada la cuenta de almacenamiento.
 
 - Asegúrese de que el recurso compartido de archivos no esté presente en ninguna de las cuentas de almacenamiento no admitidas. Puede consultar la [Matriz de compatibilidad de copia de seguridad de recursos compartidos de archivos de Azure](azure-file-share-support-matrix.md) para encontrar las cuentas de almacenamiento admitidas.
-- Asegúrese de que la longitud combinada del nombre de la cuenta de almacenamiento y el nombre del grupo de recursos no supere los 84 caracteres en el caso de nuevas cuentas de almacenamiento y 77 caracteres en caso de cuentas de almacenamiento clásicas. 
+- Asegúrese de que la longitud combinada del nombre de la cuenta de almacenamiento y el nombre del grupo de recursos no supere los 84 caracteres en el caso de cuentas de almacenamiento nuevas y 77 caracteres en el caso de cuentas de almacenamiento clásicas.
 - Compruebe la configuración del firewall de la cuenta de almacenamiento para asegurarse de que está habilitada la opción de permitir que los servicios de Microsoft de confianza accedan a la cuenta de almacenamiento.
 
 ### <a name="error-in-portal-states-discovery-of-storage-accounts-failed"></a>Error en la detección de estados del portal de las cuentas de almacenamiento

@@ -1,4 +1,4 @@
-- name: Introducción
+- name: Información general
   items:
     - name: Introducción
       href: get-started.md
@@ -108,6 +108,8 @@
           href: sap-hana-high-availability.md
         - name: Configuración de la replicación del sistema de SAP HANA en RHEL
           href: sap-hana-high-availability-rhel.md
+        - name: Configuración de la replicación del sistema de SAP HANA con ANF en RHEL
+          href: sap-hana-high-availability-netapp-files-red-hat.md
         - name: Solución de problemas de escalabilidad horizontal de SAP HANA y Pacemaker en SLES
           href: hana-vm-troubleshoot-scale-out-ha-on-sles.md
         - name: Escalado horizontal de SAP HANA con nodo en espera mediante Azure NetApp Files en SLES
@@ -225,6 +227,8 @@
               href: high-availability-guide-rhel-netapp-files.md
         - name: Varios SID de SAP
           items:
+            - name: Windows con disco compartido de Azure para instancias de (A)SCS
+              href: sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md
             - name: Windows con disco compartido para instancias de (A)SCS
               href: sap-ascs-ha-multi-sid-wsfc-shared-disk.md
             - name: Windows con uso compartido de archivos SOFS para instancias de (A)SCS
@@ -289,12 +293,16 @@
       href: azure-monitor-overview.md
     - name: Proveedores de Azure Monitor para soluciones de SAP
       href: azure-monitor-providers.md
+    - name: Configuración de Azure Monitor para soluciones SAP
+      href: azure-monitor-sap-quickstart.md
     - name: Preguntas frecuentes acerca de Azure Monitor para soluciones de SAP
       href: azure-monitor-faq.md
 - name: Referencia
   items:
     - name: Azure CLI
       href: /cli/azure/ext/sap-hana/hanainstance
+    - name: Azure PowerShell
+      href: /powershell/module/az.hanaonazure/#sap-hana-on-azure
 - name: Recursos
   items:
     - name: Azure Roadmap

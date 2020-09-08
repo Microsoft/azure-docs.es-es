@@ -1,21 +1,21 @@
 ### YamlMime:Landing
 title: Bienvenido a Marketplace comercial
-summary: Obtenga información sobre Marketplace comercial, un mercado de aplicaciones y servicios que permite a todas las empresas, independientemente de su trabajo, ofrecer soluciones a clientes de todo el mundo.
+summary: Obtenga información sobre marketplace comercial, que es un marketplace en línea para aplicaciones y servicios que permiten que todas las empresa, independientemente de cuál sea su tamaño, oferten soluciones a clientes de todo el mundo.
 metadata:
   title: Bienvenido a Marketplace comercial
-  description: Obtenga información sobre Marketplace comercial, un mercado de aplicaciones y servicios que permite a todas las empresas, independientemente de su trabajo, ofrecer soluciones a clientes de todo el mundo.
+  description: Obtenga información sobre marketplace comercial, que es un marketplace en línea para aplicaciones y servicios que permiten que todas las empresa, independientemente de cuál sea su tamaño, oferten soluciones a clientes de todo el mundo.
   ms.service: marketplace
   ms.subservice: partnercenter-marketplace-publisher
   ms.topic: landing-page
   author: keferna
   ms.author: keferna
-  ms.date: 04/02/2020
-  ms.openlocfilehash: a79d3de89399e9ed89598c5f08efb756291246ca
-  ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+  ms.date: 09/02/2020
+  ms.openlocfilehash: 39d0f00bd59663da8ec5529e9a7be185d93e4de0
+  ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/28/2020
-  ms.locfileid: "87287852"
+  ms.lasthandoff: 09/03/2020
+  ms.locfileid: "89421686"
 landingContent:
 - title: Trabajo en Marketplace comercial
   linkLists:
@@ -37,8 +37,6 @@ landingContent:
   linkLists:
   - linkListType: overview
     links:
-    - text: Creación de una oferta de SaaS
-      url: ./partner-center-portal/create-new-saas-offer.md
     - text: Procedimientos recomendados de marketing
       url: ./gtm-marketing-best-practices.md
     - text: Proveedores de soluciones en la nube
@@ -77,12 +75,12 @@ landingContent:
       url: ./partner-center-portal/downloads-dashboard.md
     - text: Panel de calificaciones y reseñas
       url: ./partner-center-portal/ratings-reviews.md
-- title: Administración de las ofertas
+- title: Creación de una oferta
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Ofertas de SaaS
-      url: ./partner-center-portal/create-new-saas-offer.md
+      url: plan-saas-offer.md
     - text: Ofertas de máquinas virtuales
       url: ./marketplace-virtual-machines.md
     - text: Ofertas de la aplicación de Azure

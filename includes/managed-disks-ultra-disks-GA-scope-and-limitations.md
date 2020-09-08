@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/25/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: aa9327bd0ba6763aa4e89630611aabb3c5195655
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 546c21802d275fe99ed2acbf00e32d37db3603f2
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85448706"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225210"
 ---
 Por ahora, los discos Ultra tienen limitaciones adicionales, como se indica a continuación:
 
@@ -27,22 +27,31 @@ En la tabla siguiente se describen las regiones en las que los discos Ultra Disk
 |Regions  |Número de zonas de disponibilidad que admiten Discos Ultra  |
 |---------|---------|
 |US Gov - Virginia     |None         |
+|US Gov: Arizona     |None         |
 |Centro-sur de EE. UU.     |None         |
 |Centro de EE. UU.     |Tres zonas         |
 |Oeste de EE. UU.     |None         |
 |Oeste de EE. UU. 2    |Tres zonas         |
 |Este de EE. UU.     |Tres zonas         |
-|Este de EE. UU. 2     |Dos zonas         |
+|Este de EE. UU. 2     |Tres zonas         |
 |Sudeste de Asia     |Tres zonas         |
+|Este de Asia     |None         |
 |Norte de Europa     |Tres zonas          |
 |Oeste de Europa     |Tres zonas          |
 |Sur de Reino Unido     |Tres zonas          |
-|Japón Oriental     |Dos zonas         |
+|Japón Oriental     |Tres zonas         |
 |Centro de Francia    |Dos zonas        |
+|Sur de Brasil    |None        |
+|Este de Australia    |Tres zonas        |
+|Centro de Canadá*    |Tres zonas        |
 
+\* Póngase en contacto con el soporte técnico de Azure para obtener acceso a Availability Zones para esta región.
 
 - Solo se admiten en las siguientes series de máquinas virtuales:
     - [ESv3](../articles/virtual-machines/ev3-esv3-series.md#esv3-series)
+    - [Easv4](../articles/virtual-machines/eav4-easv4-series.md#easv4-series)
+    - [Edsv4](../articles/virtual-machines/edv4-edsv4-series.md#edsv4-series)
+    - [Esv4](../articles/virtual-machines/ev4-esv4-series.md#esv4-series)
     - [DSv3](../articles/virtual-machines/dv3-dsv3-series.md#dsv3-series)
     - [FSv2](../articles/virtual-machines/fsv2-series.md)
     - [LSv2](../articles/virtual-machines/lsv2-series.md)

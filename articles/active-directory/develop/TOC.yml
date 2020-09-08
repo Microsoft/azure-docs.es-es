@@ -48,7 +48,7 @@
         - name: ASP.NET
           href: quickstart-v2-dotnet-native-aspnet.md
         - name: ASP.NET Core
-          href: 'https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2'
+          href: 'https://docs.microsoft.com/samples/azure-samples/active-directory-dotnet-native-aspnetcore-v2/active-directory-dotnet-native-aspnetcore-v2/'
     - name: Aplicaciones móviles y de escritorio
       items:
         - name: Android
@@ -273,7 +273,9 @@
               href: msal-net-adfs-support.md
             - name: Migración a MSAL.NET
               href: msal-net-migration.md
-            - name: Migración de aplicaciones de Xamarin mediante agentes a MSAL.NET
+            - name: Migración de una aplicación Android de Xamarin mediante un agente a MSAL.NET
+              href: msal-net-migration-android-broker.md
+            - name: Migración de una aplicación iOS de Xamarin mediante un agente a MSAL.NET
               href: msal-net-migration-ios-broker.md
             - name: Consideraciones sobre el explorador
               href: msal-net-web-browsers.md
@@ -463,18 +465,18 @@
       items:
         - name: Información general
           href: authentication-national-cloud.md
-        - name: Autenticación
+        - name: Authentication
           href: msal-national-cloud.md
     - name: Aprovisionamiento automático de usuarios (SCIM)
       items:
         - name: ¿Qué es el aprovisionamiento automático de usuarios?
-          href: ../app-provisioning/user-provisioning.md
+          href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
         - name: Desarrollo e integración de un punto de conexión de SCIM
-          href: ../app-provisioning/use-scim-to-provision-users-and-groups.md
+          href: ../app-provisioning/use-scim-to-provision-users-and-groups.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
         - name: Escenarios comunes de aprovisionamiento
-          href: ../app-provisioning/scim-graph-scenarios.md
+          href: ../app-provisioning/scim-graph-scenarios.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
         - name: Automatización de la configuración mediante MS Graph
-          href: ../app-provisioning/application-provisioning-configure-api.md
+          href: ../app-provisioning/application-provisioning-configure-api.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
     - name: Artículos de ayuda de Azure Portal
       items:
         - name: Los valores predeterminados de vigencia de los tokens en una aplicación personalizada

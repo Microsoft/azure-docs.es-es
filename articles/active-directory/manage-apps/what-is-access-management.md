@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: kenwith
-ms.openlocfilehash: 1b19f4aae7bf7477dbe5950f2d4df31e2de81372
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 7738bd2f2dc169ab52677928c6fecbc193ff2f35
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562572"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639926"
 ---
 # <a name="managing-access-to-apps"></a>Administración del acceso a las aplicaciones
 
@@ -45,7 +45,7 @@ Con algunos tipos de aplicaciones, existe la opción de [requerir que los usuari
 * Aplicaciones de proxy de aplicación que usan la autenticación previa de Azure Active Directory
 * Aplicaciones integradas en la plataforma de aplicaciones de Azure AD que usan la autenticación de OAuth 2.0 u OpenID Connect después de que un usuario o un administrador han dado su consentimiento a esa aplicación. Algunas aplicaciones empresariales ofrecen un control adicional sobre quién puede iniciar sesión.
 
-Cuando la asignación de usuarios *no es necesaria*, los usuarios sin asignar no ven la aplicación en sus paneles de acceso Mis aplicaciones, pero sí pueden iniciar sesión en la aplicación en sí (esto se conoce también como inicio de sesión iniciado por el proveedor de servicios). También pueden usar la dirección que aparece en **URL de acceso de usuario** en la página **Propiedades** de la aplicación (esto se conoce también como inicio de sesión iniciado por IDP).
+Cuando la asignación de usuarios *no es necesaria*, los usuarios sin asignar no ven la aplicación en su página Aplicaciones, pero sí pueden iniciar sesión en la aplicación propiamente dicha (esto se conoce también como inicio de sesión iniciado por SP). Otra opción es usar la dirección que aparece en **URL de acceso de usuario** en la página **Propiedades** de la aplicación (esto se conoce también como inicio de sesión iniciado por IDP).
 
 En algunas aplicaciones, la opción para requerir la asignación de usuarios no está disponible en las propiedades de la aplicación. En estos casos, puede usar PowerShell para establecer la propiedad appRoleAssignmentRequired en la entidad de servicio.
 
@@ -53,12 +53,12 @@ En algunas aplicaciones, la opción para requerir la asignación de usuarios no 
 
 Azure AD proporciona [varias maneras personalizables para implementar aplicaciones](end-user-experiences.md) para los usuarios finales de la organización:
 
-* Panel de acceso Mis aplicaciones de Azure AD
+* Aplicaciones de Azure AD
 * Iniciador de aplicaciones de Office 365
 * Inicio de sesión directo en aplicaciones (service-pr)
 * Vínculos profundos a aplicaciones federadas, con contraseña o existentes
 
-Puede decidir si los usuarios asignados a una aplicación empresarial pueden ver dicha aplicación en el panel de acceso y en el iniciador de aplicaciones de Office 365.
+Puede decidir si los usuarios asignados a una aplicación empresarial pueden verla en la página Aplicaciones y en el iniciador de aplicaciones de Office 365.
 
 ## <a name="example-complex-application-assignment-with-azure-ad"></a>Ejemplo: Asignación de aplicaciones complejas con Azure AD
 Considere una aplicación como Salesforce. En muchas organizaciones, Salesforce se usa principalmente en los equipos de ventas y marketing. A menudo, los miembros del equipo de marketing tienen acceso privilegiado a Salesforce, mientras que los miembros del equipo de ventas tienen acceso limitado. En muchos casos, una amplia población de trabajadores de la información tiene acceso restringido a la aplicación. Las excepciones a estas reglas complican el asunto. Con frecuencia, es prerrogativa de los equipos líderes de marketing o de ventas conceder acceso a un usuario o cambiar su rol independientemente de estas reglas genéricas.
@@ -72,7 +72,7 @@ Con Azure AD, las aplicaciones como Salesforce se pueden configurar previamente 
 
 * Para habilitar el mecanismo de excepciones, se podría crear un grupo de autoservicio para cada rol. Por ejemplo, el grupo de "excepción de marketing de Salesforce" se puede crear como un grupo de autoservicio. El grupo se puede asignar al rol de marketing de Salesforce y los integrantes del equipo de liderazgo de marketing se pueden convertir en propietarios. Los miembros del equipo de liderazgo de marketing podrían agregar o quitar usuarios, establecer una directiva de unión o incluso aprobar o rechazar solicitudes de unión de usuarios individuales. Este mecanismo es posible mediante una experiencia adecuada del trabajador de la información en la que los propietarios o miembros no necesitan aprendizaje especializado.
 
-En este caso, todos los usuarios asignados se aprovisionarían automáticamente a Salesforce, ya que como se agregan a diferentes grupos, su asignación de roles se actualizaría en Salesforce. Los usuarios podrán detectar Salesforce y acceder a esta aplicación mediante el panel de acceso a las aplicaciones de Microsoft, los clientes web de Office, o incluso navegando a su página de inicio de sesión organizativa de Salesforce. Los administradores podrán ver fácilmente el estado de uso y asignación mediante los informes de Azure AD.
+En este caso, todos los usuarios asignados se aprovisionarían automáticamente a Salesforce, ya que como se agregan a diferentes grupos, su asignación de roles se actualizaría en Salesforce. Los usuarios podrán detectar Salesforce y acceder a esta aplicación mediante la página Aplicaciones, los clientes web de Office, o incluso navegando a su página de inicio de sesión organizativa de Salesforce. Los administradores podrán ver fácilmente el estado de uso y asignación mediante los informes de Azure AD.
 
 Los administradores pueden emplear el [acceso condicional de Azure AD](../conditional-access/concept-conditional-access-users-groups.md) para establecer directivas de acceso para roles específicos. Estas directivas pueden incluir si se permite el acceso fuera del entorno corporativo e incluso los requisitos de Multi-Factor Authentication o de los dispositivo para obtener acceso en diversos casos.
 
@@ -88,7 +88,7 @@ Hay tres maneras principales en que un usuario puede acceder a una aplicación p
 
 Algunas aplicaciones combinan estos métodos. Por ejemplo, algunas aplicaciones de Microsoft forman parte de una suscripción a Office 365, pero siguen requiriendo consentimiento.
 
-Los usuarios pueden acceder a las aplicaciones de Office 365 a través de sus portales de Office 365 correspondientes. También puede mostrar u ocultar las aplicaciones de Office 365 en el panel de acceso Mis aplicaciones con el [botón de alternancia de visibilidad de Office 365](hide-application-from-user-portal.md) en **Configuración de usuario**, en su directorio. 
+Los usuarios pueden acceder a las aplicaciones de Office 365 a través de sus portales de Office 365 correspondientes. También puede mostrar u ocultar las aplicaciones de Office 365 en la página Aplicaciones con el [botón de alternancia de visibilidad de Office 365](hide-application-from-user-portal.md) en **Configuración de usuario**, en su directorio. 
 
 Al igual que sucede con las aplicaciones empresariales, se pueden [asignar usuarios](assign-user-or-group-access-portal.md) a determinadas aplicaciones de Microsoft a través de Azure Portal o, si la opción de Portal no está disponible, con PowerShell.
 

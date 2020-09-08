@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Learningpool Act | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Learningpool Act.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 51e8695f-31e1-4d09-8eb3-13241999d99f
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 173fab91681943576f9a4afeba8d38a99e22996f
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: ed4039528e60f318dcad7af864c8dcb3483e7365
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85799775"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546801"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learningpool-act"></a>Tutorial: Integración de Azure Active Directory con Learningpool Act
 

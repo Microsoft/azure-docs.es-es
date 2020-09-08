@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Slack | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Slack.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: ffc5e73f-6c38-4bbb-876a-a7dd269d4e1c
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 05/19/2020
+ms.date: 07/28/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ffc9d3f4feb003d537b52cde15356e756aa11c0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fdea1f3b2d4cff0203951b6ec5ef6b86b62cdf9c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500147"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88527580"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-slack"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Slack
 
@@ -159,15 +155,15 @@ En esta sección, va a permitir que B. Simon acceda a Slack mediante el inicio 
 
 2. Vaya a **Microsoft Azure AD** y luego a **Configuración del equipo**.
 
-     ![Configuración del inicio de sesión único en App Side](./media/slack-tutorial/tutorial-slack-001.png)
+     ![Configuración del inicio de sesión único en App Side](./media/slack-tutorial/tutorial-slack-team-settings.png)
 
 3. En la sección **Configuración del equipo**, haga clic en la pestaña **Autenticación** y luego en **Cambiar configuración**.
 
-    ![Configuración del inicio de sesión único en App Side](./media/slack-tutorial/tutorial-slack-002.png)
+    ![Configuración del inicio de sesión único en App Side](./media/slack-tutorial/tutorial-slack-authentication.png)
 
 4. En el cuadro de diálogo **Configuración de la autenticación SAML** , realice los pasos siguientes:
 
-    ![Configuración del inicio de sesión único en App Side](./media/slack-tutorial/tutorial-slack-003.png)
+    ![Configuración del inicio de sesión único en App Side](./media/slack-tutorial/tutorial-slack-save-authentication.png)
 
     a.  En el cuadro de texto **SAML 2.0 Endpoint (HTTP)** [Punto de conexión SAML 2.0 (HTTP)], pegue el valor de la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
@@ -177,7 +173,7 @@ En esta sección, va a permitir que B. Simon acceda a Slack mediante el inicio 
 
     d. Configure las tres opciones anteriores según corresponda para su equipo de Slack. Para obtener más información sobre la configuración, busque la **Guía de configuración de SSO de Slack** aquí. `https://get.slack.help/hc/articles/220403548-Guide-to-single-sign-on-with-Slack%60`
 
-    ![Configuración del inicio de sesión único en App Side](./media/slack-tutorial/tutorial-slack-004.png)
+    ![Configuración del inicio de sesión único en App Side](./media/slack-tutorial/tutorial-slack-expand.png)
 
     e. Haga clic en **Expand** (Expandir) y escriba `https://slack.com` en el cuadro de texto **Service provider issuer** (Emisor del proveedor de servicios).
 

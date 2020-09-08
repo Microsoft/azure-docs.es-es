@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Gra-Pe | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Gra-Pe.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 073f8641-b64d-4754-b1a6-2b91c865b13d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 9d614339e1520fd3ce78116d2b8fc2347e2799d6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 99357c01774ef10d9c759df89b94c538abc720f3
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73158092"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551592"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gra-pe"></a>Tutorial: Integración de Azure Active Directory con Gra-Pe
 

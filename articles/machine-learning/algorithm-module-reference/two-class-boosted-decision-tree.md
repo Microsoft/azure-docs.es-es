@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 04/22/2020
-ms.openlocfilehash: 0499d52a6fe3da7349d31748ca3b5add16369571
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 08/24/2020
+ms.openlocfilehash: 1e66774d4239bdad6c8af426a28af6081bb0da3c
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137661"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782182"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Módulo de árbol de decisión ampliado de dos clases
 
@@ -22,9 +22,11 @@ En este artículo se describe un módulo del diseñador de Azure Machine Learnin
 
 Utilice este módulo para crear un modelo de Machine Learning basado en el algoritmo de árboles de decisión ampliados. 
 
-Un árbol de decisión ampliado es un método de aprendizaje de conjuntos en que el segundo árbol corrige los errores del primer árbol, el tercer árbol corrige los errores del primer y del segundo árbol y así sucesivamente.  Las predicciones se basan en el conjunto completo de árboles juntos que establecen la predicción.
+Un árbol de decisión ampliado es un método de aprendizaje de conjuntos en que el segundo árbol corrige los errores del primer árbol, el tercer árbol corrige los errores del primer y del segundo árbol y así sucesivamente. Las predicciones se basan en el conjunto completo de árboles juntos que establecen la predicción.
   
 Por lo general, cuando se configuran correctamente, los árboles de decisión ampliados son los métodos más sencillos para obtener el máximo rendimiento en una amplia variedad de tareas de aprendizaje automático. Sin embargo, también son uno de los elementos aprendices que consumen más recursos de memoria y la implementación actual retiene todo en la memoria. Por tanto, un modelo de árbol de decisión ampliado podría no ser capaz de procesar los grandes conjuntos de datos que algunos elementos aprendices lineales pueden administrar.
+
+Este módulo se basa en el algoritmo LightGBM.
 
 ## <a name="how-to-configure"></a>Cómo se configura
 
@@ -38,7 +40,7 @@ Puede entrenar este tipo de modelo mediante [Entrenar modelo](././train-model.md
   
     + **Single Parameter** (Parámetro único): Si sabe cómo quiere configurar el modelo, puede proporcionar un conjunto específico de valores como argumentos.
   
-    + **Parameter Range** (Intervalo de parámetros): si no está seguro de los mejores parámetros, puede encontrar los óptimos mediante el módulo [Optimización de hiperparámetros de un modelo](tune-model-hyperparameters.md). Proporcionará un intervalo de valores, y el instructor recorrerá en iteración varias combinaciones de la configuración para determinar la combinación de valores que genera el mejor resultado.
+    + **Parameter Range** (Intervalo de parámetros): si no está seguro de los mejores parámetros, puede encontrar los óptimos mediante el módulo [Optimización de hiperparámetros de un modelo](tune-model-hyperparameters.md). Proporcione un rango de valores y el entrenador itera varias combinaciones de ellos para determinar la combinación de valores que genera el mejor resultado.
   
 3.  En **Número máximo de hojas por árbol**, indique el número máximo de nodos terminales (hojas) que se pueden crear en un árbol.
   

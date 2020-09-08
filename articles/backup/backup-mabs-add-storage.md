@@ -3,12 +3,12 @@ title: Uso de Modern Backup Storage con Azure Backup Server
 description: Obtenga información sobre las nuevas características de Azure Backup Server. En este artículo se describe cómo actualizar la instalación de la instancia de Backup Server.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: ee55355b0f2cabe97f5d2a838edcbd5cfddf44e6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 997b2052751473d095b6534ef0bcbe3ed6a099ad
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513717"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378243"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Adición de almacenamiento a Azure Backup Server
 
@@ -18,7 +18,7 @@ Azure Backup Server v2 (y versiones posteriores) es compatible con Modern Backup
 > Para utilizar Modern Backup Storage, debe ejecutar Backup Server V2 o V3 en Windows Server 2016 o V3 en Windows Server 2019.
 > Si ejecuta Backup Server V2 en una versión anterior de Windows Server, Azure Backup Server no puede sacar partido de Modern Backup Storage. En su lugar, protege las cargas de trabajo como lo hace con Backup Server V1. Para más información, consulte la [matriz de protección](backup-mabs-protection-matrix.md) de la versión de Backup Server.
 >
-> Para lograr los mejores rendimientos de copia de seguridad, se recomienda implementar MABS V3 con almacenamiento en capas en Windows Server 2019. Consulte el artículo de DPM "[Configurar MBS con Tiered Storage](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage)" para conocer los pasos para configurar el almacenamiento en capas.
+> Para lograr los mejores rendimientos de copia de seguridad, se recomienda implementar MABS V3 con almacenamiento en capas en Windows Server 2019. Consulte el artículo de DPM "[Configuración de MBS con el almacenamiento en capas](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage)" para obtener los pasos de configuración del almacenamiento en capas.
 
 ## <a name="volumes-in-backup-server"></a>Volúmenes en Backup Server
 
@@ -105,7 +105,7 @@ La actualización de los grupos de protección para que usen Modern Backup Stora
 
    ![Detener protección de miembro](/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
-2. En el cuadro de diálogo **Quitar del grupo**, revise el espacio en disco usado y el espacio disponible para el grupo de almacenamiento. El valor predeterminado es dejar los puntos de recuperación en el disco y permitirles expirar según su directiva de retención asociada. Haga clic en **OK**.
+2. En el cuadro de diálogo **Quitar del grupo**, revise el espacio en disco usado y el espacio disponible para el grupo de almacenamiento. El valor predeterminado es dejar los puntos de recuperación en el disco y permitirles expirar según su directiva de retención asociada. Seleccione **Aceptar**.
 
    Si quiere devolver de inmediato el espacio en disco usado al grupo de almacenamiento libre, active la casilla **Eliminar réplica en disco** para eliminar los datos de copia de seguridad (y los puntos de recuperación) asociados a ese miembro.
 

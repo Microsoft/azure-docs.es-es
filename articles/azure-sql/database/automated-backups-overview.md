@@ -5,18 +5,18 @@ description: Azure SQL Database y la Instancia administrada de Azure SQL crean a
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: backup-restore
-ms.custom: sqldbrb=2
+ms.custom: references_regions
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 08/04/2020
-ms.openlocfilehash: 3e37d907d00acd3e2b368700b70b4e268bad3ec9
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 485a137f552ca06fba366d261eb38268d821ccaf
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921952"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853216"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Copias de seguridad automatizadas - Azure SQL Database e Instancia administrada de SQL
 
@@ -36,19 +36,24 @@ Cuando una base de datos se restaura, el servicio averigua qué copia de segurid
 
 ### <a name="backup-storage-redundancy"></a>Redundancia del almacenamiento de copia de seguridad
 
-> [!IMPORTANT]
-> La redundancia de almacenamiento configurable para copias de seguridad solo está disponible actualmente para SQL Managed Instance y solo se puede especificar durante el proceso de creación de instancia administrada. Una vez que se ha aprovisionado el recurso, no se puede cambiar la opción de redundancia del almacenamiento de copia de seguridad.
+De forma predeterminada, SQL Database y SQL Managed Instance almacenan datos en [blobs de almacenamiento](../../storage/common/storage-redundancy.md) de redundancia geográfica (RA-GRS) que se replican en una [región emparejada](../../best-practices-availability-paired-regions.md). Esto ayuda a proteger frente a interrupciones que afectan al almacenamiento de copia de seguridad en la región primaria y permiten restaurar el servidor en una región diferente en caso de desastre. 
 
-La opción para configurar la redundancia del almacenamiento de copia de seguridad ofrece la flexibilidad de elegir entre [blobs de almacenamiento](../../storage/common/storage-redundancy.md) con redundancia local (LRS), con redundancia de zona (ZRS) o con redundancia geográfica (RA-GRS). Los mecanismos de redundancia de Storage almacenan varias copias de los datos, con el fin de protegerlos de eventos planeados y no planeados, como errores transitorios del hardware, interrupciones del suministro eléctrico o cortes de la red, y desastres naturales masivos. Actualmente esta característica solo está disponible para SQL Managed Instance.
+SQL Managed Instance presenta la capacidad de cambiar la redundancia de almacenamiento a blobs de almacenamiento con redundancia local (LRS) o con redundancia de zona (ZRS) para asegurarse de que los datos permanecen dentro de la misma región donde se implementa la instancia administrada. Los mecanismos de redundancia de Storage almacenan varias copias de los datos, con el fin de protegerlos de eventos planeados y no planeados, como errores transitorios del hardware, interrupciones del suministro eléctrico o cortes de la red, y desastres naturales masivos. 
 
-Los blobs de almacenamiento con RA-GRS se replican en una [región emparejada](../../best-practices-availability-paired-regions.md) para protegerse frente a interrupciones que afectan al almacenamiento de copia de seguridad en la región primaria y permiten restaurar el servidor en una región diferente en caso de desastre. 
+La opción para configurar la redundancia del almacenamiento de copia de seguridad ofrece la flexibilidad de elegir entre los blobs de almacenamiento con LRS, ZRS o RA-GRS para SQL Managed Instance. Configure la redundancia del almacenamiento de copia de seguridad durante el proceso de creación de la instancia administrada, ya que, una vez aprovisionado el recurso, no es posible cambiar la redundancia de almacenamiento. (El almacenamiento con redundancia de zona [ZRS] solo está disponible actualmente en [determinadas regiones](../../storage/common/storage-redundancy.md#zone-redundant-storage)).
 
-Por el contrario, los blobs de almacenamiento con LRS y ZRS se aseguran de que los datos permanecen dentro de la misma región donde se implementa SQL Database o SQL Managed Instance. El almacenamiento con redundancia de zona (ZRS) solo está disponible actualmente en [determinadas regiones](../../storage/common/storage-redundancy.md#zone-redundant-storage).
 
 > [!IMPORTANT]
 > En SQL Managed Instance, la redundancia de copia de seguridad configurada se aplica a la configuración de retención de copia de seguridad a corto plazo que se usa para la restauración a un momento dado (PITR) y las copias de seguridad de retención a largo plazo usadas para copias de seguridad a largo plazo (LTR).
 
+
+> [!NOTE]
+> La redundancia del almacenamiento de copia de seguridad configurable de Azure SQL Database está disponible actualmente como versión preliminar privada limitada para determinados clientes en la región Sudeste de Asia de Azure. Si desea que se le tenga en cuenta para la inscripción en la versión preliminar privada, póngase en contacto con [sqlbackuppreview@microsoft.com](mailto:sqlbackuppreview@microsoft.com). 
+
+Si las reglas de protección de datos exigen que las copias de seguridad estén disponibles durante un tiempo prolongado (hasta 10 años), puede configurar la [retención a largo plazo](long-term-retention-overview.md) para bases de datos únicas y agrupadas.
+
 ### <a name="backup-usage"></a>Uso de copia de seguridad
+
 
 Puede utilizar estas copias de seguridad para realizar lo siguiente:
 

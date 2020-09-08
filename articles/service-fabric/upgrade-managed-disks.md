@@ -3,16 +3,16 @@ title: Actualización de nodos de clúster para usar discos administrados de Azu
 description: Aquí se muestra cómo actualizar un clúster de Service Fabric existente para usar Azure Managed Disks con poco o ningún tiempo de inactividad del clúster.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 10863626945483e21aa264e2b05e94a6f08a22f6
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 152bdaea121e65de8332fcde8543b8158ff11714
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542876"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717530"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Actualización de nodos de clúster para usar Azure Managed Disks
 
-[Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md) es la nueva oferta de almacenamiento en disco recomendada que se puede usar con Azure Virtual Machines para almacenar datos de forma persistente. Puede mejorar la resistencia de las cargas de trabajo de Service Fabric actualizando los conjuntos de escalado de máquinas virtuales que subyacen a los tipos de nodo para usar Managed Disks. Aquí se muestra cómo actualizar un clúster de Service Fabric existente para usar Azure Managed Disks con poco o ningún tiempo de inactividad del clúster.
+[Azure Managed Disks](../virtual-machines/managed-disks-overview.md) es la nueva oferta de almacenamiento en disco recomendada que se puede usar con Azure Virtual Machines para almacenar datos de forma persistente. Puede mejorar la resistencia de las cargas de trabajo de Service Fabric actualizando los conjuntos de escalado de máquinas virtuales que subyacen a los tipos de nodo para usar Managed Disks. Aquí se muestra cómo actualizar un clúster de Service Fabric existente para usar Azure Managed Disks con poco o ningún tiempo de inactividad del clúster.
 
 La estrategia general para actualizar un nodo de clúster de Service Fabric para usar discos administrados es:
 
@@ -23,6 +23,9 @@ La estrategia general para actualizar un nodo de clúster de Service Fabric para
 3. Compruebe que el clúster y los nuevos nodos tengan un estado correcto y, a continuación, quite el conjunto de escalado original y el estado del nodo de los nodos eliminados.
 
 Este artículo le guiará a lo largo de los pasos necesarios para actualizar el tipo de nodo principal de un clúster de ejemplo para usar discos administrados, al tiempo que evita cualquier tiempo de inactividad del clúster (vea la nota siguiente). El estado inicial del clúster de prueba de ejemplo consta de un tipo de nodo de [durabilidad Silver](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster), respaldado por un solo conjunto de escalado con cinco nodos.
+
+> [!NOTE]
+> Las limitaciones de un equilibrador de carga de SKU básico impiden que se agregue un conjunto de escalado adicional. En su lugar, se recomienda usar el equilibrador de carga de SKU estándar. Para obtener más información, consulte [una comparación de las dos SKU](/azure/load-balancer/skus).
 
 > [!CAUTION]
 > Experimentará una interrupción con este procedimiento solo si tiene dependencias en el DNS del clúster (por ejemplo, al acceder a [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). El [procedimiento recomendado para los servicios de front-end](/azure/architecture/microservices/design/gateway) en el nivel de arquitectura es tener algún tipo de [equilibrador de carga](/azure/architecture/guide/technology-choices/load-balancing-overview) delante de los tipos de nodo para que el intercambio de nodos sea posible sin interrupción.
@@ -165,7 +168,7 @@ Estas son las modificaciones sección por sección de la plantilla de implementa
 
 #### <a name="parameters"></a>Parámetros
 
-Agregue un parámetro para el nombre de instancia del nuevo conjunto de escalado. Tenga en cuenta que `vmNodeType1Name` es único para el nuevo conjunto de escalado, mientras que los valores de tamaño y recuento son idénticos a los del conjunto de escalado original.
+Agregue parámetros para el nombre de instancia, el recuento y el tamaño del nuevo conjunto de escalado. Tenga en cuenta que `vmNodeType1Name` es único para el nuevo conjunto de escalado, mientras que los valores de tamaño y recuento son idénticos a los del conjunto de escalado original.
 
 **Archivo de plantilla**
 
@@ -174,7 +177,18 @@ Agregue un parámetro para el nombre de instancia del nuevo conjunto de escalado
     "type": "string",
     "defaultValue": "NTvm2",
     "maxLength": 9
-}
+},
+"nt1InstanceCount": {
+    "type": "int",
+    "defaultValue": 5,
+    "metadata": {
+        "description": "Instance count for node type"
+    }
+},
+"vmNodeType1Size": {
+    "type": "string",
+    "defaultValue": "Standard_D2_v2"
+},
 ```
 
 **Archivo de parámetros**
@@ -182,6 +196,12 @@ Agregue un parámetro para el nombre de instancia del nuevo conjunto de escalado
 ```json
 "vmNodeType1Name": {
     "value": "NTvm2"
+},
+"nt1InstanceCount": {
+    "value": 5
+},
+"vmNodeType1Size": {
+    "value": "Standard_D2_v2"
 }
 ```
 
@@ -199,13 +219,13 @@ En la sección `variables` de la plantilla de implementación, agregue una entra
 
 En la sección *resources* de la plantilla de implementación, agregue el nuevo conjunto de escalado de máquinas virtuales, teniendo en cuenta lo siguiente:
 
-* El nuevo conjunto de escalado hace referencia al nuevo tipo de nodo:
+* El nuevo conjunto de escalado hace referencia al mismo tipo de nodo que el original:
 
     ```json
-    "nodeTypeRef": "[parameters('vmNodeType1Name')]",
+    "nodeTypeRef": "[parameters('vmNodeType0Name')]",
     ```
 
-* El nuevo conjunto de escalado hace referencia a la misma dirección y subred de back-end del equilibrador de carga que el original, pero utiliza un grupo de NAT de entrada de equilibrador de carga diferente:
+* El nuevo conjunto de escalado hace referencia a la misma dirección y subred de back-end del equilibrador de carga (pero utiliza un grupo de NAT de entrada de equilibrador de carga diferente):
 
    ```json
     "loadBalancerBackendAddressPools": [
@@ -236,33 +256,6 @@ En la sección *resources* de la plantilla de implementación, agregue el nuevo 
         "storageAccountType": "[parameters('storageAccountType')]"
     }
     ```
-
-A continuación, agregue una entrada a la lista `nodeTypes` del recurso *Microsoft.ServiceFabric/clusters*. Utilice los mismos valores que la entrada del tipo de nodo original, excepto el `name`, que debe hacer referencia al nuevo tipo de nodo (*vmNodeType1Name*).
-
-```json
-"nodeTypes": [
-    {
-        "name": "[parameters('vmNodeType0Name')]",
-        ...
-    },
-    {
-        "name": "[parameters('vmNodeType1Name')]",
-        "applicationPorts": {
-            "endPort": "[parameters('nt0applicationEndPort')]",
-            "startPort": "[parameters('nt0applicationStartPort')]"
-        },
-        "clientConnectionEndpointPort": "[parameters('nt0fabricTcpGatewayPort')]",
-        "durabilityLevel": "Silver",
-        "ephemeralPorts": {
-            "endPort": "[parameters('nt0ephemeralEndPort')]",
-            "startPort": "[parameters('nt0ephemeralStartPort')]"
-        },
-        "httpGatewayEndpointPort": "[parameters('nt0fabricHttpGatewayPort')]",
-        "isPrimary": true,
-        "vmInstanceCount": "[parameters('nt0InstanceCount')]"
-    }
-],
-```
 
 Una vez que haya implementado todos los cambios en los archivos de plantilla y de parámetros, continúe con la sección siguiente para adquirir las referencias de Key Vault e implementar las actualizaciones en el clúster.
 
@@ -372,7 +365,7 @@ En este tutorial, ha aprendido a actualizar los conjuntos de escalado de máquin
 
 Obtenga información sobre cómo:
 
-* [Escalado vertical del tipo de nodo principal de un clúster de Service Fabric](service-fabric-scale-up-node-type.md)
+* [Escalado vertical del tipo de nodo principal de un clúster de Service Fabric](service-fabric-scale-up-primary-node-type.md)
 
 * [Conversión de una plantilla de conjunto de escalado para usar discos administrados](../virtual-machine-scale-sets/virtual-machine-scale-sets-convert-template-to-md.md)
 

@@ -1,17 +1,17 @@
 ---
 title: Especificaciones de Microsoft Azure FXT Edge Filer | Microsoft Docs
-description: Especificaciones físicas y del entorno del hardware de Azure FXT Edge Filer
+description: Conozca las especificaciones físicas y del entorno del hardware de Microsoft Azure FXT Edge Filer.
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: 57e312df31682ea868443423f40d54369cab6699
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 30af35075c06585b9c490495e9897c145e9974d9
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231306"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184693"
 ---
 # <a name="azure-fxt-edge-filer-specifications"></a>Especificaciones de Azure FXT Edge Filer
 

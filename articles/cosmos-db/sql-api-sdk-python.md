@@ -1,20 +1,20 @@
 ---
 title: API, SDK y recursos de Python para SQL de Azure Cosmos DB
 description: Obtenga toda la información sobre la API y el SDK de Python para SQL, incluidas la fechas de lanzamiento, fechas de retirada y cambios realizados entre las versiones del SDK de Python para Azure Cosmos DB.
-author: anfeldma-ms
+author: Rodrigossz
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
-ms.date: 05/20/2020
+ms.date: 08/12/2020
 ms.author: anfeldma
-ms.custom: tracking-python
-ms.openlocfilehash: 6bd880806a4b067139c1f22a0e4d4e6df5c88451
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-python
+ms.openlocfilehash: e9f9daea2c0d570efb81603784ee730b11668426
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247071"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585991"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Python para Azure Cosmos DB para SQL API: Notas de la versión y recursos
 
@@ -27,6 +27,9 @@ ms.locfileid: "86247071"
 > * [SDK de Java v4](sql-api-sdk-java-v4.md)
 > * [Versión 2 del SDK de Java asincrónico](sql-api-sdk-async-java.md)
 > * [SDK de Java v2 sincrónico](sql-api-sdk-java.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
+> * [Conector de Spark](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Proveedor de recursos de REST](/rest/api/cosmos-db-resource-provider/)
@@ -43,6 +46,20 @@ ms.locfileid: "86247071"
 |**Plataforma admitida actualmente**|[Python 2.7](https://www.python.org/downloads/) y [Python 3.5.3+](https://www.python.org/downloads/)|
 
 ## <a name="release-history"></a>Historial de versiones
+
+### <a name="410-2020-08-10"></a>4.1.0 (10-08-2020)
+
+- Se ha agregado la advertencia de desuso para el modo de indexación "diferida". El back-end ya no permite la creación de contenedores con este modo y los establecerá en coherentes en su lugar.
+
+**Nuevas características:**
+- Se ha agregado la capacidad de establecer el TTL de almacenamiento analítico al crear un nuevo contenedor.
+
+**Correcciones de errores**
+- Se ha corregido la compatibilidad con elementos dict como entradas para las API get_client.
+- Se ha corregido la compatibilidad con Python 2/3 en los iteradores de consulta.
+- Se ha corregido el error de sugerencia de tipo (problema n.º 12570).
+- Se ha corregido un error que provocaba que los encabezados de opciones no se agregaran a la función upsert_item. Problema n.º 11791: gracias @aalapatirvbd.
+- Se ha corregido un error generado al usarse un identificador que no es de cadena en un elemento. Ahora genera TypeError en lugar de AttributeError (problema n.º 11793).
 
 ### <a name="400"></a>4.0.0
 
@@ -301,10 +318,8 @@ La versión 4.0.0b1 es la primera versión preliminar de nuestros esfuerzos por 
 
 Microsoft notifica la retirada de un SDK con al menos **12 meses** de antelación para facilitar la transición a una versión compatible o más reciente. Solo se agregan nuevas características, funcionalidad y optimizaciones al SDK actual, por lo que se recomienda actualizar siempre a la última versión del SDK tan pronto como sea posible.
 
-El servicio rechaza cualquier solicitud realizada a Azure Cosmos DB mediante un SDK retirado.
-
 > [!WARNING]
-> Todas las versiones del SDK de Python para SQL API anteriores a la versión **1.0.0** se retiraron el **29 de febrero de 2016**. Y todas las versiones 1.x y 2.x del SDK de Python para SQL API se retirarán el **30 de agosto de 2020**.
+> Después del 31 de agosto de 2022, Azure Cosmos DB ya no hará correcciones de errores, no agregará nuevas características ni proporcionará soporte técnico para las versiones 1.x o 2.x del SDK de Python de Azure Cosmos DB para la API de SQL. Si prefiere no realizar la actualización, el servicio Azure Cosmos DB seguirá atendiendo las solicitudes enviadas desde la versión 1.x y 2.x del SDK.
 
 | Versión | Fecha de la versión | Fecha de retirada |
 | --- | --- | --- |

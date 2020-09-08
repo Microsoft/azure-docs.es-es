@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/27/2020
-ms.openlocfilehash: 95756e9951b384c779f61651555482b3c8cb7321
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 08/06/2020
+ms.openlocfilehash: 1ba2f5e4b88ae6ae0ed15dbfbbc4fa5c55c45a77
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083379"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874034"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Creación de clústeres basados en Linux en HDInsight mediante Azure Portal
 
@@ -85,6 +85,9 @@ Opcional: Seleccione **Agregar Azure Storage** para un almacenamiento de clúste
 ### <a name="metastore-settings"></a>Configuración de metastores
 
 Opcional: Especifique una instancia existente de SQL Database para guardar los metadatos de Apache Hive, Apache Oozie o Apache Ambari fuera del clúster. La instancia de Azure SQL Database usada para el metastore debe permitir la conectividad con otros servicios de Azure, incluido Azure HDInsight. Al crear una instancia de Metastore, no asigne nombre a una base de datos con guiones. Estos caracteres podrían provocar que el proceso de creación del clúster produzca errores.
+
+> [!IMPORTANT]
+> En el caso de las formas de clúster que admiten metastores, el metastore predeterminado proporciona una instancia de Azure SQL Database con un **límite de 5 DTU de nivel básico (no actualizable)** . Esto resulta adecuado para la realización de pruebas básicas. En el caso de las cargas de trabajo de producción o de gran volumen, se recomienda migrar a un metastore externo.
 
 Seleccione **Siguiente: Seguridad y redes >>** para avanzar a la pestaña siguiente.
 

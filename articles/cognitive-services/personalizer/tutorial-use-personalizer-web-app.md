@@ -3,12 +3,13 @@ title: 'Uso de una aplicación web: Personalizer'
 description: Personalice una aplicación web de .NET en C# con un bucle de Personalizer que proporcione el contenido correcto a un usuario en función de las acciones (con características) y de las características del contexto.
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.openlocfilehash: 6e3373ef8ace401ff40b3d48026fc46b96f1ad79
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e9ce4c433a038008b1ffd75dc6c4b2f9d0b57fde
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446366"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935626"
 ---
 # <a name="tutorial-add-personalizer-to-a-net-web-app"></a>Tutorial: Incorporación de Personalizer a una aplicación web de .NET
 

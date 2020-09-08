@@ -1,22 +1,22 @@
 ---
-title: Introducción al portal de Marketplace comercial en el Centro de partners
-description: Obtenga más información sobre el portal de Marketplace comercial en el Centro de partners y aprenda a enumerar y vender ofertas en Azure Marketplace, AppSource y a través del programa Proveedor de soluciones en la nube (CSP).
+title: Introducción al portal de marketplace comercial del Centro de partners
+description: Conozca mejor el portal de marketplace comercial del Centro de partners y aprenda a catalogar y vender ofertas en Azure Marketplace, AppSource y a través del programa Proveedor de soluciones en la nube (CSP).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 05/19/2020
-ms.openlocfilehash: 8f827d3e983a50589975eca59808bd1471fe4810
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4c91e6396171511fa3b11b0295504f0ca0d75d15
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047585"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030868"
 ---
-# <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Introducción al portal de Marketplace comercial en el Centro de partners
+# <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Introducción al portal de marketplace comercial del Centro de partners
 
-Le damos la bienvenida al portal de Marketplace comercial en el Centro de partners. El [portal de Marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/) le ayuda a monetizar sus productos y servicios, llegar a los clientes y hacer crecer su negocio.
+Le damos la bienvenida al portal de marketplace comercial del Centro de partners. El [portal de Marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/) le ayuda a monetizar sus productos y servicios, llegar a los clientes y hacer crecer su negocio.
 
 En estos artículos se tratan los conceptos básicos de la creación y el uso de la cuenta del Centro de partners. Incluye la creación de nuevas ofertas que se puedan publicar en [Azure Marketplace](https://azuremarketplace.microsoft.com/) o [AppSource](https://appsource.microsoft.com/), la administración de las ofertas existentes que se migraron desde Cloud Partner Portal y el suministro de recursos para ayudarle a resolver sus preguntas y así poder recopilar sus comentarios.
 

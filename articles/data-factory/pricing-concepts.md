@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/27/2019
-ms.openlocfilehash: 9d96e3f7d127f4839592e766537cbdb07cc697dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d679dbb7a14767b83d6508e4b1e637584f33210a
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81414937"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949970"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Descripción de los precios de Data Factory a través de ejemplos
 
@@ -167,6 +167,46 @@ Para lograr el escenario, es preciso crear una canalización con los siguientes 
   - Ejecuciones de actividad = 001\*2 = 0,002 [1 ejecución = 1 $/1000 = 0,001]
   - Actividades de Data Flow = 1,461 USD prorrateados por 20 minutos (tiempo de ejecución de 10 minutos + TTL de 10 minutos). 0,274 USD/hora en Azure Integration Runtime con un proceso general de 16 núcleos
 
+## <a name="data-integration-in-azure-data-factory-managed-vnet"></a>Integración de datos en VNET administrada de Azure Data Factory
+En este escenario, quiere eliminar archivos originales en Azure Blob Storage y copiar datos de Azure SQL Database en Azure Blob Storage. Va a realizar esta ejecución dos veces en diferentes canalizaciones. El tiempo de ejecución de estas dos canalizaciones se superpone.
+![Escenario 4](media/pricing-concepts/scenario-4.png) Para realizar el escenario, es preciso crear dos canalizaciones con los siguientes elementos:
+  - Una actividad de canalización: actividad de eliminación.
+  - Una actividad de copia con un conjunto de datos de entrada para los datos que se van a copiar desde Azure Blob Storage.
+  - Un conjunto de datos de salida para los datos en Azure SQL Database.
+  - Un desencadenador de programación para ejecutar la canalización.
+
+
+| **Operaciones** | **Tipos y unidades** |
+| --- | --- |
+| Creación de un servicio vinculado | 4 entidades de lectura y escritura |
+| Creación de conjuntos de datos | 8 entidades de lectura y escritura (4 para la creación del conjunto de datos y 4 para las referencias del servicio vinculado) |
+| Creación de una canalización | 6 entidades de lectura y escritura (2 para la creación de la canalización y 4 para las referencias del conjunto de datos) |
+| Obtención de la canalización | 2 entidades de lectura y escritura |
+| Ejecución de la canalización | 6 ejecuciones de actividad (2 para la ejecución del desencadenador y 4 para ejecuciones de actividad) |
+| Ejecución de la actividad de eliminación: cada tiempo de ejecución = 5 minutos. La ejecución de la actividad de eliminación en la primera canalización es de 10:00 AM UTC a 10:05 AM UTC. La ejecución de la actividad de eliminación en la segunda canalización es de 10:02 AM UTC a 10:07 AM UTC.|Ejecución total de actividad de canalización de 7 minutos en VNET administrada. La actividad de canalización admite hasta 50 actividades simultáneas en una VNET administrada. |
+| Asunción de copia de datos: cada tiempo de ejecución = 10 minutos. La ejecución de la copia en la primera canalización es de 10:06 AM UTC a 10:15 AM UTC. La ejecución de la actividad de eliminación en la segunda canalización es de 10:08 AM UTC a 10:17 AM UTC. | 10 * 4 Azure Integration Runtime (valor predeterminado de DIU = 4). Para obtener más información sobre las unidades de integración de datos y la optimización del rendimiento de la copia, vea [este artículo](copy-activity-performance.md) |
+| Asunción de la supervisión de la canalización: Solo se han producido 2 ejecuciones | 6 registros de ejecución de supervisión reintentados (2 para la ejecución de la canalización y 4 para la ejecución de la actividad) |
+
+
+**Precio total del escenario: 0,45523 USD**
+
+- Operaciones de Data Factory = 0,00023 USD
+  - Lectura y escritura = 20*00001 = 0,0002 USD [1 lectura y escritura = 0,50 USD/50000 = 0,00001]
+  - Supervisión = 6*000005 = 0,00003 USD [1 supervisión = 0,25 USD/50000 = 0,000005]
+- Orquestación y ejecución de canalizaciones = 0,455 USD
+  - Ejecuciones de actividad = 0,001*6 = 0,006 [1 ejecución = 1 USD/1000 = 0,001]
+  - Actividades de movimiento de datos = 0,333 USD (prorrateo durante 10 minutos de tiempo de ejecución. 0,25 $/hora en Azure Integration Runtime)
+  - Actividad de canalización = 0,116 USD (prorrateo durante 7 minutos de tiempo de ejecución. 1 USD/hora en Azure Integration Runtime)
+
+> [!NOTE]
+> Estos precios son solo para los fines de este ejemplo.
+
+**P+F**
+
+P: Si quiero ejecutar más de 50 actividades de canalización, ¿estas actividades se pueden ejecutar simultáneamente?
+
+A. Se permite un máximo de 50 actividades de canalización simultáneas.  La actividad de canalización 51ª se pone en cola hasta que hay un "hueco libre". Lo mismo ocurre con las actividades externas. Se permite un máximo de 800 actividades externas simultáneas.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 ¡Ahora que comprende los precios de Azure Data Factory, puede empezar a trabajar!
@@ -175,4 +215,4 @@ Para lograr el escenario, es preciso crear una canalización con los siguientes 
 
 - [Introducción al servicio Azure Data Factory](introduction.md)
 
-- [Creación visual en Azure Data Factory](author-visually.md)
+- [Creación visual de Azure Data Factory](author-visually.md)

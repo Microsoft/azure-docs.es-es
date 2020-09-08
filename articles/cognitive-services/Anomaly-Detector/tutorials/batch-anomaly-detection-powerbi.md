@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: aahi
-ms.openlocfilehash: 9f27deebe3a1fb21f4c7406bfd424196fb1072ec
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 527ce1c7d434ae94c91c78c865c00aa0687a73cb
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921926"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245509"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Tutorial: Visualización de anomalías con detección por lotes y Power BI
 
@@ -29,10 +29,10 @@ En este tutorial, aprenderá a:
 > * Visualizar las anomalías que se encuentran en los datos, incluidos los valores esperados y vistos, y los límites de la detección de anomalías.
 
 ## <a name="prerequisites"></a>Requisitos previos
-* [Una suscripción de Azure](https://azure.microsoft.com/free/)
+* [Una suscripción de Azure](https://azure.microsoft.com/free/cognitive-services)
 * [Microsoft Power BI Desktop](https://powerbi.microsoft.com/get-started/), disponible de forma gratuita.
 * Un archivo de Excel (.xlsx) que contenga los puntos de datos de la serie temporal. Los datos de ejemplo de este inicio rápido están disponibles en [GitHub](https://go.microsoft.com/fwlink/?linkid=2090962).
-* Cuando tenga la suscripción de Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Creación de un recurso de Anomaly Detector"  target="_blank">cree un recurso de Anomaly Detector <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. 
+* Cuando tenga la suscripción de Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Creación de un recurso de Anomaly Detector"  target="_blank">cree un recurso de Anomaly Detector <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión.
     * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación a Anomaly Detector API. Lo hará más adelante en el inicio rápido.
 
 [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
@@ -52,19 +52,19 @@ Después de que aparezca el cuadro de diálogo, vaya a la carpeta donde descarg�
 
 ![Una imagen de la pantalla "Navegador" del origen de datos en Power BI](../media/tutorials/navigator-dialog-box.png)
 
-Power BI convertirá las marcas de tiempo de la primera columna en un tipo de datos `Date/Time`. Estas marcas de tiempo se deben convertir a texto antes de enviarse a Anomaly Detector API. Si el editor Power Query no se abre automáticamente, haga clic en **Editar consultas** en la pestaña Inicio. 
+Power BI convertirá las marcas de tiempo de la primera columna en un tipo de datos `Date/Time`. Estas marcas de tiempo se deben convertir a texto antes de enviarse a Anomaly Detector API. Si el editor Power Query no se abre automáticamente, haga clic en **Editar consultas** en la pestaña Inicio.
 
 Haga clic en la pestaña **Transformar** de la cinta de opciones del editor Power Query. En el grupo **Cualquier columna**, abra el menú desplegable **Tipo de datos:** y seleccione **Texto**.
 
 ![Una imagen de la pantalla "Navegador" del origen de datos en Power BI](../media/tutorials/data-type-drop-down.png)
 
-Si recibe un aviso sobre el cambio de tipo de columna, haga clic en **Sustituir la actual**. Después, haga clic en **Cerrar y aplicar** o en **Aplicar** en la pestaña **Inicio** de la cinta de opciones. 
+Si recibe un aviso sobre el cambio de tipo de columna, haga clic en **Sustituir la actual**. Después, haga clic en **Cerrar y aplicar** o en **Aplicar** en la pestaña **Inicio** de la cinta de opciones.
 
 ## <a name="create-a-function-to-send-the-data-and-format-the-response"></a>Creación de una función para enviar los datos y dar formato a la respuesta
 
 Para dar formato y enviar el archivo de datos a Anomaly Detector API, puede invocar una consulta en la tabla que creó anteriormente. En el editor Power Query, en la pestaña **Inicio** de la cinta de opciones, abra el menú desplegable **Nuevo origen** y haga clic en **Consulta en blanco**.
 
-Asegúrese de que está seleccionada la nueva consulta y, a continuación, haga clic en **Editor avanzado**. 
+Asegúrese de que está seleccionada la nueva consulta y, a continuación, haga clic en **Editor avanzado**.
 
 ![Una imagen del botón "Editor avanzado" en Power BI](../media/tutorials/advanced-editor-screen.png)
 
@@ -84,7 +84,7 @@ En el Editor avanzado, use el siguiente fragmento de Power Query M para extraer 
     jsonresp    = Json.Document(bytesresp),
 
     respTable = Table.FromColumns({
-                    
+
                      Table.Column(inputTable, "Timestamp")
                      ,Table.Column(inputTable, "Value")
                      , Record.Field(jsonresp, "IsAnomaly") as list
@@ -96,7 +96,7 @@ En el Editor avanzado, use el siguiente fragmento de Power Query M para extraer 
 
                   }, {"Timestamp", "Value", "IsAnomaly", "ExpectedValues", "UpperMargin", "LowerMargin", "IsPositiveAnomaly", "IsNegativeAnomaly"}
                ),
-    
+
     respTable1 = Table.AddColumn(respTable , "UpperMargins", (row) => row[ExpectedValues] + row[UpperMargin]),
     respTable2 = Table.AddColumn(respTable1 , "LowerMargins", (row) => row[ExpectedValues] -  row[LowerMargin]),
     respTable3 = Table.RemoveColumns(respTable2, "UpperMargin"),
@@ -112,7 +112,7 @@ En el Editor avanzado, use el siguiente fragmento de Power Query M para extraer 
  in results
 ```
 
-Invoque la consulta en la hoja de datos seleccionando `Sheet1` debajo de **Escribir parámetro** y haga clic en **Invocar**. 
+Invoque la consulta en la hoja de datos seleccionando `Sheet1` debajo de **Escribir parámetro** y haga clic en **Invocar**.
 
 ![Una imagen del botón "Editor avanzado"](../media/tutorials/invoke-function-screenshot.png)
 
@@ -121,23 +121,23 @@ Invoque la consulta en la hoja de datos seleccionando `Sheet1` debajo de **Escri
 > [!NOTE]
 > Conozca las directivas de la organización sobre la privacidad y el acceso a datos. Consulte los [niveles de privacidad de Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-privacy-levels) para más información.
 
-Es posible que reciba un mensaje de advertencia cuando intente ejecutar la consulta ya que usa un origen de datos externo. 
+Es posible que reciba un mensaje de advertencia cuando intente ejecutar la consulta ya que usa un origen de datos externo.
 
 ![Una imagen que muestra una advertencia creada por Power BI](../media/tutorials/blocked-function.png)
 
-Para solucionar este problema, haga clic en **Archivo** y en **Opciones y configuración**. Después, haga clic en **Opciones**. A continuación, en **Archivo actual**, seleccione **Privacidad** e **Ignorar los niveles de privacidad y mejorar el rendimiento potencialmente**. 
+Para solucionar este problema, haga clic en **Archivo** y en **Opciones y configuración**. Después, haga clic en **Opciones**. A continuación, en **Archivo actual**, seleccione **Privacidad** e **Ignorar los niveles de privacidad y mejorar el rendimiento potencialmente**.
 
 Además, puede recibir un mensaje que le pide que especifique cómo desea conectarse a la API.
 
 ![Una imagen que muestra una solicitud para especificar las credenciales de acceso](../media/tutorials/edit-credentials-message.png)
 
-Para solucionar este problema, haga clic en **Editar credenciales** en el mensaje. Después de que aparezca el cuadro de diálogo, seleccione **Anónimo** para conectarse a la API de forma anónima. Haga clic en **Conectar**. 
+Para solucionar este problema, haga clic en **Editar credenciales** en el mensaje. Después de que aparezca el cuadro de diálogo, seleccione **Anónimo** para conectarse a la API de forma anónima. Haga clic en **Conectar**.
 
 Después, haga clic en **Cerrar y aplicar** en la pestaña **Inicio** de la cinta de opciones para aplicar los cambios.
 
 ## <a name="visualize-the-anomaly-detector-api-response"></a>Visualización de la respuesta de Anomaly Detector API
 
-En la pantalla principal de Power BI, empiece a usar las consultas que creó anteriormente para visualizar los datos. Primero, seleccione **Gráfico de líneas** en **Visualizaciones**. A continuación, agregue la marca de tiempo desde la función invocada al **eje** del gráfico de líneas. Haga clic con el botón derecho en él y seleccione **Marca de tiempo**. 
+En la pantalla principal de Power BI, empiece a usar las consultas que creó anteriormente para visualizar los datos. Primero, seleccione **Gráfico de líneas** en **Visualizaciones**. A continuación, agregue la marca de tiempo desde la función invocada al **eje** del gráfico de líneas. Haga clic con el botón derecho en él y seleccione **Marca de tiempo**.
 
 ![Hacer clic con el botón derecho en el valor de marca de tiempo](../media/tutorials/timestamp-right-click.png)
 

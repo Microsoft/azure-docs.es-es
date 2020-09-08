@@ -3,12 +3,12 @@ title: Concepto de grafo multimedia en Azure
 description: Un grafo multimedia le permite definir dónde se debe capturar el elemento multimedia, cómo se debe procesar y dónde se deben entregar los resultados. En este artículo se ofrece una descripción detallada del concepto de grafo multimedia.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 02e960e917a059afdb0d688c7429d27d8e8a48eb
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 8c6775da6804b5079c89cae73d4621dd8067e90a
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300814"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798846"
 ---
 # <a name="media-graph"></a>Grafo multimedia
 
@@ -79,7 +79,11 @@ El nodo del procesador de filtros de velocidad de fotogramas permite muestrear l
 
 #### <a name="http-extension-processor"></a>Procesador de extensiones HTTP
 
-El nodo del procesador de extensiones HTTP permite conectar su propio módulo de IoT Edge a un grafo multimedia. Este nodo adopta los fotogramas de vídeo descodificados como entrada y los retransmite a un punto de conexión de HTTP REST expuesto por el módulo. Este nodo tiene la capacidad de autenticarse con el punto de conexión de REST, si es necesario. Además, el nodo tiene un formateador de imagen integrado para escalar y codificar los fotogramas de vídeo antes de retransmitirlos al punto de conexión de REST. El escalador tiene opciones para conservar, rellenar o ajustar la relación de aspecto de la imagen. El codificador de imágenes admite los formatos jpeg, png o bmp.
+El nodo del procesador de extensiones HTTP permite conectar su propio módulo de IoT Edge a un grafo multimedia. Este nodo adopta los fotogramas de vídeo descodificados como entrada y los retransmite a un punto de conexión de HTTP REST expuesto por el módulo. Este nodo tiene la capacidad de autenticarse con el punto de conexión de REST, si es necesario. Además, el nodo tiene un formateador de imagen integrado para escalar y codificar los fotogramas de vídeo antes de retransmitirlos al punto de conexión de REST. El escalador tiene opciones para conservar, rellenar o ajustar la relación de aspecto de la imagen. El codificador de imágenes admite los formatos JPEG, PNG o BMP.
+
+#### <a name="grpc-extension-processor"></a>Procesador de extensiones gRPC
+
+Este nodo procesador de extensiones gRPC toma los fotogramas de vídeo descodificados como entrada y los retransmite a un punto de conexión [gRPC](terminology.md#grpc) expuesto por el módulo. Además, el nodo tiene un formateador de imagen integrado para escalar y codificar los fotogramas de vídeo antes de retransmitirlos al punto de conexión gRPC. El escalador tiene opciones para conservar, rellenar o ajustar la relación de aspecto de la imagen. El codificador de imágenes admite los formatos jpeg, png o bmp.
 
 #### <a name="signal-gate-processor"></a>Procesador de la puerta de señales  
 
@@ -101,7 +105,7 @@ Un nodo receptor de mensajes de IoT Hub permite publicar eventos en el centro de
 
 ## <a name="rules-on-the-use-of-nodes"></a>Reglas sobre el uso de los nodos
 
-Consulte las [cuotas](quotas-limitations.md#limitations-on-graph-topologies-at-preview) para obtener más reglas sobre cómo se pueden usar diferentes nodos dentro de un grafo multimedia.
+Consulte las [limitaciones de las topologías de grafo](quotas-limitations.md#limitations-on-graph-topologies-at-preview) para obtener más reglas sobre cómo se pueden usar diferentes nodos dentro de un grafo multimedia.
 
 ## <a name="scenarios"></a>Escenarios
 

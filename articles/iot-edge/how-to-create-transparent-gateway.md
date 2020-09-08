@@ -4,19 +4,19 @@ description: Uso de un dispositivo Azure IoT Edge como una puerta de enlace tran
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/02/2020
+ms.date: 08/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 0155294777e1d732e5ff3874102b90049d9a123d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf7147ca1295c9f2cef5d89c232f2c266075e362
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782592"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167409"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configuración de un dispositivo IoT Edge para que actúe como puerta de enlace transparente
 
@@ -93,15 +93,19 @@ En escenarios de producción, debe generar estos archivos con su propia entidad 
    * Windows: `Restart-Service iotedge`
    * Linux: `sudo systemctl restart iotedge`
 
-## <a name="deploy-edgehub-to-the-gateway"></a>Implementación de EdgeHub en la puerta de enlace
+## <a name="deploy-edgehub-and-route-messages"></a>Implementación de edgeHub y enrutado de mensajes
 
-Cuando se instala IoT Edge por primera vez en un dispositivo, se inicia automáticamente un único módulo del sistema: el agente de IoT Edge. Una vez que se crea la primera implementación para un dispositivo, también se inicia el segundo módulo del sistema, el centro de IoT Edge.
+Los dispositivos de nivel inferior envían datos de telemetría y mensajes al dispositivo de puerta de enlace, donde el módulo del centro de IoT Edge es responsable de enrutar la información a otros módulos o a IoT Hub. Para preparar el dispositivo de puerta de enlace para esta función, asegúrese de que:
 
-El centro de IoT Edge es responsable de recibir los mensajes entrantes de los dispositivos de bajada y enrutarlos al siguiente destino. Si el módulo **edgeHub** no está en ejecución en el dispositivo, cree una implementación inicial para el dispositivo. La implementación parecerá vacía porque no agrega ningún módulo, pero garantizará que se ejecutan ambos módulos del sistema.
+* El módulo del centro de IoT Edge se implementa en el dispositivo.
 
-Puede comprobar los módulos que se ejecutan en un dispositivo mediante la comprobación de los detalles del dispositivo en Azure Portal, la visualización del estado del dispositivo en Visual Studio o Visual Studio Code o mediante la ejecución del comando `iotedge list` en el propio dispositivo.
+  Cuando se instala IoT Edge por primera vez en un dispositivo, se inicia automáticamente un único módulo del sistema: el agente de IoT Edge. Una vez que se crea la primera implementación para un dispositivo, también se inicia el segundo módulo del sistema, el centro de IoT Edge. Si el módulo **edgeHub** no está en ejecución en el dispositivo, cree una implementación para el dispositivo.
 
-Si el módulo **edgeAgent** se ejecuta sin el módulo **edgeHub**, siga estos pasos:
+* El módulo del centro de IoT Edge tiene rutas configuradas para administrar los mensajes entrantes de los dispositivos de nivel inferior.
+
+  El dispositivo de puerta de enlace tiene que tener una ruta para administrar los mensajes de los dispositivos de nivel inferior o, de lo contrario, los mensajes no se procesarán. Puede enviar los mensajes a los módulos del dispositivo de puerta de enlace o directamente a IoT Hub.
+
+Para implementar el módulo del centro de IoT Edge y configurarlo con rutas para administrar los mensajes entrantes de los dispositivos de nivel inferior, siga estos pasos:
 
 1. En Azure Portal, vaya hasta el centro de IoT.
 
@@ -109,13 +113,27 @@ Si el módulo **edgeAgent** se ejecuta sin el módulo **edgeHub**, siga estos pa
 
 3. Seleccione **Set modules** (Establecer módulos).
 
-4. Seleccione **Siguiente: Rutas**.
+4. En la página **Módulos**, puede agregar cualquier módulo que desee implementar en el dispositivo de puerta de enlace. Para los fines de este artículo, nos centramos en la configuración e implementación del módulo edgeHub, que no es necesario establecer explícitamente en esta página.
 
-5. En la página **Rutas**, debe tener una ruta predeterminada que envíe todos los mensajes, ya sea desde un módulo o desde un dispositivo de bajada, a IoT Hub. Si no, agregue una nueva ruta con los siguientes valores y seleccione **Revisar y crear**:
-   * **Nombre**: `route`
-   * **Valor**: `FROM /messages/* INTO $upstream`
+5. Seleccione **Siguiente: Rutas**.
 
-6. En la página **Revisar y crear**, seleccione **Crear**.
+6. En la página **Rutas**, asegúrese de que hay una ruta para controlar los mensajes procedentes de los dispositivos de nivel inferior. Por ejemplo:
+
+   * Ruta que envía todos los mensajes, ya sea desde un módulo o desde un dispositivo de nivel inferior, a IoT Hub:
+       * **Nombre**: `allMessagesToHub`
+       * **Valor**: `FROM /messages/* INTO $upstream`
+
+   * Una ruta que envía todos los mensajes de todos los dispositivos de nivel inferior a IoT Hub:
+      * **Nombre**: `allDownstreamToHub`
+      * **Valor**: `FROM /messages/* WHERE NOT IS_DEFINED ($connectionModuleId) INTO $upstream`
+
+      Esta ruta funciona porque, a diferencia de los mensajes de Ios módulos de IoT Edge, los mensajes de los dispositivos de nivel inferior no tienen un identificador de módulo asociado. El uso de la cláusula **WHERE** de la ruta nos permite filtrar los mensajes que contengan esa propiedad del sistema.
+
+      Para obtener más información sobre el enrutamiento de mensajes, vea [Implementar módulos y establecer rutas](./module-composition.md#declare-routes).
+
+7. Una vez creadas las rutas, seleccione **Revisar y crear**.
+
+8. En la página **Revisar y crear**, seleccione **Crear**.
 
 ## <a name="open-ports-on-gateway-device"></a>Apertura de puertos en el dispositivo de puerta de enlace
 
@@ -128,25 +146,6 @@ Para que un escenario de puerta de enlace funcione, al menos uno de los protocol
 | 8883 | MQTT |
 | 5671 | AMQP |
 | 443 | HTTPS <br> MQTT + WS <br> AMQP + WS |
-
-## <a name="route-messages-from-downstream-devices"></a>Enrutamiento de mensajes desde dispositivos de bajada
-
-El entorno de ejecución de Azure IoT Edge puede enrutar los mensajes enviados desde dispositivos de bajada igual que los mensajes enviados por los módulos. Esta característica permite realizar análisis en un módulo que se ejecuta en la puerta de enlace antes de enviar datos a la nube.
-
-Actualmente, la manera de enrutar los mensajes enviados por los dispositivos de bajada es diferenciándolos de los mensajes enviados por los módulos. Los mensajes enviados por los módulos contienen una propiedad del sistema denominada **connectionModuleId**, pero los mensajes enviados por los dispositivos de bajada no la tienen. Puede usar la cláusula WHERE de la ruta para excluir los mensajes que contengan dicha propiedad del sistema.
-
-La siguiente ruta es un ejemplo que enviaría mensajes desde cualquier dispositivo de bajada a un módulo denominado `ai_insights` y, a continuación, desde `ai_insights` a IoT Hub.
-
-```json
-{
-    "routes":{
-        "sensorToAIInsightsInput1":"FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO BrokeredEndpoint(\"/modules/ai_insights/inputs/input1\")",
-        "AIInsightsToIoTHub":"FROM /messages/modules/ai_insights/outputs/output1 INTO $upstream"
-    }
-}
-```
-
-Para obtener más información sobre el enrutamiento de mensajes, vea [Implementar módulos y establecer rutas](./module-composition.md#declare-routes).
 
 ## <a name="enable-extended-offline-operation"></a>Habilitación del funcionamiento sin conexión extendido
 

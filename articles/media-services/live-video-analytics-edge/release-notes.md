@@ -2,13 +2,13 @@
 title: 'Notas de la versión de Live Video Analytics on IoT Edge: Azure'
 description: En este tema se proporcionan las notas de la versión sobre las mejoras, las versiones, las correcciones de errores y los problemas conocidos de Live Video Analytics on IoT Edge.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: 28260728532d9db52b8d36488c2e456bd11803ea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/19/2020
+ms.openlocfilehash: 23c2362d46a0b9bfe2fc2fbe31e00d0a42f80cfa
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091786"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055454"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Notas de la versión de Live Video Analytics on IoT Edge
 
@@ -21,12 +21,35 @@ En este artículo se proporciona información acerca de lo siguiente:
 * Corrección de errores
 * Funciones obsoletas
 
+## <a name="august-19-2020"></a>19 de agosto de 2020
+
+La etiqueta de versión de la actualización de agosto de 2020 del módulo es la siguiente:
+
+```
+mcr.microsoft.com/media/live-video-analytics:1.0.3
+```
+
+> [!NOTE]
+> En los inicios rápido y tutoriales, los manifiestos de implementación usan una etiqueta de 1 (live-video-analytics:1). Por lo tanto, con solo repetir la implementación de tales manifiestos se actualizará el módulo en los dispositivos perimetrales.
+
+## <a name="new-features"></a>Nuevas características 
+
+* Ahora puede obtener un alto rendimiento de la transferencia de contenido de datos entre Live Video Analytics en IoT Edge y su extensión personalizada mediante el marco de gRPC. Consulte [aquí](analyze-live-video-use-your-grpc-model-quickstart.md) para empezar.
+* Implementación regional más amplia de Live Video Analytics y solo se ha actualizado el servicio en la nube.  
+* Live Video Analytics ahora está disponible en otras 25 regiones de todo el mundo. A continuación, se muestra la [lista](https://azure.microsoft.com/global-infrastructure/services/?products=media-services) de todas las regiones disponibles.  
+* La [configuración](https://aka.ms/lva-edge/setup-resources-for-samples) de los inicios rápidos se actualizó también con compatibilidad con regiones nuevas.
+    * No hay ninguna llamada a la acción para ningún usuario que ya haya configurado los recursos.
+
+## <a name="bug-fixes"></a>Corrección de errores 
+
+* Eliminación del uso de una extensión de Azure en desuso en el script de configuración.
+
 ## <a name="july-13-2020"></a>13 de julio de 2020
 
 La etiqueta de versión de la actualización de julio de 2020 del módulo es la siguiente:
 
 ```
-     mcr.microsoft.com/media/live-video-analytics:1.0.2
+mcr.microsoft.com/media/live-video-analytics:1.0.2
 ```
 
 > [!NOTE]

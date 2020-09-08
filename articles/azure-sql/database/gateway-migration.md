@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 30e57736d0b0e40eb01573d6acca2c618dcf6ee3
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: af5486630eb89de198b6ed2975a919b04b01a902
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87759706"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507525"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migración de tráfico de Azure SQL Database a puertas de enlace más recientes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -28,21 +28,43 @@ Se enviará un aviso a los clientes por correo electrónico y en Azure Portal co
 
 # <a name="in-progress"></a>[En curso](#tab/in-progress-ip)
 ### <a name="september-2020"></a>Septiembre de 2020
+Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones. Estas puertas de enlace de SQL comenzarán a aceptar el tráfico del cliente a partir del **15 de septiembre de 2020**:
 
-Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones. Estas puertas de enlace de SQL comenzarán a aceptar el tráfico del cliente a partir del 10 de septiembre de 2020:
+- Sudeste de Australia: 13.77.48.10
+- Este de Canadá: 40.86.226.166, 52.242.30.154
+- Sur de Reino Unido: 51.140.184.11, 51.105.64.0
+
+Las puertas de enlace de SQL existentes comenzarán a aceptar tráfico en las siguientes regiones. Estas puertas de enlace de SQL comenzarán a aceptar el tráfico del cliente a partir del **15 de septiembre de 2020**:
+
+- Sudeste de Australia: 191.239.192.109 y 13.73.109.251
+- Centro de EE. UU.: 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96 y 104.208.21.1
+- Este de Asia: 191.234.2.139, 52.175.33.150 y 13.75.32.4
+- Este de EE. UU.: 40.121.158.30, 40.79.153.12, 191.238.6.43 y 40.78.225.32
+- Este de EE. UU. 2: 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107 y 104.208.150.3
+- Centro de Francia: 40.79.137.0 y 40.79.129.1
+- Japón Occidental: 104.214.148.156, 40.74.100.192, 191.238.68.11 y 40.74.97.10
+- Centro-norte de EE. UU.: 23.96.178.199, 23.98.55.75 y 52.162.104.33
+- Sudeste de Asia: 104.43.15.0, 23.100.117.95 y 40.78.232.3
+- Oeste de EE. UU.: 104.42.238.205, 23.99.34.75 y 13.86.216.196
+
+Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones. Estas puertas de enlace de SQL comenzarán a aceptar el tráfico del cliente a partir del **10 de septiembre de 2020**:
 
 - Centro-oeste de EE. UU.: 13.78.248.43 
 - Norte de Sudáfrica: 102.133.120.2  
 
-Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones. Estas puertas de enlace de SQL comenzarán a aceptar el tráfico del cliente a partir del 1 de septiembre de 2020:
+Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones. Estas puertas de enlace de SQL comenzarán a aceptar el tráfico del cliente a partir del **1 de septiembre de 2020**:
 
 - Norte de Europa: 13.74.104.113 
 - Oeste de EE. UU. 2: 40.78.248.10 
 - Oeste de Europa: 52.236.184.163 
 - Centro y Sur de EE. UU.: 20.45.121.1, 20.49.88.1 
 
-Las puertas de enlace de SQL existentes comenzarán a aceptar tráfico en las siguientes regiones. Estas puertas de enlace de SQL comenzarán a aceptar el tráfico del cliente a partir del 1 de septiembre de 2020. :
+Las puertas de enlace de SQL existentes comenzarán a aceptar tráfico en las siguientes regiones. Estas puertas de enlace de SQL comenzarán a aceptar el tráfico del cliente a partir del **1 de septiembre de 2020**:
 - Este de Japón: 40.79.184.8, 40.79.192.5
+
+# <a name="completed"></a>[Completado](#tab/completed-ip)
+
+Se han completado las siguientes migraciones de puerta de enlace: 
 
 ### <a name="august-2020"></a>Agosto de 2020
 
@@ -53,10 +75,6 @@ Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones:
 - Oeste de EE. UU. 2: 40.78.240.8
 
 Estas puertas de enlace de SQL comenzarán a aceptar el tráfico del cliente el 10 de agosto de 2020. 
-
-# <a name="completed"></a>[Completado](#tab/completed-ip)
-
-Se han completado las siguientes migraciones de puerta de enlace: 
 
 ### <a name="october-2019"></a>Octubre de 2019
 - Sur de Brasil

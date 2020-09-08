@@ -2,14 +2,14 @@
 title: Azure Application Insights para aplicaciones web de JavaScript
 description: Obtenga recuentos de sesiones y vistas de página, además de datos de cliente web y Aplicaciones de página única, y realice el seguimiento de los patrones de uso. Detecte problemas de rendimiento y excepciones en páginas web de JavaScript.
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 08/06/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: e0545660cbca68d41bc24b7266496b7912d408bc
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 3acb7379644b5bfcb22ed86b6bde7031095fef24
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531326"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224860"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas web
 
@@ -107,10 +107,10 @@ Las opciones de configuración disponibles son las siguientes:
 | Nombre | Tipo | Descripción
 |------|------|----------------
 | src | string **[obligatorio]** | Dirección URL completa desde la que se va a cargar el SDK. Este valor se usa para el atributo "src" de una etiqueta &lt;script /&gt; agregada dinámicamente. Puede usar la ubicación de la red CDN pública o la suya propia hospedada de forma privada.
-| name | cadena *[opcional]* | El nombre global del SDK inicializado. El valor predeterminado es appInsights. Por lo tanto, ```window.appInsights``` será una referencia a la instancia inicializada. Nota: Si proporciona un valor de nombre o una instancia anterior parece estar asignada (mediante el nombre global appInsightsSDK), este valor de nombre también se definirá en el espacio de nombres global como ```window.appInsightsSDK=<name value>```. El código de inicialización del SDK requiere todo esto para asegurarse de que está inicializando y actualizando los métodos de proxy y esqueleto del fragmento de código correctos.
+| name | cadena *[opcional]* | El nombre global del SDK inicializado. El valor predeterminado es `appInsights`. Por lo tanto, ```window.appInsights``` será una referencia a la instancia inicializada. Nota: Si proporciona un valor de nombre o una instancia anterior parece estar asignada (mediante el nombre global appInsightsSDK), este valor de nombre también se definirá en el espacio de nombres global como ```window.appInsightsSDK=<name value>```. El código de inicialización del SDK requiere todo esto para asegurarse de que está inicializando y actualizando los métodos de proxy y esqueleto del fragmento de código correctos.
 | ld | número en ms *[opcional]* | Define el retraso de carga que se debe esperar antes de intentar cargar el SDK. El valor predeterminado es 0 ms y cualquier valor negativo agregará una etiqueta de script inmediatamente a la región &lt;head&gt; de la página, que luego bloqueará el evento de carga de la página hasta que se cargue el script (o se produzca un error).
 | useXhr | booleano *[opcional]* | Este valor solo se usa para notificar errores de carga del SDK. Los informes intentarán primero usar fetch() si está disponible y luego recurrirán a XHR. Si establece este valor en true, simplemente se omitirá la comprobación de fetch. El uso de este valor solo es necesario si la aplicación se usa en un entorno en el que fetch no enviaría los eventos de error.
-| crossOrigin | cadena *[opcional]* | Al incluir este valor, la etiqueta de script agregada para descargar el SDK incluirá el atributo crossOrigin con este valor de cadena. Cuando no se define (que es la opción predeterminada), no se agrega ningún atributo crossOrigin. Los valores recomendados no se definen (que es la opción predeterminada); ""; o "anonymous" (para todos los valores válidos, consulte la documentación [Atributo HTML: crossorigin](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin))
+| crossOrigin | cadena *[opcional]* | Al incluir este valor, la etiqueta de script agregada para descargar el SDK incluirá el atributo crossOrigin con este valor de cadena. Cuando no se define (que es la opción predeterminada), no se agrega ningún atributo crossOrigin. Los valores recomendados no se definen (que es la opción predeterminada); ""; o "anonymous" (para todos los valores válidos, consulte la documentación [Atributo HTML: `crossorigin`](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin))
 | cfg | objeto **[obligatorio]** | Se trata de la configuración pasada al SDK de Application Insights durante la inicialización.
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Envío de telemetría a Azure Portal
@@ -195,9 +195,9 @@ La mayoría de los campos de configuración tienen un nombre que permite estable
 | enableResponseHeaderTracking | false | Si es true, se realiza un seguimiento de los encabezados de respuesta de solicitud AJAX y Fetch. El valor predeterminado es false.
 | distributedTracingMode | `DistributedTracingModes.AI` | Establece del modo de seguimiento distribuido. Si se establece el modo AI_AND_W3C o el modo W3C, se generarán los encabezados de contexto de seguimiento W3C (traceparent/tracestate) y se incluirán en todas las solicitudes salientes. AI_AND_W3C se proporciona para la compatibilidad con versiones anteriores de cualquier servicio instrumentado de Application Insights heredado. Consulte el ejemplo [aquí](./correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
 | enableAjaxErrorStatusText | false | El valor predeterminado es false. Si es true, incluye el texto de datos de error de respuesta en el evento de dependencia en solicitudes AJAX erróneas.
-| enableAjaxPerfTracking | false | El valor predeterminado es false. Marca para habilitar la búsqueda y la inclusión de intervalos de window.performance de explorador adicionales en las métricas notificadas de AJAX (XHR y Fecth).
+| enableAjaxPerfTracking | false | El valor predeterminado es false. Marca para habilitar la búsqueda y la inclusión de intervalos de window.performance de explorador adicionales en las métricas notificadas de `ajax` (XHR y Fetch).
 | maxAjaxPerfLookupAttempts | 3 | El valor predeterminado es 3. Número máximo de veces que se deben buscar los intervalos de window.performance (si están disponibles). Esto es necesario, ya que no todos los exploradores rellenan window.performance antes de notificar el final de la solicitud de XHR y para las solicitudes de fetch se agregan después de su terminación.
-| ajaxPerfLookupDelay | 25 | Su valor predeterminado es 25 ms. Cantidad de tiempo que hay que esperar antes de volver a intentar encontrar los intervalos de windows.performance para una solicitud AJAX. El tiempo se da en milisegundos y se pasa directamente a setTimeout().
+| ajaxPerfLookupDelay | 25 | Su valor predeterminado es 25 ms. Cantidad de tiempo que hay que esperar antes de volver a intentar encontrar los intervalos de windows.performance para una solicitud `ajax`. El tiempo se da en milisegundos y se pasa directamente a setTimeout().
 | enableUnhandledPromiseRejectionTracking | false | Si es true, los rechazos de promise no controlados se recopilarán automáticamente y se notificarán como un error de JavaScript. Cuando disableExceptionTracking es true (no realizar seguimiento de excepciones), el valor de configuración se omite y los rechazos de promise no controlados no se notifican.
 
 ## <a name="single-page-applications"></a>Aplicaciones de página única
@@ -217,8 +217,40 @@ Al establecer `autoTrackPageVisitTime: true`, se realiza un seguimiento del tiem
 
 | Extensiones |
 |---------------|
-| [React](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md)|
-| [React Native](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-native/README.md)|
+| [React](javascript-react-plugin.md)|
+| [React Native](javascript-react-native-plugin.md)|
+
+## <a name="correlation"></a>Correlación
+
+La correlación entre el cliente y el servidor es compatible con:
+
+- Solicitudes XHR/AJAX 
+- Solicitudes Fetch 
+
+La correlación entre el cliente y el servidor **no es compatible** con solicitudes `GET` ni `POST`.
+
+### <a name="enable-cross-component-correlation-between-client-ajax-and-server-requests"></a>Habilitación de la correlación entre componentes entre las solicitudes de servidor y AJAX de cliente
+
+Para habilitar la correlación `CORS`, el cliente debe enviar dos encabezados de solicitud adicionales `Request-Id` y `Request-Context`, y el lado servidor debe poder aceptar conexiones con los encabezados presentes. El envío de estos encabezados se habilita estableciendo `enableCorsCorrelation: true` dentro de la configuración del SDK de JavaScript. 
+
+En función de la configuración de `Access-Control-Allow-Headers` en el lado servidor, a menudo es necesario extender la lista del lado servidor mediante la adición manual de `Request-Id` y `Request-Context`.
+
+Access-Control-Allow-Headers: `Request-Id`, `Request-Context`, `<your header>`
+
+Si alguno de los servidores de terceros con los que se comunica el cliente no puede aceptar los encabezados `Request-Id` y `Request-Context`, y no es posible actualizar su configuración, deberá colocarlos en una lista de exclusión a través de la propiedad de configuración `correlationHeaderExcludeDomains`. Esta propiedad admite caracteres comodín.
+
+```javascript
+// excerpt of the config section of the JavaScript SDK snippet with correlation
+// between client-side AJAX and server requests enabled.
+cfg: { // Application Insights Configuration
+    instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE"
+    enableCorsCorrelation: true,
+    correlationHeaderExcludedDomains: ['myapp.azurewebsites.net', '*.queue.core.windows.net']
+    /* ...Other Configuration Options... */
+}});
+</script>
+
+``` 
 
 ## <a name="explore-browserclient-side-data"></a>Exploración de datos del explorador o del lado cliente
 

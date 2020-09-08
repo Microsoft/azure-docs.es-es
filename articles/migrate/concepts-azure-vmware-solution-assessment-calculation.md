@@ -6,14 +6,14 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/25/2020
 ms.author: mahain
-ms.openlocfilehash: 84798dbcd158b62ce6714bf73494a9e85bf932a8
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 3469b612081f9cb96beec98a065e0827d1c04b4c
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387955"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88261844"
 ---
-# <a name="avs-assessments-in-azure-migrate-server-assessment"></a>Evaluaciones de Azure VMware Solution en Azure Migrate: Server Assessment
+# <a name="server-assessment-overview-migrate-to-azure-vmware-solution"></a>Introducción a la evaluación del servidor (migración a Azure VMware Solution)
 
 [Azure Migrate](migrate-services-overview.md) proporciona un centro principal para realizar el seguimiento de la detección, evaluación y migración de las aplicaciones y cargas de trabajo locales. También realiza un seguimiento de las instancias de nube privada y pública en Azure. El centro proporciona herramientas de Azure Migrate para la evaluación y la migración, así como ofertas de proveedores de software independientes (ISV).
 

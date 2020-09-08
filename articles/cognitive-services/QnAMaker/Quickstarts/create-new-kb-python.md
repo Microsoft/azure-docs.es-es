@@ -5,12 +5,12 @@ ms.date: 12/16/2019
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27, devx-track-python
 ms.topic: how-to
-ms.openlocfilehash: eea54d493a27373a682b361ab7138ae1fa527362
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: afee82b66f9803333e27f029ecb487a47ba5dd9e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873065"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259734"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-python"></a>Guía de inicio rápido: creación de una base de conocimiento en QnA Maker mediante Python
 
@@ -37,7 +37,7 @@ Cree un archivo llamado `create-new-knowledge-base-3x.py`.
 
 En la parte superior de `create-new-knowledge-base-3x.py`, agregue las líneas siguientes para agregar las dependencias necesarias al proyecto:
 
-[!code-python[Add the required dependencies](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=1-1 "Add the required dependencies")]
+:::code language="python" source="~/cognitive-services-quickstart-code/python/QnAMaker/rest/create-kb.py" id="dependencies":::
 
 ## <a name="add-the-required-constants"></a>Incorporación de las constantes necesarias
 Después de las dependencias necesarias anteriores, agregue las constantes necesarias para acceder a QnA Maker. Sustituya el valor de `<your-qna-maker-subscription-key>` y `<your-resource-name>` por su propia clave y nombre de recurso de QnA Maker.
@@ -49,26 +49,26 @@ Establezca los valores siguientes:
 * `<your-qna-maker-subscription-key>`: la **clave** es una cadena de 32 caracteres y está disponible en Azure Portal, en el recurso de QnA Maker, en la página de inicio rápido. Esta clave no es la misma que la clave de punto de conexión de predicción.
 * `<your-resource-name>`: el **nombre del recurso** se usa para construir la dirección URL del punto de conexión de creación con el formato `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Esta no es la misma dirección URL que se utiliza para consultar el punto de conexión de predicción.
 
-[!code-python[Add the required constants](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=5-13 "Add the required constants")]
+:::code language="python" source="~/cognitive-services-quickstart-code/python/QnAMaker/rest/create-kb.py" id="constants":::
 
 ## <a name="add-the-kb-model-definition"></a>Incorporación de la definición del modelo de la base de conocimiento
 
 Después de las constantes, agregue la siguiente definición de la base de conocimiento. El modelo se convertirá en una cadena después de la definición.
 
-[!code-python[Add the KB model definition](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=15-41 "Add the KB model definition")]
+:::code language="python" source="~/cognitive-services-quickstart-code/python/QnAMaker/rest/create-kb.py" id="model":::
 
 ## <a name="add-supporting-function"></a>Incorporación de funciones auxiliares
 
 Agregue la siguiente función para imprimir el código JSON en un formato legible:
 
-[!code-python[Add supporting function](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=43-45 "Add supporting function")]
+:::code language="python" source="~/cognitive-services-quickstart-code/python/QnAMaker/rest/create-kb.py" id="pretty":::
 
 ## <a name="add-function-to-create-kb"></a>Incorporación de la función para crear una base de conocimiento
 
 Agregue la siguiente función para realizar una solicitud HTTP POST a fin de crear la base de conocimiento.
 Esta llamada API devuelve una respuesta JSON que incluye el identificador de operación en el campo de encabezado **Location**. Use el identificador de operación para determinar si se ha creado correctamente la base de conocimiento. `Ocp-Apim-Subscription-Key` es la clave del servicio QnA Maker, usada para la autenticación.
 
-[!code-python[Add function to create KB](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=48-59 "Add function to create KB")]
+:::code language="python" source="~/cognitive-services-quickstart-code/python/QnAMaker/rest/create-kb.py" id="create_kb":::
 
 Esta llamada API devuelve una respuesta JSON que incluye el identificador de operación. Use el identificador de operación para determinar si se ha creado correctamente la base de conocimiento.
 
@@ -86,7 +86,7 @@ Esta llamada API devuelve una respuesta JSON que incluye el identificador de ope
 
 La siguiente función comprueba el envío del estado de creación en el identificador de operación al final de la ruta de dirección URL. La llamada a `check_status` está dentro del bucle _while_ principal.
 
-[!code-python[Add function to check creation status](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=61-67 "Add function to check creation status")]
+:::code language="python" source="~/cognitive-services-quickstart-code/python/QnAMaker/rest/create-kb.py" id="get_status":::
 
 Esta llamada API devuelve una respuesta JSON que incluye el estado de la operación:
 
@@ -116,7 +116,7 @@ Repita la llamada hasta obtener éxito o error:
 ## <a name="add-main-code-block"></a>Incorporación del bloque de código principal
 El siguiente bucle sondea el estado de la operación de creación periódicamente hasta que se completa.
 
-[!code-python[Add main code block](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=70-96 "Add main code block")]
+:::code language="python" source="~/cognitive-services-quickstart-code/python/QnAMaker/rest/create-kb.py" id="main":::
 
 ## <a name="build-and-run-the-program"></a>Compilar y ejecutar el programa
 

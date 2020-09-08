@@ -13,16 +13,16 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: 9ead7eb19e49574073f038648ca1d247b2dab98f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: b478272ff790121d914a51f8ee4c5cf250134f4d
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131708"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923890"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Uso compartido de paneles de Azure mediante el control de acceso basado en rol
 
-Después de configurar un panel, puede publicarlo y compartirlo con otros usuarios de su organización. Mediante el [control de acceso basado en rol](../role-based-access-control/role-assignments-portal.md) (RBAC) de Azure puede permitir que otros usuarios vean su panel. Asigne un rol a un usuario o a un grupo de usuarios. Ese rol define si esos usuarios pueden ver o modificar el panel publicado.
+Después de configurar un panel, puede publicarlo y compartirlo con otros usuarios de su organización. Mediante el [control de acceso basado en rol de Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) puede permitir que otros usuarios vean su panel. Asigne un rol a un usuario o a un grupo de usuarios. Ese rol define si esos usuarios pueden ver o modificar el panel publicado.
 
 Todos los paneles publicados se implementan como recursos de Azure. Existen como elementos administrables dentro de su suscripción y están contenidos en un grupo de recursos. Desde una perspectiva de control de acceso, los paneles no son distintos de otros recursos como una máquina virtual o una cuenta de almacenamiento.
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 80a38c069f937783b60ede46bc4319253798ff44
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: c5afd7d912142dd8556e71ba9e0a522b2fa0da1c
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431644"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684599"
 ---
 # <a name="deploy-server-rendered-nextjs-websites-on-azure-static-web-apps-preview"></a>Implementación de sitios web de Next.js representados por el servidor en Azure Static Web Apps (versión preliminar)
 
@@ -57,7 +57,7 @@ Para comenzar, cree un repositorio en su cuenta de GitHub desde un repositorio d
     npm run dev
     ```
 
-Vaya a <http://localhost:3000> para abrir la aplicación, donde debería ver el siguiente sitio web abierto en el explorador de su preferencia:
+Vaya a `http://localhost:3000` para abrir la aplicación, donde debería ver el siguiente sitio web abierto en el explorador de su preferencia:
 
 :::image type="content" source="media/deploy-nextjs/start-nextjs-app.png" alt-text="Inicio de la aplicación de Next.js":::
 

@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 05/26/2020
+ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 56d947a6b2d236a04f2b71421a235120a9f02c76
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 52e305f9d50ab0f383810778be681ac41be97c72
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83994196"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509809"
 ---
 # <a name="view-model-details"></a>Ver detalles de los modelos
 
@@ -22,25 +22,25 @@ La pestaña de modelos en el proyecto muestra todos los modelos del proyecto. To
 
 Estos detalles se muestran para todos los modelos del proyecto.
 
-1.  Nombre del modelo: muestra el nombre de un modelo determinado.
+1. Nombre del modelo: muestra el nombre de un modelo determinado.
 
-2.  Estado: muestra el estado de un modelo determinado. El nuevo entrenamiento tendrá el estado Enviado hasta que se acepte. El estado cambiará a Procesamiento de datos mientras el servicio evalúa el contenido de los documentos. Una vez completada la evaluación de los documentos, el estado cambiará a En ejecución y podrá consultar el número de oraciones que forman parte del entrenamiento, incluidos los conjuntos de ajuste y de pruebas que se crearon automáticamente. A continuación se muestra una lista de estados del modelo que describe dichos estados.
+2. Estado: muestra el estado de un modelo determinado. El nuevo entrenamiento tendrá el estado Enviado hasta que se acepte. El estado cambiará a Procesamiento de datos mientras el servicio evalúa el contenido de los documentos. Una vez completada la evaluación de los documentos, el estado cambiará a En ejecución y podrá consultar el número de oraciones que forman parte del entrenamiento, incluidos los conjuntos de ajuste y de pruebas que se crearon automáticamente. A continuación se muestra una lista de estados del modelo que describe dichos estados.
 
-    -  Enviado: especifica que el back-end está procesando los documentos para ese modelo.
+    - Enviado: especifica que el back-end está procesando los documentos para ese modelo.
 
-    -  Entrenamiento en cola: especifica que el entrenamiento se pondrá en la cola del sistema de traducción automática para ese modelo.
+    - Entrenamiento en cola: especifica que el entrenamiento se pondrá en la cola del sistema de traducción automática para ese modelo.
 
-    -  En ejecución: especifica que el entrenamiento se está ejecutando en el sistema de traducción automática para ese modelo.
+    - En ejecución: especifica que el entrenamiento se está ejecutando en el sistema de traducción automática para ese modelo.
 
-    -  Correcto: especifica que el entrenamiento se realizó correctamente en el sistema de traducción automática y que hay un modelo disponible. En este estado, se muestra una puntuación BLEU para ese modelo.
+    - Correcto: especifica que el entrenamiento se realizó correctamente en el sistema de traducción automática y que hay un modelo disponible. En este estado, se muestra una puntuación BLEU para ese modelo.
 
-    -  Implementado: especifica que el modelo entrenado correctamente se envió al sistema de traducción automática para su implementación.
+    - Implementado: especifica que el modelo entrenado correctamente se envió al sistema de traducción automática para su implementación.
 
-    -  Anulando implementación: especifica que se está anulando la implementación del modelo implementado.
+    - Anulando implementación: especifica que se está anulando la implementación del modelo implementado.
 
-    -  Implementación anulada: especifica que el proceso de anulación de la implementación de un modelo se ha completado correctamente.
+    - Implementación anulada: especifica que el proceso de anulación de la implementación de un modelo se ha completado correctamente.
 
-    -  Error de entrenamiento: especifica que no se pudo realizar el entrenamiento. Si se produce un error de entrenamiento, vuelva a ejecutar el trabajo de entrenamiento. Si el error continúa, póngase en contacto con nosotros. No elimine el modelo con errores.
+    - Error de entrenamiento: especifica que no se pudo realizar el entrenamiento. Si se produce un error de entrenamiento, vuelva a ejecutar el trabajo de entrenamiento. Si el error continúa, póngase en contacto con nosotros. No elimine el modelo con errores.
 
     - Error de procesamiento de datos: especifica que hubo un error en el procesamiento de datos en uno o varios documentos que pertenecen al modelo.
 
@@ -48,19 +48,19 @@ Estos detalles se muestran para todos los modelos del proyecto.
 
     - Borrador migrado: especifica que el modelo está en estado de borrador después de la migración del centro de conectividad al Traductor personalizado.
 
-4.  Puntuación BLEU: muestra la puntuación BLEU (suplente de evaluación bilingüe) del modelo, que indica la calidad de su sistema de traducción. Esta puntuación le indica qué tanto se acercan las traducciones del sistema de traducción creado con este entrenamiento a las oraciones de referencia incluidas en el conjunto de datos de prueba. La puntuación BLEU aparece si se ha completado correctamente el entrenamiento. Si el entrenamiento no se completa o devuelve errores, no verá ninguna puntuación BLEU.
+3. Puntuación BLEU: muestra la puntuación BLEU (suplente de evaluación bilingüe) del modelo, que indica la calidad de su sistema de traducción. Esta puntuación le indica qué tanto se acercan las traducciones del sistema de traducción creado con este entrenamiento a las oraciones de referencia incluidas en el conjunto de datos de prueba. La puntuación BLEU aparece si se ha completado correctamente el entrenamiento. Si el entrenamiento no se completa o devuelve errores, no verá ninguna puntuación BLEU.
 
-5.  Recuento de oraciones de entrenamiento: muestra el número total de oraciones usadas como conjunto de entrenamiento.
+4. Recuento de oraciones de entrenamiento: muestra el número total de oraciones usadas como conjunto de entrenamiento.
 
-6.  Recuento de oraciones de optimización: muestra el número total de oraciones usadas como conjunto de optimización.
+5. Recuento de oraciones de optimización: muestra el número total de oraciones usadas como conjunto de optimización.
 
-7.  Recuento de oraciones de entrenamiento: muestra el número total de oraciones usadas como conjunto de pruebas.
+6.  Recuento de oraciones de entrenamiento: muestra el número total de oraciones usadas como conjunto de pruebas.
 
-8.  Recuento de oraciones monolingües: muestra el número total de oraciones usadas como conjunto monolingüe.
+7.  Recuento de oraciones monolingües: muestra el número total de oraciones usadas como conjunto monolingüe.
 
-9.  Botón Implementar acción: para cada modelo entrenado correctamente, se muestra un botón "Implementar" si aún no está implementado. Si el modelo se ha implementado, se muestra un botón "Anular la implementación".
+8.  Botón de acción para implementar: para cada modelo entrenado correctamente, muestra un botón "Implementar" si aún no se implementa. Si el modelo se ha implementado, se muestra un botón "Anular la implementación".
 
-10. Eliminar: puede usar este botón si desea eliminar el modelo. La eliminación de un modelo no elimina ninguno de los documentos que se utilizaron para crearlo.
+9. Eliminar: puede usar este botón si desea eliminar el modelo. La eliminación de un modelo no elimina ninguno de los documentos que se utilizaron para crearlo.
 
     ![Ver detalles de los modelos](media/how-to/how-to-view-model-details.png)
 

@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/03/2020
+ms.date: 08/27/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d2cf1a2e2ab9cf2d6e35aa12b5b0f8ddc04ad0e7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 517acc5137d70c722d8defade1e218a3b2e78f86
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78301965"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89052465"
 ---
 Para crear una red virtual con el modelo de implementación de Resource Manager y Azure Portal, siga los pasos que se indican a continuación. Para más información acerca de redes virtuales, consulte [Introducción a las redes virtuales](../articles/virtual-network/virtual-networks-overview.md).
 
@@ -46,14 +46,13 @@ Para crear una red virtual con el modelo de implementación de Resource Manager 
 
    ![Pestaña Direcciones IP](./media/vpn-gateway-basic-vnet-rm-portal-include/addresses.png "Pestaña Direcciones IP")  
    - **Espacio de direcciones IPv4**: de manera predeterminada, se crea automáticamente un espacio de direcciones. Puede hacer clic en el espacio de direcciones para modificarlo a fin de que refleje sus valores. También puede agregar espacios de direcciones adicionales.
-   - **IPv6**: si la configuración requiere un espacio de direcciones IPv6, seleccione la casilla **Agregar un espacio de direcciones IPv6** para especificar esa información.
    - **Subred**: si usa el espacio de direcciones predeterminado, se crea automáticamente una subred predeterminada. Si cambia el espacio de direcciones, debe agregar una subred. Seleccione **+ Agregar una subred** para abrir la ventana **Agregar subred**. Configure las siguientes opciones y, a continuación, seleccione **Agregar** para agregar los valores:
       - **Nombre de subred**: en este ejemplo, asignamos a la subred el nombre "FrontEnd".
       - **Rango de direcciones de subred**: intervalo de direcciones para esta subred.
 
 1. En la pestaña **Seguridad**, en este momento, deje los valores predeterminados:
 
-   - **Protección contra DDos**: Básica
+   - **Protección contra DDos**: Básico
    - **Firewall**: Disabled
 1. Seleccione **Revisar y crear** para validar la configuración de la red virtual.
 1. Una vez validada la configuración, seleccione **Crear**.

@@ -2,19 +2,19 @@
 title: 'CLI de Azure: Habilitación de claves administradas por el cliente con SSE para discos administrados'
 description: Habilite las claves administradas por el cliente en los discos administrados con la CLI de Azure.
 author: roygara
-ms.date: 07/10/2020
+ms.date: 08/24/2020
 ms.topic: how-to
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: cd1855a4ce2d394559db28448d9f1c9a01b4bd08
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 2acc95190454de2ffdd81a05a6e6cf166a9a6549
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86235751"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814148"
 ---
-# <a name="azure-cli---enable-customer-managed-keys-with-server-side-encryption---managed-disks"></a>CLI de Azure: Habilitación de claves administradas por el cliente con el cifrado del lado servidor para discos administrados
+# <a name="use-the-azure-cli-to-enable-server-side-encryption-with-customer-managed-keys-for-managed-disks"></a>Uso de la CLI de Azure para habilitar el cifrado del lado servidor con claves administradas por el cliente para los discos administrados
 
 Azure Disk Storage le permite administrar sus propias claves al usar el cifrado del lado servidor (SSE) para discos administrados, si así lo decide. Para obtener información conceptual sobre SSE con claves administradas por el cliente, así como otros tipos de cifrado de discos administrados, consulte la sección [Claves administradas por el cliente](disk-encryption.md#customer-managed-keys) de nuestro artículo sobre el cifrado de discos.
 

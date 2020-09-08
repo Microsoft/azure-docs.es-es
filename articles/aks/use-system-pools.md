@@ -5,12 +5,13 @@ services: container-service
 ms.topic: article
 ms.date: 06/18/2020
 ms.author: mlearned
-ms.openlocfilehash: 8c808bda624cca3bd7bd28c6adfbdfb52fa2c068
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.custom: fasttrack-edit
+ms.openlocfilehash: e068984e02a468169f286ab5b783e531a54bd6ed
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562827"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949786"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Administración de grupos de nodos del sistema en Azure Kubernetes Service (AKS)
 
@@ -89,7 +90,7 @@ az aks nodepool add \
     --name systempool \
     --node-count 3 \
     --node-taints CriticalAddonsOnly=true:NoSchedule \
-    --mode system
+    --mode System
 ```
 ## <a name="show-details-for-your-node-pool"></a>Visualización de detalles del grupo de nodos
 

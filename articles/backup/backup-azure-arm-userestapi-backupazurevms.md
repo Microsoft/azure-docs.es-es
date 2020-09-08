@@ -4,12 +4,12 @@ description: En este artículo se aprende a configurar, iniciar y administrar la
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 595291549b4d181967ea168d0dc71bc7e2237a67
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: db5e6cc460d320971a4005889dc2c9aa9925a18d
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514210"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890338"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Copia de seguridad de una máquina virtual de Azure mediante Azure Backup a través de la API REST
 
@@ -35,7 +35,7 @@ El URI de POST tiene parámetros `{subscriptionId}`, `{vaultName}`, `{vaultresou
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01
 ```
 
-#### <a name="responses"></a>Respuestas
+#### <a name="responses-to-refresh-operation"></a>Respuestas para la operación de actualización
 
 La operación 'refresh' es una [operación asincrónica](../azure-resource-manager/management/async-operations.md). Significa que esta operación crea otra que tiene que ser seguida por separado.
 
@@ -46,7 +46,7 @@ Devuelve las dos respuestas: 202 (Accepted) (aceptado) cuando se crea otra opera
 |204 No Content     |         |  Correcto y no se devolvió contenido      |
 |202 - Aceptado     |         |     Accepted    |
 
-##### <a name="example-responses"></a>Respuestas de ejemplo
+##### <a name="example-responses-to-refresh-operation"></a>Respuestas de ejemplo para la operación de actualización
 
 Una vez que se envía la solicitud *POST*, se devuelve una respuesta 202 (Accepted).
 
@@ -92,7 +92,7 @@ X-Powered-By: ASP.NET
 
 ### <a name="selecting-the-relevant-azure-vm"></a>Selección de la máquina virtual de Azure pertinente
 
- Puede confirmar que el "almacenamiento en caché" se realiza [enumerando todos los elementos que se pueden proteger](/rest/api/backup/backupprotectableitems/list) en la suscripción y luego busque la máquina virtual deseada en la respuesta. [La respuesta de esta operación](#example-responses-1) también le proporciona información sobre el modo en que Recovery Services identifica una máquina virtual.  Una vez que esté familiarizado con el patrón, podrá omitir este paso y proceder directamente a [habilitar la protección](#enabling-protection-for-the-azure-vm).
+ Puede confirmar que el "almacenamiento en caché" se realiza [enumerando todos los elementos que se pueden proteger](/rest/api/backup/backupprotectableitems/list) en la suscripción y luego busque la máquina virtual deseada en la respuesta. [La respuesta de esta operación](#example-responses-to-get-operation) también le proporciona información sobre el modo en que Recovery Services identifica una máquina virtual.  Una vez que esté familiarizado con el patrón, podrá omitir este paso y proceder directamente a [habilitar la protección](#enabling-protection-for-the-azure-vm).
 
 Esta es una operación *GET*.
 
@@ -102,13 +102,13 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 El identificador URI de *GET* tiene todos los parámetros necesarios. No se necesita ningún cuerpo de solicitud adicional.
 
-#### <a name="responses"></a><a name="responses-1"></a>Respuestas
+#### <a name="responses-to-get-operation"></a>Respuestas para la operación GET
 
 |Nombre  |Tipo  |Descripción  |
 |---------|---------|---------|
 |200 OK     | [WorkloadProtectableItemResourceList](/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       Aceptar |
 
-#### <a name="example-responses"></a><a name="example-responses-1"></a>Respuestas de ejemplo
+#### <a name="example-responses-to-get-operation"></a>Respuestas de ejemplo para la operación GET
 
 Una vez que se emite la solicitud *GET*, se devuelve una respuesta 200 (OK).
 
@@ -200,9 +200,9 @@ El cuerpo de solicitud siguiente define las propiedades necesarias para crear un
 }
 ```
 
-El `{sourceResourceId}` es el identificador `{virtualMachineId}` mencionado anteriormente desde la [respuesta de los elementos de lista que se pueden proteger](#example-responses-1).
+El `{sourceResourceId}` es el identificador `{virtualMachineId}` mencionado anteriormente desde la [respuesta de los elementos de lista que se pueden proteger](#example-responses-to-get-operation).
 
-#### <a name="responses"></a>Respuestas
+#### <a name="responses-to-create-protected-item-operation"></a>Respuestas para la operación de creación de elementos protegidos
 
 La creación de un elemento protegido es una [operación asincrónica](../azure-resource-manager/management/async-operations.md). Significa que esta operación crea otra que tiene que ser seguida por separado.
 
@@ -213,7 +213,7 @@ Devuelve las dos respuestas: 202 (Accepted) (aceptado) cuando se crea otra opera
 |200 OK     |    [ProtectedItemResource](/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  Aceptar       |
 |202 - Aceptado     |         |     Accepted    |
 
-##### <a name="example-responses"></a>Respuestas de ejemplo
+##### <a name="example-responses-to-create-protected-item-operation"></a>Respuestas de ejemplo para la operación de creación de elementos protegidos
 
 Una vez enviada la solicitud *PUT* para la creación o actualización de elementos protegidos, la respuesta inicial es 202 (Accepted) (aceptado) con un encabezado de ubicación o Azure-async-header.
 
@@ -284,13 +284,13 @@ Desencadenar una copia de seguridad a petición es una operación *POST*.
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/backup?api-version=2016-12-01
 ```
 
-`{containerName}` y `{protectedItemName}` son como se han construido [anteriormente](#responses-1). `{fabricName}` es "Azure". En nuestro ejemplo, esto se traduce en:
+`{containerName}` y `{protectedItemName}` son como se han construido [anteriormente](#responses-to-get-operation). `{fabricName}` es "Azure". En nuestro ejemplo, esto se traduce en:
 
 ```http
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM/backup?api-version=2016-12-01
 ```
 
-### <a name="create-the-request-body"></a>Creación del cuerpo de la solicitud
+### <a name="create-the-request-body-for-on-demand-backup"></a>Creación del cuerpo de la solicitud para la copia de seguridad a petición
 
 Para desencadenar una copia de seguridad a petición, los siguientes son los componentes del cuerpo de la solicitud.
 
@@ -300,9 +300,9 @@ Para desencadenar una copia de seguridad a petición, los siguientes son los com
 
 Para obtener una lista completa de las definiciones del cuerpo de la solicitud y otros detalles, consulte el [documento de la API REST sobre desencadenar copias de seguridad de los elementos protegidos](/rest/api/backup/backups/trigger#request-body).
 
-#### <a name="example-request-body"></a>Cuerpo de solicitud de ejemplo
+#### <a name="example-request-body-for-on-demand-backup"></a>Cuerpo de la solicitud de ejemplo para la copia de seguridad a petición
 
-El cuerpo de solicitud siguiente define las propiedades necesarias para desencadenar la copia de seguridad de un elemento protegido. Si no se especifica el período de retención, se conservarán durante 30 días desde el momento en que se desencadene el trabajo de copia de seguridad.
+El cuerpo de solicitud siguiente define las propiedades necesarias para desencadenar la copia de seguridad de un elemento protegido. Si no se especifica el período de retención, se conservarán durante 30 días desde el momento en que se desencadene el trabajo de copia de seguridad.
 
 ```json
 {
@@ -313,7 +313,7 @@ El cuerpo de solicitud siguiente define las propiedades necesarias para desencad
 }
 ```
 
-### <a name="responses"></a>Respuestas
+### <a name="responses-for-on-demand-backup"></a>Respuestas para la copia de seguridad a petición
 
 Desencadenar una copia de seguridad a petición es una [operación asincrónica](../azure-resource-manager/management/async-operations.md). Significa que esta operación crea otra que tiene que ser seguida por separado.
 
@@ -323,7 +323,7 @@ Devuelve las dos respuestas: 202 (Accepted) (aceptado) cuando se crea otra opera
 |---------|---------|---------|
 |202 - Aceptado     |         |     Accepted    |
 
-#### <a name="example-responses"></a><a name="example-responses-3"></a>Respuestas de ejemplo
+#### <a name="example-responses-for-on-demand-backup"></a>Respuestas de ejemplo para la copia de seguridad a petición
 
 Una vez enviada la solicitud *POST* para una copia de seguridad a petición, la respuesta inicial es 202 (Accepted) con un encabezado de ubicación o Azure-async-header.
 
@@ -399,7 +399,7 @@ Para cambiar la directiva con la que la máquina virtual se protege, puede usar 
 }
 ```
 
-La respuesta seguirá el mismo formato que se mencionó [para habilitar la protección](#responses-2).
+La respuesta seguirá el mismo formato que se mencionó [para habilitar la protección](#responses-to-create-protected-item-operation).
 
 ### <a name="stop-protection-but-retain-existing-data"></a>Detener la protección, pero conservar los datos existentes
 
@@ -415,7 +415,7 @@ Para quitar la protección en una máquina virtual protegida, pero conservar los
 }
 ```
 
-La respuesta seguirá el mismo formato que se mencionó [para desencadenar una copia de seguridad a petición](#example-responses-3). El trabajo resultante se debe seguir como se explica en el [documento para supervisar los trabajos con API REST](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
+La respuesta seguirá el mismo formato que se mencionó [para desencadenar una copia de seguridad a petición](#example-responses-for-on-demand-backup). El trabajo resultante se debe seguir como se explica en el [documento para supervisar los trabajos con API REST](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
 ### <a name="stop-protection-and-delete-data"></a>Detener la protección y eliminar los datos
 
@@ -427,13 +427,13 @@ Detener la protección y eliminar los datos es una operación *DELETE*.
 DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13
 ```
 
-`{containerName}` y `{protectedItemName}` son como se han construido [anteriormente](#responses-1). `{fabricName}` es "Azure". En nuestro ejemplo, esto se traduce en:
+`{containerName}` y `{protectedItemName}` son como se han construido [anteriormente](#responses-to-get-operation). `{fabricName}` es "Azure". En nuestro ejemplo, esto se traduce en:
 
 ```http
 DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2019-05-13
 ```
 
-#### <a name="responses"></a><a name="responses-2"></a>Respuestas
+#### <a name="responses-for-delete-protection"></a>Respuestas para la protección de eliminación
 
 La protección *DELETE* es una [operación asincrónica](../azure-resource-manager/management/async-operations.md). Significa que esta operación crea otra que tiene que ser seguida por separado.
 
@@ -445,9 +445,9 @@ Devuelve las dos respuestas: 202 (Accepted) (aceptado) cuando se crea otra opera
 |202 - Aceptado     |         |     Accepted    |
 
 > [!IMPORTANT]
-> Con el fin de protegerse frente a escenarios de eliminación accidental, hay una [característica de eliminación temporal disponible](use-restapi-update-vault-properties.md#soft-delete-state) para el almacén de Recovery Services. Si el estado de eliminación temporal del almacén está establecido en habilitado, la operación de eliminación no eliminará los datos de inmediato. Se conservarán durante 14 días y, a continuación, se purgarán de forma permanente. Al cliente no se le cobra por el almacenamiento durante este período de 14 días. Para deshacer la operación de eliminación, consulte la sección de [deshacer y eliminar](#undo-the-stop-protection-and-delete-data).
+> Con el fin de protegerse frente a escenarios de eliminación accidental, hay una [característica de eliminación temporal disponible](use-restapi-update-vault-properties.md#soft-delete-state) para el almacén de Recovery Services. Si el estado de eliminación temporal del almacén está establecido en habilitado, la operación de eliminación no eliminará los datos de inmediato. Se conservarán durante 14 días y, a continuación, se purgarán de forma permanente. No se le cobra por el almacenamiento durante este período de 14 días. Para deshacer la operación de eliminación, consulte la sección de [deshacer y eliminar](#undo-the-deletion).
 
-### <a name="undo-the-stop-protection-and-delete-data"></a>Detención de la protección y eliminación de los datos
+### <a name="undo-the-deletion"></a>Reversión de la eliminación
 
 Deshacer la eliminación accidental es similar a crear el elemento de copia de seguridad. Después de deshacer la eliminación, el elemento se conserva, pero no se desencadenan copias de seguridad futuras.
 
@@ -464,7 +464,7 @@ Deshacer la eliminación es una operación *PUT* muy similar a [cambiar la direc
 }
 ```
 
-La respuesta seguirá el mismo formato que se mencionó [para desencadenar una copia de seguridad a petición](#example-responses-3). El trabajo resultante se debe seguir como se explica en el [documento para supervisar los trabajos con API REST](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
+La respuesta seguirá el mismo formato que se mencionó [para desencadenar una copia de seguridad a petición](#example-responses-for-on-demand-backup). El trabajo resultante se debe seguir como se explica en el [documento para supervisar los trabajos con API REST](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

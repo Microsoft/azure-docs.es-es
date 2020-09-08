@@ -2,15 +2,15 @@
 title: Uso de Azure Deployment Manager para implementar plantillas
 description: Aprenda a usar plantillas de Resource Manager con Azure Deployment Manager para implementar recursos de Azure.
 author: mumian
-ms.date: 12/04/2019
+ms.date: 08/25/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 43291bdaa277c06262be2d7bb5ba8d3f61ff35ea
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 49465f05b5484dfd358136866b67ce35f789799f
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056895"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892939"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Tutorial: Uso de Azure Deployment Manager con plantillas de Resource Manager (versión preliminar pública)
 
@@ -61,7 +61,7 @@ Para completar este artículo, necesitará lo siguiente:
 
 ## <a name="understand-the-scenario"></a>Descripción del escenario
 
-La plantilla de topología del servicio describe los recursos de Azure que constituyen el servicio y dónde implementarlos. La definición de topología del servicio tiene la siguiente jerarquía:
+La plantilla de topología del servicio describe los recursos de Azure que constituyen el servicio y la ubicación para implementarlos. La definición de topología del servicio tiene la siguiente jerarquía:
 
 * Topología del servicio
   * Servicios

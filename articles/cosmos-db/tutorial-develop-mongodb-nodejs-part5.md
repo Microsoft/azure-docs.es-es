@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18, devx-track-javascript
 ms.reviewer: sngun
-ms.openlocfilehash: 4c64502ac1fa4837d6052fd399fd2c44b6ab4a09
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 59acb2e851be69a9bb928d9b3aae73d8136493e0
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423888"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440922"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>Creación de una aplicación de Angular con API de Azure Cosmos DB para MongoDB: uso de Mongoose para conectarse a Cosmos DB
 
@@ -114,7 +114,7 @@ Para conectar la aplicación a Azure Cosmos DB, tiene que actualizar las opcione
 
 1. Recupere la clave principal de la cuenta de Azure Cosmos DB mediante el siguiente comando de la CLI en la ventana del terminal: 
 
-    ```azure-cli-interactive
+    ```azurecli-interactive
     az cosmosdb list-keys --name <cosmosdb-name> -g myResourceGroup
     ```    
     

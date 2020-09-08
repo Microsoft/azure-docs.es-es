@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2020
 ms.author: iainfou
-ms.openlocfilehash: 69bb61012082404dfd6488b5e0606e5966c2fcef
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 6f166cdcb5f3764d7b264fdb4ebc082ece4c798b
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504656"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245101"
 ---
 # <a name="tutorial-create-and-use-replica-sets-for-resiliency-or-geolocation-in-azure-active-directory-domain-services-preview"></a>Tutorial: Creación y uso de conjuntos de réplicas para soluciones de resistencia o ubicación geográfica en Azure Active Directory Domain Services (versión preliminar)
 
@@ -42,11 +42,11 @@ Para completar este tutorial, necesitará los siguientes recursos y privilegios:
     * Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un inquilino de Azure Active Directory asociado a su suscripción, ya sea sincronizado con un directorio en el entorno local o con un directorio solo en la nube.
     * Si es necesario, [cree un inquilino de Azure Active Directory][create-azure-ad-tenant] o [asocie una suscripción a Azure con su cuenta][associate-azure-ad-tenant].
-* Un dominio administrado por Azure Active Directory Domain Services creado mediante un conjunto de réplicas y configurado en el inquilino de Azure AD.
+* Un dominio administrado de Azure Active Directory Domain Services creado mediante un modelo de implementación de Azure Resource Manager y configurado en su inquilino de Azure AD.
     * Si es necesario, [cree y configure un dominio administrado de Azure Active Directory Domain Services][tutorial-create-instance].
 
     > [!IMPORTANT]
-    > Asegúrese de crear un dominio administrado que use conjuntos de réplicas. Un dominio administrado existente creado antes de esta versión preliminar no admite conjuntos de réplicas. También debe usar como mínimo la SKU *Enterprise* para el dominio administrado. Si es necesario, [cambie la SKU de un dominio administrado][howto-change-sku].
+    > Los dominios administrados creados con el modelo de implementación clásica no pueden utilizar conjuntos de réplicas. También debe usar como mínimo la SKU *Enterprise* para el dominio administrado. Si es necesario, [cambie la SKU de un dominio administrado][howto-change-sku].
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
@@ -70,7 +70,7 @@ Antes de usar conjuntos de réplicas en Azure AD DS, revise los siguientes req
 
 ## <a name="create-a-replica-set"></a>Creación de un conjunto de réplicas
 
-Al crear un dominio administrado, como *aaddscontoso.com*, se crea un conjunto de réplicas inicial. Los conjuntos de réplicas adicionales comparten el mismo espacio de nombres y la misma configuración. Los cambios en Azure AD DS, como los de configuración, identidad del usuario, credenciales, grupos, objetos de directiva de grupo, objetos de equipo y otros cambios, se aplican a todos los conjuntos de réplicas del dominio administrado mediante la replicación de AD DS.
+Al crear un dominio administrado, como *aaddscontoso.com*, se crea un conjunto de réplicas inicial. Los demás conjuntos de réplicas compartirán el mismo espacio de nombres y la misma configuración. Los cambios en Azure AD DS, como los de configuración, identidad del usuario, credenciales, grupos, objetos de directiva de grupo, objetos de equipo y otros cambios, se aplican a todos los conjuntos de réplicas del dominio administrado mediante la replicación de AD DS.
 
 En este tutorial, creará un conjunto de réplicas adicional en una región de Azure diferente a la del conjunto de réplicas inicial de Azure AD DS.
 

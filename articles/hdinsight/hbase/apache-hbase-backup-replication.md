@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: b1830ddef44ef33d19c953622951779632e33e71
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 5a3760956dfe9a713d344fd6684d75ea240ab7de
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076749"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705731"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Configuración de la copia de seguridad y la replicación de Apache HBase y Apache Phoenix en HDInsight
 
@@ -213,7 +213,13 @@ hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot <snapshotName> -
 hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot 'Snapshot1' -copy-to 'wasbs://secondcluster@myaccount.blob.core.windows.net/hbase'
 ```
 
-Una vez que se exporta la instantánea, establezca una conexión SSH al nodo principal del clúster de destino y restaure la instantánea con el comando restore_snapshot, tal como se describió anteriormente.
+Si no tiene una cuenta de Azure Storage secundaria conectada al clúster de origen o si el clúster de origen es un clúster local (o un clúster que no es de HDI), es posible que experimente problemas de autorización al intentar acceder a la cuenta de almacenamiento del clúster de HDI. Para resolver este problema, especifique la clave de la cuenta de almacenamiento como un parámetro de la línea de comandos, tal como se muestra en el ejemplo siguiente. Puede obtener la clave de la cuenta de almacenamiento en Azure Portal.
+
+```console
+hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -Dfs.azure.account.key.myaccount.blob.core.windows.net=mykey -snapshot 'Snapshot1' -copy-to 'wasbs://secondcluster@myaccount.blob.core.windows.net/hbase'
+```
+
+Una vez que se exporta la instantánea, establezca una conexión SSH al nodo principal del clúster de destino y restaure la instantánea con el comando `restore_snapshot`, tal como se describió anteriormente.
 
 Las instantáneas proporcionan una copia de seguridad completa de una tabla en el momento de ejecutar el comando `snapshot`. Las instantáneas no proporcionan la capacidad de realizar instantáneas incrementales por ventanas de tiempo ni especificar subconjuntos de familias de columnas para incluir en la instantánea.
 

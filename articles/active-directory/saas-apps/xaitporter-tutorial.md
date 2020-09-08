@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con XaitPorter | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y XaitPorter.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: d33c7cb7-0550-425b-882a-619a713a71b7
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 8652073eb3d7d154958566b68fb6e27c35d8da30
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 80900f8a63d29e8c36ec190945efc3c44f713a3f
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67086532"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296930"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Tutorial: Integración de Azure Active Directory con XaitPorter
 
@@ -116,7 +112,7 @@ Para configurar el inicio de sesión único de Azure AD con XaitPorter, realice 
 
     ![Vínculo de descarga del certificado](common/copy-metadataurl.png)
 
-6. Proporcione la **dirección IP** o la **dirección URL de metadatos de federación de aplicación** al [equipo de soporte técnico de SmartRecruiters](https://www.smartrecruiters.com/about-us/contact-us/), de modo que XaitPorter pueda garantizar que la dirección IP sea accesible desde su instancia de XaitPorter mediante su inclusión en la lista de permitidos. 
+6. Proporcione la **dirección IP** o la **dirección URL de metadatos de federación de aplicación** al [equipo de soporte técnico de SmartRecruiters](https://www.smartrecruiters.com/about-us/contact-us/), de modo que XaitPorter pueda garantizar que la dirección IP sea accesible desde la instancia de XaitPorter mediante su inclusión en la lista de aprobados. 
 
 ### <a name="configure-xaitporter-single-sign-on"></a>Configuración del inicio de sesión único de XaitPorter
 
@@ -217,4 +213,3 @@ Al hacer clic en el icono de XaitPorter en el panel de acceso y debería iniciar
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

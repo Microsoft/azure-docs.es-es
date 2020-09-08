@@ -46,6 +46,8 @@
       href: disable-private-link-service-network-policy.md
     - name: Administración de puntos de conexión privados
       href: manage-private-endpoint.md
+    - name: Inspección del tráfico con Azure Firewall
+      href: inspect-traffic-with-azure-firewall.md
     - name: Solución de problemas
       items:
         - name: Solución de problemas de conectividad de puntos de conexión privados

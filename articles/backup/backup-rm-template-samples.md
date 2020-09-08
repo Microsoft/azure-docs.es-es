@@ -4,12 +4,12 @@ description: Plantillas de Resource Manager para su uso con los almacenes de Rec
 ms.topic: sample
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 09962a37f36621950189e9446099c349de9430bb
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 29a2499bfd3125cad98e72f7543bb9a29293f624
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170996"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755201"
 ---
 # <a name="azure-resource-manager-templates-for-azure-backup"></a>Plantillas de Azure Resource Manager para Azure Backup
 
@@ -28,5 +28,5 @@ En la tabla siguiente se incluyen vínculos a las plantillas de Resource Manager
 |**Supervisión de trabajos de copia de seguridad** |  |
 | [Uso de los registros de Azure Monitor con Azure Backup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-backup-oms-monitoring) | La plantilla implementa los registros de Azure Monitor con Azure Backup, lo cual le permite supervisar los trabajos de copia de seguridad y restauración, las alertas de copia de seguridad y el almacenamiento en la nube que se usa en los almacenes de Recovery Services.|  
 |**Instancia de copia de seguridad de SQL Server en Azure VM** |  |
-| [Instancia de copia de seguridad de SQL Server en Azure VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-vm-workload-backup) | La plantilla crea un almacén de Recovery Services y una directiva de copia de seguridad específica para la carga de trabajo. Registra la máquina virtual con el servicio Azure Backup y configura la protección en esa máquina virtual. Actualmente, solo funciona para las imágenes de la galería SQL. |
+| [Instancia de copia de seguridad de SQL Server en Azure VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-vm-workload-backup) | La plantilla crea un almacén de Recovery Services y una directiva de copia de seguridad específica para la carga de trabajo. Registra la máquina virtual con el servicio Azure Backup y configura la protección en esa máquina virtual. Actualmente, solo funciona para las imágenes de la galería SQL. |
 |   |   |

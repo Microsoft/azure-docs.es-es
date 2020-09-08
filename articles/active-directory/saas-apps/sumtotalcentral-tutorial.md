@@ -2,25 +2,21 @@
 title: 'Tutorial: integración de Azure Active Directory con SumTotalCentral | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y SumTotalCentral.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 93ad629a-f516-4cac-bfe2-a77257e3a797
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: c2d7f3922bc3226a7871ee775718ca43757adb54
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1255d8c0456101bb9059de834c871812d5c5bceb
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67089566"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88533731"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumtotalcentral"></a>Tutorial: integración de Azure Active Directory con SumTotalCentral
 

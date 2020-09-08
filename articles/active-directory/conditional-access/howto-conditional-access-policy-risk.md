@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce687ae1f47b20bb5fff3827e7bcbd5d7edf2d83
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 0c6e3316afc09992d16e17d9d2e2afe6b92dcd22
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024369"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049050"
 ---
 # <a name="conditional-access-sign-in-risk-based-conditional-access"></a>Acceso condicional: Acceso condicional basado en el riesgo del inicio de sesión
 
@@ -66,8 +66,8 @@ Hay dos ubicaciones en las que se puede asignar esta directiva. Las organizacion
 
 [Acceso condicional basado en riesgos de usuario](howto-conditional-access-policy-risk-user.md)
 
-[Determinación del impacto mediante el modo de solo informe de acceso condicional](howto-conditional-access-report-only.md)
+[Determinación del impacto mediante el modo de solo informe de acceso condicional](howto-conditional-access-insights-reporting.md)
 
 [Simulación del comportamiento de inicio de sesión mediante la herramienta What If de acceso condicional](troubleshoot-conditional-access-what-if.md)
 
-[¿Qué es Azure Active Directory Identity Protection?](../identity-protection/overview.md)
+[¿Qué es Azure Active Directory Identity Protection?](../identity-protection/overview-identity-protection.md)

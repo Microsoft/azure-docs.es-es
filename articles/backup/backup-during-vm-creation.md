@@ -3,12 +3,12 @@ title: Habilitar copia de seguridad al crear una máquina virtual de Azure
 description: Describe cómo habilitar la copia de seguridad al crear una VM de Azure con Azure Backup.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 7fb6fd25f5031669633641ea02f34180f6f795d4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bbc00239a34fc0eb88991fcabd91c5a0eb7dbea7
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032857"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892310"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Habilitar copia de seguridad al crear una máquina virtual de Azure
 
@@ -48,6 +48,9 @@ Si aún no ha iniciado sesión en su cuenta, hágalo en [Azure Portal](https://p
 
       ![Directiva de copia de seguridad predeterminada](./media/backup-during-vm-creation/daily-policy.png)
 
+>[!NOTE]
+>[SSE y PMK son los métodos de cifrado predeterminados](backup-encryption.md) para las máquinas virtuales de Azure. Azure Backup admite la copia de seguridad y la restauración de estas máquinas virtuales de Azure.
+
 ## <a name="azure-backup-resource-group-for-virtual-machines"></a>Grupo de recursos de Azure Backup para máquinas virtuales
 
 El servicio Backup crea un grupo de recursos diferente al de la máquina virtual para guardar la colección de puntos de restauración. La colección de puntos de restauración aloja los puntos de recuperación instantánea de las máquinas virtuales administradas. El formato predeterminado de los nombres del grupo de recursos creado por el servicio Backup es `AzureBackupRG_<Geo>_<number>`. Por ejemplo: *AzureBackupRG_northeurope_1*. Ahora puede personalizar el nombre del grupo de recursos creado por Azure Backup.
@@ -55,15 +58,15 @@ El servicio Backup crea un grupo de recursos diferente al de la máquina virtual
 Puntos a tener en cuenta:
 
 1. Puede usar el nombre predeterminado del grupo de recursos o editarlo según los requisitos de la empresa.
-2. El patrón del nombre del grupo de recursos se proporciona como entrada durante la creación de la directiva de copia de seguridad de la máquina virtual. El nombre del grupo de recursos deberá tener el formato siguiente: `<alpha-numeric string>* n <alpha-numeric string>`. "n" se reemplaza por un entero (empezando por el 1) y se usa para el escalado horizontal si el primer grupo de recursos está lleno. A día de hoy, los grupos de recursos pueden tener hasta 600 colecciones de puntos de restauración como máximo.
+2. El patrón del nombre del grupo de recursos se proporciona como entrada durante la creación de la directiva de copia de seguridad de la máquina virtual. El nombre del grupo de recursos deberá tener el formato siguiente: `<alpha-numeric string>* n <alpha-numeric string>`. "n" se reemplaza por un entero (empezando por el 1) y se usa para el escalado horizontal si el primer grupo de recursos está lleno. A día de hoy, los grupos de recursos pueden tener hasta 600 RPC como máximo.
               ![Elección del nombre al crear la directiva](./media/backup-during-vm-creation/create-policy.png)
 3. El patrón debe seguir las reglas de nomenclatura de los grupos de recursos siguientes y la longitud total no debe superar la máxima permitida para el nombre del grupo de recursos.
-    1. Los nombres de los grupos de recursos solo permiten caracteres alfanuméricos, puntos, guiones bajos, guiones y paréntesis. No pueden terminar en punto.
+    1. Los nombres de los grupos de recursos solo permiten caracteres alfanuméricos, puntos, guiones bajos, guiones y paréntesis. No puede terminar en punto.
     2. Los nombres de los grupos de recursos pueden contener hasta 74 caracteres, nombre y sufijo incluidos.
 4. La primera cadena `<alpha-numeric-string>` es obligatoria, mientras que la segunda después de "n" es opcional. Esto solo se aplica si se asigna un nombre personalizado. Si no escribe nada en ninguno de los cuadros de texto, se usa el nombre predeterminado.
 5. Si es necesario, puede editar el nombre del grupo de recursos al modificar la directiva. Si se cambia el patrón de nombre, se crearán puntos de restauración en el nuevo grupo de recursos. Sin embargo, los antiguos puntos de restauración seguirán residiendo en el grupo de recursos anterior y no se moverán, ya que la colección de puntos de restauración no admite el traslado de recursos. Finalmente, los puntos de restauración recogerán los elementos no utilizados al expirar.
 ![Cambio del nombre al modificar la directiva](./media/backup-during-vm-creation/modify-policy.png)
-6. Es conveniente no bloquear el grupo de recursos que crea el servicio Backup.
+6. Es conveniente que no se bloquee el grupo de recursos que se ha creado para que lo utilice el servicio Backup.
 
 Para configurar el grupo de recursos de Azure Backup para Virtual Machines mediante PowerShell, consulte el artículo para la [creación de un grupo de recursos de Azure Backup durante la retención de instantáneas](backup-azure-vms-automation.md#creating-azure-backup-resource-group-during-snapshot-retention).
 

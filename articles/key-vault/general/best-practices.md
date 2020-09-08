@@ -1,6 +1,6 @@
 ---
 title: 'Procedimientos recomendados para usar Key Vault: Azure Key Vault | Microsoft Docs'
-description: En este documento se explican algunos de los procedimientos recomendados para utilizar Key Vault.
+description: Conozca procedimientos recomendados de Azure Key Vault, incluido el control de acceso, cuándo usar almacenes de claves independientes, copias de seguridad, registro y opciones de recuperación.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 93ada332fdf9179cf0f582195779afc085416e1a
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: cec3ad4e113fd6ee3f4e30ad2a6877b886a958e0
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386238"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88189894"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Procedimientos recomendados para utilizar Key Vault
 

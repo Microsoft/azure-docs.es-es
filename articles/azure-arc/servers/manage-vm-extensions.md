@@ -1,28 +1,24 @@
 ---
-title: Administración de extensiones de máquina virtual con Azure Arc para servidores
-description: Azure Arc para servidores (versión preliminar) puede administrar la implementación de extensiones de máquina virtual que proporcionan tareas de automatización y configuración posteriores a la implementación con máquinas virtuales que no son de Azure.
+title: Administración de extensiones de máquina virtual con servidores habilitados para Azure Arc (versión preliminar)
+description: Los servidores habilitados para Azure Arc (versión preliminar) pueden administrar la implementación de extensiones de máquina virtual que proporcionan tareas de automatización y configuración posteriores a la implementación con máquinas virtuales que no son de Azure.
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
-ms.openlocfilehash: e04b2c63f782a4fcbb64273c08511ecb0bbc2bc3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 259a55c0e5cb4074871fd70a61e6c61d5cf3c50a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84977652"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018168"
 ---
-# <a name="virtual-machine-extension-management-with-azure-arc-for-servers-preview"></a>Administración de extensiones de máquina virtual con Azure Arc para servidores (versión preliminar)
+# <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers-preview"></a>Administración de extensiones de máquina virtual con servidores habilitados para Azure Arc (versión preliminar)
 
 Las extensiones de máquina virtual (VM) son pequeñas aplicaciones que realizan tareas de automatización y configuración posteriores a la implementación en máquinas virtuales de Azure. Por ejemplo, si una máquina virtual necesita que se instale software, protección antivirus o ejecutar un script en ella, se puede usar una extensión de máquina virtual.
 
-Azure Arc para servidores (versión preliminar) le permite implementar extensiones de máquina virtual de Azure en máquinas virtuales Windows y Linux que no son de Azure, lo que simplifica la administración de su máquina híbrida local, perimetral y otros entornos en la nube durante su ciclo de vida.
+Los servidores habilitados para Azure Arc (versión preliminar) le permite implementar extensiones de máquina virtual de Azure en máquinas virtuales Windows y Linux que no son de Azure, lo que simplifica la administración de su máquina híbrida local, perimetral y otros entornos en la nube durante su ciclo de vida.
 
 ## <a name="key-benefits"></a>Ventajas principales
 
-La compatibilidad con la extensión de máquina virtual de Azure Arc para servidores (versión preliminar) ofrece las siguientes ventajas principales:
+La compatibilidad con la extensión de máquina virtual de servidores habilitados para Azure Arc (versión preliminar) ofrece las siguientes ventajas principales:
 
 * Usar [Azure Automation State Configuration](../../automation/automation-dsc-overview.md) para almacenar de forma centralizada las configuraciones y mantener el estado deseado de las máquinas conectadas híbridas que se hayan habilitado a través de la extensión de máquina virtual de DSC.
 
@@ -34,7 +30,7 @@ La compatibilidad con la extensión de máquina virtual de Azure Arc para servid
 
 ## <a name="availability"></a>Disponibilidad
 
-La funcionalidad de la extensión de VM solo está disponible en la lista de [regiones admitidas](overview.md#supported-regions). Asegúrese de incorporar el equipo en una de estas regiones.
+La funcionalidad de la extensión de máquina virtual solo está disponible en la lista de [regiones admitidas](overview.md#supported-regions). Asegúrese de incorporar el equipo en una de estas regiones.
 
 ## <a name="extensions"></a>Extensiones
 
@@ -51,7 +47,7 @@ En esta versión preliminar se admiten las siguientes extensiones de máquina vi
 |Agente de Log Analytics |Linux |Microsoft.EnterpriseCloud.Monitoring |[Extensión de máquina virtual de Log Analytics para Linux](../../virtual-machines/extensions/oms-linux.md) |
 |Microsoft Dependency Agent | Linux |Microsoft.Compute | [Extensión de máquina virtual de Dependency Agent para Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |
 
-Las extensiones de máquina virtual se pueden ejecutar con plantillas de Azure Resource Manager, desde Azure Portal o Azure PowerShell en servidores híbridos administrados por Arc para servidores (versión preliminar).
+Las extensiones de máquina virtual se pueden ejecutar con plantillas de Azure Resource Manager, desde Azure Portal o Azure PowerShell en servidores híbridos administrados por servidores habilitados para Arc (versión preliminar).
 
 Para obtener información sobre el paquete del agente de Azure Connected Machine y los detalles del componente del agente de extensión, consulte [Información general del agente](agent-overview.md#agent-component-details).
 
@@ -93,7 +89,7 @@ Las extensiones de máquina virtual se pueden aplicar a la máquina administrada
 
     ![Instalación de la extensión de máquina virtual de Log Analytics](./media/manage-vm-extensions/mma-extension-config.png)
 
-    Para completar la instalación, debe proporcionar el id. del área de trabajo y la clave principal. Si no está familiarizado con el método para encontrar esta información, consulte [Obtención del id. y la clave del área de trabajo](../../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key).
+    Para completar la instalación, debe proporcionar el id. del área de trabajo y la clave principal. Si no está familiarizado con el método para encontrar esta información, consulte [Obtención del id. y la clave del área de trabajo](../../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
 
 4. Después de confirmar la información necesaria que proporcionó, seleccione **Crear**. Se muestra un resumen de la implementación y puede revisar el estado de esta.
 
@@ -102,7 +98,7 @@ Las extensiones de máquina virtual se pueden aplicar a la máquina administrada
 
 ## <a name="azure-resource-manager-templates"></a>Plantillas del Administrador de recursos de Azure
 
-Las extensiones de máquina virtual se pueden agregar a una plantilla de Azure Resource Manager y ejecutar con la implementación de la plantilla. En el caso de las extensiones de máquina virtual compatibles con Arc para servidores (versión preliminar), puede implementar la extensión de máquina virtual admitida en máquinas Linux o Windows mediante Azure PowerShell. Cada ejemplo a continuación incluye un archivo de plantilla y un archivo de parámetros con valores de ejemplo para la plantilla.
+Las extensiones de máquina virtual se pueden agregar a una plantilla de Azure Resource Manager y ejecutar con la implementación de la plantilla. En el caso de las extensiones de máquina virtual compatibles con servidores habilitados para Arc (versión preliminar), puede implementar la extensión de máquina virtual admitida en máquinas Linux o Windows mediante Azure PowerShell. Cada ejemplo a continuación incluye un archivo de plantilla y un archivo de parámetros con valores de ejemplo para la plantilla.
 
 >[!NOTE]
 >Aunque varias extensiones se pueden procesar por lotes, estas se instalan en serie. Una vez completada la instalación de la primera extensión, se intenta la instalación de la siguiente.
@@ -227,7 +223,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateF
 
 Para usar la extensión de script personalizado, el siguiente ejemplo puede ejecutarse en Windows y Linux. Si no está familiarizado con la extensión de script personalizado, consulte [Extensión de script personalizado para Windows](../../virtual-machines/extensions/custom-script-windows.md) o [Extensión de script personalizado para Linux](../../virtual-machines/extensions/custom-script-linux.md). Hay un par de características distintas que debe comprender al usar esta extensión con máquinas híbridas:
 
-* La lista de sistemas operativos compatibles con la extensión de script personalizado para máquina virtual de Azure no se aplica a Azure Arc para servidores. Puede encontrar la lista de sistemas operativos compatibles con Arc para servidores [aquí](agent-overview.md#supported-operating-systems).
+* La lista de sistemas operativos compatibles con la extensión de script personalizado para máquina virtual de Azure no se aplica a servidores habilitados para Azure Arc. Puede encontrar [aquí](agent-overview.md#supported-operating-systems) la lista de sistemas operativos compatibles con servidores habilitados para Arc.
 
 * No se aplican los detalles de configuración relacionados con Azure Virtual Machine Scale Sets o las máquinas virtuales clásicas.
 
@@ -383,7 +379,7 @@ La configuración de la extensión de script personalizado especifica aspectos c
 
 Para usar la extensión DSC de PowerShell, el siguiente ejemplo puede ejecutarse en Windows y Linux. Si no está familiarizado con la extensión DSC de PowerShell, consulte [Introducción al controlador de extensiones DSC](../../virtual-machines/extensions/dsc-overview.md). Hay un par de características distintas que debe comprender al usar esta extensión con máquinas híbridas:
 
-* La lista de sistemas operativos compatibles con la extensión DSC de PowerShell para máquina virtual de Azure no se aplica a Azure Arc para servidores. Puede encontrar la lista de sistemas operativos compatibles con Arc para servidores [aquí](agent-overview.md#supported-operating-systems).
+* La lista de sistemas operativos compatibles con la extensión DSC de PowerShell para máquina virtual de Azure no se aplica a los servidores habilitados para Azure Arc. Puede encontrar [aquí](agent-overview.md#supported-operating-systems) la lista de sistemas operativos compatibles con servidores habilitados para Arc.
 
 * Si las máquinas necesitan descargar un script de forma externa y solo se pueden comunicar a través de un servidor proxy, debe [configurar el agente de Connected Machine](manage-agent.md#update-or-remove-proxy-settings) para establecer la variable de entorno del servidor proxy.
 
@@ -727,6 +723,6 @@ Los pasos de solución de problemas siguientes se aplican a todas las extensione
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre cómo administrar la máquina con [Azure Policy](../../governance/policy/overview.md) para, por ejemplo, la [configuración de invitado](../../governance/policy/concepts/guest-configuration.md) de VM, la comprobación de que la máquina informa al área de trabajo de Log Analytics esperada, la habilitación de la supervisión con [Azure Monitor con máquinas virtuales](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md) y mucho más.
+- Obtenga información sobre cómo administrar la máquina con [Azure Policy](../../governance/policy/overview.md) para, por ejemplo, la [configuración de invitado](../../governance/policy/concepts/guest-configuration.md) de VM, la comprobación de que la máquina informa al área de trabajo de Log Analytics esperada, la habilitación de la supervisión con [Azure Monitor con máquinas virtuales](../../azure-monitor/insights/vminsights-enable-policy.md) y mucho más.
 
 - Más información sobre el [agente de Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). El agente de Log Analytics para Windows y Linux es necesario si desea supervisar de forma proactiva el sistema operativo y las cargas de trabajo que se ejecutan en la máquina, administrarlos mediante runbooks de Automation o soluciones como Update Management, o usar otros servicios de Azure como [Azure Security Center](../../security-center/security-center-intro.md).

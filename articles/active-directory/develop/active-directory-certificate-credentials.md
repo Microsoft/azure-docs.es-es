@@ -9,25 +9,26 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 08/12/2020
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 47a35f70251622674205a28af9b7cc64132d0530
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 6330621aac78d5e9df52f2cd3ad9c3968bb0120d
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690283"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853380"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Credenciales de certificado para la autenticación de aplicaciones en la plataforma de identidad de Microsoft
 
-La plataforma de identidad de Microsoft permite que una aplicación use sus propias credenciales para la autenticación, por ejemplo, en el [flujo de concesión de credenciales de cliente de OAuth 2.0](v2-oauth2-client-creds-grant-flow.md) y el [flujo con derechos delegados](v2-oauth2-on-behalf-of-flow.md).
+La Plataforma de identidad de Microsoft permite que una aplicación use sus propias credenciales para la autenticación, por ejemplo, en el flujo de [concesión de credenciales de cliente](v2-oauth2-client-creds-grant-flow.md) de OAuth 2.0 y el flujo [con derechos delegados](v2-oauth2-on-behalf-of-flow.md) (OBO).
 
-Un formato de credencial que una aplicación puede utilizar para autenticación es una aserción de JSON Web Token (JWT) firmada con un certificado que la aplicación posea.
+Un formato de credencial que una aplicación puede utilizar para la autenticación es una aserción de [JSON Web Token](./security-tokens.md#json-web-tokens-jwts-and-claims) (JWT) firmada con un certificado que la aplicación posea.
 
 ## <a name="assertion-format"></a>Formato de aserción
-Plataforma de identidad de Microsoft: para calcular la aserción, puede usar una de las muchas bibliotecas de [JSON Web Token](https://jwt.ms/) en el lenguaje que prefiera. La información que lleva el token es la siguiente:
+
+Para calcular la aserción, puede usar una de las muchas bibliotecas de JWT en el lenguaje que prefiera. La información la lleva el token en el [encabezado](#header), las [notificaciones](#claims-payload) y la [firma](#signature).
 
 ### <a name="header"></a>Encabezado
 
@@ -35,22 +36,22 @@ Plataforma de identidad de Microsoft: para calcular la aserción, puede usar una
 | --- | --- |
 | `alg` | Debe ser **RS256** |
 | `typ` | Debe ser **JWT** |
-| `x5t` | Debe ser la huella digital SHA-1 del certificado X.509 |
+| `x5t` | Representación hexadecimal del hash del certificado X.509 (también conocido como *huella digital* SHA-1 del certificado) codificada como un valor de cadena Base 64. Por ejemplo, para un hash de certificado X.509 con el valor `84E05C1D98BCE3A5421D225B140B36E86A3D5534` (hexadecimal), la notificación `x5t` sería `hOBcHZi846VCHSJbFAs26Go9VTQ=` (Base 64). |
 
 ### <a name="claims-payload"></a>Notificaciones (carga útil)
 
 | Parámetro |  Observaciones |
 | --- | --- |
-| `aud` | Audience: Debe ser **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
-| `exp` | Fecha de expiración: la fecha en que el token expira. La hora se representa como el número de segundos desde el 1 de enero de 1970 (1970-01-01T0:0:0Z) UTC hasta el momento en que la validez del token expira.|
-| `iss` | Emisor: debe ser el valor de client_id (identificador de la aplicación del servicio de cliente) |
-| `jti` | GUID: el identificador de JWT |
-| `nbf` | No antes de: fecha antes de la cual el token no se puede usar. La hora se representa como el número de segundos desde el 1 de enero de 1970 (1970-01-01T0:0:0Z) UTC hasta el momento en que se emitió el token. |
-| `sub` | Asunto: En cuanto a `iss` debe ser el valor de client_id (identificador de la aplicación del servicio de cliente) |
+| `aud` | Audience: debe ser `https://login.microsoftonline.com/<your-tenant-id>/oauth2/token`. |
+| `exp` | Fecha de expiración: fecha en la que expira el token. La hora se representa como el número de segundos desde el 1 de enero de 1970 (1970-01-01T0:0:0Z) UTC hasta el momento en que la validez del token expira. Se recomienda usar un tiempo de expiración corto: de 10 minutos a una hora.|
+| `iss` | Emisor: debe ser el valor de client_id (*identificador de la aplicación (cliente)* del servicio de cliente) |
+| `jti` | GUID: identificador de JWT |
+| `nbf` | No antes de: fecha antes de la cual el token no se puede usar. La hora se representa como el número de segundos desde el 1 de enero de 1970 (1970-01-01T0:0:0Z) UTC hasta el momento en que se creó la aserción. |
+| `sub` | Asunto: debe ser el valor de client_id (*identificador de la aplicación (cliente)* del servicio de cliente), como en el caso de `iss`. |
 
-### <a name="signature"></a>Signature
+### <a name="signature"></a>Firma
 
-La firma se calcula aplicando el certificado como se describe en la [especificación RFC7519 de JSON Web Token](https://tools.ietf.org/html/rfc7519)
+La firma se calcula mediante la aplicación del certificado, como se describe en [Especificación RFC7519 de JSON Web Token](https://tools.ietf.org/html/rfc7519).
 
 ## <a name="example-of-a-decoded-jwt-assertion"></a>Ejemplo de una aserción de JWT descodificada
 
@@ -75,10 +76,11 @@ La firma se calcula aplicando el certificado como se describe en la [especificac
 
 ## <a name="example-of-an-encoded-jwt-assertion"></a>Ejemplo de una aserción de JWT codificada
 
-La cadena siguiente es un ejemplo de aserción codificada. Si observa detenidamente, verá tres secciones separadas por puntos (.):
-* La primera sección codifica el encabezado.
-* La segunda sección codifica la carga útil.
-* La última sección es la firma calculada con los certificados a partir del contenido de las dos primeras secciones.
+La cadena siguiente es un ejemplo de aserción codificada. Si observa detenidamente, verá tres secciones separadas por puntos (`.`):
+
+* La primera sección codifica el *encabezado*.
+* La segunda sección codifica las *notificaciones* (carga útil).
+* La última sección es la *firma* calculada con los certificados a partir del contenido de las dos primeras secciones.
 
 ```
 "eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJhdWQiOiJodHRwczpcL1wvbG9naW4ubWljcm9zb2Z0b25saW5lLmNvbVwvam1wcmlldXJob3RtYWlsLm9ubWljcm9zb2Z0LmNvbVwvb2F1dGgyXC90b2tlbiIsImV4cCI6MTQ4NDU5MzM0MSwiaXNzIjoiOTdlMGE1YjctZDc0NS00MGI2LTk0ZmUtNWY3N2QzNWM2ZTA1IiwianRpIjoiMjJiM2JiMjYtZTA0Ni00MmRmLTljOTYtNjVkYmQ3MmMxYzgxIiwibmJmIjoxNDg0NTkyNzQxLCJzdWIiOiI5N2UwYTViNy1kNzQ1LTQwYjYtOTRmZS01Zjc3ZDM1YzZlMDUifQ.
@@ -101,8 +103,8 @@ En el registro de aplicación de Azure para la aplicación cliente:
 
 Si tiene un certificado, debe calcular:
 
-- `$base64Thumbprint`, que es la codificación base64 del hash del certificado
-- `$base64Value`, que es la codificación base64 de los datos sin procesar del certificado
+- `$base64Thumbprint`: valor codificado en Base 64 del hash del certificado
+- `$base64Value`: valor codificado en Base 64 de los datos sin procesar del certificado
 
 También debe proporcionar un GUID para identificar la clave en el manifiesto de la aplicación (`$keyId`).
 
@@ -125,9 +127,6 @@ En el registro de aplicación de Azure para la aplicación cliente:
 
    La propiedad `keyCredentials` es multivalor, por lo que puede cargar varios certificados para una administración de claves más eficaz.
 
-## <a name="code-sample"></a>Código de ejemplo
+## <a name="next-steps"></a>Pasos siguientes
 
-> [!NOTE]
-> Debe calcular el encabezado X5T usando el hash del certificado para convertirlo a una cadena Base64. El código para realizar esta operación en C# es `System.Convert.ToBase64String(cert.GetCertHash());`.
-
-En el ejemplo de código de [Aplicación de consola de demonio principal de .NET mediante la plataforma de identidad de Microsoft](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) se muestra cómo una aplicación utiliza sus propias credenciales para la autenticación. También se muestra cómo se puede [crear un certificado autofirmado](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#optional-use-the-automation-script) mediante el comando de PowerShell `New-SelfSignedCertificate`. También puede usar los [scripts de creación de aplicaciones](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/AppCreationScripts-withCert/AppCreationScripts.md) para crear los certificados, calcular la huella digital, etc.
+En el ejemplo de código [Aplicación de consola de demonio de .NET Core con la Plataforma de identidad de Microsoft](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) de GitHub se muestra cómo utiliza una aplicación sus propias credenciales para la autenticación. También se muestra cómo se puede [crear un certificado autofirmado](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#optional-use-the-automation-script) mediante el cmdlet de PowerShell `New-SelfSignedCertificate`. También puede usar los [scripts de creación de aplicaciones](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/AppCreationScripts-withCert/AppCreationScripts.md) del repositorio de ejemplos para crear los certificados, calcular la huella digital, etc.

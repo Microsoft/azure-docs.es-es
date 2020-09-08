@@ -3,20 +3,20 @@ title: 'Azure Front Door: Compatibilidad con HTTP2 | Microsoft Docs'
 description: Este artículo le ayuda a comprender la compatibilidad con HTTP/2 en Azure Front Door
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: 8a3ae8065553b34a72528cb0f2681e327dc90097
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.author: duau
+ms.openlocfilehash: 7cdcef80ef2433d34b32589d2539089fb9801eb1
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985191"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399436"
 ---
 # <a name="http2-support-in-azure-front-door"></a>Compatibilidad con HTTP/2 en Azure Front Door
 

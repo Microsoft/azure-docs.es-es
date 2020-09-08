@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: bf12a5b7850a56d945e1082be6c522c31738669c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0e1f670f2ba5ad31f29d56b2de40acd6e2bf18a9
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73954080"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654385"
 ---
 # <a name="integrate-expressroute-with-disaster-recovery-for-azure-vms"></a>Integración de ExpressRoute con la recuperación ante desastres en máquinas virtuales de Azure
 
@@ -22,7 +22,7 @@ En este artículo se describe cómo integrar Azure ExpressRoute con [Azure Site 
 
 Site Recovery permite la recuperación ante desastres de máquinas virtuales de Azure mediante la replicación de los datos de la máquina virtual de Azure en Azure.
 
-- Si las máquinas virtuales de Azure usan [discos administrados de Azure](../virtual-machines/windows/managed-disks-overview.md), los datos de la máquina virtual se replican en un disco administrado replicado en la región secundaria.
+- Si las máquinas virtuales de Azure usan [discos administrados de Azure](../virtual-machines/managed-disks-overview.md), los datos de la máquina virtual se replican en un disco administrado replicado en la región secundaria.
 - Si las máquinas virtuales de Azure no usan discos administrados, los datos de la máquina virtual se replican en una cuenta de almacenamiento de Azure.
 - Los puntos de conexión de replicación son públicos, pero el tráfico de replicación de las máquinas virtuales de Azure no atraviesa Internet.
 

@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con HyperAnna | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y HyperAnna.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 3e47846e-eddd-4116-aa51-6b4bb772d2ac
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/13/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 208a494c98a5f3eb22742b0ba6748efa0dd59e1a
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: e6c7b112e8ac60833b22f07590e357e096ba859c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85798746"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88525316"
 ---
 # <a name="tutorial-integrate-hyperanna-with-azure-active-directory"></a>Tutorial: Integración de HyperAnna con Azure Active Directory
 

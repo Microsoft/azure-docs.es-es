@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 3a648b11e795a7d5c8680ac8c3df95e7d0c6bb7d
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 1fc7e7da62aa92812a124f920f5c59ebf8e50fcc
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406782"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934623"
 ---
 # <a name="automatic-language-detection-for-speech-to-text"></a>Detección automática de idioma para la conversión de voz en texto
 
@@ -26,7 +26,7 @@ La detección automática de idioma se usa para determinar la coincidencia más 
 En este artículo, aprenderá a usar `AutoDetectSourceLanguageConfig` para construir un objeto `SpeechRecognizer` y recuperar el idioma detectado.
 
 > [!IMPORTANT]
-> Esta característica solo está disponible para el SDK de Voz de C#, C++, Java, Python y Objective-C.
+> Esta característica solo está disponible para el SDK de voz con C#, C++, Java, Python, JavaScript y Objective-C.
 
 ## <a name="automatic-language-detection-with-the-speech-sdk"></a>Detección automática de idioma con el SDK de Voz
 
@@ -240,4 +240,24 @@ var autoDetectConfig = SpeechSDK.AutoDetectSourceLanguageConfig.fromSourceLangua
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Documentación de referencia del SDK de voz](speech-sdk.md)
+::: zone pivot="programming-language-csharp"
+* Consulte el [código de ejemplo](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#L741) en GitHub para la detección automática del idioma.
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+* Consulte el [código de ejemplo](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#L507) en GitHub para la detección automática del idioma.
+::: zone-end
+
+::: zone pivot="programming-language-java"
+* Consulte el [código de ejemplo](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java#L521) en GitHub para la detección automática del idioma.
+::: zone-end
+
+::: zone pivot="programming-language-python"
+* Consulte el [código de ejemplo](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_synthesis_sample.py#L434) en GitHub para la detección automática del idioma.
+::: zone-end
+
+::: zone pivot="programming-language-objectivec"
+* Consulte el [código de ejemplo](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/objective-c/ios/speech-samples/speech-samples/ViewController.m#L494) en GitHub para la detección automática del idioma.
+::: zone-end
+
+* [Documentación de referencia del SDK de voz](speech-sdk.md)

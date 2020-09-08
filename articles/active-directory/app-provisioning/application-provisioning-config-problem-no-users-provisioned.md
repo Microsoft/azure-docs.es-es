@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: cc3c62da371d66c2aa957974ad6d4472aaf5648e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d07450b61558814a99bf85668c55899c8cf9d389
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782286"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234795"
 ---
 # <a name="no-users-are-being-provisioned"></a>No se está aprovisionando ningún usuario 
 >[!NOTE]
@@ -58,7 +58,7 @@ Cuando un usuario se muestra como "Omitido" en los registros de aprovisionamient
 - **Un atributo obligatorio falta o no se ha llenado para un usuario.** Una cuestión importante que tener en cuenta al configurar el aprovisionamiento es revisar y configurar las asignaciones de atributos y los flujos de trabajo que definen qué propiedades de usuario (o de grupo) fluyen de Azure AD a la aplicación. Esta configuración incluye la opción de "propiedad de coincidencia" que se usa para identificar de forma exclusiva y emparejar a usuarios y grupos entre ambos sistemas. Para más información sobre este importante proceso, consulte [Personalización de asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory de usuarios](customize-application-attributes.md).
 - **Asignación de atributos para grupos:** Aprovisionamiento del nombre del grupo y los detalles del grupo, además de los miembros, si se admite para algunas aplicaciones. Puede habilitar o deshabilitar esta funcionalidad habilitando o deshabilitando el valor de **Asignación** para los objetos de grupo que se muestran en la pestaña **Aprovisionamiento**. Si los grupos de aprovisionamiento están habilitados, asegúrese de revisar las asignaciones de atributos para asegurarse de que se use un campo apropiado para el "identificador de coincidencia". El identificador de coincidencia puede ser el alias de correo electrónico o el nombre para mostrar. El grupo y sus miembros no se han aprovisionado si la propiedad de coincidencia está vacía o no se ha rellenado para un grupo en Azure AD.
 ## <a name="provisioning-users-assigned-to-the-default-access-role"></a>Aprovisionamiento de usuarios a los que se asigna el rol de acceso predeterminado
-El rol predeterminado en una aplicación de la galería se denomina rol de "acceso predeterminado". Históricamente, los usuarios a los que se asigna este rol no se aprovisionan y se marcan como omitidos en los [registros de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) por "no estar autorizados de forma efectiva". 
+El rol predeterminado en una aplicación de la galería se denomina rol de "acceso predeterminado". Históricamente, los usuarios a los que se asigna este rol no se aprovisionan y se marcan como omitidos en los [registros de aprovisionamiento](../reports-monitoring/concept-provisioning-logs.md) por "no estar autorizados de forma efectiva". 
 
 **Comportamiento de las configuraciones de aprovisionamiento creadas después del 16/04/2020:** los usuarios a los que se asigne el rol de acceso predeterminado se evaluarán igual que los usuarios de los demás roles. Un usuario que tenga asignado el acceso predeterminado no se omitirá como "no autorizado de forma efectiva". 
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: 270ff3c3e8e4cffbb1f4b1987ee497530d0c0982
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 476af7dd40cd1f31d03f3bd80affac0ce10ef900
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80546261"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927211"
 ---
 # <a name="adjust-capacity-in-azure-cognitive-search"></a>Ajuste de la capacidad en Azure Cognitive Search
 
@@ -21,7 +21,7 @@ Antes de [aprovisionar un servicio de búsqueda](search-create-service-portal.md
 
 La capacidad depende del [plan que elija](search-sku-tier.md) (los planes determinan las características del hardware) y la combinación de réplicas y particiones necesaria para las cargas de trabajo proyectadas. Según el plan y el tamaño del ajuste, el aumento o reducción de la capacidad puede tardar desde 15 minutos a varias horas. 
 
-Al modificar la asignación de réplicas y particiones, se recomienda usar Azure Portal. El portal aplica límites a las combinaciones permitidas que se mantengan por debajo de los límites máximos de un plan. No obstante, si necesita un enfoque de aprovisionamiento basado en script o en código, [Azure PowerShell](search-manage-powershell.md) o la [API REST de administración](https://docs.microsoft.com/rest/api/searchmanagement/services) son soluciones alternativas.
+Al modificar la asignación de réplicas y particiones, se recomienda usar Azure Portal. El portal aplica límites a las combinaciones permitidas que se mantengan por debajo de los límites máximos de un plan. No obstante, si necesita un enfoque de aprovisionamiento basado en script o en código, [Azure PowerShell](search-manage-powershell.md) o la [API REST de administración](/rest/api/searchmanagement/services) son soluciones alternativas.
 
 ## <a name="terminology-replicas-and-partitions"></a>Terminología: réplicas y particiones
 

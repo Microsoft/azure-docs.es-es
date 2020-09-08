@@ -1,7 +1,7 @@
 ---
 title: 'Inicio rápido: Creación de un blob con el Explorador de Azure Storage'
 titleSuffix: Azure Storage
-description: En esta guía de inicio rápido, aprenderá a usar el Explorador de Azure Storage para crear contenedores y blobs, descargar blobs en el equipo local y ver todos los blobs del contenedor.
+description: Aprenda a usar el Explorador de Azure Storage para crear un contenedor y un blob, descargar el blob en el equipo local y ver todos los blobs del contenedor.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: 3ed0885152b15ef365d0e02c198b684bedd2f95b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f8768a1b2542eb0461ef0c50c96e22c80eced57a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083657"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836469"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-create-a-blob"></a>Inicio rápido: Uso del Explorador de Azure Storage para crear un blob
 

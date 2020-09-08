@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7637a4280d725aa8cd3482641645dbe19cb56210
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8d03b8f13a016dc21e37b82f66abc8050ef17d8
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689051"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266789"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory
 
@@ -62,7 +62,7 @@ Los únicos que aparecen entre los **dispositivos del USUARIO** son los siguient
 - El usuario deshabilita el dispositivo en el portal Mis aplicaciones. 
 - Un administrador (o usuario) elimina o deshabilita el dispositivo en Azure Portal o mediante PowerShell.
 - Solo unido a Azure AD híbrido: Un administrador quita la unidad organizativa de los dispositivos del ámbito de sincronización, lo que da lugar a la eliminación de los dispositivos de Azure AD.
-- Actualización de Azure AD Connect a la versión 1.4.xx.x. [Descripción de Azure AD Connect 1.4.xx.x y desaparición del dispositivo](/azure/active-directory/hybrid/reference-connect-device-disappearance).
+- Actualización de Azure AD Connect a la versión 1.4.xx.x. [Descripción de Azure AD Connect 1.4.xx.x y desaparición del dispositivo](../hybrid/reference-connect-device-disappearance.md).
 
 
 Vea a continuación cómo se pueden rectificar estas acciones.
@@ -312,7 +312,7 @@ Los cambios de nombre principal de usuario se admiten con la actualización 200
 **R:** Siga estos pasos.
 
 1.    [Cree una directiva de cumplimiento](/intune/compliance-policy-create-mac-os).
-1.    [Defina una directiva de acceso condicional para dispositivos de Mac OS](../active-directory-conditional-access-azure-portal.md). 
+1.    [Defina una directiva de acceso condicional para dispositivos de Mac OS](../conditional-access/overview.md). 
 
 **Observaciones**:
 

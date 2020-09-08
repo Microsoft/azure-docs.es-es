@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 1b349b1e3c4a2fac4cd260dbe83469a776951ab0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5eec15871279f3ca38c726fcd1ef1b21d0d38699
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033649"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750189"
 ---
 # <a name="durable-orchestrations"></a>Orquestaciones de Durable Functions
 
@@ -51,7 +51,7 @@ Cuando una función de orquestación recibe más trabajo para realizar (por ejem
 > Para que el patrón de reproducción funcione correctamente y de forma confiable, el código de la función de orquestador debe ser *determinista*. Para más información sobre las restricciones de código para las funciones de orquestador, vea el tema sobre las [restricciones de código de la función de orquestador](durable-functions-code-constraints.md).
 
 > [!NOTE]
-> Si una función de orquestador emite mensajes de registro, el comportamiento de reproducción puede provocar la emisión de mensajes de registro duplicados. Consulte el tema [Registro](durable-functions-diagnostics.md#logging) para más información sobre por qué se produce este comportamiento y cómo solucionarlo.
+> Si una función de orquestador emite mensajes de registro, el comportamiento de reproducción puede provocar la emisión de mensajes de registro duplicados. Consulte el tema [Registro](durable-functions-diagnostics.md#app-logging) para más información sobre por qué se produce este comportamiento y cómo solucionarlo.
 
 ## <a name="orchestration-history"></a>Historial de orquestación
 

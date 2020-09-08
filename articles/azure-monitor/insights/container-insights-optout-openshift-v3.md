@@ -3,16 +3,16 @@ title: Cómo detener la supervisión del clúster de Red Hat OpenShift en Azure 
 description: En este artículo se describe cómo puede detener la supervisión del clúster de Red Hat OpenShift en Azure con Azure Monitor para contenedores.
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 26c8a574894e117694545508174d0ce7d0f0f5ed
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6ed92cd4cda1f3b5d43cc605d7224236528b94bf
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091222"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815443"
 ---
-# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Cómo detener la supervisión del clúster de Red Hat OpenShift en Azure v3
+# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Cómo detener la supervisión del clúster de Red Hat OpenShift en Azure v3 
 
-Después de habilitar la supervisión del clúster de Red Hat OpenShift en Azure versión 3.x, puede detener la supervisión del clúster con Azure Monitor para contenedores si decide que ya no desea continuar haciéndolo. En este artículo se muestra cómo realizar esta tarea mediante la plantilla de Azure Resource Manager proporcionada.  
+Después de habilitar la supervisión del clúster de Red Hat OpenShift en Azure versión 3.x, puede detener la supervisión del clúster con Azure Monitor para contenedores si decide que ya no desea continuar haciéndolo. En este artículo se muestra cómo realizar esta tarea mediante la plantilla de Azure Resource Manager proporcionada. 
 
 ## <a name="azure-resource-manager-template"></a>Plantilla del Administrador de recursos de Azure
 

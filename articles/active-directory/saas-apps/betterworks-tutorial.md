@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con BetterWorks | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y BetterWorks.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 5bb9505a-be02-46ae-9979-5308715d2b47
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/26/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b9d3ef2c9b72d261fcae25e9a8f1f906206bb7b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 258ae78b668994c19ff53572bd0210ee699d0a50
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "70162514"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88517391"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-betterworks"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con BetterWorks
 

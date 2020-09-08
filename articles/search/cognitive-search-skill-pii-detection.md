@@ -8,19 +8,19 @@ ms.author: chalton
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: bec993c2b59aa03195b78a02668baf3f5fac6695
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2e35ba083e376f519ccbc32c71c1ac9b1e03a41
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080755"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935303"
 ---
 #    <a name="pii-detection-cognitive-skill"></a>Aptitud cognitiva para la detección de información de identificación personal
 
 > [!IMPORTANT] 
 > Esta aptitud está actualmente en versión preliminar pública. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Actualmente no hay compatibilidad con el portal ni con el SDK de .NET.
 
-La aptitud **Detección de PII** extrae información de identificación personal de un texto de entrada y le ofrece la opción de enmascararla a partir de ese texto de varias maneras. Esta aptitud utiliza los modelos de aprendizaje automático proporcionados por [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) en Cognitive Services.
+La aptitud **Detección de PII** extrae información de identificación personal de un texto de entrada y le ofrece la opción de enmascararla a partir de ese texto de varias maneras. Esta aptitud utiliza los modelos de aprendizaje automático proporcionados por [Text Analytics](../cognitive-services/text-analytics/overview.md) en Cognitive Services.
 
 > [!NOTE]
 > A medida que expanda el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de IA, tendrá que [asociar un recurso facturable de Cognitive Services](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y por la extracción de imágenes como parte de la fase de descifrado de documentos de Azure Cognitive Search. No hay ningún cargo por la extracción de texto de documentos.
@@ -32,7 +32,7 @@ La aptitud **Detección de PII** extrae información de identificación personal
 Microsoft.Skills.Text.PIIDetectionSkill
 
 ## <a name="data-limits"></a>Límites de datos
-El tamaño máximo de un registro debe tener menos de 50 000 caracteres según la medición de [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Si necesita desglosar los datos antes de enviarlos a la aptitud, puede usar la [aptitud Text Split](cognitive-search-skill-textsplit.md).
+El tamaño máximo de un registro debe tener menos de 50 000 caracteres según la medición de [`String.Length`](/dotnet/api/system.string.length). Si necesita desglosar los datos antes de enviarlos a la aptitud, puede usar la [aptitud Text Split](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Parámetros de la aptitud
 
@@ -57,7 +57,7 @@ Los parámetros distinguen mayúsculas de minúsculas y son opcionales.
 
 | Nombre de salida      | Descripción                   |
 |---------------|-------------------------------|
-| `piiEntities` | Una matriz de tipos complejos, que contiene los siguientes campos: <ul><li>text (la información de identificación personal real que se ha extraído)</li> <li>type</li><li>subType</li><li>score (cuanto más alto sea el valor, más probable será que la entidad sea real)</li><li>offset (en el texto introducido)</li><li>length</li></ul> </br> [Aquí se pueden encontrar los valores posibles de type y subType.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/named-entity-types?tabs=personal) |
+| `piiEntities` | Una matriz de tipos complejos, que contiene los siguientes campos: <ul><li>text (la información de identificación personal real que se ha extraído)</li> <li>type</li><li>subType</li><li>score (cuanto más alto sea el valor, más probable será que la entidad sea real)</li><li>offset (en el texto introducido)</li><li>length</li></ul> </br> [Aquí se pueden encontrar los valores posibles de type y subType.](../cognitive-services/text-analytics/named-entity-types.md?tabs=personal) |
 | `maskedText` | Si `maskingMode` se establece en un valor distinto de `none`, esta salida será el resultado de la cadena del enmascaramiento realizado en el texto introducido, como se describe en el `maskingMode`seleccionado.  Si `maskingMode` se establece en `none`, esta salida no estará presente. |
 
 ##    <a name="sample-definition"></a>Definición de ejemplo
@@ -127,7 +127,7 @@ Los parámetros distinguen mayúsculas de minúsculas y son opcionales.
 }
 ```
 
-Tenga en cuenta que los desplazamientos devueltos para las entidades en la salida de esta aptitud se devuelven directamente desde la [API de Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview), lo que significa que si los usa para indexar en la cadena original, debe usar la clase [StringInfo](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) en .NET para extraer el contenido correcto.  [Se pueden encontrar más detalles aquí](https://docs.microsoft.com/azure/cognitive-services/text-analytics/concepts/text-offsets).
+Tenga en cuenta que los desplazamientos devueltos para las entidades en la salida de esta aptitud se devuelven directamente desde la [API de Text Analytics](../cognitive-services/text-analytics/overview.md), lo que significa que si los usa para indexar en la cadena original, debe usar la clase [StringInfo](/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) en .NET para extraer el contenido correcto.  [Se pueden encontrar más detalles aquí](../cognitive-services/text-analytics/concepts/text-offsets.md).
 
 ## <a name="error-and-warning-cases"></a>Casos de errores y advertencias
 Si el código de idioma del documento no se admite, se devuelve una advertencia y no se extrae ninguna entidad.

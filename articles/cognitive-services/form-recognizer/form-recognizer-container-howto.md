@@ -9,12 +9,13 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: aahi
-ms.openlocfilehash: 6190653934dede1fa042beca8dbd2d7c06f43cfc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e4e85de2fad5c08f296d8089f48fa8614f7f1739
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538027"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88925188"
 ---
 # <a name="install-and-run-form-recognizer-containers-preview"></a>Instalación y ejecución de contenedores de Form Recognizer (versión preliminar)
 
@@ -28,7 +29,7 @@ Para reducir la complejidad e integrar fácilmente un modelo de Form Recognizer 
 |----------|----------|
 | Form Recognizer | <li>Procesa archivos PDF, PNG y JPG.<li>Entrena modelos personalizados con un mínimo de cinco formularios del mismo diseño. <li>Extrae información de la tabla y de pares clave-valor. <li>Utiliza la característica Reconocer texto de la API Computer Vision de Azure Cognitive Services con el fin de detectar y extraer texto impreso de las imágenes dentro de formularios.<li>No requiere anotaciones ni etiquetas. |
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

@@ -12,12 +12,12 @@ ms.date: 02/28/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cb3bb363b1d6be72fe8941cad509b4c3525cfa15
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 54d92da469625a3b81d0027558ec14166d916b80
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87169436"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163193"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introducción a las directivas personalizadas en Azure Active Directory B2C
 
@@ -213,6 +213,6 @@ Como se mencionó en [Requisitos previos](#prerequisites), *no* se requiere Face
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora, pruebe a agregar Azure Active Directory (Azure AD) como proveedor de identidades. El archivo base que se ha usado en esta guía de introducción ya contiene parte del contenido que necesita para agregar otros proveedores de identidades como Azure AD.
+Ahora, pruebe a agregar Azure Active Directory (Azure AD) como proveedor de identidades. El archivo base que se ha usado en esta guía de introducción ya contiene parte del contenido que necesita para agregar otros proveedores de identidades como Azure AD. Para obtener información sobre cómo configurar Azure AD como proveedor de identidades, consulte [Configurar el inicio de sesión con una cuenta de Azure Active Directory mediante directivas personalizadas en Azure Active Directory B2C](identity-provider-azure-ad-single-tenant-custom.md). 
 
-Para obtener información sobre cómo configurar Azure AD como proveedor de identidades, vea [Configurar el inicio de sesión con una cuenta de Azure Active Directory mediante directivas personalizadas en Azure Active Directory B2C](identity-provider-azure-ad-single-tenant-custom.md).
+Visite nuestra [Galería de asociados](partner-gallery.md) para obtener más información sobre cómo implementar la integración de ISV mediante directivas personalizadas. 

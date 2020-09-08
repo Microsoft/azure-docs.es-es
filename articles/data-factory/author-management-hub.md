@@ -9,12 +9,12 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.date: 06/02/2020
-ms.openlocfilehash: 308d19fde78edacebb168b8d4e459169338acc41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bba49014fd6b082ea015da259402a8e87bf4afff
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84345946"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852001"
 ---
 # <a name="management-hub-in-azure-data-factory"></a>Centro de administración de Azure Data Factory
 
@@ -57,6 +57,12 @@ Para reemplazar los parámetros de la plantilla de Resource Manager generados al
 Los desencadenadores determinan cuándo se debe iniciar una ejecución de canalización. Actualmente, los desencadenadores pueden estar en una programación de reloj, operar en un intervalo periódico o depender de un evento. Para más información, consulte acerca de la [ejecución de desencadenadores](concepts-pipeline-execution-triggers.md#trigger-execution). En el centro de administración, puede crear, editar, eliminar o ver el estado actual de un desencadenador.
 
 ![Administración de los parámetros personalizados](media/author-management-hub/management-hub-triggers.png)
+
+### <a name="global-parameters"></a>Parámetros globales
+
+Los parámetros globales son constantes en una factoría de datos que una canalización puede consumir en cualquier expresión. Para obtener más información, consulte los [parámetros globales](author-global-parameters.md).
+
+![Creación de parámetros globales](media/author-global-parameters/create-global-parameter-3.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

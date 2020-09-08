@@ -1,18 +1,18 @@
 ---
 title: Traslado de máquinas virtuales de Azure entre Azure Government y las regiones públicas con Azure Site Recovery
 description: Use Azure Site Recovery para trasladar máquinas virtuales de Azure entre Azure Government y las regiones públicas.
-author: rajani-janaki-ram
+author: sideeksh
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 04/16/2019
-ms.author: rajanaki
+ms.author: sideeksh
 ms.custom: MVC
-ms.openlocfilehash: d99a5feb344f970b10925b596726520b9dba9464
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: a76ebf95b92b6e1251a04daa9ffb48a9abe15b50
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134016"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425354"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Mover las VM de Azure entre Azure Government y las regiones públicas 
 
@@ -53,7 +53,7 @@ En este tutorial se muestra cómo trasladar las VM de Azure entre Azure Governme
 Asegúrese de que la cuenta de Azure tiene permisos para la replicación de máquinas virtuales en Azure.
 
 - Revise los [permisos](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) que necesita para replicar máquinas en Azure.
-- Compruebe y modifique los permisos de [acceso basado en roles](../role-based-access-control/role-assignments-portal.md). 
+- Compruebe y modifique los permisos de [control de acceso basado en rol de Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). 
 
 ### <a name="set-up-an-azure-network"></a>Configurar una red de Azure
 

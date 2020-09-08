@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: sisirap
 ms.custom: seodec18
-ms.openlocfilehash: f547f60bf6c67b757f2e12f06f1e39100c3e76cb
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: e2959403d2e5db38d03013e798fe299d56837227
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077159"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962118"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Implementación de una aplicación en Azure App Service con un archivo ZIP o WAR
 
@@ -33,7 +33,7 @@ La implementación del archivo WAR implementa su archivo [WAR](https://wikipedia
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para completar los pasos en este artículo, [cree una aplicación de App Service](/azure/app-service/) o use alguna aplicación que haya creado para otro tutorial.
+Para completar los pasos en este artículo, [cree una aplicación de App Service](./index.yml) o use alguna aplicación que haya creado para otro tutorial.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

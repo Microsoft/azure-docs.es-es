@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: f05b70c8197283d9fa576d6ea464aa08554dd773
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 92d4fb638e41c668c557ef9e618d30677481585d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206775"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829856"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Creación y administración de Private Link para el servidor único de Azure Database for PostgreSQL con el portal
 
@@ -20,7 +20,7 @@ Un punto de conexión privado es el bloque de creación fundamental para el vín
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 > [!NOTE]
-> Esta característica está disponible en todas las regiones de Azure donde Azure Database for PostgreSQL admita los planes de tarifa de uso general y optimizados para memoria.
+> La característica de vínculo privado solo está disponible para servidores de Azure Database for PostgreSQL en los planes de tarifa De uso general u Optimizado para memoria. Asegúrese de que el servidor de bases de datos esté incluido en uno de estos planes de tarifa.
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 Inicie sesión en [Azure Portal](https://portal.azure.com).

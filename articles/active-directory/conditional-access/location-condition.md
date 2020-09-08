@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 091555bac780f3abc7089d6214d0f9a8cfbf98cd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 08e236d798f700a3c48dd41ba61941bc0037d613
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518443"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055384"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Uso la condición de ubicación en una directiva de acceso condicional 
 
@@ -190,7 +190,7 @@ Al crear o actualizar ubicaciones con nombre, en el caso de las actualizaciones 
 
 Cuando utiliza un proxy hospedado en la nube o una solución VPN, la dirección IP que utiliza Azure AD al evaluar una directiva es la dirección IP del proxy. No se usa el encabezado X-Forwarded-For (XFF) que contiene la dirección IP pública del usuario, ya que no hay ninguna validación de que provenga de un origen de confianza y podría ser un método de falsificación de la dirección IP.
 
-Cuando se implementa un proxy de la nube, puede utilizarse una directiva que se utiliza para requerir un dispositivo unido a un dominio, o la notificación interna de corpnet desde AD FS.
+Cuando hay en funcionamiento un servidor proxy en la nube, se puede utilizar una directiva que se usa para requerir un dispositivo unido a Azure AD híbrido o la notificación interna de la red corporativa desde AD FS.
 
 ### <a name="api-support-and-powershell"></a>Compatibilidad con la API y PowerShell
 

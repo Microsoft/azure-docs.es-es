@@ -3,22 +3,23 @@ title: Creación de un subclip de vídeo al codificar con Azure Media Services
 description: En este tema se describe cómo crear un subclip de vídeo al codificar mediante Azure Media Services con el SDK de .NET.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/09/2019
-ms.author: juliako
-ms.openlocfilehash: 31fa7fe6b16b7ba97b8ce5e6697f1aaaf88aa294
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: inhenkel
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 1725fab30ddb4d40e0bf5345683588c878658052
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091902"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296573"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---net"></a>Creación de un subclip de vídeo al codificar mediante Azure Media Services: .NET
 

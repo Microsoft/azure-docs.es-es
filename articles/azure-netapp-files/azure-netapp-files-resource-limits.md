@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/08/2020
+ms.date: 08/21/2020
 ms.author: b-juche
-ms.openlocfilehash: a0d672f782cb9f476fa81d28ee369072caf8509b
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 9facbc1629b8e1330c6bbafb4444d5bfc237d16f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147207"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752299"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Límites de recursos para Azure NetApp Files
 
@@ -33,6 +33,7 @@ En la tabla siguiente se describen los límites de recursos de Azure NetApp File
 |----------------|---------------------|--------------------------------------|
 |  Número de cuentas de NetApp por región de Azure   |  10    |  Sí   |
 |  Número de grupos de capacidad por cuenta de NetApp   |    25     |   Sí   |
+|  Número de volúmenes por suscripción   |    500     |   Sí   |
 |  Número de volúmenes por grupo de capacidad     |    500   |    Sí     |
 |  Número máximo de instantáneas por volumen       |    255     |    No        |
 |  Número de subredes que se delegan a Azure NetApp Files (Microsoft.NetApp/volumes) por cada red virtual de Azure    |   1   |    No    |
@@ -79,7 +80,7 @@ Desde el plano de navegación de Azure Portal:
 4. Haga clic en la pestaña Detalles:
     1. En el cuadro Descripción, proporcione la siguiente información para el tipo de recurso correspondiente:
 
-        |  Recurso  |    Recursos primarios      |    Nuevos límites solicitados     |    Motivo de aumento de cuota       |
+        |  Resource  |    Recursos primarios      |    Nuevos límites solicitados     |    Motivo de aumento de cuota       |
         |----------------|------------------------------|---------------------------------|------------------------------------------|
         |  Cuenta |  *Subscription ID*   |  *Nuevo número máximo de **cuentas** solicitado*    |  *¿Qué escenario o caso de uso motivó la solicitud?*  |
         |  grupo    |  *Identificador de suscripción y URI de la cuenta*  |  *Nuevo número máximo de **grupos** solicitado*   |  *¿Qué escenario o caso de uso motivó la solicitud?*  |

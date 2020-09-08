@@ -3,12 +3,12 @@ title: 'Organización de los recursos con grupos de administración: Servicios d
 description: Más información sobre los grupos de administración, el funcionamiento de sus permisos y cómo utilizarlos.
 ms.date: 07/06/2020
 ms.topic: overview
-ms.openlocfilehash: 787658cebcb8345edd616bcdde485883ea43e8dc
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: c1c054ab67a94b5782187092c572e1e73752c8c2
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87529354"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920167"
 ---
 # <a name="what-are-azure-management-groups"></a>¿Qué son los grupos de administración de Azure?
 
@@ -25,7 +25,7 @@ Puede compilar una estructura flexible de grupos de administración y suscripcio
 
 Puede crear una jerarquía que aplique una directiva, por ejemplo, que limite las ubicaciones de las máquinas virtuales a la región Oeste de EE. UU. en el grupo denominado "Producción". Esta directiva se heredará en todas las suscripciones con Contrato Enterprise descendientes de ese grupo de administración y se aplicará a todas las máquinas virtuales de esas suscripciones. El propietario de recursos o suscripciones no puede modificar esta directiva de seguridad, lo que permite una gobernanza mejorada.
 
-Otro escenario en el que usaría grupos de administración es para proporcionar acceso de usuario a varias suscripciones. Al mover muchas suscripciones bajo ese grupo de administración, puede crear una asignación de [control de acceso basado en rol](../../role-based-access-control/overview.md) (RBAC) en el grupo de administración que heredará ese acceso en todas las suscripciones. Una asignación en el grupo de administración puede permitir a los usuarios acceder a todo lo que necesitan en lugar de realizar scripting para proporcionar control de acceso basado en rol sobre las distintas suscripciones.
+Otro escenario en el que usaría grupos de administración es para proporcionar acceso de usuario a varias suscripciones. Al mover varias suscripciones bajo ese grupo de administración, pude crear una [asignación de rol de Azure](../../role-based-access-control/overview.md) en el grupo de administración, que heredará ese acceso en todas las suscripciones. Una asignación en el grupo de administración puede permitir a los usuarios acceder a todo lo que necesitan en lugar de realizar scripting para proporcionar control de acceso basado en rol sobre las distintas suscripciones.
 
 ### <a name="important-facts-about-management-groups"></a>Hechos importantes acerca de los grupos de administración
 

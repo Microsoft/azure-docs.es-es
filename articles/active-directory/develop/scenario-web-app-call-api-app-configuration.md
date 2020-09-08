@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: ac438b42f25fc82a0a5dd5384205e809e45ff57a
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8827d413144d8bc6f00c3948a99be3ee3aa2264e
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120092"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855447"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>Aplicación web que llama a las API web: Configuración del código
 
@@ -49,10 +49,11 @@ public void ConfigureServices(IServiceCollection services)
 {
     // more code here
 
-    services.AddMicrosoftWebAppAuthentication(Configuration, "AzureAd")
-            .AddMicrosoftWebAppCallsdWebApi(Configuration,
-                                           initialScopes: new string[] { "user.read" })
-            .AddInMemoryTokenCaches();
+    services.AddMicrosoftIdentityWebAppAuthentication(Configuration,
+                                                      "AzureAd")
+            .EnableTokenAcquisitionToCallDownstreamApi(
+                    initialScopes: new string[] { "user.read" })
+                .AddInMemoryTokenCaches();
 
     // more code here
 }
@@ -272,9 +273,9 @@ En el tutorial de ASP.NET Core se usa la inserción de dependencias para permiti
 
 ```csharp
 // Use a distributed token cache by adding:
-    services.AddMicrosoftWebAppAuthentication(Configuration, "AzureAd")
-            .AddMicrosoftWebAppCallsWebApi(Configuration,
-                                           initialScopes: new string[] { "user.read" })
+    services.AddMicrosoftIdentityWebAppAuthentication(Configuration, "AzureAd")
+            .EnableTokenAcquisitionToCallDownstreamApi(
+                initialScopes: new string[] { "user.read" })
             .AddDistributedTokenCaches();
 
 // Then, choose your implementation.

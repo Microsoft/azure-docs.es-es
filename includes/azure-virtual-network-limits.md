@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 511354633b9f88f3d6cd2e2170ce3b7ca1f4ecdb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b963cc459094e823499e962736550dcea2345ba2
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82095970"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854106"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Límites de redes - Azure Resource Manager
 Los límites siguientes solo se aplican a los recursos de redes administrados mediante **Azure Resource Manager** por región y por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
@@ -100,7 +100,7 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | Direcciones IP privadas por red virtual |4 096 |4 096 |
 | Conexiones TCP concurrentes o flujo UDP por NIC de una máquina virtual o instancia de rol |500 000, hasta 1 000 000 de dos o varias NIC. |500 000, hasta 1 000 000 de dos o varias NIC. |
 | Grupos de seguridad de red (NSG) |200 |200 |
-| Reglas de NSG por NSG |1,000 |1,000 |
+| Reglas de NSG por NSG |200 |1,000 |
 | Tablas de rutas definidas por el usuario |200 |200 |
 | Rutas definidas por el usuario por tabla de ruta |400 |400 |
 | Direcciones IP públicas (dinámicas) |500 |500 |

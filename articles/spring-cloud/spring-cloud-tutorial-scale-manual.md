@@ -7,12 +7,12 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: edbb3c1b2ed3e696c304f72c7b40fa926cae2c54
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c3c660c5e301081ee82a12275b6e9125f0fc781b
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021195"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89289824"
 ---
 # <a name="tutorial-scale-an-application-in-azure-spring-cloud"></a>Tutorial: Escalado de una aplicación en Azure Spring Cloud
 
@@ -27,7 +27,7 @@ Cuando termine, sabrá cómo realizar cambios manuales rápidos en cada aplicaci
 Para seguir estos procedimientos, necesita:
 
 * Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
-* Una instancia del servicio Azure Spring Cloud implementada.  Como comienzo, siga el [inicio rápido para implementar una aplicación mediante la CLI de Azure](spring-cloud-quickstart-launch-app-cli.md).
+* Una instancia del servicio Azure Spring Cloud implementada.  Como comienzo, siga el [inicio rápido para implementar una aplicación mediante la CLI de Azure](spring-cloud-quickstart.md).
 * Al menos una aplicación ya creada en su instancia de servicio.
 
 ## <a name="navigate-to-the-scale-page-in-the-azure-portal"></a>Vaya a la página Escalar de Azure Portal

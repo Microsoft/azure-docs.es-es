@@ -2,13 +2,14 @@
 title: Información general del Administrador de recursos de Azure
 description: Describe cómo utilizar Administrador de recursos de Azure para la implementación, la administración y el control de acceso de los recursos en Azure.
 ms.topic: overview
-ms.date: 04/21/2020
-ms.openlocfilehash: 089919e227b33859dbeabd98ecd75845a28a3f42
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 09/01/2020
+ms.custom: contperfq1
+ms.openlocfilehash: 2dc33093df0d9bc0bd75410bac8d200fe6555257
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087034"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89293955"
 ---
 # <a name="what-is-azure-resource-manager"></a>¿Qué es Azure Resource Manager?
 
@@ -68,25 +69,33 @@ Puede implementar plantillas en inquilinos, grupos de administración, suscripci
 
 Hay algunos factores importantes que se deben tener en cuenta al definir el grupo de recursos:
 
-* Todos los recursos del grupo deben compartir el mismo ciclo de vida. Se implementan, actualizan y eliminan de forma conjunta. Si un recurso, como un servidor, debe existir en un ciclo de implementación diferente, debe estar en otro grupo de recursos.
+* Todos los recursos del grupo de recursos deben compartir el mismo ciclo de vida. Se implementan, actualizan y eliminan de forma conjunta. Si un recurso, como un servidor, debe existir en un ciclo de implementación diferente, debe estar en otro grupo de recursos.
 
 * Cada recurso solo puede existir en un grupo de recursos.
-
-* Algunos recursos pueden existir fuera de un grupo de recursos. Estos recursos se implementan en la [suscripción](../templates/deploy-to-subscription.md), el [grupo de administración](../templates/deploy-to-management-group.md) o el [inquilino](../templates/deploy-to-tenant.md). En estos ámbitos solo se admiten tipos de recursos específicos.
 
 * Puede agregar o quitar un recurso de un grupo de recursos en cualquier momento.
 
 * Puede mover un recurso de un grupo de recursos a otro. Para obtener más información, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](move-resource-group-and-subscription.md).
 
-* Un grupo de recursos puede contener recursos que estén ubicados en diferentes regiones.
+* Los recursos de un grupo de recursos pueden encontrarse en regiones distintas a las del grupo de recursos.
 
-* Un grupo de recursos puede utilizarse para definir el ámbito de control de acceso para las acciones administrativas.
+* Al crear un grupo de recursos, es preciso proporcionar una ubicación para dicho grupo de recursos. Pero puede preguntarse: "¿Por qué necesita un grupo de recursos una ubicación? Y si los recursos pueden tener ubicaciones distintas de las del grupo de recursos, ¿por qué es importante la ubicación de este?" Los grupos de recursos almacenan metadatos acerca de los recursos. Al especificar la ubicación del grupo de recursos, se especifica el lugar en que dichos metadatos se almacenan. Por motivos de compatibilidad, es posible que sea preciso asegurarse de que los datos se almacenan en una región concreta.
 
-* Un recurso puede interactuar con los recursos de otros grupos. Esta interacción es común cuando ambos recursos están relacionados, pero no comparten el mismo ciclo de vida (por ejemplo, aplicaciones web que se conectan a una base de datos).
+   Si la región del grupo de recursos no está disponible temporalmente, no puede actualizar los recursos del grupo de recursos porque los metadatos no están disponibles. Los recursos de otras regiones seguirán funcionando según lo previsto, pero no podrá actualizarlos. Para más información sobre la creación de aplicaciones confiables, consulte [Diseño de aplicaciones de Azure confiables](/azure/architecture/checklist/resiliency-per-service).
 
-Al crear un grupo de recursos, es preciso proporcionar una ubicación para dicho grupo de recursos. Pero puede preguntarse: "¿Por qué necesita un grupo de recursos una ubicación? Y si los recursos pueden tener ubicaciones distintas de las del grupo de recursos, ¿por qué es importante la ubicación de este?" Los grupos de recursos almacenan metadatos acerca de los recursos. Al especificar la ubicación del grupo de recursos, se especifica el lugar en que dichos metadatos se almacenan. Por motivos de compatibilidad, es posible que sea preciso asegurarse de que los datos se almacenan en una región concreta.
+* Un grupo de recursos puede utilizarse para definir el ámbito de control de acceso para las acciones administrativas. Para administrar un grupo de recursos, se pueden asignar [directivas de Azure](../../governance/policy/overview.md), [roles de RBAC](../../role-based-access-control/role-assignments-portal.md) o [bloqueos de recursos](lock-resources.md).
 
-Si la región del grupo de recursos no está disponible temporalmente, no puede actualizar los recursos del grupo de recursos porque los metadatos no están disponibles. Los recursos de otras regiones seguirán funcionando según lo previsto, pero no podrá actualizarlos. Para más información sobre la creación de aplicaciones confiables, consulte [Diseño de aplicaciones de Azure confiables](/azure/architecture/checklist/resiliency-per-service).
+* También, se pueden [aplicar etiquetas](tag-resources.md) a un grupo de recursos. Los recursos del grupo de recursos no heredan esas etiquetas.
+
+* Un recurso puede conectarse a los recursos de otros grupos de recursos. Este escenario suele darse cuando los dos recursos están relacionados, pero no comparten el mismo ciclo de vida. Por ejemplo, puede tener una aplicación web que se conecta a una base de datos de un grupo de recursos diferente.
+
+* Al eliminar un grupo de recursos, también se eliminan todos los recursos que contiene. Para información sobre cómo Azure Resource Manager organiza esas eliminaciones, consulte [Eliminación de grupos de recursos y recursos en Azure Resource Manager](delete-resource-group.md).
+
+* Se pueden implementar hasta 800 instancias de un tipo de recurso en cada grupo de recursos. Algunos tipos de recursos están [exentos del límite de 800 instancias](resources-without-resource-group-limit.md).
+
+* Algunos recursos pueden existir fuera de un grupo de recursos. Estos recursos se implementan en la [suscripción](../templates/deploy-to-subscription.md), el [grupo de administración](../templates/deploy-to-management-group.md) o el [inquilino](../templates/deploy-to-tenant.md). En estos ámbitos solo se admiten tipos de recursos específicos.
+
+* Para crear un grupo de recursos, puede usar el [portal](manage-resource-groups-portal.md#create-resource-groups), [PowerShell](manage-resource-groups-powershell.md#create-resource-groups), la [CLI de Azure](manage-resource-groups-cli.md#create-resource-groups) o una [plantilla de Azure Resource Manager (ARM)](../templates/deploy-to-subscription.md#resource-groups).
 
 ## <a name="resiliency-of-azure-resource-manager"></a>Resistencia de Azure Resource Manager
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: ce8e8b083b108d24c11d828ae1cbd4e47e090fc0
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e7ca86d0146f05d5171d5eae18aac81d75122bcc
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963213"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258545"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parámetros del servidor en Azure Database for MySQL
 
@@ -112,17 +112,17 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
 |Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
-|De uso general|2|262144|128|268435455|
-|De uso general|4|262144|128|536870912|
-|De uso general|8|262144|128|1073741824|
-|De uso general|16|262144|128|2147483648|
-|De uso general|32|262144|128|4294967295|
-|De uso general|64|262144|128|4294967295|
-|Memoria optimizada|2|262144|128|536870912|
-|Memoria optimizada|4|262144|128|1073741824|
-|Memoria optimizada|8|262144|128|2147483648|
-|Memoria optimizada|16|262144|128|4294967295|
-|Memoria optimizada|32|262144|128|4294967295|
+|De uso general|2|262 144|128|268435455|
+|De uso general|4|262 144|128|536870912|
+|De uso general|8|262 144|128|1073741824|
+|De uso general|16|262 144|128|2147483648|
+|De uso general|32|262 144|128|4294967295|
+|De uso general|64|262 144|128|4294967295|
+|Memoria optimizada|2|262 144|128|536870912|
+|Memoria optimizada|4|262 144|128|1073741824|
+|Memoria optimizada|8|262 144|128|2147483648|
+|Memoria optimizada|16|262 144|128|4294967295|
+|Memoria optimizada|32|262 144|128|4294967295|
 
 ### <a name="max_connections"></a>max_connections
 
@@ -132,15 +132,15 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |Básico|2|100|10|100|
 |De uso general|2|300|10|600|
 |De uso general|4|625|10|1250|
-|De uso general|8|1250|10|2500|
+|De uso general|8|1250|10|2.500|
 |De uso general|16|2500|10|5000|
-|De uso general|32|5000|10|10 000|
-|De uso general|64|10 000|10|20 000|
+|De uso general|32|5000|10|10000|
+|De uso general|64|10 000|10|20000|
 |Memoria optimizada|2|625|10|1250|
-|Memoria optimizada|4|1250|10|2500|
-|Memoria optimizada|8|2500|10|5000|
-|Memoria optimizada|16|5000|10|10 000|
-|Memoria optimizada|32|10 000|10|20 000|
+|Memoria optimizada|4|1250|10|2.500|
+|Memoria optimizada|8|2.500|10|5000|
+|Memoria optimizada|16|5000|10|10000|
+|Memoria optimizada|32|10000|10|20000|
 
 Si las conexiones superan el límite, puede que reciba el error siguiente:
 > ERROR 1040 (08004): Demasiadas conexiones
@@ -198,6 +198,24 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |Memoria optimizada|16|0|0|134217728|
 |Memoria optimizada|32|0|0|134217728|
 
+### <a name="lower_case_table_names"></a>lower_case_table_names
+
+De manera predeterminada, lower_case_table_name está establecido en 1 y puede actualizar este parámetro en MySQL 5.6 y MySQL 5.7.
+
+Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_lower_case_table_names) para más información acerca de este parámetro.
+
+> [!NOTE]
+> En MySQL 8.0, el valor de lower_case_table_name está establecido en 1 de manera predeterminada y no puede cambiarlo.
+
+### <a name="innodb_strict_mode"></a>innodb_strict_mode
+
+Si recibe un error similar a "Tamaño de la fila demasiado grande (> 8126)", es posible que quiera desactivar el parámetro **innodb_strict_mode**. El parámetro de servidor **innodb_strict_mode** no se puede modificar globalmente en el nivel de servidor porque, si el tamaño de los datos de fila es superior a 8 KB, se truncarán los datos sin que se produzca una posible pérdida de datos. Se recomienda modificar el esquema para ajustarlo al límite de tamaño de página. 
+
+Este parámetro se puede establecer en un nivel de sesión mediante `init_connect`. Para establecer **innodb_strict_mode** en el nivel de sesión, consulte cómo [ajustar un parámetro que no aparece en la lista](https://docs.microsoft.com/azure/mysql/howto-server-parameters#setting-parameters-not-listed).
+
+> [!NOTE]
+> Si tiene un servidor de réplica de lectura, al establecer **innodb_strict_mode** como desactivado el nivel de sesión de un servidor maestro, se interrumpirá la replicación. Se recomienda mantener el parámetro establecido así si tiene réplicas de lectura.
+
 ### <a name="sort_buffer_size"></a>sort_buffer_size
 
 Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sort_buffer_size) para más información acerca de este parámetro.
@@ -206,17 +224,17 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
 |Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
-|De uso general|2|524288|32768|4 194 304|
-|De uso general|4|524288|32768|8388608|
-|De uso general|8|524288|32768|16777216|
-|De uso general|16|524288|32768|33554432|
-|De uso general|32|524288|32768|33554432|
-|De uso general|64|524288|32768|33554432|
-|Memoria optimizada|2|524288|32768|8388608|
-|Memoria optimizada|4|524288|32768|16777216|
-|Memoria optimizada|8|524288|32768|33554432|
-|Memoria optimizada|16|524288|32768|33554432|
-|Memoria optimizada|32|524288|32768|33554432|
+|De uso general|2|524 288|32 768|4 194 304|
+|De uso general|4|524 288|32 768|8388608|
+|De uso general|8|524 288|32 768|16777216|
+|De uso general|16|524 288|32 768|33554432|
+|De uso general|32|524 288|32 768|33554432|
+|De uso general|64|524 288|32 768|33554432|
+|Memoria optimizada|2|524 288|32 768|8388608|
+|Memoria optimizada|4|524 288|32 768|16777216|
+|Memoria optimizada|8|524 288|32 768|33554432|
+|Memoria optimizada|16|524 288|32 768|33554432|
+|Memoria optimizada|32|524 288|32 768|33554432|
 
 ### <a name="tmp_table_size"></a>tmp_table_size
 

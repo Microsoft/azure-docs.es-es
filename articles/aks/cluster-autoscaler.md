@@ -4,12 +4,12 @@ description: Aprenda a usar el escalado automático de clústeres para escalar a
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: af09d594dd745b64901965499df4245fa2e6a85f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 9f1dcc64569e9822e3703312740450e2528479dc
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87130841"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257517"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Escalar automáticamente un clúster para satisfacer las necesidades de la aplicación en Azure Kubernetes Service (AKS)
 
@@ -20,12 +20,6 @@ En este artículo se muestra cómo habilitar y administrar el escalado automáti
 ## <a name="before-you-begin"></a>Antes de empezar
 
 Para este artículo es preciso usar la versión 2.0.76 de la CLI de Azure, o cualquier versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli-install].
-
-## <a name="limitations"></a>Limitaciones
-
-Se aplican las siguientes limitaciones cuando crea y administra clústeres de AKS que usan la escalabilidad automática de clúster:
-
-* El complemento de enrutamiento de aplicación HTTP no se puede utilizar.
 
 ## <a name="about-the-cluster-autoscaler"></a>Acerca del escalado automático de clústeres
 
@@ -44,7 +38,7 @@ Tanto Horizontal Pod Autoscaler como Cluster Autoscaler pueden reducir el númer
 
 Para obtener más información acerca de cómo el escalado automático de clústeres no puede realizar reducciones verticales, consulte [What types of pods can prevent the cluster autoscaler from removing a node?][autoscaler-scaledown] (¿Qué tipos de pods pueden evitar que el escalado automático de clústeres elimine un nodo?)
 
-El escalado automático de clústeres usa parámetros de inicio para cosas como intervalos de tiempo entre eventos de escalado y umbrales de recursos. Para obtener más información sobre los parámetros que usa el escalado automático de clústeres, consulte [¿Cuáles son los parámetros de clúster del escalado automático de clústeres?][autoscaler-parameters]
+El escalado automático de clústeres usa parámetros de inicio para cosas como intervalos de tiempo entre eventos de escalado y umbrales de recursos. Para más información sobre los parámetros que usa el escalado automático de clústeres, consulte [Uso del perfil del escalador automático](#using-the-autoscaler-profile).
 
 Horizontal Pod Autoscaler y Cluster Autoscaler pueden funcionar juntos y a menudo se implementan en un clúster. Cuando se combinan, el escalado automático horizontal de pods se centra en ejecutar el número de pods necesario para satisfacer las exigencias de la aplicación. El escalado automático de clústeres se centra en ejecutar el número de nodos necesario para admitir los pods programados.
 

@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: hasshah
-ms.openlocfilehash: d7eea031e50a0f54a57d8a9c857d52ca137f3283
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 8c19650a8f36181e3e003414ff15add071e9a8ac
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760556"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918900"
 ---
 # <a name="what-is-a-keyword"></a>¿Qué es una palabra clave?
 

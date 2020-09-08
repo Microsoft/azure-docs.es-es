@@ -1,18 +1,18 @@
 ---
 title: 'Azure VPN Gateway: Requisitos criptográficos'
-description: Este artículo describe los requisitos criptográficos y las puertas de enlace de VPN de Azure
+description: Aprenda a configurar las puertas de enlace de VPN de Azure para satisfacer los requisitos criptográficos para los túneles VPN de sitio a sitio entre entornos locales y las conexiones de red virtual a red virtual de Azure.
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: yushwang
-ms.openlocfilehash: 93e13592d9c434b159ad4f4c10ef30328941c64e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 499d184d373b896ba7bffcf990693ef5e6ac466b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75902819"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032431"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Acerca de los requisitos criptográficos y las puertas de enlace de VPN de Azure
 

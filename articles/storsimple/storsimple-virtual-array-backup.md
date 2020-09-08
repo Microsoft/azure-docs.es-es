@@ -1,6 +1,6 @@
 ---
 title: Tutorial de copia de seguridad de Microsoft Azure StorSimple Virtual Array | Microsoft Docs
-description: Describe cómo realizar copias de seguridad de recursos compartidos y volúmenes de la matriz virtual de StorSimple.
+description: Cree copias de seguridad programadas y manuales para Microsoft Azure StorSimple Virtual Array y realice una recuperación de nivel de elemento para restaurar un archivo eliminado en la matriz virtual.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 26bf018d8823495c00b09af3a40b39315dadb31c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41cb02e77fa77c5a7452c5e3e0d2080ee3d472d5
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513678"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183231"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Copia de seguridad de recursos compartidos o volúmenes de la matriz virtual de StorSimple
 

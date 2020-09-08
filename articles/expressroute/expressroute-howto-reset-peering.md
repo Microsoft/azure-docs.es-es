@@ -1,18 +1,18 @@
 ---
 title: 'Azure ExpressRoute: Restablecimiento de emparejamiento de circuitos'
-description: Cómo deshabilitar y habilitar los emparejamientos de un circuito de ExpressRoute.
+description: Aprenda a deshabilitar y habilitar emparejamientos de un circuito de Azure ExpressRoute mediante Azure PowerShell. Cuando se configuran emparejamientos, están habilitados de forma predeterminada.
 services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/13/2018
-ms.author: charwen
-ms.openlocfilehash: cc4266a92d510ac84118922f7db09c99234045b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: f3b34966aa46ca8d663f83ab2aceafa4b0dda2eb
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735258"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89395747"
 ---
 # <a name="reset-expressroute-circuit-peerings"></a>Restablecimiento de emparejamientos de circuitos ExpressRoute
 

@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f621ed1342928b7f05fc8b84bfc2fceadf494fb5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b594bcac8ef50a3f5fbe6a2424bf5dbfe9f180cd
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019738"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278996"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Preguntas más frecuentes
 
@@ -37,7 +37,7 @@ SSO de conexión directa es una característica gratuita y no es necesario usar 
 
 **P: ¿Está disponible el inicio de sesión único de conexión directa en la [nube de Microsoft Azure Alemania](https://www.microsoft.de/cloud-deutschland) y en la [nube de Microsoft Azure Government?](https://azure.microsoft.com/features/gov/)**
 
-El SSO de conexión directa está disponible para la nube de Azure Government. Para más información, consulte [Consideraciones al respecto de la identidad híbrida para Azure Government](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud).
+El SSO de conexión directa está disponible para la nube de Azure Government. Para más información, consulte [Consideraciones al respecto de la identidad híbrida para Azure Government](./reference-connect-government-cloud.md).
 
 **P: ¿Qué aplicaciones aprovechan la funcionalidad de parámetro `domain_hint` o `login_hint` del inicio de sesión único de conexión directa?**
 
@@ -64,9 +64,9 @@ Si quiere que otras aplicaciones utilicen la experiencia de inicio de sesión si
 
 Sí. SSO de conexión directa admite `Alternate ID` como el nombre de usuario cuando se configura en Azure AD Connect, tal como se muestra [aquí](how-to-connect-install-custom.md). No todas las aplicaciones de Office 365 admiten `Alternate ID`. Consulte la documentación de la aplicación específica para conocer la declaración de compatibilidad.
 
-**P: ¿Cuál es la diferencia entre la experiencia de inicio de sesión único que proporciona [Azure AD Join](../active-directory-azureadjoin-overview.md) y el inicio de sesión único de conexión directa?**
+**P: ¿Cuál es la diferencia entre la experiencia de inicio de sesión único que proporciona [Azure AD Join](../devices/overview.md) y el inicio de sesión único de conexión directa?**
 
-[Azure AD Join](../active-directory-azureadjoin-overview.md) permite el inicio de sesión único a los usuarios si sus dispositivos se han registrado con Azure AD. Estos dispositivos no deben estar unidos al dominio necesariamente. SSO se proporciona mediante *tokens de actualización principal* o *PRT*, y no con Kerberos. La experiencia del usuario es más adecuada en dispositivos Windows 10. SSO se realiza automáticamente en el explorador Microsoft Edge. También funciona en Chrome mediante una extensión de explorador.
+[Azure AD Join](../devices/overview.md) permite el inicio de sesión único a los usuarios si sus dispositivos se han registrado con Azure AD. Estos dispositivos no deben estar unidos al dominio necesariamente. SSO se proporciona mediante *tokens de actualización principal* o *PRT*, y no con Kerberos. La experiencia del usuario es más adecuada en dispositivos Windows 10. SSO se realiza automáticamente en el explorador Microsoft Edge. También funciona en Chrome mediante una extensión de explorador.
 
 Puede usar tanto Azure AD Join como SSO de conexión directa en el inquilino. Estas dos características son complementarias. Si ambas están activadas, SSO de Azure AD Join tiene prioridad sobre SSO de conexión directa.
 
@@ -85,7 +85,7 @@ Siga estos pasos en el servidor local donde se ejecuta Azure AD Connect:
 
    **Paso 1. Obtención de la lista de bosques de AD en los que se habilitó SSO de conexión directa**
 
-   1. Primero, descargue e instale [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+   1. Primero, descargue e instale [Azure AD PowerShell](/powershell/azure/active-directory/overview).
    2. Vaya a la carpeta `%programfiles%\Microsoft Azure Active Directory Connect`.
    3. Importe el módulo de PowerShell de SSO de conexión directa mediante este comando: `Import-Module .\AzureADSSO.psd1`.
    4. Ejecute PowerShell como administrador. En PowerShell, llame a `New-AzureADSSOAuthenticationContext`. Este comando debería mostrar un cuadro emergente para escribir las credenciales de administrador global del inquilino.
@@ -130,11 +130,13 @@ Siga estos pasos en el servidor local donde se ejecuta Azure AD Connect:
 
    Ejecute los pasos siguientes en el servidor local donde se ejecuta Azure AD Connect:
 
-   1. Primero, descargue e instale [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+   1. Primero, descargue e instale [Azure AD PowerShell](/powershell/azure/active-directory/overview).
    2. Vaya a la carpeta `%programfiles%\Microsoft Azure Active Directory Connect`.
    3. Importe el módulo de PowerShell de SSO de conexión directa mediante este comando: `Import-Module .\AzureADSSO.psd1`.
    4. Ejecute PowerShell como administrador. En PowerShell, llame a `New-AzureADSSOAuthenticationContext`. Este comando debería mostrar un cuadro emergente para escribir las credenciales de administrador global del inquilino.
    5. Llame a `Enable-AzureADSSO -Enable $false`.
+   
+   En este momento, el SSO de conexión directa está deshabilitado, pero los dominios permanecerán configurados en el caso de que quiera volver a habilitar el SSO de conexión directa. Si desea quitar completamente los dominios de la configuración del SSO de conexión directa, llame al siguiente cmdlet después de completar el paso 5 anteriormente: `Disable-AzureADSSOForest -DomainFqdn <fqdn>`.
 
    >[!IMPORTANT]
    >Si deshabilita SSO de conexión directa con PowerShell, no cambiará el estado en Azure AD Connect. SSO de conexión directa se mostrará como habilitado en la página **Change user sign-in** (Cambiar inicio de sesión de usuario).
@@ -143,7 +145,7 @@ Siga estos pasos en el servidor local donde se ejecuta Azure AD Connect:
 
    Realice las tareas 1 a 4 a continuación si ha deshabilitado el inicio de sesión único de conexión directa con Azure AD Connect. Si, en cambio, ha deshabilitado el inicio de sesión único de conexión directa con PowerShell, avance a la tarea 5 a continuación.
 
-   1. Primero, descargue e instale [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+   1. Primero, descargue e instale [Azure AD PowerShell](/powershell/azure/active-directory/overview).
    2. Vaya a la carpeta `%programfiles%\Microsoft Azure Active Directory Connect`.
    3. Importe el módulo de PowerShell de SSO de conexión directa mediante este comando: `Import-Module .\AzureADSSO.psd1`.
    4. Ejecute PowerShell como administrador. En PowerShell, llame a `New-AzureADSSOAuthenticationContext`. Este comando debería mostrar un cuadro emergente para escribir las credenciales de administrador global del inquilino.

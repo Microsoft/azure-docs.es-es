@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: 7b0fbb7c4f680f9d732a63fff7b0b317c6cf1511
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: eb7f642e36bd72f963481cb392d7e3a6c2555816
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519704"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612391"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Exportación de alertas y recomendaciones de seguridad
 
@@ -31,12 +31,14 @@ Con estas herramientas puede realizar lo siguiente:
 
 ## <a name="availability"></a>Disponibilidad
 
-- Estado de la versión: **Disponibilidad general**
-- Roles y permisos necesarios:
-    - **Lector** en la suscripción que contiene la configuración de exportación.
-    - **Rol de administrador de seguridad** en el grupo de recursos, o **Propietario**.
-    - También debe tener permisos de escritura para el recurso de destino.
-- Nubes:   ✔ Nubes comerciales   ✔ US Gov   ✘ China Gov, otros gobiernos
+|Aspecto|Detalles|
+|----|:----|
+|Estado de la versión:|Disponibilidad general|
+|Precios:|Nivel gratis|
+|Roles y permisos necesarios:|**Rol de administrador de seguridad** en el grupo de recursos (o **Propietario**).<br>También debe tener permisos de escritura para el recurso de destino.|
+|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, otros gobiernos|
+|||
+
 
 
 ## <a name="setting-up-a-continuous-export"></a>Configuración de una exportación continua
@@ -55,7 +57,29 @@ Los pasos siguientes son necesarios si va a configurar una exportación continua
 
 1. En el área "Destino de exportación", elija dónde quiere guardar los datos. Los datos se pueden guardar en el destino de una suscripción diferente (por ejemplo, en una instancia central del Centro de eventos o en un área de trabajo central de Log Analytics).
 
-1. Haga clic en **Save**(Guardar).
+1. Seleccione **Guardar**.
+
+
+## <a name="setting-up-continuous-export-via-the-rest-api"></a>Configuración de la exportación continua mediante API REST
+
+La característica de exportación continua se puede configurar y administrar mediante las [API de automatizaciones](https://docs.microsoft.com/rest/api/securitycenter/automations) de Security Center. Use esta API para crear o actualizar automatizaciones para exportarlas a cualquiera de los siguientes destinos posibles:
+
+- Centro de eventos de Azure
+- Área de trabajo de Log Analytics
+- Azure Logic Apps 
+
+La API proporciona funcionalidad adicional que no está disponible en Azure Portal, por ejemplo:
+
+* **Mayor volumen**: la API permite crear varias configuraciones de exportación en una suscripción única. La página **Exportación continua** de la interfaz de usuario del portal de Security Center solo admite una configuración de exportación por suscripción.
+
+* **Características adicionales**: la API ofrece parámetros adicionales que no se muestran en la interfaz de usuario. Por ejemplo, puede agregar etiquetas a su recurso de automatización, así como definir su exportación en función de un mayor conjunto de alertas y propiedades recomendadas que las que se ofrecen en la página **Exportación continua** de la interfaz de usuario del portal de Security Center.
+
+* **Ámbito más centrado**: la API proporciona un nivel más detallado del ámbito de sus configuraciones de exportación. Cuando se define una exportación con la API, se puede hacer a nivel de grupo de recursos. Si va a usar la página **Exportación continua** en la interfaz de usuario del portal de Security Center, tiene que definirla en el nivel de suscripción.
+
+    > [!TIP]
+    > Si ha configurado la exportación múltiple mediante la API o si ha usado parámetros que sol solo de la API, las características adicionales no se mostrarán en la interfaz de usuario de Security Center. En su lugar, habrá un banner que le informará de que existen otras configuraciones.
+
+En la [documentación de la API REST](https://docs.microsoft.com/rest/api/securitycenter/automations) encontrará más información sobre la API de automatizaciones.
 
 
 
@@ -107,7 +131,7 @@ Azure Monitor proporciona un conjunto de alertas unificadas que consta de varias
 
 Para ver las alertas y recomendaciones de Security Center en Azure Monitor, configure una regla de alerta basada en consultas de Log Analytics (alerta de registro):
 
-1. En la página **Alertas** de Azure Monitor, haga clic en **Nueva regla de alertas**.
+1. En la página **Alertas**de Azure Monitor, seleccione **Nueva regla de alerta**.
 
     ![Página de alertas de Azure Monitor](./media/continuous-export/azure-monitor-alerts.png)
 
@@ -124,12 +148,25 @@ Ahora verá las nuevas alertas o recomendaciones de Azure Security Center (segú
 
 ## <a name="manual-one-time-export-of-security-alerts"></a>Exportación manual de un solo uso de alertas de seguridad
 
-Para descargar un informe en formato CSV con alertas o recomendaciones, abra la página de **alertas de seguridad** o de **recomendaciones** y haga clic en el botón para **descargar el informe CSV**.
+Para descargar un informe en formato CSV con alertas o recomendaciones, abra las páginas **Alertas de seguridad** o **Recomendaciones** y seleccione el botón para **Download CSV report** (Descargar informe en CSV).
 
 [![Descargar datos de alertas como un archivo CSV](media/continuous-export/download-alerts-csv.png)](media/continuous-export/download-alerts-csv.png#lightbox)
 
 > [!NOTE]
 > Estos informes contienen alertas y recomendaciones para los recursos de las suscripciones seleccionadas actualmente.
+
+
+
+## <a name="faq---continuous-export"></a>Preguntas frecuentes: exportación continua
+
+### <a name="what-are-the-costs-involved-in-exporting-data"></a>¿Cuáles son los costos de la exportación de datos?
+
+La habilitación de una exportación continua no tiene costo alguno. Sin embargo, la ingesta y retención de datos del área de trabajo de Log Analytics, pueden tener costo, en función de la configuración. 
+
+Obtenga más información sobre los [precios del área de trabajo de Log Analytics](https://azure.microsoft.com/pricing/details/monitor/).
+
+Obtenga más información sobre los [precios de Azure Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

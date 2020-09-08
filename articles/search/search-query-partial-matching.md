@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: d562931b7578935a4544dfd953ff2de74a5350a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 357f44149cb17976556c1e4609f6f2af531b80ee
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260991"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935779"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Búsqueda de términos parciales y patrones con caracteres especiales (carácter comodín, expresión regular y patrones)
 
@@ -51,7 +51,7 @@ Si necesita buscar en fragmentos, patrones o caracteres especiales, puede invali
 + Compile y pruebe el índice.
 
 > [!TIP]
-> La evaluación de analizadores es un proceso iterativo que requiere recompilaciones frecuentes de índices. Para simplificar este paso, puede usar Postman y las API REST para [crear un índice](https://docs.microsoft.com/rest/api/searchservice/create-index), [eliminar un índice](https://docs.microsoft.com/rest/api/searchservice/delete-index),[cargar documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)y [buscar documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents). Para la carga de documentos, el cuerpo de la solicitud debe contener un pequeño conjunto de datos representativo que quiera probar (por ejemplo, un campo con números de teléfono o códigos de producto). Con estas API en la misma colección de Postman, puede seguir estos pasos rápidamente.
+> La evaluación de analizadores es un proceso iterativo que requiere recompilaciones frecuentes de índices. Para simplificar este paso, puede usar Postman y las API REST para [crear un índice](/rest/api/searchservice/create-index), [eliminar un índice](/rest/api/searchservice/delete-index),[cargar documentos](/rest/api/searchservice/addupdate-or-delete-documents)y [buscar documentos](/rest/api/searchservice/search-documents). Para la carga de documentos, el cuerpo de la solicitud debe contener un pequeño conjunto de datos representativo que quiera probar (por ejemplo, un campo con números de teléfono o códigos de producto). Con estas API en la misma colección de Postman, puede seguir estos pasos rápidamente.
 
 ## <a name="duplicate-fields-for-different-scenarios"></a>Campos duplicados para diferentes escenarios
 
@@ -85,7 +85,7 @@ Al elegir un analizador que produce tokens de términos completos, los siguiente
 | [whitespace](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html) | Solo se separa en espacios en blanco. Los términos que incluyen guiones u otros caracteres se tratan como un solo token. |
 | [analizador personalizado](index-add-custom-analyzers.md) | (Recomendado) La creación de un analizador personalizado le permite especificar el filtro de tokens y el tokenizador. Los analizadores anteriores deben usarse tal cual. Un analizador personalizado le permite elegir los filtros de token y los tokenizadores que quiere usar. <br><br>Una combinación recomendada es el [tokenizador de palabras claves](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html) con un [filtro de tokens en minúsculas](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html). Por sí solo, el [analizador de palabras clave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) predefinido no pasa a minúsculas ningún texto en mayúsculas, lo que puede provocar errores en las consultas. Un analizador personalizado le ofrece un mecanismo para agregar el filtro de tokens en minúsculas. |
 
-Si usa una herramienta de prueba de API web como Postman, puede agregar la [llamada de REST del analizador de pruebas](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) para inspeccionar la salida con tokens.
+Si usa una herramienta de prueba de API web como Postman, puede agregar la [llamada de REST del analizador de pruebas](/rest/api/searchservice/test-analyzer) para inspeccionar la salida con tokens.
 
 Debe tener un índice relleno con el que trabajar. Si se da una situación en que tiene un índice y un campo que contiene guiones o términos parciales, puede probar varios analizadores en términos específicos para ver qué tokens se emiten.  
 
@@ -160,7 +160,7 @@ Tanto si está evaluando analizadores como si avanza con una configuración conc
 
 Los analizadores predefinidos o integrados se pueden especificar por su nombre en una propiedad `analyzer` de una definición de campo, sin necesidad de establecer configuración adicional en el índice. En el ejemplo siguiente se muestra cómo debería establecer el analizador `whitespace` en un campo. 
 
-Para ver otros escenarios y obtener más información sobre otros analizadores integrados, consulte [Lista de analizadores predefinidos](https://docs.microsoft.com/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
+Para ver otros escenarios y obtener más información sobre otros analizadores integrados, consulte [Lista de analizadores predefinidos](/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
 
 ```json
     {
@@ -222,15 +222,15 @@ Una vez que haya definido un índice con analizadores y definiciones de campo qu
 
 La lógica se explicó en las secciones anteriores. En esta sección se explican las API que debe llamar al probar la solución. Como se indicó anteriormente, si usa una herramienta de prueba web interactiva, como Postman, puede realizar estas tareas rápidamente.
 
-+ [Eliminación de índice](https://docs.microsoft.com/rest/api/searchservice/delete-index) quita un índice existente con el mismo nombre para que pueda volver a crearlo.
++ [Eliminación de índice](/rest/api/searchservice/delete-index) quita un índice existente con el mismo nombre para que pueda volver a crearlo.
 
-+ [Creación de índice](https://docs.microsoft.com/rest/api/searchservice/create-index) crea la estructura de índice en el servicio de búsqueda, incluidas las definiciones y los campos, así como una especificación, del analizador.
++ [Creación de índice](/rest/api/searchservice/create-index) crea la estructura de índice en el servicio de búsqueda, incluidas las definiciones y los campos, así como una especificación, del analizador.
 
-+ [Carga de documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) importa documentos que tienen la misma estructura que el índice, así como contenido que se puede buscar. Después de este paso, el índice está listo para realizar consultas o pruebas.
++ [Carga de documentos](/rest/api/searchservice/addupdate-or-delete-documents) importa documentos que tienen la misma estructura que el índice, así como contenido que se puede buscar. Después de este paso, el índice está listo para realizar consultas o pruebas.
 
-+ El [analizador de pruebas](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) se presentó en [Selección de un analizador](#choose-an-analyzer). Pruebe algunas de las cadenas del índice con diversos analizadores para entender cómo se acortan los términos.
++ El [analizador de pruebas](/rest/api/searchservice/test-analyzer) se presentó en [Selección de un analizador](#choose-an-analyzer). Pruebe algunas de las cadenas del índice con diversos analizadores para entender cómo se acortan los términos.
 
-+ [Búsqueda de documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents) explica cómo construir una solicitud de consulta mediante una [sintaxis simple](query-simple-syntax.md) o la [sintaxis de Lucene completa](query-lucene-syntax.md) para caracteres comodín y expresiones regulares.
++ [Búsqueda de documentos](/rest/api/searchservice/search-documents) explica cómo construir una solicitud de consulta mediante una [sintaxis simple](query-simple-syntax.md) o la [sintaxis de Lucene completa](query-lucene-syntax.md) para caracteres comodín y expresiones regulares.
 
   En el caso de las consultas de términos parciales, como la consulta de "3-6214" para encontrar una coincidencia en "+ 1 (425) 703-6214", puede usar la sintaxis simple: `search=3-6214&queryType=simple`.
 
@@ -287,5 +287,5 @@ En este artículo se explica cómo contribuyen ambos analizadores a los problema
 
 + [Analizadores de idiomas](search-language-support.md)
 + [Analizadores para el procesamiento de texto en Azure Cognitive Search](search-analyzers.md)
-+ [API de análisis de texto (REST)](https://docs.microsoft.com/rest/api/searchservice/test-analyzer)
++ [API de análisis de texto (REST)](/rest/api/searchservice/test-analyzer)
 + [Cómo funciona la búsqueda de texto completo (arquitectura de consultas)](search-lucene-query-architecture.md)

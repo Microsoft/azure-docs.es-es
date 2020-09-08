@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2020
+ms.date: 08/12/2020
 ms.author: memildin
-ms.openlocfilehash: bf503cf90df7b08e5a957416d66eae2f1a599bed
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: c7df035aec199953bdf9a6bd56262af70a5a77e7
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87438951"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723969"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novedades de Azure Security Center
 
@@ -28,6 +28,117 @@ La seguridad de Azure está en desarrollo activo y recibe mejoras continuas. Par
 - Funciones obsoletas
 
 Esta página se actualiza regularmente, por lo que se recomienda visitarla a menudo. Si busca elementos de más de 6 meses, puede encontrarlos en las [Novedades de Azure Security Center](release-notes-archive.md).
+
+
+## <a name="august-2020"></a>Agosto de 2020
+
+Las actualizaciones de agosto incluyen:
+
+- [Inventario de recursos: nueva vista eficaz de la posición de seguridad de sus recursos](#asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets)
+- [Compatibilidad agregada con los valores predeterminados de seguridad de Azure Active Directory (para la autenticación multifactor)](#added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication)
+- [Recomendación de entidades de servicio agregada](#service-principals-recommendation-added)
+- [Evaluación de vulnerabilidades en máquinas virtuales: recomendaciones y directivas consolidadas](#vulnerability-assessment-on-vms---recommendations-and-policies-consolidated)
+- [Se han agregado nuevas directivas de seguridad de AKS a la iniciativa de ASC_default para su uso solo por parte de clientes de versión preliminar privada](#new-aks-security-policies-added-to-asc_default-initiative--for-use-by-private-preview-customers-only)
+
+
+### <a name="asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets"></a>Inventario de recursos: nueva vista eficaz de la posición de seguridad de sus recursos
+
+El inventario de recursos de Security Center (actualmente en versión preliminar) proporciona una manera de ver la posición de seguridad de los recursos que ha conectado a Security Center.
+
+Security Center analiza periódicamente el estado de seguridad de los recursos de Azure para identificar posibles puntos vulnerables de la seguridad. A continuación, se proporcionan recomendaciones sobre cómo corregir dichos puntos vulnerables. Cuando algún recurso tenga recomendaciones pendientes, aparecerán en el inventario.
+
+Puede usar la vista y sus filtros para explorar los datos de la posición de seguridad y realizar acciones adicionales en función de los resultados.
+
+Obtenga más información sobre el [inventario de recursos](asset-inventory.md).
+
+
+### <a name="added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication"></a>Compatibilidad agregada con los valores predeterminados de seguridad de Azure Active Directory (para la autenticación multifactor)
+
+Security Center ha agregado compatibilidad total con los [valores predeterminados de seguridad](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults), las protecciones de seguridad de la identidad gratuitas de Microsoft.
+
+Los valores predeterminados de seguridad proporcionan una configuración de seguridad de la identidad preconfigurada para proteger su organización frente a ataques habituales relacionados con la identidad. Los valores predeterminados de seguridad ya protegen más de 5 millones de inquilinos en total; 50 000 inquilinos también reciben la protección de Security Center.
+
+Security Center ahora proporciona una recomendación de seguridad cada vez que identifica una suscripción de Azure sin valores predeterminados de seguridad habilitados. Hasta ahora, Security Center recomendaba habilitar la autenticación multifactor mediante el acceso condicional, que forma parte de la licencia Premium de Azure Active Directory (AD). Para los clientes que usen Azure AD de forma gratuita, ahora recomendamos que se habiliten los valores predeterminados de seguridad. 
+
+Nuestro objetivo es animar a más clientes a proteger sus entornos en la nube con MFA y mitigar uno de los mayores riesgos que también es el que tiene más impacto en su [puntuación de seguridad](https://docs.microsoft.com/azure/security-center/secure-score-security-controls).
+
+Obtenga más información sobre los [valores predeterminados de seguridad](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults).
+
+
+### <a name="service-principals-recommendation-added"></a>Recomendación de entidades de servicio agregada
+
+Se ha agregado una nueva recomendación para recomendar que los clientes de Security Center que usan certificados de administración para administrar sus suscripciones cambien a las entidades de servicio.
+
+La recomendación, **Para proteger las suscripciones,deben usarse entidades de servicio en lugar de certificados de administración**, le aconseja usar entidades de servicio o Azure Resource Manager para administrar de forma más segura sus suscripciones. 
+
+Obtenga más información sobre [Objetos de aplicación y de entidad de servicio de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object).
+
+
+### <a name="vulnerability-assessment-on-vms---recommendations-and-policies-consolidated"></a>Evaluación de vulnerabilidades en máquinas virtuales: recomendaciones y directivas consolidadas
+
+Security Center inspecciona las máquinas virtuales para detectar si ejecutan alguna solución de valoración de las vulnerabilidades. Si no encuentra ninguna solución, Security Center recomienda simplificar la implementación.
+
+Si se encuentran vulnerabilidades, Security Center realiza una recomendación en la que se resumen los resultados que se deben investigar y corregir, en caso de que sea necesario.
+
+Para garantizar una experiencia coherente para todos los usuarios, independientemente del tipo de analizador que usen, se han unificado cuatro recomendaciones en las dos siguientes:
+
+|Recomendación unificada|Descripción del cambio|
+|----|:----|
+|**Debe habilitarse una solución de evaluación de vulnerabilidades en sus máquinas virtuales**|Reemplaza las dos recomendaciones siguientes:<br> **•** Habilitar la solución de evaluación de vulnerabilidades integrada en las máquinas virtuales (con tecnología de Qualys) (ahora en desuso) (se incluye con el nivel Estándar).<br> **•** La solución de evaluación de vulnerabilidades debe instalarse en sus máquinas virtuales (ahora en desuso) (niveles gratuito y Estándar).|
+|**Es necesario corregir las vulnerabilidades de las máquinas virtuales**|Reemplaza las dos recomendaciones siguientes:<br>**•** Corregir las vulnerabilidades que se encontraron en las máquinas virtuales (con tecnología de Qualys) (ahora en desuso).<br>**•** Se deben corregir las vulnerabilidades mediante una solución de evaluación de vulnerabilidades (ahora en desuso).|
+|||
+
+Ahora usará la misma recomendación para implementar la extensión de evaluación de vulnerabilidades de Security Center o una solución con licencia privada ("BYOL") de un asociado como Qualys o Rapid7.
+
+Además, cuando se detectan vulnerabilidades y se notifican a Security Center, una sola recomendación le avisará de los hallazgos, independientemente de la solución de evaluación de vulnerabilidades que los haya identificado.
+
+#### <a name="updating-dependencies"></a>Actualización de dependencias
+
+Si tiene scripts, consultas o automatizaciones que hacen referencia a las recomendaciones anteriores o a nombres o claves de directivas, use las tablas siguientes para actualizar las referencias:
+
+##### <a name="before-august-2020"></a>Antes de agosto de 2020
+
+|Recomendación|Ámbito|
+|----|:----|
+|**Habilitar la solución de evaluación de vulnerabilidades integrada en las máquinas virtuales (con tecnología de Qualys)**<br>Clave: 550e890b-e652-4d22-8274-60b3bdb24c63|Integrada|
+|**Corregir las vulnerabilidades que se encontraron en las máquinas virtuales (con tecnología de Qualys)**<br>Clave: 1195afff-c881-495e-9bc5-1486211ae03f|Integrada|
+|**La solución de evaluación de vulnerabilidades debe instalarse en sus máquinas virtuales**<br>Clave: 01b1ed4c-b733-4fee-b145-f23236e70cf3|BYOL|
+|**Se deben corregir las vulnerabilidades mediante una solución de evaluación de vulnerabilidades**<br>Clave: 71992a2a-d168-42e0-b10e-6b45fa2ecddb|BYOL|
+||||
+
+
+|Directiva|Ámbito|
+|----|:----|
+|**La evaluación de vulnerabilidades debe estar habilitada en las máquinas virtuales**<br>Id. de directiva: 501541f7-f7e7-4cd6-868c-4190fdad3ac9|Integrada|
+|**Se deben corregir las vulnerabilidades mediante una solución de evaluación de vulnerabilidades**<br>Id. de directiva: 760a85ff-6162-42b3-8d70-698e268f648c|BYOL|
+||||
+
+
+##### <a name="from-august-2020"></a>Desde agosto de 2020
+
+|Recomendación|Ámbito|
+|----|:----|
+|**Debe habilitarse una solución de evaluación de vulnerabilidades en sus máquinas virtuales**<br>Clave: ffff0522-1e88-47fc-8382-2a80ba848f5d|Integrada + BYOL|
+|**Es necesario corregir las vulnerabilidades de las máquinas virtuales**<br>Clave: 1195afff-c881-495e-9bc5-1486211ae03f|Integrada + BYOL|
+||||
+
+|Directiva|Ámbito|
+|----|:----|
+|[**La evaluación de vulnerabilidades debe estar habilitada en las máquinas virtuales**](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f501541f7-f7e7-4cd6-868c-4190fdad3ac9)<br>Id. de directiva: 501541f7-f7e7-4cd6-868c-4190fdad3ac9 |Integrada + BYOL|
+||||
+
+
+### <a name="new-aks-security-policies-added-to-asc_default-initiative--for-use-by-private-preview-customers-only"></a>Se han agregado nuevas directivas de seguridad de AKS a la iniciativa de ASC_default para su uso solo por parte de clientes de versión preliminar privada
+
+Para asegurarse de que las cargas de trabajo de Kubernetes son seguras de forma predeterminada, Security Center está agregando directivas en el nivel de Kubernetes y recomendaciones de protección, incluidas las opciones de cumplimiento con el control de admisión de Kubernetes.
+
+La fase temprana de este proyecto incluye una versión preliminar privada y la adición de nuevas directivas (deshabilitadas de forma predeterminada) a la iniciativa ASC_default.
+
+Puede omitir estas directivas con seguridad y no habrá ningún impacto en el entorno. Si desea habilitarlas, regístrese para obtener la versión preliminar en https://aka.ms/SecurityPrP y seleccione una de las opciones siguientes:
+
+1. **Versión preliminar única**: para unirse solo a esta versión preliminar privada. Mencione explícitamente "ASC Continuous SCAN" como la versión preliminar a la que le gustaría unirse.
+1. **Programa continuo**: para agregarse a esta y a futuras versiones preliminares privadas. Deberá completar un perfil y un contrato de privacidad.
+
 
 ## <a name="july-2020"></a>Julio de 2020
 
@@ -119,12 +230,14 @@ Más información sobre la seguridad de los contenedores de Security Center en l
 
 La característica de controles de aplicaciones adaptables ha recibido dos actualizaciones importantes:
 
-- Una nueva recomendación identifica un comportamiento potencialmente legítimo que no se ha permitido previamente. La nueva recomendación, **Se deben actualizar las reglas de la lista de permitidos de la directiva de controles de aplicaciones adaptables**, le pedirá que agregue nuevas reglas a la directiva existente para reducir el número de falsos positivos en las alertas de infracción de controles de aplicaciones adaptables.
+* Una nueva recomendación identifica un comportamiento potencialmente legítimo que no se ha permitido previamente. La nueva recomendación, **Se deben actualizar las reglas de la lista de permitidos de la directiva de controles de aplicaciones adaptables**, le pedirá que agregue nuevas reglas a la directiva existente para reducir el número de falsos positivos en las alertas de infracción de controles de aplicaciones adaptables.
 
-- Las reglas de ruta de acceso ahora admiten caracteres comodín. A partir de esta actualización, puede configurar las reglas de ruta de acceso permitidas mediante caracteres comodín. Se admiten dos escenarios:
+* Las reglas de ruta de acceso ahora admiten caracteres comodín. A partir de esta actualización, puede configurar las reglas de ruta de acceso permitidas mediante caracteres comodín. Se admiten dos escenarios:
 
-    - El uso de un carácter comodín al final de una ruta de acceso para permitir todos los ejecutables dentro de esta carpeta y subcarpetas
-    - El uso de un carácter comodín en medio de una ruta de acceso para habilitar un nombre ejecutable conocido con un nombre de carpeta cambiante (por ejemplo, carpetas de usuario personales con un archivo ejecutable conocido, nombres de carpeta generados automáticamente, etc.). 
+    * El uso de un carácter comodín al final de una ruta de acceso para permitir todos los ejecutables dentro de esta carpeta y subcarpetas
+
+    * El uso de un carácter comodín en medio de una ruta de acceso para habilitar un nombre ejecutable conocido con un nombre de carpeta cambiante (por ejemplo, carpetas de usuario personales con un archivo ejecutable conocido, nombres de carpeta generados automáticamente, etc.).
+
 
 [Más información acerca de los controles de aplicación adaptables](security-center-adaptive-application.md).
 
@@ -340,7 +453,7 @@ Los controles de seguridad y esta alternancia forman parte de la nueva experienc
 
 Más información sobre los controles de seguridad en [puntuación de seguridad mejorada (versión preliminar) de Azure Security Center](secure-score-security-controls.md).
 
-![Alternancia "agrupar por controles" para recomendaciones](./media/secure-score-security-controls/recommendations-group-by-toggle.gif)
+![Alternancia "agrupar por controles" para recomendaciones](\media\secure-score-security-controls\recommendations-group-by-toggle.gif)
 
 ### <a name="expanded-security-control-implement-security-best-practices"></a>Control de seguridad expandido "implementar prácticas recomendadas de seguridad" 
 
@@ -512,17 +625,4 @@ Dos recomendaciones de seguridad relacionadas con las aplicaciones web están en
 Estas recomendaciones ya no aparecerán en la lista de Security Center de recomendaciones. Las directivas relacionadas ya no se incluirán en la iniciativa denominada "valor predeterminado de Security Center".
 
 Más información sobre las [recomendaciones de seguridad](recommendations-reference.md).
-
-
-
-## <a name="february-2020"></a>Febrero de 2020
-
-### <a name="fileless-attack-detection-for-linux-preview"></a>Detección de ataques sin archivos para Linux (versión preliminar)
-
-A medida que los atacantes aumentan el empleo de métodos stealthier para evitar la detección, Azure Security Center está ampliando la detección de ataques no archivados para Linux, además de Windows. Los ataques sin archivos no aprovechan las vulnerabilidades del software, insertan cargas malintencionadas en procesos benignos del sistema y se ocultan en la memoria. Estas técnicas:
-
-- minimiza o eliminan seguimientos de malware en disco
-- reducen considerablemente las posibilidades de detección mediante soluciones de análisis de malware basadas en disco
-
-Para contrarrestar esta amenaza, Azure Security Center publicó la detección de ataques sin archivos para Windows en octubre de 2018 y ahora ha extendido la detección de ataques sin archivos en Linux. 
 

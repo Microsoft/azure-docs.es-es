@@ -8,15 +8,15 @@ ms.subservice: core
 author: clauren42
 ms.author: clauren
 ms.reviewer: jmartens
-ms.date: 03/05/2020
+ms.date: 08/06/2020
 ms.topic: conceptual
-ms.custom: troubleshooting, contperfq4, tracking-python
-ms.openlocfilehash: 4741c6348c2a4077776d2d79bee56de26f62e2d1
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: troubleshooting, contperfq4, devx-track-python
+ms.openlocfilehash: 3f8a3c705878e212e6a26670e20b5a81a3f2a6ba
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87540944"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904384"
 ---
 # <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Solución de problemas con la implementación de Docker de modelos con Azure Kubernetes Service y Azure Container Instances 
 
@@ -286,175 +286,7 @@ Puede aumentar el tiempo de espera o intentar acelerar el servicio modificando e
 
 ## <a name="advanced-debugging"></a>Depuración avanzada
 
-En algunos casos, es posible que tenga que depurar interactivamente el código de Python incluido en la implementación de modelo. Por ejemplo, si el script de entrada presenta errores y no se puede determinar el motivo mediante un registro adicional. Mediante el uso de Visual Studio Code y las Herramientas de Python para Visual Studio (PTVSD), se puede adjuntar al código que se ejecuta dentro del contenedor de Docker.
-
-> [!IMPORTANT]
-> Este método de depuración no funciona cuando se usa `Model.deploy()` y `LocalWebservice.deploy_configuration` para implementar un modelo de manera local. En su lugar, debe crear una imagen con el método [Model.package()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-).
-
-Las implementaciones de servicios web locales requieren una instalación de Docker en funcionamiento en el sistema local. Para obtener más información sobre el uso de Docker, consulte la [Documentación de Docker](https://docs.docker.com/).
-
-### <a name="configure-development-environment"></a>Configuración del entorno de desarrollo
-
-1. Para instalar las Herramientas de Python para Visual Studio (PTVSD) en el entorno de desarrollo de VS Code local, use el comando siguiente:
-
-    ```
-    python -m pip install --upgrade ptvsd
-    ```
-
-    Para más información sobre cómo usar PTVSD con VS Code, consulte [Depuración remota](https://code.visualstudio.com/docs/python/debugging#_remote-debugging).
-
-1. Para configurar VS Code para comunicarse con la imagen de Docker, cree una configuración de depuración nueva:
-
-    1. En VS Code, seleccione el menú __Depurar__ y, luego, seleccione __Abrir configuraciones__. Se abre un archivo denominado __launch.json__.
-
-    1. En el archivo __launch.json__, busque la línea que contiene `"configurations": [` e inserte el texto siguiente después de ella:
-
-        ```json
-        {
-            "name": "Azure Machine Learning: Docker Debug",
-            "type": "python",
-            "request": "attach",
-            "port": 5678,
-            "host": "localhost",
-            "pathMappings": [
-                {
-                    "localRoot": "${workspaceFolder}",
-                    "remoteRoot": "/var/azureml-app"
-                }
-            ]
-        }
-        ```
-
-        > [!IMPORTANT]
-        > Si ya hay otras entradas en la sección de configuraciones, agregue una coma (,) después del código que insertó.
-
-        Esta sección se adjunta al contenedor de Docker mediante el puerto 5678.
-
-    1. Guarde el archivo __launch.json__.
-
-### <a name="create-an-image-that-includes-ptvsd"></a>Creación de una imagen que incluye PTVSD
-
-1. Modifique el entorno de conda para la implementación de manera que incluya PTVSD. En el ejemplo siguiente se muestra cómo se agrega con el parámetro `pip_packages`:
-
-    ```python
-    from azureml.core.conda_dependencies import CondaDependencies 
-
-
-    # Usually a good idea to choose specific version numbers
-    # so training is made on same packages as scoring
-    myenv = CondaDependencies.create(conda_packages=['numpy==1.15.4',            
-                                'scikit-learn==0.19.1', 'pandas==0.23.4'],
-                                 pip_packages = ['azureml-defaults==1.0.45', 'ptvsd'])
-
-    with open("myenv.yml","w") as f:
-        f.write(myenv.serialize_to_string())
-    ```
-
-1. Para iniciar PTVSD y esperar una conexión cuando se inicia el servicio, agregue lo siguiente en la parte superior del archivo `score.py`:
-
-    ```python
-    import ptvsd
-    # Allows other computers to attach to ptvsd on this IP address and port.
-    ptvsd.enable_attach(address=('0.0.0.0', 5678), redirect_output = True)
-    # Wait 30 seconds for a debugger to attach. If none attaches, the script continues as normal.
-    ptvsd.wait_for_attach(timeout = 30)
-    print("Debugger attached...")
-    ```
-
-1. Cree una imagen basada en la definición de entorno y extráigala en el Registro local. Durante la depuración, es posible que quiera hacer cambios en los archivos de la imagen sin tener que volver a crearla. Para instalar un editor de texto (vim) en la imagen de Docker, use las propiedades `Environment.docker.base_image` y `Environment.docker.base_dockerfile`:
-
-    > [!NOTE]
-    > En este ejemplo se da por supuesto que `ws` apunta al área de trabajo de Azure Machine Learning y que `model` es el modelo que se está implementando. El archivo `myenv.yml` contiene las dependencias de conda creadas en el paso 1.
-
-    ```python
-    from azureml.core.conda_dependencies import CondaDependencies
-    from azureml.core.model import InferenceConfig
-    from azureml.core.environment import Environment
-
-
-    myenv = Environment.from_conda_specification(name="env", file_path="myenv.yml")
-    myenv.docker.base_image = None
-    myenv.docker.base_dockerfile = "FROM mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04\nRUN apt-get update && apt-get install vim -y"
-    inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
-    package = Model.package(ws, [model], inference_config)
-    package.wait_for_creation(show_output=True)  # Or show_output=False to hide the Docker build logs.
-    package.pull()
-    ```
-
-    Una vez que se haya creado y descargado la imagen, la ruta de acceso de la misma (incluye el repositorio, el nombre y la etiqueta, que en este caso también es su resumen) se mostrará en un mensaje similar al siguiente:
-
-    ```text
-    Status: Downloaded newer image for myregistry.azurecr.io/package@sha256:<image-digest>
-    ```
-
-1. Para facilitar el trabajo con la imagen, use el comando siguiente para agregar una etiqueta. Reemplace `myimagepath` por el valor de la ubicación del paso anterior.
-
-    ```bash
-    docker tag myimagepath debug:1
-    ```
-
-    Para el resto de los pasos, puede hacer referencia a la imagen local como `debug:1` en lugar del valor de la ruta de acceso completa a la imagen.
-
-### <a name="debug-the-service"></a>Depuración del servicio
-
-> [!TIP]
-> Si establece un tiempo de expiración para la conexión de PTVSD en el archivo `score.py`, debe conectar VS Code a la sesión de depuración antes de que se cumpla el tiempo de expiración. Inicie VS Code, abra la copia local de `score.py`, establezca un punto de interrupción y prepárelo antes de seguir los pasos de esta sección.
->
-> Para más información sobre la depuración y el establecimiento de puntos de interrupción, consulte [Depuración](https://code.visualstudio.com/Docs/editor/debugging).
-
-1. Para iniciar un contenedor de Docker con la imagen, use el comando siguiente:
-
-    ```bash
-    docker run --rm --name debug -p 8000:5001 -p 5678:5678 debug:1
-    ```
-
-1. Para adjuntar VS Code a PTVSD dentro del contenedor, abra VS Code y use la tecla F5 o seleccione __Depurar__. Cuando se le solicite, seleccione la configuración __Azure Machine Learning: Docker Debug__ (Azure Machine Learning Service: depuración de Docker). También puede seleccionar el icono de depuración en la barra lateral, la entrada __Azure Machine Learning: Docker Debug__ (Azure Machine Learning Service: depuración de Docker) en el menú desplegable Depurar y, luego, use la flecha verde para adjuntar el depurador.
-
-    ![El icono de depuración, el botón de inicio de la depuración y el selector de configuración](./media/how-to-troubleshoot-deployment/start-debugging.png)
-
-En este punto, VS Code se conecta a PTVSD dentro del contenedor de Docker y se detiene en el punto de interrupción que se estableció anteriormente. Ahora puede recorrer el código a medida que se ejecuta, ver variables, etc.
-
-Para más información sobre cómo usar VS Code para implementar Python, consulte [Depurar el código de Python](https://docs.microsoft.com/visualstudio/python/debugging-python-in-visual-studio?view=vs-2019).
-
-<a id="editfiles"></a>
-### <a name="modify-the-container-files"></a>Modificación de los archivos de contenedor
-
-Para hacer cambios en los archivos de la imagen, puede adjuntar el contenedor en ejecución y ejecutar un shell de Bash. Desde ahí, puede usar vim para editar los archivos:
-
-1. Para conectarse al contenedor en ejecución e iniciar un shell de Bash en el contenedor, use este comando:
-
-    ```bash
-    docker exec -it debug /bin/bash
-    ```
-
-1. Para encontrar los archivos que usa el servicio, utilice el siguiente comando del shell de bash en el contenedor si el directorio predeterminado es diferente de `/var/azureml-app`:
-
-    ```bash
-    cd /var/azureml-app
-    ```
-
-    Desde aquí, puede usar vim para editar el archivo `score.py`. Para más información sobre el uso de vim, consulte el artículo sobre cómo [usar el editor Vim](https://www.tldp.org/LDP/intro-linux/html/sect_06_02.html).
-
-1. Por lo general, los cambios realizados en un contenedor no se conservan. Para guardar los cambios que haga, use el comando siguiente antes de salir del shell que se inició en el paso anterior (es decir, en otro shell):
-
-    ```bash
-    docker commit debug debug:2
-    ```
-
-    Este comando crea una imagen denominada `debug:2` que contiene las ediciones.
-
-    > [!TIP]
-    > Deberá detener el contenedor actual y empezar a usar la versión nueva antes de que los cambios surtan efecto.
-
-1. Asegúrese de mantener los cambios que haga en los archivos del contenedor sincronizados con los archivos locales que usa VS Code. De lo contrario, la experiencia del depurador no funcionará según lo esperado.
-
-### <a name="stop-the-container"></a>Detención del contenedor
-
-Para detener el contenedor, use el comando siguiente:
-
-```bash
-docker stop debug
-```
+En algunos casos, es posible que tenga que depurar interactivamente el código de Python incluido en la implementación de modelo. Por ejemplo, si el script de entrada presenta errores y no se puede determinar el motivo mediante un registro adicional. Mediante el uso de Visual Studio Code y debugpy, puede conectarse al código que se ejecuta en el contenedor de Docker. Para más información, visite la [guía de depuración interactiva en VS Code](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-deployments).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

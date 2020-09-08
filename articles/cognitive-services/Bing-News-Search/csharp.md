@@ -10,13 +10,13 @@ ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.custom: seodec2018
-ms.openlocfilehash: a3f5e915aa68761ca9fbb99b7955adb32e4c99cf
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.custom: seodec2018, devx-track-csharp
+ms.openlocfilehash: 36e4889100a1902b77791f5a437b539bee1ea84f
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83869964"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922181"
 ---
 # <a name="quickstart-search-for-news-using-c-and-the-bing-news-search-rest-api"></a>Inicio rápido: Búsqueda de noticias mediante C# y Bing News Search REST API
 

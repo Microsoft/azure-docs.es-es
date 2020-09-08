@@ -7,14 +7,14 @@ ms.subservice: studio
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
-ms.custom: seodec18, devx-track-python, devx-track-javascript
+ms.custom: seodec18, devx-track-python, devx-track-javascript, devx-track-csharp
 ms.date: 05/29/2020
-ms.openlocfilehash: bbecafbbd988530231d71892fb12a55c1a605442
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 0d17e63bce2be5a871184411aaae410acd840951
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844378"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89015023"
 ---
 # <a name="how-to-consume-a-machine-learning-studio-classic-web-service"></a>Consumo de un servicio web de Azure Machine Learning Studio (clásico)
 

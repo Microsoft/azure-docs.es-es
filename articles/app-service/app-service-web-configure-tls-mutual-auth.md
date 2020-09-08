@@ -4,13 +4,13 @@ description: Aprenda a autenticar certificados de cliente en TLS. Azure App Serv
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
 ms.date: 10/01/2019
-ms.custom: seodec18
-ms.openlocfilehash: 143317cd424428d7f480f4880d3aab750853890b
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.custom: devx-track-csharp, seodec18
+ms.openlocfilehash: 145b999d7bf8597c06d6e3d4a36d01b182c8ae68
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82592373"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213648"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Configuración de la autenticación mutua de TLS en Azure App Service
 

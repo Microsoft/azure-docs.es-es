@@ -1,18 +1,18 @@
 ---
 title: Directivas IPsec predeterminadas de Azure Virtual WAN | Microsoft Docs
-description: En este artículo se proporciona información sobre las directivas IPsec para Virtual WAN.
+description: Obtenga información sobre las directivas de conectividad IPsec de Azure Virtual WAN, incluidas las directivas predeterminadas de iniciador y respondedor y las combinaciones de directivas personalizadas.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: cherylmc
-ms.openlocfilehash: 877a17327f13e407f86cb3a1a21f051572f74343
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 784f43cfa259ad7bdf161aea8e9b1ce559855db7
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73499717"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213892"
 ---
 # <a name="virtual-wan-default-policies-for-ipsec-connectivity"></a>Directivas predeterminadas de Virtual WAN para la conectividad de IPsec
 

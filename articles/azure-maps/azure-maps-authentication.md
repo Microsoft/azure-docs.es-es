@@ -1,7 +1,7 @@
 ---
 title: Autenticación con Microsoft Azure Maps
 titleSuffix: Azure Maps
-description: En este artículo, obtendrá información sobre Azure Active Directory y la autenticación de clave compartida.
+description: 'Conozca dos maneras de autenticar solicitudes en Azure Maps: autenticación de clave compartida y autenticación de Azure Active Directory (Azure AD).'
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/27/2020
@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: af3f9b4595be5af2477fdbef4e5f0a15224e8a93
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4a923fd34391137f2064cb338ea180ae3782f5e2
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285839"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036851"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticación con Azure Maps
 
@@ -80,7 +80,7 @@ Para información sobre cómo ver el identificador de cliente, consulte [Visuali
 
 ## <a name="authorization-with-role-based-access-control"></a>Autorización con el control de acceso basado en rol
 
-Azure Maps admite el acceso a todos los tipos de entidad de seguridad para el [control de acceso basado en roles](https://docs.microsoft.com/azure/role-based-access-control/overview) de Azure, incluidos: usuarios individuales de Azure AD, grupos, aplicaciones, recursos de Azure e identidades administradas de Azure. A los tipos de entidad de seguridad se les concede un conjunto de permisos, también conocido como definición de roles. Una definición de roles proporciona permisos para las acciones de la API REST. La aplicación del acceso a una o varias cuentas de Azure Maps se conoce como ámbito. Al aplicar una entidad de seguridad, una definición de roles y un ámbito, se crea una asignación de roles. 
+Azure Maps admite el acceso a todos los tipos de entidad de seguridad para el [control de acceso basado en rol de Azure (RBAC de Azure)](https://docs.microsoft.com/azure/role-based-access-control/overview), por ejemplo, usuarios individuales de Azure AD, grupos, aplicaciones, recursos de Azure e identidades administradas de Azure. A los tipos de entidad de seguridad se les concede un conjunto de permisos, también conocido como definición de roles. Una definición de roles proporciona permisos para las acciones de la API REST. La aplicación del acceso a una o varias cuentas de Azure Maps se conoce como ámbito. Al aplicar una entidad de seguridad, una definición de roles y un ámbito, se crea una asignación de roles. 
 
 En las secciones siguientes se describen los conceptos y componentes de la integración de Azure Maps con el control de acceso base en roles de Azure AD. Como parte del proceso de configuración de la cuenta de Azure Maps, se asocia un directorio de Azure AD a la suscripción de Azure en la que reside la cuenta de Azure Maps. 
 

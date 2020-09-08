@@ -3,12 +3,12 @@ title: Restauración de bases de datos de SQL Server en una máquina virtual de
 description: En este artículo se describe cómo restaurar bases de datos SQL Server que se ejecutan en una máquina virtual de Azure y cuyas copias de seguridad se realizan con Azure Backup.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 2c3b81c4d0bc4c7548fec8ec131fea66684a7aa8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: afb3ef7ac1d161c073ef715a9f7b1ec83bd8410a
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054587"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377988"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restauración de bases de datos SQL Server en máquinas virtuales de Azure
 
@@ -30,6 +30,7 @@ Antes de restaurar una base de datos, tenga en cuenta lo siguiente:
 - Puede restaurar la base de datos en una instancia de SQL Server en la misma región de Azure.
 - El servidor de destino debe estar registrado como origen en el mismo almacén.
 - Para restaurar una base de datos cifrada TDE en otra de SQL Server, primero debe [restaurar el certificado en el servidor de destino](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
+- Las bases de datos habilitadas para [CDC](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-ver15) deben restaurarse con la opción [Restaurar como archivos](#restore-as-files).
 - Antes de realizar una restauración de la base de datos "maestra", inicie la instancia de SQL Server en modo de usuario único con la opción de inicio **-m AzureWorkloadBackup**.
   - El valor de **-m** es el nombre del cliente.
   - Solo el nombre de cliente especificado puede abrir la conexión.
@@ -97,7 +98,7 @@ Realice la restauración como sigue:
 
         ![Escribir rutas de acceso de destino](./media/backup-azure-sql-database/target-paths.png)
 
-1. Haga clic en **Aceptar** para desencadenar la restauración. Realice un seguimiento del progreso de la restauración en el área **Notificaciones** o en la visualización **Trabajos de copia de seguridad** del almacén.
+1. Seleccione **Aceptar** para desencadenar la restauración. Realice un seguimiento del progreso de la restauración en el área **Notificaciones** o en la visualización **Trabajos de copia de seguridad** del almacén.
 
     > [!NOTE]
     > La restauración a un momento dado solo está disponible para copias de seguridad de registros de bases de datos con un modelo de recuperación optimizado para cargas masivas y completas de registros.
@@ -160,11 +161,11 @@ Si ha seleccionado **Completo y diferencial** como el tipo de restauración, hag
     ![Elegir un punto de recuperación completo](./media/backup-azure-sql-database/choose-full-recovery-point.png)
 
     >[!NOTE]
-    > De forma predeterminada, se muestran los puntos de recuperación de los 30 últimos días. Para mostrar los puntos de recuperación anteriores a 30 días, haga clic en **Filtrar** y seleccione un intervalo personalizado.
+    > De forma predeterminada, se muestran los puntos de recuperación de los 30 últimos días. Para mostrar los puntos de recuperación anteriores a 30 días, seleccione **Filtrar** y elija un intervalo personalizado.
 
 ### <a name="restore-databases-with-large-number-of-files"></a>Restauración de bases de datos con un gran número de archivos
 
-Si el tamaño de la cadena total de archivos en una base de datos es mayor que un [determinado límite](backup-sql-server-azure-troubleshoot.md#size-limit-for-files), Azure Backup almacena la lista de archivos de la base de datos en un componente pit diferente y no podrá definir la ruta de la restauración de destino durante la operación de restauración. En su lugar, los archivos se restaurarán en la ruta predeterminada SQL.
+Si el tamaño de la cadena total de archivos en una base de datos es mayor que un [determinado límite](backup-sql-server-azure-troubleshoot.md#size-limit-for-files), Azure Backup almacena la lista de archivos de la base de datos en un componente pit diferente, de modo que no podrá definir la ruta de la restauración de destino durante la operación de restauración. En su lugar, los archivos se restaurarán en la ruta predeterminada SQL.
 
   ![Restauración de bases de datos con archivos de gran tamaño](./media/backup-azure-sql-database/restore-large-files.jpg)
 

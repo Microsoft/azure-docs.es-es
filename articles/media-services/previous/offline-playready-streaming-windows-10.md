@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
-ms.openlocfilehash: 4d8e637cd3691e7b1acf1988efe40fc80561a183
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a26be590d5f7b467f57e8e18eac54ce57be24094
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091681"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266602"
 ---
-# <a name="offline-playready-streaming-for-windows-10"></a>Streaming de PlayReady sin conexión para Windows 10  
+# <a name="offline-playready-streaming-for-windows-10"></a>Streaming de PlayReady sin conexión para Windows 10
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector" title1="Seleccione la versión de Media Services que se está usando:"]
 > * [Versión 3](../latest/offline-plaready-streaming-for-windows-10.md)

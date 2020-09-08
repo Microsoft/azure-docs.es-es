@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 1e3579f79f9daa80c3d3f2206be7a76cc5505e80
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1ff76c38031ac367bf81f6d152642a4d9a209bb7
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037026"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294006"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Uso del seguimiento distribuido con Azure Spring Cloud
 
@@ -28,7 +28,7 @@ En este artículo, aprenderá a:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para realizar estos procedimientos, necesita un servicio de Azure Spring Cloud que ya esté aprovisionado y en ejecución. Realice el [inicio rápido sobre la implementación de una aplicación mediante la CLI de Azure](spring-cloud-quickstart-launch-app-cli.md) para aprovisionar y ejecutar un servicio de Azure Spring Cloud.
+Para realizar estos procedimientos, necesita un servicio de Azure Spring Cloud que ya esté aprovisionado y en ejecución. Realice el [inicio rápido sobre la implementación de una aplicación mediante la CLI de Azure](spring-cloud-quickstart.md) para aprovisionar y ejecutar un servicio de Azure Spring Cloud.
     
 ## <a name="add-dependencies"></a>Adición de dependencias
 

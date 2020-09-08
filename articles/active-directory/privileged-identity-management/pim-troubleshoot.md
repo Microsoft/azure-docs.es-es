@@ -13,12 +13,12 @@ ms.subservice: pim
 ms.date: 10/18/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d2ba5806e23aa87e5d7787be300512444f95b25
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b02b8f3b94d191c7439aadf5a56ec0e2a1c38e28
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84742154"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782505"
 ---
 # <a name="troubleshoot-a-problem-with-privileged-identity-management"></a>Solución de un problema con Privileged Identity Management
 
@@ -36,7 +36,7 @@ Este problema puede ocurrir cuando el rol de administrador de acceso de usuario 
 
 ### <a name="resolution"></a>Solución
 
-Asigne el rol de administrador de acceso de usuario al nombre de entidad de seguridad de servicio de Privileged Identity Management (MS–PIM) en el nivel de suscripción. Esta asignación debe permitir que el servicio Privileged Identity Management acceda a los recursos de Azure. El rol puede asignarse en el nivel de grupo de administración o el nivel de suscripción, según sus requisitos. Para obtener más información sobre las entidades de servicio, consulte el artículo sobre [asignación de una aplicación a un rol](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application).
+Asigne el rol de administrador de acceso de usuario al nombre de entidad de seguridad de servicio de Privileged Identity Management (MS–PIM) en el nivel de suscripción. Esta asignación debe permitir que el servicio Privileged Identity Management acceda a los recursos de Azure. El rol puede asignarse en el nivel de grupo de administración o el nivel de suscripción, según sus requisitos. Para obtener más información sobre las entidades de servicio, consulte el artículo sobre [asignación de una aplicación a un rol](../develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

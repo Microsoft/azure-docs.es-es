@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/05/2020
-ms.openlocfilehash: 402fd8da8e29e8f3fec6747be5d9480ca176fc55
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8a9f8b02d8821c76b2a7766f35244834934db1d0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511405"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935915"
 ---
 # <a name="add-custom-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Incorporación de analizadores personalizados a campos de cadena en un índice de Azure Cognitive Search
 
@@ -53,7 +53,7 @@ Un *analizador personalizado* es un tipo específico de [analizador de texto](se
 
  `tokenizer_name` es el nombre de un tokenizador, `token_filter_name_1` y `token_filter_name_2` son los nombres de los filtros de token, y `char_filter_name_1` y `char_filter_name_2` son los nombres de los filtros de caracteres (consulte las tablas [Tokenizador](#Tokenizers), [ Filtros de token](#TokenFilters) y Filtros de caracteres para ver los valores válidos).
 
-La definición del analizador es una parte del índice más grande. Consulte [Create Index API](https://docs.microsoft.com/rest/api/searchservice/create-index) (Creación de API de índice) para información sobre el resto del índice.
+La definición del analizador es una parte del índice más grande. Consulte [Create Index API](/rest/api/searchservice/create-index) (Creación de API de índice) para información sobre el resto del índice.
 
 ```
 "analyzers":(optional)[
@@ -133,7 +133,7 @@ Las definiciones para los filtros de caracteres, tokenizadores y filtros de toke
 
 ## <a name="test-custom-analyzers"></a>Prueba de analizadores personalizados
 
-Puede usar la **operación Probar analizador** de la [API REST](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) para ver cómo un analizador descompone el texto dado en tokens.
+Puede usar la **operación Probar analizador** de la [API REST](/rest/api/searchservice/test-analyzer) para ver cómo un analizador descompone el texto dado en tokens.
 
 **Solicitud**
 ```
@@ -372,6 +372,6 @@ En la tabla siguiente, los filtros de token que se implementan mediante Apache L
 
 
 ## <a name="see-also"></a>Consulte también  
- [API REST de Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice/)   
+ [API REST de Azure Cognitive Search](/rest/api/searchservice/)   
  [Analizadores de Azure Cognitive Search > ejemplos](search-analyzers.md#examples)    
- [Creación de un índice &#40;API REST de Azure Cognitive Search&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
+ [Creación de un índice &#40;API REST de Azure Cognitive Search&#41;](/rest/api/searchservice/create-index)

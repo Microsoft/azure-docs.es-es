@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 12/14/2019
 ms.author: zhshang
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 3f1051b81666a036203eb1c810875d837ef9816f
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 74f0a1c163380b88986b6866e346a5f044772a0e
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386884"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050563"
 ---
 # <a name="quickstart-use-javascript-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Inicio rápido: Uso de JavaScript para crear un salón de chat con Azure Functions y SignalR Service
 
@@ -32,13 +32,21 @@ Azure SignalR Service permite agregar fácilmente funciones en tiempo real a una
 > [!NOTE]
 > Esta guía de inicio rápido se puede ejecutar en macOS, Windows o Linux.
 
+[¿Tiene problemas? Háganoslo saber.](https://aka.ms/asrs/qsjs)
+
 ## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
 Inicie sesión en Azure Portal en <https://portal.azure.com/> con su cuenta de Azure.
 
+[¿Tiene problemas? Háganoslo saber.](https://aka.ms/asrs/qsjs)
+
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
+[¿Tiene problemas? Háganoslo saber.](https://aka.ms/asrs/qsjs)
+
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
+
+[¿Tiene problemas? Háganoslo saber.](https://aka.ms/asrs/qsjs)
 
 ## <a name="configure-and-run-the-azure-function-app"></a>Configuración y ejecución de la aplicación Azure Function
 
@@ -71,9 +79,15 @@ Inicie sesión en Azure Portal en <https://portal.azure.com/> con su cuenta de A
 
     ![Creación de una instancia del servicio SignalR](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-run-application.png)
 
+[¿Tiene problemas? Háganoslo saber.](https://aka.ms/asrs/qsjs)
+
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
+[¿Tiene problemas? Háganoslo saber.](https://aka.ms/asrs/qsjs)
+
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
+
+[¿Tiene problemas? Háganoslo saber.](https://aka.ms/asrs/qsjs)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -81,3 +95,5 @@ En este inicio rápido, ha compilado y ejecutado una aplicación sin servidor en
 
 > [!div class="nextstepaction"]
 > [Implementación de Azure Functions con VS Code](/azure/developer/javascript/tutorial-vscode-serverless-node-01)
+
+[¿Tiene problemas? Háganoslo saber.](https://aka.ms/asrs/qsjs)

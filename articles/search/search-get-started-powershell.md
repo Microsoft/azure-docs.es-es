@@ -8,24 +8,25 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 02/10/2020
-ms.openlocfilehash: eb7dcc0956cd9ce214ad3894aa8cc2b99beed942
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/17/2020
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: f803532e7d08d0de21541cb5d1b52639b623bb90
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519820"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078306"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>Inicio rápido: Creación de un índice de Azure Cognitive Search en PowerShell mediante las API REST
 > [!div class="op_single_selector"]
-> * [PowerShell (REST)](search-create-index-rest-api.md)
-> * [C#](search-create-index-dotnet.md)
+> * [PowerShell (REST)]()
+> * [C#](./search-get-started-dotnet.md)
 > * [Postman (REST)](search-get-started-postman.md)
 > * [Python](search-get-started-python.md)
 > * [Portal](search-get-started-portal.md)
 > 
 
-Este artículo le guía a través del proceso de creación, carga y consulta de un índice de Azure Cognitive Search mediante PowerShell y las [API REST de Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice/). En el artículo se explica cómo se ejecutan los comandos de PowerShell de forma interactiva. También puede [descargar y ejecutar un script de PowerShell](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) que realice las mismas operaciones.
+Este artículo le guía a través del proceso de creación, carga y consulta de un índice de Azure Cognitive Search mediante PowerShell y las [API REST de Azure Cognitive Search](/rest/api/searchservice/). En el artículo se explica cómo se ejecutan los comandos de PowerShell de forma interactiva. También puede [descargar y ejecutar un script de PowerShell](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) que realice las mismas operaciones.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -33,7 +34,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para este inicio rápido, se requieren los siguientes servicios y herramientas. 
 
-+ [PowerShell 5.1 o una versión posterior](https://github.com/PowerShell/PowerShell) con [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) para los pasos secuenciales e interactivos.
++ [PowerShell 5.1 o una versión posterior](https://github.com/PowerShell/PowerShell) con [Invoke-RestMethod](/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) para los pasos secuenciales e interactivos.
 
 + [Cree un servicio Azure Cognitive Search](search-create-service-portal.md) o [busque uno existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este inicio rápido. 
 
@@ -85,11 +86,11 @@ Todas las solicitudes requieren una clave de API en cada solicitud enviada al se
 
 ## <a name="1---create-an-index"></a>1 - Creación de un índice
 
-A menos que use el portal, debe existir un índice en el servicio antes de poder cargar los datos. En este paso se define el índice y se inserta en el servicio. Para este paso se usa la [API REST Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
+A menos que use el portal, debe existir un índice en el servicio antes de poder cargar los datos. En este paso se define el índice y se inserta en el servicio. Para este paso se usa la [API REST Create Index](/rest/api/searchservice/create-index).
 
 Los elementos necesarios de un índice incluyen un nombre y una colección de campos. La colección de campos define la estructura de un *documento*. Cada campo tiene un nombre, un tipo y unos atributos que determinan cómo se usa (por ejemplo, si es de búsqueda de texto completo, que se puede filtrar o que se puede recuperar en los resultados de búsqueda). Dentro de un índice, uno de los campos de tipo `Edm.String` se debe designar como la *clave* para la identidad del documento.
 
-Este índice se denomina "hotels-quickstart" y tiene las definiciones de campo que aparecen a continuación. Es un subconjunto de un [índice de hoteles](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) mayor usado en otros tutoriales. Lo hemos acortado en este inicio rápido para mayor brevedad.
+Este índice se denomina "hotels-quickstart" y tiene las definiciones de campo que aparecen a continuación. Es un subconjunto de un [índice de hoteles](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) mayor usado en otros artículos. Por motivos de brevedad, en este inicio rápido se han recortado las definiciones de los campos.
 
 1. Pegue este ejemplo en PowerShell para crear un objeto **$body** que contenga el esquema de índice.
 
@@ -179,7 +180,7 @@ Este índice se denomina "hotels-quickstart" y tiene las definiciones de campo q
 
 ## <a name="2---load-documents"></a>2 - Carga de documentos
 
-Para insertar documentos, use una solicitud HTTP POST al punto de conexión de la dirección URL del índice. La API REST de esta tarea es [Add, Update, or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
+Para insertar documentos, use una solicitud HTTP POST al punto de conexión de la dirección URL del índice. La API REST de esta tarea es [Add, Update, or Delete Documents](/rest/api/searchservice/addupdate-or-delete-documents).
 
 1. Pegue este ejemplo en PowerShell para crear un objeto **$body** que contenga los documentos que quiere cargar. 
 
@@ -281,7 +282,7 @@ Para insertar documentos, use una solicitud HTTP POST al punto de conexión de l
     ```powershell
     Invoke-RestMethod -Uri $url -Headers $headers -Method Post -Body $body | ConvertTo-Json
     ```
-    Los resultados deben tener un aspecto similar al siguiente ejemplo. Debería ver un [código de estado de 201](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
+    Los resultados deben tener un aspecto similar al siguiente ejemplo. Debería ver un [código de estado de 201](/rest/api/searchservice/HTTP-status-codes).
 
     ```
     {
@@ -317,9 +318,9 @@ Para insertar documentos, use una solicitud HTTP POST al punto de conexión de l
 
 ## <a name="3---search-an-index"></a>3 - Búsqueda en un índice
 
-En este paso se muestra cómo realizar consultas en un índice con [Search Documents API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+En este paso se muestra cómo realizar consultas en un índice con [Search Documents API](/rest/api/searchservice/search-documents).
 
-Asegúrese de usar comillas sencillas en las direcciones $url de búsqueda. Las cadenas de consulta incluyen caracteres **$** , y puede omitir el uso de una secuencia de escape si toda la cadena está entre comillas sencillas.
+Asegúrese de usar comillas sencillas en las direcciones $url de búsqueda. Las cadenas de consulta incluyen caracteres **$** y se puede omitir el uso de una secuencia de escape si toda la cadena está entre comillas sencillas.
 
 1. Establezca el punto de conexión en la colección de documentos *hotels-quickstart* y agregue un parámetro **search** para pasarlo en una cadena de consulta. 
   
@@ -378,7 +379,7 @@ Pruebe con algunos otros ejemplos de consultas para hacerse una idea de la sinta
 $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=restaurant wifi&$count=true&$select=HotelName,Description,Tags'
 
 # Query example 2 
-# Apply a filter to the index to find hotels rated 4 or highter
+# Apply a filter to the index to find hotels rated 4 or higher
 # Returns the HotelName and Rating. Two documents match.
 $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=*&$filter=Rating gt 4&$select=HotelName,Rating'
 

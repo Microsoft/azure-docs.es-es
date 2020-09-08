@@ -3,12 +3,12 @@ title: 'Inicio rápido: Creación de un plano técnico con la CLI de Azure'
 description: En este inicio rápido se usa Azure Blueprints para crear, definir e implementar artefactos mediante la CLI de Azure.
 ms.date: 06/02/2020
 ms.topic: quickstart
-ms.openlocfilehash: 30a450fc7eab55424da7ce971ad234cbf2248b30
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: c64723befbe3cb8d811179e7062df18606749783
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969675"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051549"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Inicio rápido: Definición y asignación de un plano técnico de Azure Blueprint con la CLI de Azure
 
@@ -25,7 +25,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Para habilitar la CLI de Azure para administrar definiciones y asignaciones de plano técnico, se debe agregar la extensión.
 Esta extensión funciona siempre que se puede usar la CLI de Azure, incluidos [Bash en Windows 10](/windows/wsl/install-win10), [Cloud Shell](https://shell.azure.com) (independiente y dentro del portal), la [imagen de Docker de la CLI de Azure](https://hub.docker.com/r/microsoft/azure-cli/) o instalado localmente.
 
-1. Compruebe que está instalada la versión más reciente de la CLI de Azure (al menos la **2.0.76**). Si todavía no está instalado, siga [estas instrucciones](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+1. Compruebe que está instalada la versión más reciente de la CLI de Azure (al menos la **2.0.76**). Si todavía no está instalado, siga [estas instrucciones](/cli/azure/install-azure-cli-windows).
 
 1. En el entorno que prefiera de la CLI de Azure, impórtela con el siguiente comando:
 

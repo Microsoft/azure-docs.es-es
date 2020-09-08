@@ -1,19 +1,19 @@
 ---
 title: 'Conexión de redes locales a una red virtual: VPN de sitio a sitio: CLI'
-description: Pasos para crear una conexión de IPsec desde la red local a una red virtual de Azure a través de la red pública de Internet. Estos pasos le ayudarán a crear una conexión de VPN Gateway de sitio a sitio entre locales mediante la CLI.
+description: Cree una conexión de puerta de enlace VPN de sitio a sitio de IPsec desde la red local hasta una red virtual de Azure a través de la red pública de Internet mediante la CLI.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/18/2018
+ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 28d0fa3a0fdc2f8ac65fc3545abab0a273051e37
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb7afa9afb72ce16213fd15953b6c82d0fddfeb5
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987512"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401255"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Creación de una red virtual con una conexión VPN de sitio a sitio mediante la CLI
 
@@ -156,7 +156,7 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --re
 Las conexiones de sitio a sitio a una red local requieren un dispositivo VPN. En este paso, se configura el dispositivo VPN. Al configurar el dispositivo VPN, necesita lo siguiente:
 
 - Una clave compartida. Se trata de la misma clave compartida que se especifica al crear la conexión VPN de sitio a sitio. En estos ejemplos se utiliza una clave compartida básica. Se recomienda que genere y utilice una clave más compleja.
-- La dirección IP pública de la puerta de enlace de red virtual. Puede ver la dirección IP pública mediante Azure Portal, PowerShell o la CLI. Para buscar la dirección IP pública de la puerta de enlace de red virtual, use el comando [az network public-ip list](/cli/azure/network/public-ip). Para facilitar la lectura, la salida muestra la lista de direcciones IP públicas en formato de tabla.
+- La dirección IP pública de la puerta de enlace de red virtual. Puede ver la dirección IP pública mediante Azure Portal, PowerShell o la CLI.  Para buscar la dirección IP pública de la puerta de enlace de red virtual, use el comando [az network public-ip list](/cli/azure/network/public-ip). Para facilitar la lectura, la salida muestra la lista de direcciones IP públicas en formato de tabla.
 
   ```azurecli-interactive
   az network public-ip list --resource-group TestRG1 --output table

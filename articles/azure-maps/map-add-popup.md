@@ -1,6 +1,6 @@
 ---
 title: Adición de un elemento emergente a un punto de un mapa | Microsoft Azure Maps
-description: En este artículo, obtendrá información sobre cómo agregar un elemento emergente a un punto mediante el SDK web de Microsoft Azure Maps.
+description: Obtenga información sobre los elementos emergentes, las plantillas emergentes y los eventos emergentes en Azure Maps. Vea cómo agregar un elemento emergente a un punto en un mapa y cómo reutilizar y personalizar los elementos emergentes.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 02/27/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 298e05d6527129a20c92b8bacf08cb3090b162c6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 5235b273ab45a2ece011f38bf363b33230101396
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286899"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036511"
 ---
 # <a name="add-a-popup-to-the-map"></a>Adición de un elemento emergente al mapa
 
@@ -107,12 +107,12 @@ Consulte el fragmento de código (pen) <a href='https://codepen.io/azuremaps/pen
 Las plantillas emergentes facilitan la creación de diseños basados en datos para los elementos emergentes. En las secciones siguientes se muestra el uso de varias plantillas emergentes para generar contenido con formato mediante las propiedades de las características.
 
 > [!NOTE]
-> De forma predeterminada, todo el contenido representado en la plantilla emergente estará en un espacio aislado dentro de un iframe como característica de seguridad, si bien con ciertas limitaciones:
+> De forma predeterminada, todo el contenido representado en la plantilla emergente estará en un espacio aislado dentro de un iframe como característica de seguridad, Sin embargo, existen limitaciones:
 >
-> - Todos los scripts, formularios y las funcionalidades de bloqueo de puntero y de navegación superior están deshabilitados. Al hacer clic en los vínculos, se pueden abrir en una pestaña nueva. 
+> - Todos los scripts, los formularios y las funcionalidades de bloqueo de puntero y de navegación superior están deshabilitados. Al hacer clic en los vínculos, se pueden abrir en una pestaña nueva. 
 > - Los exploradores más antiguos que no admitan el parámetro `srcdoc` en iframes se limitarán a representar una pequeña cantidad de contenido.
 > 
-> Si confía en los datos que se van a cargar en los elementos emergentes y, potencialmente, quiere que estos scripts cargados en los elementos emergentes puedan acceder a su aplicación, puede deshabilitarlo estableciendo la opción `sandboxContent`de las plantillas emergentes en false. 
+> Si confía en los datos que se van a cargar en los elementos emergentes y, potencialmente, quiere que estos scripts cargados en los elementos emergentes puedan acceder a su aplicación, puede deshabilitarlo estableciendo la opción `sandboxContent` de las plantillas emergentes en false. 
 
 ### <a name="string-template"></a>Plantilla de cadena
 

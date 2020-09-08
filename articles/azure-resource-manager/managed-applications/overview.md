@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: overview
 ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0615830e525ab60bbb2167dd39d9c4bf14cc91b3
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 9bb3f0d57f7d47e4cb754305627c52003273ca09
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81391582"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377019"
 ---
 # <a name="azure-managed-applications-overview"></a>Introducción a las aplicaciones administradas de Azure
 
@@ -71,13 +71,13 @@ El consumidor tiene acceso total al grupo de recursos y lo utiliza para administ
 
 Este grupo de recursos contiene todos los recursos que requiere la aplicación administrada. Por ejemplo, este grupo de recursos contiene las máquinas virtuales, cuentas de almacenamiento y redes virtuales para la solución. El consumidor tiene acceso limitado a este grupo de recursos ya que no puede administrar los recursos individuales de la aplicación administrada. El acceso del editor a este grupo de recursos se corresponde con el rol especificado en la definición de la aplicación administrada. Por ejemplo, el editor puede solicitar el rol de propietario o colaborador para este grupo de recursos. El acceso es permanente o está limitado a un momento específico.
 
-Al publicar [la aplicación administrada en Marketplace](publish-marketplace-app.md), el editor puede conceder a los consumidores la capacidad de desempeñar acciones específicas en recursos del grupo de recursos administrado. Por ejemplo, el editor puede especificar que los consumidores puedan reiniciar máquinas virtuales. Se continuarán rechazando el resto de acciones que no sean de lectura.
+Al publicar [la aplicación administrada en Marketplace](publish-marketplace-app.md), el editor puede conceder a los consumidores la capacidad de desempeñar acciones específicas en recursos del grupo de recursos administrado. Por ejemplo, el editor puede especificar que los consumidores puedan reiniciar máquinas virtuales. Se continuarán rechazando el resto de acciones que no sean de lectura. Los cambios en los recursos de un grupo de recursos administrado por un consumidor con acciones concedidas están sujetos a las asignaciones de [Azure Policy](../../governance/policy/overview.md) dentro del inquilino de los consumidores del ámbito para incluir el grupo de recursos administrados.
 
 Cuando el consumidor elimina la aplicación administrada, también se elimina el grupo de recursos administrados.
 
 ## <a name="azure-policy"></a>Azure Policy
 
-Puede aplicar una directiva de [Azure Policy](../../governance/policy/overview.md) a la aplicación administrada. Las directivas se aplican para garantizar que las instancias implementadas de la aplicación administrada cumplan con los requisitos de seguridad y datos. Si la aplicación interactúa con datos confidenciales, asegúrese de que se ha evaluado cómo debe protegerse. Por ejemplo, si la aplicación interactúa con datos de Office 365, aplique una directiva para asegurarse de que está habilitado el cifrado de datos.
+Puede aplicar una directiva de [Azure Policy](../../governance/policy/overview.md) para auditar la aplicación administrada. Las definiciones de directiva se aplican para garantizar que las instancias implementadas de la aplicación administrada cumplan con los requisitos de seguridad y datos. Si la aplicación interactúa con datos confidenciales, asegúrese de que se ha evaluado cómo debe protegerse. Por ejemplo, si la aplicación interactúa con datos de Office 365, aplique una definición de directiva para asegurarse de que el cifrado de datos esté habilitado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

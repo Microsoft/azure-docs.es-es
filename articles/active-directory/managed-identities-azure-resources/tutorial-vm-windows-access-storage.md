@@ -3,7 +3,7 @@ title: Acceso a Azure Storage mediante una identidad administrada asignada por e
 description: Este tutorial contiene directrices acerca de cómo utilizar una identidad administrada asignada por el sistema de una máquina virtual Windows para acceder a Azure Storage.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/14/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 182bf02bfaad598a447304cc9f2ed42f6221176d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: de1cc69b3cfdac307edf6dfe999a5d538c2cb811
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75971961"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263185"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Tutorial: Uso de una identidad administrada asignada por el sistema de una máquina virtual Windows para acceder a Azure Storage
 
@@ -184,4 +184,4 @@ La respuesta incluye el contenido del archivo:
 En este tutorial, ha aprendido a habilitar una identidad asignada por el sistema de una máquina virtual Windows para acceder a Azure Storage.  Para más información sobre Azure Storage, consulte:
 
 > [!div class="nextstepaction"]
-> [Almacenamiento de Azure](/azure/storage/common/storage-introduction)
+> [Almacenamiento de Azure](../../storage/common/storage-introduction.md)

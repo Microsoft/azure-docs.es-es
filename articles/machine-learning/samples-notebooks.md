@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: aeced8c4108760fc3e10dbf891a469792c210707
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 10cf06a829b991bfe15d7b24c4fc61d0fe22eaaf
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780069"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653722"
 ---
 # <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Exploración de Azure Machine Learning con cuadernos de Jupyter
 
@@ -55,7 +55,7 @@ Data Science Virtual Machine (DSVM) es una imagen de máquina virtual personaliz
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Explore los [cuadernos de ejemplo](https://aka.ms/aml-notebooks) para descubrir lo que Azure Machine Learning puede hacer.
+Explore los [cuadernos de ejemplo](https://github.com/Azure/MachineLearningNotebooks) para descubrir lo que Azure Machine Learning puede hacer.
 
 Puede encontrar más ejemplos y proyectos de ejemplo de GitHub en estos repositorios:
 + [Microsoft/MLOps](https://github.com/Microsoft/MLOps)

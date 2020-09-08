@@ -3,12 +3,12 @@ title: Solución de problemas de errores de copia de seguridad de bases de datos
 description: En este artículo se describe cómo se solucionan los errores comunes que pueden producirse al usar Azure Backup para realizar copias de seguridad de bases de datos de SAP HANA.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 88d8f5e500c39f51e5bc1afbc2ec7804b9bc79db
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5cdad55ef849b9ced31646466e2c2c170ebf0827
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503615"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377691"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Solución de problemas al realizar copias de seguridad de bases de datos de SAP HANA en Azure
 
@@ -22,7 +22,7 @@ Consulte las secciones sobre los [requisitos previos](tutorial-backup-sap-hana-d
 
 ### <a name="usererrorhanainternalrolenotpresent"></a>UserErrorHANAInternalRoleNotPresent
 
-| **Mensaje de error**      | <span style="font-weight:normal">La copia de seguridad de Azure no tiene los privilegios de rol necesarios para llevar a cabo la copia de seguridad</span>    |
+| **Mensaje de error**      | <span style="font-weight:normal">Azure Backup no tiene los privilegios de rol necesarios para llevar a cabo la copia de seguridad</span>    |
 | ---------------------- | ------------------------------------------------------------ |
 | **Causas posibles:**    | Es posible que se haya sobrescrito el rol.                          |
 | **Acción recomendada** | Para resolver el problema, ejecute el script desde el panel **Discover DB** (Detectar BD) o descárguelo [aquí](https://aka.ms/scriptforpermsonhana). También puede agregar el rol "SAP_INTERNAL_HANA_SUPPORT " al usuario de copia de seguridad de la carga de trabajo (AZUREWLBACKUPHANAUSER). |
@@ -31,7 +31,7 @@ Consulte las secciones sobre los [requisitos previos](tutorial-backup-sap-hana-d
 
 | Mensaje de error      | <span style="font-weight:normal">No se pudo conectar con el sistema HANA</span>                        |
 | ------------------ | ------------------------------------------------------------ |
-| **Causas posibles:**    | La instancia de SAP HANA puede estar fuera de servicio.<br/>No se establecen los permisos necesarios para que la copia de seguridad de Azure interactúe con la base de datos de HANA. |
+| **Causas posibles:**    | La instancia de SAP HANA puede estar fuera de servicio.<br/>No se han establecido los permisos necesarios para que Azure Backup interactúe con la base de datos de HANA. |
 | **Acción recomendada** | Compruebe si la base de datos de SAP HANA está activa. Si la base de datos está en funcionamiento, compruebe si se establecieron todos los permisos necesarios. Si falta alguno de los permisos, ejecute el [script de registro previo](https://aka.ms/scriptforpermsonhana) para agregar los permisos que faltan. |
 
 ### <a name="usererrorhanainstancenameinvalid"></a>UserErrorHanaInstanceNameInvalid
@@ -45,14 +45,14 @@ Consulte las secciones sobre los [requisitos previos](tutorial-backup-sap-hana-d
 
 | Mensaje de error      | <span style="font-weight:normal">No se admite la operación de SAP HANA especificada</span>              |
 | ------------------ | ------------------------------------------------------------ |
-| **Causas posibles:**    | La copia de seguridad de Azure para SAP HANA no es compatible con la copia de seguridad incremental ni con las acciones realizadas en clientes nativos de SAP HANA (Studio/Cockpit/DBA Cockpit). |
+| **Causas posibles:**    | Azure Backup para SAP HANA no es compatible con la copia de seguridad incremental ni con las acciones realizadas en clientes nativos de SAP HANA (Studio/Cockpit/DBA Cockpit). |
 | **Acción recomendada** | Para más información, consulte [aquí](./sap-hana-backup-support-matrix.md#scenario-support). |
 
 ### <a name="usererrorhanapodoesnotsupportbackuptype"></a>UserErrorHANAPODoesNotSupportBackupType
 
 | Mensaje de error      | <span style="font-weight:normal">Esta base de datos de SAP HANA no admite el tipo de copia de seguridad solicitada</span>  |
 | ------------------ | ------------------------------------------------------------ |
-| **Causas posibles:**    | La copia de seguridad de Azure no es compatible con la copia de seguridad incremental ni con la copia de seguridad mediante instantáneas. |
+| **Causas posibles:**    | Azure Backup no es compatible con la copia de seguridad incremental ni con la copia de seguridad mediante instantáneas. |
 | **Acción recomendada** | Para más información, consulte [aquí](./sap-hana-backup-support-matrix.md#scenario-support). |
 
 ### <a name="usererrorhanalsnvalidationfailure"></a>UserErrorHANALSNValidationFailure
@@ -73,7 +73,7 @@ Consulte las secciones sobre los [requisitos previos](tutorial-backup-sap-hana-d
 
 | Mensaje de error      | <span style="font-weight:normal">Se detectó una configuración de tipo Backint no válida</span>                       |
 | ------------------ | ------------------------------------------------------------ |
-| **Causas posibles:**    | Los parámetros de BackInt están incorrectamente especificados para Azure Backup. |
+| **Causas posibles:**    | Los parámetros de respaldo están incorrectamente especificados para Azure Backup. |
 | **Acción recomendada** | Compruebe si se establecieron estos parámetros (BackInt):<br/>\* [catalog_backup_using_backint:true]<br/>\* [enable_accumulated_catalog_backup:false]<br/>\* [parallel_data_backup_backint_channels:1]<br/>\* [log_backup_timeout_s:900)]<br/>\* [backint_response_timeout:7200]<br/>Si los parámetros basados en BackInt están presentes en el host, quítelos. Si los parámetros no están presentes en el nivel del host, pero se han modificado manualmente en el nivel de la base de datos, reviértalos a los valores apropiados como se describió anteriormente. O bien, ejecute [Detener la protección y conservar los datos de copia de seguridad](./sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) en Azure Portal y, después, seleccione **Reanudar copia de seguridad**. |
 
 ### <a name="usererrorincompatiblesrctargetsystemsforrestore"></a>UserErrorIncompatibleSrcTargetSystemsForRestore
@@ -96,8 +96,8 @@ Supongamos que hay una copia de seguridad de una instancia "H21" de HANA de SDC.
 Tenga en cuenta los siguientes puntos:
 
 - De manera predeterminada, el nombre de la base de datos restaurada se rellenará con el nombre del elemento de copia de seguridad. En este caso, h21(sdc).
-- Si selecciona el destino como H11, el nombre de la base de datos restaurada NO CAMBIARÁ de manera automática. **Se debe editar para cambiarlo a h11(sdc)** . Con respecto a SDC, el nombre de la base de datos restaurada será el identificador de la instancia de destino en minúsculas más "sdc" entre corchetes.
-- Como SDC solo puede tener una base de datos única, también debe hacer clic en la casilla para permitir reemplazar los datos existentes de la base de datos por los datos del punto de recuperación.
+- Si selecciona H11 como destino, el nombre de la base de datos restaurada no cambiará de manera automática. **Se debe editar para cambiarlo a h11(sdc)** . Con respecto a SDC, el nombre de la base de datos restaurada será el identificador de la instancia de destino en minúsculas más "sdc" entre corchetes.
+- Dado que SDC solo puede tener una base de datos única, también debe seleccionar la casilla para permitir reemplazar los datos existentes de la base de datos por los datos del punto de recuperación.
 - Linux distingue mayúsculas de minúsculas. De este modo, tiene que tener cuidado y respetar su uso.
 
 ### <a name="multiple-container-database-mdc-restore"></a>Restauración de base de datos de varios contenedores (MDC)
@@ -165,7 +165,7 @@ Las actualizaciones de SDC a MDC que no provocan un cambio de SID se pueden admi
 - Realice la actualización. Después de la finalización, el sistema HANA es ahora MDC con una base de datos de sistema y bases de datos de inquilino.
 - Vuelva a ejecutar el [script de registro previo](https://aka.ms/scriptforpermsonhana).
 - Vuelva a registrar la extensión para la misma máquina en Azure Portal (**Copia de seguridad** -> **Ver detalles** -> seleccione la máquina virtual de Azure pertinente -> Volver a registrar).
-- Haga clic en **Rediscover DBs** (Volver a detectar bases de datos) para la misma máquina virtual. Esta acción debería mostrar las nuevas bases de datos en el paso 3 como SYSTEMDB y base de datos de inquilino, no SDC.
+- Seleccione **Volver a detectar bases de datos** para la misma VM. Esta acción debería mostrar las nuevas bases de datos en el paso 3 como SYSTEMDB y base de datos de inquilino, no SDC.
 - La base de datos SDC anterior seguirá existiendo en el almacén y se conservarán los datos de copia de seguridad antiguos según la directiva.
 - Configure la copia de seguridad de estas bases de datos.
 
@@ -178,7 +178,7 @@ Las actualizaciones de SDC a MDC que provocan un cambio de SID se pueden adminis
 - Realice la actualización. Después de la finalización, el sistema HANA es ahora MDC con una base de datos de sistema y bases de datos de inquilino.
 - Vuelva a ejecutar el [script de registro previo](https://aka.ms/scriptforpermsonhana) con los detalles correctos (nuevo SID y MDC). Debido al cambio en el SID, puede que surjan problemas con la ejecución correcta del script. Póngase en contacto con el soporte técnico de Azure Backup si tiene problemas.
 - Vuelva a registrar la extensión para la misma máquina en Azure Portal (**Copia de seguridad** -> **Ver detalles** -> seleccione la máquina virtual de Azure pertinente -> Volver a registrar).
-- Haga clic en **Rediscover DBs** (Volver a detectar bases de datos) para la misma máquina virtual. Esta acción debería mostrar las nuevas bases de datos en el paso 3 como SYSTEMDB y base de datos de inquilino, no SDC.
+- Seleccione **Volver a detectar bases de datos** para la misma VM. Esta acción debería mostrar las nuevas bases de datos en el paso 3 como SYSTEMDB y base de datos de inquilino, no SDC.
 - La base de datos SDC anterior seguirá existiendo en el almacén y se conservarán los datos de copia de seguridad antiguos según la directiva.
 - Configure la copia de seguridad de estas bases de datos.
 

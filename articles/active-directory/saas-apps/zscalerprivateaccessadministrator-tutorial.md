@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Zscaler Private Access Administrator | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Zscaler Private Access Administrator.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: c87392a7-e7fe-4cdc-a8e6-afe1ed975172
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 104583522c7041d89d9c63ba67a5633a3bd383f3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5507c25510a84dcfeafc1b2db6c2a774153a59c3
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87016496"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545750"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-administrator"></a>Tutorial: Integración de Azure Active Directory con Zscaler Private Access Administrator
 

@@ -2,17 +2,18 @@
 title: 'Azure ExpressRoute: Vinculación de una red virtual a un circuito: clásico'
 description: Este documento proporciona información general sobre cómo vincular redes virtuales a circuitos ExpressRoute mediante el modelo de implementación clásica y PowerShell.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/06/2019
-ms.author: cherylmc
-ms.openlocfilehash: 5a289284fa27055c76e1e0594e3b0655e746159b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: a731962f22985268093c547b09a8cd77c5b92660
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737094"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89395815"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Conexión de una red virtual a un circuito ExpressRoute mediante PowerShell (clásica)
 > [!div class="op_single_selector"]

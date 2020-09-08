@@ -14,14 +14,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: 87348899a70d45fbfbce805bf2169f9f5e4e3f3e
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 4264d1c0d83f14da02b26107d336521250fcf13b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956770"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89257864"
 ---
-# <a name="crop-videos-with-media-encoder-standard"></a>Recorte de vídeos con Codificador multimedia estándar  
+# <a name="crop-videos-with-media-encoder-standard"></a>Recorte de vídeos con Codificador multimedia estándar
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)] 
 
 Puede utilizar el Codificador multimedia estándar (MES) para recortar el vídeo de entrada. Recortar es el proceso que consiste en la selección de una ventana rectangular en el fotograma de vídeo y la codificación solo de los píxeles que están dentro de esa ventana. El diagrama siguiente puede ayudarle a ilustrar el proceso.
 

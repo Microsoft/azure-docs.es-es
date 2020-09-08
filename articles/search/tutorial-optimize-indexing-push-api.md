@@ -7,13 +7,14 @@ author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 05/05/2020
-ms.openlocfilehash: ef1f0c607eb1d0152a5dd5f5acc812bb9364e47a
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.date: 08/21/2020
+ms.custom: devx-track-csharp
+ms.openlocfilehash: bfb2598fb3a207bbdfaade9086efd07827b077dd
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85079226"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998431"
 ---
 # <a name="tutorial-optimize-indexing-with-the-push-api"></a>Tutorial: Optimización de la indexación mediante la API de inserción
 
@@ -21,7 +22,7 @@ Azure Cognitive Search admite [dos enfoques básicos](search-what-is-data-impo
 
 En este tutorial, se describe cómo indexar los datos de forma eficaz utilizando el [modelo de inserción](search-what-is-data-import.md#pushing-data-to-an-index) mediante la creación de solicitudes por lotes y el uso de una estrategia de reintento de retroceso exponencial. Es posible [descarga y ejecutar la aplicación](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing). En este artículo, se explican los aspectos fundamentales de la aplicación y los factores que se deben tener en cuenta a la hora de indexar datos.
 
-En este tutorial, usará C# y el [SDK de .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search) para realizar las tareas siguientes:
+En este tutorial, usará C# y el [SDK de .NET](/dotnet/api/overview/azure/search) para realizar las tareas siguientes:
 
 > [!div class="checklist"]
 > * Creación de un índice
@@ -111,7 +112,7 @@ Esta sencilla aplicación de consola de C#/.NET realiza las siguientes tareas:
 
 ### <a name="creating-the-index"></a>Creación del índice
 
-Este programa de ejemplo usa el SDK de .NET para definir y crear un índice de Azure Cognitive Search. Aprovecha la clase [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder) para generar una estructura de índice a partir de una clase de modelo de datos de C#.
+Este programa de ejemplo usa el SDK de .NET para definir y crear un índice de Azure Cognitive Search. Aprovecha la clase [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder) para generar una estructura de índice a partir de una clase de modelo de datos de C#.
 
 El modelo de datos se define mediante la clase Hotel, que también contiene referencias a la clase Address. FieldBuilder explora en profundidad varias definiciones de clase para generar una estructura de datos compleja para el índice. Se usan etiquetas de metadatos para definir los atributos de cada campo (por ejemplo, si permiten hacer búsquedas o clasificaciones).
 
@@ -162,8 +163,8 @@ El esquema del índice puede tener un efecto significativo en las velocidades de
 
 Azure Cognitive Search admite las siguientes API para cargar uno o varios documentos en un índice:
 
-+ [Agregar, Actualizar o Eliminar documentos (API de REST)](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents)
-+ [Clase indexAction](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) o [clase indexBatch](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet)
++ [Agregar, Actualizar o Eliminar documentos (API de REST)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)
++ [Clase indexAction](/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) o [clase indexBatch](/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet)
 
 La indexación de documentos en lotes mejora significativamente el rendimiento de la indexación. Estos lotes pueden incluir hasta 1000 documentos o unos 16 MB por lote.
 
@@ -258,14 +259,14 @@ Para aprovechar al máximo las velocidades de indexación de Azure Cognitive S
 
 Algunas de las principales consideraciones mencionadas anteriormente afectan al número óptimo de subprocesos. Puede modificar este ejemplo y probar diferentes números de subprocesos para determinar cuál es el número óptimo de subprocesos en su caso. Sin embargo, siempre que tenga varios subprocesos que se ejecuten simultáneamente, se deberían poder aprovechar al máximo la mayoría de las ventajas de eficiencia.
 
-A medida que aumenta las solicitudes que alcanzan el servicio de búsqueda, puede encontrarse con [códigos de estado HTTP](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) que indican que la solicitud no se completó correctamente. Durante la indexación, dos de los códigos de estado HTTP comunes son:
+A medida que aumenta las solicitudes que alcanzan el servicio de búsqueda, puede encontrarse con [códigos de estado HTTP](/rest/api/searchservice/http-status-codes) que indican que la solicitud no se completó correctamente. Durante la indexación, dos de los códigos de estado HTTP comunes son:
 
 + **Servicio no disponible 503**: este error significa que el sistema está sobrecargado y la solicitud no se puede procesar en ese momento.
 + **207 Varios estados**: este error significa que algunos documentos se han procesado correctamente, pero al menos uno generó error.
 
 ### <a name="implement-an-exponential-backoff-retry-strategy"></a>Implementación de una estrategia de reintento de retroceso exponencial
 
-Si se produce un error, las solicitudes deberán reintentarse utilizando una [estrategia de reintento de retroceso exponencial](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
+Si se produce un error, las solicitudes deberán reintentarse utilizando una [estrategia de reintento de retroceso exponencial](/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
 
 El SDK de Azure Cognitive Search para .NET reintenta automáticamente las solicitudes 503 y otras con error, pero es preciso que implemente su propia lógica para reintentar las solicitudes 207. También se pueden usar herramientas de código abierto como [Polly](https://github.com/App-vNext/Polly) para implementar una estrategia de reintento. 
 
@@ -281,7 +282,7 @@ TimeSpan delay = delay = TimeSpan.FromSeconds(2);
 int maxRetryAttempts = 5;
 ```
 
-Es importante detectar [IndexBatchException](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexbatchexception?view=azure-dotnet), ya que estas excepciones indican que la operación de indexación no se llegó a completar correctamente (solicitudes 207). Los elementos con errores deben reintentarse mediante el método `FindFailedActionsToRetry` que facilita la creación de un nuevo lote que solo contenga elementos con errores.
+Es importante detectar [IndexBatchException](/dotnet/api/microsoft.azure.search.indexbatchexception?view=azure-dotnet), ya que estas excepciones indican que la operación de indexación no se llegó a completar correctamente (solicitudes 207). Los elementos con errores deben reintentarse mediante el método `FindFailedActionsToRetry` que facilita la creación de un nuevo lote que solo contenga elementos con errores.
 
 También se detectarán las excepciones distintas de `IndexBatchException`, que indican que la solicitud ha generado un error. Estas excepciones son menos comunes, especialmente con el SDK para .NET, ya que reintenta las solicitudes 503 automáticamente.
 
@@ -346,7 +347,7 @@ Puede explorar el índice de búsqueda rellenado tras la ejecución del programa
 
 ### <a name="programatically"></a>Mediante programación
 
-Hay dos opciones principales para comprobar el número de documentos en un índice: la API de [recuento de documentos](https://docs.microsoft.com/rest/api/searchservice/count-documents) y la API de [obtención de estadísticas de índice](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics). Ambas rutas pueden requerir tiempo adicional para la actualización, por lo que no debe extrañarse si el número de documentos devuelto es inferior al esperado inicialmente.
+Hay dos opciones principales para comprobar el número de documentos en un índice: la API de [recuento de documentos](/rest/api/searchservice/count-documents) y la API de [obtención de estadísticas de índice](/rest/api/searchservice/get-index-statistics). Ambas rutas pueden requerir tiempo adicional para la actualización, por lo que no debe extrañarse si el número de documentos devuelto es inferior al esperado inicialmente.
 
 #### <a name="count-documents"></a>Documentos de recuento
 
@@ -370,7 +371,7 @@ En Azure Portal, abra la página de **información general** del servicio de b�
 
   ![Lista de índices de Azure Cognitive Search](media/tutorial-optimize-data-indexing/portal-output.png "Lista de índices de Azure Cognitive Search")
 
-El *recuento de documentos* y el *tamaño de almacenamiento* se basan en la [API de obtención de estadísticas](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics) y pueden tardar varios minutos en actualizarse.
+El *recuento de documentos* y el *tamaño de almacenamiento* se basan en la [API de obtención de estadísticas](/rest/api/searchservice/get-index-statistics) y pueden tardar varios minutos en actualizarse.
 
 ## <a name="reset-and-rerun"></a>Restablecer y volver a ejecutar
 

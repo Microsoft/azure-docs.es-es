@@ -13,26 +13,24 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/05/2017
+ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e8c235cd204b86573746be4bce615939f3b072fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 332c81c8502dac6f057c6ea41c7662e1edde1599
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82977913"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855188"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-shared-disk-on-azure"></a>Alta disponibilidad con varios identificadores de seguridad de instancia de ASCS/SCS de SAP para los clústeres de conmutación por error de Windows Server y el disco compartido en Azure
 
-> ![Windows][Logo_Windows] Windows
+> ![SO Windows][Logo_Windows] Windows
 >
-
-En septiembre de 2016, Microsoft publicó una característica con la que puede administrar varias direcciones IP virtuales mediante un [equilibrador de carga interno de Azure][load-balancer-multivip-overview]. Esta funcionalidad ya existe en el equilibrador de carga externo de Azure. 
 
 Si tiene una implementación de SAP, tiene que usar un equilibrador de carga interno para crear una configuración de clúster de Windows para las instancias de SAP Central Services (ASCS/SCS).
 
-En este artículo nos centraremos en cómo pasar de una sola instalación ASCS/SCS a una configuración de varios identificadores de seguridad para SAP mediante la instalación de instancias en clúster ASCS/SCS de SAP adicionales en un clúster de conmutación por error de Windows Server (WSFC) existente con un disco compartido. Cuando se complete este proceso, habrá configurado un clúster de varios identificadores de seguridad para SAP.
+En este artículo nos centraremos en cómo pasar de una sola instalación ASCS/SCS a una configuración de varios identificadores de seguridad para SAP mediante la instalación de instancias en clúster ASCS/SCS de SAP adicionales en un clúster de conmutación por error de Windows Server (WSFC) existente, usando SIOS para simular un disco compartido. Cuando se complete este proceso, habrá configurado un clúster de varios identificadores de seguridad para SAP.
 
 > [!NOTE]
 > Esta característica solo está disponible en el modelo de implementación de Azure Resource Manager.
@@ -46,7 +44,7 @@ Para más información sobre los límites del equilibrador de carga, consulte la
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Ya ha configurado un clúster de WSFC que se utiliza para una instancia de ASCS/SCS de SAP con un **recurso compartido de archivos**, tal y como se muestra en este diagrama.
 
@@ -54,9 +52,10 @@ Ya ha configurado un clúster de WSFC que se utiliza para una instancia de ASCS/
 
 > [!IMPORTANT]
 > Debe cumplir las condiciones siguientes:
-> * Las instancias ASCS/SCS de SAP deben compartir el mismo clúster de WSFC.
-> * Cada SID del sistema de administración de bases de datos (DBMS) tiene que tener su propio clúster de WSFC dedicado.
-> * Los servidores de aplicaciones de SAP que pertenecen a un SID del sistema SAP tienen sus propias máquinas virtuales dedicadas.
+> * Las instancias ASCS/SCS de SAP deben compartir el mismo clúster de WSFC.  
+> * Cada SID del sistema de administración de bases de datos (DBMS) tiene que tener su propio clúster de WSFC dedicado.  
+> * Los servidores de aplicaciones de SAP que pertenecen a un SID del sistema SAP tienen sus propias máquinas virtuales dedicadas.  
+> * No se admite una combinación de Enqueue Replication Server 1 y Enqueue Replication Server 2 en el mismo clúster.  
 
 ## <a name="sap-ascsscs-multi-sid-architecture-with-shared-disk"></a>Arquitectura de varios identificadores de seguridad para ASCS/SCS de SAP con un disco compartido
 
@@ -246,8 +245,6 @@ El procedimiento general es el siguiente:
 
     Además, abra el puerto de sondeo del equilibrador de carga interno de Azure, que en nuestro caso es 62350. Se describe en [este artículo][sap-high-availability-installation-wsfc-shared-disk-win-firewall-probe-port].
 
-7. [Cambie el tipo de inicio del servicio de Windows en la instancia del Acuerdo de recibo evaluado (ERS) de SAP][sap-high-availability-installation-wsfc-shared-disk-change-ers-service-startup-type].
-
 8. Instale el servidor de aplicaciones principal de SAP en la nueva máquina virtual especializada, como se describe en la guía de instalación de SAP.  
 
 9. Instale el servidor de aplicaciones adicional de SAP en la nueva máquina virtual especializada, como se describe en la guía de instalación de SAP.
@@ -285,7 +282,7 @@ El procedimiento general es el siguiente:
 [sap-high-availability-installation-wsfc-shared-disk]:sap-high-availability-installation-wsfc-shared-disk.md
 [sap-hana-ha]:sap-hana-high-availability.md
 [sap-suse-ascs-ha]:high-availability-guide-suse.md
-[sap-net-weaver-ports-ascs-scs-ports]:sap-high-availability-infrastructure-wsfc-shared-disk.md#0f3ee255-b31e-4b8a-a95a-d9ed6200468b
+[sap-net-weaver-ports-ascs-scs-ports]:sap-high-availability-infrastructure-wsfc-shared-disk.md#fe0bd8b5-2b43-45e3-8295-80bee5415716
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 

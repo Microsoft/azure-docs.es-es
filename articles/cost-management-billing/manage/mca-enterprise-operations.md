@@ -4,15 +4,16 @@ description: Obtenga información sobre cómo completar tareas del Contrato Ente
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 57f77e5cb39da18414ef4287e9306733f403e005
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 928800f22011f6388ec50a1ab5e906b2080a4125
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523577"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88682899"
 ---
 # <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>Finalización de tareas del Contrato Enterprise en la cuenta de facturación para un contrato de cliente de Microsoft
 

@@ -11,19 +11,19 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: d1191fdd757b4614eca543660eccddea5c20d033
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 55df08b0782c446d7313e709de9b8ceaeb58ab2b
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422525"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798200"
 ---
 # <a name="change-your-work-or-school-account-password-from-the-change-password-page"></a>Cambio de la contraseña de la cuenta profesional o educativa desde la página Cambiar contraseña
 
 La página **Cambiar contraseña** del portal **Mi cuenta** le ayuda a actualizar una contraseña existente para su cuenta profesional o educativa, suponiendo que recuerde la contraseña y que no esté bloqueado en su cuenta. Si no recuerda la contraseña, si está bloqueado en la cuenta o nunca ha obtenido ninguna contraseña de su organización, puede usar la información de seguridad y el dispositivo móvil para restablecer la contraseña.
 
 >[!Important]
->Este artículo está destinado a los usuarios que intentan actualizar una contraseña conocida para una cuenta profesional o educativa existente. Si es un usuario que intenta entrar en una cuenta personal, como Xbox, Hotmail.com o Outlook.com, pruebe las sugerencias del artículo [Cuando no consigues iniciar sesión en tu cuenta de Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant). Si es un administrador que intenta encontrar más información sobre cómo probar el autoservicio de restablecimiento de contraseña para los empleados u otros usuarios, consulte el [autoservicio de restablecimiento de contraseña](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr).
+>Este artículo está destinado a los usuarios que intentan actualizar una contraseña conocida para una cuenta profesional o educativa existente. Si es un usuario que intenta entrar en una cuenta personal, como Xbox, Hotmail.com o Outlook.com, pruebe las sugerencias del artículo [Cuando no consigues iniciar sesión en tu cuenta de Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant). Si es un administrador que intenta encontrar más información sobre cómo probar el autoservicio de restablecimiento de contraseña para los empleados u otros usuarios, consulte el [autoservicio de restablecimiento de contraseña](../authentication/tutorial-enable-sspr.md).
 
 ## <a name="update-a-password-from-the-change-password-page"></a>Actualización de una contraseña desde la página Cambiar contraseña
 
@@ -45,7 +45,7 @@ La página **Cambiar contraseña** del portal **Mi cuenta** le ayuda a actualiza
 
 Después de cambiar la contraseña, podrá:
 
-- Ver o administrar la [información de seguridad](user-help-security-info-overview.md).
+- Ver o administrar la [información de seguridad](./security-info-setup-signin.md).
 
 - Ver o administrar los dispositivos [conectados](my-account-portal-devices-page.md).
 

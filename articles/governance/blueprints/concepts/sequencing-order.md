@@ -1,14 +1,14 @@
 ---
 title: Orden de la secuencia de implementación
 description: Obtenga más detalles sobre el orden predeterminado en el que se implementan los artefactos de plano técnico durante una asignación de plano técnico y aprenda a personalizar el orden de implementación.
-ms.date: 05/06/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: d4a3b07e158aa7e4514ea9543bf44ad57e379d24
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 8305e5d44caef0f35e5b4beb4b70be9736272fa7
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970627"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051481"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Información sobre la secuencia de implementación en Azure Blueprint
 
@@ -141,8 +141,8 @@ Un ejemplo es un grupo de recursos que depende de una directiva de nivel de susc
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Información acerca del [ciclo de vida del plano técnico](lifecycle.md).
-- Descubra cómo utilizar [parámetros estáticos y dinámicos](parameters.md).
-- Averigüe cómo usar el [bloqueo de recursos de planos técnicos](resource-locking.md).
+- Información acerca del [ciclo de vida del plano técnico](./lifecycle.md).
+- Descubra cómo utilizar [parámetros estáticos y dinámicos](./parameters.md).
+- Averigüe cómo usar el [bloqueo de recursos de planos técnicos](./resource-locking.md).
 - Aprenda a [actualizar las asignaciones existentes](../how-to/update-existing-assignments.md).
 - Puede consultar la información de [solución de problemas generales](../troubleshoot/general.md) para resolver los problemas durante la asignación de un plano técnico.

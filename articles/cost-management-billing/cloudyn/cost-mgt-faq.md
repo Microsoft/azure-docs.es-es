@@ -6,15 +6,16 @@ ms.author: banders
 ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: cloudyn
 ms.reviewer: benshy
 ms.custom: seodec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: b9d19923302a40985906fa3c2e0e183045a95860
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 7b78d9d7bf725e3d82c88360c822455de1301ef6
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460463"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88688035"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Preguntas más frecuentes sobre Cloudyn
 

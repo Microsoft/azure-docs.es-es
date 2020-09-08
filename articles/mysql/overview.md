@@ -7,12 +7,12 @@ ms.author: andrela
 ms.custom: mvc
 ms.topic: overview
 ms.date: 3/18/2020
-ms.openlocfilehash: c5758fa367ac17ceb687212b4073fd2c1a5c18f6
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 37bc99d9f83f185a5372fd45634351987b85e20b
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206412"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763667"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>¿Qué es Azure Database for MySQL?
 
@@ -37,6 +37,9 @@ En este artículo se presentan los principales conceptos y características de A
 Para ver ejemplos de la CLI de Azure, consulte:
 
 - [Ejemplos de la CLI de Azure para Azure Database for MySQL](sample-scripts-azure-cli.md)
+
+## <a name="automated-patching"></a>Aplicación de revisiones automatizada
+El servicio aplica automáticamente revisiones al hardware, sistema operativo y motor de base de datos subyacentes. Esta aplicación de revisiones incluye la seguridad y las actualizaciones de software del hardware, sistema operativo y motor de base de datos subyacentes. En el motor de MySQL, las actualizaciones de versiones secundarias son automáticas y se incluyen como parte de la versión de revisión. Cuando la comunidad publica una versión secundaria, se integra automáticamente como parte del ciclo de pruebas del servicio. Las pruebas de la versión secundaria se realizan en algunas de las cargas de trabajo canónicas para MySQL. Se evalúa la confiabilidad (sin bloqueos), disponibilidad, seguridad y rendimiento de la publicación de versiones secundarias del motor de MySQL. No todas las versiones secundarias se publican en producción en el servicio, sino que se evalúan en función de la importancia de las correcciones de errores y el nuevo valor incremental. Esto se hace para lograr el equilibrio adecuado entre el nuevo valor incremental y minimizar las variables del sistema para la estabilidad. No se requiere ninguna acción del usuario ni opciones de configuración para la aplicación de revisión. La frecuencia de la aplicación de revisión es la administra el servicio en función de la importancia de la carga. En general, el servicio sigue una programación mensual de versiones como parte de la integración y publicación continuas. Los usuarios pueden suscribirse a la [notificación de mantenimiento planeado](concepts-monitoring.md) para recibir la notificación del próximo mantenimiento 72 horas antes del evento.
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Ajustar el rendimiento y la escala en cuestión de segundos
 El servicio Azure Database for MySQL ofrece varios niveles de servicio: Básico, De uso general y Optimizado para memoria. Cada nivel ofrece diferentes niveles de rendimiento y funcionalidades para admitir cargas de trabajo de bases de datos, de ligeras a pesadas. Puede compilar su primera aplicación en una base de datos pequeña por poco dinero al mes y, después, ajustar la escala para satisfacer las necesidades de la solución. La escalabilidad dinámica permite a la base de datos responder de manera transparente a los cambiantes requisitos de recursos. Solo paga por los recursos que necesite y cuando los necesite. Para obtener más información, consulte los  [planes de tarifa](concepts-service-tiers.md).

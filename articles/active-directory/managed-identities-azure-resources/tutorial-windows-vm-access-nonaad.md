@@ -3,7 +3,7 @@ title: 'Tutorial`:` Uso de identidades administradas para acceder a Azure Key Va
 description: Este tutorial contiene directrices acerca de cómo utilizar una identidad administrada asignada por el sistema de una máquina virtual Windows para acceder a Azure Key Vault.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/10/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7648f0c41731968c6cf8d2b2b2e55fffd9b5f53d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2890eb2211ac0a105363742a0e900e52a577ed27
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87018781"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255832"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Tutorial: Uso de las identidades administradas asignadas por el sistema de una máquina virtual Windows para acceder a Azure Key Vault 
 
@@ -75,7 +75,7 @@ A continuación, agregue un secreto al almacén de claves, de forma que más ade
  
 ## <a name="access-data"></a>Acceso a los datos  
 
-En esta sección se muestra cómo obtener un token de acceso mediante la identidad de máquina virtual y usarlo para recuperar el secreto del almacén de claves. Si no tiene PowerShell 4.3.1 o superior instalado, necesitará [descargar e instalar la versión más reciente](https://docs.microsoft.com/powershell/azure/).
+En esta sección se muestra cómo obtener un token de acceso mediante la identidad de máquina virtual y usarlo para recuperar el secreto del almacén de claves. Si no tiene PowerShell 4.3.1 o superior instalado, necesitará [descargar e instalar la versión más reciente](/powershell/azure/).
 
 En primer lugar, vamos a usar la identidad administrada asignada por el sistema de la máquina virtual a fin de obtener un token de acceso para autenticarse en Key Vault:
  
@@ -128,4 +128,4 @@ Cuando haya recuperado el secreto del almacén de claves, podrá usarlo para aut
 En este tutorial, ha aprendido a utilizar una identidad administrada asignada por el sistema de una máquina virtual Windows para acceder a Azure Key Vault.  Para obtener más información sobre Azure Key Vault, vea:
 
 > [!div class="nextstepaction"]
->[Azure Key Vault](/azure/key-vault/key-vault-overview)
+>[Azure Key Vault](../../key-vault/general/overview.md)

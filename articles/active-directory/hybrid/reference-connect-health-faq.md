@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 427a09f3855d44af0206ebf1fd6183099da75f19
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: d15b12b758adbf99ddabc88eb06be9daba1ece3e
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446980"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276208"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure AD Connect Health
 Este artículo incluye respuestas a preguntas más frecuentes (P+f) sobre Azure Active Directory (Azure AD) Connect Health. Estas preguntas más frecuentes abarcan cuestiones sobre cómo usar el servicio; por ejemplo, el modelo de facturación, las funcionalidades, las limitaciones y el soporte técnico.
@@ -37,9 +37,11 @@ En la tabla siguiente se enumeran los roles y las versiones de sistema operativo
 
 |Role| Sistema operativo/versión|
 |--|--|
-|Active Directory Federation Services (AD FS)| <ul> <li> Windows Server 2008 R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
+|Active Directory Federation Services (AD FS)| <ul><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> </ul>|
 |Azure AD Connect | Versión 1.0.9125 o posterior.|
-|Active Directory Domain Services (AD DS)| <ul> <li> Windows Server 2008 R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
+|Active Directory Domain Services (AD DS)| <ul><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> </ul>|
+
+No se admiten las instalaciones de Windows Server Core.
 
 Tenga en cuenta que las características proporcionadas por el servicio pueden diferir según el rol y el sistema operativo. En otras palabras, todas las características pueden no estar disponibles para todas las versiones del sistema operativo. Vea las descripciones de las características para obtener más información.
 
@@ -135,7 +137,7 @@ El agente de mantenimiento puede presentar errores de registro debido a las sigu
 
 * El agente no puede comunicarse con los puntos de conexión necesarios porque un firewall está bloqueando el tráfico. Esto es especialmente frecuente en servidores proxy de aplicación web. Asegúrese de que haya permitido la comunicación de salida a los puertos y puntos de conexión necesarios. Consulte la [sección de requisitos](how-to-connect-health-agent-install.md#requirements) para más información.
 * La comunicación de salida se somete a una inspección de TLS en el nivel de red. Como consecuencia, el certificado que usa el agente se sustituya por la entidad/servidor de inspección y los pasos para completar el registro del agente producen error.
-* El usuario no tiene acceso para realizar el registro del agente. Los administradores globales tienen acceso de forma predeterminada. Puede usar el [control de acceso basado en rol de Azure (RBAC de Azure)](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) para delegar el acceso a otros usuarios.
+* El usuario no tiene acceso para realizar el registro del agente. Los administradores globales tienen acceso de forma predeterminada. Puede usar el [control de acceso basado en rol de Azure (RBAC de Azure)](how-to-connect-health-operations.md#manage-access-with-azure-rbac) para delegar el acceso a otros usuarios.
 
 **P: Recibo una alerta que dice "Los datos del servicio de mantenimiento no están actualizados". ¿Cómo puedo solucionar el problema?**
 
@@ -188,18 +190,18 @@ CheckForMS17-010
 
 **P: ¿Por qué muestra el cmdlet de PowerShell <i>Get-MsolDirSyncProvisioningError</i> menos errores de sincronización en el resultado?**
 
-<i>Get-MsolDirSyncProvisioningError</i> solo devolverá errores de aprovisionamiento de DirSync. Además, el portal de Connect Health también muestra otros tipos de error de sincronización, como los errores de exportación. Esto es coherente con el resultado diferencial de Azure AD Connect. Más información acerca de los [Errores de sincronización de Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors).
+<i>Get-MsolDirSyncProvisioningError</i> solo devolverá errores de aprovisionamiento de DirSync. Además, el portal de Connect Health también muestra otros tipos de error de sincronización, como los errores de exportación. Esto es coherente con el resultado diferencial de Azure AD Connect. Más información acerca de los [Errores de sincronización de Azure AD Connect](./tshoot-connect-sync-errors.md).
 
 **P: ¿Por qué mis auditorías de ADFS no se generan?**
 
-Utilice el cmdlet de PowerShell <i>Get-AdfsProperties - AuditLevel</i> para asegurarse de que los registros de auditoría no se encuentran en estado deshabilitado. Obtenga más información sobre los [registros de auditoría de ADFS](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Tenga en cuenta que si se envía una configuración avanzada de auditoría al servidor de ADFS, se sobrescribirán los cambios realizados con auditpol.exe (aunque no se haya configurado Application Generated). En este caso, establezca la directiva de seguridad local para que registre los eventos correctos e incorrectos de Application Generated.
+Utilice el cmdlet de PowerShell <i>Get-AdfsProperties - AuditLevel</i> para asegurarse de que los registros de auditoría no se encuentran en estado deshabilitado. Obtenga más información sobre los [registros de auditoría de ADFS](/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Tenga en cuenta que si se envía una configuración avanzada de auditoría al servidor de ADFS, se sobrescribirán los cambios realizados con auditpol.exe (aunque no se haya configurado Application Generated). En este caso, establezca la directiva de seguridad local para que registre los eventos correctos e incorrectos de Application Generated.
 
 **P: ¿Cuándo se renovará automáticamente el certificado de agente antes de la expiración?**
 La certificación de agente se renovará automáticamente **6 meses** antes de la fecha de expiración. Si no se renueva, asegúrese de que la conexión de red del agente es estable. Reiniciar los servicios del agente o actualizar a la versión más reciente también pueden resolver el problema.
 
 
 ## <a name="related-links"></a>Vínculos relacionados
-* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
+* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Instalación del Agente de Azure AD Connect Health](how-to-connect-health-agent-install.md)
 * [Operaciones de Azure AD Connect Health](how-to-connect-health-operations.md)
 * [Uso de Azure AD Connect Health con AD FS](how-to-connect-health-adfs.md)

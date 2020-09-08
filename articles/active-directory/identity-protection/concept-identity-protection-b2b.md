@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95ea7eb470a5880bc88b3df903d33854f363e974
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c9ec9e110c3a476c9096ae3e216c9780da0e0f49
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72881312"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949203"
 ---
 # <a name="identity-protection-and-b2b-users"></a>Protección de identidades y usuarios de Colaboración B2B
 
@@ -53,4 +53,4 @@ La exclusión de los usuarios de B2B de las directivas de acceso condicional bas
 
 Consulte los siguientes artículos sobre la colaboración de B2B de Azure AD:
 
-- [¿Qué es la colaboración B2B de Azure AD?](../b2b/what-is-b2b.md)
+- [¿Qué es la colaboración B2B de Azure AD?](../external-identities/what-is-b2b.md)

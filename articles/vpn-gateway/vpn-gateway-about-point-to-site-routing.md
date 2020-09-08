@@ -1,18 +1,18 @@
 ---
 title: 'Azure VPN Gateway: Acerca del enrutamiento de P2S'
-description: Este artículo lo ayudará a comprender el comportamiento del enrutamiento de VPN de punto a sitio.
+description: Aprenda sobre el enrutamiento de VPN de punto a sitio de Azure para diferentes sistemas operativos, protocolos de acceso remoto y configuraciones de red virtual.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: kumud
-ms.openlocfilehash: 536e1e57af16a87fba85323e9448bfb904d56384
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 54b839170d95918889d1295eb20308688fbfb2a7
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027876"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032380"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>Información sobre el enrutamiento de VPN de punto a sitio
 

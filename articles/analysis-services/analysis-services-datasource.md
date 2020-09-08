@@ -4,15 +4,15 @@ description: Describe los orígenes de datos y los conectores admitidos para los
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 08/21/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 72a1a37bf240355e6bc87cbfd62b0dc2d25ce68b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b99ac957c9c5030b484b244223847be4aa53a39d
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503606"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749084"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Orígenes de datos admitidos en Azure Analysis Services
 
@@ -120,7 +120,7 @@ Para orígenes de datos en la nube:
 
 ## <a name="oauth-credentials"></a>Credenciales de OAuth
 
-En el caso de los modelos tabulares con el nivel de compatibilidad 1400 y superior que emplean el modo en memoria, Azure SQL Database, Azure Synapse (anteriormente, SQL Data Warehouse), Dynamics 365 y la lista de SharePoint admiten las credenciales de OAuth. Azure Analysis Services administra la actualización de tokens para los orígenes de datos de OAuth para evitar los tiempos de espera con las operaciones de actualización de ejecución prolongadas. Para generar tokens válidos, establezca las credenciales mediante SSMS.
+En el caso de los modelos tabulares con el nivel de compatibilidad 1400 y superior que emplean el modo en memoria, Azure SQL Database, Azure Synapse (anteriormente, SQL Data Warehouse), Dynamics 365 y la lista de SharePoint admiten las credenciales de OAuth. Azure Analysis Services administra la actualización de tokens para los orígenes de datos de OAuth para evitar los tiempos de espera con las operaciones de actualización de ejecución prolongadas. Para generar tokens válidos, establezca las credenciales mediante Power Query.
 
 El modo de consulta directa no es compatible con las credenciales de OAuth.
 

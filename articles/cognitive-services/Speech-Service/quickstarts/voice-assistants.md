@@ -10,13 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: travisw
-zone_pivot_groups: programming-languages-set-fifteen
-ms.openlocfilehash: c7bb7acf2f9dd282deb9008ac6eb4d96e37c3452
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.custom: devx-track-csharp
+zone_pivot_groups: programming-languages-voice-assistants
+ms.openlocfilehash: 6e13864aa46ff1871aa18d8d33296b21b99d7047
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391305"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88925459"
 ---
 # <a name="quickstart-create-a-custom-voice-assistant"></a>Inicio rápido: Creación de un asistente de voz personalizado
 

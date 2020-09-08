@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: 6532ec33d930ab42a9aa04a92d84ab795f32ebd6
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: a2f319f7bbd3fa0c6c4efb7e225bfc85a76002f2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86034758"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919716"
 ---
 # <a name="azure-database-for-mysql-infrastructure-double-encryption"></a>Cifrado doble de infraestructura de Azure Database for MySQL
 
@@ -36,7 +36,7 @@ La implementación en los niveles de infraestructura también admite una diversi
 
 El cifrado doble de infraestructura de Azure Database for MySQL proporciona las siguientes ventajas:
 
-1. **Adición de diversidad a la implementación de cifrado**: la intención planeada de cambiar al cifrado basado en hardware diversificará aún más las implementaciones proporcionando una implementación basada en hardware además de otra basada en software.
+1. **Diversidad de implementación de cifrado adicional**: La intención planeada de cambiar al cifrado basado en hardware diversificará aún más las implementaciones proporcionando una implementación basada en hardware además de otra basada en software.
 2. **Errores de implementación**: dos capas de cifrado en el nivel de infraestructura protegen frente a los errores en el almacenamiento en caché o la administración de memoria en niveles superiores que exponen datos de texto no cifrado. Además, las dos capas también protegen frente a los errores de implementación del cifrado en general.
 
 La combinación de estas proporciona una protección sólida frente a las amenazas comunes y los puntos débiles utilizados para atacar la criptografía.
@@ -54,7 +54,7 @@ Las funcionalidades de cifrado que proporciona Azure Database for MySQL se puede
 |       |                    |                                  |                                              |
 
 > [!Important]
-> - Los escenarios 2 y 4 tendrán un impacto significativo en el rendimiento en el servidor de Azure Database for MySQL debido a la capa adicional de cifrado de infraestructura.
+> - Los escenarios 2 y 4 pueden introducir una caída del 5-10 por ciento en el rendimiento según el tipo de carga de trabajo para el servidor de Azure Database for MySQL debido a la capa adicional de cifrado de la infraestructura.
 > - La configuración del cifrado doble de infraestructura para Azure Database for MySQL solo se permite durante la creación del servidor. Una vez que se ha aprovisionado el servidor, no se puede cambiar el cifrado del almacenamiento. No obstante, podrá habilitar el cifrado de datos mediante claves administradas por el cliente para el servidor creado con o sin cifrado doble de infraestructura.
 
 ## <a name="limitations"></a>Limitaciones
@@ -62,6 +62,12 @@ Las funcionalidades de cifrado que proporciona Azure Database for MySQL se puede
 Para Azure Database for MySQL, la compatibilidad con el cifrado doble de infraestructura mediante una clave administrada por el servicio tiene las siguientes limitaciones:
 
 * La compatibilidad con esta funcionalidad se limita a los planes de tarifa **De uso general** y **Optimizados para memoria**.
+* Puede crear una instancia de Azure Database for MySQL que tenga habilitado el cifrado de infraestructura en las siguientes regiones:
+
+   * Este de EE. UU.
+   * Centro-sur de EE. UU.
+   * Oeste de EE. UU. 2
+   
 * * Esta característica solo se admite en regiones y servidores que admiten almacenamiento de hasta 16 TB. Para ver la lista de regiones de Azure que admiten almacenamiento de hasta 16 TB, consulte la [documentación de almacenamiento](concepts-pricing-tiers.md#storage).
 
     > [!NOTE]

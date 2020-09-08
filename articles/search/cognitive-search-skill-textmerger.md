@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: f713eb71d375a3388c4b238656355595354b9806
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b364655f26c6ac29c14d387d69d7b4277d6aeb86
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982023"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924646"
 ---
 #   <a name="text-merge-cognitive-skill"></a>Aptitud cognitiva Combinación de texto
 
@@ -75,7 +75,7 @@ Este ejemplo muestra la salida de la entrada anterior, suponiendo que *insertPre
 
 Un escenario común a la hora de utilizar Combinación de texto es combinar la representación textual de imágenes (el texto de una aptitud de OCR o la leyenda de una imagen) en el campo de contenido de un documento. 
 
-El siguiente conjunto de aptitudes de ejemplo utiliza la aptitud OCR para extraer el texto de las imágenes insertadas en el documento. A continuación, crea un campo *merged_text* para que contenga el texto original y el texto de OCR de cada imagen. Puede aprender más sobre la habilidad de OCR [aquí](https://docs.microsoft.com/azure/search/cognitive-search-skill-ocr).
+El siguiente conjunto de aptitudes de ejemplo utiliza la aptitud OCR para extraer el texto de las imágenes insertadas en el documento. A continuación, crea un campo *merged_text* para que contenga el texto original y el texto de OCR de cada imagen. Puede aprender más sobre la habilidad de OCR [aquí](./cognitive-search-skill-ocr.md).
 
 ```json
 {
@@ -148,4 +148,4 @@ En el ejemplo anterior se asume que existe un campo de imágenes normalizadas. P
 
 + [Aptitudes integradas](cognitive-search-predefined-skills.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
-+ [Create Indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [Create Indexer (REST)](/rest/api/searchservice/create-indexer)

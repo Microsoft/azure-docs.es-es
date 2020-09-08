@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con itslearning | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory e itslearning.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 60587ba3-1396-4b8a-9ac1-e22a98e5e0ac
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: df057ec236b32b1a7e7c0e2b089a6df88433e7ba
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 3d0cc72cbaad802ee1e5baad60d632d9d3385ce1
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85799180"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88552776"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itslearning"></a>Tutorial: Integración de Azure Active Directory con itslearning
 

@@ -7,13 +7,13 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 11/19/2019
-ms.openlocfilehash: 39179c9b6d02d810561485f6a4af0102711ad0ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/24/2020
+ms.openlocfilehash: cae8647d970020a22d59dc49b058d43fe28dd00c
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82186641"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816463"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: Errores de creación de clúster
 
@@ -24,19 +24,17 @@ En este artículo se describen las soluciones a errores que pueden surgir al cre
 
 ## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Código de error: Error de DeploymentDocument "CsmDocument_2_0" para su validación.
 
-### <a name="error"></a>Error
+**Error**: "No se puede acceder a la ubicación de la acción de script con el URI: \<SCRIPT ACTION URL\>"
 
-"No se puede acceder a la ubicación de la acción de script con el URI: \<SCRIPT ACTION URL\>"
-
-#### <a name="error-message"></a>Mensaje de error
+### <a name="error-message-1"></a>Mensaje de error 1
 
 "El servidor remoto devolvió un error: 404 No encontrado".
 
-### <a name="cause"></a>Causa
+#### <a name="cause"></a>Causa
 
 El servicio HDInsight no puede acceder a la dirección URL de la acción de script que proporcionó como parte de la solicitud de creación del clúster. El servicio recibe el mensaje de error anterior cuando intenta acceder a la acción de script.
 
-### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 - En el caso de una dirección URL HTTP o HTTPS, compruebe la dirección URL; para ello, intente ir a ella desde una ventana del explorador de incógnito.
 - Si es una dirección URL de WASB, asegúrese de que el script existe en la cuenta de almacenamiento que se especifica en la solicitud. Además, asegúrese de que la clave de almacenamiento de esta cuenta de almacenamiento sea correcta.
@@ -44,37 +42,29 @@ El servicio HDInsight no puede acceder a la dirección URL de la acción de scri
 
 ---
 
-## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Código de error: Error de DeploymentDocument "CsmDocument_2_0" para su validación.
-
-### <a name="error"></a>Error
-
-"No se puede acceder a la ubicación de la acción de script con el URI: \<SCRIPT_ACTION_URL\>"
-
-#### <a name="error-message"></a>Mensaje de error
+### <a name="error-message-2"></a>Mensaje de error 2
 
 "El URI de script especificado \<SCRIPT_URI\> está en ADLS, pero este clúster no tiene ninguna entidad de seguridad de Data Lake Storage"
 
-### <a name="cause"></a>Causa
+#### <a name="cause"></a>Causa
 
 El servicio HDInsight no puede acceder a la dirección URL de la acción de script que proporcionó como parte de la solicitud de creación del clúster. El servicio recibe el mensaje de error anterior cuando intenta acceder a la acción de script.
 
-### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Agregue al clúster la cuenta de Azure Data Lake Storage Gen 1 correspondiente. Agregue también al clúster la entidad de servicio que tiene acceso a la cuenta de Data Lake Storage Gen 1.
 
 ---
 
-## <a name="error-code-deploymentdocument-csmdocument_2_0-failed-the-validation"></a>Código de error: Error de DeploymentDocument "CsmDocument_2_0" para su validación.
-
-### <a name="error"></a>Error
+### <a name="error-message-3"></a>Mensaje de error 3
 
 "El tamaño de la máquina virtual \<CUSTOMER_SPECIFIED_VM_SIZE\> proporcionado en la solicitud no es válido o no se admite para el rol \<ROLE\>. Los valores válidos son: \<VALID_VM_SIZE_FOR_ROLE\>".
 
-### <a name="cause"></a>Causa
+#### <a name="cause"></a>Causa
 
 El tamaño de la máquina virtual que especificó no está permitido para el rol. Este error puede producirse porque el valor de tamaño de la máquina virtual no funciona como se esperaba o no es adecuado para el rol de equipo.
 
-### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 El mensaje de error muestra los valores válidos de tamaño de máquina virtual. Seleccione uno de estos valores e intente realizar de nuevo la solicitud de creación del clúster.
 
@@ -90,7 +80,7 @@ El mensaje de error muestra los valores válidos de tamaño de máquina virtual.
 
 El valor de **VirtualNetworkId** especificado durante la creación del clúster no tiene el formato correcto.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Asegúrese de que los valores de **VirtualNetworkId** y de la subred tengan el formato correcto. Para obtener el valor de **VirtualNetworkId**:
 
@@ -130,7 +120,7 @@ Dado que el script es el script personalizado, le recomendamos que solucione el 
 
 El repositorio metastore personalizado es incompatible con la versión de clúster de HDInsight seleccionada. Actualmente, los clústeres de HDInsight 4.0 solo admiten la versión 3.0 de Metastore y posterior, mientras que los clústeres de HDInsight 3.6 no admiten la versión 3.0 y posterior de Metastore.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Use solo las versiones de Metastore que admita la versión del clúster de HDInsight. Si no se especifica un almacén de metadatos personalizado, HDInsight crea internamente uno y, luego, lo elimina tras la eliminación del clúster.
 
@@ -146,7 +136,7 @@ Use solo las versiones de Metastore que admita la versión del clúster de HDIns
 
 Tiene una regla de firewall en el grupo de seguridad de red (NSG) que está bloqueando la comunicación del clúster con los servicios críticos de mantenimiento y administración de Azure.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Si tiene previsto usar grupos de seguridad de red para controlar el tráfico de red, realice las siguientes acciones antes de instalar HDInsight:
 
@@ -167,7 +157,7 @@ Si tiene previsto usar grupos de seguridad de red para controlar el tráfico de 
 
 No proporcionó los permisos necesarios para administrar la identidad. La identidad administrada asignada por el usuario no tiene el rol de colaborador de Blob Storage en la cuenta de almacenamiento de Azure Data Lake Storage Gen2.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 1. Abra Azure Portal.
 1. Vaya a la cuenta de almacenamiento.
@@ -188,7 +178,7 @@ Para más información, vea [Configuración de permisos para la identidad admini
 
 Si grupos de seguridad de red o rutas definidas por el usuario (UDR) controlan el tráfico entrante al clúster de HDInsight, asegúrese de que el clúster pueda comunicarse con los servicios críticos de mantenimiento y administración de Azure.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Si tiene previsto usar grupos de seguridad de red para controlar el tráfico de red, realice las siguientes acciones antes de instalar HDInsight:
 
@@ -208,7 +198,7 @@ Si tiene previsto usar grupos de seguridad de red para controlar el tráfico de 
 
 Este error se genera normalmente cuando hay un problema transitorio o una interrupción de Azure.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Consulte la página [Estado de Azure](https://status.azure.com) para ver las interrupciones de Azure que podrían afectar a la implementación del clúster. Si no existen interrupciones, intente implementar el clúster de nuevo.
 
@@ -224,7 +214,7 @@ No se puede conectar con el punto de conexión de administración de clúster. I
 
 El servicio HDInsight no se puede conectar al clúster mientras se intenta crear el clúster
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Si usa rutas de grupo de seguridad de red (NSG) de VNet y por el usuario (UDR) personalizadas, asegúrese de que el clúster puede comunicarse con los servicios de administración de HDInsight. Para obtener información adicional, consulte [Direcciones IP de administración de HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
 

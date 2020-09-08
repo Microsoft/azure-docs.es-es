@@ -84,7 +84,7 @@ Para crear un dispositivo virtual, necesita:
 ## <a name="bitlocker-considerations"></a>Consideraciones sobre BitLocker
 
 * Se recomienda habilitar BitLocker en la máquina virtual de Data Box Gateway. De forma predeterminada, BitLocker no está habilitado. Para más información, consulte:
-  * [Configuración de la compatibilidad con el cifrado en el administrador de Hyper-V](hhttps://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
+  * [Configuración de la compatibilidad con el cifrado en el administrador de Hyper-V](h https://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
   * [Compatibilidad con BitLocker en una máquina virtual](https://kb.vmware.com/s/article/2036142)
 
 ## <a name="provision-a-virtual-device-in-hypervisor"></a>Aprovisionar un dispositivo virtual en el hipervisor

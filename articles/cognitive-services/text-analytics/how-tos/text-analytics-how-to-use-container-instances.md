@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 1dde59456126ce1221bdb71f09957c0fd3609427
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f7dbb79e2d9009b00b21d4c12663d8e6c855a4c0
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108723"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88243758"
 ---
 # <a name="deploy-a-text-analytics-container-to-azure-container-instances"></a>Implementación de un contenedor de Text Analytics en Azure Container Instances
 
@@ -23,7 +23,7 @@ Aprenda a implementar el contenedor de [Text Analytics][install-and-run-containe
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Use una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+* Use una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services) antes de empezar.
 
 [!INCLUDE [Create a Cognitive Services Text Analytics resource](../includes/create-text-analytics-resource.md)]
 

@@ -4,12 +4,12 @@ description: En este artículo obtendrá información sobre cómo crear y admini
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: 2fa35ed5e03ad174407e4c82fb5d4bbe69ee8131
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6a045ff1653c58a3a583b6c64941fff26f480861
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497818"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826399"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Creación de directivas de copia de seguridad de Azure Recovery Services mediante API REST
 
@@ -129,7 +129,7 @@ La directiva indica:
 ```
 
 > [!IMPORTANT]
-> Los formatos de fecha y hora para la programación y la retención admiten solo DateTime. No admiten el formato Time solo.
+> Los formatos de fecha y hora para la programación y la retención admiten solo DateTime. No admiten el formato de hora por separado.
 
 ## <a name="responses"></a>Respuestas
 

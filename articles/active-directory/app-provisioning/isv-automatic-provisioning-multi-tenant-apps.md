@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/23/2019
 ms.author: kenwith
 ms.reviewer: zhchia
-ms.openlocfilehash: 479bbe2dbef2d28a2744b667184c45e85faf9adc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7ffdef43aa0fdcaab9e8ceae519cef9dfe5cdf6e
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283102"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235645"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Habilitar el aprovisionamiento automático de usuarios para aplicaciones multiinquilino
 
@@ -54,7 +54,7 @@ Azure AD proporciona varias rutas de integración para habilitar el aprovisionam
 
 * El [Servicio de aprovisionamiento de Azure AD](../app-provisioning/user-provisioning.md) administra el aprovisionamiento y el desaprovisionamiento de usuarios desde Azure AD a la aplicación (aprovisionamiento saliente) y desde la aplicación hacia Azure AD (aprovisionamiento entrante). El servicio se conecta a los puntos de conexión de la API de administración de usuarios de System for Cross-Domain Identity Management (SCIM) que proporciona la aplicación.
 
-* Al usar [Microsoft Graph](https://docs.microsoft.com/graph/), la aplicación administra el aprovisionamiento entrante y saliente de usuarios y grupos desde Azure AD a la aplicación, consultando para ello Microsoft Graph API.
+* Al usar [Microsoft Graph](/graph/), la aplicación administra el aprovisionamiento entrante y saliente de usuarios y grupos desde Azure AD a la aplicación, consultando para ello Microsoft Graph API.
 
 * El aprovisionamiento de usuarios del lenguaje de marcado de aserción de seguridad de tipo Just-In-Time (SAML JIT) se puede habilitar si su aplicación está usando SAML para la federación. Usa la información de las notificaciones enviada en el token SAML para aprovisionar usuarios.
 
@@ -73,7 +73,7 @@ Para poder determinar qué opción de integración debe usar en la aplicación, 
 | Compatibilidad con cuentas no empresariales (B2C)| X| √| √ |
 
 <sup>*</sup> – es necesaria la configuración de Azure AD Connect para sincronizar los usuarios de AD a Azure AD.  
-<sup>+</sup > – el uso de SCIM para el aprovisionamiento no le impide integrar su aplicación con Microsoft Graph para otros fines.
+<sup>+</sup >: el uso de SCIM para el aprovisionamiento no le impide integrar su aplicación con Microsoft Graph para otros fines.
 
 ## <a name="azure-ad-provisioning-service-scim"></a>Servicio de aprovisionamiento de Azure AD (SCIM)
 
@@ -89,7 +89,7 @@ Para obtener más información sobre cómo usa el servicio de aprovisionamiento 
 
 ## <a name="microsoft-graph-for-provisioning"></a>Microsoft Graph para el aprovisionamiento
 
-Cuando usa Microsoft Graph para el aprovisionamiento, tiene acceso a todos los datos de usuario enriquecidos disponibles en Graph. Además de los detalles de los usuarios y grupos, también puede obtener información adicional como los roles del usuario, el administrador y los informes directos, los dispositivos propios y registrados y cientos de otras partes de datos disponibles en [Microsoft Graph](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0). 
+Cuando usa Microsoft Graph para el aprovisionamiento, tiene acceso a todos los datos de usuario enriquecidos disponibles en Graph. Además de los detalles de los usuarios y grupos, también puede obtener información adicional como los roles del usuario, el administrador y los informes directos, los dispositivos propios y registrados y cientos de otras partes de datos disponibles en [Microsoft Graph](/graph/api/overview?view=graph-rest-1.0). 
 
 Más de 15 millones de organizaciones y el 90 % de las compañías de la lista Fortune 500 usan Azure AD a la vez que se suscriben a servicios en la nube de Microsoft como Office 365, Microsoft Azure, Enterprise Mobility Suite o Microsoft 365. Puede usar Microsoft Graph para integrar su aplicación con flujos de trabajo administrativos, como la incorporación (y finalización de contratos) de empleados, el mantenimiento de los perfiles y muchas cosas más. 
 
@@ -97,9 +97,9 @@ Más información sobre el uso de Microsoft Graph para el aprovisionamiento:
 
 * [Página principal de Microsoft Graph](https://developer.microsoft.com/graph)
 
-* [Overview of Microsoft Graph (Información general de Microsoft Graph)](https://docs.microsoft.com/graph/overview)
+* [Overview of Microsoft Graph (Información general de Microsoft Graph)](/graph/overview)
 
-* [Información general de la autenticación de Microsoft Graph](https://docs.microsoft.com/graph/auth/)
+* [Información general de la autenticación de Microsoft Graph](/graph/auth/)
 
 * [Introducción a Microsoft Graph](https://developer.microsoft.com/graph/get-started)
 

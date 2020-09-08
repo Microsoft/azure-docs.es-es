@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con SmartRecruiters | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y SmartRecruiters.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: e96aeecd-e113-454e-89c3-58c9f44cfd4c
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: f20a8a63160a498b9789f77eededad1fd6a02906
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c960a7b509f365ad7fd6b04267cfec6bf41c4e42
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67090107"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88542571"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartrecruiters"></a>Tutorial: Integración de Azure Active Directory con SmartRecruiters
 

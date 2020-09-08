@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
-ms.openlocfilehash: 5401957cb527d43e041345ac9e67e7f7a69ed0d0
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: b9ac473c3864b4be06c978e7d6a3555bb4550d2a
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725540"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056846"
 ---
 # <a name="what-is-custom-speech"></a>¿Qué es Habla personalizada?
 
@@ -48,7 +48,7 @@ Este diagrama resalta las partes que componen el [portal de Habla personalizada]
 Para poder usar el [portal de Habla personalizada](https://speech.microsoft.com/customspeech) y crear un modelo personalizado, se necesita una suscripción al servicio de voz. Siga estas instrucciones para crear una suscripción estándar al servicio de voz: [Creación de una suscripción a Voz](get-started.md#new-resource).
 
 > [!NOTE]
-> Asegúrese de crear suscripciones estándar (S0); no se admiten las suscripciones de prueba gratuita (F0).
+> Asegúrese de crear suscripciones estándar (S0); no se admiten las suscripciones gratuitas (F0).
 
 Después de crear la cuenta de Azure y la suscripción al servicio de voz, deberá iniciar sesión en el [portal de Habla personalizada](https://speech.microsoft.com/customspeech) y conectarse a su suscripción.
 

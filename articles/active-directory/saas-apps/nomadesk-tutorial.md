@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Nomadesk | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Nomadesk.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: d261b776-b48e-45f0-9722-0297adefabb8
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: f1b00f0e9094cf92714cb2454ce04adf7a79dc54
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b2ec212b6662f84850c4dfbab0367aa2cbf57a0c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73160301"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88554378"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nomadesk"></a>Tutorial: integración de Azure Active Directory con Nomadesk
 

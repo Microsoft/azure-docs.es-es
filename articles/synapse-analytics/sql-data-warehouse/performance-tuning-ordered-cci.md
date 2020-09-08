@@ -11,12 +11,12 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 6cd81031f27d772912383fa050e0f946bf9964c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 454e205904b3623bdb5adc906465f01abd77092a
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204666"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795616"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Optimización del rendimiento con el índice de almacén de columnas agrupado ordenado  
 
@@ -48,6 +48,9 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 
 
 ```
+
+>[!TIP]
+> Para mejorar el rendimiento de Synapse SQL, considere la posibilidad de usar **sys.pdw_permanent_table_mappings** en lugar de **sys.pdw_table_mappings** en tablas de usuario permanentes. Para más información, consulte **[sys.pdw_permanent_table_mappings &#40;Transact-SQL&#41;](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** .
 
 > [!NOTE] 
 > En una tabla de CCI ordenada, los nuevos datos resultantes del mismo lote de DML o de operaciones de carga de datos se organizan dentro de ese lote, no hay ninguna organización global de todos los datos de la tabla.  Los usuarios pueden RECOMPILAR el CCI ordenado para ordenar todos los datos de la tabla.  En Synapse SQL, el índice de almacén de columnas REBUILD es una operación sin conexión.  En el caso de una tabla con particiones, la RECOMPILACIÓN se realiza en una partición cada vez.  Los datos de la partición que se está recompilando estarán "sin conexión" y no estarán disponibles hasta que la RECOMPILACIÓN se complete para esa partición. 

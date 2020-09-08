@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 11/15/2019
 ms.author: matjazl
-ms.openlocfilehash: adc6fdf144927d10f811a00aa33f244cfdc25042
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 652445a96acfa0358211d1d97e0fcf288989d6ba
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84870965"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795786"
 ---
 # <a name="configure-database-settings"></a>Configuración de las opciones de la base de datos 
 
@@ -26,7 +26,10 @@ El rendimiento se debe aprovisionar de modo que se garantice que haya suficiente
 > Dado que las distintas operaciones consumen un número diferente de RU, devolvemos el número real de RU consumidas en cada llamada API en el encabezado de respuesta. De este modo, puede generar perfiles del número de RU consumidas por la aplicación.
 
 ## <a name="update-throughput"></a>Actualización del rendimiento
+
 Para cambiar esta configuración en Azure Portal, vaya a Azure API for FHIR y abra la hoja de la base de datos. A continuación, cambie el rendimiento aprovisionado al valor deseado en función de sus necesidades. Puede cambiar el valor hasta un máximo de 10 000 RU/s. Si necesita un valor mayor, póngase en contacto con el Soporte técnico de Azure.
+
+Si el rendimiento de la base de datos es superior a 10 000 RU/s o si los datos almacenados en la base de datos son superiores a 50 GB, la aplicación cliente debe ser capaz de controlar los tokens de continuación. Se crea una partición en la base de datos para cada aumento de rendimiento de 10 000 RU/s o si la cantidad de datos almacenados es superior a 50 GB. Varias particiones crean una respuesta de varias páginas en la que se implementa la paginación usando tokens de continuación.
 
 > [!NOTE] 
 > Un valor más grande significa un mayor rendimiento de Azure API for FHIR y un costo más elevado del servicio.

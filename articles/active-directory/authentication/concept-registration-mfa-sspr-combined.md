@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3a06f01507ad5715d1e8a3f828ab008e1e8ce65
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: e4afc5e554e72fc2ab78173368930b2e5317bce7
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87512982"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718924"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Introducción al registro de información de seguridad combinado para Azure Active Directory
 
@@ -32,7 +32,7 @@ En este artículo se describe qué es el registro de seguridad combinado. Para e
 
 ![Página de mi perfil que muestra información de seguridad registrada de un usuario](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
-Antes de habilitar la nueva experiencia, revise esta documentación centrada en el administrador y la documentación centrada en el usuario para asegurarse de que entiende las funciones y el efecto de esta característica. Con el fin de preparar a los usuarios para la nueva experiencia y ayudar a garantizar un lanzamiento satisfactorio, puede basar el aprendizaje en la [documentación de usuario](../user-help/user-help-security-info-overview.md).
+Antes de habilitar la nueva experiencia, revise esta documentación centrada en el administrador y la documentación centrada en el usuario para asegurarse de que entiende las funciones y el efecto de esta característica. Con el fin de preparar a los usuarios para la nueva experiencia y ayudar a garantizar un lanzamiento satisfactorio, puede basar el aprendizaje en la [documentación de usuario](../user-help/security-info-setup-signin.md).
 
 El registro de información de seguridad combinado de Azure AD no está actualmente disponible para las nubes nacionales, como Azure US Government, Azure Alemania o Azure China 21Vianet.
 

@@ -4,18 +4,19 @@ description: Una introducción a las opciones de red para Azure Files.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 3/19/2020
+ms.date: 08/17/2020
 ms.author: rogarana
 ms.subservice: files
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: cef1aab42eea84c737d5c0173bd4d0e0aa509fe4
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: a38528e32061f57e3239ef4be26cdd437f4f8746
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497773"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078599"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Configuración de puntos de conexión de red de Azure Files
+
 Azure Files proporciona dos tipos principales de puntos de conexión para el acceso a los recursos compartidos de archivos de Azure: 
 - Puntos de conexión públicos, que tienen una dirección IP pública y a los que se puede acceder desde cualquier parte del mundo.
 - Puntos de conexión privados, que existen dentro de una red virtual y tienen una dirección IP privada en el espacio de direcciones de esa red virtual.
@@ -27,12 +28,21 @@ Este artículo se centra en cómo configurar los puntos de conexión de una cuen
 Se recomienda leer [Consideraciones de redes para Azure Files](storage-files-networking-overview.md) antes de pasar a esta guía de procedimientos.
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 - En este artículo se supone que ya ha creado una suscripción a Azure. Si todavía no tiene una suscripción, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 - En este artículo se supone que ya ha creado un recurso compartido de archivos de Azure en una cuenta de almacenamiento a la que le gustaría conectarse desde el entorno local. Para aprender a crear un recurso compartido de archivos de Azure, consulte [Creación de un recurso compartido de archivos de Azure](storage-how-to-create-file-share.md).
 - Si planea usar Azure PowerShell, [instale la versión más reciente](https://docs.microsoft.com/powershell/azure/install-az-ps).
 - Si planea usar la CLI de Azure, [instale la versión más reciente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="create-a-private-endpoint"></a>Creación de un punto de conexión privado
+## <a name="endpoint-configurations"></a>Configuraciones de punto de conexión
+
+Puede configurar los puntos de conexión para restringir el acceso de red a su cuenta de almacenamiento. Existen dos enfoques para restringir el acceso de una cuenta de almacenamiento a una red virtual:
+
+- [Cree uno o varios puntos de conexión privados para la cuenta de almacenamiento](#create-a-private-endpoint) y restrinja todo el acceso al punto de conexión público. De esta forma se garantiza que solo el tráfico que se origina en las redes virtuales deseadas pueda acceder a los recursos compartidos de archivos de Azure dentro de la cuenta de almacenamiento.
+- [Restrinja el punto de conexión público a una o más redes virtuales](#restrict-public-endpoint-access). Para ello, se usa una funcionalidad de la red virtual llamada *puntos de conexión de servicio*. Al restringir el tráfico a una cuenta de almacenamiento a través de un punto de conexión de servicio, sigue teniendo acceso a la cuenta de almacenamiento a través de la dirección IP pública, pero el acceso solo es posible desde las ubicaciones especificadas en la configuración.
+
+### <a name="create-a-private-endpoint"></a>Creación de un punto de conexión privado
+
 La creación de un punto de conexión privado para la cuenta de almacenamiento hará que se implementen los siguientes recursos de Azure:
 
 - **Punto de conexión privado**: un recurso de Azure que representa el punto de conexión privado de la cuenta de almacenamiento. Puede considerarlo como un recurso que conecta una cuenta de almacenamiento y una interfaz de red.
@@ -106,7 +116,7 @@ hostName=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint) | tr -d "/"
 nslookup $hostName
 ```
 
-Si todo ha funcionado correctamente, debería ver la siguiente salida, donde `192.168.0.5` es la dirección IP privada del punto de conexión privado de la red virtual. Tenga en cuenta que debe seguir usando storageaccount.file.core.windows.net para montar el recurso compartido de archivos, en lugar de la ruta de acceso de `privatelink`.
+Si todo ha funcionado correctamente, debería ver la siguiente salida, donde `192.168.0.5` es la dirección IP privada del punto de conexión privado de la red virtual. Debe seguir usando storageaccount.file.core.windows.net para montar el recurso compartido de archivos, en lugar de la ruta de acceso de `privatelink`.
 
 ```Output
 Server:         127.0.0.53
@@ -120,14 +130,13 @@ Address: 192.168.0.5
 
 ---
 
-## <a name="restrict-access-to-the-public-endpoint"></a>Restricción del acceso al punto de conexión público
-Puede restringir el acceso al punto de conexión público mediante la configuración del firewall de la cuenta de almacenamiento. En general, la mayoría de las directivas de firewall de una cuenta de almacenamiento restringirán el acceso de red a una o varias redes virtuales. Existen dos enfoques para restringir el acceso de una cuenta de almacenamiento a una red virtual:
+### <a name="restrict-public-endpoint-access"></a>Restricción del acceso al punto de conexión público
 
-- [Cree uno o varios puntos de conexión privados para la cuenta de almacenamiento](#create-a-private-endpoint) y restrinja todo el acceso al punto de conexión público. De esta forma se garantiza que solo el tráfico que se origina en las redes virtuales deseadas pueda acceder a los recursos compartidos de archivos de Azure dentro de la cuenta de almacenamiento.
-- Restrinja el punto de conexión público a una o más redes virtuales. Para ello, se usa una funcionalidad de la red virtual llamada *puntos de conexión de servicio*. Al restringir el tráfico a una cuenta de almacenamiento a través de un punto de conexión de servicio, sigue teniendo acceso a la cuenta de almacenamiento a través de la dirección IP pública.
+Para limitar el acceso al punto de conexión público es necesario deshabilitar el acceso general al punto de conexión público. Deshabilitar el acceso al punto de conexión público no afecta a los puntos de conexión privados. Una vez deshabilitado el punto de conexión público, puede seleccionar redes o direcciones IP específicas que puedan seguir accediendo a él. En general, la mayoría de las directivas de firewall de una cuenta de almacenamiento restringen el acceso de red a una o varias redes virtuales.
 
-### <a name="disable-access-to-the-public-endpoint"></a>Deshabilitación del acceso al punto de conexión público
-Si el acceso al punto de conexión público está deshabilitado, aún se puede acceder a la cuenta de almacenamiento a través de los puntos de conexión privados. De lo contrario, se rechazarán las solicitudes válidas al punto de conexión público de la cuenta de almacenamiento. 
+#### <a name="disable-access-to-the-public-endpoint"></a>Deshabilitación del acceso al punto de conexión público
+
+Si el acceso al punto de conexión público está deshabilitado, aún se puede acceder a la cuenta de almacenamiento a través de los puntos de conexión privados. De lo contrario, se rechazarán las solicitudes válidas al punto de conexión público de la cuenta de almacenamiento, a menos que provengan de [un origen permitido específicamente](#restrict-access-to-the-public-endpoint-to-specific-virtual-networks). 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 [!INCLUDE [storage-files-networking-endpoints-public-disable-portal](../../../includes/storage-files-networking-endpoints-public-disable-portal.md)]
@@ -140,7 +149,8 @@ Si el acceso al punto de conexión público está deshabilitado, aún se puede a
 
 ---
 
-### <a name="restrict-access-to-the-public-endpoint-to-specific-virtual-networks"></a>Restricción del acceso al punto de conexión público a redes virtuales específicas
+#### <a name="restrict-access-to-the-public-endpoint-to-specific-virtual-networks"></a>Restricción del acceso al punto de conexión público a redes virtuales específicas
+
 Al restringir la cuenta de almacenamiento a redes virtuales específicas, se permiten solicitudes al punto de conexión público en las redes virtuales especificadas. Para ello, se usa una funcionalidad de la red virtual llamada *puntos de conexión de servicio*. Esta funcionalidad se puede usar con o sin puntos de conexión privados.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
@@ -155,6 +165,7 @@ Al restringir la cuenta de almacenamiento a redes virtuales específicas, se per
 ---
 
 ## <a name="see-also"></a>Consulte también
+
 - [Consideraciones de redes para Azure Files](storage-files-networking-overview.md)
 - [Configuración del reenvío de DNS para Azure Files](storage-files-networking-dns.md)
 - [Configuración de VPN S2S para Azure Files](storage-files-configure-s2s-vpn.md)

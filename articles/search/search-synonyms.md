@@ -7,13 +7,13 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/12/2020
-ms.openlocfilehash: 96ad10fcca260223d92203a80f396de816238efc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/26/2020
+ms.openlocfilehash: aad953483749d676844221f7e519f50c50b63ad4
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529574"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948647"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Sinónimos de Azure Cognitive Search
 
@@ -23,7 +23,7 @@ En Azure Cognitive Search, la expansión de sinónimos se realiza en el momento 
 
 ## <a name="create-synonyms"></a>Creación de sinónimos
 
-No hay ningún soporte técnico del portal para crear sinónimos, pero puede usar la API REST o el SDK de .NET. Para empezar a trabajar con REST, se recomienda hacerlo [mediante Postman](search-get-started-postman.md) y la formulación de solicitudes que usan esta API: [Creación de asignaciones de sinónimos](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). En el caso de los desarrolladores de C#, puede empezar a trabajar con la opción [Add Synonyms in Azure Cognitive Searching using C#](search-synonyms-tutorial-sdk.md) (Adición de sinónimos en Azure Cognitive Search con C#).
+No hay ningún soporte técnico del portal para crear sinónimos, pero puede usar la API REST o el SDK de .NET. Para empezar a trabajar con REST, se recomienda hacerlo [mediante Postman](search-get-started-postman.md) y la formulación de solicitudes que usan esta API: [Creación de asignaciones de sinónimos](/rest/api/searchservice/create-synonym-map). En el caso de los desarrolladores de C#, puede empezar a trabajar con la opción [Add Synonyms in Azure Cognitive Searching using C#](search-synonyms-tutorial-sdk.md) (Adición de sinónimos en Azure Cognitive Search con C#).
 
 Opcionalmente, si usa [claves administradas por el cliente](search-security-manage-encryption-keys.md) para el cifrado en reposo del servicio, puede aplicar dicha protección al contenido de la asignación de sinónimos.
 
@@ -92,6 +92,21 @@ La asignación explícita se denota mediante una flecha "=>". Cuando se especifi
 
 ```
 Washington, Wash., WA => WA
+```
+
+Si necesita definir sinónimos que contengan comas, puede usar una barra diagonal inversa como carácter de escape, como en este ejemplo:
+
+```
+WA\, USA, WA, Washington
+```
+
+Dado que la barra diagonal inversa es en sí misma un carácter especial de otros lenguajes como JSON y C#, es probable que tenga que hacer doble escape. Por ejemplo, el JSON enviado la API de REST para la asignación de sinónimos anterior tendría el siguiente aspecto:
+
+```json
+    {
+       "format":"solr",
+       "synonyms": "WA\\, USA, WA, Washington"
+    }
 ```
 
 #### <a name="list-synonym-maps-under-your-service"></a>Enumeración de asignaciones de sinónimos en su servicio
@@ -173,4 +188,4 @@ Si dispone de un índice existente en un entorno de desarrollo (no producción),
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Creación de un mapa de sinónimos](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)
+> [Creación de un mapa de sinónimos](/rest/api/searchservice/create-synonym-map)

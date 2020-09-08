@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2018
-ms.openlocfilehash: 6e38be4a97678ce749e32ca31c0703ed9d786d76
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 30f6bf7629152050bc1249a1e22aff0aa30642de
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84033576"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209535"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Conjuntos de datos públicos para pruebas y prototipos
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -33,7 +33,7 @@ Consulte la siguiente lista de conjuntos de datos públicos que puede usar para 
 | [Retrasos de vuelos de aerolíneas y otros datos de transporte](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp) | "La Oficina de estadísticas de transporte (Bureau of Transportation Statistics, BTS) del Departamento de Transporte (DOT) de Estados Unidos realiza un seguimiento de la puntualidad de los vuelos nacionales operados por las grandes líneas aéreas. En unas tablas publicadas en este sitio web ... se incluye información resumida sobre el número de vuelos puntuales, retrasados, cancelados y desviados". | Los archivos están en formato CSV. |
 | [Fallecidos por accidentes de tráfico: Sistema de generación de análisis de fallecidos en EE. UU. (FARS)](https://www.nhtsa.gov/FARS) | "El FARS (del inglés US Fatality Analysis Reporting System) es un censo nacional que proporciona los datos públicos anuales de América, la NHTSA y el Congreso sobre víctimas mortales en accidentes de vehículos a motor". | "Cree sus propios datos de fallecidos por accidentes de tráfico en línea mediante el sistema de consulta del FARS. O bien, descargue todos los datos del FARS desde 1975 hasta la actualidad en el sitio FTP". |
 | [Datos de productos químicos tóxicos: datos de Toxicity ForeCaster (ToxCast&trade;) de la EPA](https://www.epa.gov/chemical-research/toxicity-forecaster-toxcasttm-data) | "Los datos sobre toxicidad de alto rendimiento disponibles públicamente más actualizados de la EPA sobre miles de productos químicos. Estos datos se generan mediante el esfuerzo de investigación de ToxCast, de la EPA". | Los conjuntos de datos están disponibles en diversos formatos, incluidos hojas de cálculo, paquetes R y archivos de base de datos de MySQL. |
-| [Datos de productos químicos tóxicos: reto de datos NIH Tox21 de 2014](https://tripod.nih.gov/tox21/challenge/) | "El reto de datos de NIH Tox21 de 2014 está diseñado para ayudar a los científicos de comprender el potencial de los productos químicos y compuestos que se está probados mediante la iniciativa de toxicología en el siglo XXI para interrumpir las rutas biológicas de forma que pueda producir efectos tóxicos". | Los conjuntos de datos están disponibles en formatos SMILES y SDF. Proporcionan "datos de actividades de ensayo y estructuras químicas en la colección Tox21, que contiene aproximadamente 10 000 compuestos de ensayo (Tox21 10K)". |
+| [Datos de productos químicos tóxicos: reto de datos NIH Tox21 de 2014](https://tripod.nih.gov/tox21) | "El reto de datos de NIH Tox21 de 2014 está diseñado para ayudar a los científicos de comprender el potencial de los productos químicos y compuestos que se está probados mediante la iniciativa de toxicología en el siglo XXI para interrumpir las rutas biológicas de forma que pueda producir efectos tóxicos". | Los conjuntos de datos están disponibles en formatos SMILES y SDF. Proporcionan "datos de actividades de ensayo y estructuras químicas en la colección Tox21, que contiene aproximadamente 10 000 compuestos de ensayo (Tox21 10K)". |
 | [Datos de biotecnología y genoma de la NCBI](https://www.ncbi.nlm.nih.gov/guide/data-software/) | Diversos conjuntos de datos que cubren genes, genomas y proteínas. | Los conjuntos de datos están en formatos de texto, XML, BLAST, etc. Hay una aplicación BLAST disponible. |
 
 ## <a name="other-statistical-and-scientific-data"></a>Otros datos estadísticos y científicos

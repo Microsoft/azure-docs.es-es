@@ -12,29 +12,37 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: cd476d3210263268627541eb40c50048f0eddd1b
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 114d4f41ad48af3d1e585fcb01eb0794a8e349b5
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422919"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920122"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>Tutorial: Configuración de la replicación entre dos instancias administradas
 
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-La replicación transaccional permite replicar datos de una base de datos a otra hospedada tanto en SQL Server como en [Instancia administrada de Azure SQL](sql-managed-instance-paas-overview.md) (versión preliminar pública). Instancia administrada de SQL puede ser un publicador, un distribuidor o un suscriptor en la topología de replicación. Consulte las [configuraciones de la replicación transaccional](replication-transactional-overview.md#common-configurations) para ver las opciones disponibles.
+La replicación transaccional permite replicar datos de una base de datos a otra hospedada tanto en SQL Server como en [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md). Instancia administrada de SQL puede ser un publicador, un distribuidor o un suscriptor en la topología de replicación. Consulte las [configuraciones de la replicación transaccional](replication-transactional-overview.md#common-configurations) para ver las opciones disponibles. 
 
-> [!NOTE]
-> En este artículo se describe el uso de la [replicación transaccional](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) en la Instancia administrada de Azure SQL Database. Esto no está relacionado con los [grupos de conmutación por error](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), una característica de Instancia administrada de Azure SQL que permite crear réplicas completas legibles de instancias individuales. Hay consideraciones adicionales al configurar la [replicación transaccional con grupos de conmutación por error](replication-transactional-overview.md#with-failover-groups).
+La replicación transaccional está actualmente en versión preliminar pública para SQL Managed Instance. 
 
-En este tutorial aprenderá a configurar una instancia administrada como el publicador y el distribuidor y, tras ello, configurará una segunda instancia administrada como suscriptor.  
+En este tutorial, aprenderá a:
+
+> [!div class="checklist"]
+>
+> - Configurar una instancia administrada como publicador y distribuidor de replicación.
+> - Configurar una instancia administrada como distribuidor de replicación.
 
 ![Replicación entre dos instancias administradas](./media/replication-between-two-instances-configure-tutorial/sqlmi-sqlmi-repl.png)
 
-  > [!NOTE]
-  > - Este artículo está pensado para orientar a un usuario avanzado en la configuración completa de la replicación con Instancia administrada de SQL, empezando por la creación del grupo de recursos. Si ya ha implementado instancias administradas, vaya directamente al [paso 4](#4---create-a-publisher-database) para crear la base de datos del publicador o al [paso 6](#6---configure-distribution) si ya tiene una base de datos del publicador y del suscriptor y está listo para empezar a configurar la replicación.  
-  > - En este artículo se configuran el publicador y el distribuidor en la misma instancia administrada. Para colocar al distribuidor en una instancia administrada aparte, vea el tutorial [Configuración de la replicación transaccional entre Instancia administrada de Azure SQL y SQL Server](replication-two-instances-and-sql-server-configure-tutorial.md). 
+Este tutorial va dirigido a un público experimentado, así que se da por hecho que el usuario está familiarizado con la implementación y la conexión a ambas instancias administradas, y con máquinas virtuales con SQL Server en Azure. 
+
+
+> [!NOTE]
+> - En este artículo se describe el uso de la [replicación transaccional](/sql/relational-databases/replication/transactional/transactional-replication) en la Instancia administrada de Azure SQL Database. Esto no está relacionado con los [grupos de conmutación por error](../database/auto-failover-group-overview.md), una característica de Instancia administrada de Azure SQL que permite crear réplicas completas legibles de instancias individuales. Hay consideraciones adicionales al configurar la [replicación transaccional con grupos de conmutación por error](replication-transactional-overview.md#with-failover-groups).
+
+
 
 ## <a name="requirements"></a>Requisitos
 

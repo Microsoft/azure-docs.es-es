@@ -1,5 +1,5 @@
 ---
-title: API de suministro de SaaS en el marketplace comercial de Microsoft
+title: API de cumplimiento de SaaS en el marketplace comercial de Microsoft
 description: Introducción a las API de suministro que le permiten integrar su ofertas de SaaS en Microsoft AppSource y Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 05/18/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: d9413deb99ce938429d05f7c6348c5914e7dd2b1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2e6381afb19018822f6f37171a5ca4b3d929b42e
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87304146"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037531"
 ---
-# <a name="saas-fulfillment-apis-in-microsoft-commercial-marketplace"></a>API de suministro de SaaS en el marketplace comercial de Microsoft
+# <a name="saas-fulfillment-apis-in-the-microsoft-commercial-marketplace"></a>API de cumplimiento de SaaS en el marketplace comercial de Microsoft
 
 Las API de suministro de SaaS permiten que fabricantes de software independientes (ISV) publiquen y vendan sus aplicaciones SaaS con Microsoft AppSource, Azure Marketplace y Azure Portal. Estas API permiten a las aplicaciones de ISV participar en todos los canales de comercio: directo, dirigidos por asociados (revendedor) y sobre el terreno.  La integración con estas API es un requisito para crear y publicar una oferta de SaaS que permite transacciones en el Centro de partners.
 
@@ -31,7 +31,7 @@ Para la cancelación de la suscripción de SaaS adquirida, la integración es op
 La integración correcta con las API de cumplimiento de SaaS es fundamental para asegurarse de que
 
 * Microsoft factura correctamente a los clientes finales que compraron la oferta de SaaS del anunciante.
-* los clientes finales obtienen la experiencia de usuario correcta para comprar, configurar, usar y administrar las suscripciones de SaaS adquiridas en Marketplace.
+* Los clientes finales reciben la experiencia de usuario correcta para comprar, configurar, usar y administrar las suscripciones de SaaS adquiridas en el marketplace.
 
 Estas API permiten a las ofertas del publicador participar en todos los canales habilitados para comercio:
 

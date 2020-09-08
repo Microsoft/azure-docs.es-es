@@ -3,12 +3,12 @@ title: Configuración de un laboratorio de piratería ética con Azure Lab Servi
 description: Aprenda a configurar un laboratorio con Azure Lab Services para enseñar técnicas de piratería ética.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 0e3a5c6e09038ea731e4157657b0e6ad9c9263ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5134a7db824bad69f42a4051319479f712051446
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444002"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297593"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>Configuración de un laboratorio para impartir una clase de piratería ética 
 En este artículo se muestra cómo configurar una clase que se centra en la parte referida al análisis forense de la piratería ética. Las pruebas de penetración son una práctica que usa la comunidad de piratería ética y que se producen cuando alguien intenta obtener acceso al sistema o a la red para mostrar los puntos vulnerables que un atacante malintencionado podría aprovechar. 
@@ -74,7 +74,7 @@ La imagen de Rapid7 Metasploitable es una imagen configurada de forma intenciona
 1. Seleccione el botón **Download Metasploitable Now** (Descargar Metasploitable ahora).
 1. Cuando se descargue, extraiga el archivo zip y recuerde la ubicación.
 1. Convierta el archivo vmdk extraído en un archivo vhdx para que pueda usarlo con Hyper-V. Para ello, abra PowerShell con privilegios administrativos y vaya a la carpeta donde reside el archivo vmdk y siga estas instrucciones:
-    1. Descargue [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497) y ejecute el archivo mvmc_setup.msi cuando se le solicite.
+    1. Descargue [Microsoft Virtual Machine Converter](https://download.microsoft.com/download/9/1/E/91E9F42C-3F1F-4AD9-92B7-8DD65DA3B0C2/mvmc_setup.msi) y ejecute el archivo mvmc_setup.msi cuando se le solicite.
     1. Importe el módulo de PowerShell.  La ubicación predeterminada en la que se instala el módulo es C:\Archivos de Programa\Microsoft Virtual Machine Converter\
 
         ```powershell

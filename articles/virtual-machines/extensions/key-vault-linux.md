@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d2deb59b5a10177b1a6e57046c013ec9dac0fb06
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4c5389e322fdf44e8a71baa8770f87c276c076c9
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010808"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400405"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extensión de máquina virtual de Key Vault para Linux
 
@@ -73,9 +73,9 @@ El siguiente JSON muestra el esquema para la extensión de máquina virtual de K
 > 
 > Esto se debe a que la ruta de acceso `/secrets` devuelve el certificado completo, incluida la clave privada, mientras que la ruta de acceso `/certificates` no. Se puede encontrar más información sobre los certificados aquí: [Certificados de Key Vault](../../key-vault/general/about-keys-secrets-certificates.md)
 
-> [!NOTE]
-> La propiedad "authenticationSettings" es opcional para los escenarios en los que la máquina virtual tiene varias identidades asignadas.
-> Permite especificar la identidad que se usará para la autenticación en Key Vault.
+> [!IMPORTANT]
+> La propiedad "authenticationSettings" es **necesaria** solo para máquinas virtuales con **identidades asignadas por el usuario**.
+> Especifica la identidad que se usará para la autenticación en Key Vault.
 
 
 ### <a name="property-values"></a>Valores de propiedad
@@ -130,6 +130,8 @@ La configuración de JSON para una extensión de máquina virtual debe estar ani
 
 
 ## <a name="azure-powershell-deployment"></a>Implementación de Azure PowerShell
+> [!WARNING]
+> Los clientes de PowerShell suelen agregar `\` a `"` en el archivo settings.json, lo cual producirá en akvvm_service el error: `[CertificateManagementConfiguration] Failed to parse the configuration settings with:not an object.`.
 
 Azure PowerShell puede usarse para implementar la extensión de máquina virtual de Key Vault en una máquina virtual o un conjunto de escalado de máquinas virtuales. 
 
@@ -204,7 +206,7 @@ La CLI de Azure puede usarse para implementar la extensión de máquina virtual 
 Tenga en cuenta las restricciones y los requisitos siguientes:
 - Restricciones de Key Vault:
   - Debe existir en el momento de la implementación. 
-  - La directiva de acceso de Key Vault está establecida para la identidad de VM/VMSS mediante una identidad administrada. Consulte [Autenticación de Key Vault con una identidad administrada](../../key-vault/general/managed-identity.md).
+  - La directiva de acceso de Key Vault debe estar establecida para la identidad de VM/VMSS mediante una identidad administrada. Consulte [Autenticación en Key Vault](/azure/key-vault/general/authentication) y [Asignación de una directiva de acceso de Key Vault](/azure/key-vault/general/assign-access-policy-cli).
 
 
 ## <a name="troubleshoot-and-support"></a>Solución de problemas y asistencia

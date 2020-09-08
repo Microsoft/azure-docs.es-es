@@ -1,14 +1,14 @@
 ---
 title: 'Copia de seguridad sin conexión para Data Protection Manager (DPM) y Microsoft Azure Backup Server (MABS): versiones anteriores'
-description: Con Azure Backup, puede enviar datos fuera de la red mediante el servicio Azure Import/Export. En este artículo se explica el flujo de trabajo de la copia de seguridad sin conexión para DPM y Azure Backup Server.
+description: Con Azure Backup, puede enviar datos fuera de la red mediante el servicio Azure Import/Export. En este artículo se explica el flujo de trabajo de la copia de seguridad sin conexión para las versiones anteriores de DPM y Azure Backup Server.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 128051210984a55620be60a5965a7067e74de7c7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: b747fd3c682dc1caf7312ba7279470a1e6b38bd5
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186952"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890100"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Flujo de trabajo de copia de seguridad sin conexión para DPM y Azure Backup Server (versiones anteriores)
 
@@ -46,7 +46,7 @@ La copia de seguridad sin conexión es compatible con todos los modelos de imple
 > * Copia de seguridad de todas las cargas de trabajo y archivos con MABS.
 
 >[!NOTE]
->Las suscripciones de CSP de Azure no se admiten para su uso con la propagación sin conexión para DPM 2019 RTM y versiones anteriores, y MABS v3 RTM y versiones anteriores. Todavía se admiten copias de seguridad en línea a través de la red.
+>Las suscripciones de CSP de Azure no se admiten para su uso con la propagación sin conexión para DPM 2019 RTM y versiones anteriores, y MABS v3 RTM y versiones anteriores. Todavía se admiten copias de seguridad en línea a través de la red.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -61,7 +61,7 @@ Asegúrese de que se cumplen los siguientes requisitos previos antes de iniciar 
     | Estados Unidos | [Vínculo](https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
     | China | [Vínculo](https://portal.azure.cn/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
 
-* Se ha creado una cuenta de Azure Storage con el modelo de implementación de Resource Manager en la suscripción desde la que descargó el archivo de configuración de publicación. En la cuenta de almacenamiento, cree un nuevo contenedor de blobs que se usará como destino.
+* Se ha creado una cuenta de Azure Storage con el modelo de implementación de Resource Manager en la suscripción desde la que descargó el archivo de configuración de publicación. En la cuenta de almacenamiento, cree un contenedor de blobs que se usará como destino.
 
   ![Creación de una cuenta de almacenamiento con el desarrollo de Resource Manager](./media/offline-backup-dpm-mabs-previous-versions/storage-account-resource-manager.png)
 
@@ -106,7 +106,7 @@ Siga los pasos para cargar manualmente el certificado de copia de seguridad sin 
     ![Búsqueda de aplicaciones en la pestaña Aplicaciones propias](./media/offline-backup-dpm-mabs-previous-versions/owned-applications.png)
 
 1. Seleccione la aplicación. En la pestaña **Administrar** del panel izquierdo, vaya a **Certificados y secretos**.
-1. Compruebe si hay certificados o claves públicas que ya existían antes. Si no hay ninguno, puede seleccionar el botón **Eliminar** de la página **Información general** de la aplicación para eliminar la aplicación de forma segura. Después, puede volver a intentar realizar los pasos del proceso [Preparación del servidor para el proceso de copia de seguridad sin conexión](#prepare-the-server-for-the-offline-backup-process) y saltarse los pasos siguientes. De lo contrario, siga estos pasos desde la instancia de DPM o el servidor de Azure Backup en el que desea configurar la copia de seguridad sin conexión.
+1. Compruebe si hay certificados o claves públicas preexistentes. Si no hay ninguno, puede seleccionar el botón **Eliminar** de la página **Información general** de la aplicación para eliminar la aplicación de forma segura. Después, puede volver a intentar realizar los pasos del proceso [Preparación del servidor para el proceso de copia de seguridad sin conexión](#prepare-the-server-for-the-offline-backup-process) y saltarse los pasos siguientes. De lo contrario, siga estos pasos desde la instancia de DPM o el servidor de Azure Backup en el que desea configurar la copia de seguridad sin conexión.
 1. En **Iniciar** – **Ejecutar**, escriba *Certlm.msc*. En la ventana **Certificados - Equipo local**, seleccione la pestaña **Certificados – Equipo local** > **Personal**. Busque el certificado con el nombre `CB_AzureADCertforOfflineSeeding_<ResourceId>`.
 1. Seleccione el certificado anterior, haga clic con el botón derecho en **Todas las tareas** y, después, en **Exportar**, sin clave privada y en formato .cer.
 1. Vaya a la aplicación de copia de seguridad sin conexión de Azure en Azure Portal.

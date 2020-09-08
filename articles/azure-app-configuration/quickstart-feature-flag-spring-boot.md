@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 04/18/2020
 ms.author: lcozzens
 ms.custom: devx-track-java
-ms.openlocfilehash: 615815f11264578bc2a5930553c8e6f5bfed937f
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 337baae97d426fe05ac59290a882865038f60c02
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121908"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019749"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Inicio rápido: Incorporación de marcas de características a una aplicación de Spring Boot
 
@@ -97,7 +97,7 @@ Para crear un proyecto de Spring Boot, use [Spring Initializr](https://start.spr
     ```
 
 > [!Note]
-> Hay una biblioteca de administración de características que no es web y que no tiene ninguna dependencia de Spring-Web. Consulte la [documentación](https://github.com/microsoft/spring-cloud-azure/tree/master/spring-cloud-azure-feature-management) de GitHub para conocer las diferencias.
+> Hay una biblioteca de administración de características que no es web y que no tiene ninguna dependencia de Spring-Web. Consulte la [documentación](https://github.com/microsoft/spring-cloud-azure) de GitHub para conocer las diferencias.
 
 ## <a name="connect-to-an-app-configuration-store"></a>Conexión a un almacén de App Configuration
 

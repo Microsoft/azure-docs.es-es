@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 07/03/2019
+ms.date: 08/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9aaab58acb00305f76b10847a0417d91d724ba8
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: eb51e8590e2859a9fe8692f79c5b1238ed5a2098
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83737646"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948188"
 ---
 # <a name="troubleshooting-conditional-access-using-the-what-if-tool"></a>Solución de problemas de acceso condicional con la herramienta What If
 
@@ -67,7 +67,7 @@ Muchas organizaciones crean directivas basadas en ubicaciones de red, lo que per
 
 Para validar que una configuración se ha realizado de forma correcta, un administrador podría usar la herramienta What If para imitar el acceso, desde una ubicación que se debería permitir y desde otra que se debería denegar.
 
-![Herramienta What If en la que se muestran resultados con Bloquear acceso](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-results.png)
+[ ![Herramienta What If en la que se muestran resultados con Bloquear acceso](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-results.png)](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-results.png#lightbox)
 
 En este ejemplo, se bloquearía el acceso del usuario a cualquier aplicación en la nube en su viaje a Corea del Norte, ya que se ha bloqueado el acceso a Contoso desde esa ubicación.
 
@@ -76,6 +76,6 @@ Esta prueba se podría expandir para incorporar otros puntos de datos con el fin
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [¿Qué es el acceso condicional?](overview.md)
-* [¿Qué es Azure Active Directory Identity Protection?](../identity-protection/overview-v2.md)
+* [¿Qué es Azure Active Directory Identity Protection?](../identity-protection/overview-identity-protection.md)
 * [¿Qué es una identidad de dispositivo?](../devices/overview.md)
 * [Funcionamiento: Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)

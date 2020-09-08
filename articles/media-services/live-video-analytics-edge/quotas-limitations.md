@@ -3,12 +3,12 @@ title: 'Cuotas de Live Video Analytics en IoT Edge: Azure'
 description: En este artículo se describen las cuotas y limitaciones de Live Video Analytics en IoT Edge.
 ms.topic: conceptual
 ms.date: 05/22/2020
-ms.openlocfilehash: 90141fa850c9ab3e3abbea15001249da0736ac45
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 32a24079b36655bfdacd25b07d419009f5012507
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091817"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750227"
 ---
 # <a name="quotas-and-limitations"></a>Cuotas y limitaciones
 
@@ -36,21 +36,23 @@ Con la versión preliminar, hay limitaciones sobre los diferentes nodos que se p
    * Solo se permite un origen RTSP por topología de grafo.
 * Procesador de filtros de velocidad de fotogramas
    * Debe estar inmediatamente después del origen RTSP o el procesador de detección de movimiento.
-   * No se puede usar antes que un procesador de extensión HTTP.
+   * No se puede usar antes que un procesador de extensión HTTP o gRPC.
    * No puede estar antes que un procesador de detección de movimiento.
 * Procesador de extensión HTTP
+   * Como máximo puede haber un procesador por cada topología de grafo.
+* Procesador de extensiones gRPC
    * Como máximo puede haber un procesador por cada topología de grafo.
 * Procesador de detección de movimiento
    * Debe estar inmediatamente después que el origen RTSP.
    * Como máximo puede haber un procesador por cada topología de grafo.
-   * No se puede usar antes que un procesador de extensión HTTP.
+   * No se puede usar antes que un procesador de extensión HTTP o gRPC.
 * Procesador de la puerta de señales
    * Debe estar inmediatamente después que el origen RTSP.
 * Receptor de recursos 
    * Debe estar inmediatamente después del origen RTSP o el procesador de la puerta de señales.
 * Receptor de archivos
    * Debe estar inmediatamente después del procesador de la puerta de señales.
-   * No puede estar inmediatamente después del procesador de extensión HTTP o del procesador de detección de movimiento
+   * No puede estar inmediatamente después del procesador de extensión HTTP o gRPC, ni del procesador de detección de movimiento
 * Receptor de IoT Hub
    * No puede estar inmediatamente después de un origen de IoT Hub.
 

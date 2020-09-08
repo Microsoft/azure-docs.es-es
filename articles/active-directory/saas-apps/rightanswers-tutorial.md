@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con RightAnswers | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y RightAnswers.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 7f09e25a-a716-41e1-8ca3-fd00e3d1b8cc
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: b83c080b692802c4361165f5f60b45172969abaa
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 762fa178aade19c7e1a7879188dbc4981298dfb4
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79475743"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88518496"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightanswers"></a>Tutorial: Integración de Azure Active Directory con RightAnswers
 

@@ -11,21 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60d72a98a22fa85e87eb8560ad968415ca70f9a5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b5536c3c427e5b6225d81d649722d8af48c23091
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87275435"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948460"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Procedimientos recomendados para el acceso condicional en Azure Active Directory
 
-Con el [acceso condicional de Azure Active Directory (Azure AD)](../active-directory-conditional-access-azure-portal.md), puede controlar el modo en que los usuarios autorizados acceden a las aplicaciones en la nube. En este artículo se proporciona información acerca de lo siguiente:
+Con el [acceso condicional de Azure Active Directory (Azure AD)](./overview.md), puede controlar el modo en que los usuarios autorizados acceden a las aplicaciones en la nube. En este artículo se proporciona información acerca de lo siguiente:
 
 - Qué debería saber 
 - Qué debe evitar al configurar directivas de acceso condicional 
 
-En este artículo se asume que está familiarizado con los conceptos y la terminología que se describen en [¿Qué es el acceso condicional en Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)
+En este artículo se asume que está familiarizado con los conceptos y la terminología que se describen en [¿Qué es el acceso condicional en Azure Active Directory?](./overview.md)
 
 ## <a name="whats-required-to-make-a-policy-work"></a>¿Cuáles son los requisitos para que una directiva funcione?
 
@@ -154,5 +154,5 @@ Para obtener más información, consulte [Migración de directivas clásicas en 
 
 Si quiere saber más sobre:
 
-- Cómo configurar una directiva de acceso condicional, consulte [Exigir MFA para aplicaciones específicas con acceso condicional de Azure Active Directory](app-based-mfa.md).
+- Cómo configurar una directiva de acceso condicional, consulte [Exigir MFA para aplicaciones específicas con acceso condicional de Azure Active Directory](../authentication/tutorial-enable-azure-mfa.md).
 - Cómo planear las directivas de acceso condicional, consulte [Instrucciones: Planee la implementación del acceso condicional a Azure Active Directory](plan-conditional-access.md).

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 24e04e166c13f787f756c97716e2bf0143eecbdb
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: b53476bcb05d6e91b157c24795c963c04e6f4bb4
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128580"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244500"
 ---
 # <a name="deploy-the-text-analytics-language-detection-container-to-azure-kubernetes-service"></a>Implementación del contenedor de detección de idioma Text Analytics en Azure Kubernetes Service
 
@@ -25,7 +25,7 @@ Aprenda a implementar el contenedor de detección de idioma. Este procedimiento 
 
 Este procedimiento requiere varias herramientas que se deben instalar y ejecutar localmente. No use Azure Cloud Shell.
 
-* Use una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+* Use una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services) antes de empezar.
 * [Git](https://git-scm.com/downloads) para su sistema operativo, por lo que se puede clonar el [ejemplo](https://github.com/Azure-Samples/cognitive-services-containers-samples) usado en este procedimiento.
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * [Motor de docker](https://www.docker.com/products/docker-engine) y se asegura de que la CLI de Docker funciona en una ventana de consola.

@@ -9,18 +9,18 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: chez
 ms.reviewer: mariozi
-ms.openlocfilehash: 9caa4690fa6b9d6c473bb8863acdcbbe15a37fba
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: c7d3dae2b7da2fcc14e86eb4965ebd99fd7bf681
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85569454"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650591"
 ---
 # <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>Cifrado de Azure Data Factory con claves administradas por el cliente
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Azure Data Factory cifra los datos en reposo, incluidas las definiciones de entidades y los datos almacenados en caché mientras las ejecuciones están en curso y para la vista previa de los datos. De forma predeterminada, los datos se cifran con una clave administrada por Microsoft que se genera aleatoriamente y que se asigna de forma única a la factoría de datos. Para obtener garantías de seguridad adicionales, ahora puede habilitar Bring Your Own Key (BYOK) con la característica de claves administradas por el cliente de Azure Data Factory. Cuando se especifica una clave administrada por el cliente, Data Factory usa __tanto__ la clave del sistema de la factoría como la CMK para cifrar los datos del cliente. Si falta alguna de ellas, se deniega el acceso a los datos y a la factoría.
+Azure Data Factory cifra los datos en reposo, incluidas las definiciones de entidades y los datos almacenados en caché mientras las ejecuciones están en curso. De forma predeterminada, los datos se cifran con una clave administrada por Microsoft que se genera aleatoriamente y que se asigna de forma única a la factoría de datos. Para obtener garantías de seguridad adicionales, ahora puede habilitar Bring Your Own Key (BYOK) con la característica de claves administradas por el cliente de Azure Data Factory. Cuando se especifica una clave administrada por el cliente, Data Factory usa __tanto__ la clave del sistema de la factoría como la CMK para cifrar los datos del cliente. Si falta alguna de ellas, se deniega el acceso a los datos y a la factoría.
 
 Azure Key Vault es necesario para almacenar las claves administradas por el cliente. Puede crear sus propias claves y almacenarlas en un almacén de claves, o puede usar las API de Azure Key Vault para generarlas. Key Vault y Azure Data Factory deben estar en el mismo inquilino de Azure Active Directory (Azure AD) y en la misma región, pero pueden estar en distintas suscripciones. Para obtener más información sobre Azure Key Vault, consulte [¿Qué es Azure Key Vault?](../key-vault/general/overview.md)
 
@@ -76,7 +76,7 @@ Puede crear sus propias claves y almacenarlas en un almacén de claves, o puede 
 
     ![Captura de pantalla de obtención del URI de la clave desde Key Vault](media/enable-customer-managed-key/04-get-key-identifier.png)
 
-1. Inicie el portal de Azure Data Factory y, mediante la barra de navegación de la izquierda, salte a la página principal de Data Factory.
+1. Inicie el portal de Azure Data Factory y, mediante la barra de navegación de la izquierda, salte al Portal de administración de Data Factory.
 
 1. Haga clic en el icono de __clave administrada por el cliente__.
 

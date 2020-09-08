@@ -6,16 +6,16 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 03/26/2020
-ms.openlocfilehash: 858315008434f511e3adc0a91d591d924634fc39
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 919883025075ca38bcef6c23ac744528e7bd5502
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809496"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510069"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-azure-powershell"></a>Configuración de un conjunto de escalado de máquinas virtuales con una instancia existente de Azure Load Balancer mediante Azure PowerShell
 
-En este artículo, aprenderá a configurar un conjunto de escalado de máquinas virtuales con una instancia existente de Azure Load Balancer. 
+En este artículo, aprenderá a configurar un conjunto de escalado de máquinas virtuales con una instancia existente de Azure Load Balancer.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -23,7 +23,7 @@ En este artículo, aprenderá a configurar un conjunto de escalado de máquinas 
 - Un equilibrador de carga de SKU estándar existente en la suscripción donde se implementará el conjunto de escalado de máquinas virtuales.
 - Una instancia de Azure Virtual Network para el conjunto de escalado de máquinas virtuales.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -64,7 +64,7 @@ En el ejemplo siguiente se implementa un conjunto de escalado de máquinas virtu
 - Una subred denominada **mySubnet**
 - Un grupo de recursos denominado **myResourceGroup**
 
-```azureppowershell-interactive
+```azurepowershell-interactive
 
 $rsg = "myResourceGroup"
 $loc = "East US 2"
@@ -87,4 +87,3 @@ En este artículo, implementó un conjunto de escalado de máquinas virtuales co
 
 - [¿Qué es Azure Load Balancer?](load-balancer-overview.md)
 - [¿Qué son los conjuntos de escalado de máquinas virtuales?](../virtual-machine-scale-sets/overview.md)
-                                

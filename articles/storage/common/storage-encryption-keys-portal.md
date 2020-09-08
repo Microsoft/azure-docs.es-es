@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/13/2020
+ms.date: 07/31/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: a216714939dc45fd1b220f24414a527969ab7fcb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a506f59d3f2d331e4c7680565f3c110b9cd12956
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029602"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799183"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-the-azure-portal"></a>Configuración de claves administradas por el cliente con Azure Key Vault mediante Azure Portal
 
@@ -45,11 +45,11 @@ Para habilitar claves administradas del cliente en Azure Portal, siga estos paso
 
 ## <a name="specify-a-key"></a>Especificar una clave
 
-Después de habilitar las claves administradas del cliente, tendrá la oportunidad de especificar una clave para asociarla con la cuenta de almacenamiento. También puede indicar si Azure Storage debe girar automáticamente la clave administrada por el cliente o si va a girar la clave manualmente.
+Después de habilitar las claves administradas del cliente, tendrá la oportunidad de especificar una clave para asociarla con la cuenta de almacenamiento. También puede indicar si Azure Storage debe actualizar automáticamente la clave administrada por el cliente a la versión más reciente, o si usted lo hará manualmente.
 
 ### <a name="specify-a-key-from-a-key-vault"></a>Especificación de una clave a partir de un almacén de claves
 
-Al seleccionar una clave administrada por el cliente desde un almacén de claves, la rotación automática de la clave se habilita automáticamente. Para administrar manualmente la versión de la clave, especifique el URI de la clave en su lugar e incluya la versión de la clave. Para obtener más información, consulte [Especificación de una clave como URI](#specify-a-key-as-a-uri).
+Al seleccionar una clave administrada por el cliente desde un almacén de claves, se habilita la actualización automática de la versión de la clave. Para administrar manualmente la versión de la clave, especifique el URI de la clave en su lugar e incluya la versión de la clave. Para obtener más información, consulte [Especificación de una clave como URI](#specify-a-key-as-a-uri).
 
 Para especificar una clave a partir de un almacén de claves, siga estos pasos:
 
@@ -64,7 +64,12 @@ Para especificar una clave a partir de un almacén de claves, siga estos pasos:
 
 ### <a name="specify-a-key-as-a-uri"></a>Especificación de una clave como URI
 
-Cuando especifique el URI de la clave, omita la versión de la clave para habilitar la rotación automática de la clave administrada por el cliente. Si incluye la versión de la clave en el URI de la clave, la rotación automática no se habilita y debe administrar la versión de la clave usted mismo. Para obtener más información sobre la actualización de la versión de la clave, consulte [Actualización manual de la versión de la clave](#manually-update-the-key-version).
+Azure Storage puede actualizar automáticamente la clave administrada por el cliente que se usa para el cifrado, de modo que se use la versión más reciente de esta. Cuando se rote la clave administrada por el cliente en Azure Key Vault, Azure Storage comenzará automáticamente a usar la versión más reciente de la clave para el cifrado.
+
+> [!NOTE]
+> Para rotar una clave, cree una nueva versión de la misma en Azure Key Vault. Azure Storage no controla la rotación de la clave en Azure Key Vault, por lo que deberá rotar la clave manualmente o crear una función para hacerlo según una programación.
+
+Cuando especifique el identificador URI de la clave, omita la versión de la clave en este para habilitar las actualizaciones automáticas a la versión más reciente de la clave. Si incluye la versión de la clave en el URI de la clave, la actualización automática no se habilitará y deberá administrar la versión de la clave usted mismo. Para obtener más información sobre la actualización de la versión de la clave, consulte [Actualización manual de la versión de la clave](#manually-update-the-key-version).
 
 Para especificar una clave como URI, siga estos pasos:
 
@@ -74,25 +79,25 @@ Para especificar una clave como URI, siga estos pasos:
     ![Captura de pantalla en que se muestra el URI de la clave del almacén de claves](media/storage-encryption-keys-portal/portal-copy-key-identifier.png)
 
 1. En las opciones de **Clave de cifrado** de la cuenta de almacenamiento, elija la opción **Escribir el URI de la clave**.
-1. Pegue el identificador URI que ha copiado en el campo **URI de clave**. Omita la versión de la clave del URI para habilitar la rotación automática.
+1. Pegue el identificador URI que ha copiado en el campo **URI de clave**. Omita la versión de la clave en el URI para habilitar las actualizaciones automáticas de la versión de la clave.
 
    ![Captura de pantalla en que se muestra cómo introducir el URI de la clave](./media/storage-encryption-keys-portal/portal-specify-key-uri.png)
 
 1. Especifique el identificador de la suscripción que contiene el almacén de claves.
 1. Guarde los cambios.
 
-Después de especificar la clave, Azure Portal indica si está habilitada la rotación automática de claves y muestra la versión de la clave actualmente en uso para el cifrado.
+Después de especificar la clave, Azure Portal indica si está habilitada la actualización automática de la versión de la clave y muestra la versión de la clave actualmente en uso para el cifrado.
 
-:::image type="content" source="media/storage-encryption-keys-portal/portal-auto-rotation-enabled.png" alt-text="Captura de pantalla que muestra habilitada la rotación automática de las claves administradas por el cliente":::
+:::image type="content" source="media/storage-encryption-keys-portal/portal-auto-rotation-enabled.png" alt-text="Captura de pantalla que muestra habilita la opción de actualización automática de la versión de la clave":::
 
 ## <a name="manually-update-the-key-version"></a>Actualización manual de la versión de la clave
 
-De forma predeterminada, Azure Storage rota automáticamente las claves administradas por el cliente, tal como se describe en las secciones anteriores. Si decide administrar la versión de la clave usted mismo, debe actualizar la versión de clave especificada para la cuenta de almacenamiento cada vez que cree una nueva versión de la clave.
+De forma predeterminada, cuando se crea una nueva versión de una clave administrada por el cliente en Key Vault, Azure Storage usa automáticamente la nueva versión para el cifrado con claves administradas por el cliente, como se describe en las secciones anteriores. Si decide administrar la versión de la clave usted mismo, debe actualizar la versión de clave que está asociada con la cuenta de almacenamiento cada vez que cree una nueva versión de la clave.
 
 Para actualizar la cuenta de almacenamiento para usar la nueva versión de la clave, siga estos pasos:
 
 1. Vaya a la cuenta de almacenamiento y muestre las opciones de configuración de **cifrado**.
-1. Escriba el identificador URI de la nueva versión de la clave. Como alternativa, puede volver a seleccionar el almacén de claves y la clave para actualizar la versión.
+1. Escriba el URI de la nueva versión de la clave. Como alternativa, puede volver a seleccionar el almacén de claves y la clave para actualizar la versión.
 1. Guarde los cambios.
 
 ## <a name="switch-to-a-different-key"></a>Cambio a otra clave

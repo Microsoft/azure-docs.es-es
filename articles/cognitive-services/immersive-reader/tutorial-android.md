@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 06/10/2020
 ms.author: dylankil
 ms.custom: devx-track-java
-ms.openlocfilehash: f8420a42b87481b5e51b383ace1ba8a510d2a6a7
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 637b4d988a4845369a441dce55f0043d873879f6
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87366745"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88516442"
 ---
 # <a name="tutorial-start-the-immersive-reader-using-the-android-java-code-sample"></a>Tutorial: Inicio del Lector inmersivo mediante el ejemplo de código Java de Android
 
@@ -27,7 +27,7 @@ En la [introducción](./overview.md), se indica lo que es el Lector inmersivo y 
 > * Obtener un token de acceso.
 > * Iniciar el Lector inmersivo con contenido de ejemplo.
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

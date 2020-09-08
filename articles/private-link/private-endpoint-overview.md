@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 1566de36d6176568b148fde965bb7d3051e6b500
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 7456402605328592d4f5677767bcd985941173ec
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543476"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639841"
 ---
 # <a name="what-is-azure-private-endpoint"></a>¿Qué es un punto de conexión privado de Azure?
 
@@ -47,6 +47,7 @@ Estos son algunos detalles importantes acerca de los puntos de conexión privado
  
 - Se pueden crear varios puntos de conexión privados en la misma subred o en subredes diferentes dentro de la misma red virtual. Existen límites en cuanto al número de puntos de conexión privados que se pueden crear en una suscripción. Para más información, consulte el artículo acerca de los  [límites de Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
+- La suscripción del recurso de vínculo privado también se debe registrar con el proveedor de recursos Micosoft.Network. Para más información, consulte  [Proveedores de recursos de Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
 
  
 ## <a name="private-link-resource"></a>Recurso de vínculo privado 

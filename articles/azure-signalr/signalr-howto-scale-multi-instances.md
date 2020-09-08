@@ -4,14 +4,15 @@ description: En muchos escenarios de escalado, el cliente necesita a menudo apro
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 03/27/2019
 ms.author: zhshang
-ms.openlocfilehash: 43d703312cbc1fc067a2d51d5623ed028ba01405
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ecf4a35fc239a70e87550a97e71d7abd3d00ecfa
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74158166"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88921994"
 ---
 # <a name="how-to-scale-signalr-service-with-multiple-instances"></a>¿Cómo escalar SignalR Service con varias instancias?
 El SDK más reciente de SignalR Service admite varios puntos de conexión para las instancias de SignalR Service. Puede usar esta característica para escalar las conexiones simultáneas, o usarla para la mensajería entre regiones.

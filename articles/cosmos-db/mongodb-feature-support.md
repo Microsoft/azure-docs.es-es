@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/16/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 5d525824039c276d0bc8a63256b32afa9cb25445
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 7c5164a032e77d85c995384473935b134ff528e5
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851827"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009314"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-32-version-supported-features-and-syntax"></a>API de Azure Cosmos DB para MongoDB (versión 3.2): características y sintaxis que se admiten
 
@@ -342,7 +342,7 @@ Cosmos DB admite un período de vida (TTL) en función de la marca de tiempo del
 
 ## <a name="user-and-role-management"></a>Administración de usuarios y roles
 
-Cosmos DB no admite aún usuarios y roles. Sin embargo, Cosmos DB admite el control de acceso basado en roles (RBAC) y claves/contraseñas de solo lectura y escritura que pueden obtenerse a través de [Azure Portal](https://portal.azure.com) (página de cadena de conexión).
+Cosmos DB no admite aún usuarios y roles. Sin embargo, Cosmos DB admite el control de acceso basado en rol de Azure (Azure RBAC) y claves o contraseñas de solo lectura y escritura que se pueden obtener mediante [Azure Portal](https://portal.azure.com) (página Cadena de conexión).
 
 ## <a name="replication"></a>Replicación
 

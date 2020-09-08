@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f0f7571cf9f8d355330c4acf425e38ce215e840
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 68419c33286457a770a9988f1f00cc0b5e1f91bc
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050877"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235305"
 ---
 # <a name="eliminate-bad-passwords-using-azure-active-directory-password-protection"></a>Eliminación de contraseñas incorrectas mediante Protección con contraseña de Azure Active Directory
 
 En general, las guías de seguridad recomiendan que no se use la misma contraseña en varios lugares, para que sea compleja y para evitar contraseñas sencillas, como *contraseña123*. Puede proporcionar a los usuarios una [guía sobre cómo elegir contraseñas](https://www.microsoft.com/research/publication/password-guidance), pero las contraseñas fáciles o no seguras a menudo se siguen usando. La característica Protección con contraseña de Azure AD detecta y bloquea las contraseñas no seguras conocidas y sus variantes, y también puede bloquear otros términos poco seguros específicos de una organización.
 
-Con Protección con contraseña de Azure AD, las listas globales de contraseñas prohibidas se aplican automáticamente a todos los usuarios de la nube. Para satisfacer sus necesidades empresariales y de seguridad, puede definir entradas en una lista personalizada de contraseñas prohibidas. Cuando los usuarios cambian o restablecen sus contraseñas, se consultan estas listas de contraseñas prohibidas para exigir el uso de contraseñas seguras.
+Con Protección con contraseña de Azure AD, se aplican automáticamente listas globales de contraseñas prohibidas a todos los usuarios de un inquilino de Azure AD. Para satisfacer sus necesidades empresariales y de seguridad, puede definir entradas en una lista personalizada de contraseñas prohibidas. Cuando los usuarios cambian o restablecen sus contraseñas, se consultan estas listas de contraseñas prohibidas para exigir el uso de contraseñas seguras.
 
 Debe usar características adicionales, como [Azure Multi-Factor Authentication](concept-mfa-howitworks.md), no solo confiar en las contraseñas seguras aplicadas por Protección con contraseña de Azure AD. Para obtener más información sobre el uso de varios niveles de seguridad para los eventos de inicio de sesión, consulte [Su Contra$eña no importa](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
 
@@ -37,7 +37,7 @@ El equipo de Azure AD Identity Protection analiza constantemente los datos de t
 
 Siempre que se cambia o se restablece una contraseña para cualquier usuario de cualquier inquilino de Azure AD, se usa la versión actual de la lista global de contraseñas prohibidas para validar la seguridad de la contraseña. Esta comprobación de la validación genera contraseñas más seguras para todos los clientes de Azure AD.
 
-La lista global de contraseñas prohibidas se aplica automáticamente a todos los usuarios de la nube de un inquilino de Azure AD. No hay nada para habilitar ni configurar, y no se puede deshabilitar.
+La lista global de contraseñas prohibidas se aplica automáticamente a todos los usuarios de un inquilino de Azure AD. No hay nada para habilitar ni configurar, y no se puede deshabilitar. Esta lista de contraseñas prohibida global se aplica a los usuarios cuando cambian o restablecen su propia contraseña a través de Azure AD.
 
 > [!NOTE]
 > Los delincuentes cibernéticos también usan estrategias similares en sus ataques para identificar contraseñas no seguras comunes y sus variaciones. Para mejorar la seguridad, Microsoft no publica el contenido de la lista global de contraseñas prohibidas.
@@ -99,7 +99,7 @@ Aunque la lista global prohibida es pequeña en comparación con algunas listas 
 
 ## <a name="on-premises-hybrid-scenarios"></a>Escenarios híbridos locales
 
-Muchas organizaciones tienen un modelo de identidad híbrido que incluye entornos locales de Active Directory Domain Services (AD DS). Para ampliar las ventajas de seguridad de Protección con contraseña de Azure AD al entorno de AD DS, puede instalar los componentes en los servidores locales. Estos agentes requieren eventos de cambio de contraseña en el entorno de AD DS local para cumplir con la misma directiva de contraseñas que los usuarios que solo están en la nube.
+Muchas organizaciones tienen un modelo de identidad híbrido que incluye entornos locales de Active Directory Domain Services (AD DS). Para ampliar las ventajas de seguridad de Protección con contraseña de Azure AD al entorno de AD DS, puede instalar los componentes en los servidores locales. Estos agentes requieren eventos de cambio de contraseña en el entorno de AD DS local para cumplir con la misma directiva de contraseñas que en Azure AD.
 
 Para obtener más información, consulte [Aplicación de Protección con contraseña de Azure AD en AD DS](concept-password-ban-bad-on-premises.md).
 

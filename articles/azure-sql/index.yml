@@ -14,12 +14,12 @@ metadata:
   ms.author: mathoma
   ms.reviewer: carlrab
   ms.date: 10/30/2019
-  ms.openlocfilehash: 131be4c87e0274050b6c7b374f75757c8d3f94f2
-  ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+  ms.openlocfilehash: 03f1f908983487bb3ee5be88ced36a0848a731cc
+  ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/13/2020
-  ms.locfileid: "88167851"
+  ms.lasthandoff: 08/19/2020
+  ms.locfileid: "88590445"
 landingContent:
 - title: Azure SQL Database
   linkLists:
@@ -37,6 +37,10 @@ landingContent:
       url: database/single-database-create-quickstart.md
     - text: Configuración del firewall
       url: database/firewall-create-server-level-portal-quickstart.md
+  - linkListType: video
+    links:
+    - text: Información general sobre Azure SQL Database
+      url: https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Database-Overview-7-of-61
   - linkListType: concept
     links:
     - text: Migración desde SQL Server
@@ -67,6 +71,10 @@ landingContent:
       url: managed-instance/connect-vm-instance-configure.md
     - text: Restauración de una base de datos de ejemplo
       url: managed-instance/restore-sample-database-quickstart.md
+  - linkListType: video
+    links:
+    - text: Introducción a Azure SQL Managed Instance
+      url: https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Managed-Instance-Overview-6-of-61
   - linkListType: concept
     links:
     - text: Migración desde SQL Server
@@ -95,6 +103,10 @@ landingContent:
       url: virtual-machines/windows/sql-vm-create-portal-quickstart.md
     - text: Creación de SQL en una máquina virtual de Azure (Linux)
       url: virtual-machines/linux/sql-vm-create-portal-quickstart.md
+  - linkListType: video
+    links:
+    - text: Introducción a SQL Server en una máquina virtual de Azure
+      url: https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/SQL-Server-on-Azure-VM-Overview-4-of-61
   - linkListType: concept
     links:
     - text: Migración desde SQL Server
@@ -145,14 +157,22 @@ landingContent:
       url: database/design-first-database-tutorial.md
     - text: Diseño de la primera base de datos (C#)
       url: database/design-first-database-csharp-tutorial.md
-- title: Referencia
+- title: Aprendizaje de Azure SQL
   linkLists:
   - linkListType: learn
     links:
-    - text: Recursos educativos de SQL
-      url: /sql/sql-server/educational-sql-resources
+    - text: Azure SQL para principiantes
+      url: https://aka.ms/azuresql4beginners
     - text: Aspectos básicos de Azure SQL
       url: https://docs.microsoft.com/learn/paths/azure-sql-fundamentals/
+    - text: Laboratorios prácticos de SQL Azure
+      url: https://aka.ms/asqlworkshop
+    - text: Seminario intensivo profesional de Azure SQL
+      url: https://aka.ms/azuresqlbootcamp
+    - text: Recursos educativos de SQL
+      url: /sql/sql-server/educational-sql-resources
+- title: Referencia
+  linkLists:
   - linkListType: deploy
     links:
     - text: Ejemplos de la CLI de Azure

@@ -4,14 +4,14 @@ description: Aprenda a usar Azure Portal o la CLI para crear, ver y administrar 
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 08/11/2020
 ms.subservice: alerts
-ms.openlocfilehash: c040958d9518485bc5d583fc01aedd50d5c6e57a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7b5332f68bb35e3c9b9ed82bb7bed2908e744e9f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321129"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065869"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Creación, visualización y administración de alertas de métricas mediante Azure Monitor
 
@@ -88,6 +88,7 @@ Puede ver y administrar las reglas de alertas de métricas mediante la hoja Admi
 
 6. Haga clic en **Listo** para guardar los cambios.
 
+
 ## <a name="with-azure-cli"></a>Con la CLI de Azure
 
 En las secciones anteriores se describía cómo crear, ver y administrar las reglas de alertas de métricas mediante Azure Portal. En esta sección se describe cómo hacer lo mismo con la multiplataforma [CLI de Azure](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). La forma más rápida de comenzar a utilizar la CLI de Azure es a través de [Azure Cloud Shell](../../cloud-shell/overview.md?view=azure-cli-latest). En este artículo, usamos Cloud Shell.
@@ -133,6 +134,23 @@ En las secciones anteriores se describía cómo crear, ver y administrar las reg
     ```azurecli
     az monitor metrics alert delete -g {ResourceGroup} -n {AlertRuleName}
     ```
+
+## <a name="with-powershell"></a>Con PowerShell
+
+Las reglas de alertas de métricas disponen de cmdlets dedicados de PowerShell:
+
+- [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2): cree una nueva regla de alerta de métrica o actualice una existente.
+- [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2): obtenga una o varias reglas de alerta de métricas.
+- [Remove-AzMetricAlertRuleV2](/powershell/module/az.monitor/remove-azmetricalertrulev2): elimine una regla de alerta de métrica.
+
+## <a name="with-rest-api"></a>Con API REST
+
+- [Crear o actualizar](/rest/api/monitor/metricalerts/createorupdate): cree una nueva regla de alerta de métrica o actualice una existente.
+- [Obtener](/rest/api/monitor/metricalerts/get): obtenga una regla de alerta de métrica específica.
+- [Enumerar por grupo de recursos](/rest/api/monitor/metricalerts/listbyresourcegroup): obtenga una lista de reglas de alertas de métricas en un grupo de recursos específico.
+- [Lista por suscripción](/rest/api/monitor/metricalerts/listbysubscription): obtenga una lista de reglas de alertas de métricas en una suscripción específica.
+- [Actualizar](/rest/api/monitor/metricalerts/update): actualice una regla de alerta de métrica.
+- [Eliminar](/rest/api/monitor/metricalerts/delete): elimine una regla de alerta de métrica.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,6 +1,6 @@
 ---
 title: Optimización de la red CDN de Azure para el tipo de entrega de contenido
-description: Optimización de la red CDN de Azure para el tipo de entrega de contenido
+description: Obtenga información sobre cómo Azure Content Delivery Network puede optimizar la entrega en función del tipo de contenido. Las prácticas recomendadas de optimización mejoran el rendimiento y la descarga de origen.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: allensu
-ms.openlocfilehash: 0255d7f47c8f9c63a2943830fa323a2e11994a9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0710f2f31510ae299fafe89dc1798f40e325e8b4
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887547"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192598"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Optimización de la red CDN de Azure para el tipo de entrega de contenido
 

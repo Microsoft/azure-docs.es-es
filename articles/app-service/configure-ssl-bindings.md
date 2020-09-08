@@ -6,16 +6,16 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: fb62d4d2ca22b6043e63645006c2d60cf0b7859b
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 6c3f4cfe7c896b317edc5897098a1c18c98dc826
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078638"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962645"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Protección de un nombre DNS personalizado con un enlace TLS/SSL en Azure App Service
 
-En este artículo se muestra cómo proteger el [dominio personalizado](app-service-web-tutorial-custom-domain.md) de la [aplicación de App Service](https://docs.microsoft.com/azure/app-service/) o de la [aplicación de funciones](https://docs.microsoft.com/azure/azure-functions/) mediante la creación de un enlace de certificado. Cuando haya terminado, podrá acceder a la aplicación de App Service en el punto de conexión `https://` del nombre DNS personalizado (por ejemplo, `https://www.contoso.com`). 
+En este artículo se muestra cómo proteger el [dominio personalizado](app-service-web-tutorial-custom-domain.md) de la [aplicación de App Service](./index.yml) o de la [aplicación de funciones](../azure-functions/index.yml) mediante la creación de un enlace de certificado. Cuando haya terminado, podrá acceder a la aplicación de App Service en el punto de conexión `https://` del nombre DNS personalizado (por ejemplo, `https://www.contoso.com`). 
 
 ![Aplicación web con certificado TLS/SSL personalizado](./media/configure-ssl-bindings/app-with-custom-ssl.png)
 
@@ -37,7 +37,7 @@ En este tutorial, aprenderá a:
 
 Para completar esta guía paso a paso, debe:
 
-- [Crear una aplicación de App Service](/azure/app-service/)
+- [Crear una aplicación de App Service](./index.yml)
 - [Asignar un nombre de dominio a su aplicación](app-service-web-tutorial-custom-domain.md) o [comprarla y configurarla en Azure](manage-custom-dns-buy-domain.md)
 - [Agregar un certificado privado a la aplicación](configure-ssl-certificate.md)
 
@@ -168,4 +168,4 @@ Guías de configuración específicas del lenguaje, como la guía [Configuració
 ## <a name="more-resources"></a>Más recursos
 
 * [Uso de un certificado TLS/SSL en el código de Azure App Service](configure-ssl-certificate-in-code.md)
-* [Preguntas más frecuentes: Certificados de App Service](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)
+* [Preguntas más frecuentes: Certificados de App Service](./faq-configuration-and-management.md)

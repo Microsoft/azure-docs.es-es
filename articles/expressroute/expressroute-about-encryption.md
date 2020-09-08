@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: Acerca del cifrado'
 description: Aprenda acerca del cifrado de ExpressRoute.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 05/05/2020
-ms.author: cherylmc
-ms.openlocfilehash: 77755ab6bdbb3c1e6416475f5066b5dd463eb7f5
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.author: duau
+ms.openlocfilehash: 46f0a0e86c5db612f440bcf631329d2800251dab
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838763"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397804"
 ---
 # <a name="expressroute-encryption"></a>Cifrado de ExpressRoute
  

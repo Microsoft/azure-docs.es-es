@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: eb82422aa0e3d45743539da623fcb919e8e77bbc
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 0e60ba0517fb3b9388045762853c651869cffb6a
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141827"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986464"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Ejemplos de escenarios de usuario de Text Analytics API
 
@@ -29,7 +29,7 @@ Procese las respuestas de texto sin formato mediante el Análisis de sentimiento
 
 ## <a name="analyze-recorded-inbound-customer-calls"></a>Analizar las llamadas entrantes grabadas de los clientes
 
-Extraiga estadísticas de las llamadas de los servicios al cliente mediante texto a voz, Análisis de sentimiento y Extracción de frases clave. Muestre los resultados en el panel de Power BI o un portal para comprender mejor a los clientes, resalte las tendencias del servicio al cliente y aumente la involucración del cliente. Envíe solicitudes a la API en forma de lote para generar informes o en tiempo real para la intervención. Consulte el código de ejemplo [en GitHub](https://github.com/rlagh2/callcenteranalytics).
+Extraiga estadísticas de las llamadas de los servicios al cliente mediante conversión de voz en texto, Análisis de sentimiento y Extracción de frases clave. Muestre los resultados en el panel de Power BI o un portal para comprender mejor a los clientes, resalte las tendencias del servicio al cliente y aumente la involucración del cliente. Envíe solicitudes a la API en forma de lote para generar informes o en tiempo real para la intervención. Consulte el código de ejemplo [en GitHub](https://github.com/rlagh2/callcenteranalytics).
 
 ![Imagen que describe cómo automatizar la obtención de estadísticas de llamadas del servició al cliente mediante el análisis de sentimiento](media/use-cases/azure-inbound.svg)
 

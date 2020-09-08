@@ -12,12 +12,12 @@ ms.date: 02/03/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: edbe76145c83e000c549f7e0dd89cc500e6f05f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b442d5dfae6596b3aea9301d86e9a7cb6d2cbb9f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83741770"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799220"
 ---
 # <a name="update-your-profile-and-account-information-on-the-my-apps-portal"></a>Actualización de la información de perfil y cuenta en el portal Aplicaciones
 
@@ -33,7 +33,7 @@ Si no tiene acceso al portal **Aplicaciones**, debe ponerse en contacto con su d
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 > [!Important]
-> Este contenido está diseñado para los usuarios de **Aplicaciones**. Si es administrador, puede encontrar más información acerca de cómo configurar y administrar aplicaciones basadas en la nube en la [Documentación sobre la administración de aplicaciones](https://docs.microsoft.com/azure/active-directory/manage-apps).
+> Este contenido está diseñado para los usuarios de **Aplicaciones**. Si es administrador, puede encontrar más información acerca de cómo configurar y administrar aplicaciones basadas en la nube en la [Documentación sobre la administración de aplicaciones](../manage-apps/index.yml).
 
 ## <a name="view-your-organization-related-profile-information"></a>Visualización de la información de perfil relacionada con la organización
 

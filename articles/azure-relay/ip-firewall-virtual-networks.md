@@ -3,12 +3,12 @@ title: Configuración del firewall de IP para el espacio de nombres de Azure Rel
 description: En este artículo se describe el uso de las reglas de firewall para permitir las conexiones desde direcciones IP específicas a espacios de nombres de Azure Relay.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 8cd788475ebe54c0316b8c37bd00aa186123fbf1
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: e47c5071a5fc7207d4eabc162fcb24ab6ad57d28
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533067"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141863"
 ---
 # <a name="configure-ip-firewall-for-an-azure-relay-namespace"></a>Configuración del firewall de IP para un espacio de nombres de Azure Relay
 De forma predeterminada, se puede acceder en Internet a los espacios de nombres de Relay, siempre que la solicitud tenga una autenticación y una autorización válidas. Con el firewall de IP, puede restringirlo aún más a solo un conjunto de direcciones o intervalos de direcciones IPv4 en notación [CIDR (Enrutamiento de interdominios sin clases)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -33,7 +33,6 @@ En esta sección se muestra cómo usar Azure Portal para crear reglas de firewal
 1. Para restringir el acceso a únicamente algunas redes y direcciones IP, seleccione la opción **Redes seleccionadas**. En la sección **Firewall**, haga lo siguiente:
     1. Seleccione la opción **Agregar la dirección IP del cliente** para dar acceso a esa IP de cliente actual al espacio de nombres. 
     2. En **Intervalo de direcciones**, escriba una dirección IPv4 específica o un intervalo de direcciones IPv4 en notación CIDR. 
-    3. Especifique si quiere **permitir que los servicios de confianza de Microsoft omitan este firewall**. 
 
         ![Firewall: opción Todas las redes seleccionada](./media/ip-firewall/selected-networks-trusted-access-disabled.png)
 3. Seleccione **Guardar** en la barra de herramientas para guardar la configuración. Espere unos minutos hasta que la confirmación se muestre en las notificaciones de Azure Portal.

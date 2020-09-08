@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: aahi
-ms.openlocfilehash: 40906c97dc088687bbd960fecc91921a3eb888a6
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: ee742f09f3fcc1bd283efbc346fea6a040e53f48
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589982"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548538"
 ---
 # <a name="install-and-run-anomaly-detector-containers-preview"></a>Instalación y ejecución de contenedores de Anomaly Detector (versión preliminar)
 
@@ -28,7 +28,7 @@ Anomaly Detector tiene la siguiente funcionalidad de la característica de conte
 Para más información sobre las API, consulte:
 * [Más información sobre el servicio de API Anomaly Detector](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -37,7 +37,7 @@ Debe cumplir los siguientes requisitos previos para poder usar los contenedores 
 |Obligatorio|Propósito|
 |--|--|
 |Motor de Docker| Necesita que el motor de Docker esté instalado en un [equipo host](#the-host-computer). Docker dispone de paquetes que configuran el entorno de Docker en [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) y [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para conocer los principios básicos de Docker y de los contenedores, consulte [Introducción a Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker debe configurarse para permitir que los contenedores se conecten con Azure y envíen datos de facturación a dicho servicio. <br><br> **En Windows**, Docker también debe estar configurado de forma que admita los contenedores de Linux.<br><br>|
-|Conocimientos sobre Docker | Debe tener conocimientos básicos sobre los conceptos de Docker, como los registros, los repositorios, los contenedores y las imágenes de contenedor, así como conocer los comandos `docker` básicos.| 
+|Conocimientos sobre Docker | Debe tener conocimientos básicos sobre los conceptos de Docker, como los registros, los repositorios, los contenedores y las imágenes de contenedor, así como conocer los comandos `docker` básicos.|
 |Recurso de Anomaly Detector |Para usar estos contenedores, debe tener:<br><br>Un recurso de _Anomaly Detector_ de Azure para obtener la clave de API y el URI de punto de conexión asociados. Ambos valores están disponibles en las páginas de claves y de información general de **Anomaly Detector** en Azure Portal y son necesarios para iniciar el contenedor.<br><br>**{API_KEY}** : una de las dos claves de recurso disponibles en la página **Claves**<br><br>**{ENDPOINT_URI}** : el punto de conexión tal como se proporciona en la página de **Información general**.|
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
@@ -106,7 +106,7 @@ Este comando:
 * Ejecuta un contenedor de Anomaly Detector desde la imagen de contenedor.
 * Asigna un núcleo de CPU y 4 gigabytes (GB) de memoria.
 * Expone el puerto TCP 5000 y asigna un seudo-TTY para el contenedor.
-* Una vez que se produce la salida, quita automáticamente el contenedor. La imagen del contenedor sigue estando disponible en el equipo host. 
+* Una vez que se produce la salida, quita automáticamente el contenedor. La imagen del contenedor sigue estando disponible en el equipo host.
 
 > [!IMPORTANT]
 > Para poder ejecutar el contenedor, las opciones `Eula`, `Billing` y `ApiKey` deben estar especificadas; de lo contrario, el contenedor no se iniciará.  Para obtener más información, vea [Facturación](#billing).
@@ -115,11 +115,11 @@ Este comando:
 
 Si tiene pensado ejecutar varios contenedores con puertos expuestos, asegúrese de ejecutar cada contenedor con un puerto diferente. Por ejemplo, ejecute el primer contenedor en el puerto 5000 y el segundo en el puerto 5001.
 
-Reemplace `<container-registry>` y `<container-name>` por los valores de los contenedores que utilice. Estos contenedores pueden ser diferentes. Puede hacer que el contenedor de Anomaly Detector y el contenedor de LUIS se ejecuten juntos en el HOST, o puede hacer que se ejecuten varios contenedores de Anomaly Detector. 
+Reemplace `<container-registry>` y `<container-name>` por los valores de los contenedores que utilice. Estos contenedores pueden ser diferentes. Puede hacer que el contenedor de Anomaly Detector y el contenedor de LUIS se ejecuten juntos en el HOST, o puede hacer que se ejecuten varios contenedores de Anomaly Detector.
 
-Ejecute el primer contenedor en el puerto 5000. 
+Ejecute el primer contenedor en el puerto 5000.
 
-```bash 
+```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
 <container-registry>/microsoft/<container-name> \
 Eula=accept \
@@ -130,7 +130,7 @@ ApiKey={API_KEY}
 Ejecute el segundo contenedor en el puerto 5001.
 
 
-```bash 
+```bash
 docker run --rm -it -p 5000:5001 --memory 4g --cpus 1 \
 <container-registry>/microsoft/<container-name> \
 Eula=accept \
@@ -138,11 +138,11 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-Cada contenedor sucesivo debe estar en un puerto diferente. 
+Cada contenedor sucesivo debe estar en un puerto diferente.
 
 ## <a name="query-the-containers-prediction-endpoint"></a>Consulta del punto de conexión de predicción del contenedor
 
-El contenedor proporciona varias API de puntos de conexión de predicción de consultas basadas en REST. 
+El contenedor proporciona varias API de puntos de conexión de predicción de consultas basadas en REST.
 
 Utilice el host, http://localhost:5000, con las API de contenedor.
 
@@ -162,7 +162,7 @@ Si ejecuta el contenedor con un [montaje](anomaly-detector-container-configurati
 
 ## <a name="billing"></a>Facturación
 
-Los contenedores de Anomaly Detector envían información de facturación a Azure mediante un recurso de _Anomaly Detector_ de la cuenta de Azure. 
+Los contenedores de Anomaly Detector envían información de facturación a Azure mediante un recurso de _Anomaly Detector_ de la cuenta de Azure.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 

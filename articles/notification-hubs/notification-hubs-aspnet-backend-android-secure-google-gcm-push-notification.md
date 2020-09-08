@@ -1,31 +1,28 @@
 ---
-title: Envío de notificaciones push seguras a Azure Notification Hubs
+title: Envío de notificaciones push seguras con Azure Notification Hubs
 description: Obtenga información acerca de cómo enviar notificaciones de inserción seguras en una aplicación Android desde Azure. Ejemplos de código escritos en Java y C#.
 documentationcenter: android
 keywords: push notification,push notifications,push messages,android push notifications
 author: sethmanheim
 manager: femila
-editor: jwargo
 services: notification-hubs
-ms.assetid: daf3de1c-f6a9-43c4-8165-a76bfaa70893
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: android
 ms.devlang: java
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 08/07/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
-ms.custom: devx-track-java
-ms.openlocfilehash: 3f31c9786a8310779d71ab0c54bddc4687f765be
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f2d5d618fabbe7400ce825f984ace1622a524f05
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325243"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004018"
 ---
-# <a name="sending-secure-push-notifications-with-azure-notification-hubs"></a>Envío de notificaciones push seguras a Azure Notification Hubs
+# <a name="send-secure-push-notifications-with-azure-notification-hubs"></a>Envío de notificaciones push seguras con Azure Notification Hubs
 
 > [!div class="op_single_selector"]
 > * [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
@@ -43,16 +40,16 @@ Debido a restricciones reguladoras o de seguridad, algunas veces una aplicación
 
 A un alto nivel, el flujo es el siguiente:
 
-1. El back-end de la aplicación:
-   * Almacena la carga segura en la base de datos back-end.
-   * Envía el identificador de esta notificación al dispositivo Android (no se envía información segura).
-2. La aplicación del dispositivo, cuando recibe la información:
-   * El dispositivo Android entra en contacto con el back-end que solicita la carga segura.
-   * La aplicación puede mostrar la carga como una notificación en el dispositivo.
+- El back-end de la aplicación:
+  * Almacena la carga segura en la base de datos back-end.
+  * Envía el identificador de esta notificación al dispositivo Android (no se envía información segura).
+- La aplicación del dispositivo, cuando recibe la información:
+  * El dispositivo Android entra en contacto con el back-end que solicita la carga segura.
+  * La aplicación puede mostrar la carga como una notificación en el dispositivo.
 
 Es importante tener en cuenta que en el flujo anterior (y en este tutorial), se asumió que el dispositivo almacena un token de autenticación localmente y, después, el usuario inicia sesión. Este enfoque garantiza una experiencia sin problemas, ya que el dispositivo puede recuperar la carga segura de la notificación usando este token. Si la aplicación no almacena tokens de autenticación en el dispositivo, o si estos tokens pueden haber caducado, la aplicación del dispositivo, al recibir la notificación push, debe mostrar una notificación genérica pidiendo al usuario que inicie la aplicación. Después, la aplicación autentica al usuario y muestra la carga de la notificación.
 
-Este tutorial muestra cómo enviar notificaciones push seguras. Se basa en el tutorial sobre [notificar a los usuarios](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md) , por lo que debe completar los pasos de ese tutorial primero si no lo ha hecho todavía.
+Este tutorial muestra cómo enviar notificaciones push seguras. Se basa en el tutorial de [notificación a usuarios](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md), por lo que debe completar los pasos de ese tutorial primero.
 
 > [!NOTE]
 > En este tutorial se supone que se ha creado y configurado el centro de notificaciones tal como se describe en [Introducción a Notification Hubs (Android)](notification-hubs-android-push-notification-google-gcm-get-started.md).
@@ -61,10 +58,10 @@ Este tutorial muestra cómo enviar notificaciones push seguras. Se basa en el tu
 
 ## <a name="modify-the-android-project"></a>Modificación del proyecto Android
 
-Una vez modificado el back-end de la aplicación para enviar solamente el *identificador* de una notificación push, deberá modificar la aplicación Android para que administre dicha notificación y devuelva la llamada a su back-end para recuperar el mensaje seguro que se debe mostrar.
+Una vez modificado el back-end de la aplicación para enviar solamente el identificador de una notificación push, deberá modificar la aplicación Android para que administre dicha notificación y devuelva la llamada a su back-end para recuperar el mensaje seguro que se debe mostrar.
 Para lograr este objetivo, debe asegurarse de que la aplicación Android sabe cómo autenticarse a sí misma con el back-end cuando recibe las notificaciones de inserción.
 
-A continuación, modifique el flujo de *inicio de sesión* para guardar el valor de encabezado de autenticación en las preferencias compartidas de la aplicación. Se pueden usar mecanismos similares para almacenar cualquier token de autenticación (por ejemplo, tokens OAuth) que la aplicación tiene que usar sin solicitar credenciales de usuario.
+A continuación, modifique el flujo de inicio de sesión para guardar el valor de encabezado de autenticación en las preferencias compartidas de la aplicación. Se pueden usar mecanismos similares para almacenar cualquier token de autenticación (por ejemplo, tokens OAuth) que la aplicación tiene que usar sin solicitar credenciales de usuario.
 
 1. En el proyecto de la aplicación Android, agregue las siguientes constantes al principio de la clase `MainActivity`:
 
@@ -72,6 +69,7 @@ A continuación, modifique el flujo de *inicio de sesión* para guardar el valor
     public static final String NOTIFY_USERS_PROPERTIES = "NotifyUsersProperties";
     public static final String AUTHORIZATION_HEADER_PROPERTY = "AuthorizationHeader";
     ```
+
 2. Todavía en la clase `MainActivity`, actualice el método `getAuthorizationHeader()` para que contenga el siguiente código:
 
     ```java
@@ -87,6 +85,7 @@ A continuación, modifique el flujo de *inicio de sesión* para guardar el valor
         return basicAuthHeader;
     }
     ```
+
 3. Agregue las siguientes instrucciones `import` al principio del archivo `MainActivity`:
 
     ```java
@@ -104,6 +103,7 @@ Ahora cambiaremos el controlador al que se llama cuando se recibe la notificaci�
         retrieveNotification(secureMessageId);
     }
     ```
+
 2. Después, agregue el método `retrieveNotification()`, reemplazando el marcador de posición `{back-end endpoint}` con el extremo back-end obtenido mientras se implementa su back-end:
 
     ```java

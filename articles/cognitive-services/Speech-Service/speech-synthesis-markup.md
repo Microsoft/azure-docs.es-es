@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.custom: devx-track-javascript
-ms.openlocfilehash: ae98f74092c3955a54c0817082e8f29c1b251237
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: f202a9d616809d1f14366350d8d60ef2bc06b96b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533400"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934521"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Mejora de la síntesis con el Lenguaje de marcado de síntesis de voz (SSML)
 
@@ -192,7 +192,7 @@ speechConfig!.setPropertyTo(
 > [!IMPORTANT]
 > El ajuste de estilos de habla solo funciona con las voces neuronales.
 
-De forma predeterminada, el servicio de texto a voz sintetiza el texto mediante un estilo de habla neutro tanto para voces estándar como neuronales. Con las voces neuronales, puede ajustar el estilo de habla para expresar distintas emociones, como alegría, empatía y calma, o bien optimizar la voz para distintos escenarios, como el servicio personalizado, la transmisión de noticias y el asistente de voz, mediante el elemento < mstts:express-as>. Se trata de un elemento opcional único para el servicio de voz.
+De forma predeterminada, el servicio de texto a voz sintetiza el texto mediante un estilo de habla neutro tanto para voces estándar como neuronales. Mediante las voces neuronales, es posible adaptar el estilo del habla para expresar diferentes emociones, como alegría, empatía y serenidad, o bien modular la voz para diferentes escenarios, como un servicio personalizado, la transmisión de noticias o un asistente de voz, mediante el elemento  `mstts:express-as` . Se trata de un elemento opcional único para el servicio de voz.
 
 Actualmente, los ajustes de estilo de habla son compatibles con estas voces neuronales:
 * `en-US-AriaNeural`

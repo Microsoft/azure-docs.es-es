@@ -1,15 +1,15 @@
 ---
 title: Consorcio Hyperledger Fabric en Azure Kubernetes Service (AKS)
 description: Implementación y configuración de una red del consorcio de Hyperledger Fabric en Azure Kubernetes Service
-ms.date: 07/27/2020
+ms.date: 08/06/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 4bc55090234a4ab33125ba43b8416de1eadb702f
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: d6999b32224e6c41cdf9869554c884fc4779c217
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533434"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184217"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Consorcio Hyperledger Fabric en Azure Kubernetes Service (AKS)
 
@@ -350,10 +350,22 @@ Siga estos pasos:
 Desde la aplicación cliente del mismo nivel, ejecute el comando siguiente para crear una instancia de código de cadena en el canal.  
 
 ```bash
-./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -v $CC_VERSION -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>  
+./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -v $CC_VERSION -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>
 ```
 
 Pase el nombre de la función de creación de instancias y la lista de argumentos separados por espacios en `<instantiateFunc>` y `<instantiateFuncArgs>`, respectivamente. Por ejemplo, en el código de cadena chaincode_example02.go, para crear una instancia, establezca `<instantiateFunc>` en `init` y `<instantiateFuncArgs>` en "a" "2000" "b" "1000".
+
+También puede pasar el archivo JSON de configuración de recopilaciones mediante la marca `--collections-config`. O bien, establezca los argumentos transitorios mediante la marca `-t` al crear una instancia de un código de cadena usado para las transacciones privadas.
+
+Por ejemplo:
+
+```bash
+./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath>
+./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath> -t <transientArgs>
+```
+
+\<collectionConfigJSONFilePath\> es la ruta de acceso al archivo JSON que contiene las recopilaciones definidas para la creación de instancias de un código de cadena de datos privados. Puede encontrar un archivo JSON de configuración de recopilaciones de ejemplo en relación con el directorio azhlfTool en la siguiente ruta de acceso: `./samples/chaincode/src/private_marbles/collections_config.json`.
+Pase \<transientArgs\> como un JSON válido en formato de cadena. Aplique escape a cualquier carácter especial. Por ejemplo: `'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
 
 > [!NOTE]
 > Ejecute el comando para una vez desde una organización del mismo nivel en el canal. Una vez que la transacción se envía correctamente al solicitante, el solicitante distribuye esta transacción a todas las organizaciones del mismo nivel del canal. Por lo tanto, se crea una instancia del código de cadena en todos los nodos del mismo nivel en todas las organizaciones del mismo nivel del canal.  
@@ -377,8 +389,12 @@ Pase el nombre de la función de invocación y la lista de argumentos separados 
 Ejecute el siguiente comando para consultar el código de cadena:  
 
 ```bash
-./azhlf chaincode query -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs>  
+./azhlf chaincode query -o $ORGNAME -p <endorsingPeers> -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs> 
 ```
+Los pares de aprobación son pares en los que se instala el código de cadena y se le llama para la ejecución de transacciones. Debe establecer el elemento \<endorsingPeers\> que contiene los nombres de nodo del mismo nivel de la organización del mismo nivel actual. Enumere los pares de aprobación para la combinación de canal y código de cadena determinada separados por espacios. Por ejemplo, `-p "peer1" "peer3"`.
+
+Si usa azhlfTool para instalar su código de cadena, pase los nombres de nodo del mismo nivel como un valor al argumento del par de aprobación. El código de cadena se instala en todos los nodos del mismo nivel para esa organización. 
+
 Pase el nombre de la función de consulta y la lista de argumentos separados por espacios en  `<queryFunction>`  y  `<queryFuncArgs>` , respectivamente. De nuevo, con el código de cadena de chaincode_example02.go como referencia, para consultar el valor "a" en el conjunto de estado global, establezca  `<queryFunction>`  en  `query` y  `<queryArgs>` en "a".  
 
 ## <a name="troubleshoot"></a>Solución de problemas

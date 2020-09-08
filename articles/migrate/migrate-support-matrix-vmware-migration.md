@@ -3,12 +3,12 @@ title: Compatibilidad con la migración de VMware en Azure Migrate
 description: Aprenda sobre la compatibilidad con la migración de máquinas virtuales de VMware en Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 9de0609361e67d5251b25df798b61a4ab13e432c
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 19252a058fd26da6bddf64ad7af132a12cd1e140
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387428"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869106"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de compatibilidad para la migración de VMware
 
@@ -116,7 +116,7 @@ En la tabla se resume la compatibilidad de las máquinas virtuales de VMware con
 **Red y almacenamiento** | Para conocer la información más reciente, revise los requisitos previos de [red](../site-recovery/vmware-physical-azure-support-matrix.md#network) y [almacenamiento](../site-recovery/vmware-physical-azure-support-matrix.md#storage) de Site Recovery. Azure Migrate proporciona requisitos idénticos de red y almacenamiento.
 **Requisitos de Azure** | Para conocer la información más reciente, revise los requisitos de [red](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [almacenamiento](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage) y [proceso](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) de Azure para Site Recovery. Azure Migrate tiene requisitos idénticos para la migración de VMware.
 **Servicio de movilidad** | El agente del servicio de movilidad se debe instalar en cada máquina virtual que quiera migrar.
-**Arranque UEFI** | La máquina virtual migrada en Azure se convertirá automáticamente en una VM de arranque del BIOS.<br/><br/> El disco del sistema operativo debe tener hasta cuatro particiones y los volúmenes deben formatearse con NTFS.
+**Arranque UEFI** | Compatible.
 **Disco de destino** | Las máquinas virtuales solo se pueden migrar a discos administrados (HDD Estándar, SSD Premium) en Azure.
 **Tamaño del disco** | Disco de sistema operativo de 2 TB y 8 TB para los discos de datos.
 **Límites del disco** |  Hasta 63 discos por máquina virtual.
@@ -125,7 +125,7 @@ En la tabla se resume la compatibilidad de las máquinas virtuales de VMware con
 **Discos independientes** | Compatible.
 **Discos de acceso directo** | Compatible.
 **NFS** | Los volúmenes NFS montados como volúmenes en las máquinas virtuales no se replicarán.
-**Destinos iSCSI** | Las máquinas virtuales con destinos iSCSI no se admiten para la migración sin agente.
+**Destinos iSCSI** | Compatible.
 **E/S de varias rutas** | No compatible.
 **Storage vMotion** | Compatible
 **NIC en equipo** | No compatible.

@@ -3,16 +3,19 @@ title: Almacén central de secretos de Azure Service Fabric
 description: En este artículo se indica cómo usar el almacén central de secretos en Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 07/25/2019
-ms.openlocfilehash: c48be8945326f0f11ded7c5700cd70043830e4db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9fd435803ad5354b0eb2d4f5de50009a8cbbfe2
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83197765"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869762"
 ---
 # <a name="central-secrets-store-in-azure-service-fabric"></a>Almacén central de secretos en Azure Service Fabric 
 En este artículo se describe cómo usar el Almacén central de secretos (CSS) en Azure Service Fabric para crear secretos en aplicaciones de Service Fabric. CSS es una caché local de almacén de secretos que conserva datos confidenciales, como contraseñas, tokens y claves, cifrados en memoria.
 
+  > [!NOTE] 
+  > Cuando se activa CSS por primera vez antes de la versión 7.1.CU3 de SF se puede producir un error en la activación que deja CSS en un estado incorrecto de forma permanente si: CSS está activado en un clúster autenticado de Windows o si está activado en cualquier clúster pero `EncryptionCertificateThumbprint` se declara incorrectamente o si el certificado correspondiente no está instalado o no incluye ACL en los nodos. En el caso del clúster de autenticación de Windows, vaya a 7.1.CU3 antes de continuar. En el caso de otros clústeres, compruebe estas invariantes o vaya a 7.1. CU3.
+  
 ## <a name="enable-central-secrets-store"></a>Habilitación del Almacén central de secretos
 Agregue el script siguiente a la configuración del clúster en `fabricSettings` para habilitar CSS. Para CSS se recomienda usar un certificado que no sea un certificado de clúster. Asegúrese de que el certificado de cifrado esté instalado en todos los nodos y de que `NetworkService` tenga permiso de lectura en la clave privada del certificado.
   ```json

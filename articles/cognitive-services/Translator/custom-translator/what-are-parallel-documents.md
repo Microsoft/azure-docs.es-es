@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 05/26/2020
+ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: d397e481fcd11e534e4bb5cf98f8c402435e890e
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: ce9f7e922b9a168205ea1d193830dd654691998a
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83997084"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510817"
 ---
 # <a name="what-are-parallel-documents"></a>¿Qué son los documentos paralelos?
 

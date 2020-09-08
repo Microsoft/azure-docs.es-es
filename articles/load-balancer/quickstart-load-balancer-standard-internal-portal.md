@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: fb0a5c06c8b7bdbb62e937e865e6bb2fd4000f2d
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: e8d11c2122a21b67620987ad9ef74efc99eeb98b
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87462451"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654504"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Inicio rápido: Creación de un equilibrador de carga interno para equilibrar la carga de las máquinas virtuales mediante Azure Portal
 
@@ -36,7 +36,7 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 
 ---
 
-# <a name="option-1-default-create-a-internal-load-balancer-standard-sku"></a>[Opción 1 (valor predeterminado): crear un equilibrador de carga interno (SKU Estándar)](#tab/option-1-create-internal-load-balancer-standard)
+# <a name="standard-sku"></a>[**SKU Estándar**](#tab/option-1-create-internal-load-balancer-standard)
 
 >[!NOTE]
 >Se recomienda usar la SKU Estándar de Load Balancer para las cargas de trabajo de producción.  Para más información sobre las SKU, consulte **[SKU de Azure Load Balancer](skus.md)** .
@@ -51,20 +51,56 @@ Una dirección IP privada de la red virtual se configura como front-end (denomin
 
 La dirección IP de front-end puede ser **estática** o **dinámica**.
 
-## <a name="virtual-network-and-parameters"></a>Red virtual y parámetros
+## <a name="create-the-virtual-network"></a>Crear la red virtual
 
-En esta sección, reemplazará los parámetros de los pasos con la siguiente información:
+En esta sección, creará una red virtual y una subred.
 
-| Parámetro                   | Value                |
-|-----------------------------|----------------------|
-| **\<resource-group-name>**  | myResourceGroupLB |
-| **\<virtual-network-name>** | myVNet          |
-| **\<region-name>**          | Oeste de Europa      |
-| **\<IPv4-address-space>**   | 10.1.0.0\16          |
-| **\<subnet-name>**          | myBackendSubnet        |
-| **\<subnet-address-range>** | 10.1.0.0\24          |
+1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso > Redes > Red virtual** o busque **Red virtual** en el cuadro de búsqueda.
 
-[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
+2. En **Crear red virtual**, escriba o seleccione esta información en la pestaña **Conceptos básicos**:
+
+    | **Configuración**          | **Valor**                                                           |
+    |------------------|-----------------------------------------------------------------|
+    | **Detalles del proyecto**  |                                                                 |
+    | Suscripción     | Selección de su suscripción a Azure                                  |
+    | Grupo de recursos   | Seleccione **myResourceGroupLB**. |
+    | **Detalles de instancia** |                                                                 |
+    | Nombre             | Escriba **myVNet**.                                    |
+    | Region           | Seleccione **Oeste de Europa**. |
+
+3. Seleccione la pestaña **Direcciones IP** o el botón **Siguiente: Direcciones IP** situado en la parte inferior de la página.
+
+4. En la pestaña **Direcciones IP**, especifique esta información:
+
+    | Configuración            | Value                      |
+    |--------------------|----------------------------|
+    | Espacio de direcciones IPv4 | Escriba **10.1.0.0/16**. |
+
+5. En **Nombre de subred**, seleccione la palabra **predeterminada**.
+
+6. En **Editar subred**, especifique esta información:
+
+    | Configuración            | Value                      |
+    |--------------------|----------------------------|
+    | Nombre de subred | Escriba **myBackendSubnet**. |
+    | Intervalo de direcciones de subred | Escriba **10.1.0.0/24**. |
+
+7. Seleccione **Guardar**.
+
+8. Seleccione la pestaña **Seguridad** .
+
+9. En **BastionHost**, seleccione **Habilitar**. Escriba esta información:
+
+    | Configuración            | Value                      |
+    |--------------------|----------------------------|
+    | Nombre del bastión | Escriba **myBastionHost**. |
+    | Espacio de direcciones de AzureBastionSubnet | Escriba **10.1.1.0/24**. |
+    | Dirección IP pública | Seleccione **Crear nuevo**. </br> En **Nombre**, escriba **myBastionIP**. </br> Seleccione **Aceptar**. |
+
+
+8. Seleccione la pestaña **Revisar y crear** o el botón **Revisar y crear**.
+
+9. Seleccione **Crear**.
 
 ## <a name="create-load-balancer"></a>Creación de un equilibrador de carga
 
@@ -74,14 +110,14 @@ En esta sección, reemplazará los parámetros de los pasos con la siguiente inf
 
     | Configuración                 | Value                                              |
     | ---                     | ---                                                |
-    | Subscription               | Seleccione su suscripción.    |    
+    | Suscripción               | Seleccione su suscripción.    |    
     | Resource group         | Seleccione **myResourceGroupLB**, que creó en el paso anterior.|
     | Nombre                   | Escriba **myLoadBalancer**.                                   |
     | Region         | Seleccione **Oeste de Europa**.                                        |
     | Tipo          | seleccione **Interno**.                                        |
     | SKU           | Seleccione **Estándar**. |
-    | Virtual network | Select **myVNet**, que creó en el paso anterior. |
-    | Subnet  | Select **myBackendSubnet**, que creó en el paso anterior. |
+    | Virtual network | Seleccione **myVNet**, que creó en el paso anterior. |
+    | Subnet  | Seleccione **myBackendSubnet**, que creó en el paso anterior. |
     | Asignación de dirección IP | seleccione **Dinámico**. |
     | Zona de disponibilidad | Seleccione **Con redundancia de zona**. |
 
@@ -165,6 +201,9 @@ En esta sección va a crear una regla de equilibrador de carga:
 
 4. Deje el resto de valores predeterminados y después seleccione **Aceptar**.
 
+>[!NOTE]
+>Las máquinas virtuales del grupo de back-end no tendrán conectividad de salida a Internet con esta configuración. </br> Para más información acerca de cómo proporcionar conectividad de salida, consulte: </br> **[Conexiones salientes en Azure](load-balancer-outbound-connections.md)**</br> Opciones para proporcionar conectividad: </br> **[Configuración del equilibrador de carga solo de salida](egress-only.md)** </br> **[¿Qué es NAT de Virtual Network?](https://docs.microsoft.com/azure/virtual-network/nat-overview)**
+
 ## <a name="create-backend-servers"></a>Creación de servidores back-end
 
 En esta sección:
@@ -232,7 +271,7 @@ Estas máquinas virtuales se agregan al grupo de back-end del equilibrador de ca
   
 8. Revise la configuración y, a continuación, seleccione **Crear**.
 
-9. Siga los pasos 1 a 8 para crear otra máquina virtual con los siguientes valores, mientras que el resto de la configuración es la misma que la de la máquina virtual **myVM1**:
+9. Siga los pasos 1 a 8 para crear otra máquina virtual con los siguientes valores, mientras que el resto de la configuración es la misma que la de la máquina virtual **myVM1**:
 
     | Configuración | VM 2|
     | ------- | ----- |
@@ -241,7 +280,7 @@ Estas máquinas virtuales se agregan al grupo de back-end del equilibrador de ca
     | Grupo de seguridad de red | Seleccione el grupo **myNSG** existente.|
 
 
-# <a name="option-2-create-a-internal-load-balancer-basic-sku"></a>[Opción 2: crear un equilibrador de carga interno (SKU Básica)](#tab/option-1-create-internal-load-balancer-basic)
+# <a name="basic-sku"></a>[**SKU básica**](#tab/option-1-create-internal-load-balancer-basic)
 
 >[!NOTE]
 >Se recomienda usar la SKU Estándar de Load Balancer para las cargas de trabajo de producción.  Para más información sobre las SKU, consulte **[SKU de Azure Load Balancer](skus.md)** .
@@ -256,20 +295,56 @@ Una dirección IP privada de la red virtual se configura como front-end (denomin
 
 La dirección IP de front-end puede ser **estática** o **dinámica**.
 
-## <a name="virtual-network-and-parameters"></a>Red virtual y parámetros
+## <a name="create-the-virtual-network"></a>Crear la red virtual
 
-En esta sección, reemplazará los parámetros de los pasos con la siguiente información:
+En esta sección, creará una red virtual y una subred.
 
-| Parámetro                   | Value                |
-|-----------------------------|----------------------|
-| **\<resource-group-name>**  | myResourceGroupLB |
-| **\<virtual-network-name>** | myVNet          |
-| **\<region-name>**          | Oeste de Europa      |
-| **\<IPv4-address-space>**   | 10.1.0.0\16          |
-| **\<subnet-name>**          | myBackendSubnet        |
-| **\<subnet-address-range>** | 10.1.0.0\24          |
+1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso > Redes > Red virtual** o busque **Red virtual** en el cuadro de búsqueda.
 
-[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
+2. En **Crear red virtual**, escriba o seleccione esta información en la pestaña **Conceptos básicos**:
+
+    | **Configuración**          | **Valor**                                                           |
+    |------------------|-----------------------------------------------------------------|
+    | **Detalles del proyecto**  |                                                                 |
+    | Suscripción     | Selección de su suscripción a Azure                                  |
+    | Grupo de recursos   | Seleccione **myResourceGroupLB**. |
+    | **Detalles de instancia** |                                                                 |
+    | Nombre             | Escriba **myVNet**.                                    |
+    | Region           | Seleccione **Oeste de Europa**. |
+
+3. Seleccione la pestaña **Direcciones IP** o el botón **Siguiente: Direcciones IP** situado en la parte inferior de la página.
+
+4. En la pestaña **Direcciones IP**, especifique esta información:
+
+    | Configuración            | Value                      |
+    |--------------------|----------------------------|
+    | Espacio de direcciones IPv4 | Escriba **10.1.0.0/16**. |
+
+5. En **Nombre de subred**, seleccione la palabra **predeterminada**.
+
+6. En **Editar subred**, especifique esta información:
+
+    | Configuración            | Value                      |
+    |--------------------|----------------------------|
+    | Nombre de subred | Escriba **myBackendSubnet**. |
+    | Intervalo de direcciones de subred | Escriba **10.1.0.0/24**. |
+
+7. Seleccione **Guardar**.
+
+8. Seleccione la pestaña **Seguridad** .
+
+9. En **BastionHost**, seleccione **Habilitar**. Escriba esta información:
+
+    | Configuración            | Value                      |
+    |--------------------|----------------------------|
+    | Nombre del bastión | Escriba **myBastionHost**. |
+    | Espacio de direcciones de AzureBastionSubnet | Escriba **10.1.1.0/24**. |
+    | Dirección IP pública | Seleccione **Crear nuevo**. </br> En **Nombre**, escriba **myBastionIP**. </br> Seleccione **Aceptar**. |
+
+
+8. Seleccione la pestaña **Revisar y crear** o el botón **Revisar y crear**.
+
+9. Seleccione **Crear**.
 
 ## <a name="create-load-balancer"></a>Creación de un equilibrador de carga
 
@@ -279,7 +354,7 @@ En esta sección, reemplazará los parámetros de los pasos con la siguiente inf
 
     | Configuración                 | Value                                              |
     | ---                     | ---                                                |
-    | Subscription               | Seleccione su suscripción.    |    
+    | Suscripción               | Seleccione su suscripción.    |    
     | Resource group         | Seleccione **myResourceGroupLB**, que creó en el paso anterior.|
     | Nombre                   | Escriba **myLoadBalancer**.                                   |
     | Region         | Seleccione **Oeste de Europa**.                                        |
@@ -425,7 +500,7 @@ Estas máquinas virtuales se agregan al grupo de back-end del equilibrador de ca
     | **Interfaz de red** |  |
     | Virtual network | Seleccione **myVNet**. |
     | Subnet | Seleccione **myBackendSubnet**. |
-    | Dirección IP pública | Seleccione **Crear nuevo**. </br> Escriba **myVM-ip** en el nombre. </br> Seleccione **Aceptar**. |
+    | Dirección IP pública | Seleccione **Ninguno**. |
     | Grupo de seguridad de red de NIC | Seleccione **Avanzado**.|
     | Configuración del grupo de seguridad de red | Seleccione **Crear nuevo**. </br> En la página **Crear grupo de seguridad de red**, escriba **myNSG** en **Nombre**. </br> Seleccione **Aceptar**. |
     | **Equilibrio de carga**  |
@@ -434,9 +509,10 @@ Estas máquinas virtuales se agregan al grupo de back-end del equilibrador de ca
 5. Seleccione la pestaña **Administración** o seleccione **Siguiente** > **Administración**.
 
 6. En la pestaña **Administración**, seleccione o escriba:
+    
     | Configuración | Value |
     |-|-|
-    | **Supervisión** | |
+    | **Supervisión** |  |
     | Diagnósticos de arranque | Seleccione **Desactivado**. |
 
 7. Seleccione **Revisar + crear**. 
@@ -487,7 +563,6 @@ En esta sección va a crear una máquina virtual denominada **myTestVM**.  Esta 
     | Nombre de la máquina virtual | Escriba **myTestVM** |
     | Region | Seleccione **Oeste de Europa**. |
     | Opciones de disponibilidad | Seleccione **No se requiere redundancia de la infraestructura** |
-    | Zona de disponibilidad | Seleccione **Redundancia de zona** |
     | Imagen | Seleccione **Windows Server 2019 Datacenter**. |
     | Instancia de Azure Spot | Seleccione **No**. |
     | Size | Elija el tamaño de la máquina virtual o acepte la configuración predeterminada. |
@@ -505,7 +580,7 @@ En esta sección va a crear una máquina virtual denominada **myTestVM**.  Esta 
     | **Interfaz de red** |  |
     | Virtual network | **myVNet** |
     | Subnet | **myBackendSubnet** |
-    | Dirección IP pública | Acepte el valor predeterminado de **myTestVM-ip**. |
+    | Dirección IP pública | Seleccione **Ninguno**. |
     | Grupo de seguridad de red de NIC | Seleccione **Avanzado**.|
     | Configuración del grupo de seguridad de red | Seleccione **MyNSG**, que creó en el paso anterior.|
     
@@ -526,15 +601,15 @@ En esta sección va a crear una máquina virtual denominada **myTestVM**.  Esta 
 
 1. Seleccione **Todos los servicios** en el menú de la izquierda, seleccione **Todos los recursos** y, después, en la lista de recursos, seleccione **myVM1**, que se encuentra en el grupo de recursos **myResourceGroupLB**.
 
-2. En la página **Información general**, seleccione **Conectar** para descargar el archivo RDP de la máquina virtual.
+2. En la página **Introducción**, seleccione **Conectar** y después **Instancia de Bastion**.
 
-3. Abra el archivo RDP.
+4. Escriba el nombre de usuario y la contraseña especificados durante la creación de la máquina virtual.
 
-4. Inicie sesión en la máquina virtual con las credenciales que proporcionó durante la creación de esta máquina virtual.
+5. Seleccione **Conectar**.
 
-5. En el escritorio del servidor, vaya a **Herramientas administrativas de Windows**>**Windows PowerShell**.
+6. En el escritorio del servidor, vaya a **Herramientas administrativas de Windows** > **Windows PowerShell**.
 
-6. Ejecute los siguientes comandos en la ventana de PowerShell para:
+7. Ejecute los siguientes comandos en la ventana de PowerShell para:
 
     * Instalar el servidor IIS
     * Eliminar el archivo predeterminado iisstart.htm
@@ -546,14 +621,15 @@ En esta sección va a crear una máquina virtual denominada **myTestVM**.  Esta 
     Install-WindowsFeature -name Web-Server -IncludeManagementTools
     
     # remove default htm file
-    remove-item  C:\inetpub\wwwroot\iisstart.htm
+     remove-item  C:\inetpub\wwwroot\iisstart.htm
     
     # Add a new htm file that displays server name
-    Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
+     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
    ```
-7. Cierre la sesión de RDP con **myVM1**.
+8. Cierre la sesión de Bastion con **myVM1**.
 
-8. Repita los pasos 1 a 6 para instalar IIS y el archivo iisstart.htm actualizado en **myVM2**.
+9. Repita los pasos 1 a 6 para instalar IIS y el archivo iisstart.htm actualizado en **myVM2**.
+
 
 ## <a name="test-the-load-balancer"></a>Prueba del equilibrador de carga
 
@@ -563,15 +639,13 @@ En esta sección va a crear una máquina virtual denominada **myTestVM**.  Esta 
 
 3. Seleccione **Todos los servicios** en el menú de la izquierda, seleccione **Todos los recursos** y, después, en la lista de recursos, seleccione **myTestVM**, que se encuentra en el grupo de recursos **myResourceGroupLB**.
 
-4. En la página **Información general**, seleccione **Conectar** para descargar el archivo RDP de la máquina virtual.
+4. En la página **Introducción**, seleccione **Conectar** y después **Instancia de Bastion**.
 
-5. Abra el archivo RDP.
-
-6. Inicie sesión en la máquina virtual con las credenciales que proporcionó durante la creación de esta máquina virtual.
+6. Escriba el nombre de usuario y la contraseña especificados durante la creación de la máquina virtual.
 
 7. Abra **Internet Explorer** en **myTestVM**.
 
-4. Copie la dirección IP privada y péguela en la barra de direcciones del explorador. La página predeterminada del servidor web de IIS se muestra en el explorador.
+8. Escriba la dirección IP del paso anterior en la barra de direcciones del explorador. La página predeterminada del servidor web de IIS se muestra en el explorador.
 
     :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Crear un equilibrador de carga interno estándar" border="true":::
    
@@ -591,4 +665,5 @@ En esta guía de inicio rápido:
 
 Para más información sobre Azure Load Balancer, consulte [¿Qué es Azure Load Balancer?](load-balancer-overview.md) y [Preguntas frecuentes de Load Balancer](load-balancer-faqs.md).
 
-Más información sobre [Load Balancer y zonas de disponibilidad](load-balancer-standard-availability-zones.md).
+* Más información sobre [Load Balancer y zonas de disponibilidad](load-balancer-standard-availability-zones.md).
+* Más información acerca de [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview).

@@ -2,24 +2,22 @@
 title: Eliminaciones del historial de implementación
 description: Describe cómo Azure Resource Manager elimina automáticamente las implementaciones del historial de implementaciones. Las implementaciones se eliminan cuando el historial está próximo a superar el límite de 800.
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: 8ec3291dc5e35689d4e2c614949e0328057fbfd3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 08/07/2020
+ms.openlocfilehash: 736a25a3c73f8f4c70c5fb6c686fa2b8bb86666d
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248995"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986515"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Eliminaciones automáticas del historial de implementaciones
 
 Cada vez que se implementa una plantilla, la información sobre la implementación se escribe en el historial de implementaciones. Cada grupo de recursos está limitado a 800 implementaciones en su historial de implementaciones.
 
-Azure Resource Manager empezará pronto a eliminar automáticamente las implementaciones del historial a medida que se acerca al límite. La eliminación automática es un cambio respecto al comportamiento anterior. Anteriormente, tenía que eliminar manualmente las implementaciones del historial de implementaciones para evitar un error. **Esta característica aún no se ha agregado a Azure. Le informaremos de este próximo cambio, en caso de que quiera dejar de participar.**
+Azure Resource Manager elimina automáticamente las implementaciones del historial a medida que se acerca al límite. La eliminación automática es un cambio respecto al comportamiento anterior. Anteriormente, tenía que eliminar manualmente las implementaciones del historial de implementaciones para evitar un error. **Este cambio se implementó el 6 de agosto de 2020.**
 
 > [!NOTE]
 > La eliminación de una implementación del historial no afecta a ninguno de los recursos implementados.
->
-> Si tiene un [bloqueo CanNotDelete](../management/lock-resources.md) en un grupo de recursos, no se podrán eliminar las implementaciones para ese grupo de recursos. Debe quitar el bloqueo para aprovechar las eliminaciones automáticas en el historial de implementaciones.
 
 ## <a name="when-deployments-are-deleted"></a>Cuando las implementaciones se eliminan
 
@@ -35,6 +33,24 @@ Las implementaciones se eliminan del historial cuando se alcanzan 775 implementa
 Además de las implementaciones, también se desencadenan eliminaciones al ejecutar la [operación what-if](template-deploy-what-if.md) o validar una implementación.
 
 Cuando asigna a una implementación el mismo nombre que el de una existente en el historial, se restablece su lugar en el historial. La implementación se mueve a la posición más reciente en el historial. El lugar de una implementación también se restablece cuando se [revierte a esa implementación](rollback-on-error.md) después de un error.
+
+## <a name="remove-locks-that-block-deletions"></a>Quitar los bloqueos que bloquean las eliminaciones
+
+Si tiene un [bloqueo CanNotDelete](../management/lock-resources.md) en un grupo de recursos, no se podrán eliminar las implementaciones para ese grupo de recursos. Debe quitar el bloqueo para aprovechar las eliminaciones automáticas en el historial de implementaciones.
+
+Para usar PowerShell para eliminar un bloqueo, ejecute los siguientes comandos:
+
+```azurepowershell-interactive
+$lockId = (Get-AzResourceLock -ResourceGroupName lockedRG).LockId
+Remove-AzResourceLock -LockId $lockId
+```
+
+Para usar la CLI de Azure para eliminar un bloqueo, ejecute los siguientes comandos:
+
+```azurecli-interactive
+lockid=$(az lock show --resource-group lockedRG --name deleteLock --output tsv --query id)
+az lock delete --ids $lockid
+```
 
 ## <a name="opt-out-of-automatic-deletions"></a>Rechazo de eliminaciones automáticas
 

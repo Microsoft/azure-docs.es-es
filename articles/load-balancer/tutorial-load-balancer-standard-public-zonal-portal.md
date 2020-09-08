@@ -16,10 +16,10 @@ ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
 ms.openlocfilehash: 940636a5e368a84aaaf0d4490bf874d56d3ddb6e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "78251904"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Tutorial: Equilibrio de carga de máquinas virtuales en una zona de disponibilidad con Standard Load Balancer mediante Azure Portal
@@ -73,12 +73,12 @@ En los pasos de esta sección, tendrá que reemplazar los siguientes parámetros
 
 | Parámetro                   | Value                |
 |-----------------------------|----------------------|
-| **\<nombre-de-grupo-recursos>**  | myResourceGroupZLB (seleccione el grupo de recursos existente) |
-| **\<nombre-de-red-virtual>** | myVNet          |
+| **\<resource-group-name>**  | myResourceGroupZLB (seleccione el grupo de recursos existente) |
+| **\<virtual-network-name>** | myVNet          |
 | **\<region-name>**          | Oeste de Europa      |
-| **\<espacio-de-direcciones-IPv4>**   | 10.0.0.0\16          |
-| **\<nombre-de-subred>**          | myBackendSubnet        |
-| **\<intervalo-de-direcciones-de-subred>** | 10.0.0.0\24          |
+| **\<IPv4-address-space>**   | 10.0.0.0\16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.0.0.0\24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -146,7 +146,7 @@ En esta sección, se crean reglas de NSG para permitir conexiones entrantes que 
 
 1. Seleccione **Todos los recursos** en el menú de la izquierda. A continuación, en la lista de recursos, seleccione **myVM1**. Se encuentra en el grupo de recursos **myResourceGroupZLB**.
 2. En la página **Información general**, seleccione **Conectar** para conectar mediante RDP con la máquina virtual.
-3. Inicie sesión en la máquina virtual con el nombre de usuario y la contraseña que especificó al crear la máquina virtual. Para especificar las credenciales que especificó cuando creó la máquina virtual, tendrá que seleccionar **Más opciones**. A continuación, seleccione **Usar otra cuenta**. Y, a continuación, seleccione **Aceptar**. Puede recibir una advertencia de certificado durante el proceso de inicio de sesión. Seleccione **Sí** para continuar con la conexión.
+3. Inicie sesión en la máquina virtual con el nombre de usuario y la contraseña que especificó al crear la máquina virtual. Para especificar las credenciales que especificó cuando creó la máquina virtual, tendrá que seleccionar **Más opciones**. Después, seleccione **Usar otra cuenta**. Y, a continuación, seleccione **Aceptar**. Puede recibir una advertencia de certificado durante el proceso de inicio de sesión. Seleccione **Sí** para continuar con la conexión.
 4. En el escritorio del servidor, vaya a **Herramientas administrativas de Windows** > **Windows PowerShell**.
 6. En la ventana de **PowerShell**, ejecute los comandos siguientes para instalar el servidor IIS. Estos comandos también eliminan el archivo iisstart.htm predeterminado y, a continuación, agregan uno nuevo que muestra el nombre de la máquina virtual:
 
@@ -186,7 +186,7 @@ Para distribuir el tráfico a las máquinas virtuales, un grupo de direcciones d
 Para permitir que el equilibrador de carga supervise el estado de la aplicación, utilice un sondeo de mantenimiento. El sondeo de estado agrega o quita de forma dinámica las máquinas virtuales de la rotación del equilibrador de carga en base a su respuesta a las comprobaciones de estado. Cree un sondeo de estado, **myHealthProbe**, para supervisar el estado de las máquinas virtuales.
 
 1. Seleccione **Todos los recursos** en el menú de la izquierda. A continuación, seleccione **myLoadBalancer** en la lista de recursos.
-2. En **Configuración**, seleccione **Sondeos de mantenimiento**. A continuación, seleccione **Agregar**.
+2. En **Configuración**, seleccione **Sondeos de estado**. A continuación, seleccione **Agregar**.
 3. Use estos valores para crear el sondeo de estado:
     - **myHealthProbe** como nombre del sondeo de mantenimiento.
     - **HTTP** en tipo de protocolo.
@@ -195,7 +195,7 @@ Para permitir que el equilibrador de carga supervise el estado de la aplicación
     - **2** como número de **Umbral incorrecto** o errores de sondeo consecutivos que deben producirse para que una máquina virtual se considere que no funciona de manera correcta.
 4. Seleccione **Aceptar**.
 
-   ![Agregue un sondeo de mantenimiento](./media/load-balancer-standard-public-availability-zones-portal/4-load-balancer-probes.png)
+   ![Agregar un sondeo de estado](./media/load-balancer-standard-public-availability-zones-portal/4-load-balancer-probes.png)
 
 ### <a name="create-a-load-balancer-rule"></a>Creación de una regla de equilibrador de carga
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 907ad8705742e4b2e38b13c3c675ebd333bd27d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 36ab632010ec2bbbc19ac71cbeccab2ff6b3565f
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295323"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948392"
 ---
 # <a name="building-a-conditional-access-policy"></a>Creación de una directiva de acceso condicional
 
@@ -44,7 +44,7 @@ Una directiva puede contener varias [condiciones](concept-conditional-access-con
 
 #### <a name="sign-in-risk"></a>Riesgo de inicio de sesión
 
-En el caso de las organizaciones con [Azure AD Identity Protection](../identity-protection/overview.md), las detecciones de riesgo generadas pueden influir en las directivas de acceso condicional.
+En el caso de las organizaciones con [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md), las detecciones de riesgo generadas pueden influir en las directivas de acceso condicional.
 
 #### <a name="device-platforms"></a>Plataformas de dispositivo
 

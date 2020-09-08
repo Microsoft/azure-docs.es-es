@@ -14,13 +14,13 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: 5ac09aae724cf7481245ba9e898b52945b394cae
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.custom: devx-track-csharp, mvc
+ms.openlocfilehash: b0435daee7f5bbd1435d5e69fc32f27c21e5e4a3
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856529"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300296"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Tutorial: Uso de la configuración dinámica en una aplicación de ASP.NET Core
 
@@ -53,10 +53,11 @@ Antes de continuar, finalice primero el tutorial [Creación de una aplicación A
 Una clave de *Sentinel* es una clave especial que se usa para indicar cuándo ha cambiado la configuración. La aplicación supervisa la clave de Sentinel en busca de cambios. Cuando se detecta un cambio, se actualizan todos los valores de configuración. Este enfoque reduce el número total de solicitudes que realiza la aplicación a App Configuration, en comparación con la supervisión de todas las claves en busca de cambios.
 
 1. En Azure Portal, seleccione **Explorador de configuración > Crear > Clave-valor**.
-
 1. En **Clave**, escriba *TestApp:Settings:Sentinel*. En **Valor**, escriba 1. Deje **Etiqueta** y **Tipo de contenido** en blanco.
-
 1. Seleccione **Aplicar**.
+
+> [!NOTE]
+> Si no está utilizando una clave de Sentinel, deberá registrar manualmente cada clave que quiera ver.
 
 ## <a name="reload-data-from-app-configuration"></a>Recarga de datos de App Configuration
 
@@ -159,6 +160,8 @@ Una clave de *Sentinel* es una clave especial que se usa para indicar cuándo ha
     }
     ```
     ---
+    > [!Tip]
+    > Para más información sobre el patrón de opciones al leer valores de configuración, consulte  [Patrón de opciones en ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
 
 4. Actualice el método `Configure` para agregar un middleware `UseAzureAppConfiguration` que permita actualizar los valores de la configuración mientras que la aplicación web de ASP.NET Core sigue recibiendo solicitudes.
 
@@ -310,15 +313,15 @@ Una clave de *Sentinel* es una clave especial que se usa para indicar cuándo ha
 
 1. Para compilar la aplicación mediante la CLI de .NET Core, ejecute el siguiente comando en el shell de comandos:
 
-```console
+    ```console
         dotnet build
-```
+    ```
 
 1. Una vez que la compilación se haya realizado correctamente, ejecute el siguiente comando para ejecutar la aplicación web localmente:
 
-```console
+    ```console
         dotnet run
-```
+    ```
 
 1. Abra una ventana del explorador y vaya a la dirección URL que aparece en la salida `dotnet run`.
 

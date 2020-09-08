@@ -3,12 +3,12 @@ title: Guía del protocolo de conexiones híbridas de Retransmisión de Azure | 
 description: En este artículo se describen las interacciones en el lado cliente con el servicio de retransmisión de Conexiones híbridas para la conexión de clientes en los roles de agente de escucha y remitente.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 798be7f0003509aee6ae616ba33fcc41e5c86275
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fec021d961a17102f8d979c61ee46af6b938f073
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85316651"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272016"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocolo de conexiones híbridas de Azure Relay
 
@@ -467,7 +467,7 @@ https://{namespace-address}/{path}?sbc-hc-token=...
 
 _namespace-address_ es el nombre de dominio completo del espacio de nombres de Azure Relay que hospeda la conexión híbrida, normalmente del formulario `{myname}.servicebus.windows.net`.
 
-La solicitud puede contener más encabezados HTTP arbitrarios, incluidos los definidos por la aplicación. Todos los encabezados proporcionados, excepto los definidos directamente en RFC7230 (consulte [mensaje de solicitud](#Request message)) fluyen al agente de escucha y se pueden encontrar en el objeto `requestHeader` del mensaje de **solicitud**.
+La solicitud puede contener más encabezados HTTP arbitrarios, incluidos los definidos por la aplicación. Todos los encabezados proporcionados, excepto los definidos directamente en RFC7230 (consulte [Mensaje de solicitud](#request-message)) fluyen al cliente de escucha y se pueden encontrar en el objeto `requestHeader` del mensaje de **solicitud**.
 
 Estas son las opciones de los parámetros de cadena de consulta:
 

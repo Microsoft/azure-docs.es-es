@@ -15,7 +15,7 @@
       items:
         - name: Creación de una cola de Service Bus
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: service-bus-quickstart-portal.md
             - name: Azure PowerShell
               href: service-bus-quickstart-powershell.md
@@ -42,8 +42,10 @@
       items:
         - name: Creación de temas y suscripciones
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: service-bus-quickstart-topics-subscriptions-portal.md
+            - name: Azure CLI
+              href: service-bus-tutorial-topics-subscriptions-cli.md
             - name: Plantilla ARM
               href: service-bus-resource-manager-namespace-topic.md
         - name: Publicación y suscripción de mensajes
@@ -62,21 +64,14 @@
               href: service-bus-ruby-how-to-use-topics-subscriptions.md
 - name: Tutoriales
   items:
-    - name: 'Actualización de inventario: PowerShell'
-      href: service-bus-tutorial-topics-subscriptions-powershell.md
-    - name: 'Actualización de inventario: Portal'
+    - name: Actualización de inventario
       href: service-bus-tutorial-topics-subscriptions-portal.md
-    - name: 'Actualización de inventario: CLI'
-      href: service-bus-tutorial-topics-subscriptions-cli.md
     - name: Respuesta a eventos mediante Event Grid
       href: service-bus-to-event-grid-integration-example.md
 - name: Ejemplos
   items:
     - name: Ejemplos de Service Bus
       href: service-bus-samples.md
-    - name: Elementos integrados de Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceptos
   items:
     - name: Mensajería premium
@@ -119,6 +114,8 @@
           href: network-security.md
 - name: Guías paso a paso
   items:
+    - name: Traslado entre regiones
+      href: move-across-regions.md
     - name: Migración desde las API de Azure Service Manager (clásico) hasta las API de Resource Manager
       href: deprecate-service-bus-management.md
     - name: Creación de un espacio de nombres
@@ -272,6 +269,9 @@
       href: service-bus-messaging-sql-filter.md
     - name: Sintaxis de SQLRuleAction
       href: service-bus-messaging-sql-rule-action.md
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Preguntas más frecuentes

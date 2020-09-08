@@ -5,12 +5,13 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 297241c5f939ae15fc77b29614b55d9b2bd63c84
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 403a5b68e3320700e275c744210f480be2c88e84
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445908"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021330"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Tutorial: Protección de Azure Remote Rendering y el almacenamiento de modelos
 
@@ -116,9 +117,27 @@ Vamos a modificar **RemoteRenderingCoordinator** para cargar un modelo personali
 
     ```csharp
     private bool loadingLinkedCustomModel = false;
-    public string StorageAccountName;
-    public string BlobContainerName;
-    public string ModelPath;
+
+    [SerializeField]
+    private string storageAccountName;
+    public string StorageAccountName {
+        get => storageAccountName.Trim();
+        set => storageAccountName = value;
+    }
+
+    [SerializeField]
+    private string blobContainerName;
+    public string BlobContainerName {
+        get => blobContainerName.Trim();
+        set => blobContainerName = value;
+    }
+
+    [SerializeField]
+    private string modelPath;
+    public string ModelPath {
+        get => modelPath.Trim();
+        set => modelPath = value;
+    }
 
     [ContextMenu("Load Linked Custom Model")]
     public async void LoadLinkedCustomModel()
@@ -205,17 +224,41 @@ Ahora que todo está en su sitio en Azure, es necesario modificar cómo el códi
 
     public class AADAuthentication : BaseARRAuthentication
     {
-        public string accountDomain;
+        [SerializeField]
+        private string accountDomain;
+        public string AccountDomain
+        {
+            get => accountDomain.Trim();
+            set => accountDomain = value;
+        }
 
-        public string activeDirectoryApplicationClientID;
+        [SerializeField]
+        private string activeDirectoryApplicationClientID;
+        public string ActiveDirectoryApplicationClientID
+        {
+            get => activeDirectoryApplicationClientID.Trim();
+            set => activeDirectoryApplicationClientID = value;
+        }
 
-        public string azureTenantID;
+        [SerializeField]
+        private string azureTenantID;
+        public string AzureTenantID
+        {
+            get => azureTenantID.Trim();
+            set => azureTenantID = value;
+        }
 
-        public string azureRemoteRenderingAccountID;
+        [SerializeField]
+        private string azureRemoteRenderingAccountID;
+        public string AzureRemoteRenderingAccountID
+        {
+            get => azureRemoteRenderingAccountID.Trim();
+            set => azureRemoteRenderingAccountID = value;
+        }
 
         public override event Action<string> AuthenticationInstructions;
 
-        string authority => "https://login.microsoftonline.com/" + azureTenantID;
+        string authority => "https://login.microsoftonline.com/" + AzureTenantID;
 
         string redirect_uri = "https://login.microsoftonline.com/common/oauth2/nativeclient";
 
@@ -236,7 +279,7 @@ Ahora que todo está en su sitio en Azure, es necesario modificar cómo el códi
 
                 var AD_Token = result.AccessToken;
 
-                return await Task.FromResult(new AzureFrontendAccountInfo(accountDomain, azureRemoteRenderingAccountID, "", AD_Token, ""));
+                return await Task.FromResult(new AzureFrontendAccountInfo(AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
             }
             else
             {
@@ -260,7 +303,7 @@ Ahora que todo está en su sitio en Azure, es necesario modificar cómo el códi
 
         public override async Task<AuthenticationResult> TryLogin()
         {
-            var clientApplication = PublicClientApplicationBuilder.Create(activeDirectoryApplicationClientID).WithAuthority(authority).WithRedirectUri(redirect_uri).Build();
+            var clientApplication = PublicClientApplicationBuilder.Create(ActiveDirectoryApplicationClientID).WithAuthority(authority).WithRedirectUri(redirect_uri).Build();
             AuthenticationResult result = null;
             try
             {
@@ -323,7 +366,7 @@ En este código, se usa el [flujo de código de dispositivo](https://docs.micros
 Desde la perspectiva de ARR, la parte más importante de esta clase es esta línea:
 
 ```csharp
-return await Task.FromResult(new AzureFrontendAccountInfo(accountDomain, azureRemoteRenderingAccountID, "", AD_Token, ""));
+return await Task.FromResult(new AzureFrontendAccountInfo(AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
 ```
 
 Aquí, creamos un objeto **AzureFrontendAccountInfo** con el dominio de la cuenta, el identificador de la cuenta y el token de acceso. Luego, el servicio ARR usa este token para consultar, crear y combinar sesiones de representación remota siempre y cuando el usuario esté autorizado en función de los permisos basados en rol configurados anteriormente.

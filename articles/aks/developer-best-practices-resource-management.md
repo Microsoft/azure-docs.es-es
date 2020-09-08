@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: 9f5fcbda93e4a31b4d328bffe4689a47a4eb89ff
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4882fadcc2f05e4047366d8d097a3918091035bb
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281572"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005319"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para desarrolladores de aplicaciones para administrar recursos en Azure Kubernetes Services (AKS)
 
@@ -74,7 +74,7 @@ Para obtener más información acerca de las asignaciones y medidas de recursos,
 
 ## <a name="develop-and-debug-applications-against-an-aks-cluster"></a>Desarrollo y depuración de aplicaciones en un clúster de AKS
 
-**Guía de procedimientos recomendados**: los equipos de desarrollo deben realizar la implementación y depuración en un clúster de AKS mediante Dev Spaces. Este modelo de desarrollo se asegura de que se han implementado las necesidades de red, almacenamiento y controles de acceso basado en rol antes de implementar la aplicación en producción.
+**Guía de procedimientos recomendados**: los equipos de desarrollo deben realizar la implementación y depuración en un clúster de AKS mediante Dev Spaces. Este modelo de desarrollo garantiza el cumplimiento de los requisitos de almacenamiento, red o control de acceso basado en rol antes de implementar la aplicación en el entorno de producción.
 
 Con Azure Dev Spaces, desarrolle, depure y pruebe aplicaciones directamente en un clúster de AKS. Los desarrolladores de un equipo colaboran para realizar compilaciones y pruebas a lo largo del ciclo de vida de la aplicación. Puede seguir usando herramientas existentes, como Visual Studio o Visual Studio Code. Se instala una extensión para Dev Spaces que ofrece una opción para ejecutar y depurar la aplicación en un clúster de AKS.
 

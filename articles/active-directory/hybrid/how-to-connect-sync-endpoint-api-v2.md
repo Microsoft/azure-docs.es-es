@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a2e8bb6da4cf126a9dbd955b082d77965772f6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce7041cd74a6bfd3ac736d3ae774324122ed737b
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357586"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277075"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>API de los puntos de conexión de Azure AD Connect Sync V2 (versión preliminar pública) 
 Microsoft ha implementado un nuevo punto de conexión (API) para Azure AD Connect que mejora el rendimiento de las operaciones del servicio de sincronización para Azure Active Directory. Al usar el nuevo punto de conexión V2, experimentará mejoras de rendimiento notables en la exportación y la importación respecto a Azure AD. Este nuevo punto de conexión admite lo siguiente:
@@ -33,7 +33,7 @@ Microsoft ha implementado un nuevo punto de conexión (API) para Azure AD Conne
 Para poder usar el nuevo punto de conexión V2, debe usar [Azure AD Connect versión 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) o posterior y seguir los pasos de implementación que se proporcionan a continuación para habilitar el punto de conexión V2 para el servidor de Azure AD Connect.   
 
 >[!NOTE]
->Actualmente, esta versión preliminar pública solo está disponible en la nube global de Azure y no está disponible para [nubes nacionales](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
+>Actualmente, esta versión preliminar pública solo está disponible en la nube global de Azure y no está disponible para [nubes nacionales](../develop/authentication-national-cloud.md).
 
 ### <a name="public-preview-limitations"></a>Limitaciones de la vista preliminar pública  
 Aunque esta versión se ha sometido a pruebas exhaustivas, es posible que se produzcan problemas. Uno de los objetivos de esta versión preliminar pública es encontrar y corregir dichos problemas.  
@@ -44,7 +44,7 @@ Aunque esta versión se ha sometido a pruebas exhaustivas, es posible que se pro
 ## <a name="deployment-guidance"></a>Guía para la implementación 
 Tendrá que implementar [Azure AD Connect versión 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) o posterior para usar el punto de conexión V2. Use el vínculo que se proporciona para la descarga. 
 
-Se recomienda seguir el método de [migración oscilante](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version#swing-migration) para implementar el nuevo punto de conexión en su entorno. Esto proporcionará un plan de contingencia claro en el caso de que sea necesario realizar una reversión importante. En el ejemplo siguiente se muestra cómo se puede utilizar una migración oscilante en este escenario. Para más información sobre el método de implementación de la migración oscilante, vea el vínculo proporcionado. 
+Se recomienda seguir el método de [migración oscilante](./how-to-upgrade-previous-version.md#swing-migration) para implementar el nuevo punto de conexión en su entorno. Esto proporcionará un plan de contingencia claro en el caso de que sea necesario realizar una reversión importante. En el ejemplo siguiente se muestra cómo se puede utilizar una migración oscilante en este escenario. Para más información sobre el método de implementación de la migración oscilante, vea el vínculo proporcionado. 
 
 ### <a name="swing-migration-for-deploying-v2-endpoint"></a>Migración oscilante para implementar el punto de conexión V2
 Los pasos siguientes le guiarán a través de la implementación del punto de conexión V2 mediante el método oscilante.

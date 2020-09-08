@@ -1,6 +1,6 @@
 ---
 title: Cobertura de representación | Microsoft Azure Maps
-description: Este artículo incluye información sobre las regiones con la cobertura de representación de Microsoft Azure Maps junto con su nivel de detalles representados.
+description: Obtenga información acerca de si Azure Maps representa varias regiones con datos detallados o simplificados. Consulte el nivel que usa para los mapas de mosaicos de trama y mosaicos vectoriales en esas regiones.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 03/22/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 47dd619b4853e7167ae1b141c5741511075325c2
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 69b122196cbeb7508cddf3a890768f83fdcd4727
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127917"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030935"
 ---
 # <a name="azure-maps-render-coverage"></a>Cobertura de representación de Azure Maps
 
@@ -46,7 +46,7 @@ Sin embargo, Maps no tiene el mismo nivel de información y precisión en todas 
 | Chad                             | ✓ | Ø |
 | Comores                          | ✓ | Ø |
 | República Democrática del Congo | ✓ | ✓ |
-| Côte d'Ivoire                    | ✓ | Ø |
+| Costa de Marfil                    | ✓ | Ø |
 | Yibuti                         | ✓ | Ø |
 | Egipto                            | ✓ | ✓ |
 | Guinea Ecuatorial                | ✓ | Ø |
@@ -161,10 +161,10 @@ Sin embargo, Maps no tiene el mismo nivel de información y precisión en todas 
 | Bangladés                |   | Ø |
 | Bután                    |   | Ø |
 | Territorio Británico del Océano Índico |   | Ø |
-| Brunei                    | ✓ | ✓ |
+| Brunéi                    | ✓ | ✓ |
 | Camboya                  |   | Ø |
 | China                     |   | Ø |
-| Islas Cocos (Keeling)   |   | Ø |
+| Islas Cocos   |   | Ø |
 | República Popular Democrática de Corea |   | Ø |
 | RAE de Hong Kong             | ✓ | ✓ |
 | India                     | Ø | ✓ | 
@@ -214,7 +214,7 @@ Sin embargo, Maps no tiene el mismo nivel de información y precisión en todas 
 | Australia                 | ✓ | ✓ |
 | Islas Cook              |   | Ø |
 | Islas Fiji                      |   | Ø |
-| Polinesia francesa          |   | Ø |
+| Polinesia Francesa          |   | Ø |
 | Guam                      | ✓ | ✓ |
 | Kiribati                  |   | Ø |
 | Islas Marshall          |   | Ø |
@@ -226,7 +226,7 @@ Sin embargo, Maps no tiene el mismo nivel de información y precisión en todas 
 | Isla Norfolk            |   | Ø |
 | Palaos                     |   | Ø |
 | Papúa Nueva Guinea          |   | Ø |
-| Islas Pitcairn                  |   | Ø |
+| Pitcairn                  |   | Ø |
 | Samoa                     |   | Ø |
 | Islas Salomón           |   | Ø|
 | Tokelau                   |   | Ø |
@@ -275,7 +275,7 @@ Sin embargo, Maps no tiene el mismo nivel de información y precisión en todas 
 | Luxemburgo                | ✓ | ✓ |
 | Macedonia del Norte           | ✓ | ✓ |
 | Malta                     | ✓ | ✓ |
-| Moldova                   | ✓ | ✓ |
+| Moldavia                   | ✓ | ✓ |
 | Mónaco                    | ✓ | ✓ |
 | Montenegro                | ✓ | ✓ |
 | Países Bajos               | ✓ | ✓ |

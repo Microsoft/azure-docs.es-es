@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: vanto, carlrab
-ms.date: 11/05/2019
-ms.openlocfilehash: 34d91b23b0383f4128b7f03619ad0e2b07496f33
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/25/2020
+ms.openlocfilehash: c812dfa0be3e5ced40b7f347639aeb2540b75351
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014157"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871537"
 ---
 # <a name="transparent-data-encryption-in-sql-managed-instance-using-your-own-key-from-azure-key-vault"></a>Cifrado de datos transparente en una Instancia administrada de SQL con su propia clave desde Azure Key Vault
 
@@ -39,7 +39,7 @@ Tanto el uso local de PowerShell como el de Azure Cloud Shell requieren Azure Po
 
 Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.
 
-## <a name="sample-scripts"></a>Muestras de scripts
+## <a name="sample-scripts"></a>Muestras de scripts 
 
 [!code-powershell-interactive[main](../../../../powershell_scripts/sql-database/transparent-data-encryption/setup-tde-byok-sqlmi.ps1 "Set up BYOK TDE for SQL Managed Instance")]
 

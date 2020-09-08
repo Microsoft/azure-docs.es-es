@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 4e4200e291db81ff759e21eac5b1a9b785b5657f
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 9c745395026b8b7e8c58fcb4b7cc67971d971a7c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888302"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300228"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Compatibilidad de idiomas y regiones con la traducción de texto y voz
 
-Use Translator para traducir a y desde cualquiera de los más de 60 idiomas de traducción de texto. La traducción automática neuronal (NMT) es el nuevo estándar de traducción automática de alta calidad con tecnologías de inteligencia artificial, y está disponible de forma predeterminada con la versión V3 de Translator cuando hay un sistema neuronal disponible.
+Use Translator para traducir a y desde cualquiera de los más de 70 idiomas de traducción de texto. La traducción automática neuronal (NMT) es el nuevo estándar de traducción automática de alta calidad con tecnologías de inteligencia artificial, y está disponible de forma predeterminada con la versión V3 de Translator cuando hay un sistema neuronal disponible.
 
 También puede usar Translator junto con Traductor personalizado para compilar sistemas de traducción neuronal que entiendan la terminología que se usa en su empresa y su sector y con Servicio Voz de Microsoft para agregar traducción de voz a la aplicación.
 
@@ -47,6 +47,7 @@ Translator admite los siguientes idiomas para la traducción de texto a texto.
 |Chino tradicional|   `zh-Hant`       |
 |Croata|  `hr`    |
 |Checo| `cs`    |
+|Dari|  `prs`   |
 |Danés|    `da`        |
 |Neerlandés| `nl`|
 |Inglés|   `en`    |
@@ -74,6 +75,8 @@ Translator admite los siguientes idiomas para la traducción de texto a texto.
 |Klingon|   `tlh-Latn`  |
 |Klingon (plqaD)|   `tlh-Piqd`  |
 |Coreano |`ko`   |
+|Kurdo (central)  |`ku`   |
+|Kurdo (norte) |`kmr`  |
 |Letón|   `lv`    |
 |Lituano|    `lt`    |
 |Malgache|  `mg`    |
@@ -83,6 +86,8 @@ Translator admite los siguientes idiomas para la traducción de texto a texto.
 |Maori| `mi`  |
 |Maratí| `mr`  |
 |Noruego| `nb`    |
+|Odia|  `or`    |
+|Pastún|    `ps`    |
 |Persa|   `fa`    |
 |Polaco|    `pl`    |
 |Portugués (Brasil)|   `pt-br` |
@@ -150,11 +155,13 @@ Translator detecta los siguientes idiomas para traducción y transliteración.
 |Kiswahili| `sw`    |
 |Klingon|   `tlh-Latn`  |
 |Coreano |`ko`   |
+|Kurdo (central)  |`ku-Arab`  |
 |Letón|   `lv`    |
 |Lituano|    `lt`    |
 |Malayo| `ms`        |
 |Maltés|   `mt`    |
 |Noruego| `nb`    |
+|Pastún|    `ps`    |
 |Persa|   `fa`    |
 |Polaco|    `pl`    |
 |Portugués (Brasil)|   `pt-br` |
@@ -191,19 +198,19 @@ El método Transliterate admite los siguientes idiomas. En "Hacia/Desde", "<-->"
 | Chino (simplificado) | `zh-Hans` | Chino simplificado `Hans`| <--> | Chino tradicional `Hant`|
 | Chino (tradicional) | `zh-Hant` | Chino tradicional `Hant`| <--> | Latino `Latn` |
 | Chino (tradicional) | `zh-Hant` | Chino tradicional `Hant`| <--> | Chino simplificado `Hans` |
-| Gujarati | `gu`  | Guyaratí `Gujr` | --> | Latino `Latn` |
+| Gujarati | `gu`  | Guyaratí `Gujr` | <--> | Latino `Latn` |
 | Hebreo | `he` | Hebreo `Hebr` | <--> | Latino `Latn` |
 | Hindi | `hi` | Devanagari `Deva` | <--> | Latino `Latn` |
 | Japonés | `ja` | Japonés `Jpan` | <--> | Latino `Latn` |
-| Canarés | `kn` | Canarés `Knda` | --> | Latino `Latn` |
-| Malayalam | `ml` | Malayalam `Mlym` | --> | Latino `Latn` |
-| Maratí | `mr` | Devanagari `Deva` | --> | Latino `Latn` |
+| Canarés | `kn` | Canarés `Knda` | <--> | Latino `Latn` |
+| Malayalam | `ml` | Malayalam `Mlym` | <--> | Latino `Latn` |
+| Maratí | `mr` | Devanagari `Deva` | <--> | Latino `Latn` |
 | Odia | `or` | Odia `Orya` | <--> | Latino `Latn` |
 | Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latino `Latn`  |
 | Serbio (cirílico) | `sr-Cyrl` | Cirílico `Cyrl`  | --> | Latino `Latn` |
 | Serbio (latino) | `sr-Latn` | Latino `Latn` | --> | Cirílico `Cyrl`|
-| Tamil | `ta` | Tamil `Taml` | --> | Latino `Latn` |
-| Telugu | `te` | Telugu `Telu` | --> | Latino `Latn` |
+| Tamil | `ta` | Tamil `Taml` | <--> | Latino `Latn` |
+| Telugu | `te` | Telugu `Telu` | <--> | Latino `Latn` |
 | Tailandés | `th` | Tailandés `Thai` | --> | Latino `Latn` |
 
 ### <a name="dictionary"></a>Diccionario
@@ -277,10 +284,12 @@ Los siguientes idiomas están disponibles para personalización al y del inglés
 
 | Idioma    | Código de lenguaje |
 |:----------- |:-------------:|
+|Afrikáans| `af`|
 | Árabe       | `ar`          |
 | Bengalí      | `bn`          |
 | Bosnio (latino)      | `bs`          |
 | Búlgaro      | `bg`          |
+|Catalán|   `ca`    |
 | Chino simplificado      | `zh-Hans`          |
 |Chino tradicional|   `zh-Hant`   |
 | Croata      | `hr`          |
@@ -289,10 +298,13 @@ Los siguientes idiomas están disponibles para personalización al y del inglés
 | Neerlandés      | `nl`          |
 | Inglés    | `en`     |
 | Estonio      | `et`          |
+|Fiyiano|    `fj`    |
+|Filipino|  `fil`   |
 | Finés      | `fi`          |
 | Francés      | `fr`          |
 | Alemán      | `de`          |
 | Griego      | `el`          |
+| Gujarati| `gu`    |
 | Hebreo      | `he`          |
 | Hindi      | `hi`          |
 | Húngaro      | `hu`          |
@@ -301,16 +313,21 @@ Los siguientes idiomas están disponibles para personalización al y del inglés
 | Irlandés | `ga`  |
 | Italiano      | `it`          |
 | Japonés      | `ja`          |
+|Canarés|`kn`|
 | Kiswahili|    `sw`    |
 | Coreano      | `ko`          |
 | Letón      | `lv`          |
 | Lituano      | `lt`          |
 | Malgache| `mg`    |
+| Malayo|    `ms`        |
+|Maltés|   `mt`    |
 | Maori| `mi`  |
+| Maratí| `mr`  |
 | Noruego      | `nb`          |
 | Persa      | `fa`          |
 | Polaco      | `pl`          |
 | Portugués (Brasil) | `pt-br` |
+| Punjabi|`pa`|
 | Rumano      | `ro`          |
 | Ruso      | `ru`          |
 | Samoano|   `sm`    |
@@ -319,9 +336,12 @@ Los siguientes idiomas están disponibles para personalización al y del inglés
 | Esloveno      | `sl`          |
 | Español      | `es`          |
 | Sueco      | `sv`          |
+|Tahitiano|  `ty`    |
 | Tailandés      | `th`          |
+|Tongano|    `to`    |
 | Turco      | `tr`          |
 | Ucraniano      | `uk`          |
+| Urdu| `ur`    |
 | Vietnamita      | `vi`          |
 | Galés | `cy` |
 

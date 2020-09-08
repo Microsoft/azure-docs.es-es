@@ -4,12 +4,12 @@ description: Obtenga información sobre los asociados de Azure Monitor y sobre c
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: 994dfe0d7e252fd2aea489c363e76f0956715048
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2e3fae1b942083d78798fccebd7a7f2c58f7659a
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318341"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142421"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integraciones de asociados de Azure Monitor
 
@@ -184,6 +184,16 @@ PagerDuty, la solución líder de administración de incidentes, ofrece soporte 
 
 [Vaya a la documentación.][pagerduty-doc]
 
+## <a name="promitor"></a>Promitor
+
+![Logotipo de Promitor](./media/partners/promitor.png)
+
+Promitor es un extractor de Azure Monitor que pone las métricas a disposición en sistemas como Atlassian Statuspage, Prometheus y StatsD.
+
+Inserte todas las métricas en Azure Monitor y consúmalas cuando las necesite.
+
+[Más información.][promitor-doc]
+
 ## <a name="qradar"></a>QRadar
 
 ![Logotipo de QRadar](./media/partners/qradar.png)
@@ -293,6 +303,7 @@ Turbonomic ofrece automatización de cargas de trabajo en nubes híbridas, ya qu
 [newrelic-doc]: https://newrelic.com/azure "Documentación de NewRelic."
 [opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "Documentación de OpsGenie."
 [pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "Documentación de PagerDuty."
+[promitor-doc]: https://promitor.io/ "Documentación de Promitor."
 [qradar-doc]: https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0 "Documentación de QRadar."
 [sciencelogic-doc]: https://www.sciencelogic.com/product/technologies/microsoft/azure "Documentación de ScienceLogic."
 [serverless360-doc]: https://docs.serverless360.com/docs/ "Documentación de Serverless360."

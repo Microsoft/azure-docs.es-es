@@ -1,6 +1,6 @@
 ---
 title: El controlador Azure Blob Filesystem para Azure Data Lake Storage Gen2
-description: El controlador ABFS Hadoop FileSystem
+description: 'El controlador Azure Blob Filesystem (ABFS): un controlador de Azure Storage dedicado para Hadoop. Acceda a los datos de Azure Data Lake Storage Gen2 con este controlador.'
 author: normesta
 ms.topic: conceptual
 ms.author: normesta
@@ -8,12 +8,12 @@ ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 3db039d39ef532ea51143dc9cbdb6bd5f29d6225
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e9c56f59d6dd64002632a5f74e9f39c51293caab
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75970270"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836367"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>El controlador Azure Blob Filesystem (ABFS): un controlador de Azure Storage dedicado para Hadoop
 
@@ -42,7 +42,7 @@ hdfs dfs -put flight_delays.csv abfs://fileanalysis@myanalytics.dfs.core.windows
 
 Internamente, el controlador ABFS convierte los recursos especificados en el URI en archivos y directorios y realiza llamadas a la API REST de Azure Data Lake Storage con esas referencias.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticación
 
 El controlador ABFS admite dos formas de autenticación, de modo que la aplicación de Hadoop puede acceder de forma segura a los recursos contenidos en la cuenta compatible de Data Lake Storage Gen2. Se proporcionan detalles completos de los esquemas de autenticación disponibles en la [guía de seguridad de Azure Storage](security-recommendations.md). Son las siguientes:
 
@@ -66,4 +66,4 @@ El controlador ABFS está completamente documentado en la [documentación oficia
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Creación de un clúster de Azure Databricks](./data-lake-storage-quickstart-create-databricks-account.md)
-- [Use the Azure Data Lake Storage Gen2 URI](./data-lake-storage-introduction-abfs-uri.md) (Uso del URI de Azure Data Lake Storage Gen2).
+- [Uso del URI de Azure Data Lake Storage Gen2](./data-lake-storage-introduction-abfs-uri.md)

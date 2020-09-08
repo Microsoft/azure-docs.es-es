@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 57f9338841b599e10c8a1d7eec8fd4f371ceecb9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6a01e86f4afe397ed78cd279231a2429b17c60a8
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081022"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651393"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Inicio rápido: Creación de un clúster de Apache Kafka en Azure HDInsight mediante PowerShell
 
@@ -133,7 +133,7 @@ New-AzHDInsightCluster `
 
 Un clúster de HDInsight puede tardar hasta 20 minutos en crearse.
 
-El parámetro `-DisksPerWorkerNode` configura la escalabilidad de Kafka en HDInsight. Kafka en HDInsight usa el disco local de las máquinas virtuales del clúster para almacenar datos. Como Kafka tiene muchas E/S, [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) se usa para proporcionar alto rendimiento y mayor espacio de almacenamiento por nodo.
+El parámetro `-DisksPerWorkerNode` configura la escalabilidad de Kafka en HDInsight. Kafka en HDInsight usa el disco local de las máquinas virtuales del clúster para almacenar datos. Como Kafka tiene muchas E/S, [Azure Managed Disks](../../virtual-machines/managed-disks-overview.md) se usa para proporcionar alto rendimiento y mayor espacio de almacenamiento por nodo.
 
 El tipo de disco administrado puede ser __Estándar__ (HDD) o __Premium__ (SSD). El tipo de disco depende del tamaño de máquina virtual que usan los nodos de trabajo (agentes de Kafka). Los discos Premium se usan automáticamente con máquinas virtuales de las series DS y GS. Todos los otros tipos de máquina virtual usan discos estándar. Puede establecer el tipo de máquina virtual mediante el parámetro `-WorkerNodeSize`. Para más información sobre parámetros, consulte la documentación de [New-AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster).
 

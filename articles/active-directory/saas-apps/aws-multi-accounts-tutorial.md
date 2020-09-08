@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Amazon Web Services (AWS) para conectar varias cuentas | Microsoft Docs'
 description: Obtenga información sobre cómo configurar el inicio de sesión único entre Azure AD y Amazon Web Services (AWS) (tutorial heredado).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
-ms.assetid: 7561c20b-2325-4d97-887f-693aa383c7be
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/16/2020
+ms.date: 08/07/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51be98654950ba290fa83f77eccdae4d6f549891
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 20674f5a793267c3a9e2fa078f95cbf96624df13
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81603821"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550183"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Tutorial: Integración de Azure Active Directory con Amazon Web Services (AWS) (tutorial heredado)
 
@@ -69,7 +65,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Amazon Web Services (AWS) admite el inicio de sesión único iniciado por **SP e IDP**.
-* Una vez configurado Amazon Web Services (AWS), puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
+* Una vez configurado Amazon Web Services (AWS), puede aplicar el control de sesión, que protege en tiempo real la filtración y la infiltración de la información confidencial de la organización. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
 
 ## <a name="adding-amazon-web-services-aws-from-the-gallery"></a>Adición de Amazon Web Services (AWS) desde la galería
 
@@ -86,7 +82,7 @@ Para configurar la integración de Amazon Web Services (AWS) en Azure AD, es pre
 
     ![Amazon Web Services (AWS) en la lista de resultados](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-properties.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
+## <a name="configure-and-test-azure-ad-sso"></a>Configuración y prueba del inicio de sesión único de Azure AD
 
 En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Amazon Web Services (AWS) con un usuario de prueba llamado "Britta Simon".
 
@@ -277,7 +273,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Cuadro de diálogo del Probador de Microsoft Graph](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
 
-    f. En la lista de entidades de servicio que se capturan, seleccione la que debe modificar. También puede usar CTRL + F para buscar la aplicación en todas las entidades de servicio enumeradas. Para usar la siguiente consulta, utilice el valor de **id. de objeto** que ha copiado de la página Propiedades de Azure AD para acceder a la entidad de servicio correspondiente.
+    f. En la lista de entidades de servicio que se capturan, seleccione la que debe modificar. También puede usar CTRL + F para buscar la aplicación en todas las entidades de servicio enumeradas. Para usar la siguiente consulta, utilice el valor de **Id. de objeto de entidad de servicio** que ha copiado de la página Propiedades de Azure AD y acceda a la entidad de servicio correspondiente.
 
     `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 

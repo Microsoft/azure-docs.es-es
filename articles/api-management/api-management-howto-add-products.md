@@ -1,6 +1,6 @@
 ---
 title: Creación y publicación de un producto en Azure API Management
-description: Obtenga información acerca de cómo crear y publicar productos en Azure API Management.
+description: Obtenga información acerca de cómo crear y publicar productos en Azure API Management. Una vez que se publica un producto, los desarrolladores pueden empezar a usar sus API.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: d90b212286b555bf5b858990fd5dcb062348be8d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 69b5e381ed8446b45f68b4b1ce9bb13df47039c0
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254731"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904911"
 ---
 # <a name="create-and-publish-a-product"></a>Crear y publicar un producto  
 
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a:
 
 ![Incorporación de un tutorial del producto](media/api-management-howto-add-products/added-product.png)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 + Conocer la [terminología de API Management de Azure](api-management-terminology.md).
 + Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).

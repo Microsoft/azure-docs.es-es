@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: d1cd4a25a2a9f07c75976d5eb5c97ba450ffdabb
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 751fa9f9fe2ba17a982b71a6332be302804f0dcc
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284649"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047299"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Captura de una imagen administrada de una máquina virtual generalizada en Azure
 
@@ -26,10 +26,12 @@ Una sola imagen administrada admite hasta 20 implementaciones simultáneas. Cua
 
 Sysprep elimina toda la información de seguridad y de la cuenta personal y luego prepara la máquina para usarse como imagen. Para más información acerca de Sysprep, consulte la [Introducción a Sysprep](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
-Asegúrese de que los roles de servidor que se ejecutan en la máquina sean compatibles con Sysprep. Para más información, consulte [Compatibilidad de Sysprep con roles de servidor](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) y [Escenarios no admitidos](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios). Sysprep requiere que las unidades se descifren por completo antes de la ejecución. Si ha habilitado el cifrado en la VM, deshabilite el cifrado antes de ejecutar Sysprep.
+Asegúrese de que los roles de servidor que se ejecutan en la máquina sean compatibles con Sysprep. Para más información, consulte [Compatibilidad de Sysprep con roles de servidor](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) y [Escenarios no admitidos](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios). 
 
 > [!IMPORTANT]
 > Una vez que se ha ejecutado sysprep en una máquina virtual, se considera *generalizada* y no se puede reiniciar. El proceso de generalización de una máquina virtual no es reversible. Si necesita mantener el funcionamiento original de la máquina virtual, debe crear una [copia de la máquina virtual](create-vm-specialized.md#option-3-copy-an-existing-azure-vm) y generalizar la copia. 
+>
+>Sysprep requiere que las unidades se descifren por completo. Si ha habilitado el cifrado en la VM, deshabilite el cifrado antes de ejecutar Sysprep.
 >
 > Si tiene pensado ejecutar Sysprep antes de cargar el disco duro virtual (VHD) en Azure por primera vez, asegúrese de que tiene [preparada la máquina virtual](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
 > 
@@ -39,13 +41,15 @@ Para generalizar la máquina virtual de Windows, siga estos pasos:
 
 1. Inicie sesión en la máquina virtual Windows.
    
-2. Abra una ventana de símbolo del sistema como administrador. Cambie el directorio a %windir%\system32\sysprep, y, después, ejecute `sysprep.exe`.
+2. Abra una ventana de símbolo del sistema como administrador. 
+
+3. Elimine el directorio de Panther (C:\Windows\Panther). Luego, sustitúyalo por %windir%\system32\sysprep, y, después, ejecute `sysprep.exe`.
    
-3. En **Herramienta de preparación del sistema**, seleccione **Iniciar la Configuración rápida (OOBE)** y active la casilla **Generalizar**.
+4. En **Herramienta de preparación del sistema**, seleccione **Iniciar la Configuración rápida (OOBE)** y active la casilla **Generalizar**.
    
-4. En **Opciones de apagado**, seleccione **Apagar**.
+5. En **Opciones de apagado**, seleccione **Apagar**.
    
-5. Seleccione **Aceptar**.
+6. Seleccione **Aceptar**.
    
     ![Iniciar Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 

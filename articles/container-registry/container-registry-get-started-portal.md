@@ -1,17 +1,17 @@
 ---
 title: 'Inicio rápido: Creación de un registro en el portal'
-description: Aprenda rápidamente a crear un registro de Docker privado en Azure Container Registry con el Azure Portal.
+description: Aprenda rápidamente a crear un registro de contenedor privado de Azure con Azure Portal.
 ms.topic: quickstart
-ms.date: 06/11/2020
+ms.date: 08/04/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 82f9a6b02832b718d5b4e7b662c590f1992af595
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: ace1030923ea226376369941badafafa662d25ce
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84752858"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031831"
 ---
-# <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Inicio rápido: Creación de un registro de contenedor privado con Azure Portal
+# <a name="quickstart-create-an-azure-container-registry-using-the-azure-portal"></a>Inicio rápido: Creación de un instancia de Azure Container Registry mediante Azure Portal
 
 Azure Container Registry es un registro privado de Docker en Azure donde se pueden almacenar y administrar las imágenes de contenedor privado de Docker y artefactos relacionados. En esta guía de inicio rápido, creará un registro de contenedor con Azure Portal. A continuación, utilice los comandos de Docker para insertar una imagen de contenedor en el registro y, finalmente, extraiga y ejecute la imagen desde el registro.
 
@@ -41,14 +41,20 @@ Cuando aparezca el mensaje **Implementación correcta**, seleccione el registro 
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-05.png" alt-text="Información general del registro de contenedor en el portal":::
 
-Tome nota del valor del **servidor de inicio de sesión**. Este valor se usará en los pasos siguientes cuando inserte y extraiga imágenes con Docker.
+Anote el nombre del registro y el valor del **servidor de inicio de sesión**. Estos valores se usan en los pasos siguientes cuando inserta y extrae imágenes con Docker.
 
 ## <a name="log-in-to-registry"></a>Iniciar sesión en el registro
 
-Antes de insertar y extraer imágenes de contenedor, debe iniciar sesión en la instancia del registro. [Inicie sesión en la CLI de Azure][get-started-with-azure-cli] en la máquina local y, a continuación, ejecute el comando [az acr login][az-acr-login]. (Especifique solo el nombre del registro al iniciar sesión con la CLI de Azure. No incluya el sufijo "azurecr.io").
+Antes de insertar y extraer imágenes de contenedor, debe iniciar sesión en la instancia del registro. [Inicie sesión en la CLI de Azure][get-started-with-azure-cli] en la máquina local y, a continuación, ejecute el comando [az acr login][az-acr-login]. (Especifique solo el nombre del registro al iniciar sesión con la CLI de Azure. No incluya el sufijo de dominio "azurecr.io").
 
 ```azurecli
 az acr login --name <registry-name>
+```
+
+Ejemplo:
+
+```azurecli
+az acr login --name mycontainerregistry
 ```
 
 El comando devolverá `Login Succeeded` una vez completado. 

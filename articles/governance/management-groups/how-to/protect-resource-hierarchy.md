@@ -1,18 +1,18 @@
 ---
 title: 'Procedimiento para proteger la jerarquía de recursos: Gobernanza en Azure'
 description: Obtenga información sobre cómo proteger la jerarquía de recursos con configuraciones de jerarquía que incluyen la configuración del grupo de administración predeterminado.
-ms.date: 05/21/2020
+ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: cdaad59d136e89c595a6a42a9760c73523a977c0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2dd6791e152ba3ef02f6e6f710589cbe7d3442bc
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422834"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056625"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Procedimiento para proteger la jerarquía de recursos
 
-Los recursos, grupos de recursos, suscripciones, grupos de administración y el inquilino forman la jerarquía de recursos. Los valores en el grupo de administración raíz, como roles de Azure personalizados o asignaciones de directivas de Azure Policy, pueden afectar a todos los recursos de la jerarquía. Es importante proteger la jerarquía de recursos de los cambios que podrían afectar negativamente a todos los recursos.
+Los recursos, grupos de recursos, suscripciones, grupos de administración y el inquilino forman la jerarquía de recursos. La configuración en el grupo de administración raíz, como los roles de Azure personalizados o las asignaciones de directiva de Azure Policy, puede afectar a todos los recursos de la jerarquía. Es importante proteger la jerarquía de recursos de los cambios que podrían afectar negativamente a todos los recursos.
 
 Ahora los grupos de administración tienen una configuración de jerarquía que permite al administrador de inquilinos controlar estos comportamientos. En este artículo se describe cada una de las configuraciones de jerarquía disponibles y cómo establecerlas.
 

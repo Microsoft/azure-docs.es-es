@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbfbad53fd2361752824292e0ade82f3ac231916
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2bb8c6c64e0a68f5176c4eb0c0177c5220394695
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095178"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268764"
 ---
 # <a name="enforce-tls-12-for-the-azure-ad-registration-service"></a>Aplicación de TLS 1.2 para el servicio de registro de Azure AD
 
@@ -52,7 +52,7 @@ Todas las máquinas que actúen como servidores proxy entre dispositivos y el se
 
 ## <a name="update-ad-fs-servers"></a>Actualización de servidores de AD FS
 
-Todos los servidores de AD FS utilizados para comunicarse con el servicio Registro de dispositivos de Azure AD deben asegurarse de que TLS 1.2 está habilitado. Consulte [Administración de conjuntos de cifrado y protocolos SSL/TLS de AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) para encontrar información sobre cómo habilitar o comprobar esta configuración.
+Todos los servidores de AD FS utilizados para comunicarse con el servicio Registro de dispositivos de Azure AD deben asegurarse de que TLS 1.2 está habilitado. Consulte [Administración de conjuntos de cifrado y protocolos SSL/TLS de AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) para encontrar información sobre cómo habilitar o comprobar esta configuración.
 
 ## <a name="client-updates"></a>Actualizaciones de clientes
 
@@ -68,4 +68,4 @@ Se sabe que los siguientes clientes no pueden admitir TLS 1.2. Actualice los cli
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Información general de TLS/SSL (Schannel SSP)](https://docs.microsoft.com/windows-server/security/tls/tls-ssl-schannel-ssp-overview)
+[Información general de TLS/SSL (Schannel SSP)](/windows-server/security/tls/tls-ssl-schannel-ssp-overview)

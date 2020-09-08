@@ -5,12 +5,12 @@ ms.date: 3/5/2020
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: subject-armqs
-ms.openlocfilehash: e409b3b64ac6bc39ba4cb58397506723a67a0de2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 362ff5cd59982c1d848ed59af8381090344f5c5e
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081719"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642272"
 ---
 # <a name="quickstart-create-and-deploy-azure-functions-resources-from-an-arm-template"></a>Inicio rápido: Creación e implementación de recursos de Azure Functions a partir de una plantilla de Resource Manager
 
@@ -56,7 +56,7 @@ Una vez que haya creado el proyecto de forma local, debe crear los recursos nece
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-function-app-create-dynamic/).
 
-:::code language="json" source="~/quickstart-templates/101-function-app-create-dynamic/azuredeploy.json" range="1-140" highlight="55-136":::
+:::code language="json" source="~/quickstart-templates/101-function-app-create-dynamic/azuredeploy.json":::
 
 Los siguientes cuatro recursos de Azure se han creado mediante esta plantilla:
 

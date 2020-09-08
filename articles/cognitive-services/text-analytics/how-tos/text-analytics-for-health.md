@@ -8,16 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/28/2020
+ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: dbd0699924268b38d69bc576a5886e8d31fa1208
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 5bb244796414c828e1535e4874fc85aa83f182dc
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373477"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300075"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Procedimientos: Uso de Text Analytics para el estado (versión preliminar)
+
+> [!NOTE]
+> El contenedor de Text Analytics para el estado se ha actualizado recientemente. Para obtener más información sobre los cambios recientes, consulte [Novedades](../whats-new.md). Recuerde extraer el contenedor más reciente para usar las actualizaciones que se muestran.
 
 > [!IMPORTANT] 
 > Text Analytics para el estado es una funcionalidad de versión preliminar que se proporciona "tal cual" y "con todos los errores". Como tal, no se debe implementar **Text Analytics para el estado (versión preliminar) en ningún uso de producción.** Text Analytics para el estado no está previsto ni está disponible para su uso como dispositivo médico, soporte clínico, herramienta de diagnóstico u otra tecnología que se pretenda usar en el diagnóstico, la cura, la mitigación, el tratamiento o la prevención de la enfermedad u otras condiciones, y Microsoft no concede ninguna licencia o derecho para usar esta funcionalidad con este fin. Esta funcionalidad no está diseñada o prevista para implementarse como un sustituto del asesoramiento médico profesional o la opinión de la atención sanitaria, el diagnóstico, el tratamiento o la opinión clínica de un profesional sanitario y no debe usarse como tal. El cliente es el único responsable de cualquier uso de Text Analytics para el estado. Microsoft no garantiza que Text Analytics para el estado o los materiales que se proporcionen en relación con la capacidad sean suficientes para fines médicos o que de otro modo cumplan los requisitos sanitarios o médicos de cualquier persona. 
@@ -90,7 +93,7 @@ La [Web App for Containers](https://azure.microsoft.com/services/app-service/con
 > [!NOTE]
 > Con la aplicación Web de Azure, obtendrá automáticamente un dominio en forma de `<appservice_name>.azurewebsites.net`.
 
-Ejecute este script de PowerShell con la CLI de Azure para crear una Web App for Containers mediante su suscripción y la imagen del contenedor a través de HTTPS. Espere a que se complete el script (aproximadamente 20 minutos) antes de enviar la primera solicitud.
+Ejecute este script de PowerShell con la CLI de Azure para crear una Web App for Containers mediante su suscripción y la imagen del contenedor a través de HTTPS. Espere a que se complete el script (aproximadamente de 25 a 30 minutos) antes de enviar la primera solicitud.
 
 ```bash
 $subscription_name = ""                    # THe name of the subscription you want you resource to be created on.
@@ -120,7 +123,8 @@ az webapp config appsettings set -g $resource_group_name -n $appservice_name --s
 
 También puede usar una instancia de contenedor de Azure (ACI) para facilitar la implementación. ACI es un recurso que le permite ejecutar contenedores de Docker a petición en un entorno de Azure administrado y sin servidor. 
 
-Consulte [Cómo usar Azure Container Instances](text-analytics-how-to-use-container-instances.md) para conocer los pasos necesarios para implementar un recurso ACI con Azure Portal. También puede usar el siguiente script de PowerShell con CLI de Azure, que creará un ACI en su suscripción con la imagen del contenedor.  Espere a que se complete el script (aproximadamente 20 minutos) antes de enviar la primera solicitud.
+Consulte [Cómo usar Azure Container Instances](text-analytics-how-to-use-container-instances.md) para conocer los pasos necesarios para implementar un recurso ACI con Azure Portal. También puede usar el siguiente script de PowerShell con CLI de Azure, que creará un ACI en su suscripción con la imagen del contenedor.  Espere a que se complete el script (aproximadamente de 25 a 30 minutos) antes de enviar la primera solicitud.  Debido al límite en el número máximo de CPU por recurso de ACI, no seleccione esta opción si espera enviar más de 5 documentos grandes (aproximadamente 5000 caracteres cada uno) por solicitud.
+Para obtener información de disponibilidad, consulte el artículo [Compatibilidad de regiones de ACI](https://docs.microsoft.com/azure/container-instances/container-instances-region-availability). 
 
 > [!NOTE] 
 > Azure Container Instances no incluye compatibilidad con HTTPS para los dominios integrados. Si necesita HTTPS, tendrá que configurarlo manualmente, incluida la creación de un certificado y el registro de un dominio. Puede encontrar instrucciones para hacerlo con NGINX a continuación.
@@ -143,7 +147,7 @@ $DOCKER_IMAGE_NAME = "containerpreview.azurecr.io/microsoft/cognitive-services-h
 
 az login
 az account set -s $subscription_name
-az container create --resource-group $resource_group_name --name $azure_container_instance_name --image $DOCKER_IMAGE_NAME --cpu 5 --memory 12 --registry-login-server $DOCKER_REGISTRY_LOGIN_SERVER --registry-username $DOCKER_REGISTRY_SERVER_USERNAME --registry-password $DOCKER_REGISTRY_SERVER_PASSWORD --port 5000 --dns-name-label $DNS_LABEL --environment-variables Eula=accept Billing=$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT ApiKey=$TEXT_ANALYTICS_RESOURCE_API_KEY
+az container create --resource-group $resource_group_name --name $azure_container_instance_name --image $DOCKER_IMAGE_NAME --cpu 4 --memory 12 --registry-login-server $DOCKER_REGISTRY_LOGIN_SERVER --registry-username $DOCKER_REGISTRY_SERVER_USERNAME --registry-password $DOCKER_REGISTRY_SERVER_PASSWORD --port 5000 --dns-name-label $DNS_LABEL --environment-variables Eula=accept Billing=$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT ApiKey=$TEXT_ANALYTICS_RESOURCE_API_KEY
 
 # Once deployment complete, the resource should be available at: http://<unique_dns_label>.<resource_group_region>.azurecontainer.io:5000
 ```
@@ -228,7 +232,7 @@ El contenedor proporciona varias API de puntos de conexión de predicción de co
 Use la siguiente solicitud de dirección de URL como ejemplo para enviar una consulta al contenedor que ha implementado reemplazando la variable `serverURL` por el valor adecuado.
 
 ```bash
-curl -X POST 'http://<serverURL>:5000/text/analytics/v3.0-preview.1/domains/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
+curl -X POST 'http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
 
 ```
 
@@ -268,8 +272,8 @@ El siguiente JSON es un ejemplo del cuerpo de respuesta de la API de Text Analyt
                     "offset": 17,
                     "length": 11,
                     "text": "itchy sores",
-                    "type": "SYMPTOM_OR_SIGN",
-                    "score": 0.97,
+                    "category": "SymptomOrSign",
+                    "confidenceScore": 1.0,
                     "isNegated": false
                 }
             ]
@@ -282,8 +286,8 @@ El siguiente JSON es un ejemplo del cuerpo de respuesta de la API de Text Analyt
                     "offset": 11,
                     "length": 4,
                     "text": "50mg",
-                    "type": "DOSAGE",
-                    "score": 1.0,
+                    "category": "Dosage",
+                    "confidenceScore": 1.0,
                     "isNegated": false
                 },
                 {
@@ -291,8 +295,8 @@ El siguiente JSON es un ejemplo del cuerpo de respuesta de la API de Text Analyt
                     "offset": 16,
                     "length": 8,
                     "text": "benadryl",
-                    "type": "MEDICATION_NAME",
-                    "score": 0.99,
+                    "category": "MedicationName",
+                    "confidenceScore": 1.0,
                     "isNegated": false,
                     "links": [
                         {
@@ -338,50 +342,35 @@ El siguiente JSON es un ejemplo del cuerpo de respuesta de la API de Text Analyt
                     "offset": 32,
                     "length": 11,
                     "text": "twice daily",
-                    "type": "FREQUENCY",
-                    "score": 1.0,
+                    "category": "Frequency",
+                    "confidenceScore": 1.0,
                     "isNegated": false
                 }
             ],
             "relations": [
                 {
-                    "relationType": "DOSAGE_OF_MEDICATION",
-                    "score": 1.0,
-                    "entities": [
-                        {
-                            "id": "0",
-                            "role": "ATTRIBUTE"
-                        },
-                        {
-                            "id": "1",
-                            "role": "ENTITY"
-                        }
-                    ]
+                    "relationType": "DosageOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/1/entities/0",
+                    "target": "#/documents/1/entities/1"
                 },
                 {
-                    "relationType": "FREQUENCY_OF_MEDICATION",
-                    "score": 1.0,
-                    "entities": [
-                        {
-                            "id": "1",
-                            "role": "ENTITY"
-                        },
-                        {
-                            "id": "2",
-                            "role": "ATTRIBUTE"
-                        }
-                    ]
+                    "relationType": "FrequencyOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/1/entities/2",
+                    "target": "#/documents/1/entities/1"
                 }
             ]
         }
     ],
     "errors": [],
-    "modelVersion": "2020-05-08"
+    "modelVersion": "2020-07-24"
 }
 ```
 
-> [!NOTE] 
-> Con la detección de negación, en algunos casos un solo término de negación puede abordar varios términos a la vez. La negación de una entidad reconocida se representa en la salida JSON mediante el valor booleano de la marca `isNegated`:
+### <a name="negation-detection-output"></a>Salida de la detección de negación
+
+Al usar la detección de negación, en algunos casos un solo término de negación puede abordar varios términos a la vez. La negación de una entidad reconocida se representa en la salida JSON mediante el valor booleano de la marca `isNegated`:
 
 ```json
 {
@@ -389,7 +378,7 @@ El siguiente JSON es un ejemplo del cuerpo de respuesta de la API de Text Analyt
   "offset": 90,
   "length": 10,
   "text": "chest pain",
-  "type": "SYMPTOM_OR_SIGN",
+  "category": "SymptomOrSign",
   "score": 0.9972,
   "isNegated": true,
   "links": [
@@ -402,6 +391,30 @@ El siguiente JSON es un ejemplo del cuerpo de respuesta de la API de Text Analyt
       "id": "0000023593"
     },
     ...
+```
+
+### <a name="relation-extraction-output"></a>Salida de la extracción de relaciones
+
+La salida de la extracción de relaciones contiene referencias de URI al *origen* de la relación y su *destino*. A las entidades con el rol de relación de `ENTITY` se les asigna el campo `target`. A las entidades con el rol de relación de `ATTRIBUTE` se les asigna el campo `source`. Las relaciones de abreviatura contienen campos bidireccionales `source` y `target`, y `bidirectional` se establecerá en `true`. 
+
+```json
+"relations": [
+                {
+                    "relationType": "DosageOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/1/entities/0",
+                    "target": "#/documents/1/entities/1"
+                },
+                {
+                    "relationType": "FrequencyOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/1/entities/2",
+                    "target": "#/documents/1/entities/1"
+                }
+            ]
+  },
+...
+]
 ```
 
 ## <a name="see-also"></a>Consulte también

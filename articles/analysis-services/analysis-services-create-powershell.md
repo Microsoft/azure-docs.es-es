@@ -1,19 +1,19 @@
 ---
 title: 'Inicio rápido: Creación de una instancia de Azure Analysis Services mediante PowerShell | Microsoft Docs'
-description: Obtenga información sobre cómo crear un servidor de Azure Analysis Services mediante PowerShell
+description: Esta guía de inicio rápido describe cómo crear un servidor de Azure Analysis Services mediante PowerShell.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 03/30/2020
+ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.custom: references_regions
-ms.openlocfilehash: 375d72c8de0aa16d2c10da701fb9670a9c87b79f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: references_regions , devx-track-azurepowershell
+ms.openlocfilehash: 737649538aaf82352e27aec6220b13ba355a7a82
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015466"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229351"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>Inicio rápido: Creación de un servidor (PowerShell)
 
@@ -73,6 +73,4 @@ Remove-AzAnalysisServicesServer -Name "myserver" -ResourceGroupName "myResourceG
 En esta guía de inicio rápido aprendió a crear un servidor en la suscripción de Azure mediante PowerShell. Ahora que tiene un servidor, puede protegerlo si configura un firewall de servidor (opcional). También puede agregar un modelo de datos de ejemplo básico al servidor directamente desde el portal. Tener un modelo de ejemplo es útil al aprender cómo configurar los roles de la base de datos del modelo y probar las conexiones de cliente. Para más información, puede seguir el tutorial para agregar un modelo de ejemplo.
 
 > [!div class="nextstepaction"]
-> [Guía de inicio rápido: Configuración del firewall del servidor: Portal](analysis-services-qs-firewall.md)      
-> [!div class="nextstepaction"]
-> [Tutorial: Incorporación de un modelo de ejemplo al servidor](analysis-services-create-sample-model.md)
+> [Inicio rápido: Configuración del firewall del servidor: Portal](analysis-services-qs-firewall.md)      

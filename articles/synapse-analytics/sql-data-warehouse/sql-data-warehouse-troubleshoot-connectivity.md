@@ -10,13 +10,13 @@ ms.subservice: sql-dw
 ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 33cc0c33f90d68ac3396f1366d4ff8437563eda1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: seo-lt-2019, azure-synapse, devx-track-csharp
+ms.openlocfilehash: 2edb3060437080e528d41d4af5f4affd4fbf3316
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213897"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010195"
 ---
 # <a name="troubleshooting-connectivity-issues-in-synapse-sql-pool"></a>Solución de problemas de conectividad en el grupo de Synapse SQL
 

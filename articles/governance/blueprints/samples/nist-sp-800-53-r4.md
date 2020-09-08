@@ -1,14 +1,14 @@
 ---
 title: Ejemplo de plano técnico de la norma NIST SP 800-53 R4, introducción
 description: Introducción al ejemplo del plano técnico de NIST SP 800-53 R4. Este plano técnico de ejemplo ayuda a los clientes a evaluar determinados controles concretos de la norma NIST SP 800-53 R4.
-ms.date: 05/14/2020
+ms.date: 08/27/2020
 ms.topic: sample
-ms.openlocfilehash: 20ea6e81746a07db85a00a0881744340b2a24d1f
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: f40451e1e82833aba4f626052e708f2c1136f832
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042669"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048778"
 ---
 # <a name="nist-sp-800-53-r4-blueprint-sample"></a>Ejemplo del plano técnico de NIST SP 800-53 R4
 

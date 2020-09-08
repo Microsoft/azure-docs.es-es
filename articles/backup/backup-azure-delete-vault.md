@@ -3,12 +3,12 @@ title: Eliminación de un almacén de Microsoft Azure Recovery Services
 description: En este artículo, aprenderá a quitar dependencias y, luego, a eliminar un almacén de Azure Backup Recovery Services (MARS).
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 5446c54ac070555987dfc05afa67825f307ee61b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c0b75d147abba45a745f811de5e4b8ac45088bd8
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055215"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826742"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Eliminación de un almacén de Recovery Services de Azure Backup
 
@@ -18,7 +18,7 @@ En este artículo se describe cómo eliminar un almacén de Recovery Services de
 
 No se puede eliminar un almacén de Recovery Services con cualquiera de las siguientes dependencias:
 
-- No puede eliminar un almacén que contiene orígenes de datos protegidos (por ejemplo, máquinas virtuales de IaaS, bases de datos de SQL, recursos compartidos de archivos de Azure, etc.).  
+- No es posible eliminar un almacén que contenga orígenes de datos protegidos (por ejemplo, máquinas virtuales de IaaS, bases de datos de SQL o recursos compartidos de archivos de Azure).
 - No puede eliminar un almacén que contiene datos de copia de seguridad. Una vez eliminados los datos de copia de seguridad, entrará en el estado de eliminación temporal.
 - No puede eliminar un almacén que contiene datos de copia de seguridad en el estado de eliminación temporal.
 - No puede eliminar un almacén que tiene cuentas de almacenamiento registradas.
@@ -43,6 +43,7 @@ Para eliminar correctamente un almacén, debe seguir los pasos en este orden:
 - **Paso 3**: Debe comprobar los tres lugares siguientes para verificar si hay elementos protegidos:
 
   - **Elementos protegidos por la nube**: Vaya al menú del panel del almacén > **Elementos de copia de seguridad**. Todos los elementos que se enumeran aquí deben eliminarse con **Detener copia de seguridad** o **Eliminar datos de copia de seguridad** junto con sus datos de copia de seguridad.  [Siga estos pasos](#delete-protected-items-in-the-cloud) para quitar esos elementos.
+  - **Instancia de SQL Server**: Vaya al menú del panel del almacén > **Infraestructura de copia de seguridad** > **Servidores protegidos**. En Servidores protegidos, seleccione el servidor del que desea anular el registro. Para eliminar el almacén, debe anular el registro de todos los servidores. Haga clic con el botón derecho en el servidor protegido y seleccione **Anular registro**.
   - **Servidores protegidos MARS**: Vaya al menú del panel del almacén > **Infraestructura de copia de seguridad** > **Servidores protegidos**. Si tiene servidores protegidos MARS, todos los elementos que se enumeran aquí deben eliminarse junto con sus datos de copia de seguridad. [Siga estos pasos](#delete-protected-items-on-premises) para eliminar los servidores protegidos MARS.
   - **Servidores de administración MABS o DPM**: Vaya al menú del panel del almacén > **Infraestructura de copia de seguridad** > **Servidores de administración de copia de seguridad**. Si tiene DPM o Azure Backup Server (MABS), todos los elementos que se enumeran aquí se deben eliminar junto con sus datos de copia de seguridad (o debe anularse su registro). [Siga estos pasos](#delete-protected-items-on-premises) para eliminar los servidores de administración.
 
@@ -233,7 +234,7 @@ Para detener la protección y eliminar los datos de copia de seguridad:
     Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin>
     ```
 
-    Aparecerá el siguiente aviso:
+    Después, aparecerá el siguiente mensaje:
 
     *Microsoft Azure Backup Are you sure you want to remove this backup policy? Deleted backup data will be retained for 14 days. Después de ese tiempo se eliminarán de forma permanente. <br/> [Y] Sí  [A] Sí a todo  [N] No  [L] No a todo  [S] Suspender  [?] Ayuda (el valor predeterminado es "Y"):*
 
@@ -243,7 +244,7 @@ Para detener la protección y eliminar los datos de copia de seguridad:
     Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin>
     ```
 
-    Aparecerá el siguiente aviso:
+    Después, aparecerá el siguiente mensaje:
 
    *Microsoft Azure Backup* ¿Está seguro de que desea quitar esta directiva de copia de seguridad? Deleted backup data will be retained for 14 days. Tras ese período, se eliminarán permanentemente los datos de copia de seguridad. <br/>
    [Y] Sí [A] Sí a todo [N] No [L] No a todo [S] Suspender [?] Ayuda (el valor predeterminado es "Y"):*
@@ -300,9 +301,9 @@ Para eliminar un almacén de Recovery Services:
 En primer lugar, lea la sección **[Antes de comenzar](#before-you-start)** para comprender el proceso de eliminación de dependencias y almacenes.
 
 > [!NOTE]
-> Actualmente, la CLI de Azure Backup solo admite la administración de copias de seguridad de máquinas virtuales de Azure, por lo que el siguiente comando para eliminar el almacén solo funciona si contiene copias de seguridad de máquinas virtuales de Azure. No se puede eliminar un almacén mediante la CLI de Azure Backup si contiene cualquier elemento de copia de seguridad de un tipo que no sea máquinas virtuales de Azure.
+> Actualmente, la CLI de Azure Backup solo admite la administración de copias de seguridad de máquinas virtuales de Azure, por lo que el siguiente comando para eliminar el almacén solo funciona si contiene copias de seguridad de máquinas virtuales de Azure. No es posible eliminar un almacén mediante la CLI de Azure Backup si el almacén contiene algún elemento de copia de seguridad que sea distinto a las máquinas virtuales de Azure.
 
-Para eliminar el almacén de Recovery Services existente, realice las siguientes operaciones:
+Para eliminar el almacén de Recovery Services existente, sigas estos pasos:
 
 - Para detener la protección y eliminar los datos de copia de seguridad
 
@@ -356,13 +357,13 @@ Para obtener más información sobre el comando de ARMClient, consulte el docume
 1. Ejecute el comando siguiente con el identificador de suscripción, el nombre del grupo de recursos y el nombre de almacén. Si no tiene dependencias, el almacén se elimina al ejecutar el comando siguiente:
 
    ```azurepowershell
-   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
+   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<Recovery Services vault name>?api-version=2015-03-15
    ```
 
 2. Si el almacén no está vacío, recibirá el mensaje de error siguiente: *No se puede eliminar el almacén porque contiene recursos*. Para quitar un contenedor o elementos protegidos de un almacén, ejecute el comando siguiente:
 
    ```azurepowershell
-   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
+   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<Recovery Services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
 
 3. En Azure Portal, compruebe que se ha eliminado el almacén.

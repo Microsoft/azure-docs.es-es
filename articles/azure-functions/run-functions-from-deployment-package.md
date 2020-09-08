@@ -3,21 +3,18 @@ title: Ejecución de la instancia de Azure Functions desde un paquete
 description: Para que el sistema en tiempo de ejecución de Azure Functions ejecute sus funciones, monte un archivo del paquete de implementación que contenga los archivos de proyecto de la aplicación de función.
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: d40896d6a4659945dbeda9ca965366f0b2ca4bd2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b2d90cf78263b30b4315199cf1c543186a435f17
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79365278"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639892"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Ejecución de la instancia de Azure Functions desde un archivo de paquete
 
 En Azure, puede ejecutar las funciones directamente desde un archivo del paquete de implementación de la aplicación de función. La otra opción consiste en implementar los archivos en el directorio `d:\home\site\wwwroot` de la aplicación de función.
 
 En este artículo se describen las ventajas de ejecutar las funciones desde un paquete. También se muestra cómo habilitar esta funcionalidad en la aplicación de función.
-
-> [!IMPORTANT]
-> Al implementar las funciones en una aplicación de funciones de Linux en un [plan Premium](functions-scale.md#premium-plan), siempre debe ejecutar desde el archivo de paquete y [publicar la aplicación mediante Azure Functions Core Tools](functions-run-local.md#project-file-deployment).
 
 ## <a name="benefits-of-running-from-a-package-file"></a>Ventajas de la ejecución desde un archivo de paquete
   
@@ -53,6 +50,9 @@ A continuación se muestra una aplicación de función configurada para ejecutar
 ## <a name="integration-with-zip-deployment"></a>Integración con la implementación de archivos ZIP
 
 La [implementación de archivos ZIP][Zip deployment for Azure Functions] es una característica de Azure App Service que le permite implementar su proyecto de aplicación de funciones en el directorio `wwwroot`. El proyecto se empaqueta como un archivo de implementación .zip. Las mismas API se pueden usar para implementar el paquete en la carpeta `d:\home\data\SitePackages`. Con el valor de configuración de la aplicación `WEBSITE_RUN_FROM_PACKAGE` de `1`, las API de implementación de archivos ZIP copian el paquete en la carpeta `d:\home\data\SitePackages` en lugar de extraer los archivos en `d:\home\site\wwwroot`. También se crea el archivo `packagename.txt`. Después de un reinicio, el paquete se monta en `wwwroot` como un sistema de archivos de solo lectura. Para más información sobre la implementación de archivos ZIP, consulte [Implementación para insertar archivos ZIP en Azure Functions](deployment-zip-push.md).
+
+> [!NOTE]
+> Cuando se produce una implementación, se desencadena un reinicio de la aplicación de funciones. Antes del reinicio, todas las ejecuciones de función existentes pueden finalizar o agotar el tiempo de espera. Para más información, consulte [Comportamientos de implementación](functions-deployment-technologies.md#deployment-behaviors).
 
 ## <a name="adding-the-website_run_from_package-setting"></a>Incorporación del valor WEBSITE_RUN_FROM_PACKAGE
 

@@ -2,16 +2,17 @@
 title: Administración del uso y los costos de Azure Application Insights | Microsoft Docs
 description: Administre los volúmenes de telemetría y supervise los costos en Application Insights.
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 author: DaleKoetke
 ms.author: dalek
 ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 3914764035d65482bcf224f8d0eda9c6579e03a4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5dd1fd1209be29774d19a155b6e585fa6ebcc036
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87309688"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930492"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Administración del uso y los costos de Application Insights
 

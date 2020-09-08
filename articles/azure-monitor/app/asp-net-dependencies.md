@@ -2,13 +2,14 @@
 title: Seguimiento de dependencia en Azure Application Insights | Microsoft Docs
 description: Supervise las llamadas de dependencia de su aplicación web o local de Microsoft Azure con Application Insights.
 ms.topic: conceptual
-ms.date: 06/26/2020
-ms.openlocfilehash: a7f42c19c835e4f5c49f4d7aa91504b606a09f5b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/26/2020
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3d98fe91994c992d11fc58e3fec42d1796c0c966
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321384"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936544"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Seguimiento de dependencias en Azure Application Insights 
 
@@ -16,7 +17,7 @@ Una *dependencia* es un componente al que la aplicación llama. Suele ser un ser
 
 ## <a name="automatically-tracked-dependencies"></a>Dependencias con seguimiento automático
 
-Los SDK de Application Insights para .NET y .NET Core se incluyen con `DependencyTrackingTelemetryModule`, un módulo de telemetría que recopila las dependencias automáticamente. Esta recolección de dependencias se habilita automáticamente para las aplicaciones de [ASP.NET](./asp-net.md) y [ASP.NET Core](./asp-net-core.md) cuando se configuran según la documentación oficial vinculada. `DependencyTrackingTelemetryModule` se distribuye como [este](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) paquete NuGet y se incluye automáticamente cuando usa cualquiera de los paquetes NuGet `Microsoft.ApplicationInsights.Web` o `Microsoft.ApplicationInsights.AspNetCore`.
+Los SDK de Application Insights para .NET y .NET Core se suministran con `DependencyTrackingTelemetryModule`, un módulo de telemetría que recopila dependencias automáticamente. Esta recolección de dependencias se habilita automáticamente para las aplicaciones de [ASP.NET](./asp-net.md) y [ASP.NET Core](./asp-net-core.md) cuando se configuran según la documentación oficial vinculada. `DependencyTrackingTelemetryModule` se distribuye como [este](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) paquete NuGet y se incluye automáticamente cuando usa cualquiera de los paquetes NuGet `Microsoft.ApplicationInsights.Web` o `Microsoft.ApplicationInsights.AspNetCore`.
 
  `DependencyTrackingTelemetryModule` actualmente realiza un seguimiento automático de las siguientes dependencias:
 
@@ -34,7 +35,7 @@ Si falta una dependencia o está usando un SDK diferente, asegúrese de que se e
 
 ## <a name="setup-automatic-dependency-tracking-in-console-apps"></a>Configuración de seguimiento automático de dependencias en aplicaciones de consola
 
-Para realizar un seguimiento automático de las dependencias de aplicaciones de consola .NET, instale el paquete NuGet `Microsoft.ApplicationInsights.DependencyCollector` y cree una instancia de `DependencyTrackingTelemetryModule` como se muestra a continuación:
+Para hacer un seguimiento automático de las dependencias de aplicaciones de consola de .NET, instale el paquete de NuGet `Microsoft.ApplicationInsights.DependencyCollector` e inicialice `DependencyTrackingTelemetryModule` como se indica a continuación:
 
 ```csharp
     DependencyTrackingTelemetryModule depModule = new DependencyTrackingTelemetryModule();
@@ -196,6 +197,18 @@ Puede realizar un seguimiento de las dependencias en el [lenguaje de consulta de
 ### <a name="how-does-automatic-dependency-collector-report-failed-calls-to-dependencies"></a>*¿Qué método usa el recopilador de dependencias para informar sobre las llamadas con error a las dependencias?*
 
 * Las llamadas de dependencia con error tendrán el campo "success" establecido en False. `DependencyTrackingTelemetryModule` no notifica sobre `ExceptionTelemetry`. El modelo de datos completo para las dependencias se describe [aquí](data-model-dependency-telemetry.md).
+
+### <a name="how-do-i-calculate-ingestion-latency-for-my-dependency-telemetry"></a>*¿Cómo calculo la latencia de ingesta para mi telemetría de dependencia?*
+
+```kusto
+dependencies
+| extend E2EIngestionLatency = ingestion_time() - timestamp 
+| extend TimeIngested = ingestion_time()
+```
+
+### <a name="how-do-i-determine-the-time-the-dependency-call-was-initiated"></a>*Cómo determino la hora en la que se inició la llamada de dependencia?*
+
+En la vista de consulta de Log Analytics `timestamp` representa el momento en que se inició la llamada a TrackDependency(), que se produjo inmediatamente después de recibir la respuesta de la llamada de dependencia. Para calcular la hora de inicio de la llamada de dependencia, debería tomar `timestamp` y restarle el valor de `duration` registrado para la llamada de dependencia.
 
 ## <a name="open-source-sdk"></a>SDK de código abierto
 Como todos los SDK de Application Insights, el módulo de recolección de dependencias también es de código abierto. Puede leer y contribuir al código o notificar sobre problemas en [el repositorio oficial de GitHub](https://github.com/Microsoft/ApplicationInsights-dotnet-server).

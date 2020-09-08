@@ -16,10 +16,10 @@ ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
 ms.openlocfilehash: dcb151c8be0ab3a2393d0659b75985a92ac60507
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82207894"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Tutorial: Configuración del enrutamiento de puerto en Azure Load Balancer mediante Azure Portal
@@ -74,10 +74,10 @@ En los pasos de esta sección, tendrá que reemplazar los siguientes parámetros
 
 | Parámetro                   | Value                |
 |-----------------------------|----------------------|
-| **\<nombre-de-grupo-recursos>**  | myResourceGroupLB (seleccione el grupo de recursos existente) |
-| **\<nombre-de-red-virtual>** | myVNet          |
+| **\<resource-group-name>**  | myResourceGroupLB (seleccione el grupo de recursos existente) |
+| **\<virtual-network-name>** | myVNet          |
 | **\<region-name>**          | Oeste de Europa      |
-| **\<espacio-de-direcciones-IPv4>**   | 10.3.0.0\16          |
+| **\<IPv4-address-space>**   | 10.3.0.0\16          |
 | **\<subnet-name>**          | myBackendSubnet        |
 | **\<subnet-address-range>** | 10.3.0.0\24          |
 
@@ -144,13 +144,13 @@ Cree una regla de grupo de seguridad de red (NSG) para que las máquinas virtual
    
 1. En el cuadro de diálogo **Agregar regla de seguridad de entrada**, escriba o seleccione lo siguiente:
    
-   - **Origen**: Seleccione **Service Tag** (Etiqueta de servicio).  
+   - **Origen**: seleccione **Etiqueta de servicio**.  
    - **Etiqueta de servicio de origen**: seleccione **Internet**. 
-   - **Intervalos de puertos de destino**: escriba *80*.
+   - **Intervalos de puerto de destino**: escriba *80*.
    - **Protocolo**: seleccione **TCP**. 
    - **Acción**: seleccione **Permitir**.  
    - **Prioridad**: escriba *100*. 
-   - **Name**: escriba *MyHTTPRule*. 
+   - **Nombre**: escriba *MyHTTPRule*. 
    - **Descripción**: escriba *Permitir HTTP*. 
    
 1. Seleccione **Agregar**. 

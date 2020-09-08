@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: article
 ms.date: 04/23/2020
 ms.author: cshoe
-ms.openlocfilehash: fd7b0be967c7a0bbc605c51408448917b5222d36
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 37f79d717b7ea0e26717e7b51f9e66b908b96521
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121819"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640977"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>Ejecución manual de una función no desencadenada por HTTP
 
@@ -37,7 +37,7 @@ Puede usar la ubicación de esta solicitud en Postman junto con la clave maestra
 
 ## <a name="get-the-functions-master-key"></a>Obtención de la clave maestra de la función
 
-1. Vaya a su función en Azure Portal y seleccione **Claves de función**. Posteriormente, seleccione la clave de función que quiera copiar. 
+1. Vaya a la aplicación de función en [Azure Portal](https://portal.azure.com), seleccione **Claves de la aplicación** y, luego, la clave `_master`. 
 
     :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key.png" alt-text="Busque la clave maestra que se va a copiar." border="true":::
 
@@ -50,7 +50,7 @@ Puede usar la ubicación de esta solicitud en Postman junto con la clave maestra
     :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="Vea los registros para ver los resultados de la prueba de clave maestra." border="true":::
 
 > [!CAUTION]  
-> Debido a los permisos elevados de la aplicación de función otorgados por la clave maestra, no debe compartir esta clave con terceros ni distribuirla en una aplicación.
+> Debido a los permisos elevados de la aplicación de función otorgados por la clave maestra, no debe compartir esta clave con terceros ni distribuirla en una aplicación. La clave solo se debe enviar a un punto de conexión HTTPS.
 
 ## <a name="call-the-function"></a>Llamada a la función
 

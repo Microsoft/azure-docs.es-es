@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 09e492ae950003f97ed86355257c97777cd71c1a
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 376cece922ca424ec78011224852b1fa5499da16
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202012"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934844"
 ---
 # <a name="odata-geo-spatial-functions-in-azure-cognitive-search---geodistance-and-geointersects"></a>Funciones geoespaciales de OData en Azure Cognitive Search: `geo.distance` y `geo.intersects`
 
@@ -84,7 +84,7 @@ La constante de punto de geografía tiene el formato `geography'POINT(<longitude
 
 La función `geo.intersects` toma una variable de tipo `Edm.GeographyPoint` y una constante `Edm.GeographyPolygon`, y devuelve un valor `Edm.Boolean` -- `true` si el punto está dentro de los límites del polígono, o bien `false` en caso contrario.
 
-El polígono es una superficie bidimensional almacenada como una secuencia de puntos que definen un anillo delimitador (vea los [ejemplos](#examples) siguientes). El polígono debe estar cerrado, lo que significa que el primer y último conjunto de puntos deben ser los mismos. [Los puntos de un polígono deben estar ordenados en sentido contrario a las agujas del reloj](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
+El polígono es una superficie bidimensional almacenada como una secuencia de puntos que definen un anillo delimitador (vea los [ejemplos](#examples) siguientes). El polígono debe estar cerrado, lo que significa que el primer y último conjunto de puntos deben ser los mismos. [Los puntos de un polígono deben estar ordenados en sentido contrario a las agujas del reloj](/rest/api/searchservice/supported-data-types#Anchor_1).
 
 ### <a name="geo-spatial-queries-and-polygons-spanning-the-180th-meridian"></a>Consultas geoespaciales y polígonos que abarcan el meridiano 180
 
@@ -109,7 +109,7 @@ Buscar todos los hoteles a una distancia no superior a diez kilómetros de un pu
     geo.distance(location, geography'POINT(-122.131577 47.678581)') le 10
 ```
 
-Buscar todos los hoteles dentro de una ventanilla dada descrita como un polígono (donde la ubicación es un campo de tipo `Edm.GeographyPoint`). Tenga en cuenta que el polígono está cerrado (el primer y el último conjunto de puntos deben ser los mismos) y [los puntos deben aparecer ordenados en sentido contrario a las agujas del reloj](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
+Buscar todos los hoteles dentro de una ventanilla dada descrita como un polígono (donde la ubicación es un campo de tipo `Edm.GeographyPoint`). Tenga en cuenta que el polígono está cerrado (el primer y el último conjunto de puntos deben ser los mismos) y [los puntos deben aparecer ordenados en sentido contrario a las agujas del reloj](/rest/api/searchservice/supported-data-types#Anchor_1).
 
 ```odata-filter-expr
     geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')
@@ -134,4 +134,4 @@ Clasificar hoteles en orden descendente por `search.score` y `rating`, y despué
 - [Filtros de Azure Cognitive Search](search-filters.md)
 - [Información general sobre el lenguaje de expresiones OData para Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
 - [Referencia de sintaxis de expresiones OData para Azure Cognitive Search](search-query-odata-syntax-reference.md)
-- [Búsqueda de documentos &#40;API REST de Azure Cognitive Search&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Búsqueda de documentos &#40;API REST de Azure Cognitive Search&#41;](/rest/api/searchservice/Search-Documents)

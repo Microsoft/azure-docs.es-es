@@ -1,7 +1,7 @@
 ---
 title: 'Soporte técnico para las licencias de Media Services y FairPlay de Apple: Azure | Microsoft Docs'
 description: En este tema se proporciona información general sobre los requisitos de licencia y la configuración de FairPlay de Apple.
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -10,18 +10,20 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/08/2018
-ms.author: juliako
-ms.custom: seodec18
-ms.openlocfilehash: 433768ddea6e250c66483ec3da4c7737b3538a1d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: 09068064f24594ef35a8a1bf64213b48d83873ca
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092055"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296870"
 ---
-# <a name="apple-fairplay-license-requirements-and-configuration"></a>Configuración y requisitos de licencia de FairPlay de Apple 
+# <a name="apple-fairplay-license-requirements-and-configuration"></a>Configuración y requisitos de licencia de FairPlay de Apple
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Azure Media Services le permite cifrar el contenido HLS con **FairPlay de Apple** (AES-128 CBC). Asimismo, Media Services también proporciona un servicio para entregar licencias de FairPlay. Cuando el reproductor intenta reproducir contenido protegido de FairPlay, se envía una solicitud al servicio de entrega de licencias para obtener una licencia. Si el servicio de licencia aprueba la solicitud, emite la licencia, la que se envía al cliente y se usa para descifrar y reproducir el contenido especificado.
 

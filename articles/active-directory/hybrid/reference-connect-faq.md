@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4956014e3a950a729ef3993e10ca455ab8aae6f4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: fe4350a721b025858493739e78011458f89f33ee
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256686"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276344"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Preguntas más frecuentes sobre Azure Active Directory Connect
 
@@ -34,13 +34,13 @@ Microsoft recomienda reforzar su servidor Azure AD Connect para reducir la super
 
 Para obtener más información, consulte: 
 
-* [Protección de los grupos de administradores](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
+* [Protección de los grupos de administradores](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
 
-* [Protección de las cuentas predefinidas de administrador](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
+* [Protección de las cuentas predefinidas de administrador](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
 
-* [Mejora de la seguridad y el sostenimiento al reducir las superficies de ataque](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
+* [Mejora de la seguridad y el sostenimiento al reducir las superficies de ataque](/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
 
-* [Reducción de la superficie de ataque de Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
+* [Reducción de la superficie de ataque de Active Directory](/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
 
 **P: ¿Funcionará la instalación si el administrador global de Azure Active Directory (Azure AD) tiene habilitada la autenticación en dos fases (2FA)?**  
 A partir de las compilaciones de febrero de 2016, se admite este escenario.
@@ -253,19 +253,19 @@ Sí, la actualización automática también actualiza Azure AD Connect Health.
 Sí, puede actualizar automáticamente un servidor de Azure AD Connect que se encuentre en modo de almacenamiento provisional.
 
 **P: Si la actualización automática genera algún error y mi servidor de Azure AD Connect no se inicia, ¿qué debo hacer?**  
-En raras ocasiones, el servicio Azure AD Connect no se inicia después de realizar la actualización. En esos casos, reiniciar el servidor suele corregir el problema. Si el servicio Azure AD Connect sigue sin iniciarse, abra un vale de soporte. Para obtener más información, consulte [Create a service request to contact Office 365 support](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/) (Crear una solicitud de servicio para ponerse en contacto con el soporte técnico de Office 365). 
+En raras ocasiones, el servicio Azure AD Connect no se inicia después de realizar la actualización. En esos casos, reiniciar el servidor suele corregir el problema. Si el servicio Azure AD Connect sigue sin iniciarse, abra un vale de soporte. Para obtener más información, consulte [Create a service request to contact Office 365 support](/archive/blogs/praveenkumar/how-to-create-service-requests-to-contact-office-365-support) (Crear una solicitud de servicio para ponerse en contacto con el soporte técnico de Office 365). 
 
 **P: No estoy seguro de los riesgos derivados de la actualización a una versión más reciente de Azure AD Connect. ¿Puede llamarme para ayudarme con la actualización?**  
-Si necesita ayuda para actualizar a una versión más reciente de Azure AD Connect, abra un vale de soporte; en [Create a service request to contact Office 365 support](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/) (Crear una solicitud de servicio para ponerse en contacto con el soporte técnico de Office 365).
+Si necesita ayuda para actualizar a una versión más reciente de Azure AD Connect, abra un vale de soporte; en [Create a service request to contact Office 365 support](/archive/blogs/praveenkumar/how-to-create-service-requests-to-contact-office-365-support) (Crear una solicitud de servicio para ponerse en contacto con el soporte técnico de Office 365).
 
 ## <a name="operational-best-practice"></a>Prácticas recomendadas de uso    
 A continuación se muestran algunos procedimientos recomendados que debe implementar al sincronizar entre Windows Server Active Directory y Azure Active Directory.
 
 **Aplique Multi-Factor Authentication para todas las cuentas sincronizadas**. Azure Multi-Factor Authentication ayuda a proteger el acceso a los datos y aplicaciones, y al mismo tiempo mantiene la simplicidad para los usuarios. Proporciona más seguridad, ya que requiere una segunda forma de autenticación y ofrece autenticación segura a través de una gama de métodos de autenticación fáciles de usar. Puede que los usuarios se vean desafiados por la MFA en función de las decisiones de configuración que tome un administrador. Puede leer más sobre MFA aquí: https://www.microsoft.com/security/business/identity/mfa?rtc=1
 
-[Siga las instrucciones del seguridad del servidor de Azure AD Connect](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material). El servidor de Azure AD Connect contiene datos de identidad críticos y debería tratarse como un componente de nivel 0, tal como se documenta en el **modelo de nivel administrativo de Active Directory**. Consulte también nuestras [instrucciones para proteger el servidor AADConnect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#azure-ad-connect-server).
+[Siga las instrucciones del seguridad del servidor de Azure AD Connect](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material). El servidor de Azure AD Connect contiene datos de identidad críticos y debería tratarse como un componente de nivel 0, tal como se documenta en el **modelo de nivel administrativo de Active Directory**. Consulte también nuestras [instrucciones para proteger el servidor AADConnect](./how-to-connect-install-prerequisites.md#azure-ad-connect-server).
 
-**Habilite PHS para la detección de credenciales filtradas**. La sincronización de hash de contraseña también habilita la [detección de credenciales filtradas](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-risks) para cuentas híbridas. Microsoft trabaja con investigadores de la Web oscura y organismos de aplicación de la ley para encontrar pares de nombre de usuario y contraseña disponibles públicamente. Si alguno de estos pares coincide con el de sus usuarios, la cuenta asociada pasa a ser de alto riesgo. 
+**Habilite PHS para la detección de credenciales filtradas**. La sincronización de hash de contraseña también habilita la [detección de credenciales filtradas](../identity-protection/concept-identity-protection-risks.md) para cuentas híbridas. Microsoft trabaja con investigadores de la Web oscura y organismos de aplicación de la ley para encontrar pares de nombre de usuario y contraseña disponibles públicamente. Si alguno de estos pares coincide con el de sus usuarios, la cuenta asociada pasa a ser de alto riesgo. 
 
 
 ## <a name="troubleshooting"></a>Solución de problemas
@@ -275,11 +275,11 @@ A continuación se muestran algunos procedimientos recomendados que debe impleme
 
 * Busque en KB soluciones técnicas a los problemas de break-fix más comunes sobre soporte técnico de Azure AD Connect.
 
-[Página de preguntas y respuestas de Microsoft sobre Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+[Página de preguntas y respuestas de Microsoft sobre Azure Active Directory](/answers/topics/azure-active-directory.html)
 
-* Busque preguntas y respuestas técnicas o formule sus propias preguntas en [la comunidad de Azure AD](https://docs.microsoft.com/answers/topics/azure-active-directory.html).
+* Busque preguntas y respuestas técnicas o formule sus propias preguntas en [la comunidad de Azure AD](/answers/topics/azure-active-directory.html).
 
-[Obtener soporte técnico para Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
+[Obtener soporte técnico para Azure AD](../fundamentals/active-directory-troubleshooting-support-howto.md)
 
 **P: ¿Por qué veo los eventos 6311 y 6401 después de los errores de paso de sincronización?**
 

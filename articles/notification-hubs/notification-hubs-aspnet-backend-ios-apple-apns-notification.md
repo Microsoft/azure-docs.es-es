@@ -10,16 +10,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 08/07/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 0f5bc9827919c18e327dc263384f0d4b6a01c5bc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0d53709a9fd7cb3f40f540e1bb96c2be12b75f2c
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86530187"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004172"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones push a usuarios concretos mediante Azure Notification Hubs
 
@@ -66,7 +66,7 @@ Si quiere utilizar Aplicaciones móviles como su servicio back-end, consulte [In
 
      Se agregaron algunos componentes al tutorial [Envío de notificaciones push a aplicaciones iOS mediante Azure Notification Hubs](ios-sdk-get-started.md).
 
-3. Presione **Ctrl** y arrastre desde los componentes de la vista a `ViewController.h` y agregue esos nuevos medios.
+3. Presione **Ctrl** y arrastre desde los componentes de la vista hasta `ViewController.h` y agregue estas nuevas salidas:
 
     ```objc
     @property (weak, nonatomic) IBOutlet UITextField *UsernameField;
@@ -86,13 +86,13 @@ Si quiere utilizar Aplicaciones móviles como su servicio back-end, consulte [In
     - (IBAction)LogInAction:(id)sender;
     ```
 
-4. En `ViewController.h`, agregue el siguiente elemento `#define` después de las instrucciones de importación. Sustituya el marcador de posición `<Enter Your Backend Endpoint>` por la dirección URL de destino que usó para implementar el back-end de la aplicación en la sección anterior. Por ejemplo, `http://your_backend.azurewebsites.net`.
+4. En `ViewController.h`, agregue el siguiente elemento `#define` después de las instrucciones de importación. Sustituya el marcador de posición `<Your backend endpoint>` por la dirección URL de destino que usó para implementar el back-end de la aplicación en la sección anterior. Por ejemplo, `http://your_backend.azurewebsites.net`:
 
     ```objc
-    #define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
+    #define BACKEND_ENDPOINT @"<Your backend endpoint>"
     ```
 
-5. En el proyecto, cree una nueva clase Cocoa Touch denominada `RegisterClient` que interactúe con el back-end de ASP.NET que ha creado. Cree la clase que hereda de `NSObject`. Después agregue el siguiente código a `RegisterClient.h`.
+5. En el proyecto, cree una nueva clase Cocoa Touch denominada `RegisterClient` que interactúe con el back-end de ASP.NET que ha creado. Cree la clase que hereda de `NSObject`. Después, agregue el siguiente código a `RegisterClient.h`:
 
     ```objc
     @interface RegisterClient : NSObject
@@ -494,7 +494,7 @@ Si quiere utilizar Aplicaciones móviles como su servicio back-end, consulte [In
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a enviar notificaciones push a usuarios concretos que tienen etiquetas asociadas a sus registros. Para aprender a enviar notificaciones push en función de la ubicación, pase al tutorial siguiente: 
+En este tutorial, ha aprendido a enviar notificaciones push a usuarios concretos que tienen etiquetas asociadas a sus registros. Para aprender a enviar notificaciones push en función de la ubicación, pase al tutorial siguiente:
 
 > [!div class="nextstepaction"]
 >[Envío de notificaciones push basadas en la ubicación](notification-hubs-push-bing-spatial-data-geofencing-notification.md)

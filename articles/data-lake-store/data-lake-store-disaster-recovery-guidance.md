@@ -1,17 +1,17 @@
 ---
 title: Guía de recuperación ante desastres para Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Guía de alta disponibilidad y recuperación ante desastres para Azure Data Lake Storage Gen1
+description: Obtenga información sobre cómo proteger aún más los datos ante interrupciones en toda la región o eliminaciones accidentales más allá del almacenamiento con redundancia local de Azure Data Lake Storage Gen1.
 author: twooley
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: twooley
-ms.openlocfilehash: ebcdeed608a5b9dc6202071869c4df1dcfd327a8
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: b124f828c4a6a019c45243528ed2d957e3f781f3
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87512761"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191410"
 ---
 # <a name="high-availability-and-disaster-recovery-guidance-for-data-lake-storage-gen1"></a>Guía de alta disponibilidad y recuperación ante desastres para Data Lake Storage Gen1
 

@@ -3,20 +3,20 @@ title: 'Azure Front Door: Redirección de direcciones URL | Microsoft Docs'
 description: Este artículo le ayudará a comprender cómo Azure Front Door admite el redireccionamiento de direcciones URL para las rutas, si se ha configurado.
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2019
-ms.author: sharadag
-ms.openlocfilehash: 5e3e44c4aee84fe9e2e21174a1d65fdf26b765a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: duau
+ms.openlocfilehash: 41cb2343cb86d2ec756bb0a2fb690b7df886024f
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295477"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399045"
 ---
 # <a name="url-redirect"></a>Redirección de direcciones URL
 Puede usar Azure Front Door para redirigir el tráfico. Puede redirigir el tráfico en varios niveles (protocolo, nombre de host, ruta de acceso, cadena de consulta), y toda la funcionalidad se puede configurar para microservicios individuales, ya que la redirección se basa en la ruta de acceso. Esto simplifica la configuración de la aplicación, optimiza el uso de recursos y admite nuevos escenarios de redirección incluida la global y la basada en la ruta de acceso.

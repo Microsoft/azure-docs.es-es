@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 08a97f0f7b1a6a65feb7a2ec041001f2199ffdf7
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: e9bd97dc4afe0937ebd0553117640e008a72722e
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770644"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961754"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Introducción a App Service Environment #
  
@@ -61,13 +61,13 @@ Hay una tarifa plana mensual para una instancia de ASE que paga por la infraestr
 
 ## <a name="virtual-network-support"></a>Compatibilidad con redes virtuales ##
 
-La característica de ASE es una implementación de Azure App Service directamente en la red virtual de Azure Resource Manager de un cliente. Para obtener más información acerca de redes virtuales de Azure, consulte las [Preguntas más frecuentes sobre las redes virtuales de Azure](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/). Una instancia de ASE siempre existe en una red virtual y, más concretamente, dentro de una subred de una red virtual. Puede usar las características de seguridad de las redes virtuales para controlar las comunicaciones de red entrantes y salientes de las aplicaciones.
+La característica de ASE es una implementación de Azure App Service directamente en la red virtual de Azure Resource Manager de un cliente. Para obtener más información acerca de redes virtuales de Azure, consulte las [Preguntas más frecuentes sobre las redes virtuales de Azure](../../virtual-network/virtual-networks-faq.md). Una instancia de ASE siempre existe en una red virtual y, más concretamente, dentro de una subred de una red virtual. Puede usar las características de seguridad de las redes virtuales para controlar las comunicaciones de red entrantes y salientes de las aplicaciones.
 
 Una instancia de ASE puede tener conexión a Internet con una dirección IP pública o tener una conexión interna solo con la dirección de un equilibrador de carga interno (ILB) de Azure.
 
 Los [grupos de seguridad de red][NSGs] restringen las comunicaciones de red entrantes a la subred donde reside una instancia de ASE. Puede usar grupos de seguridad de red para ejecutar aplicaciones tras dispositivos y servicios ascendentes, como WAF y proveedores de SaaS de red.
 
-Las aplicaciones, además, suelen requerir acceso a recursos corporativos, como bases de datos internas y servicios web. Si implementa la instancia de ASE en una red virtual que tiene una conexión VPN a la red local, las aplicaciones de la instancia de ASE podrán tener acceso a los recursos locales. La capacidad es cierta independientemente de si la red privada virtual es una VPN de [sitio a sitio](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site) o de [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+Las aplicaciones, además, suelen requerir acceso a recursos corporativos, como bases de datos internas y servicios web. Si implementa la instancia de ASE en una red virtual que tiene una conexión VPN a la red local, las aplicaciones de la instancia de ASE podrán tener acceso a los recursos locales. La capacidad es cierta independientemente de si la red privada virtual es una VPN de [sitio a sitio](../../vpn-gateway/vpn-gateway-multi-site.md) o de [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
 Para más información sobre cómo funciona ASE con redes virtuales y redes locales, consulte [Consideraciones de red de App Service Environment][ASENetwork].
 
@@ -95,12 +95,12 @@ ASEv1 utiliza un modelo de precios diferente al de ASEv2. En ASEv1, paga por cad
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [webapps]: ../overview.md
-[mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
+[mobileapps]: /previous-versions/azure/app-service-mobile/app-service-mobile-value-prop
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
-[AppGW]: ../../application-gateway/waf-overview.md
+[AppGW]: ../../web-application-firewall/ag/ag-overview.md
 [ASEAZ]: https://azure.github.io/AppService/2019/12/12/App-Service-Environment-Support-for-Availability-Zones.html

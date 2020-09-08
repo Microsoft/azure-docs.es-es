@@ -1,24 +1,26 @@
 ---
 title: 'Inicio rápido: Reconocimiento de la entrada de lápiz digital con la API REST Ink Recognizer y Node.js'
 titleSuffix: Azure Cognitive Services
-description: Use la API Ink Recognizer para comenzar a reconocer los trazos de entrada de lápiz digital en este inicio rápido.
+description: En este inicio rápido, usará API Ink Recognizer y JavaScript para comenzar a reconocer los trazos de entrada de lápiz digital.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 06/30/2020
+ms.date: 08/24/2020
 ms.author: aahi
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 59cd4711ec3604779e57434af72460534b378af4
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: b8d8464fb9defb64c039ef9026812de89436091c
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407054"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050918"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-javascript"></a>Inicio rápido: Reconocimiento de la entrada de lápiz digital con la API REST Ink Recognizer y JavaScript
+
+[!INCLUDE [ink-recognizer-deprecation](../includes/deprecation-note.md)]
 
 Use este inicio rápido para empezar a usar la API Ink Recognizer en trazos de entrada de lápiz digital. Esta aplicación de JavaScript envía una solicitud de API que contiene los datos del trazo de tinta con formato JSON y muestra la respuesta.
 

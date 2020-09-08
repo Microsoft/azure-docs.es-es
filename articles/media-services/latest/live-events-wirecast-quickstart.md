@@ -6,15 +6,17 @@ ms.service: media-services
 ms.topic: quickstart
 ms.author: inhenkel
 author: IngridAtMicrosoft
-ms.date: 03/25/2020
-ms.openlocfilehash: 459f11844f873a911b3e5702e8c768b1cd22e504
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.date: 08/31/2020
+ms.openlocfilehash: 76bbb980b6430f7cffc23ec078e2c932128dc637
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985004"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265276"
 ---
 # <a name="create-an-azure-media-services-live-stream"></a>Creación de un streaming en vivo de Azure Media Services
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Este inicio rápido le ayudará a crear streaming en vivo de Azure Media Services mediante Azure Portal y Telestream Wirecast. Se supone que tiene una suscripción a Azure y que ha creado una cuenta de Media Services.
 

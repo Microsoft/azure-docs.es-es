@@ -1,14 +1,14 @@
 ---
 title: Administración de áreas de trabajo de Azure Sentinel a gran escala
 description: Obtenga información sobre cómo a administrar de forma eficaz Azure Sentinel en recursos delegados de clientes.
-ms.date: 06/17/2020
+ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 70810ca54c62e73d5dec76495eb5179b84db60fe
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 1734efb57b18cfc559144b13aaecb882612ca73b
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105275"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511259"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Administración de áreas de trabajo de Azure Sentinel a gran escala
 
@@ -17,6 +17,9 @@ Como proveedor de servicios, es posible que haya incorporado varios inquilinos d
 Azure Sentinel ofrece análisis de seguridad e inteligencia frente a amenazas, de forma que proporciona una única solución para la detección de alertas, la visibilidad de amenazas, la búsqueda proactiva y la respuesta a amenazas. Con Azure Lighthouse, puede administrar varias áreas de trabajo de Azure Sentinel en varios inquilinos a gran escala. Esto permite escenarios como la ejecución de consultas en varias áreas de trabajo o la creación de libros para visualizar y supervisar los datos de los orígenes de datos conectados para obtener información. La dirección IP, como las consultas y los cuadernos de estrategias, permanecen en el inquilino de administración, pero se puede usar para realizar la administración de seguridad en los inquilinos del cliente.
 
 Este tema proporciona información general sobre cómo usar [Azure Sentinel](../../sentinel/overview.md) de forma escalable para la visibilidad entre inquilinos y los servicios de seguridad administrada.
+
+> [!TIP]
+> Aunque en este tema hacemos referencia a proveedores de servicios y clientes, esta guía es aplicable también a [empresas que usan Azure Lighthouse para administrar varios inquilinos](../concepts/enterprise.md).
 
 ## <a name="architectural-considerations"></a>Consideraciones arquitectónicas
 
@@ -66,9 +69,9 @@ Puede implementar libros en el inquilino de administración y crear paneles a es
 
 También puede implementar libros directamente en un inquilino individual que administra para escenarios específicos de ese cliente.
 
-## <a name="run-queries-across-azure-sentinel-workspaces"></a>Ejecución de consultas en áreas de trabajo de Azure Sentinel
+## <a name="run-log-analytics-and-hunting-queries-across-azure-sentinel-workspaces"></a>Ejecución de Log Analytics y consultas de búsqueda en áreas de trabajo de Azure Sentinel
 
-Puede crear y guardar consultas de los análisis de registros para la detección de amenazas de forma centralizada en el inquilino de administración. Estas consultas se pueden realizar en todas las áreas de trabajo de Azure Sentinel de sus clientes mediante el operador de unión y la expresión de área de trabajo (). Para obtener más información consulte [Consultas entre áreas de trabajo](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-querying).
+Puede crear y guardar consultas de Log Analytics para la detección de amenazas de forma centralizada en el inquilino de administración, incluidas las [consultas de búsqueda](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-hunting). Estas consultas se pueden realizar en todas las áreas de trabajo de Azure Sentinel de sus clientes mediante el operador de unión y la expresión de área de trabajo (). Para obtener más información consulte [Consultas entre áreas de trabajo](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-querying).
 
 ## <a name="use-automation-for-cross-workspace-management"></a>Usar la automatización para la administración entre áreas de trabajo
 

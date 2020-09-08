@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6bd09a24202b599c1f008e7b046ea5f93ff0323
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4c4e34c6f13f7013847e99a362716fc9c570cdaf
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489799"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224924"
 ---
 # <a name="enable-and-use-azure-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Habilitación y uso de Azure Multi-Factor Authentication con aplicaciones heredadas mediante contraseñas de aplicación
 
@@ -41,6 +41,8 @@ Al usar las contraseñas de aplicación, deben aplicarse las siguientes consider
 * Las aplicaciones que almacenan en caché las contraseñas y las usan en escenarios locales pueden fallar porque no se conoce la contraseña de aplicación fuera de la cuenta profesional o educativa. Un ejemplo de este escenario es el de los mensajes de correo electrónico de Exchange que son locales pero se archivan en la nube. En este escenario, no funciona la misma contraseña.
 * Una vez habilitada Azure Multi-Factor Authentication en una cuenta de usuario, se pueden usar las contraseñas de aplicación con la mayoría de los clientes sin explorador como Outlook y Microsoft Skype Empresarial. Sin embargo, no se pueden realizar acciones administrativas con contraseñas de aplicación mediante aplicaciones sin explorador como Windows PowerShell. No se pueden realizar las acciones, incluso cuando el usuario tiene una cuenta administrativa.
     * Para ejecutar scripts de PowerShell, cree una cuenta de servicio con una contraseña segura y no la habilite para la verificación en dos pasos.
+* Si sospecha que una cuenta de usuario está en peligro y revoca o restablece la contraseña de la cuenta, también se deben actualizar las contraseñas de aplicación. Las contraseñas de aplicación no se revocan automáticamente cuando se revoca o restablece una contraseña de cuenta de usuario. El usuario debe eliminar las contraseñas de aplicación existentes y crear otras nuevas.
+   * Para obtener más información, consulte [Creación y eliminación de contraseñas de la aplicación en la página de comprobación de seguridad adicional](../user-help/multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-from-the-additional-security-verification-page).
 
 >[!WARNING]
 > Las contraseñas de aplicación no funcionan en entornos híbridos donde los clientes se comunican con los puntos de conexión de detección automática locales y en la nube. Las contraseñas de dominio deben autenticarse en local. Las contraseñas de aplicación deben autenticarse con la nube.

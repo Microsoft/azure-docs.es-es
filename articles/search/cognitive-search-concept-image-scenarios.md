@@ -8,12 +8,13 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 98054060210f55803d6e2811e1f494fd3ff00e48
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 56ec893de159f4c8a90c5a229ccf7669856fb066
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76838265"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020225"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Procesamiento y extracción de información de imágenes en escenarios de enriquecimiento con IA
 
@@ -42,7 +43,7 @@ Establezca el parámetro **parsingMode** en `json` (para indexar cada blob como 
 
 El valor predeterminado es de 2000 píxeles para el ancho máximo de las imágenes normalizadas, y la altura se basa en los tamaños máximos admitidos por la [habilidad de OCR](cognitive-search-skill-ocr.md) y la [habilidad de análisis de imágenes](cognitive-search-skill-image-analysis.md). La [aptitud de OCR](cognitive-search-skill-ocr.md) admite un ancho y un alto máximos de 4200 para los idiomas distintos del inglés y 10 000 para el inglés.  Si aumenta los límites máximos, el procesamiento podría generar un error en imágenes de mayor tamaño en función de la definición del conjunto de aptitudes y del idioma de los documentos. 
 
-Especifique imageAction en su [definición de indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer) como se indica a continuación:
+Especifique imageAction en su [definición de indexador](/rest/api/searchservice/create-indexer) como se indica a continuación:
 
 ```json
 {
@@ -214,7 +215,7 @@ Como ayuda adicional, si tiene que transformar las coordenadas normalizadas al e
 ```
 
 ## <a name="see-also"></a>Consulte también
-+ [Create indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [Create indexer (REST)](/rest/api/searchservice/create-indexer)
 + [Aptitud de análisis de imágenes](cognitive-search-skill-image-analysis.md)
 + [Habilidad de OCR](cognitive-search-skill-ocr.md)
 + [Habilidad de Combinación de texto](cognitive-search-skill-textmerger.md)

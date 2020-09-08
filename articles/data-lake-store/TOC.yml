@@ -22,11 +22,6 @@
       href: data-lake-store-get-started-powershell.md
     - name: Uso de la CLI de Azure
       href: data-lake-store-get-started-cli-2.0.md
-- name: Ejemplos
-  items:
-    - name: Elementos integrados de Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Procedimientos
   items:
     - name: Carga y movimiento de datos
@@ -143,7 +138,7 @@
           href: data-lake-store-power-bi.md
         - name: Uso con Data Catalog
           href: data-lake-store-with-data-catalog.md
-        - name: Uso con PolyBase en SQL Data Warehouse
+        - name: Uso con PolyBase en Azure Synapse Analytics
           href: ../sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md
         - name: Uso de SQL Server Integration Services
           href: 'https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager'
@@ -177,6 +172,9 @@
       href: /azure/templates/microsoft.datalakestore/allversions
     - name: Azure CLI
       href: 'https://docs.microsoft.com/cli/azure/dls'
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Azure Roadmap

@@ -5,12 +5,12 @@ description: Obtenga información sobre los procedimientos recomendados del oper
 services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: c4f56cf4e04b9df31c8c4204d396ead8073ec526
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c2734aa8e4ebf0bdb693a49c3ba785dd134e8c83
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244215"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003060"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para administrar la seguridad y las actualizaciones de los clústeres en Azure Kubernetes Service (AKS)
 
@@ -19,7 +19,7 @@ A medida que administra los clústeres en Azure Kubernetes Service (AKS), es cla
 En este artículo se indica cómo proteger el clúster de AKS. Aprenderá a:
 
 > [!div class="checklist"]
-> * Usar Azure Active Directory y los controles de acceso basado en roles para proteger el acceso al servidor de API
+> * Usar Azure Active Directory y el control de acceso basado en rol (RBAC) para proteger el acceso al servidor de API
 > * Proteger el acceso del contenedor a los recursos del nodo
 > * Actualización de un clúster AKS a la última versión de Kubernetes
 > * Mantener actualizados los nodos y aplicar automáticamente los parches de seguridad
@@ -53,7 +53,7 @@ De la misma manera, debería conceder a los usuarios o a los grupos el menor nú
 Para un control más detallado de las acciones de los contenedores, también puede usar las características de seguridad incorporadas de Linux como *AppArmor*y *seccomp*. Estas características se definen en el nivel de nodo y, después, se implementan a través de un manifiesto de pod. Las características de seguridad integradas de Linux solo están disponibles en los pods y los nodos de Linux.
 
 > [!NOTE]
-> Los entornos de Kubernetes, tanto en AKS como en cualquier otro lugar, no están completamente seguros ante el uso de varios inquilinos hostiles. Utilizar otras características de seguridad adicionales, como *AppArmor*, *seccomp*, *Pod Security Policies* o los controles de acceso basados en roles (RBAC) más específicos, puede hacer que las vulnerabilidades de seguridad sean menos frecuentes. Sin embargo, para que la seguridad resulte efectiva cuando se ejecutan cargas de trabajo multiinquilino hostiles, el hipervisor es el único nivel de seguridad en el que debe confiar. El dominio de seguridad de Kubernetes se convierte en todo el clúster, no en un nodo específico. En el caso de estos tipos de cargas de trabajo multiinquilino hostiles, debe usar clústeres que estén físicamente aislados.
+> Los entornos de Kubernetes, tanto en AKS como en cualquier otro lugar, no están completamente seguros ante el uso de varios inquilinos hostiles. El uso de características de seguridad adicionales, como *AppArmor*, *seccomp*, las *directivas de seguridad de pod* o el control de acceso basado en rol (RBAC), más pormenorizado, en los nodos, hace que sea más difícil aprovechar las vulnerabilidades. Sin embargo, para que la seguridad resulte efectiva cuando se ejecutan cargas de trabajo multiinquilino hostiles, el hipervisor es el único nivel de seguridad en el que debe confiar. El dominio de seguridad de Kubernetes se convierte en todo el clúster, no en un nodo específico. En el caso de estos tipos de cargas de trabajo multiinquilino hostiles, debe usar clústeres que estén físicamente aislados.
 
 ### <a name="app-armor"></a>AppArmor
 

@@ -1,18 +1,19 @@
 ---
 title: Uso de un recurso compartido de archivos de Azure con Windows | Microsoft Docs
-description: Aprenda a usar un recurso compartido de archivos de Azure con Windows y Windows Server.
+description: Aprenda a usar un recurso compartido de archivos de Azure con Windows y Windows Server. Use recursos compartidos de archivos de Azure con SMB 3.0 en instalaciones de Windows que se ejecuten de forma local o en máquinas virtuales de Azure.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bb9e7582317851d1968e104cd351a2b5e02b1e19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 485a054a91bd3db9b116cf80a4e457d013c20ea1
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509785"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071081"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Uso de un recurso compartido de archivos de Azure con Windows
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden usar sin problemas en Windows y Windows Server. En este artículo se describen los aspectos que se deben tener en cuenta al usar un recurso compartido de archivos de Azure con Windows y Windows Server.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b45b2294d56de896849dca0f387a4e26b845aa93
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: df25278d37e518e99bc315a315e017b98c7f4e58
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204198"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049390"
 ---
 # <a name="what-is-conditional-access-report-only-mode"></a>¿Qué es el modo de solo informe de acceso condicional?
 
@@ -51,4 +51,4 @@ Los administradores pueden crear varias directivas en modo de solo informe, por 
  
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Configuración del modo de solo informe en una directiva de acceso condicional](howto-conditional-access-report-only.md)
+[Configuración del modo de solo informe en una directiva de acceso condicional](howto-conditional-access-insights-reporting.md)

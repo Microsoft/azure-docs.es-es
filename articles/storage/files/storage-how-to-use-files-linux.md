@@ -1,32 +1,32 @@
 ---
 title: Uso de Azure Files con Linux | Microsoft Docs
-description: Aprenda a montar un recurso compartido de archivos de Azure mediante SMB en Linux.
+description: Aprenda a montar un recurso compartido de archivos de Azure mediante SMB en Linux. Consulte la lista de requisitos previos. Revise las consideraciones de seguridad de SMB en los clientes de Linux.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 8f668844951a2416b25d1649721fc005a0d70b75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d00b0558f85e18dfb53736d89fead953cc01ee60
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509853"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053174"
 ---
 # <a name="use-azure-files-with-linux"></a>Uso de Azure Files con Linux
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden montar en distribuciones de Linux mediante el [cliente kernel de SMB](https://wiki.samba.org/index.php/LinuxCIFS). En este artículo se muestran dos maneras de montar un recurso compartido de archivos de Azure: a petición, con el comando `mount` y al inicio, mediante la creación de una entrada en `/etc/fstab`.
 
 El método recomendado para montar un recurso compartido de archivos de Azure en Linux es usar SMB 3.0. De forma predeterminada, Azure Files requiere cifrado en tránsito, que solo es compatible con SMB 3.0. Azure Files también admite SMB 2.1, que no admite el cifrado en tránsito, pero no puede montar recursos compartidos de archivos de Azure con SMB 2.1 desde otra región de Azure o de forma local por motivos de seguridad. A menos que la aplicación requiera específicamente SMB 2.1, hay pocas razones para usarlo, ya que las distribuciones de Linux más populares publicadas recientemente admiten SMB 3.0:  
 
-| | SMB 2.1 <br>(Puede montar en máquinas virtuales dentro de la misma región de Azure) | SMB 3.0 <br>(Puede montar desde el nivel local a entre regiones) |
+| Distribución de Linux | SMB 2.1 <br>(Puede montar en máquinas virtuales dentro de la misma región de Azure) | SMB 3.0 <br>(Puede montar desde el nivel local a entre regiones) |
 | --- | :---: | :---: |
 | Ubuntu | 14.04+ | 16.04 (o posterior) |
 | Red Hat Enterprise Linux (RHEL) | 7 (o posterior) | 7.5 (o posterior) |
 | CentOS | 7 (o posterior) |  7.5 (o posterior) |
 | Debian | 8 (o posterior) | 10+ |
 | openSUSE | 13.2 (o posterior) | 42.3+ |
-| SUSE Linux Enterprise Server | 12+ | 12 SP3 (o posterior) |
+| SUSE Linux Enterprise Server | 12+ | 12 SP2+ |
 
 Si usa una distribución de Linux que no aparece en la tabla anterior, puede comprobar si la distribución de Linux admite SMB 3.0 con cifrado comprobando la versión de kernel de Linux. SMB 3.0 con cifrado se ha agregado a la versión 4.11 de kernel de Linux. El comando `uname` devolverá la versión de kernel de Linux en uso:
 
@@ -47,7 +47,7 @@ uname -r
     sudo apt install cifs-utils
     ```
 
-    En **Fedora**, **Red Hat Enterprise Linux 8 +** , y **CentOS 8 +** , use el administrador de paquetes `dnf`:
+    En **Fedora**, **Red Hat Enterprise Linux 8 +**, y **CentOS 8 +**, use el administrador de paquetes `dnf`:
 
     ```bash
     sudo dnf install cifs-utils
@@ -69,7 +69,7 @@ uname -r
 
 * **La versión más reciente de la interfaz de la línea de comandos (CLI).** Para más información sobre cómo instalar la CLI de Azure, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) y seleccione el sistema operativo. Si prefiere usar el módulo de Azure PowerShell en PowerShell 6+, puede hacerlo. Sin embargo, las instrucciones siguientes son para la CLI de Azure.
 
-* **Asegúrese de que el puerto 445 está abierto**: SMB se comunica a través del puerto TCP 445: compruebe que el firewall no bloquea el puerto TCP 445 en el equipo cliente.  Remplace **<your-resource-group>** y **<your-storage-account>**
+* **Asegurarse de que el puerto 445 está abierto**: SMB se comunica a través del puerto TCP 445, así que compruebe que el firewall no bloquea el puerto TCP 445 en la máquina cliente.  Remplace **<your-resource-group>** y **<your-storage-account>**
     ```bash
     resourceGroupName="<your-resource-group>"
     storageAccountName="<your-storage-account>"
@@ -205,7 +205,7 @@ Cuando haya terminado de usar el recurso compartido de archivos de Azure, puede 
     sudo apt update
     sudo apt install autofs
     ```
-    En **Fedora**, **Red Hat Enterprise Linux 8 +** , y **CentOS 8 +** , use el administrador de paquetes `dnf`:
+    En **Fedora**, **Red Hat Enterprise Linux 8 +**, y **CentOS 8 +**, use el administrador de paquetes `dnf`:
     ```bash
     sudo dnf install autofs
     ```

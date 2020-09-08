@@ -1,17 +1,17 @@
 ---
 title: Montaje del clúster de Avere vFXT - Azure
-description: Cómo montar los clientes con Avere vFXT para Azure
+description: Obtenga información sobre cómo conectar clientes a un clúster de vFXT en Avere vFXT for Azure y cómo equilibrar la carga del tráfico de clientes entre los nodos del clúster.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 12/16/2019
 ms.author: rohogue
-ms.openlocfilehash: e8850162847f2dd416b0951a797e2eb0cd7d55d2
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 44a4e1293bc4c5a54e1e345d5cf95ba307a7b120
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229574"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272578"
 ---
 # <a name="mount-the-avere-vfxt-cluster"></a>Montaje del clúster de Avere de vFXT
 

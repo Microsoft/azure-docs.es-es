@@ -10,13 +10,13 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.custom: seodec2018
-ms.openlocfilehash: 2c13931c7ab7c084b635abb7080f97de6d4bf4bb
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.custom: seodec2018, devx-track-csharp
+ms.openlocfilehash: 2760e6a46801871a25ecbe23a2400211ae312650
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873889"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88921705"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Inicio rápido: Realizar búsquedas en la Web con la API de REST Bing Web Search y C#
 

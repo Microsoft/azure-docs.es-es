@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc955fe64ae68cb1248b0e616357bccf82f5f036
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 1387c8525ec14b1db330252b78474bba66db8b5b
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115760"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276140"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Guía de inicio rápido
 
@@ -40,7 +40,7 @@ Asegúrese de que se cumplen los siguientes requisitos previos:
    - Si el firewall o el proxy lo permiten, agregue las conexiones a la lista de permitidos para las direcciones URL **\*.msappproxy.net** en el puerto 443. En caso contrario, permita el acceso a los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653), que se actualizan cada semana. Este requisito solo es aplicable cuando se habilita la característica. No es necesario para los inicios de sesión de usuarios reales.
 
     >[!NOTE]
-    >Las versiones de Azure AD Connect 1.1.557.0, 1.1.558.0, 1.1.561.0 y 1.1.614.0 tienen un problema relacionado con la sincronización de hash de contraseña. Si _no_ tiene pensado utilizar la sincronización de hash de contraseña junto con la autenticación de paso a través, consulte las [notas del historial de versiones de Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) para más información.
+    >Las versiones de Azure AD Connect 1.1.557.0, 1.1.558.0, 1.1.561.0 y 1.1.614.0 tienen un problema relacionado con la sincronización de hash de contraseña. Si _no_ tiene pensado utilizar la sincronización de hash de contraseña junto con la autenticación de paso a través, consulte las [notas del historial de versiones de Azure AD Connect](./reference-connect-version-history.md) para más información.
 
 * **Uso de una topología de Azure AD Connect**: asegúrese de que usa una de las topologías compatibles con Azure AD Connect que se describen [aquí](plan-connect-topologies.md).
 
@@ -51,7 +51,7 @@ Asegúrese de que se cumplen los siguientes requisitos previos:
     * Sincronice en Azure AD mediante Azure AD Connect.
     * Contenga usuarios para los que desea habilitar el SSO de conexión directa.
     
-* **Habilitación de la autenticación moderna**: para que esta característica funcione, es preciso que habilite la [autenticación moderna](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) en el inquilino.
+* **Habilitación de la autenticación moderna**: para que esta característica funcione, es preciso que habilite la [autenticación moderna](/office365/enterprise/modern-auth-for-office-2013-and-2016) en el inquilino.
 
 * **Uso de las versiones más recientes de los clientes de Office 365**: para obtener una experiencia de inicio de sesión silenciosa con clientes de Office 365 (Outlook, Word, Excel, etc.), los usuarios deben usar las versiones 16.0.8730.xxxx o superiores.
 
@@ -187,11 +187,11 @@ Asegúrese de que la máquina que ejecuta macOS se ha unido a AD. Las instruccio
 
 #### <a name="microsoft-edge-based-on-chromium-all-platforms"></a>Microsoft Edge basado en Chromium (todas las plataformas)
 
-Si ha reemplazado la configuración de las directivas [AuthNegotiateDelegateAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) o [AuthServerAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) en el entorno, asegúrese de agregar también la dirección URL de Azure AD (`https://autologon.microsoftazuread-sso.com`).
+Si ha reemplazado la configuración de las directivas [AuthNegotiateDelegateAllowlist](/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) o [AuthServerAllowlist](/DeployEdge/microsoft-edge-policies#authserverallowlist) en el entorno, asegúrese de agregar también la dirección URL de Azure AD (`https://autologon.microsoftazuread-sso.com`).
 
 #### <a name="microsoft-edge-based-on-chromium-macos-and-other-non-windows-platforms"></a>Microsoft Edge basado en Chromium (macOS y otras plataformas que no son de Windows)
 
-En Microsoft Edge basado en Chromium en macOS y otras plataformas que no son de Windows, consulte la [lista de directivas de Microsoft Edge basado en Chromium](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) para obtener información sobre cómo agregar la dirección URL de Azure AD para la autenticación integrada a la lista de permitidos.
+En Microsoft Edge basado en Chromium en macOS y otras plataformas que no son de Windows, consulte la [lista de directivas de Microsoft Edge basado en Chromium](/DeployEdge/microsoft-edge-policies#authserverallowlist) para obtener información sobre cómo agregar la dirección URL de Azure AD para la autenticación integrada a la lista de permitidos.
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (todas las plataformas)
 
@@ -211,7 +211,7 @@ La opción SSO de conexión directa no funciona en modo de exploración privada 
 
 Para probar la característica con un usuario específico, asegúrese de que se cumplen todas las condiciones siguientes:
   - El usuario inicia sesión en un dispositivo corporativo.
-  - El dispositivo se une a su dominio de Active Directory. El dispositivo _no_ debe estar [unido a Azure AD](../active-directory-azureadjoin-overview.md).
+  - El dispositivo se une a su dominio de Active Directory. El dispositivo _no_ debe estar [unido a Azure AD](../devices/overview.md).
   - El dispositivo tiene una conexión directa a su controlador de dominio (DC), en la red cableada o inalámbrica de la empresa o mediante una conexión de acceso remoto, como una conexión VPN.
   - Ha [implantado la característica](#step-3-roll-out-the-feature) para este usuario mediante la directiva de grupo.
 

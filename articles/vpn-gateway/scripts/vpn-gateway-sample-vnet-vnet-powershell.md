@@ -1,6 +1,6 @@
 ---
 title: 'Ejemplo de script de Azure PowerShell: configuración de una VPN de red virtual a red virtual | Microsoft Docs'
-description: Configure una VPN de sitio a sitio.
+description: Aprenda a usar un script de PowerShell para configurar una conexión de puerta de enlace VPN de red virtual a red virtual de sitio a sitio.
 services: vpn-gateway
 documentationcenter: vpn-gateway
 author: kumudD
@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 01/09/2020
 ms.author: alzam
-ms.openlocfilehash: 5a69df3893a3bf32ca2af1be62744991346ee048
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 949c2b7810bc6b4f5a80b9932427f4aa3565794e
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068362"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030374"
 ---
 # <a name="use-powershell-to-configure-a-vnet-to-vnet-vpn-gateway-connection"></a>Uso de PowerShell para configurar una conexión de puerta de enlace de VPN de red virtual a red virtual
 

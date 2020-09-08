@@ -1,7 +1,7 @@
 ---
 title: 'Ejemplo de script de la CLI de Azure: eliminación de un almacén de Azure App Configuration'
 titleSuffix: Azure App Configuration
-description: Uso de un script de la CLI de Azure para eliminar un almacén de Azure App Configuration
+description: Eliminación de un almacén de Azure App Configuration mediante un script de ejemplo de la CLI de Azure. Consulte los vínculos de los artículos de referencia a comandos que se utilizan en el script.
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
@@ -10,12 +10,12 @@ ms.topic: sample
 ms.date: 02/19/2020
 ms.author: lcozzens
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ba04b1a9aefa942c862b89f853d015762579937d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: e107ba9628eca384f518f7a241be5c00c278ef0a
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494849"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88588349"
 ---
 # <a name="delete-an-azure-app-configuration-store"></a>Eliminación de un almacén de Azure App Configuration
 

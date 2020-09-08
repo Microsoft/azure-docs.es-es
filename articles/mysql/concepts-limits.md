@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: c562b8a82ef21e78eccad2c2ed6159251056f4fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24a214d63fd01fc4353be6563d18f9e28b820c6f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392699"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036528"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitaciones en Azure Database for MySQL
 En las siguientes secciones se describen la capacidad, la compatibilidad del motor de almacenamiento, la compatibilidad de los privilegios, la compatibilidad de las instrucciones de manipulación de datos y los límites funcionales del servicio de base de datos. Consulte también las [limitaciones generales](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) que se aplican al motor de base de datos MySQL.
@@ -43,7 +43,7 @@ Tras la implementación inicial, un servidor de Azure para MySQL incluye tablas 
 - Rol DBA: muchos parámetros y valores de servidor pueden reducir por error el rendimiento del servidor o invalidar las propiedades ACID del sistema de administración de bases de datos (DBMS). Por lo tanto, para mantener la integridad del servicio y el SLA en un nivel de producto, no se expone el rol DBA en este servicio. La cuenta de usuario predeterminada, que se crea a la vez que las instancias de base de datos, permite a los usuarios realizar la mayoría de las instrucciones DDL y DML en la instancia de base de datos administrada. 
 - Privilegio SUPER: del mismo modo, los [privilegios SUPER](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) también están restringidos.
 - DEFINER: requiere privilegios SUPER para crear y está restringido. Si importa datos mediante una copia de seguridad, quite los comandos `CREATE DEFINER` manualmente o mediante el comando `--skip-definer` durante una operación mysqldump.
-
+- Bases de datos del sistema: En Azure Database for MySQL, la [base de datos del sistema MySQL](https://dev.mysql.com/doc/refman/8.0/en/system-schema.html) es de solo lectura, ya que se usa para admitir varias funcionalidades del servicio PaaS. Tenga en cuenta que no puede cambiar nada en la base de datos del sistema `mysql`.
 
 ## <a name="data-manipulation-statement-support"></a>Compatibilidad de las instrucciones de manipulación de datos
 

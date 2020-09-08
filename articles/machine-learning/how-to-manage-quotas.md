@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 05/08/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4
-ms.openlocfilehash: a75a5942ad0aac39f2fe6afb9c62a254c4645d0a
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: a9ae3d2789758d03405fb5be82181c799d1ea692
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372950"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141132"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Administración y aumento de las cuotas de los recursos con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -46,13 +46,9 @@ Este es un desglose de los límites de cuota de los distintos tipos de recursos 
 > Los límites están sujetos a cambios. El más reciente siempre se puede encontrar en el [documento](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits/) de la cuota de nivel de servicio para todo Azure.
 
 ### <a name="virtual-machines"></a>Máquinas virtuales
-Para cada suscripción de Azure, hay un límite en el número de máquinas virtuales que puede tener en los servicios o bien de forma independiente. Dicho límite se produce a nivel de región tanto en el total de núcleos como por familia.
-
-Los núcleos de las máquinas virtuales tienen un límite regional total y un límite de serie por tamaño (Dv2, F, etc.), y ambos límites se aplican por separado. Por ejemplo, considere una suscripción con un límite total de núcleos de máquinas virtuales de Este de EE. UU. de 30, un límite de núcleos de serie A de 30 y un límite de núcleos de serie D de 30. Esta suscripción podría volver a implementar 30 máquinas virtuales A1, 30 máquinas virtuales D1 o una combinación de las dos, para que no se superen los 30 núcleos (por ejemplo, 10 máquinas virtuales A1 y 20 máquinas virtuales D1).
+En cada suscripción de Azure, hay un límite en el número de máquinas virtuales que se pueden tener entre todos los servicios o de forma independiente. Los núcleos de las máquinas virtuales tienen un límite regional total y un límite de serie por tamaño (Dv2, F, etc.), y ambos límites se aplican por separado. Por ejemplo, considere una suscripción con un límite total de núcleos de máquinas virtuales de Este de EE. UU. de 30, un límite de núcleos de serie A de 30 y un límite de núcleos de serie D de 30. Esta suscripción podría volver a implementar 30 máquinas virtuales A1, 30 máquinas virtuales D1 o una combinación de las dos, para que no se superen los 30 núcleos (por ejemplo, 10 máquinas virtuales A1 y 20 máquinas virtuales D1).
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
-
-Para obtener una lista más detallada y actualizada de los límites de cuota, consulte el artículo de la [cuota en todo Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 ### <a name="azure-machine-learning-compute"></a>Proceso de Azure Machine Learning
 Para [Proceso de Azure Machine Learning](concept-compute-target.md#azure-machine-learning-compute-managed), hay un límite de cuota predeterminado tanto sobre el número de núcleos como el número de recursos de proceso único permitido por región en una suscripción. Esta cuota es independiente de la cuota de núcleos de máquina virtual anterior y los límites de núcleo no se comparten entre los dos tipos de recursos, ya que AmlCompute es un servicio administrado que implementa los recursos en un modelo hospedado representado.
@@ -84,16 +80,10 @@ En el caso de las [canalizaciones de Azure Machine Learning](concept-ml-pipeline
 - El número máximo de pasos permitidos en una canalización es de 30 000.
 - El número máximo de la suma de ejecuciones basadas en programación y de extracción de blobs para las programaciones desencadenadas por el blog de canalizaciones publicadas por suscripción al mes es 100.000
 
-> [!NOTE]
-> Si quiere aumentar este límite, póngase en contacto con el [soporte técnico de Microsoft](https://azure.microsoft.com/support/options/).
-
 ### <a name="container-instances"></a>Instancias de contenedor
 
 También hay un límite en el número de instancias de contenedor que se pueden poner en marcha en un período de tiempo determinado (el ámbito es una hora) o en toda la suscripción.
-
-[!INCLUDE [container-instances-limits](../../includes/container-instances-limits.md)]
-
-Para obtener una lista más detallada y actualizada de los límites de cuota, consulte [aquí](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits) el artículo de la cuota en todo Azure.
+Para conocer los límites, consulte [Límites de las instancias de contenedor](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits).
 
 ### <a name="storage"></a>Storage
 Hay un límite en el número de cuentas de almacenamiento por región, así como en una suscripción determinada. El límite predeterminado es de 250 e incluye las cuentas Estándar y Premium Storage. Si necesita más de 250 cuentas de almacenamiento en una región dada, realice una solicitud a través del [servicio de soporte técnico de Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). El equipo de Azure Storage revisará su caso empresarial y podría aprobar hasta 250 cuentas de almacenamiento para una región dada.
@@ -117,24 +107,26 @@ Para establecer cuotas en el nivel de área de trabajo, vaya a cualquier área d
 
 ## <a name="view-your-usage-and-quotas"></a>Visualización del uso y las cuotas
 
-Proceso de Azure Machine Learning se administra de forma independiente de otras cuotas de recursos de Azure en su suscripción. Para ver esta cuota, debe profundizar en los servicios de Machine Learning Service.  
+La cuota de Proceso de Azure Machine Learning de la suscripción se administra de forma independiente de otras cuotas de recursos de Azure. Para ver esta cuota, debe profundizar en los servicios de Machine Learning Service.  
 
 1. En el panel izquierdo, seleccione **Machine Learning Service** y, a continuación, seleccione cualquier área de trabajo en la lista que aparecerá.
 
-1. En la tabla siguiente, en la **sección Soporte técnico y solución de problemas**, seleccione **Uso y cuotas** para ver el uso y los límites de cuota actuales.
+2. En la tabla siguiente, en la **sección Soporte técnico y solución de problemas**, seleccione **Uso y cuotas** para ver el uso y los límites de cuota actuales.
 
-1. Seleccione una suscripción para ver los límites de cuota. No olvide filtrar por la región en que esté interesado.
+3. Seleccione una suscripción para ver los límites de cuota. No olvide filtrar por la región en que esté interesado.
 
-1. Ahora puede alternar entre una vista de nivel de suscripción y una vista de nivel de área de trabajo:
+4. Ahora puede alternar entre una vista de nivel de suscripción y una vista de nivel de área de trabajo:
     + **Vista de suscripción:** esta vista le permite ver el uso de la cuota de núcleos por familia de máquinas virtuales, ampliarla por área de trabajo y ampliarla aún más por los nombres de clúster reales. Esta vista es óptima para entrar rápidamente en los detalles del uso de los núcleos de una familia de máquinas virtuales en particular para ver la división por áreas de trabajo y por clústeres subyacentes de cada una de esas áreas de trabajo. La convención general de esta vista es (uso/cuota), donde el uso es el número actual de núcleos escalados verticalmente y la cuota es el número máximo lógico de núcleos al que se puede escalar el recurso. Para cada **área de trabajo**, la cuota sería la cuota de nivel de área de trabajo (como se explicó anteriormente), que indica el número máximo de núcleos a los que se puede escalar para una determinada familia de máquinas virtuales. De manera similar para un **clúster**, la cuota es en realidad los núcleos correspondientes al número máximo de nodos a los que el clúster puede escalar definido por la propiedad max_nodes.
-
+    
     + **Vista de área de trabajo:** esta vista le permite ver el uso de la cuota de núcleos por área de trabajo, ampliarla por familia de máquinas virtuales y ampliarla aún más por los nombres de clúster reales. Esta vista es óptima para entrar rápidamente en los detalles del uso de los núcleos de un área de trabajo en particular para ver la división por familias de máquinas virtuales y por clústeres subyacentes de cada una de esas familias.
 
 Mediante Azure Portal es fácil ver la cuota de otros diversos recursos de Azure, como las máquinas virtuales, el almacenamiento o la red.
 
 1. En el panel izquierdo, seleccione **Todos los servicios** y, después, seleccione **Suscripciones** en la categoría General.
 
-1. En la lista de suscripciones, seleccione la suscripción cuya cuota busca.
+2. En la lista de suscripciones, seleccione la suscripción cuya cuota busca.
+
+3. Seleccione **Uso y cuotas** para ver los límites y el uso actuales de la cuota. Use los filtros para seleccionar el proveedor y las ubicaciones. 
 
 ## <a name="request-quota-increases"></a>Solicitud de aumento de cuota
 
@@ -149,8 +141,4 @@ Al solicitar un aumento de cuota, es preciso seleccionar el servicio para el que
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información en estos artículos:
-
 + [Planeamiento y administración de los costos de Azure Machine Learning](concept-plan-manage-cost.md)
-
-+ [Aumento de la cuota](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors).

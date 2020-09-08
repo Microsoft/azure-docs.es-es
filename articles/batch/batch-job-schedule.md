@@ -4,12 +4,12 @@ description: Utilice la programación de trabajos para administrar las tareas.
 ms.topic: how-to
 ms.date: 02/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 89881808e48b3fbe44fbcd5352a15afc4eb427ef
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 7da3c78e00f5d7e41a5396603cf4885a50cb6e5c
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964352"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146358"
 ---
 # <a name="schedule-jobs-for-efficiency"></a>Programación de trabajos para mejorar la eficacia
 
@@ -67,7 +67,7 @@ Después de seleccionar **Guardar**, si va a **Programaciones de trabajos** en e
 
 ## <a name="for-more-information"></a>Para obtener más información
 
-Para administrar un trabajo mediante la CLI de Azure, consulte [az batch job-schedule](/cli/azure/batch/job-schedule?view=azure-cli-latest).
+Para administrar un trabajo mediante la CLI de Azure, consulte [az batch job-schedule](/cli/azure/batch/job-schedule).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

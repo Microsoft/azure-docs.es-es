@@ -10,18 +10,20 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/21/2018
+ms.topic: conceptual
+ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: 79f06bd5d6af05e334faf4e1f6d8cd3e358f89ba
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 58edf1e0257cf9de8d8f3a3b56f295dcaf1f6cbf
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87039198"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89298205"
 ---
-# <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Diseño del sistema de protección de contenido con DRM múltiple con control de acceso 
+# <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Diseño del sistema de protección de contenido con DRM múltiple con control de acceso
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 El diseño y la creación de un subsistema de administración de derechos digitales (DRM) para una solución OTT o de streaming en línea es una tarea compleja. Los operadores o proveedores de vídeo en línea suelen subcontratar esta tarea a proveedores de servicios DRM especializados. El objetivo de este documento es presentar un diseño de referencia y una implementación de referencia del subsistema DRM de un extremo a otro en una solución de streaming en línea o de OTT.
 

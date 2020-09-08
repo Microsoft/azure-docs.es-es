@@ -5,29 +5,36 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 08/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 596296069686e843d0be1899cce8929417b70bcc
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: bf041163c6b2759b3d38e48ee98a0d528ec601db
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964590"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606904"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Entienda la factura de Azure Cosmos DB
 
-Azure Cosmos DB, como servicio de bases de datos nativo de la nube totalmente administrado, simplifica la facturación al cobrar solo el rendimiento aprovisionado y el almacenamiento consumido. No existen tarifas de licencia adicionales, costos de hardware, de utilidades ni de instalaciones en comparación con las alternativas locales u hospedadas en IaaS. Al considerar las funcionalidades de varias regiones de Azure Cosmos DB, el servicio de base de datos proporciona una considerable reducción de costos en comparación con soluciones locales o IaaS.
+Como servicio de bases de datos nativo de la nube totalmente administrado, Azure Cosmos DB simplifica la facturación al cobrar solo las operaciones de la base de datos y el almacenamiento consumido. No existen tarifas de licencia adicionales, costos de hardware, de utilidades ni de instalaciones en comparación con las alternativas locales u hospedadas en IaaS. Al considerar las funcionalidades de varias regiones de Azure Cosmos DB, el servicio de base de datos proporciona una considerable reducción de costos en comparación con soluciones locales o IaaS.
 
-Con Azure Cosmos DB, se le factura por hora según el rendimiento aprovisionado y el almacenamiento consumido. Para el rendimiento aprovisionado, la unidad de facturación es 100 RU/s por hora; consulte la [página de precios](https://azure.microsoft.com/pricing/details/cosmos-db/) para obtener la información más reciente sobre los precios. Para el almacenamiento consumido, se le factura por 1 GB de almacenamiento al mes; consulte la [página de precios](https://azure.microsoft.com/pricing/details/cosmos-db/) para obtener la información más reciente sobre los precios.
+- **Operaciones de la base de datos**: la forma en que se le cobran las operaciones de base de datos depende del tipo de cuenta de Azure Cosmos que se use.
 
-En este artículo se usan algunos ejemplos para ayudarle a entender los detalles que ve en la factura mensual. Los números que se muestran en los ejemplos pueden ser diferentes si los contenedores de Azure Cosmos tienen una cantidad diferente de rendimiento aprovisionado, si abarcan varias regiones o se ejecutan para un periodo diferente durante un mes. En todos los ejemplos de este artículo se calcula la factura según la información de precios que se muestra en la [página de precios.](https://azure.microsoft.com/pricing/details/cosmos-db/)
+  - **Rendimiento aprovisionado**: la facturación se realiza por hora al rendimiento máximo aprovisionado para una concreta, en incrementos de 100 RU/s.
+  - **Sin servidor**: la facturación se realiza por hora a la cantidad total de unidades de solicitud usada por las operaciones de base de datos.
+
+- **Almacenamiento**: se le cobra una tarifa plana por la cantidad total de almacenamiento (GB) usada por los datos y los índices en una hora concreta.
+
+Consulte la [página de precios](https://azure.microsoft.com/pricing/details/cosmos-db/) para obtener la información sobre los precios más reciente.
+
+En este artículo se usan algunos ejemplos para ayudarle a entender los detalles que ve en la factura mensual. Los números que se muestran en los ejemplos pueden ser diferentes si los contenedores de Azure Cosmos tienen una cantidad diferente de rendimiento aprovisionado, si abarcan varias regiones o se ejecutan para un periodo diferente durante un mes. En todos los ejemplos de este artículo se calcula la factura según la información de precios que se muestra en la [página de precios](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 > [!NOTE]
 > La facturación es para cualquier parte de una hora de reloj, no una duración de 60 minutos. Todos los ejemplos que se muestran en este documento se basan en el precio de una cuenta de Azure Cosmos implementada en una región no gubernamental de Estados Unidos. Los precios y el cálculo varían en función de la región que use; consulte la [página de precios de Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) para obtener más información.
 
 ## <a name="billing-examples"></a>Ejemplos de facturación
 
-### <a name="billing-example---throughput-on-a-container-full-month"></a>Ejemplo de facturación: rendimiento en un contenedor (mes completo)
+### <a name="billing-example---provisioned-throughput-on-a-container-full-month"></a>Ejemplo de facturación: rendimiento aprovisionado en un contenedor (mes completo)
 
 * Supongamos que configura un rendimiento de 1000 RU/s en un contenedor, y existe durante 24 horas * 30 días del mes = 720 horas en total.  
 
@@ -39,13 +46,21 @@ En este artículo se usan algunos ejemplos para ayudarle a entender los detalles
 
 * La factura mensual total mostrará 7200 unidades (de 100 RU), lo que costará 57,60 USD.
 
-### <a name="billing-example---throughput-on-a-container-partial-month"></a>Ejemplo de facturación: rendimiento en un contenedor (mes parcial)
+### <a name="billing-example---provisioned-throughput-on-a-container-partial-month"></a>Ejemplo de facturación: rendimiento aprovisionado en un contenedor (mes parcial)
 
 * Supongamos que creamos un contenedor con rendimiento aprovisionado de 2500 RU/s. El contenedor tiene una duración de 24 horas durante el mes (por ejemplo, lo eliminamos 24 horas después de crearlo).  
 
 * Veremos 600 unidades en la factura (2500 RU/s / 100 RU/s/unidad * 24 horas). El costo será de 4,80 USD (600 unidades * 0,008 USD/unidad).
 
 * La factura total para el mes será de 4,80 USD.
+
+### <a name="billing-example---serverless-container"></a>Ejemplo de facturación: contenedor sin servidor
+
+* Supongamos que creamos un contenedor sin servidor. 
+
+* A lo largo de un mes, emitimos solicitudes de base de datos que usan un total de 500 000 unidades de solicitud. El costo será de 0,125 USD (500 000 * 0,25 USD/millón).
+
+* La factura total para el mes será de 0,125 USD.
 
 ### <a name="billing-rate-if-storage-size-changes"></a>Tasa de facturación si cambia el tamaño de almacenamiento
 
@@ -55,7 +70,7 @@ La capacidad de almacenamiento se factura en unidades de la cantidad máxima de 
 
 Se le cobra la tarifa plana por cada hora durante la cual exista el contenedor o la base de datos, independientemente del uso o de si el contenedor o la base de datos están activos durante menos de una hora. Por ejemplo, si crea un contenedor o una base de datos y los elimina a los 5 minutos, en la factura aparecerá como 1 hora.
 
-### <a name="billing-rate-when-throughput-on-a-container-or-database-scales-updown"></a>Tasa de facturación cuando el rendimiento en un contenedor o base de datos se escala o reduce verticalmente
+### <a name="billing-rate-when-provisioned-throughput-on-a-container-or-database-scales-updown"></a>Tasa de facturación cuando el rendimiento aprovisionado en un contenedor o base de datos se escala o reduce verticalmente
 
 Si aumenta el rendimiento aprovisionado a las 9:30 de la mañana de 400 RU/s a 1000 RU/s y lo vuelve a reducir a las 10:45 a 400 RU/s, se le cobrarán dos horas de 1000 RU/s. 
 
@@ -75,7 +90,7 @@ Si aumenta el rendimiento aprovisionado para un contenedor o un conjunto de cont
 
 :::image type="content" source="./media/understand-your-bill/bill-example1.png" alt-text="Ejemplo de factura de rendimiento dedicado":::
 
-### <a name="billing-example-containers-with-shared-throughput-mode"></a>Ejemplo de facturación: contenedores con un modo de rendimiento compartido
+### <a name="billing-example-containers-with-shared-provisioned-throughput-mode"></a>Ejemplo de facturación: contenedores con un modo de rendimiento (aprovisionado) compartido
 
 * Si crea una cuenta de Azure Cosmos en Este de EE. UU. 2 con dos bases de datos de Azure Cosmos (con un conjunto de contenedores que comparten el rendimiento en el nivel de la base de datos) con un rendimiento aprovisionado de 50 000 RU/s y 70 000 RU/s, respectivamente, tendría un rendimiento aprovisionado total de 120 000 RU/s.  
 

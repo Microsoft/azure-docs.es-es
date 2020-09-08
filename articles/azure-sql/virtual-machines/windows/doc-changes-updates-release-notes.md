@@ -1,6 +1,6 @@
 ---
 title: Cambios en la documentación de SQL Server en Azure Virtual Machines | Microsoft Docs
-description: Conozca las nuevas características y mejoras de SQL Server en Azure Virtual Machines.
+description: Conozca las nuevas características y mejoras de las diferentes versiones de SQL Server en Azure Virtual Machines.
 services: virtual-machines-windows
 author: MashaMSFT
 ms.author: mathoma
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/06/2020
-ms.openlocfilehash: 5a09a30bafa5bc9ef052b14cad29e000bbd09a48
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: df1e1e90b35c29678151d4f9159195f829022a62
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287383"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236733"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Cambios en la documentación de SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 06/18/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 19e7a7972af55173f19d5784b2a6ac78ae14a0f0
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 908d9386f08c5de863d1d435c54d65cb85feef7a
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124976"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181670"
 ---
 # <a name="what-is-azure-private-link"></a>¿Qué es Azure Private Link? 
 Azure Private Link le permite acceder a los servicios PaaS de Azure (por ejemplo, Azure Storage y SQL Database) y a los servicios hospedados en Azure que son propiedad de los clientes, o a los servicios de asociados, a través de un [punto de conexión privado](private-endpoint-overview.md) de la red virtual.
@@ -62,12 +62,13 @@ Azure Private Link proporciona las ventajas siguientes:
 |Azure Relay | Todas las regiones públicas      |  | Vista previa <br/> [Más información](https://docs.microsoft.com/azure/service-bus-relay/private-link-service)  |
 |Azure Event Grid| Todas las regiones públicas<br/> Todas las regiones de Azure Government       |  | Disponibilidad general   <br/> [Más información](https://docs.microsoft.com/azure/event-grid/network-security) |
 |Azure Web Apps | Todas las regiones públicas      | Compatible con las funciones PremiumV2 de Windows y Linux y elástico prémium  | Versión preliminar   <br/> [Más información](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
-|Azure Machine Learning | ESTE DE EE. UU., OESTE DE EE. UU. 2, CENTRO DE EE. UU.      |  | Versión preliminar   <br/> [Más información](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
+|Azure Machine Learning | ESTE DE EE. UU, CENTRO-SUR DE EE. UU, OESTE DE EE. UU 2      |  | Versión preliminar   <br/> [Más información](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
 | Azure Automation  | Todas las regiones públicas |  | Versión preliminar | |
 | Azure IoT Hub | Todas las regiones públicas    |  | Disponibilidad general   <br/> [Más información](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
 | Azure SignalR | ESTE DE EE. UU., OESTE DE EE. UU. 2, CENTRO DE EE. UU.      |  | Versión preliminar   <br/> [Más información](https://aka.ms/asrs/privatelink)   |
 | Azure Monitor <br/>(Log Analytics y Application Insights) | Todas las regiones públicas      |  | Disponibilidad general   <br/> [Más información](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)   | 
 | Azure File Sync | Todas las regiones públicas      | |   Disponibilidad general   <br/> [Más información](https://docs.microsoft.com/azure/storage/files/storage-sync-files-networking-endpoints?tabs=azure-portal)   |
+| Azure Batch | ESTE DE EE. UU., OESTE DE EE. UU. 2, CENTRO-SUR DE EE. UU., CENTRO-OESTE DE EE. UU., CENTRO DE FRANCIA, ASIA ORIENTAL, SUR DE REINO UNIDO, US GOV VIRGINIA, US GOV ARIZONA  | | Disponibilidad general <br/> [Más información](https://docs.microsoft.com/azure/batch/private-connectivity) |
 
 Para ver las notificaciones más actualizadas, diríjase a la [página de actualizaciones de Azure Private Link](https://azure.microsoft.com/updates/?product=private-link).
 

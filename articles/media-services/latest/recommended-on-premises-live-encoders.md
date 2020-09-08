@@ -6,17 +6,19 @@ keywords: encoding;encoders;media
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 04/16/2020
-ms.topic: article
+ms.date: 08/31/2020
+ms.topic: conceptual
 ms.service: media-services
-ms.openlocfilehash: 67c26cbad2a723fa21fbe1719c6e43d3d63f2547
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3532032f8fd3ac6e673d3913fd13f7f83ae7759e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87030672"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295366"
 ---
 # <a name="verified-on-premises-live-streaming-encoders"></a>Codificadores de streaming en vivo locales comprobados
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 En Azure Media Services, un [evento en directo](/rest/api/media/liveevents) (canal) representa una canalización para procesar contenido de streaming en vivo. El evento en directo recibe las secuencias de entrada en vivo de una de estas dos formas:
 

@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Dossier | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Dossier.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 7a5fec92-9c01-4ced-99b2-a10e28fc028e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 8b9e65ed634243e60808e91d621cfe8c912b914e
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: ef57db315fa29a70a604f180671091a5b372f316
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85799984"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88555868"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dossier"></a>Tutorial: integración de Azure Active Directory con Dossier
 

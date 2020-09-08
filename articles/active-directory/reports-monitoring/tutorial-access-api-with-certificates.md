@@ -17,12 +17,12 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 4f27385cc33c6c289718c3143d03e24f0454a9f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc763a99c945925b80171738f4076e6305d92df9
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608015"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229466"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Tutorial: Obtención de datos mediante Reporting API de Azure Active Directory con certificados
 
@@ -100,5 +100,5 @@ En este tutorial, aprenderá a crear un certificado de prueba para acceder a Mic
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Obtención de una primera impresión de Reporting API](concept-reporting-api.md)
-* [Referencia de la API de auditoría](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
-* [Referencia de la API de generación de informes de actividad de inicio de sesión](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+* [Referencia de la API de auditoría](/graph/api/resources/directoryaudit?view=graph-rest-beta) 
+* [Referencia de la API de generación de informes de actividad de inicio de sesión](/graph/api/resources/signin?view=graph-rest-beta)

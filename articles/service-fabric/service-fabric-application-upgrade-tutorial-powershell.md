@@ -2,13 +2,14 @@
 title: Actualización de aplicaciones de Service Fabric con PowerShell
 description: Este artículo le guía a través de la experiencia de implementación de una aplicación de Service Fabric, la modificación del código y la aplicación de actualizaciones con PowerShell.
 ms.topic: conceptual
-ms.date: 2/23/2018
-ms.openlocfilehash: d277df6959ea3e7985514f81faed520f163c6012
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 8/5/2020
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 61eba8b7285c2a015ee40d48bc4a73850b412576
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195891"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89075195"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Actualización de aplicaciones de Service Fabric con PowerShell
 > [!div class="op_single_selector"]
@@ -24,6 +25,21 @@ El enfoque de actualización recomendado y usado con mayor frecuencia es la actu
 Se puede realizar una actualización de la aplicación supervisada mediante las API nativas o administradas, PowerShell, la CLI de Azure, Java o REST. Para obtener instrucciones sobre cómo realizar una actualización con Visual Studio, consulte [Actualización de la aplicación con Visual Studio](service-fabric-application-upgrade-tutorial.md).
 
 Con la actualización gradual supervisada de Service Fabric, el Administrador de aplicaciones puede configurar la directiva de evaluación de estado que Service Fabric usa para determinar que la aplicación es correcta. Además, el Administrador puede configurar la acción que se realizará cuando la evaluación de estado encuentre errores (por ejemplo, realizar una reversión automática). En esta sección se ofrece orientación sobre una actualización supervisada para uno de los ejemplos del SDK que PowerShell utiliza. 
+
+> [!NOTE]
+> Los valores de [ApplicationParameters](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters) no se conservan cuando se actualiza una aplicación. Para conservar los parámetros actuales de la aplicación, el usuario debe obtener primero los parámetros y luego pasarlos a la llamada API de actualización, como se indica a continuación:
+```powershell
+$myApplication = Get-ServiceFabricApplication -ApplicationName fabric:/myApplication
+$appParamCollection = $myApplication.ApplicationParameters
+
+$applicationParameterMap = @{}
+foreach ($pair in $appParamCollection)
+{
+    $applicationParameterMap.Add($pair.Name, $pair.Value);
+}
+
+Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/myApplication -ApplicationTypeVersion 2.0.0 -ApplicationParameter $applicationParameterMap -Monitored -FailureAction Rollback
+```
 
 ## <a name="step-1-build-and-deploy-the-visual-objects-sample"></a>Paso 1: Crear e implementar el ejemplo de objetos visuales
 Para compilar y publicar la aplicación, haga clic con el botón derecho en el proyecto de aplicación, **VisualObjectsApplication,** y seleccione el comando **Publicar**.  Para más información, consulte el [tutorial sobre la actualización de aplicaciones de Service Fabric](service-fabric-application-upgrade-tutorial.md).  También puede usar PowerShell para implementar la aplicación.
@@ -63,7 +79,7 @@ Ahora el archivo *ApplicationManifest.xml* (que se encuentra en el proyecto **Vi
 
 Ahora, compile el proyecto; para ello, seleccione solamente el proyecto **ActorService** y luego haga clic con el botón derecho y seleccione la opción **Compilar** en Visual Studio. Si selecciona **Volver a generar todo**, debe actualizar las versiones de todos los proyectos, ya que el código habrá cambiado. A continuación, vamos a empaquetar la aplicación actualizada; para ello, haga clic con el botón derecho en ***VisualObjectsApplication***, seleccione el menú de Service Fabric y elija **Paquete**. Esta acción crea un paquete de aplicación que se puede implementar.  La aplicación actualizada está lista para implementarse.
 
-## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>Paso 3:  Decidir sobre las directivas de mantenimiento y los parámetros de actualización
+## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>Paso 3: Decidir sobre las directivas de mantenimiento y los parámetros de actualización
 Familiarícese con los [parámetros de actualización de la aplicación](service-fabric-application-upgrade-parameters.md) y el [proceso de actualización](service-fabric-application-upgrade.md) para obtener una buena comprensión de los distintos parámetros de actualización, los tiempos de espera y el criterio de estado aplicados. En este tutorial, el criterio de evaluación de estado del servicio se establecerá en los valores predeterminados (y recomendados), lo que significa que todos los servicios e instancias deben ser *correctos* tras la actualización.  
 
 Sin embargo, vamos a aumentar *HealthCheckStableDuration* a 180 segundos (de modo que los servicios sean correctos durante al menos 120 segundos antes de que la actualización continúe con el siguiente dominio de actualización).  Vamos a configurar también *UpgradeDomainTimeout* para que sea 1200 segundos y *UpgradeTimeout* para que sea 3000 segundos.

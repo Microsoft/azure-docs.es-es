@@ -3,12 +3,12 @@ title: Restricciones de nomenclatura de recursos
 description: Muestra las reglas y las restricciones de nomenclatura de recursos de Azure.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: ca13203b6d31c1eeb939c668a58e67f0d462a905
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 56c50354a6ecbd6ba1d9a806f986cea1c4f3215f
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554341"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235985"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reglas y restricciones de nomenclatura para los recursos de Azure
 
@@ -392,6 +392,7 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > [!div class="mx-tableFixed"]
 > | Entidad | Ámbito | Length | Caracteres válidos |
 > | --- | --- | --- | --- |
+> | actionGroups | resource group | 1-260 | No puede usar:<br>`/` <br><br>No puede terminar con un espacio ni punto.  |
 > | components | resource group | 1-260 | No puede usar:<br>`%&\?/` <br><br>No puede terminar con un espacio ni punto.  |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
@@ -695,6 +696,7 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > [!div class="mx-tableFixed"]
 > | Entidad | Ámbito | Length | Caracteres válidos |
 > | --- | --- | --- | --- |
+> | certificates | resource group | 1-260 | No puede usar:<br>`/` <br><br>No puede terminar con un espacio ni punto.  | 
 > | serverfarms | resource group | 1-40 | Caracteres alfanuméricos y guiones. |
 > | sites | global | 2-60 | Contiene caracteres alfanuméricos y guiones.<br><br>No puede comenzar ni terminar con un guion. |
 > | sites/slots | site | 2-59 | Caracteres alfanuméricos y guiones. |

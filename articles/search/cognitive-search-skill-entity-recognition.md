@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 716951616a82dfd13d6bdcf127c4c4382576e792
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd35f297e88c37aec39938b0bfd60288e591a62c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080856"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936085"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Aptitud cognitiva de reconocimiento de entidades
 
-La aptitud **Reconocimiento de entidades** extrae entidades de distintos tipos del texto. Esta aptitud utiliza los modelos de aprendizaje automático proporcionados por [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) en Cognitive Services.
+La aptitud **Reconocimiento de entidades** extrae entidades de distintos tipos del texto. Esta aptitud utiliza los modelos de aprendizaje automático proporcionados por [Text Analytics](../cognitive-services/text-analytics/overview.md) en Cognitive Services.
 
 > [!NOTE]
 > A medida que expanda el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de IA, tendrá que [asociar un recurso facturable de Cognitive Services](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y por la extracción de imágenes como parte de la fase de descifrado de documentos de Azure Cognitive Search. No hay ningún cargo por la extracción de texto de documentos.
@@ -29,7 +29,7 @@ La aptitud **Reconocimiento de entidades** extrae entidades de distintos tipos d
 Microsoft.Skills.Text.EntityRecognitionSkill
 
 ## <a name="data-limits"></a>Límites de datos
-El tamaño máximo de un registro debe tener menos de 50 000 caracteres según la medición de [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Si tiene que dividir los datos antes de enviarlos al extractor de frases clave, puede usar la [aptitud de división de texto](cognitive-search-skill-textsplit.md).
+El tamaño máximo de un registro debe tener menos de 50 000 caracteres según la medición de [`String.Length`](/dotnet/api/system.string.length). Si tiene que dividir los datos antes de enviarlos al extractor de frases clave, puede usar la [aptitud de división de texto](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Parámetros de la aptitud
 
@@ -53,7 +53,7 @@ Los parámetros distinguen mayúsculas de minúsculas y son opcionales.
 ## <a name="skill-outputs"></a>Salidas de la aptitud
 
 > [!NOTE]
-> No todas las categorías de entidad son compatibles con todos los idiomas. Los tipos de categoría de entidad `"Person"`, `"Location"` y `"Organization"` se admiten para todos los idiomas anteriores. Solo _de_, _en_, _es_, _fr_ y _zh-hans_ admiten la extracción de los tipos `"Quantity"`, `"Datetime"`, `"URL"` y `"Email"`. Para más información, consulte [Compatibilidad de idiomas y regiones para Text Analytics API](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support).  
+> No todas las categorías de entidad son compatibles con todos los idiomas. Los tipos de categoría de entidad `"Person"`, `"Location"` y `"Organization"` se admiten para todos los idiomas anteriores. Solo _de_, _en_, _es_, _fr_ y _zh-hans_ admiten la extracción de los tipos `"Quantity"`, `"Datetime"`, `"URL"` y `"Email"`. Para más información, consulte [Compatibilidad de idiomas y regiones para Text Analytics API](../cognitive-services/text-analytics/language-support.md).  
 
 | Nombre de salida      | Descripción                   |
 |---------------|-------------------------------|
@@ -187,7 +187,7 @@ Los parámetros distinguen mayúsculas de minúsculas y son opcionales.
 }
 ```
 
-Tenga en cuenta que los desplazamientos devueltos para las entidades en la salida de esta aptitud se devuelven directamente desde la [API de Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview), lo que significa que si los usa para indexar en la cadena original, debe usar la clase [StringInfo](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) en .NET para extraer el contenido correcto.  [Se pueden encontrar aquí más detalles.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/concepts/text-offsets)
+Tenga en cuenta que los desplazamientos devueltos para las entidades en la salida de esta aptitud se devuelven directamente desde la [API de Text Analytics](../cognitive-services/text-analytics/overview.md), lo que significa que si los usa para indexar en la cadena original, debe usar la clase [StringInfo](/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) en .NET para extraer el contenido correcto.  [Se pueden encontrar aquí más detalles.](../cognitive-services/text-analytics/concepts/text-offsets.md)
 
 ## <a name="error-cases"></a>Casos de error
 Si no se admite el código de idioma del documento, se devuelve un error y no se extrae ninguna entidad.

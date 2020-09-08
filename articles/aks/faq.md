@@ -2,13 +2,13 @@
 title: Preguntas más frecuentes sobre Azure Kubernetes Service (AKS)
 description: Encuentre respuestas a algunas de las preguntas comunes sobre Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 07/31/2020
-ms.openlocfilehash: 6d30bc1faa6a896233d09f9247fe8c56f82371fa
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 08/06/2020
+ms.openlocfilehash: 7a56756855319ee72bd5b3dc60ad1ae440afd7fe
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87485633"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927154"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Preguntas más frecuentes sobre Azure Kubernetes Service (AKS)
 
@@ -193,7 +193,7 @@ No, AKS es un servicio administrado y no se admite la manipulación de los recur
 
 ## <a name="does-aks-store-any-customer-data-outside-of-the-clusters-region"></a>¿AKS guarda datos de los clientes fuera de la región del clúster?
 
-No. Todos los datos que se crean en un clúster de AKS se mantienen en la región del clúster.
+La característica para permitir el almacenamiento de datos de clientes en una sola región solo está disponible actualmente en la región de Sudeste Asiático (Singapur) de la geoárea Asia Pacífico. En todas las demás regiones, los datos de clientes se almacenan en la geoárea.
 
 <!-- LINKS - internal -->
 

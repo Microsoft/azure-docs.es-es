@@ -1,6 +1,6 @@
 ---
 title: Adición de una capa de burbuja a un mapa | Microsoft Azure Maps
-description: En este artículo aprenderá a agregar una capa de burbujas a un mapa mediante el SDK web de Microsoft Azure Maps.
+description: Obtenga información sobre cómo representar puntos en mapas como círculos con tamaños fijos. Vea cómo usar el SDK Web de Azure Maps para agregar y personalizar las capas de burbujas con este fin.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 1a86c1ef12a4cae4132e79a742b99c1b95ee4cd5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 47ee9e67c6885829e3cb0082aea63367da4aa626
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287030"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006186"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Adición de una capa de burbuja a un mapa
 

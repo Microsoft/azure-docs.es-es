@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/08/2020
-ms.openlocfilehash: 53f151c63c85e958aad3bd0eaf16c50294bf250f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 437c2b8e42ed5128cc716eee23b8702ec012b481
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287221"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890921"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>¿Qué es un área de trabajo de Azure Machine Learning?
 
@@ -89,7 +89,7 @@ También puede realizar las siguientes tareas de administración de áreas de tr
 
 ## <a name="create-a-workspace"></a><a name='create-workspace'></a> Creación de un área de trabajo
 
-Cuando cree un área de trabajo, decida si desea crearla con [Basic Edition o Enterprise Edition](overview-what-is-azure-ml.md#sku). La edición determina las características disponibles en el área de trabajo. Entre otras características, Enterprise Edition le proporciona acceso al [diseñador de Azure Machine Learning ](concept-designer.md) y a la versión de Studio de creación de [experimentos de aprendizaje automático automatizado](tutorial-first-experiment-automated-ml.md).  Para más detalles e información sobre precios, vea [Precios de Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/).
+Cuando cree un área de trabajo, decida si desea crearla con [Basic Edition o Enterprise Edition](overview-what-is-azure-ml.md#sku). La edición determina las características disponibles en el área de trabajo. Entre otras características, Enterprise Edition le proporciona acceso al [diseñador de Azure Machine Learning ](concept-designer.md) y a la versión de Studio de creación de [experimentos de aprendizaje automático automatizado](tutorial-first-experiment-automated-ml.md).  Para más información y detalles sobre los precios,consulte [Precios de Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 Hay varias maneras de crear un área de trabajo:  
 
@@ -117,8 +117,16 @@ Al crear una nueva área de trabajo, se crean automáticamente varios recursos d
 > [!NOTE]
 > Además de crear nuevas versiones, también puede usar los servicios de Azure existentes.
 
+### <a name="azure-storage-account"></a>Cuenta de almacenamiento de Azure
+
+La cuenta de Azure Storage creada de manera predeterminada con el área de trabajo es una cuenta de uso general v1. Puede actualizarlo a la versión v2 de uso general una vez creada el área de trabajo siguiendo los pasos descritos en el artículo [Actualización a una cuenta de almacenamiento de uso general v2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+
 > [!IMPORTANT]
-> Si quiere usar una cuenta de Azure Storage existente, no puede ser una cuenta Premium (Premium_LRS o Premium_GRS). Tampoco puede tener un espacio de nombres jerárquico (usado con Azure Data Lake Storage Gen2). No se admite Premium Storage ni el espacio de nombres jerárquico con la cuenta de almacenamiento _predeterminada_ del área de trabajo. Sin embargo, sí se admiten con cuentas de almacenamiento _no predeterminadas_.
+> No habilite el espacio de nombres jerárquico en la cuenta de almacenamiento después de actualizar a la versión v2 de uso general.
+
+Si quiere usar una cuenta de Azure Storage existente, no puede ser una cuenta Premium (Premium_LRS y Premium_GRS). Tampoco puede tener un espacio de nombres jerárquico (se usa con Azure Data Lake Storage Gen2). No se admite Premium Storage ni el espacio de nombres jerárquico con la cuenta de almacenamiento _predeterminada_ del área de trabajo. Sin embargo, sí se admiten con cuentas de almacenamiento _no predeterminadas_.
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

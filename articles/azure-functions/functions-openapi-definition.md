@@ -4,13 +4,13 @@ description: Cree una definición de OpenAPI que permita que otras aplicaciones 
 ms.topic: tutorial
 ms.date: 04/21/2020
 ms.reviewer: sunayv
-ms.custom: mvc, cc996988-fb4f-47, references_regions
-ms.openlocfilehash: 87f7b47354d3d76d5185b1bf956fd0c422c092bd
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.custom: devx-track-csharp, mvc, cc996988-fb4f-47, references_regions
+ms.openlocfilehash: 9083ff7d8f65c68ce8d173973a4eda650ac355aa
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84197018"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212920"
 ---
 # <a name="create-an-openapi-definition-for-a-serverless-api-using-azure-api-management"></a>Creación de una definición de OpenAPI para una API sin servidor con Azure API Management
 

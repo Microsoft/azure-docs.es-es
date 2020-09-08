@@ -3,30 +3,29 @@ title: 'Descarga de los resultados de un trabajo: Azure Media Services'
 description: En este artículo se muestra cómo descargar los resultados de un trabajo.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
-ms.date: 03/04/2020
-ms.author: juliako
-ms.openlocfilehash: bae7104eaded8c2ed153bc141faf7eba0bb86bae
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.topic: how-to
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b3decdd4a2855382b27cb426d7fb030b46a2458c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346294"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89298035"
 ---
 # <a name="download-the-results-of-a-job"></a>Descarga de los resultados de un trabajo
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 En Azure Media Services, cuando se procesan los vídeos (por ejemplo, para su codificación o análisis) debe crear un [recurso](assets-concept.md) de salida para almacenar el resultado del [trabajo](transforms-jobs-concept.md). Después, puede almacenar dichos resultados en una carpeta local mediante las API de Media Service y Storage. 
 
 En este artículo se muestra cómo descargar los resultados mediante los SDK de Java y .NET.
-
-## <a name="prerequisites"></a>Prerrequisitos 
-
-Consulte [Administración de recursos](manage-asset-concept.md).
 
 ## <a name="java"></a>Java
 

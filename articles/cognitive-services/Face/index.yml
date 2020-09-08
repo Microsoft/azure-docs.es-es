@@ -1,22 +1,22 @@
 ### YamlMime:Landing
 title: Documentación de Face
-summary: El servicio Face de la nube ofrece a los desarrolladores acceso a avanzados algoritmos de información facial. Los algoritmos de Microsoft Face habilitan la detección de atributos faciales y el reconocimiento facial. Aprenda a analizar el contenido de varias maneras con guías de inicio rápido, tutoriales y ejemplos.
+summary: El 11 de junio de 2020 Microsoft anunció que no venderá tecnología de reconocimiento facial a los departamentos de policía de Estados Unidos hasta que se promulgue un reglamento estricto cimentado en los derechos humanos. Por lo tanto, es posible que algún cliente no use características de reconocimiento facial ni características incluidas en los servicios de Azure, como Face o Video Indexer, si un es un departamento de policía de Estados Unidos o permite el uso de dichos servicios por parte de cualquiera de ellos.
 metadata:
   title: 'Documentación de Face: inicios rápidos, tutoriales, referencia de API - Azure Cognitive Services | Microsoft Docs'
-  description: El servicio Face de la nube ofrece a los desarrolladores acceso a avanzados algoritmos de información facial. Los algoritmos de Microsoft Face habilitan la detección de atributos faciales y el reconocimiento facial. Aprenda a analizar el contenido de varias maneras con guías de inicio rápido, tutoriales y ejemplos.
+  description: El servicio Face de la nube ofrece a los desarrolladores acceso a avanzados algoritmos de información facial. Los algoritmos de Microsoft Face habilitan la detección de atributos faciales y el reconocimiento facial. Aprenda a analizar contenido de distintas formas gracias a los inicios rápidos, tutoriales y ejemplos.# Required; la descripción del artículo que se muestra en los resultados de la búsqueda. Menos de 160 caracteres.
   services: cognitive-services
   ms.service: cognitive-services
   ms.subservice: face-api
   ms.topic: landing-page
   author: PatrickFarley
   ms.author: pafarley
-  ms.date: 10/24/2019
-  ms.openlocfilehash: e4d53baf1a083e9dafa6bd43186b507c5e724db3
-  ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+  ms.date: 9/01/2020
+  ms.openlocfilehash: 67af472ea968501902255d3dbec18d3b6201f9e2
+  ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/01/2020
-  ms.locfileid: "84268022"
+  ms.lasthandoff: 09/01/2020
+  ms.locfileid: "89278231"
 landingContent:
 - title: Acerca del servicio API
   linkLists:

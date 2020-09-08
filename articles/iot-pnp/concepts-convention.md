@@ -7,12 +7,12 @@ ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 126673391b49f884a51521d462060c425a314667
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: ef29be53e776c4c185ac8430b3340c53ca85d855
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475675"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88856059"
 ---
 # <a name="iot-plug-and-play-conventions"></a>Convenciones de IoT Plug and Play
 
@@ -127,7 +127,7 @@ El dispositivo debe agregar el marcador `{"__t": "c"}` para indicar que el eleme
 
 El dispositivo debe confirmar que recibió la propiedad mediante el envío de una propiedad notificada. La propiedad notificada debe incluir:
 
-- `value`: el valor que recibió el dispositivo.
+- `value`: el valor real de la propiedad (normalmente el valor recibido, pero el dispositivo puede decidir informar de un valor diferente).
 - `ac`: un código de confirmación que usa un código de estado HTTP.
 - `av`: una versión de confirmación que hace referencia a la `$version` de la propiedad deseada.
 - `ad` : una descripción de confirmación opcional.

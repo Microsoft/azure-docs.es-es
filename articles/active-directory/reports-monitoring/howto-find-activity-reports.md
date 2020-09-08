@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33c4eeda7f7df1a8238f54fa1afd1bc069f64e96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b705cf6ac6fd25c7794db7651db5bc5c5c0e790c
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608218"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230626"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Búsqueda de informes de actividad en Azure Portal
 
@@ -114,7 +114,7 @@ Puede utilizar el informe de inicios de sesión para ver detalles sobre el uso d
 
 Los informes de actividades anómalas proporcionan información sobre detecciones de riesgos relacionadas con la seguridad que Azure AD puede detectar y notificar.
 
-En la tabla siguiente aparecen los informes de seguridad de actividad anómala de Azure AD y los tipos de detecciones de riesgos correspondientes en Azure Portal. Para más información, consulte [Detecciones de riesgos de Azure Active Directory](concept-risk-events.md).  
+En la tabla siguiente aparecen los informes de seguridad de actividad anómala de Azure AD y los tipos de detecciones de riesgos correspondientes en Azure Portal. Para más información, consulte [Detecciones de riesgos de Azure Active Directory](../identity-protection/overview-identity-protection.md).  
 
 
 | Informe de actividad anómala de Azure AD |  Tipo de detección de riesgos de Identity Protection|
@@ -136,8 +136,8 @@ Los informes de seguridad de actividad anómala de Azure AD siguientes no se in
 
 Puede acceder a los informes acerca de las detecciones de riesgos observadas en la sección **Seguridad** de la hoja **Azure Active Directory** de [Azure Portal](https://portal.azure.com). En los informes siguientes se hace un seguimiento las detecciones de riesgos observadas:   
 
-- [Usuarios en riesgo](concept-user-at-risk.md)
-- [Inicios de sesión no seguros](concept-risky-sign-ins.md)
+- [Usuarios en riesgo](../identity-protection/overview-identity-protection.md)
+- [Inicios de sesión no seguros](../identity-protection/overview-identity-protection.md)
 
     ![Informes de seguridad](./media/howto-find-activity-reports/04.png "Informes de seguridad")
 
@@ -228,4 +228,4 @@ Tiene dos opciones para conservar los datos durante más de 30 días. Puede usar
 
 * [Información general sobre los registros de auditoría](concept-audit-logs.md)
 * [Información general sobre los inicios de sesión](concept-sign-ins.md)
-* [Información general sobre los eventos de riesgo](concept-risk-events.md)
+* [Información general sobre los eventos de riesgo](../identity-protection/overview-identity-protection.md)

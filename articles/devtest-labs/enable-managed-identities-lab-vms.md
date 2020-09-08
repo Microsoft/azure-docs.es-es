@@ -3,12 +3,12 @@ title: Habilite las identidades administradas en las máquinas virtuales de labo
 description: En este artículo se muestra cómo un propietario del laboratorio puede habilitar identidades administradas asignadas por el usuario en las máquinas virtuales de laboratorio.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 886dc3b541c624d9f7a300fbbe696e1d2e143641
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4bf2900acebaeecd5cbc4cb65635aee6de87dda
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476009"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717646"
 ---
 # <a name="enable-user-assigned-managed-identities-on-lab-virtual-machines-in-azure-devtest-labs"></a>Habilitar identidades administradas asignadas por el usuario en máquinas virtuales de laboratorio en Azure DevTest Labs
 Como propietario de un laboratorio, puede habilitar las identidades administradas asignadas por el usuario en las máquinas virtuales (VM) del laboratorio en Azure DevTest Labs.
@@ -25,14 +25,16 @@ Para agregar una identidad administrada asignada por el usuario para las máquin
 
 1. [Cree de una identidad administrada asignada por el usuario en la suscripción](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity)
 1. Vaya a la página **Configuración y directivas** del laboratorio.
-2. Seleccione **Identidad (vista previa)** en el menú de la izquierda.
-3. Seleccione la pestaña **Máquina virtual**.
-4. Seleccione **Agregar** para seleccionar una identidad existente en una lista desplegable llenada previamente. 
+1. Seleccione **Identidad (vista previa)** en el menú de la izquierda.
+1. Seleccione la pestaña **Máquina virtual**.
+1. Seleccione **Agregar** para seleccionar una identidad existente en una lista desplegable llenada previamente. 
 
-    ![Botón Agregar identidad](./media/enable-managed-identities-lab-vms/add-identity-button.png)
-5. Seleccione una **identidad administrada por el usuario** existente en la lista desplegable y seleccione **Aceptar**. 
+    > [!div class="mx-imgBorder"]
+    > ![Botón Agregar identidad](./media/enable-managed-identities-lab-vms/add-identity-button.png)
+1. Seleccione una **identidad administrada por el usuario** existente en la lista desplegable y seleccione **Aceptar**. 
 
-    ![Agregar identidad](./media/enable-managed-identities-lab-vms/add-identity.png)
+    > [!div class="mx-imgBorder"]
+    > ![Agregar identidad](./media/enable-managed-identities-lab-vms/add-identity.png)
 
 ## <a name="use-api"></a>Uso de la API
 

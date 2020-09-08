@@ -12,12 +12,13 @@ ms.custom:
 - amqp
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: e9fd4308f89873183e4f5f57cee56887ce181fae
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+- devx-track-csharp
+ms.openlocfilehash: 1c1e29d43fefa6be1586aefc28249fe2f0f9e9fb
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87307291"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001032"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Configuración de la seguridad de X.509 en Azure IoT Hub
 
@@ -49,6 +50,9 @@ Puede elegir cualquiera de los siguientes métodos para obtener los certificados
 ## <a name="register-x509-ca-certificates-to-your-iot-hub"></a>Registro de certificados de entidad de certificación X.509 en una instancia de IoT Hub
 
 Estos pasos muestran cómo agregar una entidad de certificación nueva a una instancia de IoT Hub a través del portal.
+
+> [!NOTE]
+> El número máximo de certificados de entidad de certificación X.509 que se pueden registrar en una instancia de IoT Hub es de 25. Para más información, consulte [Cuotas y limitaciones de Azure IoT Hub](iot-hub-devguide-quotas-throttling.md).
 
 1. En Azure Portal, navegue a su instancia de IoT Hub y seleccione **Configuración** > **Certificados** para el centro.
 

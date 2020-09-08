@@ -2,17 +2,20 @@
 title: Implementación de forma segura de una plantilla con el token de SAS
 description: Implemente recursos en Azure con una plantilla de Azure Resource Manager que está protegida con el token de SAS. Se muestra Azure PowerShell y la CLI de Azure.
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: 42eaae316d4fd0575102323933f849a3058228a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 08/25/2020
+ms.openlocfilehash: 8b35e82da8ebca98ec9fe1fb7441612bf61fb142
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156402"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855655"
 ---
 # <a name="deploy-private-arm-template-with-sas-token"></a>Implementación de una plantilla de Resource Manager privada con el token de SAS
 
 Cuando la plantilla de Azure Resource Manager (ARM) se encuentra en una cuenta de almacenamiento, puede restringir el acceso a la plantilla para evitar que se exponga públicamente. Para acceder a una plantilla protegida, cree un token de firma de acceso compartido (SAS) para la plantilla y proporcione ese token durante la implementación. En este artículo se explica cómo usar Azure PowerShell o la CLI de Azure para implementar una plantilla con un token de SAS.
+
+> [!IMPORTANT]
+> En lugar de proteger la plantilla con un token de SAS, considere la posibilidad de usar [especificaciones de plantilla](template-specs.md). Con las especificaciones de plantilla, puede compartir sus plantillas con otros usuarios de su organización y administrar el acceso a las plantillas a través de RBAC de Azure.
 
 ## <a name="create-storage-account-with-secured-container"></a>Creación de una cuenta de almacenamiento con un contenedor protegido
 
@@ -110,6 +113,8 @@ New-AzResourceGroupDeployment `
 ```
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+En el siguiente ejemplo se trabaja con el entorno de Bash en Cloud Shell. Otros entornos pueden requerir una sintaxis diferente para crear la hora de expiración del token de SAS.
 
 ```azurecli-interactive
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)

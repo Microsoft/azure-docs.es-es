@@ -9,14 +9,14 @@ manager: dviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 08/25/2020
 ms.custom: seodec18
-ms.openlocfilehash: 149d1eab696ae8419bed79cd2cdc0b066c32060c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 35a2be5c9f418bc423ae56c456db0062677a33c2
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528183"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88856125"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Concesión de acceso a datos en un entorno
 
@@ -106,7 +106,7 @@ Siga estos pasos para conceder acceso de invitado a un entorno de Time Series In
 
 1. El administrador [comparte la dirección URL del entorno](time-series-insights-parameterized-urls.md) con su invitado.
 
-1. Cuando el usuario invitado inicia sesión en la dirección de correo electrónico que utilizó para invitarle y acepta la invitación, se le redirige a Azure Portal. 
+1. Cuando el usuario invitado inicia sesión en la dirección de correo electrónico que utilizó para invitarle y acepta la invitación, se le redirige a Azure Portal.
 
 1. Ahora el invitado puede acceder al entorno compartido mediante la dirección URL del entorno que ha proporcionado el administrador. El invitado puede especificar esa dirección URL en su explorador web para obtener acceso inmediato.
 
@@ -114,14 +114,14 @@ Siga estos pasos para conceder acceso de invitado a un entorno de Time Series In
 
     [![Selección del avatar en insights.azure.com](media/data-access/data-access-select-tenant-and-instance.png)](media/data-access/data-access-select-tenant-and-instance.png#lightbox)
 
+    Una vez que el usuario invitado selecciona el inquilino del administrador, podrán seleccionar el entorno compartido de Azure Time Series Insights.
 
-    Una vez que el usuario invitado selecciona el inquilino del administrador, podrán seleccionar el entorno compartido de Azure Time Series Insights. 
-    
     Ahora tienen todas las funcionalidades asociadas al rol que le ha proporcionado en el **paso 5**.
 
     [![El usuario invitado selecciona el inquilino de Azure en la lista desplegable](media/data-access/data-access-all-capabilities.png)](media/data-access/data-access-all-capabilities.png#lightbox)
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * Lea [Autenticación y autorización](time-series-insights-authentication-and-authorization.md) para más información sobre los pasos de registro de aplicaciones de Azure Active Directory.
 
-* Vea [su entorno en el Explorador de Azure Time Series Insights Gen2](./time-series-insights-update-explorer.md).
+* Vea [el entorno en el explorador de Azure Time Series Insights TSI](./time-series-insights-update-explorer.md).

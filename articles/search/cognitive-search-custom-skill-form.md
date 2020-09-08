@@ -8,12 +8,12 @@ ms.author: pafarley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: c07c00345140d96bf3265fb280fe29b1274bdee6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58f1c2621165a7074c04752832c6560b2fd3e423
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85321313"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935439"
 ---
 # <a name="example-create-a-form-recognizer-custom-skill"></a>Ejemplo: Creación de una aptitud personalizada de Form Recognizer
 
@@ -30,7 +30,7 @@ En este ejemplo de un conjunto de aptitudes de Azure Cognitive Search, aprender�
 
 ## <a name="train-your-model"></a>Entrenamiento de un modelo
 
-Deberá entrenar un modelo de Form Recognizer con los formularios de entrada antes de usar esta aptitud. Siga los [inicios rápidos de cURL](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/curl-train-extract) para aprender a entrenar un modelo. Puede usar los formularios de ejemplo proporcionados en ese inicio rápido o puede usar sus propios datos. Una vez entrenado el modelo, copie su valor de identificador en una ubicación segura.
+Deberá entrenar un modelo de Form Recognizer con los formularios de entrada antes de usar esta aptitud. Siga los [inicios rápidos de cURL](../cognitive-services/form-recognizer/quickstarts/curl-train-extract.md) para aprender a entrenar un modelo. Puede usar los formularios de ejemplo proporcionados en ese inicio rápido o puede usar sus propios datos. Una vez entrenado el modelo, copie su valor de identificador en una ubicación segura.
 
 ## <a name="set-up-the-custom-skill"></a>Configuración de la aptitud personalizada
 
@@ -167,5 +167,5 @@ En esta guía, creó una aptitud personalizada a partir del servicio Azure Form 
 * [Azure Search Power Skills: un repositorio de aptitudes personalizadas](https://github.com/Azure-Samples/azure-search-power-skills)
 * [Incorporación de una aptitud personalizada a una canalización de enriquecimiento de inteligencia artificial](cognitive-search-custom-skill-interface.md)
 * [Define a skillset](cognitive-search-defining-skillset.md) (Definición de un conjunto de aptitudes)
-* [Creación de un conjunto de aptitudes (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
+* [Creación de un conjunto de aptitudes (REST)](/rest/api/searchservice/create-skillset)
 * [Asignación de campos enriquecidos](cognitive-search-output-field-mapping.md)

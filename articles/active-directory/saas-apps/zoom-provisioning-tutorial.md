@@ -2,25 +2,21 @@
 title: 'Tutorial: Configuración de Zoom para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
 description: Aprenda a aprovisionar y cancelar el aprovisionamiento de forma automática de las cuentas de usuario de Azure AD para Zoom.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: na
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: Zhchia
-ms.openlocfilehash: 3a2e4bbff1274a2473ac961b8355ca4193dcc69f
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 15e3d72661ad35335c744fbaf0ab39627d254750
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924911"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545988"
 ---
 # <a name="tutorial-configure-zoom-for-automatic-user-provisioning"></a>Tutorial: Configuración de Zoom para el aprovisionamiento automático de usuarios
 
@@ -50,7 +46,7 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 
 ## <a name="step-2-configure-zoom-to-support-provisioning-with-azure-ad"></a>Paso 2. Configuración de Zoom para admitir el aprovisionamiento con Azure AD
 
-1. Inicie sesión en la [consola de administración de Zoom](https://zoom.us/signin). Navegue a **Advanced > Zoom for Developers** (Avanzado > Zoom para desarrolladores) en el panel de navegación izquierdo.
+1. Inicie sesión en la [consola de administración de Zoom](https://zoom.us/signin). Vaya a **Advanced > App Marketplace** (Opciones avanzadas > Marketplace de aplicaciones) en el panel de navegación izquierdo.
 
     ![Integrations (Integraciones) de Zoom](media/zoom-provisioning-tutorial/zoom01.png)
 

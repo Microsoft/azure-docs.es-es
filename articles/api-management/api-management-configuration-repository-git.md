@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 183a3561a7c01d8f0911a70846384cf8ebc7dd9c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 18cc42c3447de733447c27db52a9a6d664539464
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254850"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400369"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Guardado y configuración del servicio Administración de API mediante Git
 
@@ -47,7 +47,7 @@ Este artículo describe cómo habilitar y usar Git para administrar la configura
 
 ## <a name="access-git-configuration-in-your-service"></a>Acceso a la configuración de Git en el servicio
 
-Para ver y configurar las opciones de configuración Git, puede hacer clic en el menú **Seguridad** e ir a la pestaña **Repositorio de configuraciones**.
+Para ver y configurar las opciones de configuración Git, puede hacer clic en el menú **Deployment and infrastructure**  (Implementación e Infraestructura) e ir a la pestaña **Repositorio**.
 
 ![Habilitar GIT][api-management-enable-git]
 
@@ -62,7 +62,7 @@ Para obtener información sobre la habilitación o la deshabilitación del acces
 
 El primer paso antes de la clonación del repositorio es guardar el estado actual de la configuración del servicio en el repositorio. Haga clic en **Guardar en repositorio**.
 
-Realice los cambios necesarios en la pantalla de confirmación y haga clic en **Aceptar** para guardar.
+Realice los cambios deseados en la pantalla de confirmación y haga clic en **Guardar** para guardarlos.
 
 Transcurridos unos segundos, la configuración se guarda y se muestra el estado de configuración del repositorio, incluidas la fecha y la hora del último cambio de configuración y la última sincronización entre la configuración del servicio y el repositorio.
 
@@ -82,7 +82,7 @@ Para generar una contraseña, primero asegúrese de que el campo **Expiración**
 
 En los ejemplos siguientes se usa la herramienta Git Bash desde [Git para Windows](https://www.git-scm.com/downloads) , pero puede usar cualquier herramienta de Git con la que esté familiarizado.
 
-Abra su herramienta Git en la carpeta deseada y ejecute el siguiente comando para clonar el repositorio de git en el equipo local, usando para ello el comando incluido en Azure Portal.
+Abra su herramienta Git en la carpeta deseada y ejecute el siguiente comando para clonar el repositorio de Git en el equipo local, usando para ello el comando incluido en Azure Portal.
 
 ```
 git clone https://{name}.scm.azure-api.net/
@@ -198,7 +198,7 @@ La carpeta raíz `api-management` contiene un archivo `configuration.json` con i
 }
 ```
 
-Los primeros cuatro valores (`RegistrationEnabled`, `UserRegistrationTerms`, `UserRegistrationTermsEnabled` y `UserRegistrationTermsConsentRequired`) se asignan a la siguiente configuración en la pestaña **Identidades** de la sección **Seguridad**.
+Los primeros cuatro valores (`RegistrationEnabled`, `UserRegistrationTerms`, `UserRegistrationTermsEnabled` y `UserRegistrationTermsConsentRequired`) se asignan a la siguiente configuración en la pestaña **Identidades** de la sección **Portal para desarrolladores**.
 
 | Configuración de identidad | Se asigna a |
 | --- | --- |
@@ -208,7 +208,7 @@ Los primeros cuatro valores (`RegistrationEnabled`, `UserRegistrationTerms`, `Us
 | UserRegistrationTermsConsentRequired |**Requerir consentimiento** |
 | RequireUserSigninEnabled |**Redirigir a los usuarios anónimos a la página de inicio de sesión** |
 
-La cuatro valores siguientes (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled` y `DelegationValidationKey`) se asignan a la siguiente configuración en la pestaña **Delegación** de la sección **Seguridad**.
+La cuatro valores siguientes (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled` y `DelegationValidationKey`) se asignan a la siguiente configuración en la pestaña **Delegación** de la sección **Portal para desarrolladores**.
 
 | Configuración de delegación | Se asigna a |
 | --- | --- |

@@ -6,15 +6,16 @@ author: bandersmsft
 ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: a71a89820546ec2235f625e1b2030c00db837172
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 32a6284c7766f3b5d9413a76056dc915a8ac93dc
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282660"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88686809"
 ---
 # <a name="reactivate-a-disabled-azure-subscription"></a>Reactivación de una suscripción deshabilitada de Azure
 

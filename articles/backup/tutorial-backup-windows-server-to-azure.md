@@ -4,12 +4,12 @@ description: En este tutorial se detalla la copia de seguridad de servidores Win
 ms.topic: tutorial
 ms.date: 08/22/2018
 ms.custom: mvc
-ms.openlocfilehash: 560a4907fc812aae027ad9e1a1c262fc994c0da9
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: d2990b5950cf8812367c3a59c6cace39e4085e2a
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84295548"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88261912"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Hacer copias de seguridad de Windows Server en Azure
 
@@ -29,13 +29,13 @@ Inicie sesión en Azure Portal en <https://portal.azure.com>.
 
 Para poder realizar una copia de seguridad de Windows Server, debe crear una ubicación para almacenar las copias de seguridad o los puntos de restauración. Un [almacén de Recovery Services](backup-azure-recovery-services-vault-overview.md) es un contenedor de Azure que almacena las copias de seguridad de Windows Server. Realice los pasos siguientes para crear un almacén de Recovery Services en Azure Portal.
 
-1. En el menú izquierdo, seleccione **Todos los servicios** y, en la lista de servicios, escriba **Recovery Services**. Haga clic en **Almacenes de Recovery Services**.
+1. En el menú izquierdo, seleccione **Todos los servicios** y, en la lista de servicios, escriba **Recovery Services**. Seleccione **Almacenes de Recovery Services**.
 
-   ![abrir el almacén de Recovery Services](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
+   ![Abrir el almacén de Recovery Services](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 
-2. En el menú **Almacenes de Recovery Services**, haga clic en **Agregar**.
+2. En el menú **Almacenes de Recovery Services**, seleccione **Agregar**.
 
-   ![proporcionar información del almacén](./media/tutorial-backup-windows-server-to-azure/provide-vault-detail-2.png)
+   ![Proporcionar la información del almacén](./media/tutorial-backup-windows-server-to-azure/provide-vault-detail-2.png)
 
 3. En el menú **Almacén de Recovery Services**,
 
@@ -43,7 +43,7 @@ Para poder realizar una copia de seguridad de Windows Server, debe crear una ubi
     * El id. de suscripción actual aparecerá en **Suscripción**.
     * En **Grupo de recursos**, seleccione **Usar existente** y elija *myResourceGroup*. Si *myResourceGroup* no existe, seleccione **Crear nuevo** y escriba *myResourceGroup*.
     * En el menú desplegable **Ubicación**, elija *Oeste de Europa*.
-    * Haga clic en **Crear** para crear el almacén de Recovery Services.
+    * Seleccione **Crear** para crear el almacén de Recovery Services.
 
 Una vez creado el almacén, aparece en la lista de almacenes de Recovery Services.
 
@@ -53,44 +53,44 @@ El agente de Microsoft Azure Recovery Services (MARS) crea una asociación entre
 
 1. En la lista Almacenes de Recovery Services, seleccione **myRecoveryServicesVault** para abrir su panel.
 
-   ![proporcionar información del almacén](./media/tutorial-backup-windows-server-to-azure/open-vault-from-list.png)
+   ![Selección de almacén para abrir el panel](./media/tutorial-backup-windows-server-to-azure/open-vault-from-list.png)
 
-2. En el menú del panel del almacén, haga clic en **Copia de seguridad**.
+2. En el menú del panel del almacén, seleccione **Backup**.
 
 3. En el menú **Objetivo de Backup**:
 
    * en **¿Dónde se ejecuta su carga de trabajo?** , seleccione **Local**.
    * En el menú **¿De qué desea hacer una copia de seguridad?** , seleccione **Archivos y carpetas** y **Estado del sistema**.
 
-   ![proporcionar información del almacén](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
+   ![Menú Objetivo de Backup](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
 
-4. Haga clic en **Preparar infraestructura** para abrir el menú **Preparar infraestructura**.
+4. Seleccione **Preparar infraestructura** para abrir el menú **Preparar infraestructura**.
 
-5. En el menú **Preparar infraestructura**, haga clic en **Descargar agente para Windows Server o cliente de Windows** para descargar el archivo *MARSAgentInstaller.exe*.
+5. En el menú **Preparar infraestructura**, seleccione **Descargar agente para Windows Server o cliente de Windows** si desea descargar el archivo *MARSAgentInstaller.exe*.
 
-    ![Prepare infrastructure](./media/tutorial-backup-windows-server-to-azure/prepare-infrastructure.png)
+    ![Descargar agente para Windows Server o cliente de Windows](./media/tutorial-backup-windows-server-to-azure/prepare-infrastructure.png)
 
     El instalador se abre en un explorador diferente y descarga **MARSAgentInstaller.exe**.
 
-6. Antes de ejecutar el archivo descargado, en el menú Preparar infraestructura, haga clic en **Descargar** y guarde el archivo **Credenciales de almacén**. Este archivo es necesario para conectar el agente de MARS con el almacén de Recovery Services.
+6. Antes de ejecutar el archivo descargado, en el menú Preparar infraestructura, seleccione **Descargar** y guarde el archivo **Credenciales de almacén**. Este archivo es necesario para conectar el agente de MARS con el almacén de Recovery Services.
 
-    ![Prepare infrastructure](./media/tutorial-backup-windows-server-to-azure/download-vault-credentials.png)
+    ![Descarga de las credenciales de almacén](./media/tutorial-backup-windows-server-to-azure/download-vault-credentials.png)
 
 ## <a name="install-and-register-the-agent"></a>Instalación y registro del agente
 
 1. Busque y haga doble clic en el archivo **MARSagentinstaller.exe** descargado.
-2. Se muestra el **Asistente para la instalación de Agente de Microsoft Azure Recovery Services**. A medida que avance por el asistente, proporcione la siguiente información cuando se le solicite y haga clic en **Registrar**.
+2. Se muestra el **Asistente para la instalación de Agente de Microsoft Azure Recovery Services**. A medida que avance por el asistente, proporcione la siguiente información cuando se le solicite y seleccione **Registrar**.
    * Ubicación de la carpeta de instalación y de memoria caché.
    * Información del servidor proxy si usa un servidor proxy para conectarse a Internet.
    * Sus detalles de nombre de usuario y contraseña si usa un servidor proxy autenticado.
 
-     ![Prepare infrastructure](./media/tutorial-backup-windows-server-to-azure/mars-installer.png)
+     ![Asistente para la instalación del Agente de Microsoft Azure Recovery Services](./media/tutorial-backup-windows-server-to-azure/mars-installer.png)
 
-3. Al final del asistente, haga clic en **Proceder al registro** y proporcione el archivo **Credenciales de almacén** que descargó en el procedimiento anterior.
+3. Al final del asistente, seleccione **Proceder al registro** y proporcione el archivo **Credenciales de almacén** que descargó en el procedimiento anterior.
 
-4. Cuando se le solicite, proporcione una frase de contraseña de cifrado para cifrar las copias de seguridad de Windows Server. Guarde la frase de contraseña en una ubicación segura, ya que Microsoft no podrá recuperarla si la pierde.
+4. Cuando se le solicite, proporcione una frase de contraseña de cifrado para cifrar las copias de seguridad de Windows Server. Guarde la frase de contraseña en una ubicación segura, ya que Microsoft no puede recuperarla si se pierde.
 
-5. Haga clic en **Finalizar**
+5. Seleccione **Finalizar**.
 
 ## <a name="configure-backup-and-retention"></a>Configuración de copia de seguridad y retención
 
@@ -98,39 +98,39 @@ Use el agente de Microsoft Azure Recovery Services para programar cuándo se rea
 
 1. Abra el agente de Microsoft Azure Recovery Services. Para encontrarlo, busque **Microsoft Azure Backup**en la máquina.
 
-2. En la consola de agente de Recovery Services, haga clic en **Programar copia de seguridad** en el **panel de Acciones**.
+2. En la consola de agente de Recovery Services, seleccione **Programar copia de seguridad** en el **panel de Acciones**.
 
-    ![Prepare infrastructure](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
+    ![Programación de una copia de seguridad](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
 
-3. Haga clic en **Siguiente** para navegar hasta la página **Seleccionar elementos de los que realizar copia de seguridad**.
+3. Seleccione **Siguiente** para ir a la página **Seleccionar elementos de los que realizar copia de seguridad**.
 
-4. Haga clic en **Agregar elementos** y, desde el cuadro de diálogo que aparece, seleccione **Estado del sistema** y los archivos o las carpetas de los que quiera realizar una copia de seguridad. A continuación, haga clic en **Aceptar**.
+4. Seleccione **Agregar elementos** y, desde el cuadro de diálogo que aparece, seleccione **Estado del sistema** y los archivos o las carpetas de los que quiera realizar una copia de seguridad. Después, seleccione **Aceptar**.
 
-5. Haga clic en **Next**.
+5. Seleccione **Next** (Siguiente).
 
-6. En la página **Especificar la programación de copia de seguridad (estado del sistema)** , especifique las horas del día o la semana en que las copias de seguridad deben desencadenarse para el estado del sistema y haga clic en **Siguiente**.
+6. En la página **Especificar la programación de copia de seguridad (estado del sistema)** , especifique las horas del día o la semana en que las copias de seguridad deban desencadenarse para el estado del sistema y seleccione **Siguiente**.
 
-7. En la página **Seleccionar la directiva de retención (estado del sistema)** , elija la directiva de retención para la copia de seguridad del estado del sistema y haga clic en **Siguiente**.
+7. En la página **Seleccionar la directiva de retención (estado del sistema)** , seleccione la directiva de retención para la copia de seguridad del estado del sistema y seleccione **Siguiente**.
 
 8. De forma similar, seleccione la programación de copia de seguridad y la directiva de retención de los archivos y carpetas seleccionados.
 
-9. En la página **Elija el tipo de copia de seguridad inicial**, seleccione **Automáticamente a través de la red** y haga clic en **Siguiente**.
+9. En la página **Elija el tipo de copia de seguridad inicial**, seleccione **Automáticamente a través de la red** y, después, **Siguiente**.
 
-10. En la página **Confirmación**, revise la información y haga clic en **Finalizar**.
+10. En la página **Confirmación**, revise la información y seleccione **Finalizar**.
 
-11. Cuando el asistente termine de crear la programación de copia de seguridad, haga clic en **Cerrar**.
+11. Cuando el asistente termine de crear la programación de copia de seguridad, seleccione **Cerrar**.
 
 ## <a name="perform-an-on-demand-backup"></a>Realización de una copia de seguridad a petición
 
-La programación está establecida cuando se ejecutan los trabajos de copia de seguridad. Sin embargo, no ha realizado la copia de seguridad del servidor. Es un procedimiento recomendado de recuperación ante desastres para ejecutar una copia de seguridad a petición destinada a garantizar la resistencia de datos del servidor.
+Habrá establecido la programación cuando se ejecuten los trabajos de copia de seguridad. Sin embargo, no ha realizado la copia de seguridad del servidor. Es un procedimiento recomendado de recuperación ante desastres para ejecutar una copia de seguridad a petición destinada a garantizar la resistencia de datos del servidor.
 
-1. En la consola del agente de Microsoft Azure Recovery Services, haga clic en **Hacer Copia Ahora**.
+1. En la consola del agente de Microsoft Azure Recovery Services, seleccione **Hacer copia de seguridad ahora**.
 
-    ![Prepare infrastructure](./media/tutorial-backup-windows-server-to-azure/backup-now.png)
+    ![Hacer copia de seguridad ahora](./media/tutorial-backup-windows-server-to-azure/backup-now.png)
 
-2. En el **Asistente para iniciar copia de seguridad**, seleccione uno de los **archivos y carpetas** o el **estado del sistema** del que quiera realizar una copia de seguridad y haga clic en **Siguiente**.
-3. En la página **Confirmación**, revise la configuración que usa el Asistente de **Hacer Copia Ahora** para crear la copia de seguridad del servidor. Luego, haga clic en **Crear copia de seguridad**.
-4. Haga clic en **Cerrar** para cerrar el asistente. Si lo hace antes de que finalice la copia de seguridad, el asistente se sigue ejecutando en segundo plano.
+2. En el **Asistente para iniciar copia de seguridad**, seleccione uno de los **archivos y carpetas** o el **estado del sistema** del que quiera realizar una copia de seguridad, y seleccione **Siguiente**.
+3. En la página **Confirmación**, revise la configuración que usa el Asistente de **Hacer Copia Ahora** para crear la copia de seguridad del servidor. A continuación, seleccione **Copia de seguridad**.
+4. Seleccione **Cerrar** para cerrar el asistente. Si lo hace antes de que finalice la copia de seguridad, el asistente se sigue ejecutando en segundo plano.
 5. Una vez completada la copia de seguridad inicial, el estado **Trabajo completado** se refleja en el panel **Trabajos** de la consola del agente de MARS.
 
 ## <a name="next-steps"></a>Pasos siguientes

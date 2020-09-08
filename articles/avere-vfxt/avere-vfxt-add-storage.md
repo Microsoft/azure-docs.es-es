@@ -1,17 +1,17 @@
 ---
 title: Configurar el almacenamiento de Avere vFXT - Azure
-description: Cómo agregar un sistema de almacenamiento back-end a Avere vFXT para Azure
+description: Obtenga información sobre cómo agregar un sistema de almacenamiento de back-end para un clúster en Avere vFXT for Azure. Si creó un contenedor de blobs de Azure con el clúster, está listo para usarse.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: e011b349c9296fd0ca15d119b35c1e6ec6af268a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c17d3c7cd2cf6fe5bca725cf94344b2d2cb50bf2
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505756"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271148"
 ---
 # <a name="configure-storage"></a>Configuración del almacenamiento
 
@@ -119,7 +119,7 @@ Para agregar Blob Storage después de crear el clúster, siga estos pasos.
 
    ![GUI de Azure Portal para copiar la clave](media/avere-vfxt-copy-storage-key.png)
 
-1. Abra el panel de control de Avere para el clúster. Haga clic en **Settings** (Configuración) y abra la opción **Cluster (Clúster)**  > **Cloud Credentials (Credenciales en la nube)** en el panel de navegación izquierdo. En la página de credenciales en la nube, haga clic en **Add Credential** (Agregar credencial).
+1. Abra el panel de control de Avere para el clúster. Haga clic en **Settings** (Configuración) y abra la opción **Cluster (Clúster)** > **Cloud Credentials (Credenciales en la nube)** en el panel de navegación izquierdo. En la página de credenciales en la nube, haga clic en **Add Credential** (Agregar credencial).
 
    ![Haga clic en el botón Add Credential (Agregar credencial); este se encuentra en la página de configuración de credenciales en la nube](media/avere-vfxt-new-credential-button.png)
 
@@ -186,5 +186,5 @@ Una vez creada la Unión, los clientes utilizan la ruta de acceso del espacio de
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Montaje del clúster de Avere vFXT](avere-vfxt-mount-clients.md)
+* [Montaje del clúster de Avere de vFXT](avere-vfxt-mount-clients.md)
 * Más información sobre formas eficaces de [mover datos a un nuevo contenedor de blobs](avere-vfxt-data-ingest.md)

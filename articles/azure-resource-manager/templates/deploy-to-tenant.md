@@ -2,17 +2,17 @@
 title: Implementación de recursos en el inquilino
 description: Se describe cómo implementar recursos en el ámbito de un inquilino en una plantilla de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 07/27/2020
-ms.openlocfilehash: a6523ff70dc7307713bb6aecf90e2ea9f8e2bfdd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/06/2020
+ms.openlocfilehash: 2f5249eb54a62e4df082a18b22625bb93a0f09f8
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321758"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002763"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Creación de recursos en el nivel de inquilino
 
-A medida que crece la organización, es posible que necesite definir y asignar [directivas](../../governance/policy/overview.md) o [controles de acceso basados en roles](../../role-based-access-control/overview.md) en el inquilino de Azure AD. Con las plantillas de nivel de inquilino, puede aplicar directivas y asignar roles a nivel global de forma declarativa.
+A medida que crece la organización, es posible que necesite definir y asignar [directivas](../../governance/policy/overview.md) o el [control de acceso basado en rol (RBAC de Azure)](../../role-based-access-control/overview.md) en el inquilino de Azure AD. Con las plantillas de nivel de inquilino, puede aplicar directivas y asignar roles a nivel global de forma declarativa.
 
 ## <a name="supported-resources"></a>Recursos compatibles
 
@@ -27,7 +27,6 @@ Para las directivas de Azure, use:
 Para el control de acceso basado en rol, use:
 
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
-* [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
 
 Para plantillas anidadas que se implementan en grupos de administración, suscripciones o grupos de recursos, use:
 
@@ -252,5 +251,5 @@ La [siguiente plantilla](https://github.com/Azure/azure-quickstart-templates/tre
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para aprender sobre los roles de asignación, consulte [Administración del acceso a los recursos de Azure mediante RBAC y plantillas de Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
+* Para más información sobre la asignación de roles, consulte [Incorporación de asignaciones de roles mediante plantillas de Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
 * También puede implementar plantillas en el [nivel de suscripción](deploy-to-subscription.md) o el [nivel de grupo de administración](deploy-to-management-group.md).

@@ -1,17 +1,17 @@
 ---
 title: Ajuste del clúster de Avere vFXT - Azure
-description: Información general sobre la configuración personalizada para optimizar el rendimiento en Avere vFXT para Azure
+description: Obtenga información sobre la optimización personalizada de los clústeres de vFXT en Avere vFXT for Azure que se puede hacer, trabajando con un representante de soporte técnico.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 12/19/2019
 ms.author: rohogue
-ms.openlocfilehash: 2d06e3cc80f05cc86980dd2570d1d4d203295ff2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d9f81c9438cb992f81bd3e6319532d67db75552
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505297"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272389"
 ---
 # <a name="cluster-tuning"></a>Ajuste del clúster
 

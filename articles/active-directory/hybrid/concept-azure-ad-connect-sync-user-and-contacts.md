@@ -15,12 +15,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 661747754369c17ca98ae69d477e04124b6a2942
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d9470e9af38fdd814f5059538656e6a3dbb8e3a7
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60245493"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279319"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Sincronización de Azure AD Connect: descripción de usuarios, grupos y contactos
 Hay diversas razones por las que podría interesarle tener varios bosques de Active Directory y hay diversas topologías de implementación. Los modelos comunes incluyen una implementación cuenta-recurso y bosques sincronizados de lista global de direcciones tras una fusión y adquisición. Sin embargo, aunque existan modelos puros, los modelos híbridos también son comunes. La configuración predeterminada de Azure AD Connect no da por supuesto ningún modelo en particular, pero en función de cómo se haya seleccionado la coincidencia de usuarios en la guía de instalación, pueden observarse comportamientos diferentes.
@@ -39,9 +39,9 @@ Puntos importantes para tener en cuenta durante la sincronización de grupos de 
 
 * Azure AD Connect excluye los grupos de seguridad integrados de la sincronización de directorios.
 
-* Azure AD Connect no admite la sincronización de [pertenencias de grupo principal](https://technet.microsoft.com/library/cc771489(v=ws.11).aspx) a Azure AD.
+* Azure AD Connect no admite la sincronización de [pertenencias de grupo principal](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771489(v=ws.11)) a Azure AD.
 
-* Azure AD Connect no admite la sincronización de [pertenencias de grupo de distribución dinámico](https://technet.microsoft.com/library/bb123722(v=exchg.160).aspx) a Azure AD.
+* Azure AD Connect no admite la sincronización de [pertenencias de grupo de distribución dinámico](/Exchange/recipients/dynamic-distribution-groups/dynamic-distribution-groups?view=exchserver-2019) a Azure AD.
 
 * Para sincronizar un grupo de Active Directory a Azure AD como un grupo habilitado para correo electrónico:
 
@@ -76,4 +76,3 @@ Si se ha exportado un objeto a Azure AD, ya no se permite cambiar el valor de so
 ## <a name="additional-resources"></a>Recursos adicionales
 * [Sincronización de Azure AD Connect: personalización de las opciones de sincronización](how-to-connect-sync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](whatis-hybrid-identity.md)
-

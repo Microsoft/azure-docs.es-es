@@ -2,15 +2,15 @@
 title: Casos de prueba del kit de herramientas para pruebas
 description: En este artículo se describen las pruebas que se ejecutan en el kit de herramientas para pruebas de plantillas de Resource Manager.
 ms.topic: conceptual
-ms.date: 06/19/2020
+ms.date: 09/02/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 5c18a2658ba1af9370699004860d1743603e8143
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dda8e92c17029126e7f473a6aee03acfc970e04b
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255843"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378124"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>Casos de prueba predeterminados del kit de herramientas para pruebas de plantillas de Resource Manager
 
@@ -100,6 +100,37 @@ En el ejemplo siguiente **se supera** esta prueba:
         "type": "SecureString"
     }
 }
+```
+
+## <a name="environment-urls-cant-be-hardcoded"></a>Las direcciones URL de entorno no pueden estar codificadas de forma rígida
+
+Nombre de la prueba: **DeploymentTemplate no debe contener un URI codificado de forma rígida**
+
+No codifique de forma rígida las direcciones URL de entorno en la plantilla. En su lugar, use la [función de entorno ](template-functions-deployment.md#environment) para obtener estas direcciones URL de forma dinámica durante la implementación. Para obtener una lista de los hosts de URL que están bloqueados, consulte el [caso de prueba](https://github.com/Azure/arm-ttk/blob/master/arm-ttk/testcases/deploymentTemplate/DeploymentTemplate-Must-Not-Contain-Hardcoded-Uri.test.ps1).
+
+En el siguiente ejemplo **no se supera** esta prueba porque la URL está codificada de forma rígida.
+
+```json
+"variables":{
+    "AzureURL":"https://management.azure.com"
+}
+```
+
+La prueba también **genera un error** cuando se usa con [concat](template-functions-string.md#concat) o [uri](template-functions-string.md#uri).
+
+```json
+"variables":{
+    "AzureSchemaURL1": "[concat('https://','gallery.azure.com')]",
+    "AzureSchemaURL2": "[uri('gallery.azure.com','test')]"
+}
+```
+
+En el ejemplo siguiente **se supera** esta prueba.
+
+```json
+"variables": {
+    "AzureSchemaURL": "[environment().gallery]"
+},
 ```
 
 ## <a name="location-uses-parameter"></a>La ubicación usa el parámetro
@@ -351,7 +382,7 @@ También recibirá esta advertencia si proporciona un valor mínimo o máximo, p
 
 ## <a name="artifacts-parameter-defined-correctly"></a>Parámetro de artefactos definido correctamente
 
-Nombre de la prueba: **artifacts-parameter**
+Nombre de la prueba : **parámetro de artefactos**
 
 Cuando incluya parámetros para `_artifactsLocation` y `_artifactsLocationSasToken`, utilice los valores predeterminados y los tipos correctos. Deben cumplirse las condiciones siguientes para superar la prueba:
 
@@ -514,9 +545,9 @@ Esta prueba se aplica a:
 
 En `reference` y `list*`, la prueba **no se supera** cuando se usa `concat` para crear el identificador de recurso.
 
-## <a name="dependson-cant-be-conditional"></a>dependsOn no puede ser condicional
+## <a name="dependson-best-practices"></a>Procedimientos recomendados de dependsOn
 
-Nombre de la prueba: **DependsOn no debe ser condicional**
+Nombre de la prueba: **Procedimientos recomendados de dependsOn**
 
 Al establecer las dependencias de implementación, no use la función [si](template-functions-logical.md#if) para probar una condición. Si un recurso depende de un recurso que se [implementa condicionalmente](conditional-resource-deployment.md), establezca la dependencia como lo haría con cualquier recurso. Cuando un recurso condicional no está implementado, Azure Resource Manager lo quita automáticamente de las dependencias necesarias.
 
@@ -572,7 +603,7 @@ Si la plantilla incluye una máquina virtual con una imagen, asegúrese de que e
 
 ## <a name="use-stable-vm-images"></a>Uso de imágenes de máquina virtual estables
 
-Nombre de la prueba: **Las máquinas virtuales no deben estar en vista previa**
+Nombre de la prueba: **Virtual Machines no debe ser una versión preliminar**
 
 Las máquinas virtuales no deben usar imágenes de vista previa.
 

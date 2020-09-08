@@ -1,14 +1,14 @@
 ---
 title: 'Inicio rápido: Creación de un plano técnico en Azure Portal'
 description: En este inicio rápido, se usa Azure Blueprints para crear, definir e implementar artefactos mediante Azure Portal.
-ms.date: 03/25/2020
+ms.date: 08/27/2020
 ms.topic: quickstart
-ms.openlocfilehash: dfd0aeb22801776fc9effdf8d0418a9c9b6ab802
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a37c621e0a90a0748d3ddc3fda34612c54712ed9
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045219"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051529"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Inicio rápido: Definición y asignación de un plano técnico en Azure Portal
 
@@ -61,7 +61,7 @@ El primer paso para definir un patrón estándar de cumplimiento es elaborar un 
 
    1. Cambie **Tipo** a **Integrado**. En **Búsqueda**, escriba **Etiqueta**.
 
-   1. Haga clic fuera de **Búsqueda** para que se produzca el filtrado. Seleccione **Append tag and its default value to resource groups** (Anexar una etiqueta y su valor predeterminado a los grupos de recursos).
+   1. Para que se produzca el filtrado, debe quitar el foco de **Búsqueda**. Seleccione **Append tag and its default value to resource groups** (Anexar una etiqueta y su valor predeterminado a los grupos de recursos).
 
    1. Seleccione **Agregar** para agregar este artefacto al plano técnico.
 

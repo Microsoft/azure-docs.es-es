@@ -3,14 +3,15 @@ title: Uso del valor devuelto de una función de Azure
 description: Aprenda a administrar valores devueltos de Azure Functions.
 author: craigshoemaker
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 01/14/2019
 ms.author: cshoe
-ms.openlocfilehash: 7ba104e288204dfbf3d24f5783bf69682a286553
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1dd9fabbe235e45290e607f861b67466d33319ce
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74480584"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212174"
 ---
 # <a name="using-the-azure-function-return-value"></a>Uso del valor devuelto de una función de Azure
 

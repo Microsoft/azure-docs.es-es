@@ -12,12 +12,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
-ms.openlocfilehash: e1cfe7216c1b37812c482cfacbd5d1c3f155418f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b5a83b3976dd3d3af1bfd5695815f7571d73dd9d
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507835"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652192"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Guía de copia de seguridad de SAP HANA en Azure Virtual Machines
 
@@ -45,7 +45,7 @@ El primer escenario que se muestra es un escenario en el que el servicio Azure B
 
 Azure Backup integra y tiene la certificación de solución de copia de seguridad para SAP HANA que usa la interfaz propietaria de SAP HANA denominada [backint](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5). Para más detalles de la solución, sus funcionalidades y las regiones de Azure en que está disponible, lea el artículo [Matriz de compatibilidad para la copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure](../../../backup/sap-hana-backup-support-matrix.md#scenario-support). Para conocer los detalles y principios del servicio Azure Backup para HANA, lea el artículo [Acerca de la copia de seguridad de bases de datos SAP HANA en máquinas virtuales de Azure](../../../backup/sap-hana-db-about.md). 
 
-La segunda posibilidad para aprovechar el servicio Azure Backup es crear una copia de seguridad coherente con la aplicación mediante instantáneas de disco de Azure Premium Storage. Otras instancias de Azure Storage con certificación de HANA, como [Azure Ultra Disk](../../linux/disks-enable-ultra-ssd.md) y [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) no admiten este tipo de instantánea a través de un servicio de Azure Backup. Al leer estos artículos:
+La segunda posibilidad para aprovechar el servicio Azure Backup es crear una copia de seguridad coherente con la aplicación mediante instantáneas de disco de Azure Premium Storage. Otras instancias de Azure Storage con certificación de HANA, como [Azure Ultra Disk](../../disks-enable-ultra-ssd.md) y [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) no admiten este tipo de instantánea a través de un servicio de Azure Backup. Al leer estos artículos:
 
 - [Planeación de la infraestructura de copia de seguridad de VM en Azure](../../../backup/backup-azure-vms-introduction.md)
 - [Copias de seguridad coherentes con la aplicación de las máquinas virtuales Linux de Azure](../../../backup/backup-azure-linux-app-consistent.md) 

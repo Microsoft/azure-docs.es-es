@@ -6,22 +6,24 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.openlocfilehash: af63ef6f33cc0e3dfe7f186ad2e36b854a728c6b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 7733148777cde2a487e5c93d7750eb7a24ff531c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120583"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999400"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-mysql"></a>Conexión con identidad administrada a Azure Database for MySQL
 
-En este artículo se muestra cómo usar una identidad asignada por el usuario en una máquina virtual (VM) de Azure para acceder a un servidor de Azure Database for MySQL. Las identidades de MSI son administradas automáticamente por Azure y le permiten autenticar los servicios que admiten la autenticación de Azure AD sin necesidad de insertar credenciales en el código. Aprenderá a:
+En este artículo se muestra cómo usar una identidad asignada por el usuario en una máquina virtual (VM) de Azure para acceder a un servidor de Azure Database for MySQL. Las identidades de MSI son administradas automáticamente por Azure y le permiten autenticar los servicios que admiten la autenticación de Azure AD sin necesidad de insertar credenciales en el código. 
 
-> [!div class="checklist"]
-> * Conceder a la VM acceso a un servidor de Azure Database for MySQL.
-> * Crear un usuario en la base de datos que represente la identidad asignada por el usuario de la VM.
-> * Obtener un token de acceso mediante la identidad de la VM y usarlo para consultar un servidor de Azure Database for MySQL.
-> * Implementar la recuperación del token en una aplicación de ejemplo de C#.
+Aprenderá a:
+
+- Conceder a la VM acceso a un servidor de Azure Database for MySQL.
+- Crear un usuario en la base de datos que represente la identidad asignada por el usuario de la VM.
+- Obtener un token de acceso mediante la identidad de la VM y usarlo para consultar un servidor de Azure Database for MySQL.
+- Implementar la recuperación del token en una aplicación de ejemplo de C#.
 
 > [!IMPORTANT]
 > La conexión con Identidad administrada solo está disponible para MySQL 5.7 y versiones más recientes.

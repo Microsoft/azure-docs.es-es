@@ -8,12 +8,13 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: b5ce74e680d79cfee006cb8cade6c22bff3c055f
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 9295b1d8a54d9c3c1a138a54f4b3706bd39227fd
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202951"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89009549"
 ---
 # <a name="list-blobs-with-net"></a>Enumeración de blobs con .NET
 
@@ -25,14 +26,14 @@ En este artículo se muestra cómo enumerar blobs con [la biblioteca cliente de 
 
 Para enumerar los blobs de una cuenta de almacenamiento, llame a uno de estos métodos:
 
-# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 - [BlobContainerClient.GetBlobs](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobs?view=azure-dotnet)
 - [BlobContainerClient.GetBlobsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync?view=azure-dotnet)
 - [BlobContainerClient.GetBlobsByHierarchy](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchy?view=azure-dotnet)
 - [BlobContainerClient.GetBlobsByHierarchyAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchyasync?view=azure-dotnet)
 
-# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 - [CloudBlobClient.ListBlobs](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobs)
 - [CloudBlobClient.ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobssegmented)
@@ -84,11 +85,11 @@ En el ejemplo siguiente se enumeran los blobs del contenedor especificado median
 
 Si ha habilitado la característica de espacio de nombres jerárquico en su cuenta, los directorios no son virtuales. En su lugar, son objetos independientes y concretos. Por lo tanto, los directorios aparecen en la lista como blobs de longitud cero.
 
-# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsFlatListing":::
 
-# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 ```csharp
 private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container, int? segmentSize)
@@ -150,7 +151,7 @@ Blob name: FolderA/FolderB/FolderC/blob3.txt
 
 Cuando se llama a una operación de enumeración jerárquicamente, Azure Storage devuelve los directorios virtuales y los blobs en el primer nivel de la jerarquía. La propiedad [Prefix](/dotnet/api/microsoft.azure.storage.blob.cloudblobdirectory.prefix) de cada directorio virtual se establece de manera que pueda pasar el prefijo en una llamada recursiva para recuperar el siguiente directorio.
 
-# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Para enumerar los blobs de forma jerárquica, llame al método [BlobContainerClient.GetBlobsByHierarchy](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchy?view=azure-dotnet) o [BlobContainerClient.GetBlobsByHierarchyAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchyasync?view=azure-dotnet).
 
@@ -158,7 +159,7 @@ En el ejemplo siguiente se enumeran los blobs del contenedor especificado median
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsHierarchicalListing":::
 
-# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Para enumerar los blobs de forma jerárquica, establezca el parámetro `useFlatBlobListing` del método de enumeración en **false**.
 

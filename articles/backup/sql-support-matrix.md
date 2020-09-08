@@ -4,12 +4,12 @@ description: Proporciona un resumen de opciones de compatibilidad y limitaciones
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4d197f8b3c1ed74ef45c1f7942ead52ccef0c14a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 41511abaa071bd0f64ee699c52486b71ec036a68
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513190"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926457"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Matriz de compatibilidad para la copia de seguridad de SQL Server en VM de Azure
 
@@ -25,21 +25,26 @@ Puede usar Azure Backup para realizar copias de seguridad de bases de datos de S
 **Versiones admitidas de SQL Server** | SQL Server 2019, SQL Server 2017 tal como se detalla en la [página de búsqueda del ciclo de vida del producto](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 y los SP tal como se detalla en la [página de búsqueda del ciclo de vida del producto](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008 <br/><br/> Enterprise, Standard, Web, Developer, Express.
 **Versiones de .NET compatibles** | .NET Framework 4.5.2 o posterior instalado en la máquina virtual
 
-## <a name="feature-consideration-and-limitations"></a>Consideraciones y limitaciones de las características
+## <a name="feature-considerations-and-limitations"></a>Consideraciones y limitaciones de las características
 
-* La copia de seguridad de SQL Server se puede configurar en Azure Portal o **PowerShell**. La CLI no se admite.
+|Configuración  |Límite máximo |
+|---------|---------|
+|Número de bases de datos que se pueden proteger en un servidor (y en un almacén)    |   2000      |
+|Tamaño de la base de datos compatible (más allá de esto, pueden aparecer problemas de rendimiento)   |   2 TB      |
+|Número de archivos admitidos en una base de datos    |   1000      |
+
+>[!NOTE]
+> [Descargue el planeador de recursos detallado](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) para calcular el número aproximado de bases de datos protegidas que se recomiendan por servidor en función de los recursos de la máquina virtual, el ancho de banda y la directiva de copia de seguridad.
+
+* La copia de seguridad de SQL Server se puede configurar en Azure Portal o **PowerShell**. No se admite la CLI.
 * La solución es compatible con ambos tipos de [implementaciones](../azure-resource-manager/management/deployment-models.md): las máquinas virtuales de Azure Resource Manager y las máquinas virtuales clásicas.
-* La máquina virtual que ejecuta SQL Server requiere conectividad a Internet para acceder a las direcciones IP públicas de Azure.
-* La **instancia del clúster de conmutación por error (FCI)** de SQL Server no se admite.
+* Se admiten todos los tipos de copia de seguridad (completas, diferenciales y de registro) y los modelos de recuperación (simple, completo o registros de operaciones masivas).
+* Los tipos de copia de seguridad Completa y Solo copia completa se admiten en las bases de datos **de solo lectura**.
+* La compresión nativa de SQL es compatible si el usuario la habilita explícitamente en la directiva de copia de seguridad. Azure Backup invalida los valores predeterminados de nivel de instancia con la cláusula COMPRESSION/NO_COMPRESSION según el valor de este control establecido por el usuario.
+* Se admite la copia de seguridad de base de datos habilitada para TDE. Para restaurar una base de datos cifrada TDE en otra de SQL Server, primero debe [restaurar el certificado en el servidor de destino](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server). Está disponible la compresión de copia de seguridad para las bases de datos habilitadas para TDE para SQL Server 2016 y las versiones más recientes, pero con un tamaño de transferencia inferior, tal y como se explica [aquí](https://techcommunity.microsoft.com/t5/sql-server/backup-compression-for-tde-enabled-databases-important-fixes-in/ba-p/385593).
 * No se admiten operaciones de copia de seguridad y restauración de bases de datos reflejadas ni de instantáneas de bases de datos.
-* Si se usa más de una solución para realizar copias de seguridad de una instancia de SQL Server independiente o de un grupo de disponibilidad Always On de SQL, se pueden producir errores en la copia de seguridad, por lo que es aconsejable evitarlo.
-* La realización de una copia de seguridad de dos nodos de un grupo de disponibilidad individualmente con las mismas soluciones o soluciones diferentes, también puede dar lugar a errores en la copia de seguridad.
-* Azure Backup admite solo los tipos de copia de seguridad Completa y Solo copia completa en las bases de datos **de solo lectura**
-* Las bases de datos con un gran número de archivos no se pueden proteger. El número máximo de archivos admitidos es **aproximadamente 1000**.  
-* Puede hacer una copia de seguridad de hasta **aproximadamente 2000** bases de datos de SQL Server en un almacén. Si tiene un número mayor de bases de datos, puede crear varios almacenes.
-* Puede configurar la copia de seguridad de hasta **50** bases de datos a la vez; esta restricción ayuda a optimizar la carga de copias de seguridad.
-* Se admiten bases de datos de hasta **2 TB** de tamaño; si su tamaño es mayor, pueden surgir problemas de rendimiento.
-* Para saber el número aproximado de bases de datos que se pueden proteger por servidor, tenga en cuenta factores tales como el ancho de banda, el tamaño de la VM, la frecuencia de copia de seguridad, el tamaño de la base de datos, etc. [Descargue](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) la herramienta de planeamiento de recursos para calcular el número aproximado de bases de datos que puede tener por servidor según los recursos de la VM y la directiva de copia de seguridad.
+* La **instancia del clúster de conmutación por error (FCI)** de SQL Server no se admite.
+* Si se usa más de una solución para realizar copias de seguridad de una instancia de SQL Server independiente o de un grupo de disponibilidad Always On de SQL, se pueden producir errores en la copia de seguridad. Se aconseja no hacerlo. La realización de una copia de seguridad de dos nodos de un grupo de disponibilidad individualmente con las mismas soluciones o soluciones diferentes, también puede dar lugar a errores en la copia de seguridad.
 * Si los grupos de disponibilidad están configurados, las copias de seguridad se realizan de los distintos nodos en función de una serie de factores. A continuación, se resume el comportamiento del proceso de copia de seguridad en un grupo de disponibilidad.
 
 ### <a name="back-up-behavior-with-always-on-availability-groups"></a>Comportamiento del proceso de copia de seguridad con los grupos de disponibilidad Always On

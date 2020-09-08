@@ -3,14 +3,14 @@ title: Creación de implementaciones de actualizaciones para Update Management e
 description: En este artículo se describe cómo programar implementaciones de actualizaciones y revisar su estado.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 08/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2a81376b284e0d1df84a69b969335c0e63999a00
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 4336ba272dd83ad2a35060c1c7524a564b928484
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449807"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717700"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Implementación de actualizaciones y revisión de los resultados
 
@@ -41,8 +41,10 @@ Para programar una implementación de actualizaciones:
 
 6. Use el área **Clasificaciones de actualizaciones** para especificar [clasificaciones de actualizaciones](update-mgmt-view-update-assessments.md#work-with-update-classifications) para productos. En cada producto, anule la selección de todas las clasificaciones de actualizaciones compatibles, salvo las que se incluirán en la implementación de actualizaciones.
 
-7. Use el área **Incluir o excluir actualizaciones** para seleccionar actualizaciones específicas con fines de implementación. En la página Incluir o excluir, se muestran las actualizaciones con arreglo a los números de identificador de artículo de KB que se van a incluir o excluir.
-    
+    Si la implementación está pensada para aplicar solo un conjunto de actualizaciones específico, es necesario anular la selección de todas las clasificaciones de actualización preseleccionadas al configurar la opción **Incluir o excluir las actualizaciones** como se describe en el paso siguiente. Esto garantiza que solo se instalen en las máquinas de destino las actualizaciones que haya especificado para *incluirse* en esta implementación.
+
+7. Use la región **Incluir o excluir las actualizaciones** para agregar o excluir actualizaciones seleccionadas de la implementación. En la página **Incluir/excluir**, escriba los números de identificador de artículo de KB que se van a incluir o excluir.
+
    > [!IMPORTANT]
    > Es importante recordar que las exclusiones tienen prioridad sobre las inclusiones. Por ejemplo, si define una regla de exclusión con `*`, Update Management excluirá todas las revisiones o los paquetes de la instalación. Las revisiones excluidas aparecen todavía como que faltan en la máquina. En el caso de las máquinas Linux, si incluye un paquete que tiene un paquete dependiente excluido, Update Management no instalará el paquete principal.
 

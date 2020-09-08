@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Zoho One China | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Zoho One China.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 77eff5fd-01c1-4834-b6b6-75dcad0e55fe
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 03/26/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c484b2c8b23cd6001cdbe53f5969875b0f79be8
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 1d429981bc85523483907e94876668c280ba12ff
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385327"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546107"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zoho-one-china"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Zoho One China
 

@@ -7,12 +7,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: 6fdc36dbf270be61457dcd00dd1988808a80d062
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ae2c1072b9490931609dd61f1cac2a47f1cffef3
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87030103"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469956"
 ---
 # <a name="tutorial-delete-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Eliminación de un clúster de Red Hat OpenShift 4 en Azure
 
@@ -26,7 +26,7 @@ En este tutorial, la tercera parte de tres, se elimina un clúster de Red Hat Op
 
 En los tutoriales anteriores, se creó un clúster de Red Hat OpenShift en Azure y se estableció una conexión a él mediante la consola web de OpenShift. Si no ha realizado estos pasos, pero desea continuar, comience con el [Tutorial 1: Creación de un clúster de la versión 4 de Red Hat Openshift en Azure](tutorial-create-cluster.md).
 
-Si decide instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.75 u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Si decide instalar y usar la CLI de forma local, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.6.0, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -40,7 +40,7 @@ Si tiene acceso a varias suscripciones, ejecute `az account set -s {subscription
 
 ## <a name="delete-the-cluster"></a>Eliminación del clúster
 
-En los tutoriales anteriores, se establecieron las siguientes variables. 
+En los tutoriales anteriores, se establecieron las siguientes variables.
 
 ```bash
 CLUSTER=yourclustername

@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: a63e5a8b59c1e043b4af7b35c34cde6be0314d22
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: 668aa51bdb57dc4bcde0e3a95c481bb60e3d8ed3
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497025"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997377"
 ---
 # <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db"></a>Aprovisionamiento del rendimiento estándar (manual) en Azure Cosmos DB
 

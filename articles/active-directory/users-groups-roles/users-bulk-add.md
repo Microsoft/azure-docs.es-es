@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 04/27/2020
+ms.date: 08/11/2020
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f603623e2b47a8ac1a8530880e10c919f63b66c
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 64fc4e1192a1ec33b1d13c38d66e9aab5cbe256b
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423616"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705629"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>Creación masiva de usuarios en Azure Active Directory
 
@@ -33,6 +33,9 @@ Para crear usuarios en bloque en el portal de administración, debe iniciar sesi
 Descargue y rellene la plantilla CSV de carga masiva para facilitar la creación en bloque correcta de los usuarios de Azure AD. La plantilla CSV que descargue podría parecerse a este ejemplo:
 
 ![Hoja de cálculo para la carga y notas que explican el propósito y los valores de cada fila y columna](./media/users-bulk-add/create-template-example.png)
+
+> [!WARNING]
+> Si agrega solo una entrada en la plantilla CSV, debe conservar la fila 3 y agregar la entrada nueva a la fila 4.
 
 ### <a name="csv-template-structure"></a>Estructura de la plantilla CSV
 

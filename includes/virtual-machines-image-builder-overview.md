@@ -1,16 +1,16 @@
 ---
 author: cynthn
 ms.author: cynthn
-ms.date: 05/15/2020
+ms.date: 08/03/2020
 ms.topic: include
 ms.service: virtual-machines-linux
-manager: gwallace
-ms.openlocfilehash: 0a4dcf749a76623df7f46d77bf3e4877f2c41900
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+manager: daberry
+ms.openlocfilehash: 6024dd595166afe24a75720d8c7593afd451b610
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83821500"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87554898"
 ---
 Las imágenes estandarizadas de máquinas virtuales permiten a las organizaciones migrar a la nube y garantizar la coherencia de las implementaciones. Normalmente, las imágenes incluyen opciones de seguridad y de configuración predefinidas y el software necesario. La configuración de su propia canalización de creación de imágenes requiere tiempo, una infraestructura y el programa de instalación, pero con Image Builder de máquina virtual de Azure, basta con que proporcione una configuración sencilla que describa la imagen y la envíe al servicio para que se cree y se distribuya.
  
@@ -56,6 +56,7 @@ AIB será compatible con imágenes del sistema operativo base de Azure Marketpla
 - Windows 2019
 
 Ya no se admite la compatibilidad con RHEL archivos ISO.
+
 ## <a name="how-it-works"></a>Funcionamiento
 
 
@@ -97,6 +98,9 @@ Durante el proceso de creación de imagen, los archivos se descargan y se almace
 Image Builder crea una máquina virtual con un tamaño D1v2 y el almacenamiento y redes que necesita. Estos recursos estarán en vigor durante el proceso de compilación y se eliminarán una vez que Image Builder haya terminado de crear la imagen. 
  
 Azure Image Builder distribuirá la imagen a las regiones elegidas, lo que podría suponer cargos de salida de red.
+
+## <a name="hyper-v-generation"></a>Generación de Hyper-V
+Image Builder actualmente es compatible con las imágenes y máquinas virtuales de Hyper-V de primera generación.
  
 ## <a name="next-steps"></a>Pasos siguientes 
  

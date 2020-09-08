@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 71e336ffac557c33aa803cf0e9c123c3bae9427d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 9f7910219c34c811cc49f530af145c6e1589711f
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000608"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89257031"
 ---
-# <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Cifrado dinámico: Configuración de una directiva de autorización de claves de contenido  
+# <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Cifrado dinámico: Configuración de una directiva de autorización de claves de contenido
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+ 
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## <a name="overview"></a>Información general

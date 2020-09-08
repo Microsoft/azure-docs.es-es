@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94a4b2a44902dde798f760f970ccff2c1e8f15c5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fc8f599860b6095e1bab90e8e29818d8079e89a9
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025646"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184948"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Instrucciones: Administración de dispositivos obsoletos en Azure AD
 
@@ -162,7 +162,7 @@ Una vez configuradas, las claves de BitLocker para dispositivos Windows 10 se al
 
 ### <a name="why-should-i-worry-about-windows-autopilot-devices"></a>¿Por qué debería preocuparme por los dispositivos Windows AutoPilot?
 
-Cuando un dispositivo Azure AD se asocia a un objeto de Windows AutoPilot, pueden producirse los tres escenarios siguientes si dicho dispositivo se va a volver a usar en el futuro:
+Cuando se elimina un dispositivo Azure AD que estaba asociado a un objeto de Windows AutoPilot, pueden producirse los tres escenarios siguientes si dicho dispositivo se va a volver a usar en el futuro:
 - Con implementaciones no meticulosas controladas por el usuario de Windows AutoPilot, se creará un nuevo dispositivo Azure AD, pero no se etiquetará con ZTDID.
 - Con implementaciones en modo de autoimplementación de Windows AutoPilot, se producirá un error porque no se encuentra un dispositivo de Azure AD asociado.  (Se trata de un mecanismo de seguridad para asegurarse de que ningún dispositivo “impostor” intenta unirse a Azure AD sin credenciales). El error indicará una falta de coincidencia de ZTDID.
 - Con implementaciones meticulosas de Windows AutoPilot, se producirá un error porque no se encuentra un dispositivo de Azure AD asociado. (En segundo plano, las implementaciones meticulosas usan el mismo proceso del modo de autoimplementación, por lo que aplican los mismos mecanismos de seguridad).

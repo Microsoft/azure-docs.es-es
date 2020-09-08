@@ -4,12 +4,12 @@ description: En este inicio rápido, aprenderá a crear un almacén de Azure Rec
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/29/2020
-ms.openlocfilehash: 9112841f6f07808d80fa2b8b61e612d57d0ec20e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 62bfe71c397367282c696eecdf55ab9c900c69a1
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248832"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684123"
 ---
 # <a name="quickstart-create-a-recovery-services-vault-using-an-arm-template"></a>Inicio rápido: Creación de un almacén de Recovery Services mediante una plantilla de Resource Manager
 
@@ -29,7 +29,7 @@ Si no tiene una suscripción activa a Azure, puede crear una [cuenta gratuita](h
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-recovery-services-vault-create/).
 
-:::code language="json" source="~/quickstart-templates/101-recovery-services-vault-create/azuredeploy.json" range="1-66" highlight="41-65":::
+:::code language="json" source="~/quickstart-templates/101-recovery-services-vault-create/azuredeploy.json":::
 
 En la plantilla se definen dos recursos de Azure:
 

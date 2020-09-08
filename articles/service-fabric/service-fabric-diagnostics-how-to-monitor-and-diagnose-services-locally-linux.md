@@ -3,12 +3,13 @@ title: Depuración de aplicaciones Azure Service Fabric en Linux
 description: Aprenda a supervisar y diagnosticar sus servicios de Service Fabric en una máquina de desarrollo local Linux.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 6f637721d24045f5ca3386ffc31775d469e88537
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 523cb0d1a8e8f322c1936f1fe52a954399b2acc5
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247564"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999774"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-linux-machine-development-setup"></a>Supervisión y diagnóstico de servicios en una configuración de desarrollo de máquina Linux local
 

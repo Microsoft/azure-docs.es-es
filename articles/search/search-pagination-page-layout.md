@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: fd102706d1fa6c33d8962a5d1caf5aa3e41b231d
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 08641814e2a4fdf6f174f94b1e38e4124cf531d0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146176"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934929"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Procedimientos para trabajar con los resultados de búsqueda en Azure Cognitive Search
 
 En este artículo se explica cómo obtener la respuesta a una consulta, donde se devuelve el recuento total de documentos coincidentes, resultados paginados, resultados ordenados y términos con resaltado de referencias.
 
-La estructura de una respuesta viene determinada por los parámetros de la consulta: [Documento de búsqueda](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) en la API de REST o [clase DocumentSearchResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) en el SDK de .NET.
+La estructura de una respuesta viene determinada por los parámetros de la consulta: [Documento de búsqueda](/rest/api/searchservice/Search-Documents) en la API de REST o [clase DocumentSearchResult](/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) en el SDK de .NET.
 
 ## <a name="result-composition"></a>Redacción de los resultados
 
@@ -98,7 +98,7 @@ Otra opción es usar un [perfil de puntuación personalizado](index-add-scoring-
 
 ## <a name="hit-highlighting"></a>Resaltado de referencias
 
-El resaltado de referencias hace referencia al formato del texto (por ejemplo, negrita o resaltados en amarillo) que se aplica a los términos coincidentes en un resultado, lo que facilita la ubicación de las coincidencias. Se proporcionan instrucciones de resaltado de referencias en la [solicitud de consulta](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
+El resaltado de referencias hace referencia al formato del texto (por ejemplo, negrita o resaltados en amarillo) que se aplica a los términos coincidentes en un resultado, lo que facilita la ubicación de las coincidencias. Se proporcionan instrucciones de resaltado de referencias en la [solicitud de consulta](/rest/api/searchservice/search-documents). 
 
 Para habilitar el resaltado de referencias, agregue `highlight=[comma-delimited list of string fields]` para especificar los campos que usarán el resaltado. Este resulta útil para los campos de contenido más largos, como un campo de descripción, en el que la coincidencia no es evidente de inmediato. Solo las definiciones de campo atribuidas como **searchable** (que permiten búsquedas) califican para el resaltado de referencias.
 

@@ -1,6 +1,6 @@
 ---
 title: 'Control de acceso de supervisión remota: Azure | Microsoft Docs'
-description: En este artículo se proporciona información sobre cómo puede configurar controles de acceso basado en rol (RBAC) en el acelerador de soluciones de supervisión remota
+description: En este artículo se proporciona información sobre cómo puede configurar el control de acceso basado en rol (RBAC) en el acelerador de soluciones de supervisión remota
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -8,17 +8,17 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.custom: has-adal-ref
-ms.openlocfilehash: e41d3b47408d29a0463eed5f23117801be107c27
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.custom: has-adal-ref, devx-track-csharp
+ms.openlocfilehash: b32e0a60e099b5ad184f8919be3f93646c3a68b3
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920711"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018151"
 ---
-# <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configuración de controles de acceso basado en rol en el acelerador de soluciones de supervisión remota
+# <a name="configure-role-based-access-control-in-the-remote-monitoring-solution-accelerator"></a>Configuración del control de acceso basado en rol en el acelerador de soluciones de supervisión remota
 
-En este artículo se proporciona información sobre cómo configurar los controles de acceso basado en rol en el acelerador de soluciones de supervisión remota. Los controles de acceso basado en rol le permiten restringir el acceso a determinados usuarios a características específicas de la solución.
+En este artículo se proporciona información sobre cómo configurar el control de acceso basado en rol en el acelerador de soluciones de supervisión remota. El control de acceso basado en rol permite restringir el acceso a determinados usuarios a características específicas de la solución.
 
 ## <a name="default-settings"></a>Configuración predeterminada
 
@@ -244,7 +244,7 @@ public async Task DeleteAsync(string id)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido cómo se implementan los controles de acceso basado en rol en el acelerador de soluciones de supervisión remota.
+En este artículo ha aprendido cómo se implementa el control de acceso basado en rol en el acelerador de soluciones de supervisión remota.
 
 Para obtener información acerca de cómo administrar el acceso al explorador de Time Series Insights en el acelerador de la solución de supervisión remota, consulte [Configure access controls for the Time Series Insights explorer](iot-accelerators-remote-monitoring-rbac-tsi.md) (Configuración de los controles de acceso del explorador de Time Series Insights).
 

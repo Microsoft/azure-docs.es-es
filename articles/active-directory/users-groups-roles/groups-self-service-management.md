@@ -1,6 +1,6 @@
 ---
 title: Configuración de la administración de grupos de autoservicio en Azure Active Directory | Microsoft Docs
-description: Creación y administración de grupos de seguridad o de grupos de Office 365 en Azure Active Directory y solicitud de la pertenencia a grupos de Office 365 o de seguridad
+description: Creación y administración de grupos de seguridad o grupos de Microsoft 365 en Azure Active Directory y solicitud de la pertenencia a estos grupos
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -10,27 +10,27 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 03/10/2020
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ce5d96d3ca65efb69bf322cf4a5f5563b83d8ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a32874cebcd8335967eaf8a07a56346e8ad6460
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727881"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213620"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Configuración de la administración de grupos de autoservicio en Azure Active Directory 
 
-Puede permitir que los usuarios creen y administren sus propios grupos de seguridad o grupos de Office 365 en Azure Active Directory (Azure AD). El propietario del grupo puede aprobar o rechazar solicitudes de pertenencia y puede delegar el control de la pertenencia a grupos. Las características de administración de grupos de autoservicio no están disponibles para grupos de seguridad habilitados para correo electrónico o listas de distribución.
+Puede permitir que los usuarios creen y administren sus propios grupos de seguridad o grupos de Microsoft 365 en Azure Active Directory (Azure AD). El propietario del grupo puede aprobar o rechazar solicitudes de pertenencia y puede delegar el control de la pertenencia a grupos. Las características de administración de grupos de autoservicio no están disponibles para grupos de seguridad habilitados para correo electrónico o listas de distribución.
 
 ## <a name="self-service-group-membership-defaults"></a>Valores predeterminados de pertenencia a grupos de autoservicio
 
-Cuando se crean grupos de seguridad en Azure Portal o con Azure AD PowerShell, solo los propietarios del grupo pueden actualizar pertenencia. Los grupos de seguridad creados con autoservicio en el [Panel de acceso](https://account.activedirectory.windowsazure.com/r#/joinGroups) y todos los grupos de Office 365 están disponibles para que se unan todos los usuarios, tanto los aprobados por el propietario como los aprobados automáticamente. En el Panel de acceso, puede cambiar las opciones de pertenencia al crear el grupo.
+Cuando se crean grupos de seguridad en Azure Portal o con Azure AD PowerShell, solo los propietarios del grupo pueden actualizar pertenencia. Los grupos de seguridad creados mediante autoservicio en el [Panel de acceso](https://account.activedirectory.windowsazure.com/r#/joinGroups) y todos los grupos de Microsoft 365 están disponibles para que se unan todos los usuarios, tanto los aprobados por el propietario como los aprobados automáticamente. En el Panel de acceso, puede cambiar las opciones de pertenencia al crear el grupo.
 
-Grupos creados en | Comportamiento predeterminado del grupo de seguridad | Comportamiento predeterminado del grupo de Office 365
+Grupos creados en | Comportamiento predeterminado del grupo de seguridad | Comportamiento predeterminado del grupo de Microsoft 365
 ------------------ | ------------------------------- | ---------------------------------
 [Azure AD PowerShell](groups-settings-cmdlets.md) | Solo los propietarios pueden agregar miembros<br>Visible pero no está disponible para unión en el Panel de acceso | Abierto para unirse todos los usuarios
 [Azure Portal](https://portal.azure.com) | Solo los propietarios pueden agregar miembros<br>Visible pero no está disponible para unión en el Panel de acceso<br>El propietario no se asigna automáticamente durante la creación del grupo | Abierto para unirse todos los usuarios
@@ -47,7 +47,7 @@ Grupos creados en | Comportamiento predeterminado del grupo de seguridad | Compo
 1. Seleccione **Grupos** y, a continuación, seleccione el valor **General**.
 1. Establezca **Los propietarios pueden administrar solicitudes de pertenencia a grupos en el Panel de acceso** en **Sí**.
 1. Establezca **Restringir el acceso a grupos en el Panel de acceso** en **No**.
-1. Si establece **Los usuarios pueden crear grupos de seguridad en los portales de Azure** o **Los usuarios pueden crear grupos de Office 365 en los portales de Azure** en
+1. Si establece **Los usuarios pueden crear grupos de seguridad en los portales de Azure** o **Los usuarios pueden crear grupos de Microsoft 365 en los portales de Azure** en
 
     - **Sí**: todos los usuarios de la organización de Azure AD pueden crear nuevos grupos de seguridad y agregar miembros a estos grupos. Estos grupos nuevos también se muestran en el Panel de acceso para los restantes usuarios. Si la configuración de la directiva en el grupo lo permite, otros usuarios pueden crear solicitudes para unirse a estos grupos.
     - **No**: los usuarios no pueden crear grupos ni cambiar los grupos existentes de los que sean propietarios. Sin embargo, pueden administrar la pertenencia a dichos grupos y aprobar las solicitudes de otros usuarios para unirse a ellos.
@@ -57,7 +57,7 @@ También puede usar **Propietarios que pueden asignar miembros como propietarios
 Cuando los usuarios puedan crear grupos, todos los usuarios de su organización podrán crear nuevos grupos y, a continuación, podrán, como propietarios predeterminados, agregarles miembros. No puede especificar a personas que puedan crear sus propios grupos. Solo puede especificar a personas para convertir a otro miembro del grupo en propietario del grupo.
 
 > [!NOTE]
-> Se requiere una licencia de Azure Active Directory Premium (P1 o P2) para que los usuarios puedan solicitar unirse a un grupo de seguridad o a un grupo de Office 365 y para que los propietarios puedan aprobar o denegar las solicitudes de pertenencia. Sin una licencia de Azure Active Directory Premium, los usuarios todavía pueden administrar sus grupos en el Panel de acceso, pero no pueden crear un grupo que requiera la aprobación del propietario en el Panel de acceso y no podrán solicitar unirse a un grupo. 
+> Se requiere una licencia de Azure Active Directory Premium (P1 o P2) para que los usuarios puedan solicitar unirse a un grupo de seguridad o a un grupo de Microsoft 365 y para que los propietarios puedan aprobar o denegar las solicitudes de pertenencia. Sin una licencia de Azure Active Directory Premium, los usuarios todavía pueden administrar sus grupos en el Panel de acceso, pero no pueden crear un grupo que requiera la aprobación del propietario en el Panel de acceso y no podrán solicitar unirse a un grupo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

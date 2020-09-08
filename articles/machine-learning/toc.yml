@@ -6,9 +6,9 @@
     - name: ¿Qué es Azure Machine Learning?
       displayName: 'AML, services, overview, introduction'
       href: overview-what-is-azure-ml.md
-    - name: Azure Machine Learning frente a Studio (clásico)
-      displayName: 'AML, Studio, designer'
-      href: compare-azure-ml-to-studio-classic.md
+    - name: ¿Qué es Azure Machine Learning Studio?
+      displayName: 'AML, studio, designer'
+      href: overview-what-is-machine-learning-studio.md
     - name: Arquitectura y términos
       displayName: 'architecture, concepts, definitions, glossary'
       href: concept-azure-machine-learning-architecture.md
@@ -72,9 +72,6 @@
       items:
         - name: Entrenamiento e implementación con la CLI
           href: tutorial-train-deploy-model-cli.md
-        - name: Creación de áreas de trabajo con la plantilla de Resource Manager
-          displayName: Resource Manager
-          href: tutorial-resource-manager-workspace.md
     - name: Visual Studio Code
       items:
         - name: Configuración de la extensión de Azure Machine Learning
@@ -153,39 +150,45 @@
       href: concept-ml-pipelines.md
     - name: Preparación y seguridad para empresas
       items:
-        - name: Seguridad y gobernanza para empresas
+        - name: Introducción sobre la seguridad en la empresa
+          displayName: authorization authentication encryption aad azure active directory
+          href: concept-enterprise-security.md
+        - name: Línea de base de seguridad
+          href: security-baseline.md
+        - name: Administración de identidad y acceso
           items:
-            - name: Introducción sobre la seguridad en la empresa
-              displayName: authorization authentication encryption aad azure active directory
-              href: concept-enterprise-security.md
+            - name: Configuración de la autenticación
+              displayName: 'authentication, auth, oauth'
+              href: how-to-setup-authentication.md
             - name: Administración de los usuarios y los roles.
               href: how-to-assign-roles.md
+            - name: "Uso de la identidad de Azure\_AD en implementaciones de AKS"
+              href: how-to-use-azure-ad-identity.md
+        - name: Seguridad de las redes
+          items:
             - name: Uso de redes virtuales
               displayName: 'vnet, blob'
               href: how-to-enable-virtual-network.md
             - name: Uso de Private Link
               displayName: private endpoint
               href: how-to-configure-private-link.md
-            - name: Protección de servicios web con TLS
-              displayName: ssl
+            - name: Configuración de servicios web seguros
+              displayName: 'ssl, tls'
               href: how-to-secure-web-service.md
+            - name: Configurar firewall
+              href: how-to-access-azureml-behind-firewall.md
+        - name: Protección de los datos
+          items:
             - name: Aumento de resistencia
               displayName: 'high availability, disaster recovery'
               href: how-to-high-availability-machine-learning.md
-            - name: "Uso de la identidad de Azure\_AD en implementaciones de AKS"
-              href: how-to-use-azure-ad-identity.md
             - name: Nueva generación de las claves de acceso de almacenamiento
               href: how-to-change-storage-access-key.md
-            - name: Uso de Azure Firewall
-              href: how-to-access-azureml-behind-firewall.md
-            - name: Codificación segura
-              href: concept-secure-code-best-practice.md
-              displayName: security threat
-        - name: Configuración de la autenticación
-          displayName: 'authentication, auth, oauth'
-          href: how-to-setup-authentication.md
         - name: Supervisión de Azure Machine Learning
           href: monitor-azure-machine-learning.md
+        - name: Codificación segura
+          href: concept-secure-code-best-practice.md
+          displayName: security threat
     - name: Aprendizaje automático responsable
       items:
         - name: Introducción al aprendizaje automático responsable
@@ -213,6 +216,14 @@
         - name: Uso de plantillas de Resource Manager
           displayName: arm
           href: how-to-create-workspace-template.md
+    - name: Creación de recursos de proceso
+      items:
+        - name: Uso de Studio
+          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority'
+          href: how-to-create-attach-compute-studio.md
+        - name: Uso del SDK de Python
+          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority'
+          href: how-to-create-attach-compute-sdk.md
     - name: Configurar el entorno
       items:
         - name: Configuración de entornos de desarrollo
@@ -262,7 +273,7 @@
         - name: Acceso a los datos
           items:
             - name: Conectar a Azure Storage
-              displayName: 'blob, get, fileshare, access, mount, download, data lake'
+              displayName: 'blob, get, fileshare, access, mount, download, data lake, datastore'
               href: how-to-access-data.md
             - name: Obtención de datos desde un almacén de datos
               displayName: 'data, data set, register, access data'
@@ -283,7 +294,7 @@
               href: how-to-differential-privacy.md
     - name: Entrenamiento de modelos
       items:
-        - name: Configuración de entornos de entrenamiento
+        - name: Envío de una ejecución de entrenamiento
           displayName: 'run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
           href: how-to-set-up-training-targets.md
         - name: Uso de estimadores para ML
@@ -301,6 +312,8 @@
           href: how-to-train-keras.md
         - name: PyTorch
           href: how-to-train-pytorch.md
+        - name: Entrenamiento con una imagen de Docker personalizada
+          href: how-to-train-with-custom-image.md
         - name: Seguimiento y supervisión del entrenamiento
           items:
             - name: 'Inicio, supervisión o cancelación de ejecuciones'
@@ -433,6 +446,8 @@
           href: how-to-create-your-first-pipeline.md
         - name: Movimiento de datos a los pasos de canalización de Machine Learning (Python) y entre ellos
           href: how-to-move-data-in-out-of-pipelines.md
+        - name: Implementación de canalizaciones de Machine Learning (Python)
+          href: how-to-deploy-pipelines.md
         - name: Programación de una canalización (Python)
           href: how-to-schedule-pipelines.md
         - name: Desencadenar una canalización
@@ -465,9 +480,6 @@
         - name: Depuración y solución de problemas de paso de ejecución en paralelo
           displayName: debug_batch consume pipeline parallelrunstep inference
           href: how-to-debug-parallel-run-step.md
-        - name: Iteración y evolución de canalizaciones de aprendizaje automático
-          displayName: modularizing testing
-          href: concept-pipeline-practices-tips.md
     - name: Canalizaciones de Azure para CI/CD
       displayName: 'continuous, integration, delivery'
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
@@ -506,6 +518,8 @@
       href: monitor-resource-reference.md
     - name: Referencia de YAML de la canalización del aprendizaje automático
       href: reference-pipeline-yaml.md
+    - name: Paridad de nubes soberanas
+      href: reference-machine-learning-cloud-parity.md
 - name: Recursos
   items:
     - name: Notas de la versión

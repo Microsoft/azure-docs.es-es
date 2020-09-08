@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 07/31/2020
 tags: connectors
-ms.openlocfilehash: 768186d4b1cf9ac62d4ffdb0af8fdb3df04e9b19
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 13732c6d31f19dfb2548154feb8336a1dff3a529
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461641"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853303"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Intercambio de mensajes en la nube con Azure Logic Apps y Azure Service Bus
 
@@ -78,27 +78,30 @@ Confirme que la aplicación lógica tiene permiso para acceder al espacio de nom
 
    Algunos desencadenadores, como **Cuando llegan uno o más mensajes a una cola (autocompletar)** , pueden devolver uno o más mensajes. Cuando se activan estos desencadenadores, devuelven entre uno y el número de mensajes especificados por la propiedad **Recuento máximo de mensajes** del desencadenador.
 
+    > [!NOTE]
+    > El desencadenador de autocompletar completa automáticamente un mensaje, pero el completado solo se produce en la siguiente ejecución del desencadenador. Este comportamiento puede afectar al diseño de la aplicación lógica. Por ejemplo, si establece el desencadenador autocompletar para que compruebe los mensajes cada minuto, pero la duración del bloqueo se establece en 30 segundos en el Service Bus, el resultado es un error de "bloqueo expirado" que se produce al completar el mensaje. Debe establecer la duración del bloqueo en un valor que sea mayor que el intervalo de sondeo.
+
 1. Si el desencadenador se conecta a su espacio de nombres de Service Bus por primera vez, siga estos pasos cuando el Diseñador de aplicación lógica le pida información de conexión.
 
    1. Proporcione un nombre para la conexión y seleccione el espacio de nombres de Service Bus.
 
-      ![Creación de la conexión de Service Bus, parte 1](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-1.png)
+      ![Captura de pantalla que muestra la provisión del nombre de la conexión y la selección del espacio de nombres de Service Bus](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-1.png)
 
       Para escribir manualmente la cadena de conexión, elija **Especificar la información de conexión manualmente**. Si no tiene la cadena de conexión, aprenda a [buscar la cadena de conexión](#permissions-connection-string).
 
    1. Seleccione la directiva de Service Bus y, luego, **Crear**.
 
-      ![Creación de una conexión de Service Bus, parte 2](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-2.png)
+      ![Captura de pantalla que muestra la selección de la directiva de Service Bus](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-2.png)
 
    1. Seleccione la entidad de mensajería que prefiera, como una cola o un tema. En este ejemplo, seleccione la cola de Service Bus.
    
-      ![Selección de la cola de Service Bus](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-trigger.png)
+      ![Captura de pantalla que muestra la selección de la cola de Service Bus](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-trigger.png)
 
 1. Proporcione la información necesaria para el desencadenador seleccionado. Para agregar otras propiedades disponibles a la acción, abra la lista **Agregar nuevo parámetro** y seleccione las propiedades que desee.
 
    Para el desencadenador de este ejemplo, seleccione el intervalo de sondeo y la frecuencia de comprobación de la cola.
 
-   ![Configuración del intervalo de sondeo](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
+   ![Captura de pantalla que muestra el establecimiento del intervalo de sondeo en el desencadenador de Service Bus](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
 
    Para más información sobre los desencadenadores y las propiedades disponibles, consulte la [página de referencia](/connectors/servicebus/) del conector.
 
@@ -120,29 +123,29 @@ Confirme que la aplicación lógica tiene permiso para acceder al espacio de nom
 
    En este ejemplo, seleccione la acción **Enviar mensaje**.
 
-   ![Selección de una acción de Service Bus](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png) 
+   ![Captura de pantalla que muestra la selección de la acción de Service Bus](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png) 
 
 1. Si la acción se conecta a su espacio de nombres de Service Bus por primera vez, siga estos pasos cuando el Diseñador de aplicación lógica le pida información de conexión.
 
    1. Proporcione un nombre para la conexión y seleccione el espacio de nombres de Service Bus.
 
-      ![Creación de la conexión de Service Bus, parte 1](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-1.png)
+      ![Captura de pantalla que muestra la provisión del nombre de la conexión y la selección del espacio de nombres de Service Bus](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-1.png)
 
       Para escribir manualmente la cadena de conexión, elija **Especificar la información de conexión manualmente**. Si no tiene la cadena de conexión, aprenda a [buscar la cadena de conexión](#permissions-connection-string).
 
    1. Seleccione la directiva de Service Bus y, luego, **Crear**.
 
-      ![Creación de una conexión de Service Bus, parte 2](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-2.png)
+      ![Captura de pantalla que muestra la selección de una directiva de Service Bus y la selección del botón Crear](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-2.png)
 
    1. Seleccione la entidad de mensajería que prefiera, como una cola o un tema. En este ejemplo, seleccione la cola de Service Bus.
 
-      ![Selección de la cola de Service Bus](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-action.png)
+      ![Captura de pantalla que muestra la selección de una cola de Service Bus](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-action.png)
 
 1. Proporcione la información necesaria para la acción seleccionada. Para agregar otras propiedades disponibles a la acción, abra la lista **Agregar nuevo parámetro** y seleccione las propiedades que desee.
 
    Por ejemplo, seleccione las propiedades **Contenido** y **Tipo de contenido** para agregarlas a la acción. Luego, especifique el contenido del mensaje que quiere enviar.
 
-   ![Indicación del contenido del mensaje y los detalles](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
+   ![Captura de pantalla que muestra la provisión del tipo de contenido del mensaje y los detalles](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
 
    Para más información sobre las acciones disponibles y sus propiedades, consulte la [página de referencia](/connectors/servicebus/) del conector.
 

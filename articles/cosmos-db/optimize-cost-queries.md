@@ -6,12 +6,13 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/24/2020
-ms.openlocfilehash: e1c60542ec16ca19d26a77c1b9fb9676cf875e3d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: devx-track-csharp
+ms.openlocfilehash: c6ff67e3c1588f6671173d6fa1eec3dc15883291
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318273"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020922"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Optimización de los costos de consulta de Azure Cosmos DB
 

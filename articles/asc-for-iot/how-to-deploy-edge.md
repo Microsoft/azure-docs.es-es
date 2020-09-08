@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: 4dd7ca8f926862487b9505731c0662e68ee3d7c0
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 1c646c750cb54228211fadb0a4f6733d495e9219
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81311272"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892072"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Implementación de un módulo de seguridad en el dispositivo IoT Edge
 
@@ -93,9 +93,21 @@ Complete cada uno de los pasos para crear una implementación de IoT Edge de Azu
 
 1. En la pestaña **Configuración de módulos gemelos**, agregue la configuración siguiente:
 
-    ``` json
-      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration"
-    ```
+   Propiedad del módulo gemelo:
+   
+   ``` json
+     "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration"
+   ```
+
+   Contenido de propiedad del módulo gemelo: 
+
+   ```json
+     {
+
+     }
+   ```
+    
+   Para obtener más información sobre cómo configurar el agente, vea [Configuración de agentes de seguridad](https://docs.microsoft.com/azure/asc-for-iot/how-to-agent-configuration).
 
 1. Seleccione **Actualizar**.
 

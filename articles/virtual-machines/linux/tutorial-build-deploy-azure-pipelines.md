@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops, devx-track-javascript
-ms.openlocfilehash: 140365abad266617443d58b7ed59f05a27009f59
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: c83a67f7d524a062485f2c68e0adb7fdd2855a84
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433052"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462180"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Tutorial: Implementación de una aplicación en máquinas virtuales Linux de Azure con Azure DevOps Services y Azure Pipelines
 
@@ -84,9 +84,10 @@ Siga los pasos adicionales que se describen a continuación en función de la pi
 
 #### <a name="java"></a>[Java](#tab/java)
 
-- Para implementar aplicaciones basadas en Java Spring Boot y Spring Cloud, cree una máquina virtual Linux en Azure mediante [esta](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) plantilla, que proporciona un entorno de ejecución basado en OpenJDK totalmente compatible.
-- Para implementar servlets de Java en el servidor de Tomcat, cree una máquina virtual Linux con Java 8 mediante [esta](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) plantilla de Azure y [configure Tomcat 9.x como servicio](https://tomcat.apache.org/tomcat-9.0-doc/setup.html).
-- Para implementar una aplicación basada en Java EE, use una plantilla de Azure para crear una [máquina virtual Linux + Java + WebSphere 9. x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90), una [máquina virtual Linux + Java + WebLogic 12. x](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.20191009-arm-oraclelinux-wls-admin) o una [máquina virtual Linux + Java](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) + WildFly/JBoss 14. 
+- Para implementar aplicaciones basadas en Java Spring Boot y Spring Cloud, cree una máquina virtual Linux en Azure mediante [esta](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu13-ubuntu-2004) plantilla, que proporciona un entorno de ejecución basado en OpenJDK totalmente compatible.
+- Para implementar servlets de Java en el servidor de Tomcat, cree una máquina virtual Linux con Java 8 mediante [esta](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu13-ubuntu-2004) plantilla de Azure y [configure Tomcat 9.x como servicio](https://tomcat.apache.org/tomcat-9.0-doc/setup.html).
+- Para implementar una aplicación basada en Java EE, use una plantilla de Azure para crear una [máquina virtual Linux + Java + WebSphere 9. x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90), una [máquina virtual Linux + Java + WebLogic 12. x](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.20191009-arm-oraclelinux-wls-admin) o una [máquina virtual Linux + Java](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu13-ubuntu-2004) + WildFly/JBoss 14. 
+
 
 #### <a name="javascript"></a>[JavaScript](#tab/java-script)
 

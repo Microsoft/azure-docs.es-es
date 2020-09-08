@@ -7,16 +7,16 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/24/2020
-ms.openlocfilehash: de32f2a3a45a883f9da860b159eaa7f7b9368518
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 99253aa2e7e2e1f3f58f2ab7d5c40a695c2b9690
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085436"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654861"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Escrituras aceleradas de Azure HDInsight para Apache HBase
 
-En este artículo se proporciona una base sobre la característica **Escrituras aceleradas** para Apache HBase en Azure HDInsight y cómo puede usarse de forma eficaz para mejorar el rendimiento de escritura. **Escrituras aceleradas** usa [discos administrados SSD premium de Azure](../../virtual-machines/linux/disks-types.md#premium-ssd) para mejorar el rendimiento del registro de escritura previa (WAL) de Apache HBase. Para obtener más información acerca de Apache HBase, consulte [Qué es Apache HBase en HDInsight](apache-hbase-overview.md).
+En este artículo se proporciona una base sobre la característica **Escrituras aceleradas** para Apache HBase en Azure HDInsight y cómo puede usarse de forma eficaz para mejorar el rendimiento de escritura. **Escrituras aceleradas** usa [discos administrados SSD premium de Azure](../../virtual-machines/disks-types.md#premium-ssd) para mejorar el rendimiento del registro de escritura previa (WAL) de Apache HBase. Para obtener más información acerca de Apache HBase, consulte [Qué es Apache HBase en HDInsight](apache-hbase-overview.md).
 
 ## <a name="overview-of-hbase-architecture"></a>Introducción a la arquitectura de HBase
 
@@ -32,7 +32,7 @@ Si un **RegionServer** se bloquea o deja de estar disponible antes de que se vac
 
 ## <a name="accelerated-writes-feature-in-azure-hdinsight-for-apache-hbase"></a>Característica Escrituras aceleradas de Azure HDInsight para Apache HBase
 
-La característica Escrituras aceleradas soluciona el problema de mayores latencias de escritura debidas al uso de registros de escritura previa que se encuentran en el almacenamiento en la nube.  La característica Escrituras aceleradas para clústeres de HDInsight Apache HBase adjunta discos SSD administrados a cada RegionServer (nodo de trabajo). En consecuencia, los registros de escritura previa se escriben en el sistema de archivos Hadoop (HDFS) montado en estos discos administrados premium en lugar de escribirse en el almacenamiento en la nube.  Los discos administrados Premium usan discos de estado sólido (SSD) y ofrecen un rendimiento de E/S excelente con tolerancia a errores.  A diferencia de los discos no administrados, si una unidad de almacenamiento se bloquea, no afectará a otras unidades de almacenamiento del mismo conjunto de disponibilidad.  Como resultado, los discos administrados proporcionan una baja latencia de escritura y una mejor resistencia para las aplicaciones. Para obtener más información sobre los discos administrados por Azure, consulte [Introducción a los discos administrados de Azure](../../virtual-machines/windows/managed-disks-overview.md).
+La característica Escrituras aceleradas soluciona el problema de mayores latencias de escritura debidas al uso de registros de escritura previa que se encuentran en el almacenamiento en la nube.  La característica Escrituras aceleradas para clústeres de HDInsight Apache HBase adjunta discos SSD administrados a cada RegionServer (nodo de trabajo). En consecuencia, los registros de escritura previa se escriben en el sistema de archivos Hadoop (HDFS) montado en estos discos administrados premium en lugar de escribirse en el almacenamiento en la nube.  Los discos administrados Premium usan discos de estado sólido (SSD) y ofrecen un rendimiento de E/S excelente con tolerancia a errores.  A diferencia de los discos no administrados, si una unidad de almacenamiento se bloquea, no afectará a otras unidades de almacenamiento del mismo conjunto de disponibilidad.  Como resultado, los discos administrados proporcionan una baja latencia de escritura y una mejor resistencia para las aplicaciones. Para obtener más información sobre los discos administrados por Azure, consulte [Introducción a los discos administrados de Azure](../../virtual-machines/managed-disks-overview.md).
 
 ## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Cómo habilitar Escrituras aceleradas para HBase en HDInsight
 

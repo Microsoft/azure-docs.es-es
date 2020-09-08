@@ -17,12 +17,12 @@ ms.date: 04/07/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92f6f32298dcccca4eba08fd25de0504416e5560
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b48a84bb69a356815cccd1e33c555eeb667699f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608150"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89244728"
 ---
 # <a name="how-to-manage-inactive-user-accounts-in-azure-ad"></a>Instrucciones: Administración de cuentas de usuario inactivas en Azure AD
 
@@ -58,7 +58,7 @@ En esta sección se enumera lo que necesita saber sobre la propiedad lastSignInD
 
 ### <a name="how-can-i-access-this-property"></a>¿Cómo se puede acceder a esta propiedad?
 
-La propiedad **lastSignInDateTime** se expone por el tipo de recurso [signInActivity](https://docs.microsoft.com/graph/api/resources/signinactivity?view=graph-rest-beta) de [Microsoft Graph API REST](https://docs.microsoft.com/graph/overview?view=graph-rest-beta#whats-in-microsoft-graph).   
+La propiedad **lastSignInDateTime** se expone por el tipo de recurso [signInActivity](/graph/api/resources/signinactivity?view=graph-rest-beta) de [Microsoft Graph API REST](/graph/overview?view=graph-rest-beta#whats-in-microsoft-graph).   
 
 ### <a name="is-the-lastsignindatetime-property-available-through-the-get-azureaduser-cmdlet"></a>¿La propiedad lastSignInDateTime está disponible a través del cmdlet Get-AzureAdUser?
 
@@ -91,5 +91,5 @@ Para generar la marca de tiempo de lastSignInDateTime, se necesita un inicio de 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Obtención de datos mediante la API de generación de informes de Azure Active Directory con certificados](tutorial-access-api-with-certificates.md)
-* [Referencia de la API de auditoría](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
-* [Referencia de la API de generación de informes de actividad de inicio de sesión](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+* [Referencia de la API de auditoría](/graph/api/resources/directoryaudit?view=graph-rest-beta) 
+* [Referencia de la API de generación de informes de actividad de inicio de sesión](/graph/api/resources/signin?view=graph-rest-beta)

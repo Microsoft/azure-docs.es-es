@@ -7,20 +7,20 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/22/2020
-ms.openlocfilehash: 93366bf963350bf9cbdbda15ec4070c21a1dc975
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 82a6b2674fe73bd448bb7ccbd230e837bd1cbb2a
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090151"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607340"
 ---
-# <a name="common-questions-about-microsoft-commercial-marketplace"></a>Preguntas habituales sobre el marketplace comercial de Microsoft
+# <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Preguntas habituales sobre el marketplace comercial de Microsoft
 
 En este artículo se responden las preguntas más frecuentes sobre el marketplace comercial.
 
 ## <a name="general"></a>General
 
-### <a name="what-is-microsoft-commercial-marketplace"></a>¿Qué es el marketplace comercial de Microsoft?
+### <a name="what-is-the-microsoft-commercial-marketplace"></a>¿Qué es el marketplace comercial de Microsoft?
 
 El marketplace comercial conecta a negocios y agencias gubernamentales con soluciones creadas por nuestros partners. Nuestros partners crean y administran ofertas en el Centro de partners, y los clientes pueden descubrir y comprar soluciones por medio de experiencias en el producto (como Microsoft AppSource y Azure Marketplace), revendedores del programa Proveedor de soluciones en la nube y nuestros equipos de ventas mediante el programa de venta conjunta.
 
@@ -124,7 +124,7 @@ Para completar una compra a un precio muy bajo, le sugerimos que publique un pla
 
 ### <a name="what-are-leads-from-the-commercial-marketplace-and-what-should-i-do-with-them"></a>¿Qué son los clientes potenciales del marketplace comercial y qué debo hacer con ellos?
 
-A medida que los clientes usan las ofertas que publica en los escaparates Microsoft AppSource y Azure Marketplace, se va capturando información. Una vez que los clientes ha demostrado un interés suficiente, se crea un cliente potencial y se envía la oportunidad al sistema de su elección. Los editores que aprovechan nuestro marketplace comercial suelen hacer un seguimiento de los clientes potenciales, desarrollar relaciones con ellos y convertir el interés en oportunidades de negocio.
+A medida que los clientes usen las ofertas que publique en las tiendas en línea de Microsoft AppSource y Azure Marketplace, se va capturando información. Una vez que los clientes ha demostrado un interés suficiente, se crea un cliente potencial y se envía la oportunidad al sistema de su elección. Los editores que aprovechan nuestro marketplace comercial suelen hacer un seguimiento de los clientes potenciales, desarrollar relaciones con ellos y convertir el interés en oportunidades de negocio.
 
 Para más información, consulte [Clientes potenciales a partir de la oferta de Marketplace](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
@@ -140,7 +140,7 @@ Las ofertas se presentan a los clientes por medio de experiencias en el producto
 
 ### <a name="can-my-offer-appear-in-both-microsoft-appsource-and-azure-marketplace"></a>¿Puede aparecer mi oferta en Microsoft AppSource y en Azure Marketplace a la vez?
 
-Microsoft AppSource es el destino de las soluciones empresariales y del sector, y Azure Marketplace está diseñado para soluciones de TI y de desarrollador. Las ofertas están disponibles en cada escaparate en función de las categorías y los sectores seleccionados durante la creación de la oferta. En el caso excepcional de que la oferta sea relevante para los usuarios de ambos escaparates, puede aparecer en ambos.
+Microsoft AppSource es el destino de las soluciones empresariales y del sector, y Azure Marketplace está diseñado para soluciones de TI y de desarrollador. Las ofertas están disponibles en cada uno de llas tiendas en línea en función de las categorías y los sectores que seleccionara durante la creación de la oferta. En el caso excepcional de que la oferta sea pertinente para los usuarios de ambas tiendas en línea, puede aparecer en ambos.
 
 ### <a name="what-is-the-cloud-solution-provider-program"></a>¿Qué es el programa Proveedor de soluciones en la nube?
 
@@ -285,7 +285,7 @@ Para más información, consulte [Umbrales de pago, métodos e intervalos de tie
 
 ### <a name="in-what-countriesregions-are-taxes-managed-on-my-behalf"></a>¿En qué países o regiones se administran los impuestos en mi nombre?
 
-Los clientes pueden encontrar soluciones de nuestro marketplace comercial en todo el mundo y administramos los impuestos en muchas ubicaciones. 
+Los clientes pueden encontrar soluciones de nuestro marketplace comercial en todo el mundo y nos encargamos de la parte fiscal en muchas ubicaciones. 
 
 Para revisar la lista completa de ubicaciones, vaya a [Información sobre impuestos para los publicadores de Marketplace comercial](partner-center-portal/tax-details-paid-transactions.md).
 

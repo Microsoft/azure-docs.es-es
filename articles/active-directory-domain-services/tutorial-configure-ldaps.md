@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 61e2d4607ebe1b688b2874220a170b2539a2226e
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 1164d838a45496a075d356995a60beb967cdfcca
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87404181"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054347"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configuración de LDAP seguro para un dominio administrado de Azure Active Directory Domain Services
 
@@ -265,7 +265,7 @@ Para conectar y enlazar con el dominio administrado y buscar en LDAP, puede usar
 Después, enlace al dominio administrado. Los usuarios (y las cuentas de servicio) no pueden realizar enlaces LDAP simples si se ha desactivado la sincronización de hash de contraseñas NTLM en el dominio administrado. Para más información acerca de cómo deshabilitar la sincronización de hash de contraseñas NTLM, consulte el artículo sobre [protección de un dominio administrado][secure-domain].
 
 1. Seleccione la opción de menú **Conexión** y, después, elija **Enlazar**.
-1. Proporcione las credenciales de una cuenta de usuario que pertenezca al grupo *Administradores de DC de AAD* como, por ejemplo, *contosoadmin*. Escriba la contraseña de la cuenta de usuario y, a continuación, escriba el dominio, como *aaddscontoso.com*.
+1. Proporcione las credenciales de una cuenta de usuario que pertenezca al dominio administrado. Escriba la contraseña de la cuenta de usuario y, a continuación, escriba el dominio, como *aaddscontoso.com*.
 1. En **Tipo de enlace**, elija la opción *Enlazar con credenciales*.
 1. Seleccione **Aceptar** para enlazar con el dominio administrado.
 

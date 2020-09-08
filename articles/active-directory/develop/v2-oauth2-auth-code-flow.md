@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 08/14/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ef42dbb4cad1d40a35af28845baa402763acfc9b
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 6648cfb717ade4b842e8ff470a46bf744b630363
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119630"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612323"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plataforma de identidad y flujo de código de autorización de OAuth 2.0
 
@@ -60,6 +60,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_mode=query
 &scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
 &state=12345
+&code_challenge=YTFjNjI1OWYzMzA3MTI4ZDY2Njg5M2RkNmVjNDE5YmEyZGRhOGYyM2IzNjdmZWFhMTQ1ODg3NDcxY2Nl
+&code_challenge_method=S256
 ```
 
 > [!TIP]
@@ -79,7 +81,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `login_hint`  | opcional    | Puede usarse para rellenar previamente el campo de nombre de usuario y dirección de correo electrónico de la página de inicio de sesión del usuario, si sabe su nombre de usuario con antelación. A menudo las aplicaciones usarán este parámetro durante la reautenticación, dado que ya han extraído el nombre de usuario de un inicio de sesión anterior mediante la notificación `preferred_username`.   |
 | `domain_hint`  | opcional    | Si se incluye, omitirá el proceso de detección basado en correo electrónico por el que pasa el usuario en la página de inicio de sesión, con lo que la experiencia de usuario será ligeramente más sencilla; por ejemplo, lo enviará al proveedor de identidades federado. A menudo las aplicaciones usarán este parámetro durante la reautenticación, para lo que extraen `tid` de un inicio de sesión anterior. Si el valor de la notificación `tid` es `9188040d-6c67-4c5b-b112-36a304b66dad`, debe usar `domain_hint=consumers`. De lo contrario, use `domain_hint=organizations`.  |
 | `code_challenge`  | recomendado/requerido | Se usa para proteger concesiones de código de autorización a través de la clave de prueba para intercambio de códigos (PKCE). Se requiere si se incluye `code_challenge_method`. Para obtener más información, consulte [PKCE RFC](https://tools.ietf.org/html/rfc7636). Ahora se recomienda para todos los tipos de aplicación: aplicaciones nativas; aplicaciones de página única; y clientes confidenciales, como aplicaciones web. |
-| `code_challenge_method` | recomendado/requerido | Método utilizado para codificar `code_verifier` para el parámetro `code_challenge`. Puede ser uno de los siguientes valores:<br/><br/>- `plain` <br/>- `S256`<br/><br/>Si se excluye, se supone que `code_challenge` es texto no cifrado si se incluye `code_challenge`. La Plataforma de identidad de Microsoft admite tanto `plain` como `S256`. Para obtener más información, consulte [PKCE RFC](https://tools.ietf.org/html/rfc7636). Esto es necesario para las [aplicaciones de página única que usan el flujo de código de autorización](reference-third-party-cookies-spas.md).|
+| `code_challenge_method` | recomendado/requerido | Método utilizado para codificar `code_verifier` para el parámetro `code_challenge`. Este *DEBERÍA* ser `S256`, pero la especificación permite utilizar `plain` si por alguna razón el cliente no admite SHA256. <br/><br/>Si se excluye, se supone que `code_challenge` es texto no cifrado si se incluye `code_challenge`. La Plataforma de identidad de Microsoft admite tanto `plain` como `S256`. Para obtener más información, consulte [PKCE RFC](https://tools.ietf.org/html/rfc7636). Esto es necesario para las [aplicaciones de página única que usan el flujo de código de autorización](reference-third-party-cookies-spas.md).|
 
 
 En este punto, se le pedirá al usuario que escriba sus credenciales y que complete la autenticación. El punto de conexión de la plataforma de identidad de Microsoft se asegurará también de que el usuario ha dado su consentimiento a los permisos indicados en el parámetro de la consulta `scope`. Si el usuario no ha dado su consentimiento a alguno de esos permisos, se le solicitará al usuario su consentimiento para los permisos necesarios. Aquí puede encontrar información detallada sobre los [permisos, el consentimiento y las aplicaciones multiempresa](v2-permissions-and-consent.md).
@@ -150,6 +152,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &code=OAAABAAAAiL9Kn2Z27UubvWFPbm0gLWQJVzCTE9UkP3pSx1aXxUjq3n8b2JRLk4OxVXr...
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &grant_type=authorization_code
+&code_verifier=ThisIsntRandomButItNeedsToBe43CharactersLong 
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: Only required for web apps. This secret needs to be URL-Encoded.
 ```
 
@@ -230,6 +233,7 @@ Las respuestas de error tendrán un aspecto similar al siguiente:
 | `interaction_required` | No estándar, ya que la especificación de OIDC lo requiere solo en el punto de conexión `/authorize`. La solicitud requiere la interacción del usuario. Por ejemplo, hay que realizar un paso de autenticación más. | Vuelva a tratar de realizar la solicitud `/authorize` con los mismos ámbitos. |
 | `temporarily_unavailable` | De manera temporal, el servidor está demasiado ocupado para atender la solicitud. | Vuelva a intentar la solicitud después de un pequeño retraso. La aplicación podría explicar al usuario que su respuesta se retrasó debido a una condición temporal. |
 |`consent_required` | La solicitud requiere el consentimiento del usuario. Este error no es estándar, ya que normalmente solo se devuelve en el punto de conexión `/authorize` por las especificaciones de OIDC. Se devuelve cuando se usó un parámetro `scope` en el flujo de canje de código que la aplicación cliente no tiene permiso para solicitar.  | El cliente debe devolver al usuario al punto de conexión `/authorize` con el ámbito correcto para desencadenar el consentimiento. |
+|`invalid_scope` | El ámbito solicitado por la aplicación no es válido.  | Cambie el valor del parámetro de ámbito en la solicitud de autenticación por un valor válido. |
 
 > [!NOTE]
 > Es posible que las aplicaciones de página única reciban un error `invalid_request` que indica que solo se permite el canje de tokens entre orígenes para el tipo de cliente "Aplicación de página única".  Esto indica que el URI de redirección usado para solicitar el token no se ha marcado como un URI de redirección `spa`.  Revise los [pasos de registro de aplicaciones](#redirect-uri-setup-required-for-single-page-apps) sobre cómo habilitar este flujo.

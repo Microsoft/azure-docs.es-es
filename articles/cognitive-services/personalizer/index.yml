@@ -12,12 +12,12 @@ metadata:
   title: Documentación de Personalizer
   titleSuffix: Azure Cognitive Services
   description: Azure Personalizer es un servicio de API basado en la nube que permite elegir la mejor experiencia, mostrársela a los usuarios y aprender de su comportamiento en tiempo real.
-  ms.openlocfilehash: 0c8e99ab2817cd9aaa2de60b9996b3d47b10a1ff
-  ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+  ms.openlocfilehash: 28197f7408ea93ed07d09e1ae44e7924f4605a14
+  ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/11/2020
-  ms.locfileid: "84717924"
+  ms.lasthandoff: 08/18/2020
+  ms.locfileid: "88506556"
 landingContent:
 - title: Acerca de Personalizer
   linkLists:
@@ -49,7 +49,7 @@ landingContent:
     links:
     - text: Uso de Personalizer en una aplicación web de .NET
       url: tutorial-use-personalizer-web-app.md
-    - text: Uso de Personalizer con un cuaderno de Azure
+    - text: Uso de Personalizer con un archivo de Azure Notebooks
       url: tutorial-use-azure-notebook-generate-loop-data.md
   - linkListType: how-to-guide
     links:

@@ -6,12 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 7f83d798bbffeb232b45701beee828114ad3db7d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 639764c9cae5e27e90a55da00b246807e49d2a20
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042597"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652855"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>Mover el almacenamiento del sistema central a Azure
 
@@ -45,7 +45,7 @@ Las opciones de infraestructura como servicio ([IaaS](https://azure.microsoft.co
 
 Microsoft ofrece petabytes de almacenamiento para las aplicaciones hospedadas en Azure, con lo que tendrá varias opciones de almacenamiento, que van desde almacenamiento SSD para alto rendimiento hasta almacenamiento de blobs de bajo coste para archivos y almacenamiento masivo. Además, Azure proporciona una opción de redundancia de datos para el almacenamiento, que es más difícil de configurar en un entorno de sistemas centrales.
 
-El almacenamiento de Azure está disponible como [Azure Disks](../../../windows/managed-disks-overview.md), [Azure Files](../../../../storage/files/storage-files-introduction.md) y [Azure Blobs](../../../../storage/blobs/storage-blobs-overview.md), tal como se resume en la tabla siguiente. Obtenga más información sobre [cuándo usar cada tipo de almacenamiento](../../../../storage/common/storage-introduction.md).
+El almacenamiento de Azure está disponible como [Azure Disks](../../../managed-disks-overview.md), [Azure Files](../../../../storage/files/storage-files-introduction.md) y [Azure Blobs](../../../../storage/blobs/storage-blobs-overview.md), tal como se resume en la tabla siguiente. Obtenga más información sobre [cuándo usar cada tipo de almacenamiento](../../../../storage/common/storage-introduction.md).
 
 <!-- markdownlint-disable MD033 -->
 
@@ -108,7 +108,7 @@ El almacenamiento de blobs proporciona el mayor volumen de almacenamiento en Azu
 - [Rehospedaje del sistema central en Azure Virtual Machines](../overview.md)
 - [Mover el proceso del sistema central a Azure](mainframe-compute-Azure.md)
 - [Decidir cuándo usar Azure Blobs, Azure Files o Azure Disks](../../../../storage/common/storage-introduction.md)
-- [Discos administrados SSD estándar para cargas de trabajo de la máquina virtual de Azure](../../../windows/disks-types.md#standard-ssd)
+- [Discos administrados SSD estándar para cargas de trabajo de la máquina virtual de Azure](../../../disks-types.md#standard-ssd)
 
 ### <a name="ibm-resources"></a>Recursos de IBM
 

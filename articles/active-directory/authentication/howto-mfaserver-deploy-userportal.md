@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8b7d3945adaf75949ef36b50a5e56a02fde1548
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: ccd1192c7597b5a088b1c50b5367030a616b9d77
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680919"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919597"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portal de usuarios para el Servidor Azure Multi-Factor Authentication
 
@@ -29,7 +29,11 @@ Es posible que se configuren administradores para el Portal de usuarios y que se
 Según su entorno, puede que quiera implementar el Portal de usuarios en el mismo servidor que el Servidor Microsoft Azure Multi-Factor Authentication o en otro servidor con conexión a Internet.
 
 > [!IMPORTANT]
-> A partir del 1 de julio de 2019, Microsoft ya no ofrecerá el Servidor MFA para nuevas implementaciones. Los nuevos clientes que quieran exigir la autenticación multifactor a sus usuarios deberán usar Azure Multi-Factor Authentication basado en la nube. Los clientes existentes que hayan activado el Servidor MFA antes del 1 de julio podrán descargar la versión más reciente y las actualizaciones futuras, así como generar credenciales de activación como de costumbre.
+> A partir del 1 de julio de 2019, Microsoft ya no ofrecerá el servidor MFA para implementaciones nuevas. Los clientes nuevos que quieran exigir la autenticación multifactor (MFA) durante los eventos de inicio de sesión deben usar Azure Multi-Factor Authentication basado en la nube.
+>
+> Para empezar a trabajar con MFA basado en la nube, consulte [Tutorial: Protección de eventos de inicio de sesión de usuario con Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+>
+> Los clientes existentes que hayan activado el Servidor MFA antes del 1 de julio de 2019 podrán descargar la versión más reciente y las actualizaciones futuras, así como generar credenciales de activación como de costumbre.
 
 ![Página de inicio de sesión en el portal de usuarios del Servidor MFA](./media/howto-mfaserver-deploy-userportal/portal.png)
 
@@ -45,7 +49,7 @@ En ambos escenarios, si el SDK del servicio web Azure Multi-Factor Authenticatio
 3. Complete la instalación mediante los valores predeterminados a menos que necesite cambiarlos por algún motivo.
 4. Enlace un certificado TLS/SSL con el sitio en IIS.
 
-Si tiene alguna pregunta sobre la configuración de un certificado TLS/SSL en un servidor IIS, consulte el artículo [Configuración de SSL en IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+Si tiene alguna pregunta sobre la configuración de un certificado TLS/SSL en un servidor IIS, consulte el artículo [Configuración de SSL en IIS](/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 El SDK del servicio web debe estar protegido con un certificado TLS/SSL. Un certificado autofirmado es adecuado para este propósito. Importe el certificado en el almacén "Entidades de certificación raíz de confianza" de la cuenta Equipo local en el servidor web del Portal de usuarios para que confíe en ese certificado al iniciar la conexión TLS.
 
@@ -73,7 +77,7 @@ Para implementar el Portal de usuarios, siga estos pasos:
 
 ![Instalación del Portal de usuarios del Servidor MFA](./media/howto-mfaserver-deploy-userportal/install.png)
 
-Si tiene alguna pregunta sobre la configuración de un certificado TLS/SSL en un servidor IIS, consulte el artículo [Configuración de SSL en IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+Si tiene alguna pregunta sobre la configuración de un certificado TLS/SSL en un servidor IIS, consulte el artículo [Configuración de SSL en IIS](/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 ## <a name="deploy-the-user-portal-on-a-separate-server"></a>Implementación del Portal de usuarios en un servidor independiente
 
@@ -110,7 +114,7 @@ Para instalar el Portal de usuarios en un servidor diferente al Servidor Azure M
 
 6. Abra un explorador web en cualquier equipo y vaya a la dirección URL donde se instaló el portal de usuarios (por ejemplo, `https://mfa.contoso.com/MultiFactorAuth`). Asegúrese de que no aparezca ningún error ni advertencia de certificado.
 
-Si tiene alguna pregunta sobre la configuración de un certificado TLS/SSL en un servidor IIS, consulte el artículo [Configuración de SSL en IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+Si tiene alguna pregunta sobre la configuración de un certificado TLS/SSL en un servidor IIS, consulte el artículo [Configuración de SSL en IIS](/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 ## <a name="configure-user-portal-settings-in-the-azure-multi-factor-authentication-server"></a>Establecimiento de la configuración del Portal de usuarios en el Servidor Azure Multi-Factor Authentication
 
@@ -146,7 +150,7 @@ Servidor Azure Multi-Factor Authentication ofrece varias opciones para el Portal
 | Habilitar registro | Habilita el registro en el Portal de usuarios. Los archivos de registro se encuentran en: C:\Archivos de programa\Multi-Factor Authentication Server\Logs. |
 
 > [!IMPORTANT]
-> A partir de marzo de 2019, las opciones de llamada de teléfono no estarán disponibles para los usuarios del Servidor MFA en inquilinos de Azure AD gratis o de evaluación. Los mensajes SMS no se ven afectados por este cambio. Las llamadas de teléfono seguirán estando disponibles para los usuarios de inquilinos de Azure AD de pago. Este cambio solo afecta a los inquilinos de Azure AD gratis o de evaluación.
+> A partir de marzo de 2019, las opciones de llamada de teléfono no estarán disponibles para los usuarios del Servidor MFA en inquilinos de Azure AD gratis o de evaluación. Los mensajes SMS no se ven afectados por este cambio. Las llamadas de teléfono seguirán estando disponibles para los usuarios de inquilinos de Azure AD de pago. Este cambio solo afecta a los inquilinos de Azure AD gratis o de evaluación.
 
 La mayoría de estas configuraciones son visibles para el usuario del portal una vez que se hayan habilitado y hayan iniciado sesión en el Portal de usuarios.
 

@@ -1,18 +1,18 @@
 ---
 title: Configuración de alertas en métricas de Azure VPN Gateway
-description: Pasos para configurar alertas en métricas de VPN Gateway
+description: Aprenda a usar Azure Portal para configurar las alertas de Azure Monitor basadas en métricas para puertas de enlace de VPN de red virtual.
 services: vpn-gateway
 author: kumudD
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: alzam
-ms.openlocfilehash: c2c44720853500ad6a9a4af1c8d93d6c8bc3eea2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 14bb407cb12e24ca789085e954aaabff2333da7b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075519"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88033502"
 ---
 # <a name="set-up-alerts-on-vpn-gateway-metrics"></a>Configuración de alertas en métricas de VPN Gateway
 

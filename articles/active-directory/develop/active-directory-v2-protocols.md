@@ -13,12 +13,12 @@ ms.date: 07/21/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 2be68a858773dd4e76126ba6cd04ad98a2fd6a06
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 12edbcda7354d9d6d4b03ebe32304d988b2eb579
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87313445"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751447"
 ---
 # <a name="oauth-20-and-openid-connect-protocols-on-microsoft-identity-platform"></a>Protocolos OAuth 2.0 y OpenID Connect en la plataforma de identidad de Microsoft
 

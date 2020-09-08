@@ -2,17 +2,17 @@
 title: Habilitación de TLS de extremo a extremo en Azure Application Gateway
 description: En este artículo se proporciona información general sobre la compatibilidad de Application Gateway con el protocolo TLS de extremo a extremo.
 services: application-gateway
-author: amsriva
+author: surajmb
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 5/13/2020
+ms.date: 08/21/2020
 ms.author: victorh
-ms.openlocfilehash: 1986955c7135cb9296937392b23635ae62d8d9f7
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 3d714b579bebb096745a47410da3f8f458e27161
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962108"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723306"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Introducción a la terminación TLS y a TLS de extremo a extremo con Application Gateway
 
@@ -30,7 +30,7 @@ Application Gateway admite la terminación TLS en la puerta de enlace, tras lo c
 Para configurar la terminación TLS, debe agregar un certificado TLS/SSL al cliente de escucha para permitir a Application Gateway derivar una clave simétrica según la especificación del protocolo TLS/SSL. A continuación, la clave simétrica se usa para cifrar y descifrar el tráfico que se envía a la puerta de enlace. El certificado TLS/SSL debe tener el formato Personal Information Exchange (PFX). Este formato de archivo permite la exportación de la clave privada, lo que es necesario para que la puerta de enlace de aplicaciones pueda realizar el cifrado y descifrado del tráfico.
 
 > [!IMPORTANT] 
-> Tenga en cuenta que el certificado en el cliente de escucha requiere que se cargue toda la cadena de certificados. 
+> El certificado del cliente de escucha requiere que se cargue toda la cadena de certificados (el certificado raíz de la entidad de certificación, los certificados intermedios y el certificado de hoja) para establecer la cadena de confianza. 
 
 
 > [!NOTE] 

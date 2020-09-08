@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a crear y configurar almacenes de Rec
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: 244562efdc4c274a79ea27cdfa00dd51ae671fa4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0c0b7b25eeecad8e8c519d37139551590a51a29e
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032959"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892361"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Creación y configuración de un almacén de Recovery Services
 
@@ -25,10 +25,10 @@ Azure Backup administra automáticamente el almacenamiento para el almacén. Deb
 >- Si todavía no ha configurado la copia de seguridad, [siga estos pasos](#set-storage-redundancy) para revisar y modificar la configuración.
 >- Si ya ha configurado la copia de seguridad y debe pasar de GRS a LRS, [revise estas soluciones alternativas](#how-to-change-from-grs-to-lrs-after-configuring-backup).
 
-1. En la hoja **Almacenes de Recovery Services**, haga clic en el almacén nuevo. En la sección **Configuración**, haga clic en **Propiedades**.
-1. En **Propiedades**, en **Configuración de copia de seguridad**, haga clic en **Actualizar**.
+1. En el panel **Almacenes de Recovery Services**, seleccione un almacén nuevo. En la sección **Configuración**, seleccione **Propiedades**.
+1. En **Propiedades**, en **Configuración de copia de seguridad**, seleccione **Actualizar**.
 
-1. Seleccione el tipo de replicación de almacenamiento y haga clic en **Guardar**.
+1. Seleccione el tipo de replicación almacenamiento y seleccione **Guardar**.
 
      ![Establecimiento de la configuración de almacenamiento del nuevo almacén](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
@@ -46,7 +46,7 @@ Restauración entre regiones (CRR), una de las opciones de restauración, permit
 - Realizar simulacros cuando existen requisitos de cumplimiento o auditoría.
 - Restaurar la VM o su disco si se produce un desastre en la región primaria.
 
-Para elegir esta característica, seleccione la opción **Enable Cross Region Restore** (Habilitar la restauración entre regiones) en la hoja **Configuración de copia de seguridad**.
+Para elegir esta característica, seleccione la opción **Habilitar la restauración entre regiones** en el panel **Configuración de copia de seguridad**.
 
 En este proceso hay implicaciones de precios, ya que se encuentra en el nivel de almacenamiento.
 
@@ -62,22 +62,40 @@ En este proceso hay implicaciones de precios, ya que se encuentra en el nivel de
 
 ### <a name="configure-cross-region-restore"></a>Configuración de la restauración entre regiones
 
-Un almacén creado con redundancia GRS incluye la opción para configurar la característica Restauración entre regiones. Cada almacén GRS tendrá un banner, que se vinculará a la documentación. Para configurar CRR para el almacén, vaya a la hoja Configuración de copia de seguridad, que contiene la opción para habilitar esta característica.
+Un almacén creado con redundancia GRS incluye la opción para configurar la característica Restauración entre regiones. Cada almacén GRS tendrá un banner, que se vinculará a la documentación. Para configurar CRR para el almacén, vaya al panel Configuración de copia de seguridad, que contiene la opción para habilitar esta característica.
 
  ![Banner Configuración de copia de seguridad](./media/backup-azure-arm-restore-vms/banner.png)
 
 1. Desde el portal, diríjase a Almacén de Recovery Services > Configuración > Propiedades.
-2. Haga clic en la opción **Enable Cross Region Restore in this vault** (Habilitar la restauración entre regiones en este almacén) para habilitar la funcionalidad.
+2. Seleccione la opción **Habilitar la restauración entre regiones en este almacén** para habilitar la funcionalidad.
 
-   ![Antes de hacer clic en Enable Cross Region restore in this vault (Habilitar la restauración entre regiones en este almacén)](./media/backup-azure-arm-restore-vms/backup-configuration1.png)
+   ![Antes de seleccionar Habilitar la restauración entre regiones en este almacén](./media/backup-azure-arm-restore-vms/backup-configuration1.png)
 
-   ![Después de hacer clic en Enable Cross Region restore in this vault (Habilitar la restauración entre regiones en este almacén)](./media/backup-azure-arm-restore-vms/backup-configuration2.png)
+   ![Después de seleccionar Habilitar la restauración entre regiones en este almacén](./media/backup-azure-arm-restore-vms/backup-configuration2.png)
 
 Obtenga información sobre la [visualización de elementos de copia de seguridad en la región secundaria](backup-azure-arm-restore-vms.md#view-backup-items-in-secondary-region).
 
 Obtenga información sobre la [restauración en la región secundaria](backup-azure-arm-restore-vms.md#restore-in-secondary-region).
 
 Obtenga información sobre la [supervisión de trabajos de restauración en la región secundaria](backup-azure-arm-restore-vms.md#monitoring-secondary-region-restore-jobs).
+
+## <a name="set-encryption-settings"></a>Definición de la configuración de cifrado
+
+De forma predeterminada, los datos del almacén de Recovery Services se cifran mediante claves administradas por la plataforma. No es necesario que realice ninguna acción explícita por su parte para habilitar este cifrado y se aplica a todas las cargas de trabajo de las que se realiza una copia de seguridad en el almacén de Recovery Services.  Puede optar por traer su propia clave para cifrar los datos de copia de seguridad en este almacén. Esto se conoce como claves administradas por el cliente. Si desea cifrar los datos de copia de seguridad mediante su propia clave, la clave de cifrado debe especificarse antes de que se proteja cualquier elemento en este almacén. Una vez que habilite el cifrado con su clave, no se puede invertir.
+
+### <a name="configuring-a-vault-to-encrypt-using-customer-managed-keys"></a>Configuración de un almacén para cifrar mediante claves administradas por el cliente
+
+Para configurar el almacén con el fin de realizar el cifrado con claves administradas por el cliente, estos pasos deben seguirse en este orden:
+
+1. Habilitación de la identidad administrada para el almacén de Recovery Services
+
+1. Asignación de permisos al almacén para tener acceso a la clave de cifrado en Azure Key Vault
+
+1. Habilitación de la eliminación temporal y la protección de purga para Azure Key Vault
+
+1. Asignación de la clave de cifrado al almacén de Recovery Services
+
+Encontrará instrucciones de cada uno de estos pasos [en este artículo](encryption-at-rest-with-cmk.md#configuring-a-vault-to-encrypt-using-customer-managed-keys).
 
 ## <a name="modifying-default-settings"></a>Modificación de la configuración predeterminada
 
@@ -132,7 +150,6 @@ Si tiene que conservar los datos protegidos actuales en el almacén GRS y contin
   - Deberá pagar para mantener los puntos de recuperación en el almacén GRS (vea [Precios de Azure Backup](azure-backup-pricing.md) para obtener detalles).
   - Podrá restaurar la máquina virtual si es necesario, desde el almacén GRS.
   - La primera copia de seguridad en el almacén LRS de la máquina virtual en el nuevo recurso será una réplica inicial.
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

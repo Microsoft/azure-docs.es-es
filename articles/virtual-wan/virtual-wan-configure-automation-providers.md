@@ -1,18 +1,18 @@
 ---
 title: Directrices de automatización de asociados de Azure Virtual WAN | Microsoft Docs
-description: En este artículo se ayuda a los asociados a configurar la automatización de Azure Virtual WAN.
+description: Configure un entorno de automatización para conectar y configurar una VPN o SD-WAN CPE local, o un dispositivo de rama, para Azure Virtual WAN.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 816e8843467588cbfaeb5eb6e531d2221d28656b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0029f3fbcf96036a247356042e4c39d59f86a224
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565949"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208343"
 ---
 # <a name="automation-guidelines-for-virtual-wan-partners"></a>Directrices de automatización para asociados de Virtual WAN
 

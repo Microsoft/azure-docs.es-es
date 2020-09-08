@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: 050da712df6dad872fc03bd6ca79bbdf2a3e1753
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/19/2020
+ms.openlocfilehash: 00ed8f6ff9839c227f3d8a929a071834c5559226
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563198"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605739"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introducción al rendimiento aprovisionado en Azure Cosmos DB
 
@@ -96,7 +96,7 @@ Puede combinar los dos modelos. Se permite el aprovisionamiento del rendimiento 
 
 Después de crear un contenedor o una base de datos de Cosmos Azure, se puede actualizar el rendimiento aprovisionado. No existen límites para el rendimiento aprovisionado máximo que se puede configurar en la base de datos o el contenedor. 
 
-Para estimar el [rendimiento aprovisionado mínimo](concepts-limits.md#storage-and-throughput) de una base de datos o contenedor, encuentre el valor máximo de:
+Para estimar el [rendimiento aprovisionado mínimo](concepts-limits.md#storage-and-database-operations) de una base de datos o contenedor, encuentre el valor máximo de:
 
 * 400 RU/s 
 * Almacenamiento actual en GB * 10 RU/s

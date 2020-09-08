@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: memildin
-ms.openlocfilehash: f3006bdd0cb90c22123c8db103a12ef3c0bee75a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 68d3646b4ebc3fc5dd5943186afdb75307dfd5ed
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519344"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042673"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Supervisar la integridad de los archivos en Azure Security Center
 Aprenda a configurar la supervisión de la integridad de los archivos (FIM) en Azure Security Center mediante este tutorial.
@@ -26,12 +26,16 @@ Aprenda a configurar la supervisión de la integridad de los archivos (FIM) en A
 
 ## <a name="availability"></a>Disponibilidad
 
-- Estado de la versión: **Disponibilidad general**
-- Roles necesarios: El **propietario del área de trabajo** puede habilitar o deshabilitar FIM (para obtener más información, consulte [Roles de Azure para Log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)). El **lector** puede ver los resultados.
-- Nubes:
-    - ✔ Nubes comerciales
-    - ✔ Nube de US Gov
-    - ✘ China Gov, otros gobiernos
+|Aspecto|Detalles|
+|----|:----|
+|Estado de la versión:|Disponibilidad general|
+|Precios:|Nivel Standard|
+|Roles y permisos necesarios:|El **propietario del área de trabajo** puede habilitar o deshabilitar FIM (para obtener más información, consulte [Roles de Azure para Log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)).<br>El **lector** puede ver los resultados.|
+|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, otros gobiernos|
+|||
+
+
+
 
 
 ## <a name="what-is-fim-in-security-center"></a>¿Qué la supervisión de la integridad de los archivos (FIM) Security Center?

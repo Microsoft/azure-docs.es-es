@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 8dd108e8c2877c7fe459819bf01b0e5b206cd9c0
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: b96b679e967fd898f072b4b1ae195e3dd1061c04
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445559"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235706"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planeamiento de la aplicación de RR. HH. en la nube para el aprovisionamiento de usuarios de Azure Active Directory
 
@@ -167,7 +167,7 @@ La integración de aprovisionamiento entre la aplicación de RR. HH. en la nube
 - Agente de aprovisionamiento de Azure AD Connect
 - Dominio de Active Directory
 
-La topología de implementación del agente de aprovisionamiento de Azure AD Connect depende del número de inquilinos de la aplicación de RR. HH. en la nube y de los dominios secundarios de Active Directory que se van a integrar. Si tiene varios dominios de Active Directory, dependerá de si estos dominios son contiguos o [no contiguos](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/disjoint-namespace).
+La topología de implementación del agente de aprovisionamiento de Azure AD Connect depende del número de inquilinos de la aplicación de RR. HH. en la nube y de los dominios secundarios de Active Directory que se van a integrar. Si tiene varios dominios de Active Directory, dependerá de si estos dominios son contiguos o [no contiguos](/windows-server/identity/ad-ds/plan/disjoint-namespace).
 
 En función de su decisión, elija uno de los escenarios de implementación siguientes:
 
@@ -313,7 +313,7 @@ Con esta expresión, si el valor de Municipio es Dallas, Austin, Seattle o Londr
 
 ## <a name="plan-for-password-delivery-of-new-user-accounts"></a>Planeamiento de la entrega de contraseñas de nuevas cuentas de usuario
 
-Al iniciar el proceso de incorporaciones, debe establecer y proporcionar una contraseña temporal a las nuevas cuentas de usuario. Con el aprovisionamiento de usuarios de RR. HH. en la nube en Azure AD, puede implementar la función de [autoservicio de restablecimiento de contraseña](../authentication/quickstart-sspr.md) (SSPR) de Azure AD para el usuario desde el primer día.
+Al iniciar el proceso de incorporaciones, debe establecer y proporcionar una contraseña temporal a las nuevas cuentas de usuario. Con el aprovisionamiento de usuarios de RR. HH. en la nube en Azure AD, puede implementar la función de [autoservicio de restablecimiento de contraseña](../authentication/tutorial-enable-sspr.md) (SSPR) de Azure AD para el usuario desde el primer día.
 
 SSPR es un medio sencillo con el que los administradores de TI pueden permitir que los usuarios restablezcan sus contraseñas o desbloqueen sus cuentas. Puede aprovisionar el atributo **Número de móvil** desde la aplicación de RR. HH. en la nube en Active Directory y sincronizarlo con Azure AD. Una vez que el atributo **Número de móvil** esté en Azure AD, puede habilitar la SSPR en la cuenta del usuario. El primer día, el nuevo usuario puede usar el número de móvil registrado y verificado para autenticarse.
 

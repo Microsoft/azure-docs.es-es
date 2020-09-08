@@ -1,14 +1,14 @@
 ---
 title: Detalles de la estructura de definición de directivas
 description: Describe cómo se usan las definiciones de directiva para establecer convenciones para los recursos de Azure de su organización.
-ms.date: 06/12/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 87cdca414a04d287f02fec5b3510c4f561cab8c0
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 076493fa8fd54e9585d09a3dd352eabdee652f18
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116995"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079037"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -188,7 +188,7 @@ En este ejemplo se hace referencia al parámetro **allowedLocations** que se mos
 
 Dentro de la propiedad `metadata`, puede usar **strongType** para proporcionar una lista de opciones de selección múltiple en Azure Portal. **strongType** puede ser un _tipo de recurso_ compatible o un valor permitido. Para determinar si un _tipo de recurso_ es válido para **strongType**, use [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider). El formato de un _tipo de recurso_ **strongType** es `<Resource Provider>/<Resource Type>`. Por ejemplo, `Microsoft.Network/virtualNetworks/subnets`.
 
-Se admiten algunos _tipos de recursos_ no devueltos por **Get-AzResourceProvider**. Estos son:
+Se admiten algunos _tipos de recursos_ no devueltos por **Get-AzResourceProvider**. Estos tipos son:
 
 - `Microsoft.RecoveryServices/vaults/backupPolicies`
 
@@ -275,7 +275,8 @@ Una condición evalúa si un **campo** o el descriptor de acceso **value** cumpl
 - `"less": "dateValue"` | `"less": "stringValue"` | `"less": intValue`
 - `"lessOrEquals": "dateValue"` | `"lessOrEquals": "stringValue"` | `"lessOrEquals": intValue`
 - `"greater": "dateValue"` | `"greater": "stringValue"` | `"greater": intValue`
-- `"greaterOrEquals": "dateValue"` | `"greaterOrEquals": "stringValue"` | `"greaterOrEquals": intValue`
+- `"greaterOrEquals": "dateValue"` | `"greaterOrEquals": "stringValue"` |
+  `"greaterOrEquals": intValue`
 - `"exists": "bool"`
 
 Para **less**, **lessOrEquals**, **greater** y **greaterOrEquals**, si el tipo de propiedad no coincide con el tipo de condición, se produce un error. La comparación de cadenas se realiza con `InvariantCultureIgnoreCase`.
@@ -346,8 +347,7 @@ En el ejemplo siguiente, `concat` se usa para crear una búsqueda de campos de e
 
 ### <a name="value"></a>Value
 
-Las condiciones también se pueden formar mediante el uso de **value**. **value** comprueba las condiciones en [parámetros](#parameters), [funciones de plantilla admitidas](#policy-functions) o literales.
-**value** se empareja con cualquier [condición](#conditions) admitida.
+Las condiciones también se pueden formar mediante el uso de **value**. **value** comprueba las condiciones en [parámetros](#parameters), [funciones de plantilla admitidas](#policy-functions) o literales. **value** se empareja con cualquier [condición](#conditions) admitida.
 
 > [!WARNING]
 > Si el resultado de una _función de plantilla_ es un error, no se pude realizar la evaluación de directivas. Una evaluación con errores es una **denegación** implícita. Para más información, consulte cómo [evitar los errores de plantilla](#avoiding-template-failures). Use [enforcementMode](./assignment-structure.md#enforcement-mode) de **DoNotEnforce** para evitar el efecto de una evaluación con errores en los recursos nuevos o actualizados mientras se prueba y valida una nueva definición de directiva.
@@ -651,6 +651,13 @@ La lista de alias siempre está en aumento. Para descubrir qué alias son compat
   # Use Get-AzPolicyAlias to list aliases for a Namespace (such as Azure Compute -- Microsoft.Compute)
   (Get-AzPolicyAlias -NamespaceMatch 'compute').Aliases
   ```
+
+  > [!NOTE]
+  > Para buscar alias que se puedan usar con el efecto [modificar](./effects.md#modify), use el siguiente comando en Azure PowerShell **4.6.0** o superior:
+  >
+  > ```azurepowershell-interactive
+  > Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }
+  > ```
 
 - Azure CLI
 

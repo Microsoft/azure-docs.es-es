@@ -1,6 +1,6 @@
 ---
 title: Adición de formas a mapas de Android | Microsoft Azure Maps
-description: En este artículo, obtendrá información sobre cómo representar formas distintas en un mapa mediante Android SDK de Microsoft Azure Maps.
+description: Aprenda a agregar formas a los mapas. Vea ejemplos de código donde se usa Android SDK de Azure Maps para agregar una línea y un polígono a un mapa.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 04/26/2019
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 855a05bd228a3bf903b79522549ed519b4745e17
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 9dd8718a6a96627781a578edb514d797e40f01fb
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127101"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037429"
 ---
 # <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>Adición de formas a un mapa mediante el Android SDK de Azure Maps
 
 En este artículo se muestra cómo representar formas en un mapa mediante el Android SDK de Azure Maps.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar el proceso en este artículo, debe instalar [Android SDK de Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) para cargar un mapa.
 

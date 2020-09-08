@@ -1,6 +1,6 @@
 ---
 title: Uso del módulo de servicios de Azure Maps | Microsoft Azure Maps
-description: En este artículo, se aprende a usar los servicios REST de Microsoft Azure Maps mediante el módulo de servicios de Azure Maps.
+description: Aprenda a usar el módulo de servicios de Azure Maps. Vea cómo cargar y usar esta biblioteca auxiliar para acceder a los servicios REST de Azure Maps en las aplicaciones web o Node.js.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 03/25/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 69ca43021ff2c45733375e14d87d0ed65d8962e9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2f8d41c8248ab761c6d781263f3978937ad01e22
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287053"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004144"
 ---
 # <a name="use-the-azure-maps-services-module"></a>Uso del módulo de servicios de Azure Maps
 

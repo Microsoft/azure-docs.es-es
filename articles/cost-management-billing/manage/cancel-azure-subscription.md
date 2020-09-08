@@ -5,15 +5,16 @@ author: bandersmsft
 ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 8b0ba7b597921d82883f2c7ba505ebb10eee1876
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 16ba70717d04c44e950ce2ed2c47e54859c4be47
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87039753"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684888"
 ---
 # <a name="cancel-your-azure-subscription"></a>Cancelación de su suscripción de Azure
 
@@ -32,10 +33,10 @@ Si cancela un plan de soporte técnico de Azure de pago, se le facturará el res
 ## <a name="cancel-subscription-in-the-azure-portal"></a>Cancelación de la suscripción en Azure Portal
 
 1. Seleccione su suscripción en la [página Suscripciones de Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-2. Seleccione la suscripción que quiere cancelar.
-3. Seleccione **Introducción** y, luego, seleccione **Cancelar suscripción**.
+1. Seleccione la suscripción que quiere cancelar.
+1. Seleccione **Introducción** y, luego, seleccione **Cancelar suscripción**.
     ![Captura de pantalla que muestra el botón Cancelar](./media/cancel-azure-subscription/cancel_ibiza.png)
-3. Siga las indicaciones y finalice la cancelación.
+1. Siga las indicaciones y finalice la cancelación.
 
 ## <a name="who-can-cancel-a-subscription"></a>¿Quién puede cancelar una suscripción?
 
@@ -49,11 +50,20 @@ En la tabla siguiente se describe el permiso necesario para cancelar una suscrip
 
 ## <a name="what-happens-after-i-cancel-my-subscription"></a>¿Qué ocurre después de cancelar la suscripción?
 
-Una vez que se cancela, la facturación se detiene inmediatamente. Sin embargo, pueden transcurrir hasta 10 minutos hasta que la cancelación se muestre en el portal. Si cancela en medio de un período de facturación, enviamos la factura final en la fecha de factura típica una vez finalizado el período. 
+Una vez que se cancela, la facturación se detiene inmediatamente. Sin embargo, pueden transcurrir hasta 10 minutos hasta que la cancelación se muestre en el portal. Si cancela en medio de un período de facturación, enviamos la factura final en la fecha de factura típica una vez finalizado el período.
 
 Después de cancelar, los servicios se deshabilitan. Esto significa que las máquinas virtuales se desasignan, las direcciones IP temporales se liberan y el almacenamiento es de solo lectura.
 
-Microsoft espera entre 30 y 90 días antes de eliminar permanentemente los datos, por si necesita acceder a ellos o cambia de opinión. No se le cobrará por conservar los datos. Para más información, consulte el [Microsoft Trust Center: How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409) (Centro de confianza de Microsoft: Administración de los datos).
+Tras la cancelación de la suscripción, Microsoft espera entre 30 y 90 días para eliminar de forma permanente los datos, por si el usuario necesitará acceder a ellos o cambiara de opinión. No se le cobrará por conservar los datos. Para más información, consulte el [Microsoft Trust Center: How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409) (Centro de confianza de Microsoft: Administración de los datos).
+
+## <a name="delete-free-trial-subscription"></a>Eliminación de una suscripción de evaluación gratuita
+
+Si tiene una suscripción de evaluación gratuita, no es preciso que espere 30 días para que la suscripción se elimine automáticamente. Puede eliminarla *tres días* después de cancelarla. La opción **Eliminar suscripción** no está disponible hasta tres días después de cancelar la suscripción.
+
+1. Espere tres días después de la fecha de cancelación de la suscripción.
+1. Seleccione la suscripción en la página [Suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) de Azure Portal.
+1. Seleccione la suscripción que quiere eliminar.
+1. Seleccione **Información general** y, después, **Eliminar suscripción**.
 
 ## <a name="reactivate-subscription"></a>Reactivación de la suscripción
 

@@ -10,19 +10,19 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 043d5224c9bfefb189e36c0f4b744c93b376ace0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2c97a770dc10168284bebbc038d8c48145c2a385
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420862"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88917897"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>Inicio rápido: Creación de un índice de Azure Cognitive Search en Node.js mediante las API REST
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-nodejs.md)
 > * [C#](search-get-started-dotnet.md)
 > * [Portal](search-get-started-portal.md)
-> * [PowerShell](search-create-index-rest-api.md)
+> * [PowerShell](./search-get-started-powershell.md)
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
@@ -130,7 +130,7 @@ Reemplace el valor `[SERVICE_NAME]` por el nombre del servicio de búsqueda. Ree
 
 ## <a name="1---create-index"></a>1 - Creación de un índice 
 
-Cree el archivo **hotels_quickstart_index.json**.  Este archivo define la forma en que Azure Cognitive Search funciona con los documentos que cargará en el paso siguiente. Cada campo se identificará mediante un elemento `name` y tendrá un elemento especificado `type`. Cada campo también tiene una serie de atributos del índice que especifican si Azure Cognitive Search puede buscar, filtrar, ordenar y cambiar las facetas del campo. La mayoría de los campos son tipos de datos simples; pero algunos, como `AddressType`, son tipos complejos que le permiten crear estructuras de datos enriquecidos en el índice.  Puede obtener más información sobre los [tipos de datos admitidos](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) y los [atributos del índice](https://docs.microsoft.com/azure/search/search-what-is-an-index#index-attributes). 
+Cree el archivo **hotels_quickstart_index.json**.  Este archivo define la forma en que Azure Cognitive Search funciona con los documentos que cargará en el paso siguiente. Cada campo se identificará mediante un elemento `name` y tendrá un elemento especificado `type`. Cada campo también tiene una serie de atributos del índice que especifican si Azure Cognitive Search puede buscar, filtrar, ordenar y cambiar las facetas del campo. La mayoría de los campos son tipos de datos simples; pero algunos, como `AddressType`, son tipos complejos que le permiten crear estructuras de datos enriquecidos en el índice.  Puede obtener más información sobre los [tipos de datos admitidos](/rest/api/searchservice/supported-data-types) y los [atributos del índice](./search-what-is-an-index.md#index-attributes). 
 
 Agregue lo siguiente a **hotels_quickstart_index.json**, o bien [descargue el archivo](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/quickstart/hotels_quickstart_index.json). 
 
@@ -610,7 +610,7 @@ Vuelva a ejecutar el programa con `node index.js`. Verá un conjunto de mensajes
 
 ## <a name="3---search-an-index"></a>3 - Búsqueda en un índice
 
-Vuelva a la pestaña **Índices** de la página **Información general** del servicio de búsqueda, en Azure Portal. Verá que el índice ahora contiene cuatro documentos y usa espacio de almacenamiento (puede que la interfaz de usuario tarde unos minutos en reflejar correctamente el estado subyacente del índice). Haga clic en el nombre del índice para abrir el **Explorador de búsquedas**. Esta página le permite experimentar con consultas de datos. Puede buscar una cadena de consulta de `*&$count=true`; se mostrarán todos los documentos y el número de resultados. Pruebe con la cadena de consulta `historic&highlight=Description&$filter=Rating gt 4`; se mostrará un único documento, con la palabra “historic” entre las etiquetas `<em></em>`. Obtenga más información sobre [cómo crear una consulta en Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-query-overview). 
+Vuelva a la pestaña **Índices** de la página **Información general** del servicio de búsqueda, en Azure Portal. Verá que el índice ahora contiene cuatro documentos y usa espacio de almacenamiento (puede que la interfaz de usuario tarde unos minutos en reflejar correctamente el estado subyacente del índice). Haga clic en el nombre del índice para abrir el **Explorador de búsquedas**. Esta página le permite experimentar con consultas de datos. Puede buscar una cadena de consulta de `*&$count=true`; se mostrarán todos los documentos y el número de resultados. Pruebe con la cadena de consulta `historic&highlight=Description&$filter=Rating gt 4`; se mostrará un único documento, con la palabra “historic” entre las etiquetas `<em></em>`. Obtenga más información sobre [cómo crear una consulta en Azure Cognitive Search](./search-query-overview.md). 
 
 Reproduzca estas consultas en código; para hacerlo, abra **index.js** y agregue este código cerca de la parte superior:
 

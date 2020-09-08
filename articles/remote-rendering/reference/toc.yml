@@ -1,4 +1,4 @@
-- name: Tamaños de VM
+- name: Tamaños de servidor
   href: vm-sizes.md
 - name: Asignación de materiales para formatos de modelos
   href: material-mapping.md

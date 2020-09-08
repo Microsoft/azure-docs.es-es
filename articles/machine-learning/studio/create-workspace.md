@@ -9,12 +9,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: 89c79f668da3ff924dbb7f27574260118003655f
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: c283ef2f6eb28dca7ca5bc5e391ef30465c65dc0
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433248"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691282"
 ---
 # <a name="create-and-share-an-machine-learning-studio-classic-workspace"></a>Creación y uso compartido de un área de trabajo de Machine Learning Studio (clásico)
 
@@ -70,7 +70,7 @@ Si tiene algún problema al crear el área de trabajo, consulte [Guía de soluci
 
 
 ## <a name="share-an-azure-machine-learning-studio-classic-workspace"></a>Uso compartido de un área de trabajo de Azure Machine Learning Studio (clásico)
-Tras crear un área de trabajo de Machine Learning Studio (clásico), puede invitar usuarios y compartir el acceso a dicha área y a todos sus experimentos, conjuntos de datos, cuadernos, etc. Puede agregar usuarios en uno de estos roles:
+Tras crear un área de trabajo de Machine Learning Studio (clásico), puede invitar a usuarios y compartir el acceso a dicha área y a todos sus experimentos, conjuntos de datos, etc. Puede agregar usuarios en uno de estos roles:
 
 * **Usuario**: los usuarios de un área de trabajo pueden crear, abrir, modificar y eliminar experimentos, conjuntos de datos y otros elementos en el área de trabajo.
 * **Propietario**: un propietario puede invitar y quitar usuarios en el área de trabajo, además de lo que pueden hacer los usuarios.

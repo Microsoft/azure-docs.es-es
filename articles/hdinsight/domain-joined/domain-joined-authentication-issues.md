@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 11/08/2019
-ms.openlocfilehash: 26eec9cdd327ceb51e72deb1d6f40d585ce368fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 08/24/2020
+ms.openlocfilehash: 6473b6b69ba45138c30e4f2c8a7f1ba1a7f2ae7e
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75896135"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816854"
 ---
 # <a name="authentication-issues-in-azure-hdinsight"></a>Problemas de autenticación en Azure HDInsight
 
@@ -82,7 +82,7 @@ Espere treinta minutos aproximadamente o detenga las aplicaciones que puedan est
 
 ---
 
-## <a name="invalid_grant-or-unauthorized_client-50053"></a>invalid_grant o unauthorized_client, 50053
+## <a name="invalid_grant-or-unauthorized_client-50053-2"></a>invalid_grant o unauthorized_client, 50053 (#2)
 
 ### <a name="issue"></a>Problema
 
@@ -208,7 +208,7 @@ Este error se produce de manera intermitente cuando los usuarios intentan accede
 
 * Para Azure Data Lake Storage Gen1, limpie la memoria caché del explorador y vuelva a iniciar sesión en Ambari.
 
-* Para Azure Data Lake Storage Gen2, ejecute `/usr/lib/hdinsight-common/scripts/RegisterKerbWithOauth.sh <upn>` para el usuario con el que se está intentando iniciar sesión.
+* Para Azure Data Lake Storage Gen2, ejecute `/usr/lib/hdinsight-common/scripts/RegisterKerbTicketAndOAuth.sh <upn>` para el usuario con el que se está intentando iniciar sesión.
 
 ---
 

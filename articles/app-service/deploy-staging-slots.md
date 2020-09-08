@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 19a7bc70bd782f9b684cb48672147f5009e4a08f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b12b85a2248d7709066ba3218327e0a5d52a0192
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073857"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962169"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configuración de entornos de ensayo en Azure App Service
 <a name="Overview"></a>
@@ -62,7 +62,7 @@ Para poder habilitar varias espacios de implementación, la aplicación debe eje
 
 6. Seleccione la dirección URL de la aplicación en la página de recursos de la ranura. La ranura de implementación tiene su propio nombre de host y es también una aplicación activa. Para limitar el acceso público a la ranura de implementación, consulte el artículo sobre [Restricciones de IP de Azure App Service](app-service-ip-restrictions.md).
 
-El nuevo espacio de implementación no tiene contenido, aunque se clone la configuración de otro espacio. Por ejemplo, puede [publicar en esta ranura mediante Git](app-service-deploy-local-git.md). La implementación en el espacio se puede realizar desde otra rama del repositorio o desde otro repositorio.
+El nuevo espacio de implementación no tiene contenido, aunque se clone la configuración de otro espacio. Por ejemplo, puede [publicar en esta ranura mediante Git](./deploy-local-git.md). La implementación en el espacio se puede realizar desde otra rama del repositorio o desde otro repositorio.
 
 <a name="AboutConfiguration"></a>
 
@@ -83,7 +83,7 @@ Al intercambiar dos ranuras (normalmente de una ranura de ensayo a la ranura de 
 
 1. Si la [caché local](overview-local-cache.md) está habilitada, desencadene la inicialización de la caché local mediante una solicitud HTTP a la raíz de la aplicación ("/") en cada instancia de la ranura de origen. Espere a que todas las instancias devuelvan cualquier respuesta HTTP. La inicialización de la caché local produce otro reinicio en cada instancia.
 
-1. Si el [intercambio automático](#Auto-Swap) está habilitado con [preparación personalizada](#Warm-up), desencadene la [inicialización de la aplicación](https://docs.microsoft.com/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) mediante una solicitud HTTP a la raíz de la aplicación ("/") en cada instancia de la ranura de origen.
+1. Si el [intercambio automático](#Auto-Swap) está habilitado con [preparación personalizada](#Warm-up), desencadene la [inicialización de la aplicación](/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) mediante una solicitud HTTP a la raíz de la aplicación ("/") en cada instancia de la ranura de origen.
 
     Si `applicationInitialization` no se especifica, desencadene una solicitud HTTP a la raíz de la aplicación de la ranura de origen en cada instancia. 
     
@@ -222,7 +222,7 @@ Si tiene problemas, consulte [Solución de problemas con los intercambios](#trou
 
 ## <a name="monitor-a-swap"></a>Supervisión de un intercambio
 
-Si el [intercambio](#AboutConfiguration) tarda mucho tiempo en completarse, puede obtener información sobre su estado en el [registro de actividad](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Si el [intercambio](#AboutConfiguration) tarda mucho tiempo en completarse, puede obtener información sobre su estado en el [registro de actividad](../azure-monitor/platform/platform-logs-overview.md).
 
 En la página de recursos de la aplicación del portal, en el panel izquierdo, seleccione **Registro de actividad**.
 
@@ -335,7 +335,7 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 
 ## <a name="automate-with-resource-manager-templates"></a>Automatización con plantillas de Resource Manager
 
-Las [plantillas de Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview) son archivos JSON declarativos que se usan para automatizar la implementación y la configuración de los recursos de Azure. Para intercambiar ranuras mediante plantillas de Resource Manager, establecerá dos propiedades en los recursos *Microsoft.Web/sites/slots* and *Microsoft.Web/sites*:
+Las [plantillas de Resource Manager](../azure-resource-manager/templates/overview.md) son archivos JSON declarativos que se usan para automatizar la implementación y la configuración de los recursos de Azure. Para intercambiar ranuras mediante plantillas de Resource Manager, establecerá dos propiedades en los recursos *Microsoft.Web/sites/slots* and *Microsoft.Web/sites*:
 
 - `buildVersion`: esta es una propiedad de cadena que representa la versión actual de la aplicación implementada en la ranura. Por ejemplo: "v1", "1.0.0.1" o "2019-09-20T11:53:25.2887393-07:00".
 - `targetBuildVersion`: esta es una propiedad de cadena que especifica qué `buildVersion` debe tener la ranura. Si targetBuildVersion no es igual a la `buildVersion` actual, esto activará la operación de intercambio al encontrar la ranura que tiene la `buildVersion` especificada.
@@ -423,7 +423,6 @@ Estos son algunos errores de intercambio habituales:
       ...
     </conditions>
     ```
-- Algunas [reglas de restricción de IP](app-service-ip-restrictions.md) pueden impedir que durante el intercambio se envíen solicitudes HTTP a la aplicación. Los intervalos de direcciones IPv4 que empiezan por `10.` y `100.` son internos de la implementación. Debe permitir que se conecten a la aplicación.
 
 - Después de los intercambios de ranura, la aplicación puede experimentar reinicios inesperados. El motivo es que después de un intercambio, la configuración de enlace del nombre de host deja de estar sincronizada, lo que de por sí no provoca reinicios. Sin embargo, algunos eventos de almacenamiento subyacentes (como las conmutaciones por error de volúmenes de almacenamiento) pueden detectar estas discrepancias y forzar el reinicio de todos los procesos de trabajo. Para reducir estos tipos de reinicios, establezca la configuración de la aplicación [`WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1`](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) en *todas las ranuras*. Sin embargo, esta configuración de la aplicación *no* funciona con aplicaciones de Windows Communication Foundation (WCF).
 

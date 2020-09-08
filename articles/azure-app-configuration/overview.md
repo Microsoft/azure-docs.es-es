@@ -1,17 +1,17 @@
 ---
 title: ¿Qué es Azure App Configuration?
-description: Introducción al servicio Azure App Configuration.
+description: Lea la información general del servicio Azure App Configuration. Sepa por qué le conviene usar App Configuration y aprenda a utilizarlo.
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: overview
 ms.date: 02/19/2020
-ms.openlocfilehash: 1f1cec68813d33e7fa19a414a30adfc9a41df91f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f38b8de37e84cd8a65c5a5caadf8d3b6b71ce455
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77523482"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587079"
 ---
 # <a name="what-is-azure-app-configuration"></a>¿Qué es Azure App Configuration?
 
@@ -51,7 +51,7 @@ App Configuration complementa [Azure Key Vault](https://azure.microsoft.com/serv
 
 La forma más fácil de agregar un almacén de App Configuration a la aplicación es mediante una biblioteca de cliente que Microsoft proporciona. Los siguientes métodos están disponibles para conectarse con la aplicación según el lenguaje y el marco elegidos
 
-| Lenguaje y plataforma de programación | Conexión |
+| Lenguaje y plataforma de programación | Cómo conectarse |
 |---|---|
 | .NET Core y ASP.NET Core | Proveedor de App Configuration para .NET Core |
 | .NET Framework y ASP.NET | Generador de App Configuration para .NET |

@@ -1,5 +1,6 @@
 ---
-title: 'Inicio rápido: Acceso a las API web de la aplicación: Plataforma de identidad de Microsoft | Azure'
+title: 'Inicio rápido: Configuración de una aplicación para acceder a una API web | Azure'
+titleSuffix: Microsoft identity platform
 description: En este inicio rápido, configurará una aplicación registrada con la Plataforma de identidad de Microsoft para que incluya los identificadores URI de redireccionamiento, las credenciales o los permisos para acceder a las API web.
 services: active-directory
 author: rwike77
@@ -8,18 +9,18 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 04/22/2020
+ms.date: 08/05/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: 210ed5b8ad53fd59a46e160fe5fc72633d115d44
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 87c21587567ffe3462e4b702985114ac10454886
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82082329"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140809"
 ---
-# <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Inicio rápido: Configuración de una aplicación cliente para tener acceso a las API web
+# <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Inicio rápido: Configuración de una aplicación cliente para acceder a las API web
 
 En este inicio rápido, se agregarán URI de redireccionamiento, credenciales o permisos para acceder a las API web de una aplicación. Una aplicación cliente web o confidencial debe establecer credenciales seguras para participar en un flujo de concesión de autorización que requiera autenticación. El método de autenticación predeterminado compatible con Azure Portal es un identificador de cliente y una clave secreta. La aplicación obtiene un token de acceso durante este proceso.
 
@@ -27,9 +28,8 @@ Para que un cliente pueda acceder a una API web expuesta por una aplicación de 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Finalización de [Inicio rápido: Registro de una aplicación en la plataforma de identidad de Microsoft](quickstart-register-app.md).
-* Consulte [Permisos y consentimiento en el punto de conexión de la Plataforma de identidad de Microsoft](v2-permissions-and-consent.md).
-* Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Finalización de [Inicio rápido: Configuración de una aplicación para exponer las API web](quickstart-configure-app-expose-web-apis.md).
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Inicio de sesión en Azure Portal y selección de la aplicación
 
@@ -60,7 +60,7 @@ Para elegir entre los identificadores URI de redirección sugeridos para cliente
 1. Seleccione uno o varios URI de redirección para la aplicación. También puede escribir un URI de redireccionamiento personalizado. Si no está seguro de lo que debe usar, consulte la documentación de la biblioteca.
 1. Seleccione **Guardar**.
 
-A los URI de redirección se les aplican ciertas restricciones. Para más información, consulte [Limitaciones y restricciones de URI de redireccionamiento o URL de respuesta](https://docs.microsoft.com/azure/active-directory/develop/reply-url).
+A los URI de redirección se les aplican ciertas restricciones. Para más información, consulte [Limitaciones y restricciones de URI de redireccionamiento o URL de respuesta](./reply-url.md).
 
 > [!NOTE]
 > Pruebe la nueva experiencia de configuración de **autenticación**, donde puede configurar su aplicación basándose en la plataforma o dispositivo que tenga como destino.
@@ -113,7 +113,7 @@ Para configurar la aplicación según la plataforma o dispositivo que tenga como
    | **Aplicaciones móviles y de escritorio**  | Opcional. Si va a crear aplicaciones para dispositivos y equipos de escritorio, seleccione uno de los **URI de redireccionamiento sugeridos**.<br/>Opcional. Escriba un **URI de redireccionamiento personalizado**, que se usa como la ubicación a la que Azure AD redirigirá a los usuarios en respuesta a las solicitudes de autenticación. Por ejemplo, para las aplicaciones de .NET Core en las que quiera agregar una interacción, use `http://localhost`. |
 
    > [!NOTE]
-   > En Servicios de federación de Active Directory (AD FS) y Azure AD B2C, también debe especificar un número de puerto.  Por ejemplo: `http://localhost:1234`. 
+   > En Servicios de federación de Active Directory (AD FS) y Azure AD B2C, también debe especificar un número de puerto.  Por ejemplo: `http://localhost:1234`.
 
    > [!IMPORTANT]
    > En el caso de las aplicaciones móviles que no usen la biblioteca de autenticación de Microsoft (MSAL) más reciente o que no usen un agente, tendrá que configurar los URI de redireccionamiento para estas aplicaciones en **Escritorio y dispositivos**.
@@ -148,7 +148,7 @@ Para agregar un secreto de cliente:
 
 ## <a name="add-permissions-to-access-web-apis"></a>Adición de permisos para acceder a las API web
 
-El [permiso Iniciar sesión y leer el perfil de usuario de Graph API](https://developer.microsoft.com/graph/docs/concepts/permissions_reference#user-permissions) se selecciona de forma predeterminada. Puede seleccionar entre [dos tipos de permisos](developer-glossary.md#permissions) para cada API web:
+El [permiso Iniciar sesión y leer el perfil de usuario de Graph API](/graph/permissions-reference#user-permissions) se selecciona de forma predeterminada. Puede seleccionar entre [dos tipos de permisos](developer-glossary.md#permissions) para cada API web:
 
 * **Permisos de aplicación**. La aplicación cliente necesita acceso directo a la API web como sí misma, sin contexto de usuario. Este tipo de permiso requiere el consentimiento del administrador. Este permiso no está disponible para aplicaciones cliente de escritorio y móviles.
 * **Permisos delegados**. la aplicación cliente necesita acceso a la API web como el usuario que inició sesión, pero con acceso limitado por el permiso seleccionado. Este tipo de permiso lo puede conceder un usuario a menos que el permiso requiera el consentimiento del administrador.
@@ -200,16 +200,7 @@ La petición de consentimiento da la opción de **Aceptar** o **Cancelar**. Sele
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Pase al siguiente artículo para más información sobre cómo exponer las API web.
+Avance al siguiente inicio rápido de la serie para aprender a configurar los tipos de cuenta que pueden acceder a la aplicación. Por ejemplo, puede que quiera limitar el acceso solo a los usuarios de su organización (un solo inquilino) o permitir a los usuarios de otros inquilinos de Azure AD (multiinquilino) y a quienes tengan cuentas personales de Microsoft (MSA).
+
 > [!div class="nextstepaction"]
-> [Inicio rápido: Configuración de una aplicación para exponer las API web](quickstart-configure-app-expose-web-apis.md)
-
-* Para obtener más información acerca de los dos objetos de Azure AD que representan una aplicación registrada y la relación entre ellos, consulte [Objetos de aplicación y de entidad de servicio](app-objects-and-service-principals.md).
-
-* Para obtener más información acerca de las directrices de personalización de marca que hay que usar al desarrollar aplicaciones con Azure Active Directory, consulte [Directrices de personalización de marca para aplicaciones](howto-add-branding-in-azure-ad-apps.md).
-
-* [Inicio rápido: Registro de una aplicación en la plataforma de identidad de Microsoft](quickstart-register-app.md)
-
-* [Inicio rápido: Modificación de las cuentas compatibles con una aplicación](quickstart-modify-supported-accounts.md)
-
-* [Inicio rápido: Eliminación de una aplicación registrada con la Plataforma de identidad de Microsoft](quickstart-remove-app.md)
+> [Modificación de las cuentas compatibles con una aplicación](quickstart-modify-supported-accounts.md)

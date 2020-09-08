@@ -1,21 +1,21 @@
 ---
 title: Creación y uso compartido de un cuaderno de Jupyter Notebook en Azure Notebooks (versión preliminar)
-description: Cree y ejecute rápidamente un cuaderno de Jupyter Notebook en Azure Notebooks (versión preliminar) y, luego, comparta ese cuaderno con otros usuarios.
+description: Cree y ejecute rápidamente un cuaderno de Jupyter Notebook en Azure Notebooks (versión preliminar) y, luego, compártalo con otros usuarios.
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.custom: devx-track-python
-ms.openlocfilehash: 19773a6857d58f5b6af2a02ac28a3414c51fc917
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 77575b5b9e006ac9881d03dc95509d55c53c26d7
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849409"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589340"
 ---
 # <a name="quickstart-create-and-share-a-notebook-in-azure-notebooks-preview"></a>Inicio rápido: Creación y uso compartido de un cuaderno en Azure Notebooks (versión preliminar)
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-En este inicio rápido, se crear y ejecuta un cuaderno de Jupyter Notebook en Azure Notebooks y, después, se comparte con otros usuarios. Jupyter permite combinar fácilmente texto Markdown, código ejecutable, datos persistentes, gráficos y visualizaciones en un solo lienzo que puede compartirse, el cuaderno. Azure Notebooks es un servicio hospedado gratuito para desarrollar y ejecutar cuadernos de Jupyter Notebook en la nube sin necesidad de instalación.
+En este inicio rápido, creará y ejecutará un cuaderno de Jupyter Notebook en Azure Notebooks y, después, lo compartirá con otros usuarios. Jupyter permite combinar fácilmente texto Markdown, código ejecutable, datos persistentes, gráficos y visualizaciones en un solo lienzo que puede compartirse, el cuaderno. Azure Notebooks es un servicio hospedado gratuito para desarrollar y ejecutar cuadernos de Jupyter Notebook en la nube sin necesidad de instalación.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 Ninguno.
@@ -91,7 +91,7 @@ Ninguno.
 
 1. Seleccione el icono Guardar para guardar el trabajo:
 
-    ![Icono Guardar en la barra de herramientas de Jupyter Notebook](media/quickstarts/hello-results-save-icon.png)
+    ![Icono Guardar de la barra de herramientas de Jupyter Notebook](media/quickstarts/hello-results-save-icon.png)
 
 1. Seleccione el comando de menú **Archivo** > **Close and Halt** (Cerrar y detener) para detener el servidor y cerrar la ventana del explorador.
 

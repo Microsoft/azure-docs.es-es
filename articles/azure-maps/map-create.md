@@ -1,6 +1,6 @@
 ---
 title: Creación de un mapa con Azure Maps | Microsoft Azure Maps
-description: En este artículo, se aprende a representar un mapa en una página web mediante el SDK web de Microsoft Azure Maps.
+description: Obtenga información sobre cómo agregar mapas a páginas web mediante el SDK de Azure Maps Web. Obtenga información sobre las opciones para la animación, estilo, cámara, servicios e interacciones del usuario.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/26/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: b7bebfb227de3f9f1c51024845054d2d7a02f923
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9566bcc329b4d148fe9454fe70b556a9010fc4ac
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285652"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036477"
 ---
 # <a name="create-a-map"></a>Creación de un mapa
 
@@ -127,6 +127,47 @@ En el código siguiente, el primer bloque de código crea un mapa y establece lo
 
 <iframe height='500' scrolling='no' title='Animación de la vista de mapa' src='//codepen.io/azuremaps/embed/WayvbO/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/WayvbO/'>Animación de la vista de mapa</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+
+## <a name="request-transforms"></a>Transformaciones de solicitud
+
+A veces resulta útil poder modificar las solicitudes HTTP realizadas por el control de mapa. Por ejemplo:
+
+- agregar encabezados adicionales a las solicitudes de iconos. Esto se suele hacer para servicios protegidos por contraseña.
+- Modifique las direcciones URL para ejecutar solicitudes mediante un servicio de proxy.
+
+Las [opciones del servicio](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.serviceoptions) del mapa tienen un elemento `transformRequest` que se puede usar para modificar todas las solicitudes del mapa antes de que las haga. La opción `transformRequest` es una función que toma dos parámetros: una dirección URL de cadena y una cadena de tipo de recurso que indica para qué se usa la solicitud. Esta función debe devolver un resultado [RequestParameters](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.requestparameters).
+
+```JavaScript
+transformRequest: (url: string, resourceType: string) => RequestParameters
+```
+
+En el ejemplo siguiente se muestra cómo usarlo para modificar todas las solicitudes al tamaño `https://example.com` al agregar un nombre de usuario y una contraseña como encabezados a la solicitud.
+
+```JavaScript
+var map = new atlas.Map('myMap', {
+    transformRequest: function (url, resourceType) {
+        //Check to see if the request is to the specified endpoint.
+        if (url.indexOf('https://examples.com') > -1) {
+            //Add custom headers to the request.
+            return {
+                url: url,
+                header: {
+                    username: 'myUsername',
+                    password: 'myPassword'
+                }
+            };
+        }
+
+        //Return the URL unchanged by default.
+        return { url: url };
+    },
+
+    authOptions: {
+        authType: 'subscriptionKey',
+        subscriptionKey: '<Your Azure Maps Key>'
+    }
+});
+```
 
 ## <a name="try-out-the-code"></a>Prueba del código
 

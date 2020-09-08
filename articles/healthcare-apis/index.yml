@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: matjazl
   ms.author: matjazl
-  ms.date: 08/12/2020
-  ms.openlocfilehash: 66fc6223a50a062631a74e62e32e0e67c7d6ba73
-  ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+  ms.date: 08/13/2020
+  ms.openlocfilehash: d633b5376832672ecc7c917e24728666b889e16c
+  ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
   ms.translationtype: HT
   ms.contentlocale: es-ES
   ms.lasthandoff: 08/13/2020
-  ms.locfileid: "88167494"
+  ms.locfileid: "88183452"
 landingContent:
 - title: Primeros pasos con Azure API for FHIR
   linkLists:
@@ -25,6 +25,8 @@ landingContent:
     links:
     - text: ¿Qué es Azure API for FHIR?
       url: overview.md
+    - text: ¿Qué es el conector de Azure IoT para FHIR (versión preliminar)?
+      url: overview.md#azure-iot-connector-for-fhir-preview
   - linkListType: quickstart
     links:
     - text: Implementación de Azure API for FHIR

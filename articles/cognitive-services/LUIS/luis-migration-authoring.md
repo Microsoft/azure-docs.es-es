@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 06/17/2020
+ms.date: 08/13/2020
 ms.author: diberry
-ms.openlocfilehash: cc14f1cd60f048ba01060b9ebdbca434af6b9751
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 4c9dc04770e5fadd72c5460a4b44c05ffda47cb7
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145619"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245458"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migración a una clave de creación de recursos de Azure
 
@@ -34,6 +34,7 @@ La migración debe realizarse desde el portal de LUIS. Por ejemplo, si crea las 
 
 ## <a name="note-before-you-migrate"></a>A tener en cuenta antes de la migración
 
+* El **2 de noviembre de 2020** debe haber realizado la migración de la experiencia de creación. 
 * La migración es un proceso unidireccional. La migración no se puede revertir.
 * Las aplicaciones se migrarán automáticamente si usted es el propietario de la aplicación.
 * El propietario no puede elegir un subconjunto de las aplicaciones que se van a migrar y el proceso no es reversible.
@@ -51,7 +52,7 @@ La migración debe realizarse desde el portal de LUIS. Por ejemplo, si crea las 
 
 ## <a name="migration-prerequisites"></a>Requisitos previos de la migración
 
-* Debe estar asociado con una suscripción válida de Azure. Pídale al administrador de inquilinos que lo agregue a la suscripción, o bien [regístrese aquí para obtener una gratis](https://azure.microsoft.com/free/).
+* Debe estar asociado con una suscripción válida de Azure. Pídale al administrador de inquilinos que lo agregue a la suscripción, o bien [regístrese aquí para obtener una gratis](https://azure.microsoft.com/free/cognitive-services).
 * Debe crear un recurso de creación de LUIS de Azure desde el portal de LUIS o desde Azure Portal. La creación de un recurso de creación desde el portal de LUIS forma parte del flujo de migración que se describe en la sección siguiente.
 * Si tiene rol de colaborador en las aplicaciones, estas no se migrarán automáticamente. Se recomienda hacer una copia de seguridad de estas aplicaciones mediante su exportación o con la [API de exportación](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40). Puede volver a importar la aplicación en LUIS después de la migración. El proceso de importación crea una aplicación nueva con un nuevo identificador de aplicación, para el que usted es el propietario.
 * Si es el propietario de la aplicación, no tendrá que exportar las aplicaciones, ya que se migrarán automáticamente. Se recomienda que guarde la lista de colaboradores de cada aplicación. Una plantilla de correo electrónico que tenga esta lista se proporciona opcionalmente como parte del proceso de migración.
@@ -59,7 +60,7 @@ La migración debe realizarse desde el portal de LUIS. Por ejemplo, si crea las 
 
 |Portal|Propósito|
 |--|--|
-|[Azure](https://azure.microsoft.com/free/)| Crear recursos de predicción y creación.<br> Asignar colaboradores en los recursos.|
+|[Azure](https://azure.microsoft.com/free/cognitive-services)| Crear recursos de predicción y creación.<br> Asignar colaboradores en los recursos.|
 |[LUIS](https://www.luis.ai)| Migrar a recursos de creación nuevos.<br> Crear nuevos recursos de creación en el flujo de migración.<br> Asignar o anular la asignación de recursos de predicción y creación a las aplicaciones desde la página **Administrar** > **Recursos de Azure**. <br> Mover las aplicaciones de un recurso de creación a otro.  |
 
 > [!Note]

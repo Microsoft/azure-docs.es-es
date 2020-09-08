@@ -8,13 +8,13 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
-ms.custom: mvc
-ms.openlocfilehash: af1ba6bdf8edc3ce8653c9ecf196a599fb984ae4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 21e242d0a6a5aa2efa011289200654e71bd58662
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84805926"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071455"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-azure-powershell"></a>Creación de una puerta de enlace de aplicaciones con terminación TLS mediante Azure PowerShell
 

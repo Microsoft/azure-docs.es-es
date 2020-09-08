@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: rosouz
-ms.openlocfilehash: 3b210ea558f857d017504d07e571e94e34c0d4f6
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: b3d1371f486a73b40d352007e3681fd451a8a8b7
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037106"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815834"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>¿Qué es el almacén analítico de Azure Cosmos DB (versión preliminar)?
 
@@ -22,7 +22,7 @@ El almacén analítico de Azure Cosmos DB es un almacén de columnas completamen
 
 ## <a name="challenges-with-large-scale-analytics-on-operational-data"></a>Desafíos del análisis a gran escala de los datos operativos
 
-Los datos operativos de varios modelos de un contenedor de Azure Cosmos DB se almacenan internamente en un "almacén transaccional" basado en filas indexado. El formato del almacén de filas está diseñado para permitir lecturas y escrituras transaccionales rápidas, con tiempos de respuesta en el orden de milisegundos, y consultas operativas. Si el conjunto de datos crece en gran medida, las consultas analíticas complejas con los datos almacenados en este formato pueden ser costosas en cuanto al rendimiento aprovisionado. A su vez, el alto consumo del rendimiento aprovisionado afecta al rendimiento de las cargas de trabajo transaccionales que utilizan sus servicios y aplicaciones en tiempo real.
+Los datos operativos de varios modelos de un contenedor de Azure Cosmos DB se almacenan internamente en un "almacén transaccional" basado en filas indexado. El formato del almacén de filas está diseñado para permitir lecturas y escrituras transaccionales rápidas, con tiempos de respuesta en el orden de milisegundos, y consultas operativas. Si el conjunto de datos crece, las consultas analíticas complejas pueden ser costosas en términos de rendimiento aprovisionado en los datos almacenados en este formato. El alto consumo de rendimiento aprovisionado, a su vez, afecta al rendimiento de las cargas de trabajo transaccionales utilizadas por las aplicaciones y los servicios en tiempo real.
 
 Tradicionalmente, para analizar grandes cantidades de datos, los datos operativos se extraen del almacén transaccional de Azure Cosmos DB y se almacenan en una capa de datos independiente. Por ejemplo, los datos se almacenan en un almacenamiento de datos o en un lago de datos con un formato adecuado. Más tarde, estos datos se usan para análisis a gran escala, y se analizan mediante un motor de proceso, como los clústeres de Apache Spark. Esta separación entre las capas de almacenamiento analítico y de proceso y los datos operativos produce latencia adicional, ya que las canalizaciones ETL (extracción, transformación y carga) se ejecutan con menos frecuencia para minimizar el posible impacto en las cargas de trabajo transaccionales.
 
@@ -131,10 +131,10 @@ El almacén analítico sigue un modelo de precios basado en el consumo, donde se
 
 * Operaciones de escritura analíticas: Sincronización totalmente administrada de las actualizaciones de datos operativos en el almacén analítico desde el almacén transaccional (sincronización automática).
 
-* Operaciones de lectura analíticas: Operaciones de lectura realizadas en el almacén analítico desde Synapse Analytics Spark y los runtimes de SQL sin servidor.
+* Operaciones de lectura analíticas: operaciones de lectura realizadas en el almacén analítico desde Synapse Analytics Spark y los runtimes de SQL sin servidor.
 
 > [!NOTE]
-> El almacén analítico de Azure Cosmos DB está disponible en versión preliminar pública sin cargos hasta el 30 de agosto de 2020.
+> El almacén analítico de Azure Cosmos DB está disponible actualmente en versión preliminar pública sin cargos.
 
 Los precios del almacén analítico son independientes del modelo de precios del almacén transaccional. No hay ningún concepto de RU aprovisionadas en el almacén analítico. Consulte la [página de precios de Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) para obtener información completa sobre el modelo de precios del almacén analítico.
 
@@ -144,7 +144,7 @@ Para obtener una estimación general del costo de habilitación del almacén ana
 
 El TTL analítico indica cuánto tiempo deben conservarse los datos en el almacén analítico para un contenedor dado. 
 
-Las inserciones, actualizaciones y eliminaciones de datos operativos se sincronizan automáticamente desde el almacén transaccional hacia el almacén analítico, independientemente de la configuración del TTL transaccional. La retención de estos datos operativos en el almacén analítico puede controlarse mediante el valor de TTL analítico en el nivel de contenedor, tal como se especifica a continuación:
+Si el almacén analítico está habilitado, las inserciones, actualizaciones y eliminaciones de datos operativos se sincronizan automáticamente desde el almacén transaccional hacia el almacén analítico, independientemente de la configuración de TTL transaccional. La retención de estos datos operativos en el almacén analítico puede controlarse mediante el valor de TTL analítico en el nivel de contenedor, tal como se especifica a continuación:
 
 El TTL analítico en un contenedor se establece mediante la propiedad `AnalyticalStoreTimeToLiveInSeconds`:
 
@@ -164,7 +164,7 @@ Para obtener más información, consulte [Configuración del TTL analítico en u
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información, consulte los documentos siguientes:
+Para obtener más información, consulte la siguiente documentación:
 
 * [Azure Synapse Link para Azure Cosmos DB](synapse-link.md)
 

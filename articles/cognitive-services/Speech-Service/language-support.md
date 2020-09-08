@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: eb9e0f126a25bfb0f2db18074bd7200e1a7c2001
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 19f4e7b340f0b1ceb64d04a2704a4f6667e1e14a
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087153"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053582"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Compatibilidad con idiomas y voces en el servicio de voz
 
@@ -50,21 +50,47 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ar-SA` | Árabe (Arabia Saudí)             | No                                                |
 | `ar-SY` | Árabe (Siria)                    | Modelo de lenguaje                                    |
 | `ca-ES` | Catalán                           | Modelo de lenguaje                                    |
+| `cs-CZ` | Checo (República Checa)            | Modelo de lenguaje                                    | 
 | `da-DK` | Danés (Dinamarca)                  | Modelo de lenguaje                                    |
 | `de-DE` | Alemán (Alemania)                  | Modelo acústico<br>Modelo de lenguaje<br>Pronunciación |
 | `en-AU` | Inglés (Australia)               | Modelo acústico<br>Modelo de lenguaje                  |
 | `en-CA` | Inglés (Canadá)                  | Modelo acústico<br>Modelo de lenguaje                  |
 | `en-GB` | Inglés (Reino Unido)          | Modelo acústico<br>Modelo de lenguaje<br>Pronunciación |
+| `en-HK` | Inglés (RAE de Hong Kong)               | Modelo de lenguaje                                    | 
+| `en-IE` | Inglés (Irlanda)                 | Modelo de lenguaje                                    | 
 | `en-IN` | Inglés (India)                   | Modelo acústico<br>Modelo de lenguaje                  |
 | `en-NZ` | Inglés (Nueva Zelanda)             | Modelo acústico<br>Modelo de lenguaje                  |
+| `en-PH` | Inglés (Filipinas)             | Modelo de lenguaje                                    | 
+| `en-SG` | Inglés (Singapur)               | Modelo de lenguaje                                    | 
 | `en-US` | Spanish (Traditional Sort) - Spain           | Modelo acústico<br>Modelo de lenguaje<br>Pronunciación |
+| `en-ZA` | Inglés (Sudáfrica)            | Modelo de lenguaje                                    | 
+| `es-AR` | Español (Argentina)               | Modelo de lenguaje                                    | 
+| `es-BO` | Español (Bolivia)                 | Modelo de lenguaje                                    | 
+| `es-CL` | Español (Chile)                   | Modelo de lenguaje                                    | 
+| `es-CO` | Español (Colombia)                | Modelo de lenguaje                                    | 
+| `es-CR` | Español (Costa Rica)              | Modelo de lenguaje                                    | 
+| `es-CU` | Español (Cuba)                    | Modelo de lenguaje                                    | 
+| `es-DO` | Español (República Dominicana)      | Modelo de lenguaje                                    | 
+| `es-EC` | Español (Ecuador)                 | Modelo de lenguaje                                    | 
 | `es-ES` | Español (España)                   | Modelo acústico<br>Modelo de lenguaje                  |
+| `es-GT` | Español (Guatemala)               | Modelo de lenguaje                                    | 
+| `es-HN` | Español (Honduras)                | Modelo de lenguaje                                    | 
 | `es-MX` | Español (México)                  | Modelo acústico<br>Modelo de lenguaje                  |
+| `es-NI` | Español (Nicaragua)               | Modelo de lenguaje                                    | 
+| `es-PA` | Español (Panamá)                  | Modelo de lenguaje                                    | 
+| `es-PE` | Español (Perú)                    | Modelo de lenguaje                                    | 
+| `es-PR` | Español (Puerto Rico)             | Modelo de lenguaje                                    | 
+| `es-PY` | Español (Paraguay)                | Modelo de lenguaje                                    | 
+| `es-SV` | Español (El Salvador)             | Modelo de lenguaje                                    | 
+| `es-US` | Español (EE. UU.)                     | Modelo de lenguaje                                    | 
+| `es-UY` | Español (Uruguay)                 | Modelo de lenguaje                                    | 
+| `es-VE` | Español (Venezuela)               | Modelo de lenguaje                                    | 
 | `fi-FI` | Finés (Finlandia)                 | Modelo de lenguaje                                    |
 | `fr-CA` | Francés (Canadá)                   | Modelo acústico<br>Modelo de lenguaje                  |
 | `fr-FR` | Francés (Francia)                   | Modelo acústico<br>Modelo de lenguaje<br>Pronunciación |
 | `gu-IN` | Gujarati (India)                 | Modelo de lenguaje                                    |
 | `hi-IN` | Hindi (India)                     | Modelo acústico<br>Modelo de lenguaje                  |
+| `hu-HU` | Húngaro (Hungría)               | Modelo de lenguaje                                    | 
 | `it-IT` | Italiano (Italia)                   | Modelo acústico<br>Modelo de lenguaje<br>Pronunciación |
 | `ja-JP` | Japonés (Japón)                  | Modelo de lenguaje                                    |
 | `ko-KR` | Coreano (Corea)                    | Modelo de lenguaje                                    |
@@ -102,7 +128,7 @@ Para más información acerca de la disponibilidad regional, consulte las [regio
 |Configuración regional  | Idioma            | Sexo | Nombre de voz | Compatibilidad de estilo |
 |--|--|--|--|--|
 | `ar-EG` | Árabe (Egipto)                  | Female | `ar-EG-SalmaNeural`      | General |
-| `ar-SA` | Árabe (Arabia Saudí)           | Female | `ar-SA-ZariyahNeura`     | General |
+| `ar-SA` | Árabe (Arabia Saudí)           | Female | `ar-SA-ZariyahNeural`    | General |
 | `ca-ES` | Catalán (España)                 | Female | `ca-ES-AlbaNeural`       | General |
 | `da-DK` | Danés (Dinamarca)                | Female | `da-DK-ChristelNeural`   | General |
 | `de-DE` | Alemán (Alemania)                | Female | `de-DE-KatjaNeural`      | General |
@@ -335,20 +361,20 @@ Consulte la tabla siguiente para ver los idiomas compatibles con las distintas A
 | Configuración regional | Idioma | Comprobación dependiente del texto | Comprobación independiente del texto | Identificación independiente del texto |
 |----|----|----|----|----|
 | es-ES | Inglés (EE. UU.) | sí | sí | sí |
-|zh-CN  |Chino (mandarín, simplificado)|    N/D|    sí|    sí|
-|de-DE  |Alemán (Alemania)   |N/D    |sí    |sí|
-|en-GB  |English (Reino Unido)   |N/D    |sí    |sí|
-|fr-FR  |Francés (Francia)    |N/D    |sí    |sí|
-|en-AU  |Inglés (Australia)    |N/D    |sí    |sí|
-|en-CA  |Inglés (Canadá)   |N/D|   sí|    sí|
-|fr-CA  |Francés (Canadá)    |N/D    |sí|   sí|
-|it-IT  |Italiano|   N/D |sí|   sí|
-|es-ES| Español (España) |N/D    |sí|   sí|
-|es-MX  |Español (México)   |N/D|   sí|    sí|
-|ja-JP| Japonés    |N/D    |sí    |sí|
-|pt-BR| Portugués (Brasil)|    N/D|    sí|    sí|
+|zh-CN    |Chino (mandarín, simplificado)|    N/D|    sí|    sí|
+|de-DE    |Alemán (Alemania)    |N/D    |sí    |sí|
+|en-GB    |English (Reino Unido)    |N/D    |sí    |sí|
+|fr-FR    |Francés (Francia)    |N/D    |sí    |sí|
+|en-AU    |Inglés (Australia)    |N/D    |sí    |sí|
+|en-CA    |Inglés (Canadá)    |N/D|    sí|    sí|
+|fr-CA    |Francés (Canadá)    |N/D    |sí|    sí|
+|it-IT    |Italiano|    N/D    |sí|    sí|
+|es-ES|    Español (España)    |N/D    |sí|    sí|
+|es-MX    |Español (México)    |N/D|    sí|    sí|
+|ja-JP|    Japonés    |N/D    |sí    |sí|
+|pt-BR|    Portugués (Brasil)|    N/D|    sí|    sí|
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Obtener la suscripción de evaluación gratuita del servicio de voz](https://azure.microsoft.com/try/cognitive-services/)
+* [Creación de una cuenta de Azure gratuita](https://azure.microsoft.com/free/cognitive-services/)
 * [Vea cómo funciona el reconocimiento de voz en C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)

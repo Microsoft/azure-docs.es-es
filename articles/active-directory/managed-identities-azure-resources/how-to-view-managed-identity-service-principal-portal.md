@@ -3,7 +3,7 @@ title: 'Visualización de la entidad de servicio de una identidad administrada e
 description: Instrucciones detalladas para ver la entidad de servicio de una identidad administrada en Azure Portal.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/29/2018
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 296dae5d2c628de66c72155661586624e02f81be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c88f3cdc880888162301ace5c896161f669d2ede
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608371"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269206"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-in-the-azure-portal"></a>Visualización de la entidad de servicio de una identidad administrada en Azure Portal
 
@@ -35,7 +35,7 @@ En este artículo, obtendrá información sobre cómo visualizar la entidad de s
 
 - Si no está familiarizado con las identidades administradas de los recursos de Azure, consulte la [sección de introducción](overview.md).
 - Si aún no tiene una cuenta de Azure, [regístrese para obtener una cuenta gratuita](https://azure.microsoft.com/free/).
-- Habilite la [identidad asignada por el sistema en una máquina virtual](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) o [aplicación](/azure/app-service/overview-managed-identity#add-a-system-assigned-identity).
+- Habilite la [identidad asignada por el sistema en una máquina virtual](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity) o [aplicación](../../app-service/overview-managed-identity.md#add-a-system-assigned-identity).
 
 ## <a name="view-the-service-principal"></a>Visualización de la entidad de servicio
 
@@ -49,5 +49,4 @@ Este procedimiento muestra cómo ver la entidad de servicio de una máquina virt
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Identidades administradas para recursos de Azure](/azure/active-directory/managed-identities-azure-resources/overview)
-
+[Identidades administradas para recursos de Azure](./overview.md)

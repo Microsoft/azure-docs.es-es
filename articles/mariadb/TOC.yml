@@ -1,4 +1,4 @@
-- name: Documentos de Azure Database for MariaDB
+- name: "Documentación de Azure\_DB for MariaDB"
   href: index.yml
 - name: Información general
   items:
@@ -28,7 +28,7 @@
   items:
     - name: Diseño de una base de datos
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: tutorial-design-database-using-portal.md
         - name: Azure CLI
           href: tutorial-design-database-cli.md
@@ -38,9 +38,6 @@
   items:
     - name: Azure CLI
       href: sample-scripts-azure-cli.md
-    - name: Elementos integrados de Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceptos
   items:
     - name: Bases de datos y servidores
@@ -75,6 +72,9 @@
           href: concepts-data-access-security-private-link.md
         - name: Protección contra amenazas avanzada
           href: concepts-data-access-and-security-threat-protection.md
+        - name: Controles de seguridad de Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: Línea de base de seguridad
           href: security-baseline.md
     - name: Continuidad empresarial
@@ -120,17 +120,17 @@
   items:
     - name: Administración de un servicio
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: howto-create-manage-server-portal.md
     - name: Reglas de firewall
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: howto-manage-firewall-portal.md
         - name: Azure CLI
           href: howto-manage-firewall-cli.md
     - name: Restauración de un servidor
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: howto-restore-server-portal.md
         - name: Azure CLI
           href: howto-restore-server-cli.md
@@ -158,7 +158,7 @@
           href: howto-redirection.md
     - name: Configuración de parámetros del servidor
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: howto-server-parameters.md
         - name: Azure CLI
           href: howto-configure-server-parameters-cli.md
@@ -166,7 +166,7 @@
           href: howto-configure-server-parameters-using-powershell.md
     - name: Almacenamiento de crecimiento automático
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: howto-auto-grow-storage-portal.md
         - name: Azure CLI
           href: howto-auto-grow-storage-cli.md
@@ -174,19 +174,19 @@
           href: howto-auto-grow-storage-powershell.md
     - name: Denegación del acceso a una red pública
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: howto-deny-public-network-access.md
     - name: Acceso a registros de servidor
       items:
         - name: Registros de consultas lentos
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: howto-configure-server-logs-portal.md
             - name: Azure CLI
               href: howto-configure-server-logs-cli.md
         - name: Registros de auditoría
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: howto-configure-audit-logs-portal.md
             - name: Azure CLI
               href: howto-configure-audit-logs-cli.md
@@ -212,23 +212,23 @@
           href: howto-troubleshoot-query-performance.md
     - name: Protección contra amenazas avanzada
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: howto-database-threat-protection-portal.md
     - name: Virtual Network
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: howto-manage-vnet-portal.md
         - name: Azure CLI
           href: howto-manage-vnet-cli.md
     - name: Private Link
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: howto-configure-privatelink-portal.md
         - name: Azure CLI
           href: howto-configure-privatelink-cli.md
     - name: Reinicio del servidor
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: howto-restart-server-portal.md
         - name: Azure CLI
           href: howto-restart-server-cli.md
@@ -244,6 +244,9 @@
       href: /azure/templates/microsoft.dbformariadb/allversions
     - name: Procedimientos almacenados de administración
       href: reference-stored-procedures.md
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Plantillas de implementación

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: f7295515b75ba7e26454f8b6ce6e0d660657ec4e
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 9355482c26cabb96fc6292bab5d542f36aec6a8c
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055246"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509763"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>Desarrollo de plantillas de ARM para la coherencia en la nube
 
@@ -570,7 +570,7 @@ En cambio, para especificar una configuración de disco administrado en una plan
 }
 ```
 
-Los mismos cambios también se aplican a los [discos de datos](../../virtual-machines/windows/using-managed-disks-template-deployments.md).
+Los mismos cambios también se aplican a los [discos de datos](../../virtual-machines/using-managed-disks-template-deployments.md).
 
 ### <a name="verify-that-vm-extensions-are-available-in-azure-stack"></a>Comprobar que las extensiones de máquina virtual están disponibles en Azure Stack
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 05/18/2020
+ms.date: 08/25/2020
 ms.author: aahi
-ms.openlocfilehash: acd8fae81baa7ad65b8d9c321c55a6311cbf4c72
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: a0557c3ccf6510ab3ee2ae29cbef1fc754473345
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141252"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933025"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Procedimientos: Detección de opiniones mediante la API Text Analytics
 
@@ -40,7 +40,7 @@ Análisis de sentimiento admite una amplia gama de idiomas, y hay más en la ver
 
 La versión 3 de Análisis de sentimiento aplica etiquetas de sentimiento al texto, que se devuelven en el nivel de oración y de documento, con una puntuación de confianza para cada una de ellas. 
 
-Las etiquetas son `positive`, `negative` y `neutral`. En el nivel de documento, también se puede devolver la etiqueta de sentimiento `mixed`. La opinión del documento se determina a continuación:
+Las etiquetas son *positive*, *negative* y *neutral*. En el nivel de documento, también se puede devolver la etiqueta de opinión *mixed*. La opinión del documento se determina a continuación:
 
 | Opiniones de frases                                                                            | Etiqueta de documento devuelta |
 |-----------------------------------------------------------------------------------------------|-------------------------|
@@ -49,7 +49,7 @@ Las etiquetas son `positive`, `negative` y `neutral`. En el nivel de documento, 
 | Hay al menos una oración `negative` y al menos una oración `positive` en el documento.    | `mixed`                 |
 | Todas las oraciones del documento son `neutral`.                                                  | `neutral`               |
 
-Las puntuaciones de confianza oscilan entre 1 y 0. Las puntuaciones más próximas a 1 indican una mayor confianza en la clasificación de la etiqueta, mientras que las puntuaciones inferiores indican una menor confianza. Las puntuaciones de confianza dentro de cada documento o frase suman 1.
+Las puntuaciones de confianza oscilan entre 1 y 0. Las puntuaciones más próximas a 1 indican una mayor confianza en la clasificación de la etiqueta, mientras que las puntuaciones inferiores indican una menor confianza. Para cada documento o frase, las puntuaciones previstas asociadas a las etiquetas (positive, negative y neutral) se suman hasta un máximo de 1.
 
 ### <a name="opinion-mining"></a>Minería de opiniones
 

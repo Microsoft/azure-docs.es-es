@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: d12df01fe1506f7f5ade9cce60ae7af0412e3010
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1f69fe027772dc2d008a567723a5b3c04f3ee51b
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080818"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378209"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Protección de red adaptable en Azure Security Center
 Obtenga información sobre cómo configurar la protección de red adaptable en Azure Security Center.
@@ -35,6 +35,17 @@ Por ejemplo, supongamos que la regla de NSG existente es permitir el tráfico de
 
 
 ![Vista de la protección de red](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
+
+
+## <a name="availability"></a>Disponibilidad
+
+|Aspecto|Detalles|
+|----|:----|
+|Estado de la versión:|Disponibilidad general|
+|Precios:|Nivel Standard|
+|Roles y permisos necesarios:|Permisos de escritura en los NSG de la máquina|
+|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![No](./media/icons/no-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)|
+|||
 
 
 ## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>Visualización de las alertas y reglas de protección de red adaptable

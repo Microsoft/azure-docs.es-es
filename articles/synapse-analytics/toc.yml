@@ -34,8 +34,12 @@
       href: release-notes.md
 - name: Guías de inicio rápido
   items:
-    - name: Creación de un área de trabajo de Synapse
+    - name: Creación de un área de trabajo de Synapse mediante Azure Portal
       href: quickstart-create-workspace.md
+    - name: Implementación con una plantilla
+      href: quickstart-deployment-template-workspaces.md
+    - name: Creación de un área de trabajo de Synapse mediante la CLI de Azure
+      href: quickstart-create-workspace-cli.md
     - name: Uso de Synapse Studio
       href: quickstart-synapse-studio.md
     - name: Vinculación de un área de trabajo de Power BI
@@ -74,10 +78,10 @@
       href: ./sql/tutorial-connect-power-bi-desktop.md
     - name: Científico de datos
       items:
-        - name: Predicción de las propinas en los taxis de Nueva York
+        - name: Ejecución de un experimento de regresión mediante Azure AutoML
+          href: ./spark/apache-spark-azure-machine-learning-tutorial.md
+        - name: Creación de un modelo de clasificación mediante Apache Spark MLlib
           href: ./spark/apache-spark-machine-learning-mllib-notebook.md
-        - name: Aumento de Apache Spark con más bibliotecas
-          href: ./spark/apache-spark-azure-portal-add-libraries.md
     - name: Analista de datos
       items:
         - name: Uso de SQL a petición para analizar y Synapse Studio para visualizar
@@ -202,18 +206,28 @@
               href: ./spark/apache-spark-overview.md
             - name: Conceptos de Apache Spark
               href: ./spark/apache-spark-concepts.md
-            - name: Compatibilidad de la biblioteca y del lenguaje del runtime
-              href: ./spark/apache-spark-version-support.md
             - name: ¿Qué es Delta Lake?
               href: ./spark/apache-spark-what-is-delta-lake.md
+            - name: Introducción a las funciones de Delta Lake
+              href: ./spark/apache-spark-delta-lake-overview.md
             - name: Rendimiento de Apache Spark
               href: ./spark/apache-spark-performance.md
+            - name: Optimización del rendimiento de Apache Spark mediante índices de Hiperescala
+              href: ./spark/apache-spark-performance-hyperspace.md
             - name: Comportamiento del escalado automático de Apache Spark
               href: ./spark/apache-spark-autoscale.md
         - name: Desarrollo
           items:
+            - name: Bibliotecas
+              items:
+                - name: Adición y administración de bibliotecas
+                  href: ./spark/apache-spark-azure-portal-add-libraries.md
+                - name: Compatibilidad de la biblioteca y del lenguaje del runtime
+                  href: ./spark/apache-spark-version-support.md
             - name: Cuadernos de Azure Synapse Studio
               href: ./spark/apache-spark-development-using-notebooks.md
+            - name: Protección de credenciales mediante TokenLibrary
+              href: ./spark/apache-spark-secure-credentials-with-tokenlibrary.md
             - name: ".NET para Apache\_Spark"
               href: ./spark/spark-dotnet.md
             - name: Aprendizaje automático de Apache Spark
@@ -240,7 +254,7 @@
               href: sql/best-practices-sql-on-demand.md
             - name: Procedimientos recomendados de grupos de SQL
               href: sql/best-practices-sql-pool.md
-        - name: Carga de datos
+        - name: Ingesta y preparación de datos
           items:
             - name: Información general
               href: ./sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -408,7 +422,7 @@
                   href: ./sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Actualización a Gen2
               href: ./sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Cargar datos
+    - name: Ingesta y preparación de datos
       items:
         - name: En el almacenamiento de datos
           items:
@@ -450,6 +464,8 @@
               href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
             - name: Consulta de un almacén analítico de Azure Cosmos DB con Apache Spark para Azure Synapse Analytics
               href: ./synapse-link/how-to-query-analytical-store-spark.md
+            - name: Copia de datos de Synapse Link a un grupo de SQL mediante Apache Spark
+              href: ./synapse-link/how-to-copy-to-sql-pool.md
         - name: SQL de Synapse
           items:
             - name: Consulta de los datos en el almacenamiento
@@ -908,7 +924,7 @@
     - name: Calculadora de precios
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Preguntas y respuestas
-      href: 'https://docs.microsoft.com/en-us/answers/questions/topics/single/25423.html'
+      href: 'https://docs.microsoft.com/answers/questions/topics/single/25423.html'
     - name: Actualizaciones del servicio
       href: 'https://azure.microsoft.com/updates/?product=sql-data-warehouse'
     - name: Stack Overflow

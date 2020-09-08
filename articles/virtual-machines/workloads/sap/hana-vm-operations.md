@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e01eecf24802bc43aebfa7b02105a2b1aa679a52
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b5438132f32117e0ec48a6f985c3b9d2045a9da2
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051933"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649693"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configuraciones y operaciones de infraestructura de SAP HANA en Azure
 En este documento se proporcionan instrucciones para configurar la infraestructura de Azure y sobre el funcionamiento de los sistemas SAP HANA que se implementaron en máquinas virtuales nativas de Azure. En el documento también se incluye información sobre la configuración de la escalabilidad horizontal de SAP HANA para la SKU de máquinas virtuales M128s. Este documento no pretende reemplazar ninguna documentación estándar de SAP, incluido el contenido siguiente:
@@ -243,7 +243,7 @@ Según las instrucciones de procedimientos recomendados de DT 2.0, el rendimient
 
 Es necesario conectar varios discos de Azure a la máquina virtual de DT 2.0 y crear una matriz redundante de discos independientes de software (seccionado) en el nivel del sistema operativo para lograr el límite máximo de rendimiento de disco por máquina virtual. Un único disco de Azure no puede proporcionar el rendimiento para alcanzar el límite máximo para las máquinas virtuales en este sentido. Se requiere Azure Premium Storage para ejecutar DT 2.0. 
 
-- [Aquí](../../windows/disks-types.md) puede encontrar detalles sobre los tipos de disco de Azure disponibles.
+- [Aquí](../../disks-types.md) puede encontrar detalles sobre los tipos de disco de Azure disponibles.
 - [Aquí](../../linux/configure-raid.md) puede encontrar detalles sobre la creación de una matriz redundante de discos independientes de software a través de mdadm.
 - Los detalles sobre la configuración de LVM para crear un volumen seccionado con el máximo rendimiento se encuentran [aquí](../../linux/configure-lvm.md).
 
@@ -259,7 +259,7 @@ Como la máquina virtual M64-32ms estándar tiene mucha memoria, la carga de E/S
 
 Especialmente en el caso de que la carga de trabajo suponga muchas lecturas, podría aumentar el rendimiento de la E/S si se activa la memoria caché de host de Azure "de solo lectura", como se recomienda para los volúmenes de datos de software de base de datos. Sin embargo, la memoria caché del disco host de Azure del registro de transacciones debe ser "none" (ninguna). 
 
-En relación con el tamaño del volumen de registro, el punto de partida recomendado es el valor heurístico del 15 % del tamaño de datos. La creación del volumen de registro puede llevarse a cabo con diferentes tipos de disco de Azure, según los requisitos de costo y rendimiento. Para el volumen de registro, se requiere una capacidad de proceso de E/S alta.  En el caso de usar el tipo de máquina virtual M64-32ms, se recomienda habilitar el [Acelerador de escritura](../../linux/how-to-enable-write-accelerator.md). Este Acelerador de escritura de Azure proporciona la latencia de escritura en disco óptima para el registro de transacciones (solo disponible para la serie M). Sin embargo, hay algunos elementos que deben tenerse en cuenta, como el número máximo de discos por tipo de máquina virtual. Puede encontrar detalles sobre el Acelerador de escritura [aquí](../../windows/how-to-enable-write-accelerator.md).
+En relación con el tamaño del volumen de registro, el punto de partida recomendado es el valor heurístico del 15 % del tamaño de datos. La creación del volumen de registro puede llevarse a cabo con diferentes tipos de disco de Azure, según los requisitos de costo y rendimiento. Para el volumen de registro, se requiere una capacidad de proceso de E/S alta.  En el caso de usar el tipo de máquina virtual M64-32ms, se recomienda habilitar el [Acelerador de escritura](../../how-to-enable-write-accelerator.md). Este Acelerador de escritura de Azure proporciona la latencia de escritura en disco óptima para el registro de transacciones (solo disponible para la serie M). Sin embargo, hay algunos elementos que deben tenerse en cuenta, como el número máximo de discos por tipo de máquina virtual. Puede encontrar detalles sobre el Acelerador de escritura [aquí](../../how-to-enable-write-accelerator.md).
 
 
 Estos son algunos ejemplos sobre cómo cambiar el tamaño del volumen de registro:

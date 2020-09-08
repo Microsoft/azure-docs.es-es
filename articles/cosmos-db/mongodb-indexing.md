@@ -1,20 +1,20 @@
 ---
 title: Administración de la indexación en la API de Azure Cosmos DB para MongoDB
-description: En este artículo se presenta información general sobre las funcionalidades de indexación de Azure Cosmos DB mediante la API de MongoDB.
+description: En este artículo se presenta información general sobre las funcionalidades de indexación de Azure Cosmos DB mediante la API de MongoDB de este servicio.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 08/04/2020
+ms.date: 08/07/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-javascript
-ms.openlocfilehash: b8db9e2d8b58047ebe29865bb95d7f218732c88e
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: fb90390814af39b240c9a157f490ee9390afeb8f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87761168"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030510"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Administración de la indexación en la API de Azure Cosmos DB para MongoDB
 
@@ -40,7 +40,7 @@ Una consulta utiliza varios índices de campo único, siempre que estén disponi
 
 ### <a name="compound-indexes-mongodb-server-version-36"></a>Índices compuestos (servidor de MongoDB versión 3.6)
 
-La API de Azure Cosmos DB para MongoDB admite índices compuestos para las cuentas que usan el protocolo de conexión de la versión 3.6. Puede incluir hasta ocho campos en un índice compuesto. A diferencia de MongoDB, debe crear un índice compuesto solo si es necesario ordenar de manera eficaz la consulta en varios campos a la vez. En el caso de las consultas con varios filtros que no es necesario ordenar, cree varios índices de campo único en lugar de un único índice compuesto.
+La API de Azure Cosmos DB para MongoDB admite índices compuestos para las cuentas que usan el protocolo de conexión de la versión 3.6. Puede incluir hasta ocho campos en un índice compuesto. **A diferencia de MongoDB, debe crear un índice compuesto solo si es necesario ordenar de manera eficaz la consulta en varios campos a la vez.** En el caso de las consultas con varios filtros que no es necesario ordenar, cree varios índices de campo único en lugar de un único índice compuesto.
 
 El comando siguiente crea un índice compuesto en los campos `name` y `age`:
 
@@ -57,6 +57,9 @@ También se puede usar el índice compuesto anterior para una ordenación eficaz
 Sin embargo, la secuencia de las rutas de acceso en el índice compuesto debe coincidir exactamente con la consulta. A continuación se muestra un ejemplo de una consulta que requeriría un índice compuesto adicional:
 
 `db.coll.find().sort({age:1,name:1})`
+
+> [!NOTE]
+> No se pueden crear índices compuestos en matrices o propiedades anidadas.
 
 ### <a name="multikey-indexes"></a>Índice de varias claves
 
@@ -315,7 +318,7 @@ Los detalles del progreso del índice muestran el porcentaje del progreso de la 
    }
    ```
 
-### <a name="background-index-updates"></a>Actualizaciones de índices en segundo plano
+## <a name="background-index-updates"></a>Actualizaciones de índices en segundo plano
 
 Independientemente del valor especificado para la propiedad **Background** del índice, las actualizaciones de los índices siempre se hacen en segundo plano. Dado que las actualizaciones de índice consumen unidades de solicitud (RU) con una prioridad más baja que otras operaciones de base de datos, los cambios de índice no darán lugar a tiempo de inactividad para las escrituras, actualizaciones o eliminaciones.
 

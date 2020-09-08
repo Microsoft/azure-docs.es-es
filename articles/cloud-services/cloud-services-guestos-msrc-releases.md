@@ -1,6 +1,6 @@
 ---
 title: Lista de actualizaciones aplicadas al SO invitado de Azure | Microsoft Docs
-description: Lista de las actualizaciones aplicadas a las versiones del SO invitado.
+description: En este artículo se enumeran las actualizaciones del Centro de respuestas de seguridad de Microsoft aplicadas a distintos sistemas operativos invitados de Azure. Consulte para ver si una actualización se aplica al sistema operativo invitado que está usando.
 services: cloud-services
 documentationcenter: na
 author: yohaddad
@@ -10,46 +10,99 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/21/2020
+ms.date: 8/17/2020
 ms.author: yohaddad
-ms.openlocfilehash: 04e75d108b9f518311ad19b2f9027dd0ad7e9e88
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5e5bcef36bb283b8b3f2b67578e0f3118302d936
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87002886"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510171"
 ---
 # <a name="azure-guest-os"></a>SO invitado de Azure
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se realizan para la [familia][family-explain] determinada en la que se introdujeron.
 
-## <a name="july-2020-guest-os"></a>SO invitado de julio de 2020
+## <a name="august-2020-guest-os"></a>SO invitado de agosto de 2020
 >[!NOTE]
->El sistema operativo invitado de julio se está implementando actualmente en las máquinas virtuales del servicio en la nube que están configuradas para las actualizaciones automáticas. Una vez completada la implementación, esta versión estará disponible para las actualizaciones manuales mediante Azure Portal y los archivos de configuración. Las revisiones siguientes se incluyen en el sistema operativo invitado de abril. Esta lista está sujeta a cambios.
+>El sistema operativo invitado de agosto se está implementando actualmente en las máquinas virtuales del servicio en la nube que están configuradas para las actualizaciones automáticas. Una vez completada la implementación, esta versión estará disponible para las actualizaciones manuales mediante Azure Portal y los archivos de configuración. Las revisiones siguientes se incluyen en el sistema operativo invitado de agosto. Esta lista está sujeta a cambios.
 
 
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
-|  Versión 20-07 |  [4565479]  |  Internet Explorer | 2.100, 3.87, 4.80 | 14 de julio de 2020 |
-|  Versión 20-07 |  [4565511]  |  Actualización acumulativa más reciente (LCU) | 5.45 | 14 de julio de 2020 |
-|  Versión 20-07 |  [4558998]  |  Actualización acumulativa más reciente (LCU) | 6,21 | 14 de julio de 2020 |
-|  Versión 20-07 |  [4565524]  |  Acumulación mensual | 2.100 | 14 de julio de 2020 |
-|  Versión 20-07 |  [4565616]  |  Acumulación mensual | 2.100 | 16 de julio de 2020 |
-|  Versión 20-07 |  [4565354]  |  Actualización de la pila de servicio | 2.100 | 14 de julio de 2020 |
-|  Versión 20-07 |  [4565612]  |  Acumulación mensual | 2.100 | 14 de julio de 2020 |
-|  Versión 20-07 |  [4565615]  |  Acumulación mensual | 3,87 | 14 de julio de 2020 |
-|  Versión 20-07 |  [4566426]  |  Actualización de la pila de servicio | 3,87 | 14 de julio de 2020 |
-|  Versión 20-07 |  [4565537]  |  Acumulación mensual | 3,87 | 14 de julio de 2020 |
-|  Versión 20-07 |  [4565610]  |  Acumulación mensual | 3,87 | 14 de julio de 2020 |
-|  Versión 20-07 |  [4565541]  |  Acumulación mensual | 4.80 | 14 de julio de 2020 |
-|  Versión 20-07 |  [4566425]  |  Actualización de la pila de servicio | 4.80 | 14 de julio de 2020 |
-|  Versión 20-07 |  [4565614]  |  Acumulación mensual | 4.80 | 14 de julio de 2020 |
-|  Versión 20-07 |  [4565613]  |  Acumulación mensual | 4.80 | 14 de julio de 2020 |
-|  Versión 20-07 |  [4565912]  |  Actualización de la pila de servicio | 5.45 | 14 de julio de 2020 |
-|  Versión 20-07 |  [4565628]  |  Acumulación mensual | 5.45 | 14 de julio de 2020 |
-|  Versión 20-07 |  [4494175]  |  Microcódigo | 5.45 | 25 de febrero de 2020 |
-|  Versión 20-07 |  [4565632]  |  Acumulación mensual | 6,21 | 14 de julio de 2020 |
-|  Versión 20-07 |  [4558997]  |  Actualización de la pila de servicio | 6,21 | 14 de julio de 2020 |
-|  Versión 20-07 |  [4494174]  |  Microcódigo | 6,21 | 25 de febrero de 2020 |
+|  Versión 20-08 |  [4571687]  |  Actualización acumulativa de IE | 2.101, 3.88, 4.81 | 11 de agosto de 2020 |
+|  Versión 20-08 |  [4561600]  |  Actualización de Flash | 3.88, 4.81, 5.46, 6.22 | 9 de junio de 2020 |
+|  Versión 20-08 |  [4571694]  |  Actualización acumulativa más reciente | 6,22 | 11 de agosto de 2020 |
+|  Versión 20-08 |  [4565349]  |  Actualización acumulativa más reciente | 5.46 | 11 de agosto de 2020 |
+|  Versión 20-08 |  [4570673]  |  Actualización de la pila de servicio | 2.101 | 11 de agosto de 2020 |
+|  Versión 20-08 |  [4571729]  |  Acumulación mensual | 2.101 | 11 de agosto de 2020 |
+|  Versión 20-08 |  [4569767]  |  Acumulación de seguridad y calidad de .NET Framework 3.5.1 | 2.101 | 11 de agosto de 2020 |
+|  Versión 20-08 |  [4569780]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | 2.101 | 11 de agosto de 2020 |
+|  Versión 20-08 |  [4569765]  |  Acumulación de seguridad y calidad de .NET Framework 3.5 | 3,88 | 11 de agosto de 2020 |
+|  Versión 20-08 |  [4569779]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | 3,88 | 11 de agosto de 2020 |
+|  Versión 20-08 |  [4566426]  |  Actualización de la pila de servicio | 3,88 | 14 de julio de 2020 |
+|  Versión 20-08 |  [4571736]  |  Acumulación mensual | 3,88 | 11 de agosto de 2020 |
+|  Versión 20-08 |  [4566425]  |  Actualización de la pila de servicio | 4.81 | 14 de julio de 2020 |
+|  Versión 20-08 |  [4571703]  |  Acumulación mensual | 4.81 | 11 de agosto de 2020 |
+|  Versión 20-08 |  [4569768]  |  Acumulación de seguridad y calidad de .NET Framework 3.5 | 4.81 | 11 de agosto de 2020 |
+|  Versión 20-08 |  [4569778]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | 4.81 | 11 de agosto de 2020 |
+|  Versión 20-08 |  [4494175]  |  Microcódigo | 5.46 | 25 de febrero de 2020 |
+|  Versión 20-08 |  [4565912]  |  Actualización de la pila de servicio | 5.46 | 14 de julio de 2020 |
+|  Versión 20-08 |  [4569746]  |  Acumulación de seguridad y calidad de .NET Framework 4.8 | 5.46 | 11 de agosto de 2020 |
+|  Versión 20-08 |  [4569776]  |  Actualización acumulativa de .NET Framework 3.5 y 4.7.2 | 6,22 | 11 de agosto de 2020 |
+|  Versión 20-08 |  [4569750]  |  Actualización acumulativa de .NET Framework 3.5 y 4.8 | 6,22 | 11 de agosto de 2020 |
+|  Versión 20-08 |  [4566424]  |  Actualización de la pila de servicio | 6,22 | 11 de agosto de 2020 |
+
+
+
+[4571687]: https://support.microsoft.com/kb/4571687
+[4561600]: https://support.microsoft.com/kb/4561600
+[4571694]: https://support.microsoft.com/kb/4571694
+[4565349]: https://support.microsoft.com/kb/4565349
+[4570673]: https://support.microsoft.com/kb/4570673
+[4571729]: https://support.microsoft.com/kb/4571729
+[4569767]: https://support.microsoft.com/kb/4569767
+[4569780]: https://support.microsoft.com/kb/4569780
+[4569765]: https://support.microsoft.com/kb/4569765
+[4569779]: https://support.microsoft.com/kb/4569779
+[4566426]: https://support.microsoft.com/kb/4566426
+[4571736]: https://support.microsoft.com/kb/4571736
+[4566425]: https://support.microsoft.com/kb/4566425
+[4571703]: https://support.microsoft.com/kb/4571703
+[4569768]: https://support.microsoft.com/kb/4569768
+[4569778]: https://support.microsoft.com/kb/4569778
+[4494175]: https://support.microsoft.com/kb/4494175
+[4565912]: https://support.microsoft.com/kb/4565912
+[4569746]: https://support.microsoft.com/kb/4569746
+[4569776]: https://support.microsoft.com/kb/4569776
+[4569750]: https://support.microsoft.com/kb/4569750
+[4566424]: https://support.microsoft.com/kb/4566424
+
+
+## <a name="july-2020-guest-os"></a>SO invitado de julio de 2020
+
+| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| --- | --- | --- | --- | --- |
+|  Versión 20-07 |  [4565479]  |  Internet Explorer | [2.100], [3.87], [4.80] | 14 de julio de 2020 |
+|  Versión 20-07 |  [4565511]  |  Actualización acumulativa más reciente (LCU) | [5.45] | 14 de julio de 2020 |
+|  Versión 20-07 |  [4558998]  |  Actualización acumulativa más reciente (LCU) | [6,21] | 14 de julio de 2020 |
+|  Versión 20-07 |  [4565524]  |  Acumulación mensual | [2.100] | 14 de julio de 2020 |
+|  Versión 20-07 |  [4565616]  |  Acumulación mensual | [2.100] | 16 de julio de 2020 |
+|  Versión 20-07 |  [4565354]  |  Actualización de la pila de servicio | [2.100] | 14 de julio de 2020 |
+|  Versión 20-07 |  [4565612]  |  Acumulación mensual | [2.100] | 14 de julio de 2020 |
+|  Versión 20-07 |  [4565615]  |  Acumulación mensual | [3,87] | 14 de julio de 2020 |
+|  Versión 20-07 |  [4566426]  |  Actualización de la pila de servicio | [3,87] | 14 de julio de 2020 |
+|  Versión 20-07 |  [4565537]  |  Acumulación mensual | [3,87] | 14 de julio de 2020 |
+|  Versión 20-07 |  [4565610]  |  Acumulación mensual | [3,87] | 14 de julio de 2020 |
+|  Versión 20-07 |  [4565541]  |  Acumulación mensual | [4.80] | 14 de julio de 2020 |
+|  Versión 20-07 |  [4566425]  |  Actualización de la pila de servicio | [4.80] | 14 de julio de 2020 |
+|  Versión 20-07 |  [4565614]  |  Acumulación mensual | [4.80] | 14 de julio de 2020 |
+|  Versión 20-07 |  [4565613]  |  Acumulación mensual | [4.80] | 14 de julio de 2020 |
+|  Versión 20-07 |  [4565912]  |  Actualización de la pila de servicio | [5.45] | 14 de julio de 2020 |
+|  Versión 20-07 |  [4565628]  |  Acumulación mensual | [5.45] | 14 de julio de 2020 |
+|  Versión 20-07 |  [4494175]  |  Microcódigo | [5.45] | 25 de febrero de 2020 |
+|  Versión 20-07 |  [4565632]  |  Acumulación mensual | [6,21] | 14 de julio de 2020 |
+|  Versión 20-07 |  [4558997]  |  Actualización de la pila de servicio | [6,21] | 14 de julio de 2020 |
+|  Versión 20-07 |  [4494174]  |  Microcódigo | [6,21] | 25 de febrero de 2020 |
 
 
 [4565479]: https://support.microsoft.com/kb/4565479
@@ -73,27 +126,30 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [4565632]: https://support.microsoft.com/kb/4565632
 [4558997]: https://support.microsoft.com/kb/4558997
 [4494174]: https://support.microsoft.com/kb/4494174
+[2.100]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3,87]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4.80]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5.45]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6,21]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 
 
 ## <a name="june-2020-guest-os"></a>SO invitado de junio de 2020
->[!NOTE]
->El sistema operativo invitado de junio se está implementando actualmente en las máquinas virtuales del servicio en la nube que están configuradas para las actualizaciones automáticas. Una vez completada la implementación, esta versión estará disponible para las actualizaciones manuales mediante Azure Portal y los archivos de configuración. Las revisiones siguientes se incluyen en el sistema operativo invitado de abril. Esta lista está sujeta a cambios.
 
 
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
-|  Versión 20-06  |  [4561603]  |  Internet Explorer  |  2.99, 3.86, 4.79  |  9 de junio de 2020  |
-|  Versión 20-06  |  [4561616]  |  Actualización acumulativa más reciente (LCU)  |  5.44  |  9 de junio de 2020  |
-|  Versión 20-06  |  [4561608]  |  Actualización acumulativa más reciente (LCU)  |  6.20  |  9 de junio de 2020  |
-|  Versión 20-06  |  [4562030]  |  Actualización de la pila de servicio  |  2,99  |  9 de junio de 2020  |
-|  Versión 20-06  |  [4561643]  |  Acumulación mensual  |  2,99  |  9 de junio de 2020  |
-|  Versión 20-06  |  [4562252]  |  Actualización de la pila de servicio  |  3,86  |  9 de junio de 2020  |
-|  Versión 20-06  |  [4561612]  |  Acumulación mensual  |  3,86  |  9 de junio de 2020  |
-|  Versión 20-06  |  [4561600]  |  Intermitente  |  3.86, 4.79, 5.44, 6.20  |  9 de junio de 2020  |
-|  Versión 20-06  |  [4562253]  |  Actualización de la pila de servicio  |  4,79  |  9 de junio de 2020  |
-|  Versión 20-06  |  [4561666]  |  Acumulación mensual  |  4,79  |  9 de junio de 2020  |
-|  Versión 20-06  |  [4562561]  |  Actualización de la pila de servicio  |  5.44  |  9 de junio de 2020  |
-|  Versión 20-06  |  [4562562]  |  Actualización de la pila de servicio  |  6.20  |  9 de junio de 2020  |
+|  Versión 20-06  |  [4561603]  |  Internet Explorer  |  [2.99], [3.86], [4.79]  |  9 de junio de 2020  |
+|  Versión 20-06  |  [4561616]  |  Actualización acumulativa más reciente (LCU)  |  [5.44]  |  9 de junio de 2020  |
+|  Versión 20-06  |  [4561608]  |  Actualización acumulativa más reciente (LCU)  |  [6.20]  |  9 de junio de 2020  |
+|  Versión 20-06  |  [4562030]  |  Actualización de la pila de servicio  |  [2,99]  |  9 de junio de 2020  |
+|  Versión 20-06  |  [4561643]  |  Acumulación mensual  |  [2,99]  |  9 de junio de 2020  |
+|  Versión 20-06  |  [4562252]  |  Actualización de la pila de servicio  |  [3,86]  |  9 de junio de 2020  |
+|  Versión 20-06  |  [4561612]  |  Acumulación mensual  |  [3,86]  |  9 de junio de 2020  |
+|  Versión 20-06  |  [4561600]  |  Intermitente  |  [3.86], [4.79], [5.44], [6.20]  |  9 de junio de 2020  |
+|  Versión 20-06  |  [4562253]  |  Actualización de la pila de servicio  |  [4,79]  |  9 de junio de 2020  |
+|  Versión 20-06  |  [4561666]  |  Acumulación mensual  |  [4,79]  |  9 de junio de 2020  |
+|  Versión 20-06  |  [4562561]  |  Actualización de la pila de servicio  |  [5.44]  |  9 de junio de 2020  |
+|  Versión 20-06  |  [4562562]  |  Actualización de la pila de servicio  |  [6.20]  |  9 de junio de 2020  |
 
 
 
@@ -109,6 +165,11 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [4561666]: https://support.microsoft.com/kb/4561666
 [4562561]: https://support.microsoft.com/kb/4562561
 [4562562]: https://support.microsoft.com/kb/4562562
+[2.99]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3.86]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4,79]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5.44]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6.20]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 
 
 ## <a name="may-2020-guest-os"></a>Sistema operativo invitado de mayo de 2020

@@ -1,17 +1,17 @@
 ---
 title: Planear un sistema de Avere vFXT - Azure
-description: Aquí se explica el plan que se debe realizar antes de implementar Avere vFXT para Azure
+description: Planee un clúster de Avere vFXT for Azure que responda a sus necesidades. Consulte las preguntas para formular antes de visitar Azure Marketplace o de crear máquinas virtuales.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: 6acc1ffd197ddba4290ff7c0751b259d98a70927
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: e5c33144dcebe491757dfafb2879fe51545827ce
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754397"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272797"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planear un sistema de Avere vFXT
 
@@ -166,7 +166,7 @@ Al crear el clúster, puede elegir si desea crear o no una dirección IP públic
 
 ## <a name="vm-access-roles"></a>Roles de acceso a máquinas virtuales
 
-Azure usa el [control de acceso basado en rol](../role-based-access-control/index.yml) (RBAC) para autorizar que las máquinas virtuales del clúster realicen determinadas tareas. Por ejemplo, el controlador de clúster necesita autorización para crear y configurar las máquinas virtuales del nodo de clúster. Los nodos de clúster deben poder asignar o reasignar direcciones IP a otros nodos de clúster.
+Azure usa el [control de acceso basado en roles](../role-based-access-control/index.yml) (RBAC) para autorizar que las máquinas virtuales del clúster realicen determinadas tareas. Por ejemplo, el controlador de clúster necesita autorización para crear y configurar las máquinas virtuales del nodo de clúster. Los nodos de clúster deben poder asignar o reasignar direcciones IP a otros nodos de clúster.
 
 Se utilizan dos roles de Azure integrados para las máquinas de virtuales de Avere vFXT:
 

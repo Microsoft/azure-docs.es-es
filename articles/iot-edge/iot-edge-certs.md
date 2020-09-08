@@ -4,34 +4,37 @@ description: Azure IoT Edge usa certificados para validar los dispositivos, los 
 author: stevebus
 manager: philmea
 ms.author: stevebus
-ms.date: 10/29/2019
+ms.date: 08/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mqtt
-ms.openlocfilehash: f9c3f8e1e37a59dc0010269c6b4c19e3a682c57e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 9d7caf332239d364b5bc47b5d58a808ead70395d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247020"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210594"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Información sobre los certificados de Azure IoT Edge
 
 Los módulos y los dispositivos IoT de bajada usan los certificados de IoT Edge para comprobar la identidad y la legitimidad del módulo del entorno de ejecución del [centro de IoT Edge](iot-edge-runtime.md#iot-edge-hub). Estas comprobaciones permiten una conexión TLS (seguridad de la capa de transporte) segura entre el entorno de ejecución, los módulos y los dispositivos IoT. Al igual que el propio IoT Hub, IoT Edge requiere una conexión segura y cifrada de los dispositivos IoT (u hoja) de nivel inferior y módulos de IoT Edge. Para establecer una conexión TLS segura, el módulo del centro de IoT Edge presenta una cadena de certificados de servidor para conectar a los clientes con el fin de comprobar su identidad.
 
+>[!NOTE]
+>En este artículo se habla sobre los certificados que se usan para proteger las conexiones entre los distintos componentes de un dispositivo IoT Edge o entre un dispositivo IoT Edge y los dispositivos hoja. También puede usar certificados para autenticar el dispositivo IoT Edge en IoT Hub. Estos certificados de autenticación son diferentes y no se tratan en este artículo. Para obtener más información sobre cómo autenticar el dispositivo con certificados, consulte [Creación y aprovisionamiento de un dispositivo IoT Edge mediante certificados X.509](how-to-auto-provision-x509-certs.md).
+
 En este artículo se explica cómo los certificados de IoT Edge pueden trabajar en escenarios de producción, desarrollo y prueba. Aunque los scripts son diferentes (PowerShell frente a Bash), los conceptos son los mismos entre Windows y Linux.
 
 ## <a name="iot-edge-certificates"></a>Certificados de IoT Edge
 
-Normalmente, los fabricantes no son los usuarios finales de un dispositivo de IoT Edge. A veces, la única relación entre los dos se produce cuando el usuario final, o el operador, adquiere un dispositivo genérico creado por el fabricante. En otras ocasiones, el fabricante trabaja por contrato para crear un dispositivo personalizado para el operador. El diseño del certificado de IoT Edge intenta tener en cuenta ambos escenarios.
-
-> [!NOTE]
-> Actualmente, una limitación en libiothsm impide el uso de certificados que expiran el 1 de enero de 2050 o en una fecha posterior. Esta limitación se aplica al certificado de CA del dispositivo, a los certificados del paquete de confianza y a los certificados de identificador de dispositivo usados para los métodos de aprovisionamiento X.509.
+Existen dos escenarios comunes para configurar certificados en un dispositivo IoT Edge. A veces, el usuario final o el operador de un dispositivo compra un dispositivo genérico de un fabricante y, a continuación, administra los certificados. En otras ocasiones, el fabricante trabaja bajo contrato para crear un dispositivo personalizado para el operador y crea alguna firma de certificado inicial antes de entregar el dispositivo. El diseño del certificado de IoT Edge intenta tener en cuenta ambos escenarios.
 
 La ilustración siguiente muestra el uso de certificados de IoT Edge. Puede haber cero, uno o varios certificados de firma intermedios entre el certificado de CA raíz y el certificado de CA del dispositivo, según el número de entidades involucradas. Aquí se muestra un caso.
 
 ![Diagrama de relaciones típicas de certificado](./media/iot-edge-certs/edgeCerts-general.png)
+
+> [!NOTE]
+> Actualmente, una limitación en libiothsm impide el uso de certificados que expiran el 1 de enero de 2050 o en una fecha posterior. Esta limitación se aplica al certificado de CA del dispositivo, a los certificados del paquete de confianza y a los certificados de identificador de dispositivo usados para los métodos de aprovisionamiento X.509.
 
 ### <a name="certificate-authority"></a>Entidad de certificación
 
@@ -59,7 +62,7 @@ El certificado de CA de dispositivo se genera a partir del certificado de CA int
 
 ### <a name="iot-edge-workload-ca"></a>Entidad de certificación de carga de trabajo de IoT Edge
 
-Este certificado, el primero en el lado del "operador" del proceso, se genera mediante el [Administrador de seguridad de IoT Edge](iot-edge-security-manager.md) cuando IoT Edge se inicia por primera vez. El certificado se genera a partir del "certificado de CA de dispositivo" y obtiene la firma de este. Este certificado, que es simplemente otro certificado de firma intermedio, se usa para generar y firmar otros certificados utilizados por el entorno de ejecución de IoT Edge. Hoy en día, es principalmente el certificado de servidor del centro de IoT Edge que se describe en la sección siguiente, pero, en el futuro, puede incluir otros certificados para autenticar los componentes de IoT Edge.
+Este certificado, el primero en el lado del "operador" del proceso, se genera mediante el [Administrador de seguridad de IoT Edge](iot-edge-security-manager.md) cuando IoT Edge se inicia por primera vez. El certificado se genera a partir del certificado de CA de dispositivo y obtiene la firma de este. Este certificado, que es simplemente otro certificado de firma intermedio, se usa para generar y firmar otros certificados utilizados por el entorno de ejecución de IoT Edge. Hoy en día, es principalmente el certificado de servidor del centro de IoT Edge que se describe en la sección siguiente, pero, en el futuro, puede incluir otros certificados para autenticar los componentes de IoT Edge.
 
 ### <a name="iot-edge-hub-server-certificate"></a>Certificado de servidor del centro de IoT Edge
 

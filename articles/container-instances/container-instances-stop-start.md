@@ -2,17 +2,19 @@
 title: Detener o iniciar un grupo de contenedores manualmente
 description: Obtenga información sobre cómo detener o iniciar un grupo de contenedores manualmente en Azure Container Instances.
 ms.topic: article
-ms.date: 04/15/2019
-ms.openlocfilehash: c9f8afea33c65df940d02823ec394697d2786d6a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 08/11/2020
+ms.openlocfilehash: f697f18459959cf40e71d3ca90cd8b42aaa74239
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74533423"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799084"
 ---
 # <a name="manually-stop-or-start-containers-in-azure-container-instances"></a>Detener o iniciar contenedores manualmente en Azure Container Instances
 
 La opción [directiva de reinicio](container-instances-restart-policy.md) configuración de un grupo de contenedores determina cómo las instancias de contenedor se inician o detienen de forma predeterminada. Puede invalidar la configuración predeterminada deteniendo o iniciando manualmente un grupo de contenedores.
+
+[!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
 
 ## <a name="stop"></a>Stop
 

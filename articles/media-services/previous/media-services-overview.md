@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/19/2019
 ms.author: juliako
-ms.openlocfilehash: 78fa6b343a01e96c000b6c64a55d5fdf1f0284f2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0d896b0ce23116f1b87718f492d407ac094b9e6a
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084660"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89261162"
 ---
-# <a name="azure-media-services-overview"></a>Introducción a Azure Media Services 
+# <a name="azure-media-services-overview"></a>Introducción a Azure Media Services
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector" title1="Seleccione la versión de Media Services que se está usando:"]
 > * [Versión 3](../latest/media-services-overview.md)

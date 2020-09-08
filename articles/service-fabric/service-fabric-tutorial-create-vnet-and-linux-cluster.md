@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo implementar un clúster de Service
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: mvc
-ms.openlocfilehash: 14e029622f17e8aae392cc55ba4418b3971a5ad2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c4b71328ce59284f8870407c9492d24afe9acd8a
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260224"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586927"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Implementación de un clúster de Service Fabric de Linux en una red virtual de Azure
 
@@ -41,7 +41,12 @@ Para Ubuntu 18.04 LTS:
 * [AzureDeploy.json][template2]
 * [AzureDeploy.Parameters.json][parameters2]
 
-La diferencia entre ambas plantillas es que el atributo **vmImageSku** se establece en "18.04-LTS" y que el atributo **typeHandlerVersion** de cada nodo se establece en 1.1.
+En el caso de Ubuntu 18.04 LTS, la diferencia entre las dos plantillas es 
+* el establecimiento del atributo **vmImageSku** en "18.04-LTS"
+* el establecimiento de **typeHandlerVersion** de cada nodo en 1.1
+* Microsoft.ServiceFabric/clusters resource's
+   - el establecimiento de **apiVersion** en "2019-03-01" o versiones posteriores
+   - el establecimiento de la propiedad **vmImage** en "Ubuntu18_04"
 
 Esta plantilla implementa un clúster seguro de siete máquinas virtuales y tres tipos de nodo en una red virtual.  Se pueden encontrar otras plantillas de ejemplo en [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). El archivo [AzureDeploy.json][template] permite implementar varios recursos, como los siguientes.
 

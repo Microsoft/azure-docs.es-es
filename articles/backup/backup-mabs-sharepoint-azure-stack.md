@@ -3,12 +3,12 @@ title: Copia de seguridad de una granja de SharePoint en Azure Stack
 description: Use Azure Backup Server para crear una copia de seguridad de los datos de SharePoint y restaurarlos en Azure Stack. En este artículo se proporciona la información sobre cómo configurar la granja de SharePoint para almacenar los datos deseados en Azure. Puede restaurar los datos protegidos de SharePoint desde disco o desde Azure.
 ms.topic: conceptual
 ms.date: 06/07/2020
-ms.openlocfilehash: bd94b24479631f9fbbe4070529d76fe6442faae2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1e237e63b92468fafff4f8f8f525d1388840d162
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538792"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378328"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Copia de seguridad de una granja de SharePoint en Azure Stack
 
@@ -76,7 +76,7 @@ Para realizar una copia de seguridad de una granja de SharePoint, configure la p
 
         Después de ejecutar ConfigureSharePoint.exe, tendrá que volver a ejecutarlo cada vez que haya un cambio en las credenciales de administrador de la granja de SharePoint.
 
-1. Para crear un grupo de protección, haga clic en **Protección** > **Acciones** > **Crear grupo de protección** para abrir el Asistente para **crear nuevo grupo de protección** en la Consola de MABS.
+1. Para crear un grupo de protección, seleccione **Protección** > **Acciones** > **Crear grupo de protección** para abrir el **Asistente para crear nuevo grupo de protección** en la Consola de MABS.
 
 1. En **Seleccionar tipo de grupo de protección**, seleccione **Servidores**.
 
@@ -84,7 +84,7 @@ Para realizar una copia de seguridad de una granja de SharePoint, configure la p
 
     Al expandir el servidor de SharePoint, MABS consulta a VSS para ver qué datos puede proteger MABS.  Si la base de datos de SharePoint es remota, MABS se conecta a ella. Si los orígenes de datos de SharePoint no aparecen, compruebe que VSS Writer se está ejecutando en el servidor de SharePoint y en cualquier servidor SQL Server remoto, y asegúrese de que el agente de MABS esté instalado en el servidor de SharePoint y en el servidor SQL Server remoto. Además, asegúrese de que las bases de datos de SharePoint no se están protegiendo en otro lugar como bases de datos de SQL Server.
 
-1. En **Seleccionar método de protección de datos**, especifique cómo desea administrar la copia de seguridad a corto y largo plazo. La copia de seguridad a corto plazo siempre se realiza primero en disco, pero existe la opción de realizar una copia de seguridad desde el disco a la nube de Azure mediante Azure Backup \(para corto o largo plazo\).
+1. En **Seleccionar método de protección de datos**, especifique cómo desea administrar la copia de seguridad a corto y largo plazo. La copia de seguridad a corto plazo siempre se realiza primero en disco, pero existe la opción de realizar una copia de seguridad desde el disco en la nube de Azure mediante Azure Backup \(a corto o largo plazo\).
 
 1. En **Especificar objetivos a corto plazo**, especifique cómo quiere realizar la copia de seguridad en el almacenamiento a corto plazo en disco.   En **Duración de retención**, especfique cuánto tiempo quiere conservar los datos en el disco. En **Frecuencia de sincronización**, especifique con qué frecuencia quiere ejecutar una copia de seguridad incremental en el disco. Si no desea establecer un intervalo de copia de seguridad, puede marcar Solo antes de un punto de recuperación para que MABS ejecute una copia de seguridad completa rápida solo antes del momento en que esté programado un punto de recuperación.
 
@@ -116,17 +116,17 @@ Después de crear el grupo de protección, se produce la replicación inicial y 
 
 ### <a name="set-up-monitoring-notifications"></a>Configuración de notificaciones de supervisión
 
-1. En la Consola de administrador de MABS, haga clic en **Supervisión** > **Acción** > **Opciones**.
+1. En la Consola de administrador MABS, haga clic en **Supervisión** > **Acción** > **Opciones**.
 
-2. Haga clic en **Servidor SMTP**, escriba el nombre del servidor, el puerto y la dirección de correo desde la que se enviarán las notificaciones. La dirección debe ser válida.
+2. Seleccione **Servidor SMTP**, escriba el nombre del servidor, el puerto y la dirección de correo electrónico desde la que se enviarán las notificaciones. La dirección debe ser válida.
 
 3. En **Servidor SMTP autenticado**, escriba un nombre de usuario y una contraseña. El nombre de usuario y la contraseña que escriba deben ser el nombre de cuenta de dominio de la persona cuya dirección "De" se describe en el paso anterior. De lo contrario, se produce un error en la entrega de la notificación.
 
-4. Para probar la configuración del servidor SMTP, haga clic en **Enviar correo electrónico de prueba**, escriba la dirección de correo electrónico en la que desea que MABS envíe el mensaje de prueba y, a continuación, haga clic en **Aceptar**. Haga clic en **Opciones** > **Notificaciones** y seleccione los tipos de alertas sobre qué destinatarios desean recibir notificaciones. En **Destinatarios**, escriba la dirección de correo electrónico para cada destinatario al que desea que MABS envíe copias de las notificaciones.
+4. Para probar la configuración del servidor SMTP, seleccione **Enviar correo electrónico de prueba**, escriba la dirección de correo electrónico a la que desea que MABS envíe el mensaje de prueba y, a continuación, seleccione **Aceptar**. Seleccione **Opciones** > **Notificaciones** y seleccione los tipos de alertas sobre qué destinatarios desean recibir notificaciones. En **Destinatarios**, escriba la dirección de correo electrónico para cada destinatario al que desea que MABS envíe copias de las notificaciones.
 
 ### <a name="publish-operations-manager-alerts"></a>Importación de alertas de Operations Manager
 
-1. En la Consola de administrador de MABS, haga clic en **Supervisión** > **Acción** > **Opciones** > **Publicación de alertas** > **Publicar alertas activas**.
+1. En la Consola de administrador MABS, seleccione **Supervisión** > **Acción** > **Opciones** > **Publicación de alertas** > **Publicar alertas activas**.
 
 2. Después de habilitar **Publicación de alertas**, todas las alertas de MABS existentes que pueden requerir una acción del usuario se publican en el registro de eventos de **Alertas de MABS**. A continuación, el agente de Operations Manager que está instalado en el servidor de MABS publica estas alertas en Operations Manager y continúa actualizando la consola a medida que se generan nuevas alertas.
 
@@ -148,10 +148,10 @@ En el ejemplo siguiente, el *elemento de recuperación de SharePoint* se elimin�
 5. También puede desplazarse por varios puntos de recuperación y seleccionar una base de datos o un elemento para recuperar. Seleccione **Fecha > Hora de recuperación** y luego el elemento **Base de datos > Granja de SharePoint > Punto de recuperación > adecuado**.
 
     ![Protección de SharePoint con MABS7](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection8.png)
-6. Haga clic con el botón derecho en el elemento y seleccione**Recuperar** para abrir el **Asistente para recuperación**. Haga clic en **Next**.
+6. Haga clic con el botón derecho en el elemento y seleccione**Recuperar** para abrir el **Asistente para recuperación**. Seleccione **Next** (Siguiente).
 
     ![Revisar selección de recuperación](./media/backup-azure-backup-sharepoint/review-recovery-selection.png)
-7. Seleccione el tipo de recuperación que quiere realizar y haga clic en **Siguiente**.
+7. Seleccione el tipo de recuperación que quiere realizar y, a continuación, elija **Siguiente**.
 
     ![Tipo de recuperación](./media/backup-azure-backup-sharepoint/select-recovery-type.png)
 
@@ -172,7 +172,7 @@ En el ejemplo siguiente, el *elemento de recuperación de SharePoint* se elimin�
     MABS conecta la base de datos de contenido que hospeda el elemento de SharePoint con la instancia temporal de SQL Server. Desde la base de datos de contenido, recupera el elemento y lo coloca en la ubicación del archivo de almacenamiento provisional en MABS. Ahora, el elemento recuperado en la ubicación de almacenamiento provisional debe exportarse a la ubicación provisional de la granja de SharePoint.
 
     ![Ubicación provisional2](./media/backup-azure-backup-sharepoint/staging-location2.png)
-10. Seleccione **Especificar opciones de recuperación**y aplique la configuración de seguridad a la granja de SharePoint o aplique la configuración de seguridad del punto de recuperación. Haga clic en **Next**.
+10. Seleccione **Especificar opciones de recuperación**y aplique la configuración de seguridad a la granja de SharePoint o aplique la configuración de seguridad del punto de recuperación. Seleccione **Next** (Siguiente).
 
     ![Opciones de recuperación](./media/backup-azure-backup-sharepoint/recovery-options.png)
 
@@ -180,7 +180,7 @@ En el ejemplo siguiente, el *elemento de recuperación de SharePoint* se elimin�
     > Puede limitar el uso de ancho de banda de red. Esto minimiza el impacto en el servidor de producción durante las horas de producción.
     >
     >
-11. Revise la información de resumen y haga clic en **Recuperar** para empezar la recuperación del archivo.
+11. Revise la información de resumen y, a continuación, seleccione **Recuperar** para empezar la recuperación del archivo.
 
     ![Resumen de recuperación](./media/backup-azure-backup-sharepoint/recovery-summary.png)
 12. Ahora seleccione la pestaña **Supervisión** en la **Consola de administrador MABS** para ver el **Estado** de la recuperación.
@@ -203,7 +203,7 @@ En el ejemplo siguiente, el *elemento de recuperación de SharePoint* se elimin�
    > Como la granja de SharePoint está protegida para la retención a largo plazo en Azure, no hay información de catálogo (metadatos) disponible en el servidor de MABS. Como resultado, cada vez que deba recuperar una base de datos de contenido de SharePoint en un momento dado, deberá volver a catalogar la granja de SharePoint.
    >
    >
-3. Haga clic en **Volver a catalogar**.
+3. Seleccione **Volver a catalogar**.
 
     ![Protección de SharePoint con MABS10](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection12.png)
 
@@ -211,10 +211,10 @@ En el ejemplo siguiente, el *elemento de recuperación de SharePoint* se elimin�
 
     ![Protección de SharePoint con MABS11](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection13.png)
 
-    Cuando finaliza la catalogación, el estado cambia a *Correcto*. Haga clic en **Cerrar**.
+    Cuando finaliza la catalogación, el estado cambia a *Correcto*. Seleccione **Cerrar**.
 
     ![Protección de SharePoint con MABS12](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection14.png)
-4. Haga clic en el objeto de SharePoint que se muestra en la pestaña **Recuperación** de MABS para obtener la estructura de la base de datos de contenido. Haga clic con el botón derecho en el elemento y luego haga clic en **Recuperar**.
+4. Seleccione el objeto de SharePoint que se muestra en la pestaña **Recuperación** de MABS para obtener la estructura de la base de datos de contenido. Haga clic con el botón derecho en el elemento y, a continuación, seleccione **Recuperar**.
 
     ![Protección de SharePoint con MABS13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. En este momento, siga los pasos de recuperación que se han indicado en este artículo para recuperar una base de datos de contenido de SharePoint desde el disco.
@@ -249,7 +249,7 @@ El siguiente procedimiento usa el ejemplo de una granja de servidores con dos se
 
 1. En el *Servidor2*, en un símbolo del sistema, cambie el directorio a `_MABS installation location_\bin\` y ejecute **ConfigureSharepoint**. Para obtener más información sobre ConfigureSharePoint, vea [Configurar la copia de seguridad](#configure-backup).
 
-1. Seleccione el grupo de protección al que pertenece la granja de servidores y, a continuación, haga clic en **Modificar grupo de protección**.
+1. Seleccione el grupo de protección al que pertenece la granja de servidores y, a continuación, elija **Modificar grupo de protección**.
 
 1. En el Asistente para modificar grupo, en la página **Seleccionar miembros del grupo**, expanda *Servidor2* y seleccione la granja de servidores. A continuación, complete el asistente.
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/14/2019
-ms.openlocfilehash: 6138dc06e8ed70ba85f4ccfc3370c044f34bd1f1
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: bd1362db2e70d4f9f46d80b00805856e08aedac4
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963961"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987348"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>Tutorial: Configuración de SQL Data Sync entre Azure SQL Database y SQL Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -59,7 +59,7 @@ Para ejemplos de PowerShell sobre cómo configurar SQL Data Sync, vea [Cómo sin
    | ------------------------------ | ------------------------------------------------- |
    | **Nombre del grupo de sincronización** | Escriba el nombre del nuevo grupo de sincronización. Este nombre es distinto del nombre de la base de datos. |
    | **Base de datos de metadatos de sincronización** | Elija esta opción para crear una base de datos (recomendación) o para usar una existente.<br/><br/>Si ha elegido **Nueva base de datos**, seleccione **Crear nueva base de datos**. Después, en la página **SQL Database**, asigne un nombre a la nueva base de datos, configúrela y seleccione **Aceptar**.<br/><br/>Si ha elegido **Usar base de datos existente**, selecciónela de la lista. |
-   | **Sincronización automática** | Utilice **Activado** o **Desactivado**.<br/><br/>Si ha elegido **Activado**, escriba un número y seleccione **Segundos**, **Minutos**, **Horas** o **Días** en la sección **Frecuencia de sincronización**. |
+   | **Sincronización automática** | Utilice **Activado** o **Desactivado**.<br/><br/>Si ha elegido **Activado**, escriba un número y seleccione **Segundos**, **Minutos**, **Horas** o **Días** en la sección **Frecuencia de sincronización**.<br/> La primera sincronización comienza después de que transcurre el período de intervalo seleccionado desde el momento en que se guarda la configuración.|
    | **Resolución de conflictos** | Seleccione **Concentrador Win** o **Miembro Win**.<br/><br/>**Concentrador Win** significa que, cuando se produce un conflicto, los datos de la base de datos central sobrescriben los datos en conflicto en la base de datos miembro.<br/><br/>**Miembro Win** significa que, cuando se produce un conflicto, los datos de la base de datos miembro sobrescriben los datos en conflicto en la base de datos central. |
 
    > [!NOTE]

@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-ms.date: 07/27/2020
-ms.openlocfilehash: f98e540a6764869f1d37edfbb0f00bf8d1cc2198
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 08/17/2020
+ms.openlocfilehash: 3eb1a4cbfcf62617796af6a26cb4688b734eb617
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499184"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551848"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configuración y administración de la autenticación de Azure AD con Azure SQL
 
@@ -71,7 +71,9 @@ Cuando se usa Azure Active Directory con replicación geográfica, el administra
 ## <a name="provision-azure-ad-admin-sql-managed-instance"></a>Aprovisionamiento de un administrador de Azure AD (Instancia administrada de SQL)
 
 > [!IMPORTANT]
-> Siga estos pasos únicamente si va a aprovisionar una Instancia administrada de Azure SQL. Esta operación solo la puede ejecutar el administrador global o de la compañía, o un administrador con un rol con privilegios en Azure AD. Los pasos siguientes describen el proceso de concesión de permisos a los usuarios con privilegios diferentes en el directorio.
+> Siga estos pasos únicamente si va a aprovisionar una Instancia administrada de Azure SQL. Esta operación solo la puede ejecutar el administrador global o de la compañía, o un administrador con un rol con privilegios en Azure AD.
+>
+> En la **versión preliminar pública**, puede asignar el rol **Lectores de directorio** a un grupo en Azure AD. Luego, los propietarios de grupos pueden agregar la identidad de instancia administrada como miembro de este grupo, lo que le permitirá aprovisionar un administrador de Azure AD en Azure SQL Managed Instance. Para más información sobre esta característica, consulte [Rol Lectores de directorio en Azure Active Directory de Azure SQL](authentication-aad-directory-readers-role.md).
 
 La Instancia administrada de SQL necesita permisos para leer en Azure AD a fin de realizar correctamente tareas como la autenticación de usuarios mediante la pertenencia a grupos de seguridad o la creación de nuevos usuarios. Para que esto funcione, debe conceder el permiso a la Instancia administrada de SQL para leer en Azure AD. Para ello, puede usar Azure Portal o PowerShell.
 

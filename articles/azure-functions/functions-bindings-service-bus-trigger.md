@@ -6,13 +6,13 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.custom: devx-track-python
-ms.openlocfilehash: 7738582ec2839a6fddaa01ff0f9921c276c9748d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-csharp, devx-track-python
+ms.openlocfilehash: 72f12ece3c939ee8fbaecbec377d18c5bb3b0a49
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843120"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294618"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Desencadenador de Azure Service Bus para Azure Functions
 
@@ -162,6 +162,7 @@ def main(msg: func.ServiceBusMessage):
         'time_to_live': msg.time_to_live,
         'to': msg.to,
         'user_properties': msg.user_properties,
+        'metadata' : msg.metadata
     })
 
     logging.info(result)

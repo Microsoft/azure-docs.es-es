@@ -4,10 +4,10 @@ description: Este patrón de Azure Policy proporciona un ejemplo de cómo usar e
 ms.date: 06/29/2020
 ms.topic: sample
 ms.openlocfilehash: 807890b7fb08d790deff6e0be9e08ad91c4ec44d
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85565744"
 ---
 # <a name="azure-policy-pattern-the-count-operator"></a>Patrón de Azure Policy: operador count

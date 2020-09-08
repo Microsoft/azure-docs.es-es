@@ -8,18 +8,18 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 08/25/2020
 ms.custom: seodec18
-ms.openlocfilehash: 61c969bc0c0ac9731ae35e445b82db633c3c5191
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: cbf1c678307d76361e6083f4e2231fb9e48a112f
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163176"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855158"
 ---
 # <a name="querying-data-from-azure-time-series-insights-gen2"></a>Consulta de datos de Azure Time Series Insights Gen2
 
-Azure Time Series Insights Gen2 permite consultar datos en los eventos y los metadatos almacenados en el entorno a través de las API de superficie públicas. Estas API también se usan en el [Explorador de Azure Time Series Insights Gen2](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).
+Azure Time Series Insights Gen2 permite consultar datos en los eventos y los metadatos almacenados en el entorno a través de las API de superficie públicas. Estas API también se usan en el [Explorador de Azure Time Series Insights TSI](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).
 
 Hay tres categorías principales de API en Azure Time Series Insights Gen2:
 
@@ -73,4 +73,4 @@ Estas API están disponibles en ambos almacenes (almacenamiento intermedio y en 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga más información sobre las distintas variables que se pueden definir en el [modelo de serie temporal](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-tsm).
-* Obtenga más información sobre cómo consultar datos desde el [Explorador de Azure Time Series Insights Gen2](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).
+* Obtenga más información sobre cómo consultar datos desde el [explorador de Azure Time Series Insights TSI](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).

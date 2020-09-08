@@ -1,6 +1,6 @@
 ---
 title: Creación de un origen de datos para un mapa | Microsoft Azure Maps
-description: En este artículo, aprenderá a crear un origen de datos y agregarlo a un mapa mediante el SDK web de Microsoft Azure Maps.
+description: 'Obtenga información sobre cómo crear un origen de datos para un mapa. Aprenda sobre los orígenes de datos que usa el SDK Web de Azure Maps: Orígenes GeoJSON e iconos vectoriales.'
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/08/2019
@@ -8,19 +8,22 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.custom: codepen
-ms.openlocfilehash: d0334e03f2d4f34913f2f96610868b5ffe169013
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: codepen, devx-track-javascript
+ms.openlocfilehash: fea2c4fab51db59c9159853e9b0bdaec0bcdbb56
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242566"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009093"
 ---
 # <a name="create-a-data-source"></a>Creación de un origen de datos
 
 El SDK web de Azure Maps almacena los datos en orígenes de datos. El uso de orígenes de datos optimiza las operaciones de datos en las consultas y representaciones. Actualmente hay dos tipos de orígenes de datos:
 
-**Origen de datos de GeoJSON**
+- **Origen GeoJSON**: administra localmente los datos de ubicación sin procesar en formato GeoJSON. Adecuado para conjuntos de datos de tamaño pequeño a medio (con cientos de miles de formas).
+- **Origen de mosaico vectorial**: carga los datos con formato de mosaico vectorial para la vista del mapa actual, en función del sistema de mosaico de mapas. Ideal para conjuntos de datos grandes o masivos (millones o miles de millones de formas).
+
+## <a name="geojson-data-source"></a>Origen de datos de GeoJSON
 
 Un origen de datos basado en GeoJSON puede cargar y almacenar datos localmente mediante la clase `DataSource`. Los datos de GeoJSON se pueden crear manualmente o mediante las clases auxiliares del espacio de nombres de [atlas.data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data). La clase `DataSource` proporciona funciones para importar archivos GeoJSON locales o remotos. Los archivos GeoJSON remotos deben hospedarse en un punto de conexión habilitado para CORs. La clase `DataSource` proporciona funcionalidad para agrupar en clústeres los datos de punto. Además, los datos se pueden agregar, quitar y actualizar fácilmente con la clase `DataSource`. En el siguiente código se muestra cómo crear datos GeoJSON en Azure Maps.
 
@@ -37,7 +40,7 @@ var rawGeoJson = {
      }
 };
 
-//Create GeoJSON using helper classes (less error prone).
+//Create GeoJSON using helper classes (less error prone and less typing).
 var geoJsonClass = new atlas.data.Feature(new atlas.data.Point([-100, 45]), {
     "custom-property": "value"
 }); 
@@ -69,7 +72,7 @@ dataSource.setShapes(geoJsonData);
 > [!TIP]
 > Supongamos que quiere sobrescribir todos los datos de un elemento `DataSource`. Si realiza llamadas a las funciones `clear` y `add`, es posible que el mapa se vuelva a representar dos veces, lo que puede provocar cierto retraso. Use en su lugar la función `setShapes`, que quitará y reemplazará todos los datos del origen de datos y solo desencadenará una nueva representación del mapa.
 
-**Origen de mosaico vectorial**
+## <a name="vector-tile-source"></a>Origen de mosaico vectorial
 
 Un origen de mosaico vectorial describe cómo acceder a una capa de mosaico vectorial. Use la clase [VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource) para crear una instancia de un origen de mosaico vectorial. Las capas de mosaico vectorial son similares a las de mosaico, pero no son iguales. Una capa de mosaico es una imagen de trama. Las capas de mosaico vectorial son un archivo comprimido, en formato **PBF**. Este archivo comprimido contiene datos de mapas vectoriales y una o varias capas. El archivo se puede representar en el cliente, y aplicarle un estilo, en función del estilo de cada capa. Los datos de un mosaico vectorial contienen características geográficas en forma de puntos, líneas y polígonos. El uso de capas de mosaico vectorial en lugar de capas de mosaico de trama presenta varias ventajas:
 

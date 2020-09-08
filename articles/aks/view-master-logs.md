@@ -4,12 +4,12 @@ description: Aprenda a habilitar y ver los registros del nodo maestro de Kuberne
 services: container-service
 ms.topic: article
 ms.date: 01/03/2019
-ms.openlocfilehash: 76ded781d4eae48db04f54a4f88a80cc700d0ad9
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 721ef4f60d263602b01b5957bfb9bc3b5682a2df
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250743"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048285"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Habilitación y revisión de los registros del nodo maestro de Kubernetes en Azure Kubernetes Service (AKS)
 
@@ -30,12 +30,8 @@ Los registros de Azure Monitor se habilitan y administran en Azure Portal. Para 
 1. Seleccione el clúster de AKS, como *myAKSCluster*, y elija **Agregar configuración de diagnóstico**.
 1. Escriba un nombre, como *myAKSClusterLogs* y seleccione la opción **Send to Log Analytics** (Enviar a Log Analytics).
 1. Seleccione un área de trabajo existente o cree uno. Al crear un área de trabajo, proporciónele un nombre, un grupo de recursos y una ubicación.
-1. En la lista de registros disponibles, seleccione los que desea habilitar. Los registros típicos incluyen *kube-apiserver*, *kube-controller-manager* y *kube-scheduler*. Puede habilitar otros, como *kube-audit* y *cluster-autoscaler*. Puede volver y cambiar los registros recopilados una vez que las áreas de trabajo de Log Analytics está habilitadas.
+1. En la lista de registros disponibles, seleccione los que desea habilitar. En este ejemplo, habilite los registros de *kube-audit*. Los registros típicos incluyen *kube-apiserver*, *kube-controller-manager* y *kube-scheduler*. Puede volver y cambiar los registros recopilados una vez que las áreas de trabajo de Log Analytics está habilitadas.
 1. Cuando esté listo, seleccione **Guardar** para habilitar la recopilación de los registros seleccionados.
-
-La siguiente captura de pantalla de ejemplo del portal muestra la ventana *Configuración de diagnóstico*:
-
-![Habilitación de un área de trabajo de Log Analytics para registros de Azure Monitor del clúster de AKS](media/view-master-logs/enable-oms-log-analytics.png)
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Programación de un pod de prueba en el clúster de AKS
 
@@ -71,30 +67,25 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Visualización de los datos recopilados
 
-Los registros de diagnóstico pueden tardar unos minutos en habilitarse y aparecer en el área de trabajo de Log Analytics. En Azure Portal, seleccione el grupo de recursos para el área de trabajo de Log Analytics, como *myResourceGroup*, y elija el recurso de Log Analytics, por ejemplo, *myAKSLogs*.
+Los registros de diagnóstico pueden tardar unos minutos en habilitarse y aparecer. En Azure Portal, vaya al clúster de AKS y seleccione **Registros** en el lado izquierdo. Si aparece, cierre la ventana *Consultas de ejemplo*.
 
-![Selección del área de trabajo de Log Analytics para el clúster de AKS](media/view-master-logs/select-log-analytics-workspace.png)
 
-En el lado izquierdo, elija **Registros**. Para ver *kube-apiserver*, escriba la siguiente consulta en el cuadro de texto:
-
-```
-AzureDiagnostics
-| where Category == "kube-apiserver"
-| project log_s
-```
-
-Es probable que se devuelvan muchos registros para el servidor de API. Para reducir el ámbito de la consulta y ver los registros sobre el pod de NGINX creado en el paso anterior, agregue una instrucción *where* adicional para buscar *pods/nginx*, como se muestra en la consulta de ejemplo siguiente:
+En el lado izquierdo, elija **Registros**. Para ver los registros de *kube-audit*, escriba la siguiente consulta en el cuadro de texto:
 
 ```
 AzureDiagnostics
-| where Category == "kube-apiserver"
-| where log_s contains "pods/nginx"
+| where Category == "kube-audit"
 | project log_s
 ```
 
-Se muestran los registros específicos de su pod NGINX, como se ilustra en la siguiente captura de pantalla de ejemplo:
+Es probable que se devuelvan muchos registros. Para reducir el ámbito de la consulta y ver los registros sobre el pod de NGINX creado en el paso anterior, agregue una instrucción *where* adicional para buscar *nginx*, como se muestra en la consulta de ejemplo siguiente:
 
-![Resultados de consulta de Log Analytics del pod NGINX de ejemplo](media/view-master-logs/log-analytics-query-results.png)
+```
+AzureDiagnostics
+| where Category == "kube-audit"
+| where log_s contains "nginx"
+| project log_s
+```
 
 Para ver registros adicionales, puede actualizar la consulta del nombre *Categoría* a *kube-controller-manager* o *kube-programador*, dependiendo de qué registros adicionales habilite. Luego, se pueden usar instrucciones adicionales *where* para refinar los eventos que busca.
 

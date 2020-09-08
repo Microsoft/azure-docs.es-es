@@ -43,7 +43,7 @@
         - name: Licencias
           href: concept-mfa-licensing.md
         - name: Multi-Factor Authentication para Office 365
-          href: 'https://docs.microsoft.com/office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide'
+          href: /office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide
         - name: Preguntas más frecuentes
           href: multi-factor-authentication-faq.md
     - name: Autenticación sin contraseñas
@@ -87,7 +87,7 @@
         - name: Federación de directorios
           items:
             - name: Adaptador de AD FS para Windows Server 2016
-              href: 'https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa'
+              href: /windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa
             - name: Servicios de federación
               href: multi-factor-authentication-get-started-adfs.md
             - name: Uso de AD FS
@@ -116,10 +116,14 @@
               href: howto-authentication-passwordless-security-key-windows.md
             - name: Inicio de sesión único en recursos locales
               href: howto-authentication-passwordless-security-key-on-premises.md
+            - name: Preguntas frecuentes acerca de los entornos híbridos
+              href: howto-authentication-passwordless-faqs.md
+            - name: Solución de problemas de entornos híbridos
+              href: howto-authentication-passwordless-troubleshoot.md
         - name: Inicio de sesión telefónico sin contraseña
           href: howto-authentication-passwordless-phone.md
         - name: Windows Hello para empresas
-          href: 'https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification'
+          href: /windows/security/identity-protection/hello-for-business/hello-identity-verification
     - name: Registro de información de seguridad
       items:
         - name: Habilitar registro combinado
@@ -209,7 +213,7 @@
               href: howto-mfa-nps-extension-errors.md
     - name: Solución de problemas
       items:
-        - name: Solución de problemas de SSPR
+        - name: SSPR
           href: active-directory-passwords-troubleshoot.md
         - name: Preguntas frecuentes sobre SSPR
           href: active-directory-passwords-faq.md
@@ -220,7 +224,7 @@
 - name: Referencia
   items:
     - name: Guía de usuario de MFA
-      href: ./end-user/current/multi-factor-authentication-end-user.md
+      href: ../user-help/multi-factor-authentication-end-user-first-time.md
     - name: Ejemplos de código
       href: 'https://azure.microsoft.com/resources/samples/?service=active-directory'
     - name: Cmdlets de Azure PowerShell
@@ -234,7 +238,7 @@
     - name: Foro de comentarios de Azure
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
     - name: Página de preguntas y respuestas de Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-active-directory.html'
+      href: /answers/topics/azure-active-directory.html
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/active-directory/'
     - name: Actualizaciones del servicio

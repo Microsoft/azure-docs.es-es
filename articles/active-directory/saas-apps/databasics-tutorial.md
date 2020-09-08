@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con DATABASICS | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y DATABASICS.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: a37ded45-84c8-4e88-8d9b-c5b9443eb0d4
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6da895b0ab05fd4b82a2d427ecf035e1c3bb8c90
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6abde4728ea9ee5d37f8454fd6de2eb916c0d89a
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73159265"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550187"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-databasics"></a>Tutorial: integración de Azure Active Directory con DATABASICS
 

@@ -1,5 +1,5 @@
 ---
-title: 'Conexión mediante Node.js: Azure Database for MySQL'
+title: 'Inicio rápido: Conexión mediante Node.js: Azure Database for MySQL'
 description: En este tutorial rápido se proporcionan ejemplos de código Node.js que se pueden usar para conectarse a Azure Database for MySQL y consultar datos en este servicio.
 author: ajlam
 ms.author: andrela
@@ -8,12 +8,12 @@ ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-t
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 9d3e2d744c4800c06503483c6e7270ad1ca60e2c
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 1f8f4dee2ed1e6dc5cdf6985c1149db0dcaed7c2
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423191"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185934"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-mysql"></a>Inicio rápido: Uso de Node.js para conectar y consultar datos en Azure Database for MySQL
 
@@ -33,7 +33,7 @@ En este artículo se da por hecho que está familiarizado con el desarrollo medi
 
 Dependiendo de la plataforma, siga las instrucciones de la sección apropiada para instalar [Node.js](https://nodejs.org). Use npm para instalar el paquete de [mysql](https://www.npmjs.com/package/mysql) y sus dependencias en la carpeta de proyecto.
 
-### <a name="windows"></a>**Windows**
+### <a name="windows"></a>Windows
 
 1. Visite la [página de descargas de Node.js](https://nodejs.org/en/download/) y luego seleccione la opción deseada de Windows Installer.
 2. Cree una carpeta de proyecto local, como `nodejsmysql`. 
@@ -48,7 +48,7 @@ Dependiendo de la plataforma, siga las instrucciones de la sección apropiada pa
 
 5. Para comprobar la instalación, examine el texto de salida de `npm list`. El número de versión puede variar a medida que se publiquen nuevas revisiones.
 
-### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
+### <a name="linux-ubuntu"></a>Linux (Ubuntu)
 
 1. Ejecute los siguientes comandos para instalar **Node.js** y **npm**, el Administrador de paquetes para Node.js.
 
@@ -66,7 +66,7 @@ Dependiendo de la plataforma, siga las instrucciones de la sección apropiada pa
    ```
 3. Para comprobar la instalación, examine el texto de salida de npm list. El número de versión puede variar a medida que se publiquen nuevas revisiones.
 
-### <a name="mac-os"></a>**Mac OS**
+### <a name="mac-os"></a>Mac OS
 
 1. Escriba los comandos siguientes para instalar **brew**, un administrador de paquetes fácil de usar para Mac OS X y **Node.js**.
 

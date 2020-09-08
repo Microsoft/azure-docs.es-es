@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 685d337f9e6448f44d34a980ed884026d8a0a168
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 641ac1f6a2cc98e48694c42ec1531f679621640d
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525422"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869225"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat Update Infrastructure para máquinas virtuales Red Hat Enterprise Linux a petición en Azure
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permite que los proveedores de nube, como Azure, reflejen el contenido del repositorio hospedado en Red Hat, creen repositorios personalizados con contenido específico de Azure y lo pongan a disposición de las máquinas virtuales del usuario final.
@@ -49,7 +49,7 @@ Para obtener una lista de imágenes completa, ejecute `az vm image list --publis
 
 ### <a name="images-connected-to-non-eus-repositories"></a>Imágenes conectadas a repositorios que no son de EUS
 
-Si aprovisiona una máquina virtual a partir de una imagen de RHEL que está conectada a repositorios que no son de EUS, se actualizará a la versión secundaria de RHEL más reciente cuando ejecute `sudo yum update`. Por ejemplo, si aprovisiona una máquina virtual desde una imagen de PAYG de RHEL 7.4 y ejecuta `sudo yum update`, terminará con una máquina virtual de RHEL 7.7 (la versión menor más reciente de la familia RHEL7).
+Si aprovisiona una máquina virtual a partir de una imagen de RHEL que está conectada a repositorios que no son de EUS, se actualizará a la versión secundaria de RHEL más reciente cuando ejecute `sudo yum update`. Por ejemplo, si aprovisiona una máquina virtual desde una imagen de PAYG de RHEL 7.4 y ejecuta `sudo yum update`, terminará con una máquina virtual de RHEL 7.8 (la versión menor más reciente de la familia RHEL7).
 
 Las imágenes que están conectadas a repositorios que no son de EUS no contendrán un número de versión secundaria en la SKU. La SKU es el tercer elemento del URN (nombre completo de la imagen). Por ejemplo, todas las imágenes siguientes se adjuntan a repositorios que no son de EUS:
 

@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 92c054b42a83d9753e2fcc9c02646c381da795b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8347ca5a33790d0b35176be47a0fa4811a19e3f1
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510861"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935473"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Sugerencias para el enriquecimiento con IA en Azure Cognitive Search
 
@@ -54,7 +54,7 @@ En ese caso, le puede indicar al indexador que ignore los errores. Para ello, es
 
 ## <a name="tip-4-use-debug-sessions-to-identify-and-resolve-issues-with-your-skillset"></a>Sugerencia 4: Usar sesiones de depuración para identificar y resolver problemas con el conjunto de aptitudes 
 
-Sesiones de depuración es un editor visual que funciona con un conjunto de aptitudes existente en Azure Portal. En una sesión de depuración, puede identificar y resolver errores, validar cambios y confirmar cambios en un conjunto de aptitudes en la canalización de enriquecimiento con IA. Se trata de una característica de vista previa [leer la documentación](https://docs.microsoft.com/azure/search/cognitive-search-debug-session). Para obtener más información sobre los conceptos y la introducción, vea [Sesiones de depuración](https://docs.microsoft.com/azure/search/cognitive-search-tutorial-debug-sessions).
+Sesiones de depuración es un editor visual que funciona con un conjunto de aptitudes existente en Azure Portal. En una sesión de depuración, puede identificar y resolver errores, validar cambios y confirmar cambios en un conjunto de aptitudes en la canalización de enriquecimiento con IA. Se trata de una característica de vista previa [leer la documentación](./cognitive-search-debug-session.md). Para obtener más información sobre los conceptos y la introducción, vea [Sesiones de depuración](./cognitive-search-tutorial-debug-sessions.md).
 
 Las sesiones de depuración que funcionan en un único documento son una excelente manera de crear de forma iterativa canalizaciones de enriquecimiento más complejas.
 

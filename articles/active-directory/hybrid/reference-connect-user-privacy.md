@@ -15,12 +15,12 @@ ms.date: 05/21/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f5d3125b7b77e8ce7a943f640c44615049ab160
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8f1d1bf35d03f0f7c4d11e4cc7e9b6f98f38d8ab
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60455791"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279574"
 ---
 # <a name="user-privacy-and-azure-ad-connect"></a>Privacidad del usuario y Azure AD Connect 
 
@@ -43,7 +43,7 @@ Un servidor de sincronización de Azure AD Connect almacena los datos de privaci
 
 Los clientes de Azure AD Connect deben usar las siguientes directrices al eliminar datos de usuarios:
 1.  Elimine el contenido de la carpeta que contiene los archivos de registro de instalación de Azure AD Connect con regularidad, al menos cada 48 horas.
-2.  Este producto también puede crear registros de eventos.  Para más información sobre los registros de eventos, consulte la [documentación aquí](https://msdn.microsoft.com/library/windows/desktop/aa385780.aspx).
+2.  Este producto también puede crear registros de eventos.  Para más información sobre los registros de eventos, consulte la [documentación aquí](/windows/win32/wes/windows-event-log).
 
 Los datos sobre una persona se eliminan automáticamente de la base de datos de Azure AD Connect cuando se quitan del sistema de origen de donde proceden. No es necesaria ninguna acción específica por parte de los administradores para el cumplimiento del GDPR.  Sin embargo, es necesario que los datos de Azure AD Connect se sincronicen con el origen de datos al menos cada dos días.
 

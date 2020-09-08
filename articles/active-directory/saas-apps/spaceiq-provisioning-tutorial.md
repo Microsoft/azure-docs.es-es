@@ -2,25 +2,21 @@
 title: 'Tutorial: Configuración de SpaceIQ para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
 description: Obtenga información sobre cómo configurar Azure Active Directory para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de SpaceIQ.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: 207c8214-6304-4687-afc6-61562f0041a9
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: e59e9d86f394104752ef966b2a9cad2b78a1bc93
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1e63dec14db795b2511f4069bb62a7ce1504a1ec
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77062786"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545053"
 ---
 # <a name="tutorial-configure-spaceiq-for-automatic-user-provisioning"></a>Tutorial: Configuración de SpaceIQ para el aprovisionamiento automático de usuarios
 

@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: 74308ae79b899a55db4682474e3dcd9dab26db98
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: c51e67dcc3536a3083179451743b1c97cf618dae
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856931"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004876"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Administración de Azure Cache for Redis con Azure PowerShell
 > [!div class="op_single_selector"]
@@ -655,7 +655,7 @@ En el ejemplo siguiente, se quita la memoria caché denominada `myCache` .
 Puede importar datos a una instancia de Azure Cache for Redis mediante el cmdlet `Import-AzRedisCache`.
 
 > [!IMPORTANT]
-> Import/Export solo está disponible para las memorias caché de [nivel premium](cache-premium-tier-intro.md) . Para más información e instrucciones sobre Import/Export, consulte [Importación y exportación de datos en Azure Cache for Redis](cache-how-to-import-export-data.md).
+> La importación y exportación solo está disponible para las memorias caché del [nivel Prémium](cache-overview.md#service-tiers). Para más información e instrucciones sobre Import/Export, consulte [Importación y exportación de datos en Azure Cache for Redis](cache-how-to-import-export-data.md).
 > 
 > 
 
@@ -719,7 +719,7 @@ El siguiente comando importa datos desde el blob especificado por el identificad
 Puede exportar datos a una instancia de Azure Cache for Redis mediante el cmdlet `Export-AzRedisCache`.
 
 > [!IMPORTANT]
-> Import/Export solo está disponible para las memorias caché de [nivel premium](cache-premium-tier-intro.md) . Para más información e instrucciones sobre Import/Export, consulte [Importación y exportación de datos en Azure Cache for Redis](cache-how-to-import-export-data.md).
+> La importación y exportación solo está disponible para las memorias caché del [nivel Prémium](cache-overview.md#service-tiers). Para más información e instrucciones sobre Import/Export, consulte [Importación y exportación de datos en Azure Cache for Redis](cache-how-to-import-export-data.md).
 > 
 > 
 
@@ -784,7 +784,7 @@ El siguiente comando exporta los datos desde una instancia de Azure Cache for Re
 Puede reiniciar la instancia de Azure Cache for Redis mediante el cmdlet `Reset-AzRedisCache`.
 
 > [!IMPORTANT]
-> El reinicio solo está disponible para las memorias caché de [nivel premium](cache-premium-tier-intro.md) . Para más información acerca de cómo reiniciar la caché, consulte [Administración de caché: reinicio](cache-administration.md#reboot).
+> El reinicio solo está disponible para las memorias caché del [nivel Prémium](cache-overview.md#service-tiers). Para más información acerca de cómo reiniciar la caché, consulte [Administración de caché: reinicio](cache-administration.md#reboot).
 > 
 > 
 

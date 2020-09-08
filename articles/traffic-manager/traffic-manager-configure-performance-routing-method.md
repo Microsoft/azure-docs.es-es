@@ -4,20 +4,20 @@ description: En este artículo se explica cómo configurar Traffic Manager para 
 services: traffic-manager
 manager: twooley
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: rohink
-ms.openlocfilehash: 5299c72d96fd7453d7df352ca842b4ede35f41fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 46d71a38b79f449084f7353527f2dfb05d5b92a4
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707674"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401034"
 ---
 # <a name="configure-the-performance-traffic-routing-method"></a>Configuración del método de enrutamiento del tráfico de rendimiento
 

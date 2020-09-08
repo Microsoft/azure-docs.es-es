@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 07/29/2020
+ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: 458ebe14e77c7b190a5c4cdd9b408396589d5d27
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 9da1340d08d4eaab3ba208c667861093ef0f799b
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420828"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079122"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-firewall-manager"></a>Tutorial: Protección de un centro virtual mediante Azure Firewall Manager
 
@@ -32,6 +32,10 @@ En este tutorial, aprenderá a:
 > * Implementación de los servidores
 > * Creación de una directiva de firewall y protección del centro
 > * Probar el firewall
+
+## <a name="prerequisites"></a>Requisitos previos
+
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="create-a-hub-and-spoke-architecture"></a>Creación de una arquitectura en estrella tipo hub-and-spoke
 
@@ -270,6 +274,10 @@ Ahora pruebe la regla de red.
 
 Con ello, ha comprobado que la regla de red de firewall funciona:
 * Puede conectar un escritorio remoto a un servidor ubicado en otra red virtual.
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Cuando haya terminado de probar los recursos de firewall, elimine el grupo de recursos **fw-manager** para eliminar todos los recursos relacionados con el firewall.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

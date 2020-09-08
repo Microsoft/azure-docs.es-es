@@ -3,23 +3,25 @@ title: Obtención de una clave de firma de una directiva mediante .NET de Azure 
 description: En este tema se muestra cómo obtener una clave de firma de la directiva existente mediante el SDK de .NET de Media Services v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
-ms.date: 04/15/2019
-ms.author: juliako
+ms.topic: how-to
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 2dea262fadb61adc9e219b76f9ac048c11e650d5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f46c77d463873a5cdd5d8c4ac1b28f1b7d0b9eb
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065959"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299004"
 ---
 # <a name="get-a-signing-key-from-the-existing-policy"></a>Obtención de una clave de firma de la directiva existente
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Uno de los principales principios de diseño de la versión v3 de la API es hacerla más segura. Las API de la versión v3 no devuelven secretos o credenciales en las operaciones **Get** o **List**. Consulte la explicación detallada aquí: Para más información, consulte [RBAC and Media Services accounts](rbac-overview.md) (Cuentas de Media Services y RBAC)
 

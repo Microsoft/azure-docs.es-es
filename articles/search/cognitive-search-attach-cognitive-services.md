@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: ffb52cd34d56c227fc689ea70146e99983e17c0d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c9f6a5ebc4f3242181196bd40b62f7522d025b84
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564434"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924984"
 ---
 # <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Asociación de un recurso de Cognitive Services con un conjunto de aptitudes en Azure Cognitive Search 
 
@@ -170,5 +170,5 @@ En resumen, pagaría unos 57 USD por la ingesta de 1000 documentos PDF de este 
 ## <a name="next-steps"></a>Pasos siguientes
 + [Página de precios de Azure Cognitive Search](https://azure.microsoft.com/pricing/details/search/)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
-+ [Crear un conjunto de aptitudes (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Crear un conjunto de aptitudes (REST)](/rest/api/searchservice/create-skillset)
 + [Cómo asignar campos enriquecidos](cognitive-search-output-field-mapping.md)

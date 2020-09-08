@@ -4,12 +4,12 @@ description: Colección de procedimientos recomendados de operadores de clúster
 services: container-service
 ms.topic: article
 ms.date: 12/07/2018
-ms.openlocfilehash: 627eeffd18a479486e5a682da06bf89cd5f8f0e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1278a03d3ffc7ccb11b0e3c4c84f6c213648440b
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77596324"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008787"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>Procedimientos recomendados de operadores de clúster y desarrolladores para crear y administrar aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -30,7 +30,7 @@ Como operador de clúster, trabaje en conjunto con los propietarios y desarrolla
 * [Procedimientos recomendados para las características avanzadas del programador](operator-best-practices-advanced-scheduler.md)
     * Incluye el uso de defectos y tolerancias, los selectores de nodo y afinidad, y la afinidad y falta de afinidad entre pods.
 * [Procedimientos recomendados para autenticación y autorización](operator-best-practices-identity.md)
-    * Incluye integración en Azure Active Directory, el uso de controles de acceso basado en roles (RBAC) y las identidades de pods.
+    * Incluye la integración en Azure Active Directory, el uso del control de acceso basado en rol (RBAC) y el uso de identidades de pod.
 
 **Seguridad**
 

@@ -3,23 +3,25 @@ title: 'Un valor predeterminado para la codificación que tiene en cuenta el con
 description: En este artículo se describe la codificación según el contenido en Microsoft Azure Media Services v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
-ms.date: 04/29/2020
-ms.author: juliako
-ms.custom: ''
-ms.openlocfilehash: 3669919a8ddf4ffcbcf0d3e7e060c62f4c8df1c6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 5d08e09905841f6068f2bac45680a8e5a011c158
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87039149"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297372"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Use el valor predeterminado de la codificación en función del contenido para encontrar el valor de velocidad de bits óptimo para una resolución dada
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Para poder preparar el contenido para la entrega mediante [streaming con velocidad de bits adaptable](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), el vídeo debe codificarse en varias velocidades de bits (de alta a baja). Esto garantiza una degradación correcta de la calidad, ya que la resolución del vídeo disminuye a medida que lo hace la velocidad de bits. Esta codificación con velocidad de bits múltiple utiliza algo que se conoce como escalera de codificación (una table de resoluciones y velocidades de bits, consulte los [valores predeterminados de codificación integrados](/rest/api/media/transforms/createorupdate#encodernamedpreset) de Media Services).
 

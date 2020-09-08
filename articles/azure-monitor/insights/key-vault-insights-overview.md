@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/13/2019
-ms.openlocfilehash: 7b52a1ee67c22fb3bded49a80d35305bdf612f10
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c669946ab76fcaeaaa6fd681f521408643c5a63c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498965"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88531266"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Supervisión del servicio de almacén de claves con Azure Monitor para Key Vault (versión preliminar)
 Azure Monitor para Key Vault (versión preliminar) proporciona una supervisión completa de los almacenes de claves proporcionando una vista unificada del rendimiento, los errores, la latencia y las solicitudes de Key Vault.
@@ -45,7 +45,7 @@ Azure Monitor para Key Vault combina los registros y las métricas para proporci
 
 En Azure Monitor, puede ver los detalles de solicitud, latencia y errores de varios almacenes de claves de su suscripción, así como ayudar a identificar problemas de rendimiento y escenarios de limitación.
 
-Para ver el uso y las operaciones de las cuentas de almacenamiento en todas las suscripciones, realice los pasos siguientes:
+Para ver el uso y las operaciones de los almacenes de claves en todas las suscripciones, realice los pasos siguientes:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 

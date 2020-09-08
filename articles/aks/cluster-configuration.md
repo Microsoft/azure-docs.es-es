@@ -3,15 +3,15 @@ title: Configuración de clúster en Azure Kubernetes Service (AKS)
 description: Aprenda a configurar un clúster en Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 08/06/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: f1329aa056e8d1db951e01555634cf1ea709608b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: daffcbf0a2ceb6f28cbb539906d4c6387840aa20
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252018"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752104"
 ---
 # <a name="configure-an-aks-cluster"></a>Configuración de un clúster de AKS
 
@@ -81,7 +81,7 @@ Si quiere crear grupos de nodos con la imagen AKS Ubuntu 16.04, puede hacerlo o
 
 Un entorno de ejecución de contenedor es un software que ejecuta contenedores y administra imágenes de contenedor en un nodo. El entorno de ejecución ayuda a abstraer la funcionalidad específica del sistema operativo o de sys-call para ejecutar contenedores en Linux o Windows. Actualmente, AKS usa [Moby](https://mobyproject.org/) (Docker ascendente) como entorno de ejecución de contenedor. 
     
-![CRI de Docker](media/cluster-configuration/docker-cri.png)
+![Docker CRI 1](media/cluster-configuration/docker-cri.png)
 
 [`Containerd`](https://containerd.io/) es un entorno de ejecución de contenedor básico compatible con [OCI](https://opencontainers.org/) (Open Container Initiative) que proporciona el conjunto mínimo de funciones necesarias para ejecutar contenedores y administrar imágenes en un nodo. Fue [donado](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) a la Cloud Native Compute Foundation (CNCF) en marzo de 2017. La versión de Moby que AKS usa actualmente se basa en `containerd` y ya aprovecha sus ventajas, como se mostró anteriormente. 
 
@@ -89,7 +89,7 @@ Con los grupos de nodos y los nodos basados en contenedores, en lugar de comunic
 
 Usar `containerd` para los nodos AKS mejora la latencia de inicio del pod y reduce el consumo de recursos de nodo del entorno de ejecución de contenedor. Estas mejoras son posibles gracias a la nueva arquitectura, en la que el kubelet se comunica directamente con `containerd` mediante el complemento CRI; sin embargo, en la arquitectura de Moby o Docker, el kubelet se comunica con `dockershim` y con el motor de Docker antes de llegar a `containerd` y, por lo tanto, tiene saltos adicionales en el flujo.
 
-![CRI de Docker](media/cluster-configuration/containerd-cri.png)
+![Docker CRI 2](media/cluster-configuration/containerd-cri.png)
 
 `Containerd` funciona en todas las versiones de disponibilidad general de Kubernetes en AKS y en todas las versiones de Kubernetes anteriores a la versión 1.10, y admite todas las características de Kubernetes y AKS.
 
@@ -233,6 +233,67 @@ az aks nodepool add --name gen2 --cluster-name myAKSCluster --resource-group myR
 
 Si quiere crear un grupo de nodos Gen1 normal, puede hacerlo omitiendo la etiqueta `--aks-custom-headers` personalizada.
 
+
+## <a name="ephemeral-os-preview"></a>Sistema operativo efímero (versión preliminar)
+
+El disco del sistema operativo de una máquina virtual de Azure se replica automáticamente, de forma predeterminada, en Azure Storage para evitar la pérdida de datos cuando hay que reubicar la máquina virtual en otro host. Sin embargo, como los contenedores no están diseñados para preservar el estado local, este comportamiento ofrece un valor limitado y, además, presenta algunos inconvenientes, como un aprovisionamiento más lento de los nodos y una mayor latencia de lectura y escritura.
+
+En cambio, los discos de sistema operativo efímero solo se almacenan en el equipo host, al igual que los discos temporales. Esto proporciona una latencia de lectura y escritura menor, junto con escalabilidad de nodos y actualizaciones de clúster más rápidas.
+
+Al igual que sucede con un disco temporal, el disco de sistema operativo efímero está incluido en el precio de la máquina virtual, por lo que no lleva asociado ningún costo adicional de almacenamiento.
+
+Registre la característica `EnableEphemeralOSDiskPreview`:
+
+```azurecli
+az feature register --name EnableEphemeralOSDiskPreview --namespace Microsoft.ContainerService
+```
+
+Pueden pasar unos minutos hasta que el estado aparezca como **Registrado**. Puede comprobar el estado del registro con el comando [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list):
+
+```azurecli
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEphemeralOSDiskPreview')].{Name:name,State:properties.state}"
+```
+
+Cuando el estado se muestre como Registrado, actualice el registro del proveedor de recursos `Microsoft.ContainerService` mediante el comando [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register):
+
+```azurecli
+az provider register --namespace Microsoft.ContainerService
+```
+
+Para instalar la extensión aks-preview de la CLI, use los siguientes comandos de la CLI de Azure:
+
+```azurecli
+az extension add --name aks-preview
+```
+
+Para actualizar la extensión aks-preview de la CLI, use los siguientes comandos de la CLI de Azure:
+
+```azurecli
+az extension update --name aks-preview
+```
+
+### <a name="use-ephemeral-os-on-new-clusters-preview"></a>Uso del sistema operativo efímero en clústeres nuevos (versión preliminar)
+
+Configure el clúster para que utilice discos de sistema operativo efímero al crearlo. Use la marca `--aks-custom-headers` para establecer el sistema operativo efímero como el tipo de disco de sistema operativo para el nuevo clúster.
+
+```azure-cli
+az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
+```
+
+Si desea crear un clúster normal con discos de sistema operativo conectados a red, omita la etiqueta `--aks-custom-headers` personalizada. También puede optar por añadir más grupos de nodos de sistema operativo efímero, tal y como se indica a continuación.
+
+### <a name="use-ephemeral-os-on-existing-clusters-preview"></a>Uso del sistema operativo efímero en clústeres existentes (versión preliminar)
+Configure un nuevo grupo de nodos para usar discos de sistema operativo efímero. Utilice la marca `--aks-custom-headers` para establecerla como el tipo de disco de para ese grupo de nodos.
+
+```azure-cli
+az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
+```
+
+> [!IMPORTANT]
+> El sistema operativo efímero permite implementar imágenes de instancias y de máquinas virtuales cuyo tamaño máximo sea equivalente al de la memoria caché de máquina virtual. En el caso de AKS, la configuración predeterminada del disco de sistema operativo del nodo utiliza 100 GiB, lo cual significa que necesitará una máquina virtual con una memoria caché cuyo tamaño sea superior 100 GiB. La máquina virtual Standard_DS2_v2 tiene un tamaño de caché de 86 GiB, que no es lo suficientemente grande. Las máquinas virtuales Standard_DS3_v2 tienen un tamaño de caché de 172 GiB, que es lo suficientemente grande. También puede reducir el tamaño predeterminado del disco de sistema operativo mediante `--node-osdisk-size`. El tamaño mínimo de las imágenes de AKS es 30 GiB. 
+
+Si desea crear grupos de nodos con discos de sistema operativo conectados a red, omita la etiqueta `--aks-custom-headers` personalizada.
+
 ## <a name="custom-resource-group-name"></a>Nombre del grupo de recursos personalizado
 
 Al implementar un clúster de Azure Kubernetes Service en Azure, se crea un segundo grupo de recursos para los nodos de trabajo. De forma predeterminada, AKS asignará un nombre al grupo de recursos del nodo `MC_resourcegroupname_clustername_location`, pero también puede proporcionar su propio nombre.
@@ -259,6 +320,7 @@ Cuando trabaje con el grupo de recursos del nodo, tenga en cuenta que no puede:
 - Consulte [Actualización de un clúster de Azure Kubernetes Service (AKS)](upgrade-cluster.md) para más información sobre cómo actualizar el clúster a la versión más reciente de Kubernetes.
 - Más información sobre [`containerd` y Kubernetes](https://kubernetes.io/blog/2018/05/24/kubernetes-containerd-integration-goes-ga/)
 - Consulte la lista de [Preguntas más frecuentes sobre AKS](faq.md) para encontrar respuestas a algunas preguntas comunes sobre AKS.
+- Obtenga más información sobre los [discos de sistema operativo efímero](../virtual-machines/ephemeral-os-disks.md).
 
 
 <!-- LINKS - internal -->

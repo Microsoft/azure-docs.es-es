@@ -11,12 +11,12 @@ ms.author: robinsh
 ms.custom:
 - mvc
 - mqtt
-ms.openlocfilehash: 26679a7111e11eaf48e948fa6d3622814327433a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 69a0795b9c299b5113c39ce2c4556573f730e4b7
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252579"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013952"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>Tutorial: Realización de una conmutación por error manual de una instancia de IoT Hub
 
@@ -30,6 +30,8 @@ En este tutorial se realizan las siguientes tareas:
 > * Ver el centro que se ejecutan en la ubicación secundaria.
 > * Realizar una conmutación por recuperación para devolver las operaciones del centro de IoT a la ubicación principal. 
 > * Confirmar que el concentrador se ejecuta adecuadamente en la ubicación correcta.
+
+Para obtener más información sobre la conmutación por error manual y la conmutación por error iniciada por Microsoft con IoT Hub, consulte [Recuperación ante desastres entre regiones](iot-hub-ha-dr.md#cross-region-dr).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -83,7 +85,7 @@ Tenga en cuenta que hay un límite de dos conmutaciones por error y dos conmutac
 
    La cantidad de tiempo que tarda en realizarse la conmutación por error manual es proporcional al número de dispositivos registrados en el centro. Por ejemplo, si tiene 100 000, podría tardar 15 minutos, pero si tiene 5 000 000, podría tardar una hora, o incluso más.
 
-   ![Captura de pantalla que muestra el panel Conmutación por error manual](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
+   ![Captura de pantalla que muestra el panel de confirmación de la conmutación por error manual](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
 
    Mientras se ejecuta el proceso de conmutación por error manual, aparece un banner que indica que hay una conmutación por error manual en curso. 
 

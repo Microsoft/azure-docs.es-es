@@ -1,20 +1,20 @@
 ---
 title: 'Inicio rápido: Tráfico web directo mediante CLI'
 titleSuffix: Azure Application Gateway
-description: Aprenda a usar la CLI de Azure para crear una instancia de Azure Application Gateway que dirija el tráfico web a las máquinas virtuales de un grupo de back-end.
+description: En esta guía de inicio rápido, obtendrá información sobre cómo utilizar la CLI de Azure para crear una instancia de Azure Application Gateway que dirija el tráfico web a las máquinas virtuales de un grupo de back-end.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 03/05/2020
+ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc, devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: d79f51e32fa62527140ccf19cfc3573339d22fab
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b6b2077a71870d619c023b0d66c37ebc043aa3f3
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499133"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961761"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Inicio rápido: Dirección del tráfico web con Azure Application Gateway: CLI de Azure
 
@@ -24,12 +24,14 @@ La puerta de enlace de aplicaciones dirige el tráfico web de la aplicación a r
 
 Este inicio rápido también puede completar mediante [Azure PowerShell](quick-create-powershell.md) o [Azure Portal](quick-create-portal.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [CLI de Azure, versión 2.0.4 o posterior](/cli/azure/install-azure-cli) (si la CLI de Azure se ejecuta localmente).
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+
 
 ## <a name="create-resource-group"></a>Creación de un grupo de recursos
 

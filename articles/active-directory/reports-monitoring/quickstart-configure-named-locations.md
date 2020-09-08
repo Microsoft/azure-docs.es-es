@@ -16,17 +16,17 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 897762e523a2d20445c3a25e612cf138e021f633
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 94f4d17596936dd9d0ebbdae3c351cac9ed2a570
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739726"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299871"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>Inicio rápido: Configuración de ubicaciones con nombre en Azure Active Directory
 
 Con las ubicaciones con nombre, puede etiquetar intervalos de direcciones IP de confianza en su organización. Azure AD usa las ubicaciones con nombre para:
-- Detectar falsos positivos en las [detecciones de riesgo](concept-risk-events.md). Iniciar sesión desde una ubicación de confianza reduce el riesgo de inicio de sesión del usuario.   
+- Detectar falsos positivos en las [detecciones de riesgo](../identity-protection/overview-identity-protection.md). Iniciar sesión desde una ubicación de confianza reduce el riesgo de inicio de sesión del usuario.   
 - Configurar el [acceso condicional basado en la ubicación](../conditional-access/location-condition.md).
 
 En este tutorial, obtendrá información sobre cómo configurar ubicaciones con nombre en su entorno.
@@ -64,4 +64,4 @@ Para completar este inicio rápido necesita instalar:
 Para más información, consulte:
 
 - [Ubicación como una condición en el acceso condicional](../conditional-access/concept-conditional-access-conditions.md#locations).
-- [Informe de inicios de sesión de riesgo](concept-risky-sign-ins.md)  
+- [Informe de inicios de sesión de riesgo](../identity-protection/overview-identity-protection.md)

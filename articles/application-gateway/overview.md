@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/04/2020
+ms.date: 08/26/2020
 ms.author: victorh
-ms.openlocfilehash: 4a4395801218409fe77d1081689ba80b495fcfad
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7ccc83a61ac4ffe6e1bb6767a9c611bd3fcc0edf
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78302583"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892786"
 ---
 # <a name="what-is-azure-application-gateway"></a>¿Qué es Azure Application Gateway?
 
@@ -40,10 +40,14 @@ Para obtener información sobre los precios, de Application Gateway consulte [Pr
 
 Para obtener información sobre el Acuerdo de Nivel de Servicio de Application Gateway, consulte [SLA para Application Gateway](https://azure.microsoft.com/support/legal/sla/application-gateway/v1_2/).
 
+## <a name="whats-new"></a>Novedades
+
+Para obtener información sobre las novedades de Azure Application Gateway, consulte [Actualizaciones de Azure](https://azure.microsoft.com/updates/?category=networking&query=Application%20Gateway).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Según los requisitos y el entorno, puede crear una instancia de Application Gateway de prueba mediante Azure Portal, Azure PowerShell o la CLI de Azure.
 
 - [Inicio rápido: Dirección del tráfico web con Azure Application Gateway: Azure Portal](quick-create-portal.md)
-- [Inicio rápido: Dirección del tráfico web con Azure Application Gateway: Azure PowerShell](quick-create-powershell.md)
+- [Guía de inicio rápido: dirigir el tráfico web con Azure Application Gateway: Azure PowerShell](quick-create-powershell.md)
 - [Inicio rápido: Dirección del tráfico web con Azure Application Gateway: CLI de Azure](quick-create-cli.md)

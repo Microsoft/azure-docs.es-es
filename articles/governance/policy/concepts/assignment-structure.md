@@ -1,14 +1,14 @@
 ---
 title: Detalles de la estructura de asignaciones de directivas
 description: Describe la definición de asignación de directiva utilizada por Azure Policy para relacionar las definiciones de directiva y los parámetros con los recursos para su evaluación.
-ms.date: 04/15/2020
+ms.date: 08/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: c9f400aa72508822f8fff2fe41fb17ce98339737
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 969274d72724c8d0a8f10f86f614fe2c50d066f7
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84205048"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88520720"
 ---
 # <a name="azure-policy-assignment-structure"></a>Estructura de asignaciones de Azure Policy
 
@@ -79,8 +79,7 @@ Este campo debe ser el nombre de la ruta de acceso completa de una definición d
 
 ## <a name="parameters"></a>Parámetros
 
-Este segmento de la asignación de directiva proporciona los valores para los parámetros definidos en la [definición de directiva o en la definición de iniciativa](./definition-structure.md#parameters).
-Este diseño permite reutilizar una definición de directiva o iniciativa con distintos recursos, así como comprobar si hay valores o resultados empresariales diferentes.
+Este segmento de la asignación de directiva proporciona los valores para los parámetros definidos en la [definición de directiva o en la definición de iniciativa](./definition-structure.md#parameters). Este diseño permite reutilizar una definición de directiva o iniciativa con distintos recursos, así como comprobar si hay valores o resultados empresariales diferentes.
 
 ```json
 "parameters": {

@@ -2,17 +2,18 @@
 title: 'Azure ExpressRoute: Trasladar los circuitos clásicos a Administrador de recursos'
 description: En esta página se describe cómo mover un circuito clásico al modelo de implementación de Resource Manager mediante PowerShell.
 services: expressroute
-author: charwen
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/25/2019
-ms.author: charwen
-ms.openlocfilehash: 3d094f614cbaf75158c38b86345fd5f925310d6b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: duau
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 2b88fb32fd4bc07bbaaaf8834646e8d585491dc6
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87039317"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89395696"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>Transición de los circuitos ExpressRoute desde el modelo de implementación clásica al modelo de implementación de Resource Manager mediante PowerShell
 

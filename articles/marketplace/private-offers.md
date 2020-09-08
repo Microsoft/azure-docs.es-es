@@ -7,12 +7,12 @@ ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 07/01/2020
-ms.openlocfilehash: 7e93772a77ac1edb88c8e1a56c8db216c6e9fbd3
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2808f0d3b99257d52b2d400424f256f980005863
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420114"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607190"
 ---
 # <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Ofertas privadas en el marketplace comercial de Microsoft
 
@@ -35,7 +35,7 @@ Las ofertas privadas ya están disponibles para las ofertas de Virtual Machines,
 
 ## <a name="creating-private-offers-using-plans"></a>Creación de ofertas privadas mediante planes
 
-Para las *ofertas nuevas o existentes con planes públicos*, los editores pueden crear fácilmente variaciones privadas nuevas si crean planes nuevos (anteriormente denominados "SKU") y los marcan como privados.  
+Para las *ofertas nuevas o existentes con planes públicos*, los editores pueden crear fácilmente variaciones privadas nuevas si crean planes nuevos (anteriormente denominados "SKU") y los marcan como privados. Cada oferta puede tener hasta 45 planes privados.
 
 <!--- [Private SKUs](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) --->
 
@@ -54,7 +54,7 @@ Una vez que se certifica o publica una oferta, los clientes se pueden actualizar
 
 ## <a name="deploying-private-offers"></a>Implementación de las ofertas privadas
 
-Las ofertas privadas solo se detectan mediante [Azure Portal](https://azure.microsoft.com/features/azure-portal/) y no aparecen en [Microsoft AppSource](https://appsource.microsoft.com/) ni en [Azure Marketplace](https://azuremarketplace.microsoft.com). Para más información sobre la publicación en los distintos escaparates comerciales de Marketplace, consulte [Determinar la opción de publicación](./determine-your-listing-type.md).
+Las ofertas privadas solo se detectan mediante [Azure Portal](https://azure.microsoft.com/features/azure-portal/) y no aparecen en [Microsoft AppSource](https://appsource.microsoft.com/) ni en [Azure Marketplace](https://azuremarketplace.microsoft.com). Para más información sobre la publicación en las distintas tiendas en línea de marketplace comercial, consulte [Determinación de la opción de publicación](./determine-your-listing-type.md).
 
 Una vez que un cliente inicia sesión en Azure Portal, puede seleccionar el elemento de navegación Marketplace para acceder a sus ofertas privadas. Las ofertas privadas también aparecerán en los resultados de la búsqueda y se pueden implementar a través de la línea de comandos y plantillas de Azure Resource Manager como cualquier otra oferta.
 

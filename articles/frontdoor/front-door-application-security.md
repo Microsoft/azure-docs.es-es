@@ -3,20 +3,20 @@ title: 'Azure Front Door: seguridad en el nivel de aplicación | Microsoft Docs'
 description: Este artículo le ayudará a entender cómo Azure Front Door le permite proteger los servidores back-end de aplicaciones.
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: e458926930c1b95d48886559551878fc6c9d0673
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: duau
+ms.openlocfilehash: 4ee50b4c7da27df3630c1b4d263f076da44189bc
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471802"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399946"
 ---
 # <a name="application-layer-security-with-front-door"></a>Seguridad en el nivel de aplicación con Front Door
 Azure Front Door proporciona funcionalidad de protección de aplicaciones web para proteger las aplicaciones web contra ataques de red y vulnerabilidades web habituales, tales como la inyección de código SQL o scripts entre sitios (XSS). La seguridad de nivel de aplicación de Front Door está habilitada en los servidores front-end http(s), está distribuida globalmente y tiene disponibilidad total para detener los ataques malintencionados en el perímetro de la red de Azure, muy lejos de los servidores back-end. Gracias a su mayor seguridad y a la optimización de su rendimiento, Front Door ofrece experiencias web rápidas y seguras a los usuarios finales.

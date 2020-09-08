@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-javascript
-ms.openlocfilehash: 4061d7a3d21b8c2db2bf161c422994cb2742b0b4
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9d73492110703e64df5f948ad8a2a1ed8d2c63b9
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489884"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904545"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configuración de la autenticación para recursos y flujos de trabajo de Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -36,6 +36,9 @@ Independientemente del tipo de autenticación que se use, el control de acceso b
 * [Configure un entorno de desarrollo](how-to-configure-environment.md) para instalar el SDK de Azure Machine Learning, o bien use una [máquina virtual de Azure Machine Learning Notebook](concept-azure-machine-learning-architecture.md#compute-instance) con el SDK ya instalado.
 
 ## <a name="interactive-authentication"></a>Autenticación interactiva
+
+> [!IMPORTANT]
+> En la autenticación interactiva se usa el explorador y se necesitan cookies (por ejemplo, cookies de terceros). Si ha deshabilitado las cookies, es posible que reciba un error del tipo "no se pudo iniciar sesión". Este error también puede producirse si ha habilitado la [autenticación multifactor de Azure](/azure/active-directory/authentication/concept-mfa-howitworks).
 
 La mayoría de los ejemplos de la documentación usan la autenticación interactiva. Por ejemplo, al usar el SDK hay dos llamadas de función que muestran automáticamente un flujo de autenticación basada en la interfaz de usuario:
 

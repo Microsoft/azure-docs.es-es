@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 02/13/2018
 ms.author: curtand
-ms.openlocfilehash: e5ad882f172007e2563f832ec8eb61145cd0b36a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 9de054162a59b10fbd02bed9b3e84634ee12125b
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744501"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799203"
 ---
 # <a name="create-app-passwords-from-the-security-info-preview-page"></a>Creación de contraseñas de aplicaciones desde la página Información de seguridad (versión preliminar)
 
@@ -84,4 +84,4 @@ Si ya no necesita utilizar una aplicación que requiera una contraseña de aplic
 
 ## <a name="for-more-information"></a>Para obtener más información
 
-- Para más información sobre la página **Información de seguridad** y sobre cómo configurarla, consulte [Introducción a la información de seguridad](user-help-security-info-overview.md).
+- Para más información sobre la página **Información de seguridad** y sobre cómo configurarla, consulte [Introducción a la información de seguridad](./security-info-setup-signin.md).

@@ -12,6 +12,11 @@
   items:
     - name: Soluciones en Virtual Machines
       href: virtual-machine-solutions.md
+- name: Procedimientos
+  expanded: true
+  items:
+    - name: Fortanix Enclave Manager
+      href: how-to-fortanix-enclave-manager.md
 - name: Recursos
   expanded: true
   items:

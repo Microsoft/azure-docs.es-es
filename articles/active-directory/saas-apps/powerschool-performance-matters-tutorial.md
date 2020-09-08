@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Powerschool Performance Matters | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Powerschool Performance Matters.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 3e6fb0e7-d7c1-4eea-9bc1-69be1daadc45
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: jeedes
-ms.openlocfilehash: 5097292ba722567e16c4573d46a70edb326c3ab5
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: c2b030998a17eca493bc64d6bf33b628b6ac6807
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800743"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88553692"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-powerschool-performance-matters"></a>Tutorial: Integración de Azure Active Directory con Powerschool Performance Matters
 

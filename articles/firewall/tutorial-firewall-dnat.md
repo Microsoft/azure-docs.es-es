@@ -1,19 +1,19 @@
 ---
-title: Filtrado del tráfico de entrada de Internet con la DNAT de Azure Firewall mediante el portal
+title: 'Tutorial: Filtrado del tráfico de entrada de Internet con la DNAT de Azure Firewall mediante el portal'
 description: En este tutorial, aprenderá a implementar y configurar la DNAT de Azure Firewall mediante Azure Portal.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 03/02/2020
+ms.date: 08/28/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 7220e48c6103352108bdb89e107bb862ee194040
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8f528c6be68258400cb3e29582943f1d657c557d
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78251499"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069279"
 ---
 # <a name="tutorial-filter-inbound-internet-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Tutorial: Filtrado del tráfico de entrada de Internet con la DNAT de Azure Firewall mediante Azure Portal
 
@@ -28,12 +28,11 @@ En este tutorial, aprenderá a:
 > * Configurar una regla de DNAT
 > * Probar el firewall
 
+## <a name="prerequisites"></a>Requisitos previos
+
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-En este tutorial se crearán dos redes virtuales emparejadas:
 
-- **VN-Hub**: el firewall está en esta red virtual.
-- **VN-Spoke**: el servidor de carga de trabajo está en esta red virtual.
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -45,6 +44,11 @@ En este tutorial se crearán dos redes virtuales emparejadas:
 6. Seleccione **Crear**.
 
 ## <a name="set-up-the-network-environment"></a>Configuración del entorno de red
+
+En este tutorial se crearán dos redes virtuales emparejadas:
+
+- **VN-Hub**: el firewall está en esta red virtual.
+- **VN-Spoke**: el servidor de carga de trabajo está en esta red virtual.
 
 En primer lugar, cree las redes virtuales y, después, emparéjelas.
 
@@ -144,7 +148,7 @@ Al finalizar la implementación, anote la dirección IP privada de la máquina v
    |Configuración  |Value  |
    |---------|---------|
    |Nombre     |FW-DNAT-test|
-   |Subscription     |\<su suscripción\>|
+   |Subscription     |\<your subscription\>|
    |Resource group     |**Usar existente**: RG-DNAT-Test |
    |Location     |Seleccione la misma ubicación que usó anteriormente.|
    |Elegir una red virtual     |**Usar existente**: VN-Hub|

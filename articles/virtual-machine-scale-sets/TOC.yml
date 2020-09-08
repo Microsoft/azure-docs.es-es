@@ -93,9 +93,6 @@
           href: ./scripts/powershell-single-av-zone-scale-set.md
         - name: Creación de un conjunto de escalado con redundancia de zona
           href: ./scripts/powershell-sample-zone-redundant-scale-set.md
-    - name: Elementos integrados de Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceptos
   items:
     - name: Azure Resource Manager
@@ -134,7 +131,7 @@
           maintainContext: true
           items:
             - name: VCPU restringidas
-              href: ../virtual-machines/windows/constrained-vcpu.md
+              href: ../virtual-machines/constrained-vcpu.md
               maintainContext: true
         - name: Almacenamiento optimizado
           href: ../virtual-machines/sizes-storage.md
@@ -173,16 +170,16 @@
     - name: Disk Storage
       items:
         - name: Managed Disks
-          href: ../virtual-machines/windows/managed-disks-overview.md
+          href: ../virtual-machines/managed-disks-overview.md
           maintainContext: true
         - name: Selección de un tipo de disco
-          href: ../virtual-machines/windows/disks-types.md
+          href: ../virtual-machines/disks-types.md
           maintainContext: true
         - name: Cifrado
           href: ../virtual-machines/windows/disk-encryption.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json
           maintainContext: true
         - name: Rendimiento de Premium Storage
-          href: ../virtual-machines/windows/premium-storage-performance.md
+          href: ../virtual-machines/premium-storage-performance.md
           maintainContext: true
         - name: Discos de sistema operativo efímero
           href: ../virtual-machines/ephemeral-os-disks.md
@@ -190,7 +187,7 @@
           href: ../virtual-machines/windows/disk-scalability-targets.md
           maintainContext: true
         - name: Copia de seguridad y recuperación ante desastres para discos
-          href: ../virtual-machines/windows/backup-and-disaster-recovery-for-azure-iaas-disks.md
+          href: ../virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks.md
           maintainContext: true
     - name: Redes
       href: ../virtual-machines/network-overview.md
@@ -201,7 +198,7 @@
     - name: Seguridad
       items:
         - name: Seguridad y directivas
-          href: ../virtual-machines/windows/security-policy.md
+          href: ../virtual-machines/security-policy.md
         - name: Azure Disk Encryption
           href: disk-encryption-overview.md
         - name: Línea de base de seguridad de Azure
@@ -394,6 +391,9 @@
       href: /rest/api/virtualmachinescalesets/
     - name: Plantillas de Azure
       href: /azure/templates/microsoft.compute/virtualmachinescalesets
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Azure Roadmap

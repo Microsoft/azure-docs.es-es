@@ -16,12 +16,12 @@ ms.date: 09/04/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6efff54d2c28659af27161ab4cd4753302210006
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e9c4489f59f72e4d0b5c7a0b911da188eb0828c
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358419"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280203"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Autenticación de paso a través de Azure Active Directory: Limitaciones actuales
 
@@ -43,9 +43,9 @@ Se admiten los escenarios siguientes:
 
 Los siguientes escenarios _no_ son compatibles:
 
-- Detección de usuarios con [credenciales filtradas](../reports-monitoring/concept-risk-events.md#leaked-credentials).
+- Detección de usuarios con [credenciales filtradas](../identity-protection/overview-identity-protection.md).
 - Azure AD Domain Services necesita tener habilitada la sincronización de hash de contraseñas en el inquilino. Por lo tanto, los inquilinos que usan la autenticación de paso a través _únicamente_ no funcionan en escenarios que necesitan Azure AD Domain Services.
-- La autenticación de paso a través no se viene integrada en [Azure AD Connect Health](whatis-hybrid-identity-health.md).
+- La autenticación de paso a través no se viene integrada en [Azure AD Connect Health](./whatis-azure-ad-connect.md).
 
 > [!IMPORTANT]
 > Como solución alternativa _solo_ para escenarios no admitidos (excepto la integración de Azure AD Connect Health), habilite la sincronización de hash de contraseñas en la página [Características opcionales](how-to-connect-install-custom.md#optional-features) del Asistente para Azure AD Connect.

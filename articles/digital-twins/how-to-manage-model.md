@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 64c7db4223fcb703272749b0bf8d5b1583fbb818
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: ff89b38de1ff62ddea328a49b998692e8039341f
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987331"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661561"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Administración de modelos de Azure Digital Twins
 
@@ -174,7 +174,7 @@ Los modelos también se pueden quitar del servicio, de alguna de estas dos maner
 
 Se trata de características independientes que no se ven afectadas entre sí, aunque se pueden usar juntas para quitar un modelo gradualmente. 
 
-### <a name="decommissioning"></a>Retirada
+#### <a name="decommissioning"></a>Retirada
 
 Este es el código para retirar un modelo:
 

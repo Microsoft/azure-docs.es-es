@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89d9d06433e2b915b8a96375bb39157adbce6ef2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 393ed336018c7a0272c15adaa72633abd6b95d2f
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027689"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377206"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Funcionamiento: Autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -27,7 +27,7 @@ El autoservicio de restablecimiento de contraseña (SSPR) de Azure Active Dire
 >
 > Si el equipo de TI no ha habilitado la capacidad para restablecer su propia contraseña, póngase en contacto con el departamento de soporte técnico para obtener ayuda adicional.
 
-## <a name="how-does-the-password-reset-portal-work"></a>¿Cómo funciona el portal de restablecimiento de contraseñas?
+## <a name="how-does-the-password-reset-process-work"></a>¿Cómo funciona el proceso de restablecimiento de contraseña?
 
 Un usuario puede restablecer o cambiar su contraseña desde el [portal de SSPR](https://aka.ms/sspr). Primero es necesario que haya registrado los métodos de autenticación que desee utilizar. Cuando un usuario accede al portal de SSPR, la plataforma Azure tiene en cuenta las siguientes cuestiones:
 
@@ -58,6 +58,11 @@ Una vez que el portal de SSPR se muestra en el idioma necesario, se solicita al 
   * Si la escritura diferida de SSPR no se ha implementado y la contraseña del usuario se administra localmente, se solicitará al usuario que se ponga en contacto con el administrador para restablecer la contraseña.
 
 Si todas las comprobaciones anteriores se han completado correctamente, se guiará al usuario a través del proceso de restablecimiento o cambio de contraseña.
+
+> [!NOTE]
+> SSPR puede enviar notificaciones por correo electrónico a los usuarios como parte del proceso de restablecimiento de contraseña. Estos mensajes de correo electrónico se envían mediante el servicio de retransmisión SMTP, que funciona en modo activo/activo en varias regiones.
+>
+> Los servicios de retransmisión SMTP reciben y procesan el cuerpo del correo electrónico, pero no lo almacenan. El cuerpo del correo electrónico de SSPR que podría contener información proporcionada por el cliente no se almacena en los registros del servicio de retransmisión SMTP. Los registros solo contienen metadatos de protocolo.
 
 Para empezar a trabajar con SSPR, complete el siguiente tutorial:
 
@@ -139,7 +144,7 @@ Los usuarios no tendrán la opción de registrar su aplicación móvil cuando se
 >
 > Al configurar directivas de SSPR que incluyan la aplicación autenticadora como método, es necesario seleccionar al menos un método adicional cuando se requiere un método, y al menos dos métodos adicionales cuando se requieren dos métodos.
 >
-> Este requisito se debe a que la experiencia de registro SSPR actual no ofrece la posibilidad de registrar la aplicación autenticadora. La opción para registrar la aplicación autenticadora se ofrece con la nueva [experiencia de registro combinada](concept-registration-mfa-sspr-converged.md).
+> Este requisito se debe a que la experiencia de registro SSPR actual no ofrece la posibilidad de registrar la aplicación autenticadora. La opción para registrar la aplicación autenticadora se ofrece con la nueva [experiencia de registro combinada](./concept-registration-mfa-sspr-combined.md).
 >
 > Si se admiten directivas que solo usan la aplicación autenticadora (cuando se requiere un método), o bien la aplicación autenticadora y un único método adicional (cuando se requieren dos métodos), es posible que los usuarios no puedan registrarse para SSPR hasta que se modifique la configuración para que utilicen la nueva experiencia de registro combinada.
 
@@ -191,13 +196,13 @@ Azure AD comprueba la conectividad híbrida actual y muestra uno de los siguien
 * Azure AD está en línea y conectado al cliente de escritura diferida local. Sin embargo, parece que la versión instalada de Azure AD Connect no está actualizada. Considere la posibilidad de [actualizar Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) para asegurarse de que tiene las características de conectividad más recientes y las correcciones de errores importantes.
 * Lamentablemente, no podemos comprobar el estado del cliente de escritura diferida local porque la versión instalada de Azure AD Connect está obsoleta. [Actualice Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) para poder comprobar su estado de conexión.
 * Desafortunadamente, parece que no podemos conectarnos a su cliente de escritura diferida local ahora mismo. [Solucione problemas de Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) para restaurar la conexión.
-* Desafortunadamente, no podemos conectarnos a su cliente de escritura diferida local porque la escritura diferida de contraseñas no se ha configurado correctamente. [Configure la escritura diferida de contraseñas](howto-sspr-writeback.md) para restaurar la conexión.
+* Desafortunadamente, no podemos conectarnos a su cliente de escritura diferida local porque la escritura diferida de contraseñas no se ha configurado correctamente. [Configure la escritura diferida de contraseñas](./tutorial-enable-sspr-writeback.md) para restaurar la conexión.
 * Desafortunadamente, parece que no podemos conectarnos a su cliente de escritura diferida local ahora mismo. Esto puede deberse a problemas temporales por nuestra parte. Si el problema persiste, [solucione los problemas de Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) para restaurar la conexión.
 
 Para empezar a trabajar con la escritura diferida de SSPR, realice el siguiente tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Habilitación de la escritura diferida del autoservicio de restablecimiento de contraseña (SSPR)](tutorial-enable-writeback.md).
+> [Tutorial: Habilitación de la escritura diferida del autoservicio de restablecimiento de contraseña (SSPR)](./tutorial-enable-sspr-writeback.md).
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Escritura diferida de contraseñas en un directorio local
 
@@ -223,7 +228,7 @@ El restablecimiento y el cambio de contraseña son totalmente compatibles con to
 
 * **Usuarios de una organización asociada con un inquilino de Azure AD existente**: Si la organización con la que colabora tiene un inquilino de Azure AD, se respetarán todas las directivas de restablecimiento de contraseña que estén habilitadas en dicho inquilino. Para que el restablecimiento de contraseña funcione, la organización asociada solo tiene que asegurarse de que SSPR de Azure AD está habilitado. No tiene costo adicional para los clientes de Office 365.
 * **Usuarios que se registran mediante el** registro de autoservicio: si la organización con la que colabora utilizó la característica de [registro de autoservicio](../users-groups-roles/directory-self-service-signup.md) para acceder a un inquilino, se permitirá que restablezca la contraseña con el correo electrónico que hubiera registrado.
-* **Usuarios B2B**: cualquier nuevo usuario B2B creado con la nueva [funcionalidad B2B de Azure AD](../b2b/what-is-b2b.md) podrá restablecer su contraseña con el correo electrónico que haya registrado durante el proceso de invitación.
+* **Usuarios B2B**: cualquier nuevo usuario B2B creado con la nueva [funcionalidad B2B de Azure AD](../external-identities/what-is-b2b.md) podrá restablecer su contraseña con el correo electrónico que haya registrado durante el proceso de invitación.
 
 Para probar este escenario, vaya a https://passwordreset.microsoftonline.com con uno de estos usuarios asociados. Si tienen un correo electrónico alternativo o de autenticación definido, el restablecimiento de contraseña funcionará según lo esperado.
 

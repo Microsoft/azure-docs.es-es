@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/09/2020
+ms.date: 08/10/2020
 ms.author: iainfou
-ms.openlocfilehash: f77d9cd72476f9f2c30ca22bb2296efe1fd6cf9d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: de27ee713caae0310f185cd717d5db2095feff32
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051680"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054296"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Migración de Azure Active Directory Domain Services desde el modelo de red virtual clásica a Resource Manager
 
@@ -197,6 +197,12 @@ Para preparar el dominio administrado para la migración, realice los siguientes
     ```powershell
     $creds = Get-Credential
     ```
+    
+1. Defina una variable para el identificador de suscripción de Azure. Si es necesario, puede usar el cmdlet [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) para enumerar y ver los identificadores de suscripción. Proporcione su propio identificador de suscripción en el comando siguiente:
+
+   ```powershell
+   $subscriptionId = 'yourSubscriptionId'
+   ```
 
 1. Ahora ejecute el cmdlet `Migrate-Aadds` con el parámetro *-Prepare*. Proporcione el valor *-ManagedDomainFqdn* de su propio dominio administrado, como *aaddscontoso.com*:
 
@@ -204,7 +210,8 @@ Para preparar el dominio administrado para la migración, realice los siguientes
     Migrate-Aadds `
         -Prepare `
         -ManagedDomainFqdn aaddscontoso.com `
-        -Credentials $creds
+        -Credentials $creds `
+        -SubscriptionId $subscriptionId
     ```
 
 ## <a name="migrate-the-managed-domain"></a>Migración del dominio administrado
@@ -224,7 +231,8 @@ Migrate-Aadds `
     -VirtualNetworkResourceGroupName myResourceGroup `
     -VirtualNetworkName myVnet `
     -VirtualSubnetName DomainServices `
-    -Credentials $creds
+    -Credentials $creds `
+    -SubscriptionId $subscriptionId
 ```
 
 Después de que el script valide que el dominio administrado está preparado para la migración, escriba *Y* para iniciar el proceso de migración.
@@ -310,7 +318,8 @@ Migrate-Aadds `
     -Abort `
     -ManagedDomainFqdn aaddscontoso.com `
     -ClassicVirtualNetworkName myClassicVnet `
-    -Credentials $creds
+    -Credentials $creds `
+    -SubscriptionId $subscriptionId
 ```
 
 ### <a name="restore"></a>Restauración

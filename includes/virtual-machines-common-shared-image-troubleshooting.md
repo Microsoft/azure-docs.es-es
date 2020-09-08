@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/15/2020
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 7aad1eb10018445150fb5cf3ac01b97480da674b
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 52569f3cec26432970606b31fe831bb6459839d6
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226436"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88011030"
 ---
 Si tiene problemas al realizar cualquier operación en galerías de imágenes compartidas, definiciones de imágenes y versiones de imágenes, vuelva a ejecutar el comando con errores en modo de depuración. El modo de depuración se activa pasando el modificador `--debug` con la CLI y el modificador `-Debug` con PowerShell. Una vez que haya encontrado el error, siga este documento para solucionar los errores.
 
@@ -76,7 +76,7 @@ Causas posibles:
 
 *El usuario que intenta crear una VM o un conjunto de escalado de máquinas virtuales no tiene acceso de lectura a la versión de la imagen.*
 
-Póngase en contacto con el propietario de la suscripción y pídale que le conceda acceso de lectura a la versión de imagen o a los recursos principales (por ejemplo, la galería de imágenes compartidas o la definición de la imagen) a través de [Control de acceso basado en roles](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
+Póngase en contacto con el propietario de la suscripción y pídale que le conceda acceso de lectura a la versión de imagen o a los recursos principales (por ejemplo, la galería de imágenes compartidas o la definición de la imagen) mediante el [control de acceso basado en rol (RBAC de Azure)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles). 
 
 *No se encuentra la versión de la imagen.*
 
@@ -88,7 +88,7 @@ Compruebe que el valor de **OSType** de la versión de la imagen a partir de la 
 
 ## <a name="unable-to-share-resources"></a>No se pueden compartir los recursos
 
-El uso compartido de los recursos de la galería de imágenes compartidas, versiones de imágenes y definiciones de imágenes entre suscripciones se habilita mediante el [Control de acceso basado en roles](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
+El uso compartido de los recursos de la galería de imágenes compartidas, versiones de imágenes y definiciones de imágenes entre suscripciones se habilita mediante el [control de acceso basado en rol (RBAC de Azure)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles). 
 
 ## <a name="replication-is-slow"></a>La replicación es lenta
 
@@ -97,6 +97,3 @@ Use la marca **--expand ReplicationStatus** para comprobar si se ha completado l
 ## <a name="azure-limits-and-quotas"></a>Límites y cuotas de Azure 
 
 Los[límites y cuotas de Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) se aplican a todos los recursos de galería de imágenes compartidas, las versiones de imágenes, definiciones de imágenes. Asegúrese de encontrarse dentro de los límites para las suscripciones. 
-
-
-

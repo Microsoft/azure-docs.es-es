@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/23/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: 3c3706cc3a15a8832cec3d799ea551810c849379
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 52819fc37cf0d10cb36009feb82dec234184752c
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87313615"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235543"
 ---
 # <a name="on-demand-provisioning"></a>Aprovisionamiento a petición
 Use el aprovisionamiento a petición para aprovisionar un usuario en una aplicación en cuestión de segundos. Entre otras cosas, puede usar esta capacidad para:
@@ -47,9 +47,9 @@ El servicio de aprovisionamiento intenta autorizar el acceso a la aplicación de
 
 #### <a name="troubleshooting-tips"></a>Sugerencias de solución de problemas
 
-* Asegúrese de que haya proporcionado credenciales válidas, como el token secreto y la dirección URL del inquilino, a la aplicación de destino. Las credenciales requeridas varían según la aplicación. Para ver tutoriales de configuración detallados, consulte la [lista de tutoriales](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list). 
+* Asegúrese de que haya proporcionado credenciales válidas, como el token secreto y la dirección URL del inquilino, a la aplicación de destino. Las credenciales requeridas varían según la aplicación. Para ver tutoriales de configuración detallados, consulte la [lista de tutoriales](../saas-apps/tutorial-list.md). 
 * Asegúrese de que la aplicación de destino admita el filtrado por los atributos emparejados definidos en el panel **Asignaciones de atributos**. Es posible que deba consultar la documentación de la API proporcionada por el desarrollador de la aplicación a fin de entender los filtros admitidos.
-* En el caso de las aplicaciones System for Cross-domain Identity Management (SCIM), puede usar una herramienta como Postman. Estas herramientas le ayudan a asegurarse de que la aplicación responde a las solicitudes de autorización de la forma que espera el servicio de aprovisionamiento de Azure Active Directory (Azure AD). Consulte una [solicitud de ejemplo](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#request-3).
+* En el caso de las aplicaciones System for Cross-domain Identity Management (SCIM), puede usar una herramienta como Postman. Estas herramientas le ayudan a asegurarse de que la aplicación responde a las solicitudes de autorización de la forma que espera el servicio de aprovisionamiento de Azure Active Directory (Azure AD). Consulte una [solicitud de ejemplo](./use-scim-to-provision-users-and-groups.md#request-3).
 
 ### <a name="step-2-import-user"></a>Paso 2: Importación de usuario
 
@@ -76,7 +76,7 @@ En la sección **Ver detalles** se muestran las propiedades del usuario que se h
 
 ### <a name="step-3-determine-if-user-is-in-scope"></a>Paso 3: Determinación de si el usuario está en el ámbito
 
-A continuación, el servicio de aprovisionamiento determina si el usuario está en el [ámbito](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works#scoping) del aprovisionamiento. El servicio tiene en cuenta aspectos como:
+A continuación, el servicio de aprovisionamiento determina si el usuario está en el [ámbito](./how-provisioning-works.md#scoping) del aprovisionamiento. El servicio tiene en cuenta aspectos como:
 
 * Si el usuario está asignado a la aplicación.
 * Si el ámbito está establecido en **Sync assigned** (Sincronizar asignación) o **Sincronizar todo**.
@@ -94,8 +94,8 @@ En la sección **Ver detalles** se muestran las condiciones de ámbito que se ha
 
 #### <a name="troubleshooting-tips"></a>Sugerencias de solución de problemas
 
-* Asegúrese de que haya definido un rol de ámbito válido. Por ejemplo, evite usar el [operador Mayor que](https://docs.microsoft.com/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts#create-a-scoping-filter) con un valor no entero.
-* Si el usuario no tiene el rol necesario, revise las [recomendaciones para aprovisionar a los usuarios asignados al rol de acceso predeterminado](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-no-users-provisioned#provisioning-users-assigned-to-the-default-access-role).
+* Asegúrese de que haya definido un rol de ámbito válido. Por ejemplo, evite usar el [operador Mayor que](./define-conditional-rules-for-provisioning-user-accounts.md#create-a-scoping-filter) con un valor no entero.
+* Si el usuario no tiene el rol necesario, revise las [recomendaciones para aprovisionar a los usuarios asignados al rol de acceso predeterminado](./application-provisioning-config-problem-no-users-provisioned.md#provisioning-users-assigned-to-the-default-access-role).
 
 ### <a name="step-4-match-user-between-source-and-target"></a>Paso 4: Emparejamiento del usuario entre origen y destino
 
@@ -129,7 +129,7 @@ La sección **Ver detalles** muestra los atributos que se han modificado en la a
 
 #### <a name="troubleshooting-tips"></a>Sugerencias de solución de problemas
 
-* Los errores para exportar cambios pueden variar considerablemente. Consulte la [documentación de los registros de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs#error-codes) para conocer los errores habituales.
+* Los errores para exportar cambios pueden variar considerablemente. Consulte la [documentación de los registros de aprovisionamiento](../reports-monitoring/concept-provisioning-logs.md#error-codes) para conocer los errores habituales.
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
@@ -150,4 +150,4 @@ Actualmente, hay algunas limitaciones conocidas para el aprovisionamiento a peti
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Solución de problemas de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem)
+* [Solución de problemas de aprovisionamiento](./application-provisioning-config-problem.md)

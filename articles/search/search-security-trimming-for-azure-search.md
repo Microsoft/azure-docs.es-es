@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 443112628edddf9c60cd6469f046b1a9e066dc82
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8562fd1afaa01e362bd6d95fd4dcf90cf3145c5a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496424"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928530"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-cognitive-search"></a>Filtros de seguridad para restringir los resultados en Azure Cognitive Search
 
@@ -109,13 +109,13 @@ Si necesita actualizar un documento existente con la lista de grupos, puede usar
 }
 ```
 
-Para obtener detalles completos sobre cómo agregar o actualizar documentos, puede leer [Edición de documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
+Para obtener detalles completos sobre cómo agregar o actualizar documentos, puede leer [Edición de documentos](/rest/api/searchservice/addupdate-or-delete-documents).
    
 ## <a name="apply-the-security-filter"></a>Aplicación del filtro de seguridad
 
 Para recortar documentos basados en el acceso `group_ids`, debe emitir una consulta de búsqueda con un filtro `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))`, donde "group_id1, group_id2,..." son los grupos a los que pertenece el emisor de la solicitud de búsqueda.
 Este filtro coincide con todos los documentos para los que el campo `group_ids` contiene uno de los identificadores especificados.
-Para obtener detalles completos sobre cómo buscar documentos con Azure Cognitive Search, puede leer [Búsqueda en documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Para obtener detalles completos sobre cómo buscar documentos con Azure Cognitive Search, puede leer [Búsqueda en documentos](/rest/api/searchservice/search-documents).
 Tenga en cuenta que en este ejemplo se muestra cómo buscar en documentos mediante una solicitud POST.
 
 Emita la solicitud POST HTTP:

@@ -2,24 +2,29 @@
 title: Copia de seguridad y restauración de VM de Azure cifradas
 description: Se describe cómo realizar una copia de seguridad de máquinas virtuales de Azure cifradas, y cómo restaurarlas, con el servicio Azure Backup.
 ms.topic: conceptual
-ms.date: 07/29/2020
-ms.openlocfilehash: 25c5e66bde817e824a307df2a2b1b5f76c773c01
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.date: 08/18/2020
+ms.openlocfilehash: 74658f695387a776fe12cef97887075ae0bc161d
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405771"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611303"
 ---
-# <a name="back-up-and-restore-encrypted-azure-vm"></a>Copia de seguridad y restauración de máquinas virtuales de Azure cifradas
+# <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Copia de seguridad y restauración de máquinas virtuales de Azure cifradas
 
-En este artículo se describe cómo realizar una copia de seguridad de máquinas virtuales (VM) Windows o Linux de Azure con discos cifrados, y cómo restaurarlas, mediante el servicio [Azure Backup](backup-overview.md).
+En este artículo se describe cómo realizar una copia de seguridad de máquinas virtuales (VM) Windows o Linux de Azure con discos cifrados, y cómo restaurarlas, mediante el servicio [Azure Backup](backup-overview.md). Para más información, consulte [Cifrado de copias de seguridad de VM de Azure](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups).
 
-Si quiere saber más sobre cómo Azure Backup interactúa con las máquinas virtuales de Azure antes de comenzar, examine estos recursos:
+## <a name="encryption-using-platform-managed-keys"></a>Cifrado mediante claves administradas por la plataforma
 
-- [Revise](backup-architecture.md#architecture-built-in-azure-vm-backup) la arquitectura de copia de seguridad de máquinas virtuales de Azure.
-- [Aprenda sobre](backup-azure-vms-introduction.md) la copia de seguridad de máquinas virtuales de Azure y la extensión Azure Backup.
+De forma predeterminada, todos los discos de las máquinas virtuales se cifran automáticamente en reposo mediante claves administradas por la plataforma (PMK) que usan el [cifrado del servicio de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-service-encryption). Puede realizar una copia de seguridad de estas máquinas virtuales mediante Azure Backup sin ninguna acción específica necesaria para admitir el cifrado en su extremo. Para más información sobre el cifrado con claves administradas por la plataforma, [consulte este artículo](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#platform-managed-keys).
 
-## <a name="encryption-support"></a>Compatibilidad con el cifrado
+![Discos cifrados](./media/backup-encryption/encrypted-disks.png)
+
+## <a name="encryption-using-customer-managed-keys"></a>Cifrado con claves administradas por el cliente
+
+Cuando cifre discos con claves administradas por el cliente (CMK), la clave que se utiliza para cifrar los discos se almacena en Azure Key Vault y la administra el usuario. El cifrado de Storage Service Encryption (SSE) mediante CMK difiere del cifrado de Azure Disk Encryption (ADE). ADE utiliza las herramientas de cifrado del sistema operativo. SSE cifra los datos en el servicio de almacenamiento, lo que permite utilizar cualquier sistema operativo o imagen para las máquinas virtuales. Para más información sobre cifrado de discos administrados con claves administradas por el cliente, consulte [este artículo](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys).
+
+## <a name="encryption-support-using-ade"></a>Compatibilidad con cifrado mediante ADE
 
 Azure Backup admite la copia de seguridad de máquinas virtuales de Azure que tengan cifrados sus discos del sistema operativo o de datos con Azure Disk Encryption (ADE). ADE usa BitLocker para el cifrado de máquinas virtuales Windows y la característica dm-crypt para máquinas virtuales Linux. ADE se integra con Azure Key Vault para administrar las claves de cifrado y los secretos del disco. Las claves de cifrado de claves (KEK) de Key Vault pueden usarse para agregar una capa adicional de seguridad, de forma que se cifran los secretos de cifrado antes de escribirlos en Key Vault.
 
@@ -64,19 +69,19 @@ Además, hay un par de cosas que puede que deba hacer en algunas circunstancias:
 1. En **Objetivo de Backup** > **Where is your workload running?** (¿Dónde se ejecuta su carga de trabajo?), seleccione **Azure**.
 1. En **¿De qué desea hacer una copia de seguridad?** , seleccione **Máquina virtual**. A continuación, seleccione **Copia de seguridad**.
 
-      ![Hoja Escenario](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
+      ![Panel de escenario](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
 
 1. En **Directiva de copia de seguridad**, > **Elegir una directiva de copia de seguridad**, seleccione la directiva que quiere asociar al almacén. Después, seleccione **Aceptar**.
     - Una directiva de copia de seguridad especifica cuándo se realizan las copias de seguridad y cuánto tiempo se almacenan.
     - Los detalles de la directiva predeterminada se muestran en el menú desplegable.
 
-    ![Hoja Escenario abierta](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
+    ![Elegir directiva de copia de seguridad](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
 
 1. Si no quiere usar la directiva predeterminada, seleccione **Crear nueva** y [Crear una directiva personalizada](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
 
 1. En **Máquinas virtuales**, seleccione **Agregar**.
 
-    ![Hoja Escenario abierta](./media/backup-azure-vms-encryption/add-virtual-machines.png)
+    ![Agregar máquinas virtuales](./media/backup-azure-vms-encryption/add-virtual-machines.png)
 
 1. Elija las máquinas virtuales cifradas que quiere copiar mediante la directiva seleccionada y seleccione **Aceptar**.
 
@@ -119,11 +124,6 @@ Para establecer los permisos:
 1. Seleccione **Directivas de acceso** > **Agregar directiva de acceso**.
 
     ![Agregar directiva de acceso](./media/backup-azure-vms-encryption/add-access-policy.png)
-
-1. Seleccione **Seleccionar la entidad de seguridad** y escriba **Administración de copias de seguridad**.
-1. Elija **Backup Management Service** >  (Servicio de administración de copias de seguridad) **Seleccionar**.
-
-    ![Selección del servicio Backup](./media/backup-azure-vms-encryption/select-backup-service.png)
 
 1. En **Agregar directiva de acceso** > **Configurar a partir de una plantilla (opcional)** , seleccione **Azure Backup**.
     - Los permisos necesarios se rellenan previamente en **Permisos clave** y **Permisos de secretos**.

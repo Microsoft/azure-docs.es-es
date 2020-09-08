@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único de Azure Active Directory con Citrix NetScaler (autenticación basada en Kerberos) | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único (SSO) entre Azure Active Directory y Citrix NetScaler mediante la autenticación basada en Kerberos.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: af501bd0-8ff5-468f-9b06-21e607ae25de
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 03/27/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6771060f05a03c82879738dc5e8caccb67e55abc
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 4ff6154e17408b9e2daaf3c81321ae31693de3aa
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478006"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544611"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-netscaler-kerberos-based-authentication"></a>Tutorial: Integración del inicio de sesión único de Azure Active Directory con Citrix NetScaler (autenticación basada en Kerberos)
 

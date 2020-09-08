@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2eff16e0d1aa242ed4ca8b427c7af8e8defa7804
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6e210a11dbcde17c8a5dfd16c46c0d3b3d5c6523
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051293"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716340"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>Preguntas frecuentes sobre el autoservicio de restablecimiento de contraseña
 
 Estas son algunas preguntas frecuentes sobre todos los aspectos relacionados con el autoservicio de restablecimiento de contraseña.
 
-Si tiene alguna pregunta general sobre Azure Active Directory (Azure AD) y el autoservicio de restablecimiento de contraseña (SSPR) y no encuentra ninguna respuesta aquí, puede pedir ayuda a la comunidad en la[Página de preguntas y respuestas de Microsoft sobre Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html). La comunidad está formada por ingenieros, jefes de producto, MVP y profesionales de TI.
+Si tiene alguna pregunta general sobre Azure Active Directory (Azure AD) y el autoservicio de restablecimiento de contraseña (SSPR) y no encuentra ninguna respuesta aquí, puede pedir ayuda a la comunidad en la[Página de preguntas y respuestas de Microsoft sobre Azure Active Directory](/answers/topics/azure-active-directory.html). La comunidad está formada por ingenieros, jefes de producto, MVP y profesionales de TI.
 
 Estas preguntas más frecuentes se dividen en las siguientes secciones:
 
@@ -197,7 +197,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
   >
 * **P:  ¿Los usuarios pueden recibir una notificación en el portal de Office cuando expira la contraseña local?**
 
-  > **R:** Sí, es posible si usa los Servicios de federación de Active Directory (AD FS). Si usa AD FS, siga las instrucciones que se muestran en el artículo en el que se detalla el [envío de notificaciones de directivas de contraseña con AD FS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396). No es posible si usa la sincronización de hash de contraseña. No sincronizamos las directivas de contraseña de directorios locales, por lo que no es posible publicar notificaciones de expiración en las experiencias en la nube. En cualquier caso, también es posible [notificar a los usuarios cuyas contraseñas están a punto de expirar a través de PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
+  > **R:** Sí, es posible si usa los Servicios de federación de Active Directory (AD FS). Si usa AD FS, siga las instrucciones que se muestran en el artículo en el que se detalla el [envío de notificaciones de directivas de contraseña con AD FS](/windows-server/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396). No es posible si usa la sincronización de hash de contraseña. No sincronizamos las directivas de contraseña de directorios locales, por lo que no es posible publicar notificaciones de expiración en las experiencias en la nube. En cualquier caso, también es posible [notificar a los usuarios cuyas contraseñas están a punto de expirar a través de PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
   >
   >
 * **P:  ¿Puedo impedir que los usuarios cambien su contraseña?**
@@ -243,7 +243,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
 
 * **P:  ¿Cómo funciona en segundo plano la escritura diferida de contraseñas?**
 
-  > **R:** Vea el artículo [Funcionamiento de la escritura diferida de contraseñas](howto-sspr-writeback.md) para obtener una explicación de lo que ocurre cuando se habilita la escritura diferida de contraseñas, además de cómo fluyen los datos por el sistema para volver al entorno local.
+  > **R:** Vea el artículo [Funcionamiento de la escritura diferida de contraseñas](./tutorial-enable-sspr-writeback.md) para obtener una explicación de lo que ocurre cuando se habilita la escritura diferida de contraseñas, además de cómo fluyen los datos por el sistema para volver al entorno local.
   >
   >
 * **P:  ¿Cuánto tarda en funcionar la escritura diferida de contraseñas? ¿Existe un retraso en la sincronización como ocurre con la sincronización de hash de contraseñas?**
@@ -273,7 +273,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
   >
 * **P:  ¿Es segura la escritura diferida de contraseñas?  ¿Cómo puedo estar seguro de no ser víctima del ataque de un hacker?**
 
-  > **R:** Sí, la escritura diferida de contraseñas es segura. Para más información sobre los distintos niveles de seguridad que implementa el servicio de escritura diferida de contraseñas, consulte la sección [Seguridad de la escritura diferida de contraseñas](concept-sspr-writeback.md#password-writeback-security) del artículo [Información general sobre la escritura diferida de contraseñas](howto-sspr-writeback.md).
+  > **R:** Sí, la escritura diferida de contraseñas es segura. Para más información sobre los distintos niveles de seguridad que implementa el servicio de escritura diferida de contraseñas, consulte la sección [Seguridad de la escritura diferida de contraseñas](concept-sspr-writeback.md#password-writeback-security) del artículo [Información general sobre la escritura diferida de contraseñas](./tutorial-enable-sspr-writeback.md).
   >
   >
 
@@ -286,7 +286,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
 * [¿Qué datos usa SSPR y cuáles se deben rellenar en lugar de los usuarios?](howto-sspr-authenticationdata.md)
 * [¿Qué métodos de autenticación están disponibles para los usuarios?](concept-sspr-howitworks.md#authentication-methods)
 * [¿Cuáles son las opciones de directiva con SSPR?](concept-sspr-policy.md)
-* [¿Qué es la escritura diferida de contraseñas y por qué nos interesa?](howto-sspr-writeback.md)
+* [¿Qué es la escritura diferida de contraseñas y por qué nos interesa?](./tutorial-enable-sspr-writeback.md)
 * [¿Cómo se informa sobre la actividad de SSPR?](howto-sspr-reporting.md)
 * [¿Cuáles son todas las opciones en SSPR y qué significan?](concept-sspr-howitworks.md)
 * [Creo que algo se ha roto. ¿Cómo se solucionan problemas en SSPR?](active-directory-passwords-troubleshoot.md)

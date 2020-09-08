@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: e9c4d70bcd0b991d90c68d310f94b21757fe2437
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 34036388ce9243c082cf79eb4be9251957eafc01
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830220"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400473"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Línea de base de seguridad de Azure para Key Vault
 
@@ -411,7 +411,7 @@ Planeamiento de una implementación de Azure Multi-Factor Authentication basada 
 
 ### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3.7: Registre y alerte de la actividad sospechosa desde cuentas administrativas
 
-**Instrucciones**: Use Azure Active Directory (AAD) Privileged Identity Management (PIM) para la generación de registros y alertas cuando se produce actividad sospechosa o no segura en el entorno. Use las detecciones de riesgo de AAD para ver alertas e informes sobre el comportamiento de los usuarios peligrosos. Para obtener más registros, envíe alertas de detección de Azure Security Center riesgo en Azure Monitor y configure alertas o notificaciones personalizadas con grupos de acciones.
+**Guía**: use Privileged Identity Management (PIM) de Azure Active Directory (Azure AD) para la generación de registros y alertas cuando se produzca una actividad sospechosa o insegura en el entorno. Use las detecciones de riesgo de Azure AD para ver alertas e informes sobre el comportamiento de los usuarios de riesgo. Para obtener más registros, envíe alertas de detección de Azure Security Center riesgo en Azure Monitor y configure alertas o notificaciones personalizadas con grupos de acciones.
 
 Habilite la protección contra amenazas avanzada (ATP) para Azure Key Vault con el fin de generar alertas para actividades sospechosas.
 
@@ -445,7 +445,7 @@ Creación y administración de grupos de acciones en Azure Portal: https://docs.
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Uso de Azure Active Directory
 
-**Instrucciones**: Use Azure Active Directory (AAD) como sistema central de autenticación y autorización para recursos de Azure como Key Vault. Esto permite el control de acceso basado en roles (RBAC) para administrar recursos confidenciales.
+**Instrucciones**: Use Azure Active Directory (Azure AD) como sistema central de autenticación y autorización para recursos de Azure como Key Vault. Esto permite el control de acceso basado en roles (RBAC) para administrar recursos confidenciales.
 
  
 
@@ -460,7 +460,7 @@ https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: Revise y concilie regularmente el acceso de los usuarios
 
-**Instrucciones**: Revise los registros de Azure Active Directory (AAD) para ayudar a detectar cuentas obsoletas con roles administrativos de Azure Key Vault. Además, use las revisiones de acceso de AAD para administrar de forma eficaz la pertenencia a grupos, el acceso a las aplicaciones empresariales que se pueden usar para tener acceso a Azure Key Vault y las asignaciones de roles. El acceso de los usuarios se puede revisar de forma periódica cada 90 días para asegurarse de que solo las personas adecuadas tengan acceso continuado.
+**Instrucciones**: Revise los registros de Azure Active Directory (Azure AD) para ayudar a detectar cuentas obsoletas con roles administrativos de Azure Key Vault. Además, use las revisiones de acceso de Azure AD para administrar de forma eficaz la pertenencia a grupos, el acceso a las aplicaciones empresariales que se pueden usar para tener acceso a Azure Key Vault y las asignaciones de roles. El acceso de los usuarios se puede revisar de forma periódica cada 90 días para asegurarse de que solo las personas adecuadas tengan acceso continuado.
 
 Documentación sobre informes y supervisión de Azure Active Directory:
 
@@ -1009,11 +1009,15 @@ https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-m
 
 Cómo crear un almacén de claves:
 
-https://docs.microsoft.com/azure/key-vault/quick-create-portal
+https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-Cómo proporcionar la autenticación de Key Vault con una identidad administrada: 
+Autenticación en Key Vault:
 
-https://docs.microsoft.com/azure/key-vault/managed-identity
+https://docs.microsoft.com/azure/key-vault/general/authentication
+
+Asignación de una directiva de acceso de Key Vault:
+
+https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -1025,16 +1029,13 @@ https://docs.microsoft.com/azure/key-vault/managed-identity
 
   
 
-Cómo integrar las identidades administradas de Azure: 
+* [Integración con identidades administradas de Azure](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity)
 
-https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity  
+* [Creación de un almacén de claves](quick-create-portal.md)
 
-Cómo crear un almacén de claves: 
+* [Autenticación en Key Vault](authentication.md)
 
-https://docs.microsoft.com/azure/key-vault/quick-create-portal    
-
-Cómo proporcionar la autenticación de Key Vault con una identidad administrada:  
-https://docs.microsoft.com/azure/key-vault/managed-identity
+* [Asignación de una directiva de acceso de Key Vault](assign-access-policy-portal.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 

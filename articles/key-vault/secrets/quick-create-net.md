@@ -7,12 +7,13 @@ ms.date: 03/12/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: a0e27927c91c8b8ed1cfca410e08a5eb90117f58
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: cf9c34dc2dde5c41edb7991451aebf5d90104196
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076709"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003259"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v4"></a>Inicio rápido: Biblioteca cliente de Azure Key Vault para .NET (SDK v4)
 
@@ -240,7 +241,6 @@ En esta guía de inicio rápido, ha creado un almacén de claves y ha almacenado
 
 Para más información sobre Key Vault y cómo integrarlo con las aplicaciones, continúe con los artículos siguientes.
 
-- Implemente [Autenticación entre servicios en Azure Key Vault mediante .NET](../general/service-to-service-authentication.md).
 - Lea una [introducción a Azure Key Vault](../general/overview.md).
 - Consulte la [guía del desarrollador de Azure Key Vault](../general/developers-guide.md).
 - Consulte los [procedimientos recomendados de Azure Key Vault](../general/best-practices.md).

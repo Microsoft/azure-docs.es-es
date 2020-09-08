@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Ejemplo de plano técnico para un nuevo entorno'
 description: En este tutorial, usará un ejemplo de plano técnico para crear una definición de plano técnico que configura dos grupos de recursos y configura una asignación de roles para cada uno.
-ms.date: 03/25/2020
+ms.date: 08/27/2020
 ms.topic: tutorial
-ms.openlocfilehash: 79928822b41dfe0583afbeaf2f5f1a4a87dd3202
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 891240dcafe0cbfbfab4ff1fd415cba4abf682a5
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677090"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048739"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Tutorial: Creación de un entorno a partir de un ejemplo de plano técnico
 
@@ -122,7 +122,7 @@ La asignación del plano técnico crea los artefactos definidos en la definició
 
 1. Seleccione la página **Planos técnicos asignados** de la izquierda. Use los filtros para buscar la asignación del plano técnico _Assignment-two-rgs-with-role-assignments_ y, a continuación, selecciónela.
 
-   En esta página, podemos ver que la asignación se realizó correctamente y la lista de los recursos creados junto con el estado de bloqueo de plano técnico. Si se actualiza la asignación, el menú desplegable **Operación de asignación** muestra detalles sobre la implementación de cada versión de definición. Se puede hacer clic en cada recurso enumerado para abrir la página de propiedades de los recursos.
+   En esta página, podemos ver que la asignación se realizó correctamente y la lista de los recursos creados junto con el estado de bloqueo de plano técnico. Si se actualiza la asignación, el menú desplegable **Operación de asignación** muestra detalles sobre la implementación de cada versión de definición. Se puede seleccionar cada recurso enumerado para abrir la página de propiedades de los recursos.
 
 1. Seleccione el grupo de recursos **ProductionRG**.
 

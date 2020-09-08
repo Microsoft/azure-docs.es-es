@@ -1,14 +1,14 @@
 ---
 title: Detalles de la estructura de definición de iniciativa
 description: Describe cómo se usan las definiciones de iniciativa de directiva para agrupar definiciones de directiva para la implementación en los recursos de Azure de la organización.
-ms.date: 05/29/2020
+ms.date: 08/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 80fa90765caa25d6995220134b9a5b4225133219
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: d7b4adf15193e2cd1b9e516a04c7c989dc442ee9
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84205876"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048506"
 ---
 # <a name="azure-policy-initiative-definition-structure"></a>Estructura de definición de iniciativa de Azure Policy
 
@@ -284,7 +284,7 @@ Esta información es la siguiente:
 
 - Se muestra en Azure Portal en la información general de un **control** en una iniciativa de cumplimiento reglamentario.
 - Disponible a través de la API de REST. Vea el proveedor de recursos `Microsoft.PolicyInsights` y el [grupo de operaciones policyMetadata](/rest/api/policy-insights/policymetadata/getresource).
-- Disponible mediante la CLI de Azure. Vea el comando [az policy metadata](/cli/azure/policy/metadata?view=azure-cli-latest).
+- Disponible mediante la CLI de Azure. Vea el comando [az policy metadata](/cli/azure/policy/metadata).
 
 > [!IMPORTANT]
 > Los objetos de metadatos para el cumplimiento reglamentario son de _solo lectura_ y no los pueden crear los clientes.

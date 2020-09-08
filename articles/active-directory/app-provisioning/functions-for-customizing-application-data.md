@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: kenwith
-ms.openlocfilehash: 42dcbf693b6ec685849b1523480506e9c8f5b54b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: d454ab3ad382c6237ab9f8c215473801285ba3c9
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202899"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235679"
 ---
 # <a name="how-to-write-expressions-for-attribute-mappings-in-azure-ad"></a>Procedimiento: Escritura de expresiones para la asignación de atributos en Azure AD
 
@@ -34,6 +34,7 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
   2. Constantes de cadena, que deben ir entre comillas. Por ejemplo: "Estados Unidos"
   3. Otras funciones. Por ejemplo: FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
 * Para las constantes de cadena, si necesita una barra diagonal inversa (\) o comillas dobles (") en la cadena, se deben convertirse con el símbolo de barra diagonal inversa (\). Por ejemplo: "Nombre de la empresa: \\"Contoso\\""
+* La sintaxis distingue entre mayúsculas y minúsculas, lo que se debe tener en cuenta al escribirlas como cadenas en una función, por oposición a copiarlas y pegarlas directamente desde aquí. 
 
 ## <a name="list-of-functions"></a>Lista de funciones
 
@@ -192,7 +193,7 @@ devuelve un valor DateTime que representa 2012-01-01 23:00:00.
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |String |Normalmente el nombre del atributo del objeto de origen. |
-| **inputFormat** |Obligatorio |String |Formato esperado del valor de origen. Para conocer los formatos admitidos, consulte [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **inputFormat** |Obligatorio |String |Formato esperado del valor de origen. Para conocer los formatos admitidos, consulte [/dotnet/standard/base-types/custom-date-and-time-format-strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 | **outputFormat** |Obligatorio |String |Formato de la fecha de salida. |
 
 ---
@@ -393,7 +394,7 @@ Devuelve "Joh".
 ### <a name="numfromdate"></a>NumFromDate
 **Función:**<br> NumFromDate(value)
 
-**Descripción:**<br> La función NumFromDate convierte un valor DateTime a un formato de Active Directory necesario para establecer atributos como [accountExpires](https://docs.microsoft.com/windows/win32/adschema/a-accountexpires). Use esta función para convertir valores DateTime recibidos de aplicaciones de recursos humanos en la nube, como WorkDay y SuccessFactors, a su representación de AD equivalente. 
+**Descripción:**<br> La función NumFromDate convierte un valor DateTime a un formato de Active Directory necesario para establecer atributos como [accountExpires](/windows/win32/adschema/a-accountexpires). Use esta función para convertir valores DateTime recibidos de aplicaciones de recursos humanos en la nube, como WorkDay y SuccessFactors, a su representación de AD equivalente. 
 
 **Parámetros:**<br> 
 

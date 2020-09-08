@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
-ms.custom: mimckitt
-ms.openlocfilehash: ad610339d79eb0fd77403957c252a36e8243eb87
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: mimckitt, devx-track-azurepowershell
+ms.openlocfilehash: 0334b13fa73eb2fd648184f44bf0856c0d2a9ed9
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837274"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89076827"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Creación y uso de discos con conjuntos de escalado de máquinas virtuales con Azure PowerShell
 

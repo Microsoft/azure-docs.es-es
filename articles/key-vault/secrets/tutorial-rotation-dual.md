@@ -10,16 +10,16 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: 0d2ee8fbcb71d8703702f2c72e0bf629563667b9
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: b9478d3b171189decb4e2cca7fc93ba2fa75e32e
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542202"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482789"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-with-two-sets-of-authentication-credentials"></a>Automatización de la rotación de un secreto para recursos con dos conjuntos de credenciales de autenticación
 
-Aunque la mejor forma de realizar la autenticación en los servicios de Azure es mediante una [identidad administrada](../general/managed-identity.md), hay algunos escenarios en los que no es posible. En esos casos, se usan claves de acceso o contraseñas. Las claves de acceso y las contraseñas se deben rotar con frecuencia.
+Aunque la mejor forma de realizar la autenticación en los servicios de Azure es mediante una [identidad administrada](../general/authentication.md), hay algunos escenarios en los que no es posible. En esos casos, se usan claves de acceso o contraseñas. Las claves de acceso y las contraseñas se deben rotar con frecuencia.
 
 En este tutorial se muestra cómo automatizar la rotación periódica de secretos de bases de datos y servicios que usan dos conjuntos de credenciales de autenticación. Específicamente, en este tutorial se rotan las claves de cuenta de Azure Storage almacenadas en Azure Key Vault como secretos mediante el uso de una función desencadenada por una notificación de Azure Event Grid :
 
@@ -91,7 +91,7 @@ Las aplicación de funciones para la rotación requiere estos componentes y conf
 1. Seleccione **Revisar y crear**.
 1. Seleccione **Crear**
 
-   ![Revisar y crear](../media/secrets/rotation-dual/dual-rotation-2.png)
+   ![Revisión y creación de la primera cuenta de almacenamiento](../media/secrets/rotation-dual/dual-rotation-2.png)
 
 Tras completar los pasos anteriores tendrá una cuenta de almacenamiento, una granja de servidores, una aplicación de funciones y Application Insights. Debería ver la pantalla siguiente una vez completada la implementación: ![Implementación completada](../media/secrets/rotation-dual/dual-rotation-3.png)
 > [!NOTE]
@@ -136,13 +136,13 @@ Puede mostrar la información del secreto con el siguiente comando:
 ```azurecli
 az keyvault secret show --vault-name akvrotation-kv --name storageKey
 ```
-Observe que se actualiza el valor de `CredentialId` para alternar el valor de `keyName` y se regenera `value`. ![Mostrar secreto](../media/secrets/rotation-dual/dual-rotation-4.png)
+Tenga en cuenta que `CredentialId` se ha actualizado para alternar `keyName` y `value` se ha regenerado. ![Salida de un secreto az keyvault que se muestra para la primera cuenta de almacenamiento](../media/secrets/rotation-dual/dual-rotation-4.png)
 
 Recupere las claves de acceso para comprobar el valor.
 ```azurecli
 az storage account keys list -n akvrotationstorage 
 ```
-![Lista de claves de acceso](../media/secrets/rotation-dual/dual-rotation-5.png)
+![Salida de az storage account keys list para la primera cuenta de almacenamiento](../media/secrets/rotation-dual/dual-rotation-5.png)
 
 ## <a name="add-additional-storage-accounts-for-rotation"></a>Adición de cuentas de almacenamiento adicionales para la rotación
 
@@ -164,7 +164,7 @@ La adición de claves de cuenta de almacenamiento adicionales para su rotación 
 1. Seleccione **Revisar y crear**.
 1. Seleccione **Crear**
 
-   ![Revisar y crear](../media/secrets/rotation-dual/dual-rotation-7.png)
+   ![Revisión y creación de la segunda cuenta de almacenamiento](../media/secrets/rotation-dual/dual-rotation-7.png)
 
 ### <a name="add-another-storage-account-access-key-to-key-vault"></a>Adición de otra clave de acceso de la cuenta de almacenamiento a Key Vault
 
@@ -182,7 +182,7 @@ az storage account keys list -n akvrotationstorage2
 Rellene los valores recuperados para **key2Value** y **storageAccountResourceId**.
 
 ```azurecli
-$tomorrowDate = (get-date).AddDays(+1).ToString("yyy-MM-ddThh:mm:ssZ")
+tomorrowDate=`date -d tomorrow -Iseconds -u | awk -F'+' '{print $1"Z"}'`
 az keyvault secret set --name storageKey2 --vault-name akvrotation-kv --value <key2Value> --tags "CredentialId=key2" "ProviderAddress=<storageAccountResourceId>" "ValidityPeriodDays=60" --expires $tomorrowDate
 ```
 
@@ -190,13 +190,13 @@ Muestre la información del secreto con el siguiente comando:
 ```azurecli
 az keyvault secret show --vault-name akvrotation-kv --name storageKey2
 ```
-Observe que se actualiza el valor de `CredentialId` para alternar el valor de `keyName` y se regenera `value`. ![Mostrar secreto](../media/secrets/rotation-dual/dual-rotation-8.png)
+Tenga en cuenta que `CredentialId` se ha actualizado para alternar `keyName` y `value` se ha regenerado. ![Salida de un secreto az keyvault que se muestra para la segunda cuenta de almacenamiento](../media/secrets/rotation-dual/dual-rotation-8.png)
 
 Recupere las claves de acceso para comprobar el valor.
 ```azurecli
 az storage account keys list -n akvrotationstorage 
 ```
-![Lista de claves de acceso](../media/secrets/rotation-dual/dual-rotation-9.png)
+![Salida de az storage account keys list para la segunda cuenta de almacenamiento](../media/secrets/rotation-dual/dual-rotation-9.png)
 
 ## <a name="available-key-vault-dual-credential-rotation-functions"></a>Funciones disponibles de rotación de credenciales duales de Key Vault
 

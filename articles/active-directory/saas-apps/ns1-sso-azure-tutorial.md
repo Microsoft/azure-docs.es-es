@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con NS1 SSO for Azure | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y NS1 SSO for Azure.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 24a1afb6-b8b6-4787-bd4b-8fe3a32f8def
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/12/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e917265f4bf6f857a0eada2433f0a0e4e24d7c5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d0fee044506a9a19e09478ef8d70b3719ecc167a
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77565594"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88554267"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ns1-sso-for-azure"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con NS1 SSO for Azure
 

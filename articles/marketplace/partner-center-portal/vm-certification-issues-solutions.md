@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 06/16/2020
-ms.openlocfilehash: 594a47f397ca78476ed987ac0e06a3cacc79ec3b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5878ea6a554439c261399706eec708b06ed59b11
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319905"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225395"
 ---
 # <a name="issues-and-solutions-during-virtual-machine-certification"></a>Problemas y soluciones durante la certificación de máquinas virtuales 
 
@@ -314,6 +314,57 @@ Consulte la tabla siguiente a fin de obtener soluciones para los errores relativ
 Si la opción de Protocolo de escritorio remoto (RDP) no está habilitada para la imagen de Windows, recibirá este error. 
 
 Habilite el acceso RDP para imágenes de Windows antes de enviarlas.
+
+## <a name="bash-history-failed"></a>Error en el historial de Bash
+
+Si el tamaño del historial de Bash de la imagen enviada es superior a 1 kilobyte (KB), se mostrará un error. El tamaño está limitado a 1 KB para garantizar que cualquier información potencialmente sensible no sea capturada en el archivo de historial de Bash.
+
+A continuación se indican los pasos para eliminar el "historial de Bash".
+
+Paso 1. Implemente la máquina virtual y haga clic en la opción "Ejecutar comando" en Azure Portal.
+![Ejecutar comando en Azure Portal](./media/vm-certification-issues-solutions-3.png)
+
+Paso 2. Seleccione la primera opción "RunShellScript" y ejecute el siguiente comando.
+
+Comando: cat /dev/null > ~/.bash_history && history -c" ![Comando de historial de Bash en Azure Portal](./media/vm-certification-issues-solutions-4.png)
+
+Paso 3. Después de ejecutar correctamente el comando, reinicie la máquina virtual.
+
+Paso 4. Generalice la máquina virtual, tome la imagen VHD y detenga la máquina virtual.
+
+Paso 5.     Vuelva a enviar la imagen generalizada.
+
+## <a name="requesting-exceptions-custom-templates-on-vm-images-for-selective-tests"></a>Solicitud de excepciones (plantillas personalizadas) en imágenes de máquinas virtuales para pruebas selectivas
+
+Los publicadores pueden solicitar excepciones para algunas pruebas realizadas durante la certificación de la máquina virtual. Las excepciones se proporcionan en casos muy raros cuando el publicador proporciona evidencias para admitir la solicitud.
+El equipo de certificación se reserva el derecho a denegar o aprobar excepciones en cualquier momento.
+
+En las secciones siguientes, hablaremos sobre los escenarios principales en los que se solicitan las excepciones y cómo se solicita una excepción.
+
+Escenarios para la excepción
+
+Hay tres escenarios/casos en los que los publicadores suelen solicitar estas excepciones. 
+
+* **Excepción para uno o varios casos de prueba:** los publicadores pueden ponerse en contacto con el [ soporte técnico para publicadores de Marketplace](https://aka.ms/marketplacepublishersupport) para solicitar excepciones para casos de prueba. 
+
+* **Máquinas virtuales bloqueadas/sin acceso raíz:** algunos publicadores tienen escenarios donde es necesario bloquear las máquinas virtuales, ya que tienen software como firewalls instalados en la máquina virtual. 
+       En este caso, los publicadores pueden descargar la [herramienta de prueba de certificados](https://aka.ms/AzureCertificationTestTool) aquí y proporcionar el informe en el [ soporte técnico para publicadores de Marketplace](https://aka.ms/marketplacepublishersupport)
+
+
+* **Plantillas personalizadas:** algunos publicadores publican imágenes de máquinas virtuales que requieren una plantilla de ARM personalizada para implementar las máquinas virtuales. En este caso, se solicita a los publicadores que proporcionen las plantillas personalizadas al [ soporte técnico para publicadores de Marketplace](https://aka.ms/marketplacepublishersupport) para que el equipo de certificación pueda usarlas para la validación. 
+
+### <a name="information-to-provide-for-exception-scenarios"></a>Información que se debe proporcionar para escenarios de excepción
+
+Los publicadores deben ponerse en contacto con el [soporte técnico para publicadores de Marketplace](https://aka.ms/marketplacepublishersupport) para solicitar excepciones para el escenario anterior con la información adicional siguiente:
+
+   1.   Identificador del publicador: el identificador del publicador en el portal del Centro de partners
+   2.   Identificador/nombre de oferta: el identificador o el nombre de la oferta para el que se solicita la excepción 
+   3.   SKU/identificador de plan: el SKU/identificador de plan de la oferta de máquina virtual para la que se solicita la excepción
+   4.    Versión: la versión de la oferta de máquina virtual para la que se solicita la excepción
+   5.   Tipo de excepción: pruebas, máquina virtual bloqueada, plantillas personalizadas
+   6.   Motivo de la solicitud: motivo de esta excepción e información sobre las pruebas que se van a excluir 
+   7.   Datos adjuntos: posibles documentos importantes de evidencia En el caso de las máquinas virtuales bloqueadas, adjunte el informe de prueba y, para las plantillas personalizadas, proporcione la plantilla de ARM personalizada como dato adjunto. Si no adjunta el informe para las máquinas virtuales bloqueadas y la plantilla de ARM personalizada para las plantillas personalizadas se producirá una denegación de solicitud.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

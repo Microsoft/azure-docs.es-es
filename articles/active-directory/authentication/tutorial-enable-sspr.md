@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b6fe3238a2ad602b388ff24faaee3a200084ae0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 30a51f4b07f62b6e3491f74de78ea0d04bbb1775
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419485"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399980"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutorial: Habilitación del autoservicio de restablecimiento de contraseña de Azure Active Directory para que los usuarios puedan desbloquear su cuenta o restablecer contraseñas
 
@@ -37,7 +37,8 @@ En este tutorial, aprenderá a:
 
 Para completar este tutorial, necesitará los siguientes recursos y privilegios:
 
-* Un inquilino de Azure AD activo con al menos una licencia de Azure AD Premium P1 o de prueba habilitada.
+* Un inquilino de Azure AD activo con al menos una licencia de Azure AD Free o de prueba habilitada. En el nivel Gratis, SSPR solo funciona para los usuarios de la nube en Azure AD.
+    * En los tutoriales posteriores de esta serie, se necesita una licencia de Azure AD Premium P1 o de prueba para la escritura diferida de contraseñas local.
     * Si es preciso, [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Una cuenta con privilegios de *Administrador global*.
 * Un usuario que no sea administrador con una contraseña que conozca, como *usuarioDePrueba*. Utilizará esta cuenta para probar la experiencia de SSPR por parte del usuario final en este tutorial.
@@ -148,4 +149,4 @@ En este tutorial habilitó el autoservicio de restablecimiento de contraseña en
 > * Probar el proceso SSPR como usuario
 
 > [!div class="nextstepaction"]
-> [Habilitación de Azure Multi-Factor Authentication](tutorial-mfa-applications.md)
+> [Habilitación de Azure Multi-Factor Authentication](./tutorial-enable-azure-mfa.md)

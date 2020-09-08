@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 272dd95b97c65ecc52dd73909f1ed87d5e5ae3ca
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 50c5c02327aa9f48a605607de901258827b14896
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170503"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783950"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Agregar una organización conectada en la administración de derechos de Azure AD
 
@@ -43,8 +43,8 @@ En este caso, puede configurar dos organizaciones conectadas. Crea una organizac
 La forma en que los usuarios del directorio de Azure AD o el dominio se autentican depende del tipo de autenticación. Los tipos de autenticación para las organizaciones conectadas son:
 
 - Azure AD
-- [Federación directa](../b2b/direct-federation.md)
-- [Código de acceso de un solo uso](../b2b/one-time-passcode.md) (dominio)
+- [Federación directa](../external-identities/direct-federation.md)
+- [Código de acceso de un solo uso](../external-identities/one-time-passcode.md) (dominio)
 
 Para ver una demostración de cómo agregar una organización conectada, vea el vídeo siguiente:
 
@@ -79,7 +79,7 @@ Para agregar un directorio o dominio externo de Azure AD como organización cone
 1. Seleccione **Agregar** para agregar el directorio o dominio de Azure AD. Actualmente, solo puede agregar un directorio o dominio de Azure AD por organización conectada.
 
     > [!NOTE]
-    > Todos los usuarios del directorio o dominio de Azure AD podrán solicitar este paquete de acceso. Esto incluye a los usuarios de Azure AD de todos los subdominios asociados con el directorio, a menos que los dominios estén bloqueados en la lista de permitidos o denegados de B2B de Azure AD. Para obtener más información, consulte [Allow or block invitations to B2B users from specific organizations](../b2b/allow-deny-list.md) (Permitir o bloquear invitaciones a usuarios de B2B procedentes de determinadas organizaciones).
+    > Todos los usuarios del directorio o dominio de Azure AD podrán solicitar este paquete de acceso. Esto incluye a los usuarios de Azure AD de todos los subdominios asociados con el directorio, a menos que los dominios estén bloqueados en la lista de permitidos o denegados de B2B de Azure AD. Para obtener más información, consulte [Allow or block invitations to B2B users from specific organizations](../external-identities/allow-deny-list.md) (Permitir o bloquear invitaciones a usuarios de B2B procedentes de determinadas organizaciones).
 
 1. Después de agregar el directorio o dominio de Azure AD, elija **Seleccionar**.
 
@@ -89,7 +89,7 @@ Para agregar un directorio o dominio externo de Azure AD como organización cone
 
 1. Seleccione la pestaña **Patrocinadores** y, a continuación, agregue patrocinadores opcionales para esta organización conectada.
 
-    Los patrocinadores son usuarios internos o externos ya existentes en el directorio que son el punto de contacto para la relación con esta organización conectada. Los patrocinadores internos son usuarios miembros de su directorio. Los patrocinadores externos son usuarios invitados de la organización conectada a los que se ha invitado previamente y que ya están en el directorio. Los patrocinadores se pueden usar como aprobadores cuando los usuarios de esta organización conectada soliciten acceso a este paquete de acceso. Para obtener información sobre cómo traer a un usuario invitado a su directorio, consulte [Agregar usuarios de colaboración de Azure Active Directory B2B en el Azure Portal](../b2b/add-users-administrator.md).
+    Los patrocinadores son usuarios internos o externos ya existentes en el directorio que son el punto de contacto para la relación con esta organización conectada. Los patrocinadores internos son usuarios miembros de su directorio. Los patrocinadores externos son usuarios invitados de la organización conectada a los que se ha invitado previamente y que ya están en el directorio. Los patrocinadores se pueden usar como aprobadores cuando los usuarios de esta organización conectada soliciten acceso a este paquete de acceso. Para obtener información sobre cómo traer a un usuario invitado a su directorio, consulte [Agregar usuarios de colaboración de Azure Active Directory B2B en el Azure Portal](../external-identities/add-users-administrator.md).
 
     Al seleccionar **Agregar o quitar**, se abre un panel en el que puede elegir patrocinadores internos o externos. El panel muestra una lista sin filtrar de usuarios y grupos en el directorio.
 
@@ -103,7 +103,7 @@ Para agregar un directorio o dominio externo de Azure AD como organización cone
 
 Si la organización conectada cambia a otro dominio, el nombre de la organización cambia o quiere cambiar los patrocinadores, puede seguir las instrucciones de esta sección para actualizar la organización conectada.
 
-**Rol necesario**: *Administrador global*, *Administrador de usuarios* o *Invitador de usuarios invitados*
+**Rol necesario**: *administrador global* o *administrador de usuarios*.
 
 1. En Azure Portal, seleccione **Azure Active Directory** y, a continuación, **Gobernanza de identidades**.
 
@@ -120,7 +120,7 @@ Si la organización conectada cambia a otro dominio, el nombre de la organizaci�
 
 Si ya no tiene una relación con un dominio o directorio externo de Azure AD, puede eliminar la organización conectada.
 
-**Rol necesario**: *Administrador global*, *Administrador de usuarios* o *Invitador de usuarios invitados*
+**Rol necesario**: *administrador global* o *administrador de usuarios*.
 
 1. En Azure Portal, seleccione **Azure Active Directory** y, a continuación, **Gobernanza de identidades**.
 
@@ -132,7 +132,11 @@ Si ya no tiene una relación con un dominio o directorio externo de Azure AD, p
 
     ![Botón Eliminar de la organización conectada](./media/entitlement-management-organization/organization-delete.png)
 
+## <a name="managing-a-connected-organization-programmatically"></a>Administración de una organización conectada mediante programación
+
+También puede crear, enumerar, actualizar y eliminar organizaciones conectadas mediante Microsoft Graph. Un usuario de un rol adecuado con una aplicación con el permiso `EntitlementManagement.ReadWrite.All` delegado puede llamar a la API para administrar objetos [connectedOrganization](/graph/api/resources/connectedorganization?view=graph-rest-beta) y establecer patrocinadores para ellos.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Administración del acceso para usuarios externos](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users)
+- [Administración del acceso para usuarios externos](./entitlement-management-external-users.md)
 - [Administración del acceso para los usuarios que no están en el directorio](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)

@@ -16,12 +16,12 @@ ms.date: 04/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a14249f28da15f04a214c2a1cb4bd415fb59ce9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69373e039320cd733fb859bb84e03e5493e05403
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356634"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277211"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: actualización de una versión anterior a la versión más reciente
 En este tema se describen los distintos métodos que se puede utilizar para actualizar la instalación de Azure Active Directory (Azure AD) Connect a la versión más reciente. Le recomendamos mantenerse al día con las versiones de Azure AD Connect. Los pasos de la sección [Migración oscilante](#swing-migration) también se utilizan al realizar un cambio de configuración considerable.
@@ -54,7 +54,7 @@ Si se realizaron cambios en las reglas de sincronización originales, estas volv
 
 Durante la actualización en contexto, puede que se hayan introducido cambios que requieran que se ejecuten actividades específicas de sincronización (incluidos los pasos de importación completa y sincronización completa) una vez completada la actualización. Para aplazar estas actividades, consulte la sección [Aplazamiento de la sincronización completa después de la actualización](#how-to-defer-full-synchronization-after-upgrade).
 
-Si utiliza Azure AD Connect con un conector no estándar (por ejemplo, el conector LDAP genérico y el conector SQL genérico), debe actualizar la configuración del conector correspondiente en [Synchronization Service Manager](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-connectors) después de la actualización local. Para obtener información sobre cómo actualizar la configuración del conector, consulte la sección del artículo [Historial de versiones de conectores: Solución de problemas](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-connector-version-history#troubleshooting). Si no actualiza la configuración, los pasos de ejecución de importación y exportación no funcionarán correctamente para el conector. Recibirá el siguiente error en el registro de eventos de la aplicación con el mensaje *"Assembly version in AAD Connector configuration ("X.X.XXX.X") is earlier than the actual version ("X.X.XXX.X") of "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll"* (La versión de ensamblado en la configuración de AAD Connector ["X.X.XXX.X"] es anterior que la versión real ["X.X.XXX.X"] de "C:\Archivos de programa\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll).
+Si utiliza Azure AD Connect con un conector no estándar (por ejemplo, el conector LDAP genérico y el conector SQL genérico), debe actualizar la configuración del conector correspondiente en [Synchronization Service Manager](./how-to-connect-sync-service-manager-ui-connectors.md) después de la actualización local. Para obtener información sobre cómo actualizar la configuración del conector, consulte la sección del artículo [Historial de versiones de conectores: Solución de problemas](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#troubleshooting). Si no actualiza la configuración, los pasos de ejecución de importación y exportación no funcionarán correctamente para el conector. Recibirá el siguiente error en el registro de eventos de la aplicación con el mensaje *"Assembly version in AAD Connector configuration ("X.X.XXX.X") is earlier than the actual version ("X.X.XXX.X") of "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll"* (La versión de ensamblado en la configuración de AAD Connector ["X.X.XXX.X"] es anterior que la versión real ["X.X.XXX.X"] de "C:\Archivos de programa\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll).
 
 ## <a name="swing-migration"></a>Migración oscilante
 Si tiene una implementación compleja o muchos objetos, puede que no resulte práctico realizar una actualización local en el sistema activo. En el caso de algunos clientes, este proceso podría tardar varios días y durante este tiempo no se procesará ningún cambio delta. Este método también se puede utilizar cuando se planea realizar cambios sustanciales en la configuración y se desea probarlos antes de insertarlos en la nube.

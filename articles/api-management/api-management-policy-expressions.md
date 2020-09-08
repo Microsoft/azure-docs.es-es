@@ -1,6 +1,6 @@
 ---
 title: Expresiones de las directivas de Azure API Management | Microsoft Docs
-description: Obtenga información acerca de las expresiones de las directivas de Azure API Management.
+description: Obtenga información acerca de las expresiones de las directivas de Azure API Management. Vea ejemplos y examine los recursos adicionales disponibles.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 1713f2ca8fda0c768727ea12e682b373d644bcba
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7117ffcbaf4eba8d83a6e968f4fed7422673610b
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249825"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87844247"
 ---
 # <a name="api-management-policy-expressions"></a>Expresiones de las directivas de API Management
 En este artículo se describe la sintaxis de expresiones de directiva en C# 7. Cada expresión tiene acceso a la variable de [contexto](api-management-policy-expressions.md#ContextVariables) proporcionada de forma implícita y a un [subconjunto](api-management-policy-expressions.md#CLRTypes) permitido de tipos de .NET Framework.

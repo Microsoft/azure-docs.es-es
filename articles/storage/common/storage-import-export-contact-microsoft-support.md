@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/29/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 20ac33a26bfe24eb60e2febc1344859f4e54cdd4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee30e9bba35ad39606fbe201c49e4eed3e656c97
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514415"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548281"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Abra un vale de soporte para un trabajo de Import/Export
 
@@ -26,7 +26,7 @@ Si tiene algún problema con el servicio Import/Export, puede crear una solicitu
 
 Lleve a cabo los siguientes pasos para crear una solicitud de soporte.
 
-1. Vaya a su trabajo de Import/Export. Vaya a la sección **SOPORTE Y SOLUCIÓN DE PROBLEMAS** y haga clic en **Nueva solicitud de soporte técnico**.
+1. Vaya a su trabajo de Import/Export. Vaya a la sección **Soporte técnico y solución de problemas** y luego seleccione **Nueva solicitud de soporte técnico**.
      
     ![Aspectos básicos](./media/storage-import-export-contact-microsoft-support/import-export-support1.png)
    
@@ -40,7 +40,7 @@ Lleve a cabo los siguientes pasos para crear una solicitud de soporte.
         - Si elige **Blob**, seleccione **Recurso**, **Nombres de contenedor** (opcional) y **Plan de soporte técnico**.
             ![Elección de blob](./media/storage-import-export-contact-microsoft-support/import-export-support2.png)
         - Si elige **Archivo**, seleccione **Recurso**, **Nombres de recurso compartido de archivo** (opcional) y **Plan de soporte técnico** ![Elegir archivo](./media/storage-import-export-contact-microsoft-support/import-export-support4.png)
-    4. Haga clic en **Next**.
+    4. Seleccione **Next** (Siguiente).
 
 3. En **Nueva solicitud de soporte técnico**, seleccione **Paso 2: Problema**. En **Problema**, siga estos pasos:
     
@@ -49,22 +49,22 @@ Lleve a cabo los siguientes pasos para crear una solicitud de soporte.
     3. Elija la **Categoría** como **Import/Export**.
     4. Proporcione un **Título** para el problema y más **Detalles**.
     5. Especifique la fecha y hora de inicio del problema.
-    6. En **Carga de archivos**, haga clic en el icono de la carpeta para navegar a cualquier otro archivo que desee cargar.
+    6. En **Carga de archivos**, seleccione el icono de la carpeta para navegar a cualquier otro archivo que quiera cargar.
     7. Seleccione **Compartir información de diagnóstico**.
-    8. Haga clic en **Next**.
+    8. Seleccione **Next** (Siguiente).
 
        ![Problema](./media/storage-import-export-contact-microsoft-support/import-export-support5.png)
 
-4. En **Nueva solicitud de soporte**, haga clic en **Paso 3: Información de contacto**. En **Información de contacto**, siga estos pasos:
+4. En **Nueva solicitud de soporte**, seleccione **Paso 3: Información de contacto**. En **Información de contacto**, siga estos pasos:
 
    1. En **Opciones de contacto**, especifique el método de contacto preferido (teléfono o correo electrónico) y el idioma. El tiempo de respuesta se selecciona automáticamente en función del plan de suscripción.
    2. En Información de contacto, especifique su nombre, correo electrónico, contacto opcional y país o región. Active la casilla **Guardar cambios de contacto para solicitudes futuras de soporte técnico**.
-   3. Haga clic en **Crear**.
+   3. Seleccione **Crear**.
    
        ![Información de contacto](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   
 
       El Soporte técnico de Microsoft usará esta información para ponerse en contacto con usted para solicitar más información y comunicar el diagnóstico y la resolución.
-      Una vez que ha enviado la solicitud, un ingeniero de soporte se pondrá en contacto con usted tan pronto como sea posible para procesar su solicitud.
+      Una vez que ha enviado la solicitud, un ingeniero de soporte técnico se pondrá en contacto con usted tan pronto como sea posible para procesar su solicitud.
 
 ## <a name="manage-a-support-request"></a>Administración de una solicitud de soporte técnico
 
@@ -80,11 +80,11 @@ Después de crear una incidencia de soporte técnico, puede administrar el ciclo
 
     ![Administrar solicitudes de soporte técnico](./media/storage-import-export-contact-microsoft-support/manage-support-ticket1.png) 
 
-3. Seleccione una solicitud de soporte técnico y haga clic en ella. Puede ver el estado y los detalles de esta solicitud. Haga clic en **+ Nuevo mensaje** si desea realizar un seguimiento de esta solicitud.
+3. Seleccione una solicitud de soporte técnico y haga clic en ella. Puede ver el estado y los detalles de esta solicitud. Seleccione **+ Nuevo mensaje** si desea realizar un seguimiento de esta solicitud.
 
     ![Administrar solicitudes de soporte técnico](./media/storage-import-export-contact-microsoft-support/manage-support-ticket3.png) 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprenda a [solucionar problemas relacionados con el servicio Import/Export](storage-import-export-tool-troubleshooting-v1.md).
+Obtenga información sobre cómo [usar Azure Import/Export para transferir datos hacia y desde Azure Storage](storage-import-export-service.md).

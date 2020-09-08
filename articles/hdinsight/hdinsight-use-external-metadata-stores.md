@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/30/2020
-ms.openlocfilehash: 2d6ebcd720a5cea8d41bf3c05f753f2e9d4775d1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 08/06/2020
+ms.openlocfilehash: 78c0526ac750977115a88e96bb5f7d5cb4e9803f
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085912"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873099"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Uso de repositorios de metadatos externos en Azure HDInsight
 
@@ -38,10 +38,10 @@ De forma predeterminada, HDInsight crea una tienda de metadatos con cada tipo de
 
 * No puede compartir la metastore predeterminada con otros clústeres.
 
-* El metastore predeterminado utiliza la instancia básica de Azure SQL Database, que tiene un límite de cinco DTU (unidades de procesamiento de base de datos).
-Este metastore predeterminado se utiliza normalmente para cargas de trabajo relativamente sencillas. Las cargas de trabajo que no requieren varios clústeres y no necesitan que los metadatos se conserven más allá del ciclo de vida del clúster.
+* El metastore predeterminado solo se recomienda para cargas de trabajo sencillas. Las cargas de trabajo que no requieren varios clústeres y no necesitan que los metadatos se conserven más allá del ciclo de vida del clúster.
 
-* En el caso de las cargas de trabajo de producción, se recomienda migrar a un metastore externo. Vea la siguiente sección para más información.
+> [!IMPORTANT]
+> El metastore predeterminado proporciona una instancia de Azure SQL Database con un **límite de 5 DTU de nivel básico (no actualizable)** . Esto resulta adecuado para la realización de pruebas básicas. En el caso de las cargas de trabajo de producción o de gran volumen, se recomienda migrar a un metastore externo.
 
 ## <a name="custom-metastore"></a>Tienda de metadatos personalizada
 
@@ -81,9 +81,8 @@ En cualquier momento, puede apuntar el clúster a una instancia de Azure SQL Dat
 
 ## <a name="hive-metastore-guidelines"></a>Guía de metastore de Hive
 
-* Use una tienda de metadatos personalizada siempre que sea posible para ayudarle a separar los recursos de proceso (el clúster de ejecución) y los metadatos (almacenados en la tienda de metadatos).
-
-* Comience con un nivel S2, que proporciona 50 DTU y 250 GB de almacenamiento. Si percibe un cuello de botella, puede escalar la base de datos.
+> [!NOTE]
+> Use una tienda de metadatos personalizada siempre que sea posible para ayudarle a separar los recursos de proceso (el clúster de ejecución) y los metadatos (almacenados en la tienda de metadatos). Comience con el S2, que proporciona 50 DTU y 250 GB de almacenamiento. Si percibe un cuello de botella, puede escalar la base de datos.
 
 * Si tiene previsto que varios clústeres de HDInsight tengan acceso a datos separados, use una base de datos independiente para la tienda de metadatos en cada clúster. Si comparte una tienda de metadatos entre varios clústeres de HDInsight, entonces los clústeres utilizan los mismos metadatos y los mismos archivos de datos de usuario subyacentes.
 

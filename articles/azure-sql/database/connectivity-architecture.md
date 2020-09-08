@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 06/26/2020
-ms.openlocfilehash: 1676815e1b5614a1e9aa33a1dc5ce471601bde76
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 4d48ca3685dca36157307e7cb4b3d25261c243aa
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87759332"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705748"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Arquitectura de conectividad de Azure SQL Database y Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -79,10 +79,10 @@ En el siguiente artículo se describen los detalles de cómo se migrará el trá
 | Centro de Australia    | 20.36.105.0 |
 | Centro de Australia 2   | 20.36.113.0 |
 | Este de Australia       | 13.75.149.87, 40.79.161.1, 13.70.112.9 |
-| Sudeste de Australia | 191.239.192.109, 13.73.109.251 |
+| Sudeste de Australia | 191.239.192.109, 13.73.109.251, 13.77.48.10 |
 | Sur de Brasil         | 104.41.11.5, 191.233.200.14 |
 | Centro de Canadá       | 40.85.224.249, 52.246.152.0, 20.38.144.1 |
-| Este de Canadá          | 40.86.226.166      |
+| Este de Canadá          | 40.86.226.166, 52.242.30.154 |
 | Centro de EE. UU.           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 |
 | Este de China           | 139.219.130.35     |
 | Este de China 2         | 40.73.82.1         |
@@ -113,7 +113,7 @@ En el siguiente artículo se describen los detalles de cómo se migrará el trá
 | Oeste de Suiza     | 51.107.152.0, 51.107.153.0 |
 | Centro de Emiratos Árabes Unidos          | 20.37.72.64        |
 | Norte de Emiratos Árabes Unidos            | 65.52.248.0        |
-| Sur de Reino Unido             | 51.140.184.11      |
+| Sur de Reino Unido             | 51.140.184.11, 51.105.64.0 |
 | Oeste de Reino Unido              | 51.141.8.11        |
 | Centro-Oeste de EE. UU.      | 13.78.145.25, 13.78.248.43        |
 | Oeste de Europa          | 40.68.37.158, 191.237.232.75, 104.40.168.105, 52.236.184.163  |

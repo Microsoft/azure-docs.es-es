@@ -4,12 +4,12 @@ description: En este tutorial, aprenderá a crear un almacén de Recovery Servic
 ms.date: 07/26/2020
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 7a8849bba51939a0c40cba81925e1b4b4a6e3826
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: a9517ffc1e37d50f7c0e57b9ed53fb8bcf55fd70
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372559"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180582"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Uso de Azure Portal para realizar la copia de seguridad de varias máquinas virtuales
 
@@ -53,7 +53,7 @@ El almacén de Recovery Services contiene los datos de la copia de seguridad y l
 
     ![Valores del almacén de Recovery Services](./media/tutorial-backup-vm-at-scale/review-and-create.png)
 
-    Un almacén de Recovery Services debe estar en la misma ubicación que las máquinas virtuales que se están protegiendo. Si tiene máquinas virtuales en varias regiones, cree un almacén de Recovery Services en cada una de ellas. En este tutorial se crea un almacén de Recovery Services en *Oeste de Europa*, porque es la ubicación donde se creó *myVM* (la máquina virtual creada con el inicio rápido).
+    Un almacén de Recovery Services debe estar en la misma ubicación que las máquinas virtuales que se están protegiendo. Si tiene máquinas virtuales en varias regiones, cree un almacén de Recovery Services en cada una de ellas. En este tutorial se crea un almacén de Recovery Services en *Oeste de Europa*, porque es la ubicación donde se creó *myVM* (la máquina virtual creada con la guía de inicio rápido).
 
 1. Cuando esté listo para crear el almacén de Recovery Services, seleccione **Crear**.
 
@@ -136,7 +136,7 @@ Para ejecutar un trabajo de copia de seguridad a petición:
 
 1. En el menú contextual, seleccione **Realizar copia de seguridad ahora**.
 
-    ![Menú contextual](./media/tutorial-backup-vm-at-scale/context-menu.png)
+    ![Menú contextual: seleccionar Realizar copia de seguridad ahora](./media/tutorial-backup-vm-at-scale/context-menu.png)
 
     Se abrirá el menú Realizar copia de seguridad ahora.
 
@@ -156,7 +156,7 @@ Si tiene previsto seguir trabajando con los tutoriales siguientes, no elimine lo
 
 1. En el panel **myRecoveryServicesVault**, seleccione **3** en **Elementos de copia de seguridad** para abrir el menú correspondiente.
 
-    ![Elementos de copia de seguridad](./media/tutorial-backup-vm-at-scale/tutorial-vm-back-up-now.png)
+    ![Apertura del menú Elementos de copia de seguridad](./media/tutorial-backup-vm-at-scale/tutorial-vm-back-up-now.png)
 
 1. En el menú **Elementos de copia de seguridad**, seleccione **Máquina virtual de Azure** para abrir la lista de máquinas virtuales asociadas con el almacén.
 
@@ -166,7 +166,7 @@ Si tiene previsto seguir trabajando con los tutoriales siguientes, no elimine lo
 
 1. En el menú **Elementos de copia de seguridad**, seleccione los puntos suspensivos para abrir el menú contextual.
 
-    ![Menú contextual](./media/tutorial-backup-vm-at-scale/context-menu-to-delete-vm.png)
+    ![En el menú Elementos de copia de seguridad, abrir el menú contextual](./media/tutorial-backup-vm-at-scale/context-menu-to-delete-vm.png)
 
 1. En el menú contextual, seleccione **Detener copia de seguridad** para abrir el menú Detener copia de seguridad.
 
@@ -185,7 +185,7 @@ Si tiene previsto seguir trabajando con los tutoriales siguientes, no elimine lo
 
 1. Cuando ya no quede ningún elemento en el almacén, seleccione **Eliminar**.
 
-    ![Selección de Detener copia de seguridad para eliminar el almacén](./media/tutorial-backup-vm-at-scale/deleting-the-vault.png)
+    ![Seleccionar Eliminar](./media/tutorial-backup-vm-at-scale/deleting-the-vault.png)
 
     Una vez eliminado el almacén, se volverá a la lista de almacenes de Recovery Services.
 

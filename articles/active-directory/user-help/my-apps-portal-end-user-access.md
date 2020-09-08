@@ -12,12 +12,12 @@ ms.date: 02/03/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: aa9813480425d179bdd11bac6f6f944f9f65e3ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78204be967bafdd7d01af4f9f286bd15347e4a9f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83741963"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798047"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones
 
@@ -33,7 +33,7 @@ Si no tiene acceso al portal **Aplicaciones**, póngase en contacto con su depar
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 > [!Important]
-> Este contenido está diseñado para los usuarios de Aplicaciones. Si es administrador, puede encontrar más información acerca de cómo configurar y administrar aplicaciones basadas en la nube en la [Documentación sobre la administración de aplicaciones](https://docs.microsoft.com/azure/active-directory/manage-apps).
+> Este contenido está diseñado para los usuarios de Aplicaciones. Si es administrador, puede encontrar más información acerca de cómo configurar y administrar aplicaciones basadas en la nube en la [Documentación sobre la administración de aplicaciones](../manage-apps/index.yml).
 
 ## <a name="supported-browsers"></a>Exploradores compatibles
 
@@ -59,7 +59,7 @@ Esta extensión le ayuda a realizar las siguientes tareas:
 
 - Consultar las últimas aplicaciones que utilizó en la sección **Usado recientemente**.
 
-- Usar direcciones URL internas de la empresa mientras se conecta de forma remota con el [proxy de la aplicación](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started).
+- Usar direcciones URL internas de la empresa mientras se conecta de forma remota con el [proxy de la aplicación](../manage-apps/application-proxy.md).
 
 ### <a name="to-download-and-install-the-extension"></a>Para descargar e instalar la extensión, realice el siguiente procedimiento:
 

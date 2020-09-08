@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: f2f752d6435b311c1737d531f5572aed5af223f2
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.date: 08/10/2020
+ms.openlocfilehash: 608740ea52cf82485bae073d9679107ac52baa28
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276658"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611133"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Réplicas de lectura en Azure Database for PostgreSQL: servidor único
 
@@ -163,16 +163,19 @@ Las réplicas de lectura se crean como nuevos servidores Azure Database for Post
 ### <a name="replica-configuration"></a>Configuración de réplicas
 Una réplica se crea con la misma configuración de proceso y almacenamiento que el servidor maestro. Una vez creada una réplica, se pueden cambiar varias configuraciones, incluido el período de retención de almacenamiento y copia de seguridad.
 
-Los núcleos virtuales y el plan de tarifa también se pueden cambiar en la réplica en las siguientes condiciones:
-* PostgreSQL requiere que el valor del parámetro `max_connections` en la réplica de lectura sea mayor o igual que el valor principal; en caso contrario, no se iniciará la réplica. En Azure Database for PostgreSQL, el valor del parámetro `max_connections` se basa en la SKU (núcleos virtuales y plan de tarifa). Para obtener más información, consulte el artículo de [límites de Azure Database for PostgreSQL](concepts-limits.md). 
-* No es admite el escalado a ni desde el plan de tarifa Básico.
-
-> [!IMPORTANT]
-> Antes de actualizar una configuración del servidor maestro con un nuevo valor, actualice la configuración de la réplica con un valor igual o superior. Esta acción garantiza que la réplica puede hacer frente a los cambios realizados en el servidor maestro.
-
-Si trata de actualizar los valores del servidor descritos previamente, pero no cumple los límites, recibirá un error.
-
 La réplica no hereda las reglas de firewall, las reglas de red virtual ni la configuración de parámetros del servidor maestro cuando se crea o con posterioridad.
+
+### <a name="scaling"></a>Ampliación
+Escalado de núcleos virtuales o entre Uso general y Memoria optimizada:
+* PostgreSQL requiere que `max_connections` la configuración en un servidor secundario sea [mayor o igual que el valor de la principal](https://www.postgresql.org/docs/current/hot-standby.html), de lo contrario, la réplica secundaria no se iniciará.
+* En Azure Database for PostgreSQL, las conexiones máximas permitidas para cada servidor se corrigen en la SKU de proceso, ya que las conexiones ocupan memoria. Puede obtener más información sobre la [asignación entre max_connections y las SKU de proceso](concepts-limits.md).
+* **Escalado**: En primer lugar, escale el proceso de una réplica y, a continuación, escale la principal. Esta orden impedirá que los errores no cumplan `max_connections` el requisito.
+* **Reducción vertical**: En primer lugar, reduzca verticalmente el proceso principal y, a continuación, reduzca verticalmente la réplica. Si intenta escalar la réplica por debajo de la principal, se producirá un error, ya que esto infringe el`max_connections` requisito.
+
+Escalado de almacenamiento:
+* Todas las réplicas tienen habilitado el crecimiento automático de almacenamiento para evitar problemas de replicación de una réplica de almacenamiento completo. Esta configuración no se puede deshabilitar.
+* También puede escalar verticalmente el almacenamiento de forma manual, como haría en cualquier otro servidor
+
 
 ### <a name="basic-tier"></a>Nivel Basic
 Los servidores de nivel básico solo admiten la replicación de la misma región.

@@ -4,20 +4,20 @@ titleSuffix: Azure Media Services
 description: Obtenga información sobre los puntos de conexión de streaming (origen), un servicio dinámico de empaquetado y streaming que entrega contenido directamente a una aplicación de reproducción cliente o a una instancia de Content Delivery Network (CDN).
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/13/2020
-ms.author: juliako
-ms.openlocfilehash: 6d725ed8a69e2dfed6f5197db731f4adac57e2e2
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.author: inhenkel
+ms.openlocfilehash: 9f17e8a09715ce9ff51715f17a449ec0a5b3f770
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446219"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297202"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Puntos de conexión de streaming (origen) en Azure Media Services
 

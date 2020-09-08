@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4834cccff11a70249140f49b498b8f7891787c72
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 13bbea166d699acead932b1ad6779720f82090e6
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169347"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919682"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-multi-factor-authentication"></a>Optimice los mensajes de reautenticación y comprenda la duración de la sesión para Azure Multi-Factor Authentication.
 
@@ -45,6 +45,8 @@ Para optimizar la frecuencia de los mensajes de autenticación para los usuarios
 ### <a name="evaluate-session-lifetime-policies"></a>Evaluación de las directivas de duración de la sesión
 
 Sin ninguna configuración de duración de la sesión, no hay cookies persistentes en la sesión del explorador. Cada vez que un usuario cierra y abre el explorador, recibe una solicitud de reautenticación. En los clientes de Office, el período de tiempo predeterminado es un período sucesivo de 90 días. Con esta configuración de Office predeterminada, si el usuario ha restablecido su contraseña o ha habido inactividad de más de 90 días, el usuario deberá volver a autenticarse con todos los factores necesarios (primer y segundo factor).
+
+Un usuario podría ver varias solicitudes de MFA en un dispositivo que no tiene una identidad en Azure AD. Se generan varios mensajes cuando cada aplicación tiene su propio token de actualización de OAuth que no se comparte con otras aplicaciones cliente. En este escenario, MFA solicita la autenticación varias veces, ya que cada aplicación solicita un token de actualización de OAuth que se va a validar con MFA.
 
 En Azure AD, la directiva más restrictiva para la duración de la sesión determina cuándo es necesario volver a autenticar el usuario. Considere el caso siguiente:
 

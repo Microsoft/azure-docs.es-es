@@ -7,19 +7,20 @@ author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 05/05/2020
-ms.openlocfilehash: 0ad3e6dbb63d7c89919d6d341bd62c5d57960a43
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/20/2020
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 09273cf901830e850acca05c57c0b110ffd7e28a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511660"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002869"
 ---
 # <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>Tutorial: Contenido de blobs de Azure con capacidad de búsqueda y generado mediante inteligencia artificial con el SDK de .NET
 
 Si tiene texto no estructurado o imágenes en Azure Blob Storage, una [canalización de enriquecimiento de inteligencia artificial](cognitive-search-concept-intro.md) puede extraer la información y crear contenido útil en escenarios de búsqueda de texto completo o minería de conocimiento. En este tutorial de C#, aplique el reconocimiento óptico de caracteres (OCR) en las imágenes y realice el procesamiento de lenguaje natural para crear campos nuevos que pueda aprovechar en las consultas, las facetas y los filtros.
 
-En este tutorial, usará C# y el [SDK de .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search) para realizar las tareas siguientes:
+En este tutorial, usará C# y el [SDK de .NET](/dotnet/api/overview/azure/search) para realizar las tareas siguientes:
 
 > [!div class="checklist"]
 > * Comience con imágenes y archivos de aplicación en Azure Blob Storage.
@@ -127,7 +128,7 @@ Para comenzar, abra Visual Studio y cree un nuevo proyecto de Aplicación de con
 
 ### <a name="install-nuget-packages"></a>Instalación de paquetes NuGet
 
-El [SDK de .NET de Azure Cognitive Search](https://docs.microsoft.com/dotnet/api/overview/azure/search) consta de algunas bibliotecas de cliente que le permiten administrar los índices, los orígenes de datos, los indexadores y los conjuntos de aptitudes, así como cargar y administrar documentos y ejecutar consultas. Todo ello sin tener que encargarse de los detalles de HTTP y JSON. Esas bibliotecas de cliente se distribuyen como paquetes de NuGet.
+El [SDK de .NET de Azure Cognitive Search](/dotnet/api/overview/azure/search) consta de algunas bibliotecas de cliente que le permiten administrar los índices, los orígenes de datos, los indexadores y los conjuntos de aptitudes, así como cargar y administrar documentos y ejecutar consultas. Todo ello sin tener que encargarse de los detalles de HTTP y JSON. Esas bibliotecas de cliente se distribuyen como paquetes de NuGet.
 
 Para este proyecto, instale la versión 9 o posterior del paquete NuGet de `Microsoft.Azure.Search`.
 
@@ -319,15 +320,19 @@ La aptitud **OCR** extrae el texto de las imágenes. Esta aptitud supone que exi
 ```csharp
 private static OcrSkill CreateOcrSkill()
 {
-    List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
-    inputMappings.Add(new InputFieldMappingEntry(
+    List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>
+    {
+        new InputFieldMappingEntry(
         name: "image",
-        source: "/document/normalized_images/*"));
+        source: "/document/normalized_images/*")
+    };
 
-    List<OutputFieldMappingEntry> outputMappings = new List<OutputFieldMappingEntry>();
-    outputMappings.Add(new OutputFieldMappingEntry(
+    List<OutputFieldMappingEntry> outputMappings = new List<OutputFieldMappingEntry>
+    {
+        new OutputFieldMappingEntry(
         name: "text",
-        targetName: "text"));
+        targetName: "text")
+    };
 
     OcrSkill ocrSkill = new OcrSkill(
         description: "Extract text (plain and structured) from image",
@@ -348,21 +353,25 @@ En esta sección, creará una aptitud **Combinar** que combina el campo de conte
 ```csharp
 private static MergeSkill CreateMergeSkill()
 {
-    List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
-    inputMappings.Add(new InputFieldMappingEntry(
+    List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>
+    {
+        new InputFieldMappingEntry(
         name: "text",
-        source: "/document/content"));
-    inputMappings.Add(new InputFieldMappingEntry(
+        source: "/document/content"),
+        new InputFieldMappingEntry(
         name: "itemsToInsert",
-        source: "/document/normalized_images/*/text"));
-    inputMappings.Add(new InputFieldMappingEntry(
+        source: "/document/normalized_images/*/text"),
+        new InputFieldMappingEntry(
         name: "offsets",
-        source: "/document/normalized_images/*/contentOffset"));
+        source: "/document/normalized_images/*/contentOffset")
+    };
 
-    List<OutputFieldMappingEntry> outputMappings = new List<OutputFieldMappingEntry>();
-    outputMappings.Add(new OutputFieldMappingEntry(
+    List<OutputFieldMappingEntry> outputMappings = new List<OutputFieldMappingEntry>
+    {
+        new OutputFieldMappingEntry(
         name: "mergedText",
-        targetName: "merged_text"));
+        targetName: "merged_text")
+    };
 
     MergeSkill mergeSkill = new MergeSkill(
         description: "Create merged_text which includes all the textual representation of each image inserted at the right location in the content field.",
@@ -383,15 +392,19 @@ La aptitud **Detección de idioma** detecta el idioma del texto de entrada e inf
 ```csharp
 private static LanguageDetectionSkill CreateLanguageDetectionSkill()
 {
-    List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
-    inputMappings.Add(new InputFieldMappingEntry(
+    List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>
+    {
+        new InputFieldMappingEntry(
         name: "text",
-        source: "/document/merged_text"));
+        source: "/document/merged_text")
+    };
 
-    List<OutputFieldMappingEntry> outputMappings = new List<OutputFieldMappingEntry>();
-    outputMappings.Add(new OutputFieldMappingEntry(
+    List<OutputFieldMappingEntry> outputMappings = new List<OutputFieldMappingEntry>
+    {
+        new OutputFieldMappingEntry(
         name: "languageCode",
-        targetName: "languageCode"));
+        targetName: "languageCode")
+    };
 
     LanguageDetectionSkill languageDetectionSkill = new LanguageDetectionSkill(
         description: "Detect the language used in the document",
@@ -410,19 +423,22 @@ La aptitud **División** siguiente divide el texto por páginas y limita la long
 ```csharp
 private static SplitSkill CreateSplitSkill()
 {
-    List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
-
-    inputMappings.Add(new InputFieldMappingEntry(
+    List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>
+    {
+        new InputFieldMappingEntry(
         name: "text",
-        source: "/document/merged_text"));
-    inputMappings.Add(new InputFieldMappingEntry(
+        source: "/document/merged_text"),
+        new InputFieldMappingEntry(
         name: "languageCode",
-        source: "/document/languageCode"));
+        source: "/document/languageCode")
+    };
 
-    List<OutputFieldMappingEntry> outputMappings = new List<OutputFieldMappingEntry>();
-    outputMappings.Add(new OutputFieldMappingEntry(
+    List<OutputFieldMappingEntry> outputMappings = new List<OutputFieldMappingEntry>
+    {
+        new OutputFieldMappingEntry(
         name: "textItems",
-        targetName: "pages"));
+        targetName: "pages")
+    };
 
     SplitSkill splitSkill = new SplitSkill(
         description: "Split content into pages",
@@ -445,18 +461,24 @@ Tenga en cuenta que el campo "context" se establece en ```"/document/pages/*"```
 ```csharp
 private static EntityRecognitionSkill CreateEntityRecognitionSkill()
 {
-    List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
-    inputMappings.Add(new InputFieldMappingEntry(
+    List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>
+    {
+        new InputFieldMappingEntry(
         name: "text",
-        source: "/document/pages/*"));
+        source: "/document/pages/*")
+    };
 
-    List<OutputFieldMappingEntry> outputMappings = new List<OutputFieldMappingEntry>();
-    outputMappings.Add(new OutputFieldMappingEntry(
+    List<OutputFieldMappingEntry> outputMappings = new List<OutputFieldMappingEntry>
+    {
+        new OutputFieldMappingEntry(
         name: "organizations",
-        targetName: "organizations"));
+        targetName: "organizations")
+    };
 
-    List<EntityCategory> entityCategory = new List<EntityCategory>();
-    entityCategory.Add(EntityCategory.Organization);
+    List<EntityCategory> entityCategory = new List<EntityCategory>
+    {
+        EntityCategory.Organization
+    };
 
     EntityRecognitionSkill entityRecognitionSkill = new EntityRecognitionSkill(
         description: "Recognize organizations",
@@ -543,13 +565,15 @@ Agregue las siguientes líneas a `Main`.
 
     // Create the skillset
     Console.WriteLine("Creating or updating the skillset...");
-    List<Skill> skills = new List<Skill>();
-    skills.Add(ocrSkill);
-    skills.Add(mergeSkill);
-    skills.Add(languageDetectionSkill);
-    skills.Add(splitSkill);
-    skills.Add(entityRecognitionSkill);
-    skills.Add(keyPhraseExtractionSkill);
+    List<Skill> skills = new List<Skill>
+    {
+        ocrSkill,
+        mergeSkill,
+        languageDetectionSkill,
+        splitSkill,
+        entityRecognitionSkill,
+        keyPhraseExtractionSkill
+    };
 
     Skillset skillset = CreateOrUpdateDemoSkillSet(serviceClient, skills);
 ```
@@ -657,7 +681,7 @@ Agregue la instrucción using para resolver la referencia relativa a la eliminac
 using Index = Microsoft.Azure.Search.Models.Index;
 ```
 
-Para más información acerca de cómo definir un índice, consulte [Creación de un índice (API REST de Azure Cognitive Search)](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Para más información acerca de cómo definir un índice, consulte [Creación de un índice (API REST de Azure Cognitive Search)](/rest/api/searchservice/create-index).
 
 ### <a name="step-4-create-and-run-an-indexer"></a>Paso 4: Creación y ejecución de un indexador
 
@@ -680,26 +704,30 @@ private static Indexer CreateDemoIndexer(SearchServiceClient serviceClient, Data
         key: "imageAction",
         value: "generateNormalizedImages");
 
-    List<FieldMapping> fieldMappings = new List<FieldMapping>();
-    fieldMappings.Add(new FieldMapping(
+    List<FieldMapping> fieldMappings = new List<FieldMapping>
+    {
+        new FieldMapping(
         sourceFieldName: "metadata_storage_path",
         targetFieldName: "id",
         mappingFunction: new FieldMappingFunction(
-            name: "base64Encode")));
-    fieldMappings.Add(new FieldMapping(
+            name: "base64Encode")),
+        new FieldMapping(
         sourceFieldName: "content",
-        targetFieldName: "content"));
+        targetFieldName: "content")
+    };
 
-    List<FieldMapping> outputMappings = new List<FieldMapping>();
-    outputMappings.Add(new FieldMapping(
+    List<FieldMapping> outputMappings = new List<FieldMapping>
+    {
+        new FieldMapping(
         sourceFieldName: "/document/pages/*/organizations/*",
-        targetFieldName: "organizations"));
-    outputMappings.Add(new FieldMapping(
+        targetFieldName: "organizations"),
+        new FieldMapping(
         sourceFieldName: "/document/pages/*/keyPhrases/*",
-        targetFieldName: "keyPhrases"));
-    outputMappings.Add(new FieldMapping(
+        targetFieldName: "keyPhrases"),
+        new FieldMapping(
         sourceFieldName: "/document/languageCode",
-        targetFieldName: "languageCode"));
+        targetFieldName: "languageCode")
+    };
 
     Indexer indexer = new Indexer(
         name: "demoindexer",
@@ -878,7 +906,7 @@ catch (Exception e)
 }
 ```
 
-Repita el proceso para otros campos: contenido, languageCode, keyPhrases y organizaciones del ejercicio. Puede devolver varios campos a través de la propiedad [Select](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters.select?view=azure-dotnet) con una lista delimitada por comas.
+Repita el proceso para otros campos: contenido, languageCode, keyPhrases y organizaciones del ejercicio. Puede devolver varios campos a través de la propiedad [Select](/dotnet/api/microsoft.azure.search.models.searchparameters.select?view=azure-dotnet) con una lista delimitada por comas.
 
 <a name="reset"></a>
 

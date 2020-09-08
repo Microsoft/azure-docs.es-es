@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9cb1b4d33a538b48ca1519d66f6602d902033c3e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 3bf180c2b70a686879082888e45e67936cdbec67
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494832"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799237"
 ---
 # <a name="design-tables-using-synapse-sql"></a>Diseño de tablas mediante SQL de Synapse
 
@@ -360,6 +360,9 @@ SELECT *
 FROM size
 ;
 ```
+
+>[!TIP]
+> Para mejorar el rendimiento de Synapse SQL, considere la posibilidad de usar **sys.pdw_permanent_table_mappings** en lugar de **sys.pdw_table_mappings** en las tablas de usuario permanentes. Para obtener más información, consulte **[sys.pdw_permanent_table_mappings &#40;Transact-SQL&#41;](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** .
 
 ### <a name="table-space-summary"></a>Resumen de espacio de tabla
 

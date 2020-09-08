@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: 4e07334e859f2c1401547cc3f88988830b71c5e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b874cefc2521089da02b90b9241be93e80836d6e
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77192712"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87507586"
 ---
 En este artículo se describe la forma de migrar recursos de infraestructura como servicio (IaaS) de los modelos de implementación clásicos a Resource Manager y detalla cómo conectar los recursos de los dos modelos de implementación que coexisten en su suscripción mediante el uso de puertas de enlace de sitio a sitio de red virtual. Se puede leer más información sobre [características y ventajas de Azure Resource Manager](../articles/azure-resource-manager/management/overview.md). 
 
@@ -22,9 +22,9 @@ Resource Manager permite implementar aplicaciones complejas a través de plantil
 
 En Azure Resource Manager, se admiten casi todas las características del modelo de implementación clásica en cuanto a proceso, red y almacenamiento. Para sacar partido de las nuevas funcionalidades de Resource Manager, puede migrar las implementaciones existentes desde el modelo de implementación clásica.
 
-## <a name="supported-resources-for-migration"></a>Recursos que se admiten en la migración
-Estos recursos de IaaS clásicos se admiten durante la migración
+## <a name="supported-resources--configurations-for-migration"></a>Recursos admitidos y configuraciones para la migración
 
+### <a name="supported-resources-for-migration"></a>Recursos que se admiten en la migración
 * Virtual Machines
 * Conjuntos de disponibilidad
 * Cuentas de almacenamiento
@@ -34,6 +34,13 @@ Estos recursos de IaaS clásicos se admiten durante la migración
 * Grupos de seguridad de red
 * Tablas de ruta
 * Direcciones IP reservadas
+
+## <a name="supported-configurations-for-migration"></a>Configuraciones necesarias para la migración
+Estos recursos de IaaS clásicos se admiten durante la migración
+
+| Servicio | Configuración |
+| --- | --- |
+| Azure AD Domain Services | [Redes virtuales que contienen servicios de dominio de Azure AD](https://docs.microsoft.com/azure/active-directory-domain-services/migrate-from-classic-vnet) |
 
 ## <a name="supported-scopes-of-migration"></a>Ámbitos admitidos de la migración
 Hay cuatro maneras diferentes de completar la migración de los recursos de proceso, red y almacenamiento:
@@ -129,5 +136,4 @@ Actualmente no se admiten las siguientes configuraciones.
 | Azure App Service |Redes virtuales que contienen entornos de App Service |Actualmente no se admite. |
 | HDInsight de Azure |Redes virtuales que contienen servicios de HDInsight |Actualmente no se admite. |
 | Dynamics Lifecycle Services |Redes virtuales que contienen máquinas virtuales administradas por Dynamics Lifecycle Services |Actualmente no se admite. |
-| Azure AD Domain Services |Redes virtuales que contienen servicios de dominio de Azure AD |Actualmente no se admite. |
 | Azure API Management |Redes virtuales que contienen implementaciones de Azure API Management |Actualmente no se admite. Para migrar la red virtual de IaaS, cambie la red virtual de la implementación de API Management que no sea una operación de tiempo de inactividad. |

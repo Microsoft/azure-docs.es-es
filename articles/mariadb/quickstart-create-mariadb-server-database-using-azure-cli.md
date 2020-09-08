@@ -8,14 +8,14 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 9f20f4cced74c5607fbfea2119e22cface0a8e03
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7fe68e7b1a56c22e8c0d9638408982518105888e
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499065"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185169"
 ---
-# <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Creación de un servidor de Azure Database for MariaDB mediante la CLI de Azure
+# <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Inicio rápido: Creación de un servidor de Azure Database for MariaDB mediante la CLI de Azure
 
 Puede usar la CLI de Azure para crear y administrar recursos de Azure desde la línea de comandos o en scripts. En esta guía de inicio rápido se describe cómo usar la CLI de Azure para crear un servidor de Azure Database for MariaDB en un grupo de recursos de Azure en unos cinco minutos.
 

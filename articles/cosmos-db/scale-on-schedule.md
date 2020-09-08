@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 670a38b48ee89930078078dc4a8ac1a2876648e2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ec5c98d90facf9458769f235880f17d14708e425
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503742"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923662"
 ---
 # <a name="scale-azure-cosmos-db-throughput-by-using-azure-functions-timer-trigger"></a>Escalado del rendimiento de Azure Cosmos DB mediante el desencadenador de temporizador de Azure Functions
 
@@ -23,7 +23,7 @@ Puede establecer el rendimiento a través de las [plantillas de Azure Resource 
 
 Para simplificar el proceso de escalado de Azure Cosmos DB en una programación, hemos creado un proyecto de ejemplo denominado [Programador de rendimiento de Azure Cosmos](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler). Este proyecto es una aplicación de Azure Functions con dos desencadenadores de temporizador: "ScaleUpTrigger" y "ScaleDownTrigger". Los desencadenadores ejecutan un script de PowerShell que establece el rendimiento de cada recurso tal y como se define en el archivo `resources.json` de cada desencadenador. ScaleUpTrigger está configurado para ejecutarse a las 8:00 a.m. UTC y ScaleDownTrigger está configurado para ejecutarse a las 6:00 p.m. UTC. Estas horas se pueden actualizar fácilmente dentro del archivo `function.json` para cada desencadenador.
 
-Puede clonar este proyecto localmente, modificarlo para especificar los recursos de Azure Cosmos DB para escalar y reducir verticalmente y la programación que se va a ejecutar. Posteriormente, puede implementarlo en una suscripción de Azure y protegerlo mediante la identidad de servicio administrada con permisos de [control de acceso basado en rol](role-based-access-control.md) (RBAC) con el rol "operador de Azure Cosmos DB" para establecer el rendimiento en las cuentas de Azure Cosmos.
+Puede clonar este proyecto localmente, modificarlo para especificar los recursos de Azure Cosmos DB para escalar y reducir verticalmente y la programación que se va a ejecutar. Posteriormente, puede implementarlo en una suscripción de Azure y protegerlo mediante la identidad de servicio administrada con permisos de [control de acceso basado en rol de Azure (Azure RBAC)](role-based-access-control.md) con el rol "operador de Azure Cosmos DB" para establecer el rendimiento en las cuentas de Azure Cosmos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

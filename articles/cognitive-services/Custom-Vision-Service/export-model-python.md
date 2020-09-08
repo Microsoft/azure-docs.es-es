@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.custom: tracking-python
-ms.openlocfilehash: 8e2df90c2e0d3c0d6fd24884a46156de55ac55ec
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-python
+ms.openlocfilehash: af0e9cd66cf64366a6f563148fa6b075161151f4
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079217"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87875445"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>Tutorial: Ejecución del modelo de TensorFlow en Python
 
@@ -171,7 +171,7 @@ def update_orientation(image):
     return image
 ```
 
-## <a name="predict-an-image"></a>Predicción de una imagen
+## <a name="classify-an-image"></a>Clasificación de una imagen
 
 Una vez preparada la imagen como un tensor, podemos enviarla a través del modelo para una predicción:
 

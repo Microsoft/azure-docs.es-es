@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 287ee62acf3a078c4b47803060f61c9dd4134ab7
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 3c7e4887610f30113b81421396500416d04c5e5e
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87408176"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078519"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Configuración de una instancia de Azure Digital Twins y autenticación (CLI)
 
@@ -24,8 +24,8 @@ En esta versión de este artículo se realizan los pasos manualmente, uno por un
 * Para seguir estos pasos manualmente con Azure Portal, consulte la versión del portal de este artículo: [*Procedimiento: Configuración de una instancia y autenticación (Azure Portal)* ](how-to-set-up-instance-portal.md).
 * Para ejecutar una configuración automatizada mediante un script de implementación de ejemplo, consulte la versión con scripts de este artículo: [*Procedimiento: Configuración de una instancia y autenticación (con scripts)* ](how-to-set-up-instance-scripted.md).
 
-[!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
-[!INCLUDE [digital-twins-setup-role-cli.md](../../includes/digital-twins-setup-role-cli.md)]
+[!INCLUDE [digital-twins-setup-steps-prereq.md](../../includes/digital-twins-setup-steps-prereq.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="set-up-cloud-shell-session"></a>Configuración de una sesión de Cloud Shell
 [!INCLUDE [Cloud Shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
@@ -46,7 +46,7 @@ Use estos valores en el comando siguiente para crear la instancia:
 az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group> -l <region>
 ```
 
-### <a name="verify-success"></a>Comprobación de que la operación se ha completado correctamente
+### <a name="verify-success-and-collect-important-values"></a>Comprobación de que la operación es correcta y recopilación de valores importantes
 
 Si la instancia se creó correctamente, el resultado en Cloud Shell tiene un aspecto similar al siguiente, donde se muestra información sobre el recurso que ha creado:
 
@@ -63,20 +63,24 @@ Ahora tiene lista una instancia de Azure Digital Twins. A continuación, debe pr
 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
 
-Use el comando siguiente para asignar el rol (debe ser ejecutado por un propietario de la suscripción de Azure):
+Use el comando siguiente para asignar el rol (debe ser ejecutado por un usuario con [suficientes permisos](#prerequisites-permission-requirements) en la suscripción de Azure). El comando requiere que pase el *nombre principal de usuario* en la cuenta de Azure AD del usuario al que se debe asignar el rol. En la mayoría de los casos, coincidirá con el correo electrónico del usuario en la cuenta de Azure AD.
 
 ```azurecli
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-email-of-user-to-assign>" --role "Azure Digital Twins Owner (Preview)"
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-user-principal-name-of-user-to-assign>" --role "Azure Digital Twins Owner (Preview)"
 ```
 
 El resultado de este comando es la información de salida acerca de la asignación de roles que se ha creado.
 
-> [!TIP]
-> Si en su lugar obtiene un error *400: BadRequest*, ejecute el comando siguiente para obtener el *ObjectID* correspondiente al usuario:
-> ```azurecli
-> az ad user show --id <Azure-AD-email-of-user-to-assign> --query objectId
-> ```
-> A continuación, repita el comando de asignación de roles *id. de objeto* del usuario en lugar de su correo electrónico.
+> [!NOTE]
+> Si este comando devuelve un error que indica que la CLI **no puede encontrar el usuario ni la entidad de servicio en la base de datos de grafos**:
+>
+> Asigne el rol mediante el *id. de objeto* del usuario en su lugar. Esto puede ocurrir para los usuarios de [cuentas de Microsoft (MSA)](https://account.microsoft.com/account) personales. 
+>
+> Use la [página de Azure Portal de usuarios de Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) para seleccionar la cuenta de usuario y abrir los detalles. Copie el *id. de objeto* del usuario:
+>
+> :::image type="content" source="media/includes/user-id.png" alt-text="Vista de la página de usuario en Azure Portal en la que se resalta el GUID en el campo Id. de objeto" lightbox="media/includes/user-id.png":::
+>
+> A continuación, repita el comando de lista de asignación de roles con el *id. de objeto* del usuario para el parámetro `assignee` anterior.
 
 ### <a name="verify-success"></a>Comprobación de que la operación se ha completado correctamente
 
@@ -117,7 +121,7 @@ Vaya al archivo *manifest.json* que acaba de crear y seleccione "Abrir".
 A continuación, ejecute el siguiente comando para crear un registro de la aplicación (reemplazando los marcadores de posición según sea necesario):
 
 ```azurecli
-az ad app create --display-name <name-for-your-app> --native-app --required-resource-accesses manifest.json --reply-url http://localhost
+az ad app create --display-name <name-for-your-app-registration> --native-app --required-resource-accesses manifest.json --reply-url http://localhost
 ```
 
 Este es un extracto de la salida de este comando y muestra información sobre el registro que ha creado:

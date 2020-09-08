@@ -5,13 +5,13 @@ tags: azure-service-management
 ms.assetid: 5805d7cd-9e56-4eba-bd85-75b013690ff5
 ms.topic: sample
 ms.date: 03/20/2017
-ms.custom: mvc
-ms.openlocfilehash: dbe1e0decf48e8300010d531998fa1fbafccf61b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 8a3af13060d932b1a39a85bbc631732f8f859dfb
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033962"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89070282"
 ---
 # <a name="monitor-a-web-appwith-web-server-logs"></a>Supervisión de una aplicación web con registros de servidor web
 

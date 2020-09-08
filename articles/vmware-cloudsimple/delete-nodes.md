@@ -1,6 +1,6 @@
 ---
 title: 'Eliminación de nodos de VMware Solution by CloudSimple: Azure'
-description: Aprenda a eliminar nodos de su instancia de VMWare con implementación de CloudSimple.
+description: Aprenda a eliminar nodos de su instancia de VMWare con implementación de CloudSimple. Los nodos CloudSimple se pueden medir. Los nodos que no se usan se eliminan de Azure Portal.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/05/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 122e0636f54e066ae86ed2d19cefe5863b026293
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 569bc6350b1bfa01228d49d28a1d12e2ab62f6f0
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77024745"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142271"
 ---
 # <a name="delete-nodes-from-azure-vmware-solution-by-cloudsimple"></a>Eliminación de nodos de Azure VMware Solution by CloudSimple
 

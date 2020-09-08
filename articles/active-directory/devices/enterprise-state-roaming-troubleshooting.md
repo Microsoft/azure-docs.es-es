@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tanning
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5043873b18f2d2115fd23e8b52959290393bfb8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb376ebacdd76fdde30178e19fa3c3062e57da1c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604546"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267248"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Solución de problemas de la configuración de Enterprise State Roaming en Azure Active Directory
 
@@ -108,7 +108,7 @@ Asegúrese de que el cliente de Windows 10 v1511 tiene la actualización acumula
 
 ### <a name="theme-is-not-syncing-as-well-as-data-protected-with-windows-information-protection"></a>El tema no se está sincronizando, así como los datos protegidos Windows Information Protection 
 
-Para evitar la pérdida de datos, los datos que están protegidos con [Windows Information Protection](https://technet.microsoft.com/itpro/windows/keep-secure/protect-enterprise-data-using-wip) no se sincronizarán a través de Enterprise State Roaming para dispositivos con la actualización de aniversario de Windows 10.
+Para evitar la pérdida de datos, los datos que están protegidos con [Windows Information Protection](/windows/security/information-protection/windows-information-protection/protect-enterprise-data-using-wip) no se sincronizarán a través de Enterprise State Roaming para dispositivos con la actualización de aniversario de Windows 10.
 
 **Acción recomendada**  
 Ninguno. Las futuras actualizaciones de Windows pueden resolver este problema.

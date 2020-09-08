@@ -1,18 +1,18 @@
 ---
-title: Solución de problemas de conexión del agente de Azure Arc para servidores
-description: En este artículo se explica cómo solucionar y resolver problemas relacionados con el agente de Connected Machine que surgen de Azure Arc para servidores (versión preliminar) al intentar conectarse al servicio.
+title: Solución de problemas de conexión del agente de los servidores habilitados para Azure Arc (versión preliminar)
+description: En este artículo se explica cómo solucionar problemas relacionados con el agente de Connected Machine que surgen con los servidores habilitados para Azure Arc (versión preliminar) al intentar conectarse al servicio.
 ms.date: 07/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5cd2560279085485a8ac7b285e4f601060a924f1
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: aeb370fb6cd4eacf20c1acf29e84c03e5e322d39
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118015"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213536"
 ---
 # <a name="troubleshoot-the-connected-machine-agent-connection-issues"></a>Solución de problemas de conexión del agente de Connected Machine
 
-En este artículo se proporciona información sobre la solución y resolución de problemas que pueden producirse al intentar configurar el agente de Connected Machine de Azure Arc para servidores (versión preliminar) para Windows o Linux. Se incluyen los métodos de instalación tanto interactiva como a escala al configurar la conexión al servicio. Para obtener información general, consulte la [información general de Arc para servidores](./overview.md).
+En este artículo se proporciona información sobre la solución de problemas que pueden producirse al intentar configurar el agente de Connected Machine de los servidores habilitados para Azure Arc (versión preliminar) en Windows o Linux. Se incluyen los métodos de instalación tanto interactiva como a escala al configurar la conexión al servicio. Para información general, consulte [Introducción a los servidores habilitados para Arc](./overview.md).
 
 ## <a name="agent-verbose-log"></a>Registro detallado del agente
 
@@ -22,13 +22,13 @@ Antes de seguir los pasos de solución de problemas que se describen más adelan
 
 A continuación encontrará un ejemplo del comando para habilitar el registro detallado con el agente de Connected Machine para Windows al realizar una instalación interactiva.
 
-```
+```console
 & "$env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --verbose
 ```
 
 El siguiente es un ejemplo del comando para habilitar el registro detallado con el agente de Connected Machine para Windows al realizar una instalación a escala mediante una entidad de servicio.
 
-```
+```console
 & "$env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe" connect `
   --service-principal-id "{serviceprincipalAppID}" `
   --service-principal-secret "{serviceprincipalPassword}" `
@@ -46,13 +46,13 @@ A continuación encontrará un ejemplo del comando para habilitar el registro de
 >[!NOTE]
 >Debe tener permisos de acceso *raíz* en máquinas Linux para ejecutar **azcmagent**.
 
-```
+```bash
 azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --verbose
 ```
 
 El siguiente es un ejemplo del comando para habilitar el registro detallado con el agente de Connected Machine para Linux al realizar una instalación a escala mediante una entidad de servicio.
 
-```
+```bash
 azcmagent connect \
   --service-principal-id "{serviceprincipalAppID}" \
   --service-principal-secret "{serviceprincipalPassword}" \

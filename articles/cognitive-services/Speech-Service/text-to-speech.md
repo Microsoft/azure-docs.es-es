@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 1a8b458eb004b44d0045f36b18d88e11e019c4d2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 42d5ca12e91de5e0e906fb017183ea684b63b49c
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81399500"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167715"
 ---
 # <a name="what-is-text-to-speech"></a>¿Qué es el texto a voz?
 
@@ -41,13 +41,7 @@ La característica de texto a voz del servicio de voz permite que sus aplicacion
 
 ## <a name="get-started"></a>Introducción
 
-El servicio de texto a voz está disponible a través del [SDK de voz](speech-sdk.md). Existen varios escenarios comunes disponibles como inicios rápidos, en diferentes lenguajes y plataformas:
-
-* [Síntesis de voz en un archivo de audio](quickstarts/text-to-speech-audio-file.md)
-* [Síntesis de voz en un altavoz](quickstarts/text-to-speech.md)
-* [Síntesis asincrónica de audio de formato largo](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
-
-Si lo prefiere, el servicio de texto a voz es accesible a través de [REST](rest-text-to-speech.md).
+Consulte el [inicio rápido](get-started-text-to-speech.md) para empezar a usar texto a voz. El servicio de texto a voz está disponible con el [SDK de voz](speech-sdk.md), la [API REST](rest-text-to-speech.md) y la [CLI de voz](spx-overview.md).
 
 ## <a name="sample-code"></a>Código de ejemplo
 

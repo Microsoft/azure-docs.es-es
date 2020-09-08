@@ -2,20 +2,27 @@
 title: Cuota de implementaciones superada
 description: En este artículo se describe cómo resolver el error de tener más de 800 implementaciones en el historial del grupo de recursos.
 ms.topic: troubleshooting
-ms.date: 06/25/2020
-ms.openlocfilehash: 1b0c3de6007964b487a13e71cd43bd984cd970f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/07/2020
+ms.openlocfilehash: 8996d7817eea2f8daf44fbc9b4416c884b05940f
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391186"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987059"
 ---
 # <a name="resolve-error-when-deployment-count-exceeds-800"></a>Resolución de error cuando el recuento de implementaciones es superior a 800
 
 Cada grupo de recursos está limitado a 800 implementaciones en su historial de implementaciones. En este artículo se describe el error que se recibe cuando se produce un error en una implementación porque se superarían las 800 implementaciones permitidas. Para resolver este error, elimine implementaciones del historial del grupo de recursos. La eliminación de una implementación del historial no afecta a ninguno de los recursos implementados.
 
-> [!NOTE]
-> Azure Resource Manager empezará pronto a eliminar automáticamente las implementaciones del historial a medida que se acerca al límite. Es posible que siga viendo este error si ha decidido no participar en la eliminación automática. Para obtener más información, consulte [Eliminaciones automáticas del historial de implementaciones](deployment-history-deletions.md).
+Azure Resource Manager elimina automáticamente las implementaciones del historial a medida que se acerca al límite. Puede seguir viendo este error por uno de los motivos siguientes:
+
+1. Tiene un bloqueo CanNotDelete en el grupo de recursos que impide las eliminaciones en el historial de implementaciones.
+1. Ha optado por rechazar las eliminaciones automáticas.
+1. Tiene un gran número de implementaciones que se ejecutan simultáneamente y las eliminaciones automáticas no se procesan lo suficientemente rápido como para reducir el número total.
+
+Para información sobre cómo quitar el bloqueo o admitir las eliminaciones automáticas, consulte [Eliminaciones automáticas del historial de implementaciones](deployment-history-deletions.md).
+
+En este artículo se describe cómo eliminar manualmente las implementaciones del historial.
 
 ## <a name="symptom"></a>Síntoma
 

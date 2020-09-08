@@ -1,17 +1,17 @@
 ---
 title: Depuración local de Azure Functions de PowerShell
-description: Aprenda a desarrollar funciones con PowerShell.
+description: Obtenga información sobre cómo depurar funciones de PowerShell durante ejecuciones en el entorno local.
 author: tylerleonhardt
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 51edbc18a929f4f954fb1a582a417bc1600d1a6f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6be397631621c727bb8979df2ee8eec3aca43096
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082994"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799373"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Depuración local de Azure Functions de PowerShell
 
@@ -242,6 +242,16 @@ La extensión de PowerShell usa `Debug-Runspace`, que a su vez se basa en la car
 El entorno de ejecución de Azure Functions ejecuta algunos comandos antes de invocar realmente el script `run.ps1`, por lo que es posible que el depurador se acabe interrumpiendo en `Microsoft.Azure.Functions.PowerShellWorker.psm1` o `Microsoft.Azure.Functions.PowerShellWorker.psd1`.
 
 Si se produce esta interrupción, ejecute el comando `continue` o `c` para saltar este punto de interrupción. De este modo, se detendrá en el punto de interrupción esperado.
+
+## <a name="troubleshooting"></a>Solución de problemas
+
+Si tiene dificultades durante la depuración, debe comprobar lo siguiente:
+
+| Comprobar | Acción |
+|------|------|
+| Ejecute `func --version` desde el terminal. Si recibe un error indicando que no se puede encontrar `func`, es posible que falte Core Tools (func.exe) en la variable `path` local.| [Vuelva a instalar Core Tools](functions-run-local.md#v2).|  
+| En Visual Studio Code, el terminal predeterminado debe tener acceso a func.exe. Asegúrese de que no está usando un terminal predeterminado que no tenga instalado Core Tools, como el subsistema de Windows para Linux (WSL).  | Establezca el shell predeterminado en Visual Studio Code en PowerShell 7 (recomendado) o Windows PowerShell 5.1.|
+  
 
 ## <a name="next-steps"></a>Pasos siguientes
 

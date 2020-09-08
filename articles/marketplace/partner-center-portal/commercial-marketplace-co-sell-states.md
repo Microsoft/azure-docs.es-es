@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
-ms.date: 04/01/2020
-ms.openlocfilehash: 7dd28ab23894988a1ee193f2f8d72cb83b7aafe8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 09/02/2020
+ms.openlocfilehash: 44f06773eec965fad610da1a4286bdf224e3a88b
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120524"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321487"
 ---
 # <a name="co-sell-state-and-province-codes-in-azure-marketplace"></a>Códigos de estado y provincia de venta conjunta en Azure Marketplace
 
@@ -78,7 +78,7 @@ En este artículo se indican los códigos de estado y provincia disponibles a la
 | Islas Marianas del Norte            | US-MP     |
 | Puerto Rico                         | US-PR     |
 | Islas menores alejadas de los Estados Unidos | US-UM    |
-| Islas Vírgenes de EE. UU.                 | US-VI    |
+| EE. UU. Vírgenes de EE. UU.                 | US-VI    |
 
 ## <a name="canadian-provinces-and-territories"></a>Provincias y territorios canadienses
 

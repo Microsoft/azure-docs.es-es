@@ -4,12 +4,12 @@ description: En este artículo se proporciona la información sobre los problema
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: 1f4900bb129ee67cd75d2b793f4179e3135569a6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 26d30a56b3117642678f98ba3e7927c27bfd6a69
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032568"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826623"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Notas de la versión de Microsoft Azure Backup Server
 
@@ -81,7 +81,7 @@ Este artículo describe los problemas conocidos y las soluciones alternativas pa
 1. En la dirección URL del portal web, la carpeta DPMReports tiene el formato **`DPMReports_<GUID>`**
 
     >[!NOTE]
-    >Siempre hay solamente una carpeta con esta convención de nomenclatura. Si MABS se actualiza a partir de una versión anterior, es posible que también haya otra carpeta anterior, pero no podrá abrirla.
+    >Siempre hay solamente una carpeta con esta convención de nomenclatura. Si MABS se actualiza a partir de una versión anterior, es posible que también haya otra carpeta antigua, pero no podrá abrirla.
 
     ![Carpeta DPMReports](./media/backup-mabs-release-notes-v3/dpm-reports-folder.png)
 

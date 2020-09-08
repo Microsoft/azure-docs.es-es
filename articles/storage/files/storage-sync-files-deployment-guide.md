@@ -1,18 +1,18 @@
 ---
 title: Implementar Azure File Sync | Microsoft Docs
-description: Aprenda a implementar Azure File Sync de principio a fin.
+description: Aprenda a implementar Azure File Sync, desde el principio hasta el final, mediante Azure Portal, PowerShell o la CLI de Azure.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 006825b5040db482262f79497b9fd810ed3b790c
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: f2c8dbebce685eea67672a2b8c93d51e356ac69c
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460633"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226060"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementación de Azure File Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -415,16 +415,19 @@ En el panel **Agregar punto de conexión de servidor**, escriba la siguiente inf
 - **Ruta de acceso**: la ruta de acceso de Windows Server que se va a sincronizar como parte del grupo de sincronización.
 - **Nube por niveles**: un conmutador para habilitar o deshabilitar la nube por niveles. Con los niveles de la nube, los archivos que se usen o a los que se acceda con poca frecuencia se pueden colocar en capas en Azure Files.
 - **Espacio disponible del volumen**: la cantidad de espacio libre que se reserva en el volumen en el que reside el punto de conexión de servidor. Por ejemplo, si el espacio disponible del volumen se establece en el 50 % en un volumen con un único punto de conexión de servidor, casi la mitad de la cantidad de datos se coloca en capas en Azure Files. Con independencia de si la característica de niveles en la nube está habilitada, el recurso compartido de archivos de Azure siempre tiene una copia completa de los datos en el grupo de sincronización.
+- **Initial download mode** (Modo de descarga inicial): esta es una selección opcional, a partir de la versión 11 del agente, que puede ser útil cuando hay archivos en el recurso compartido de archivos de Azure, pero no en el servidor. Tal situación puede existir, por ejemplo, cuando se crea un punto de conexión de servidor para agregar otro servidor de sucursal a un grupo de sincronización o cuando se recupera de un desastre un servidor que no funciona. Si la nube por niveles está habilitada, el valor predeterminado es recuperar inicialmente solo el espacio de nombres, no el contenido del archivo. Esta opción es útil si cree que es preferible que las solicitudes de acceso de los usuarios decidan qué contenido de archivo se recupera en el servidor. Si la nube por niveles está deshabilitada, el valor predeterminado es que el espacio de nombres se descargue primero y, luego, se recuperen los archivos en función de la marca de tiempo de última modificación hasta que se alcance la capacidad local. Sin embargo, se puede cambiar el modo de descarga inicial para que se descargue solo el espacio de nombres. Existe un tercer modo que solo se puede usar si la nube por niveles está deshabilitada para este punto de conexión de servidor. Este modo evita que se recupere primero el espacio de nombres. Los archivos solo aparecerán en el servidor local si tienen la oportunidad de descargarse por completo. Este modo es útil si, por ejemplo, una aplicación necesita que haya archivos completos y no puede tolerar archivos en capas en su espacio de nombres.
 
 Para agregar el punto de conexión de servidor, seleccione **Crear**. Los archivos se mantienen ahora sincronizados entre el recurso compartido de archivos de Azure y Windows Server. 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-Ejecute los siguientes comandos de PowerShell para crear el punto de conexión de servidor y asegúrese de reemplazar `<your-server-endpoint-path>` y `<your-volume-free-space>` por los valores deseados.
+Ejecute los siguientes comandos de PowerShell para crear el punto de conexión de servidor y asegúrese de reemplazar `<your-server-endpoint-path>` y `<your-volume-free-space>` por los valores deseados; compruebe también el valor opcional de la directiva de descarga inicial opcional.
 
 ```powershell
 $serverEndpointPath = "<your-server-endpoint-path>"
 $cloudTieringDesired = $true
 $volumeFreeSpacePercentage = <your-volume-free-space>
+# Optional property. Choose from: [NamespaceOnly] default when cloud tiering is enabled. [NamespaceThenModifiedFiles] default when cloud tiering is disabled. [AvoidTieredFiles] only available when cloud tiering is disabled.
+$initialDownloadPolicy = NamespaceOnly
 
 if ($cloudTieringDesired) {
     # Ensure endpoint path is not the system volume
@@ -441,14 +444,16 @@ if ($cloudTieringDesired) {
         -ServerResourceId $registeredServer.ResourceId `
         -ServerLocalPath $serverEndpointPath `
         -CloudTiering `
-        -VolumeFreeSpacePercent $volumeFreeSpacePercentage
+        -VolumeFreeSpacePercent $volumeFreeSpacePercentage `
+        -InitialDownloadPolicy $initialDownloadPolicy
 } else {
     # Create server endpoint
     New-AzStorageSyncServerEndpoint `
         -Name $registeredServer.FriendlyName `
         -SyncGroup $syncGroup `
         -ServerResourceId $registeredServer.ResourceId `
-        -ServerLocalPath $serverEndpointPath 
+        -ServerLocalPath $serverEndpointPath `
+        -InitialDownloadPolicy $initialDownloadPolicy
 }
 ```
 
@@ -460,23 +465,24 @@ Use el comando [az storagesync sync-group server-endpoint](/cli/azure/ext/stora
 # Create a new sync group server endpoint 
 az storagesync sync-group server-endpoint create --resource-group myResourceGroupName \
                                                  --name myNewServerEndpointName
-                                                 --registered-server-id 91beed22-7e9e-4bda-9313-fec96cf286e0
+                                                 --registered-server-id 91beed22-7e9e-4bda-9313-fec96c286e0
                                                  --server-local-path d:\myPath
                                                  --storage-sync-service myStorageSyncServiceNAme
                                                  --sync-group-name mySyncGroupName
 
 # Create a new sync group server endpoint with additional optional parameters
 az storagesync sync-group server-endpoint create --resource-group myResourceGroupName \
-                                                 --name myNewServerEndpointName \
-                                                 --registered-server-id 91beed22-7e9e-4bda-9313-fec96cf286e0 \
-                                                 --server-local-path d:\myPath \
                                                  --storage-sync-service myStorageSyncServiceName \
                                                  --sync-group-name mySyncGroupName \
+                                                 --name myNewServerEndpointName \
+                                                 --registered-server-id 91beed22-7e9e-4bda-9313-fec96c286e0 \
+                                                 --server-local-path d:\myPath \
                                                  --cloud-tiering on \
+                                                 --volume-free-space-percent 85 \
+                                                 --tier-files-older-than-days 15 \
+                                                 --initial-download-policy NamespaceOnly [OR] NamespaceThenModifiedFiles [OR] AvoidTieredFiles
                                                  --offline-data-transfer on \
                                                  --offline-data-transfer-share-name myfilesharename \
-                                                 --tier-files-older-than-days 15 \
-                                                 --volume-free-space-percent 85 \
 
 ```
 
@@ -567,6 +573,40 @@ El número máximo predeterminado de instantáneas de VSS por volumen (64), así
 
 Si el máximo de 64 instantáneas de VSS por volumen no corresponde a la configuración correcta, puede [cambiar ese valor mediante una clave del Registro](https://docs.microsoft.com/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies).
 Para que el nuevo límite surta efecto, debe volver a ejecutar el cmdlet para habilitar la compatibilidad con versiones anteriores en todos los volúmenes que se habilitaron anteriormente, con la marca -Force para que tenga en cuenta el nuevo número máximo de instantáneas de VSS por volumen. Esto dará lugar a un número de días compatibles recién calculado. Tenga en cuenta que este cambio solo se aplicará a los archivos recién organizados en capas y sobrescribirá cualquier personalización de la programación de VSS que haya realizado.
+
+<a id="proactive-recall"></a>
+## <a name="proactively-recall-new-and-changed-files-from-an-azure-file-share"></a>Recuperación proactiva de archivos nuevos y modificados desde un recurso compartido de archivos de Azure
+
+Con la versión 11 del agente, hay disponible un nuevo modo en un punto de conexión de servidor. Este modo permite a las compañías distribuidas por todo el mundo tener la caché del servidor en una región remota rellenada previamente incluso antes de que los usuarios locales tengan acceso a los archivos. Cuando se habilita en un punto de conexión de servidor, este modo hará que este servidor recupere los archivos creados o modificados en el recurso compartido de archivos de Azure.
+
+### <a name="scenario"></a>Escenario
+
+Una empresa distribuida por todo el mundo tiene sucursales en Estados Unidos y en la India. Por la mañana (hora de EE. UU.), los trabajadores de la información crean una carpeta y los archivos de un nuevo proyecto en el que trabajan todo el día. Azure File Sync sincronizará la carpeta y los archivos con el recurso compartido de archivos de Azure (punto de conexión de nube). Los trabajadores de la información de la India seguirán trabajando en el proyecto en su zona horaria. Cuando lleguen por la mañana, el servidor local de Azure File Sync habilitado en la India debe tener disponibles estos nuevos archivos a nivel local, de modo que el equipo de la India pueda trabajar eficazmente fuera de una caché local. Al habilitar este modo, se evita que el acceso inicial al archivo sea más lento debido a la recuperación a petición y permite que el servidor recupere los archivos de forma proactiva en cuanto se han modificado o creado en el recurso compartido de archivos de Azure.
+
+> [!IMPORTANT]
+> Es importante tener en cuentan que el seguimiento de los cambios en el recurso compartido de archivos de Azure en el servidor puede aumentar el tráfico de salida y la factura de Azure. Si los archivos recuperados en el servidor no son realmente necesarios localmente, la recuperación innecesaria en el servidor puede tener consecuencias negativas. Utilice este modo si sabe que rellenar previamente la caché de un servidor con los cambios recientes en la nube tendrá un efecto positivo en los usuarios o las aplicaciones que usan los archivos de dicho servidor.
+
+### <a name="enable-a-server-endpoint-to-proactively-recall-what-changed-in-an-azure-file-share"></a>Habilitación de un punto de conexión de servidor para recuperar de forma proactiva lo que ha cambiado en un recurso compartido de archivos de Azure
+
+# <a name="portal"></a>[Portal](#tab/proactive-portal)
+
+1. En [Azure Portal](https://portal.azure.com/), vaya al servicio de sincronización de almacenamiento, seleccione el grupo de sincronización correcto y, luego, identifique el punto de conexión de servidor cuyos cambios en el recurso compartido de archivos de Azure (punto de conexión en la nube) quiere seguir.
+1. En la sección de la nube por niveles, busque el tema "Azure file share download" (Descarga de recursos compartidos de archivos de Azure). Verá el modo seleccionado actualmente, que puede modificarlo para realizar un seguimiento de los cambios en el recurso compartido de archivos de Azure de forma más estrecha y recuperarlos en el servidor.
+
+:::image type="content" source="media/storage-sync-files-deployment-guide/proactive-download.png" alt-text="Imagen que muestra el comportamiento de descarga del recurso compartido de archivos de Azure para un punto de conexión de servidor actualmente en vigor y un botón para abrir un menú que permite cambiarlo.":::
+
+# <a name="powershell"></a>[PowerShell](#tab/proactive-powershell)
+
+Puede modificar las propiedades del punto de conexión de servidor en PowerShell mediante el cmdlet [Set-AzStorageSyncServerEndpoint](https://docs.microsoft.com/powershell/module/az.storagesync/set-azstoragesyncserverendpoint).
+
+```powershell
+# Optional parameter. Default: "UpdateLocallyCachedFiles", alternative behavior: "DownloadNewAndModifiedFiles"
+$recallBehavior = "DownloadNewAndModifiedFiles"
+
+Set-AzStorageSyncServerEndpoint -InputObject <PSServerEndpoint> -LocalCacheMode $recallBehavior
+```
+
+---
 
 ## <a name="migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync"></a>Migración de una implementación de la replicación DFS (DFS-R) a Azure File Sync
 Para migrar una implementación de DFS-R a Azure File Sync:

@@ -1,5 +1,5 @@
 ---
-title: Configuración y administración de referencias de contenido
+title: Configuración y administración de una referencia de contenido
 titleSuffix: Azure SQL Managed Instance
 description: Guía de referencia de contenido que le enseña a configurar y administrar Instancia administrada de Azure SQL.
 services: sql-database
@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 04/16/2019
-ms.openlocfilehash: 23ce3272d99401340d784f88dd537baa55774a63
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de8d1b7aba7763799228c831af61bf83a79937bb
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708831"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167987"
 ---
 # <a name="azure-sql-managed-instance-content-reference"></a>Referencia de contenido de Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -75,6 +75,14 @@ En este artículo puede encontrar una referencia de contenido a varias guías, s
 - [Almacenamiento de eventos extendidos en el archivo de evento](../database/xevent-code-event-file.md)
 - [Almacenamiento de eventos extendidos en el búfer en anillo](../database/xevent-code-ring-buffer.md)
 
+### <a name="alerting"></a>Alertas
+
+- [Creación de alertas en una instancia administrada](alerts-create.md)
+
+## <a name="operations"></a>Operaciones
+
+- [Conmutación por error manual iniciada por el usuario en SQL Managed Instance](user-initiated-failover.md)
+
 ## <a name="develop-applications"></a>Desarrollo de aplicaciones
 
 - [Conectividad](../database/connect-query-content-reference-guide.md#libraries)
@@ -99,8 +107,6 @@ En este artículo puede encontrar una referencia de contenido a varias guías, s
 - [Patrones de diseño SaaS](../database/saas-tenancy-app-design-patterns.md)
 - [Video Indexer SaaS](../database/saas-tenancy-video-index-wingtip-brk3120-20171011.md)
 - [Seguridad de aplicaciones SaaS](../database/saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
-
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,12 +3,12 @@ title: 'Referencia de YAML: ACR Tasks'
 description: Referencia para definir tareas en YAML para ACR Tasks, como propiedades de tareas, tipos de pasos, propiedades de pasos y variables integradas.
 ms.topic: article
 ms.date: 07/08/2020
-ms.openlocfilehash: 4710afe0d10a81f2a84437a335d3a012f3bac326
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 042310d29f5561c2cd77b0b9cccfc587ca4aa767
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87479785"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067590"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Referencia de ACR Tasks: YAML
 
@@ -79,7 +79,7 @@ Las propiedades de tareas suelen aparecer en la parte superior de un archivo `ac
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | string | Sí | La versión del archivo `acr-task.yaml` analizada por el servicio ACR Tasks. Si bien ACR Tasks se esfuerza por mantener la compatibilidad con versiones anteriores, este valor permite que ACR Tasks mantenga la compatibilidad dentro de una versión definida. Si no se especifica, se establece de manera predeterminada en la versión más reciente. | No | None |
 | `stepTimeout` | int (segundos) | Sí | El número máximo de segundos que se puede ejecutar un paso. Si la propiedad se especifica en una tarea, establece la propiedad `timeout` predeterminada de todos los pasos. Si la propiedad `timeout` se especifica en un paso, invalida la propiedad que la tarea proporciona. | Sí | 600 (10 minutos) |
-| `workingDirectory` | string | Sí | El directorio de trabajo del contenedor durante el tiempo de ejecución. Si la propiedad se especifica en una tarea, establece la propiedad `workingDirectory` predeterminada de todos los pasos. Si se especifica en un paso, invalida la propiedad que la tarea proporciona. | Sí | `/workspace` |
+| `workingDirectory` | string | Sí | El directorio de trabajo del contenedor durante el tiempo de ejecución. Si la propiedad se especifica en una tarea, establece la propiedad `workingDirectory` predeterminada de todos los pasos. Si se especifica en un paso, invalida la propiedad que la tarea proporciona. | Sí | `c:\workspace` en Windows o `/workspace` en Linux |
 | `env` | [string, string, ...] | Sí |  Matriz de cadenas en formato `key=value` que define las variables de entorno de la tarea. Si la propiedad se especifica en una tarea, establece la propiedad `env` predeterminada de todos los pasos. Si se especifica en un paso, invalida las variables de entorno heredadas de la tarea. | Sí | None |
 | `secrets` | [secret, secret, ...] | Sí | Matriz de objetos de [secreto](#secret). | No | None |
 | `networks` | [network, network, ...] | Sí | Matriz de objetos de [red](#network). | No | None |
@@ -375,26 +375,7 @@ az acr run -f mounts-secrets.yaml --set-secret mysecret=abcdefg123456 https://gi
 ```
 
 <!-- SOURCE: https://github.com/Azure-Samples/acr-tasks/blob/master/mounts-secrets.yaml -->
-<!-- [!code-yml[task](~/acr-tasks/mounts-secrets.yaml)] -->
-
-```yml
-# This template demonstrates mounting a custom volume into a container at a CMD step
-secrets:
-  - id: sampleSecret
-    keyvault: https://myacbvault2.vault.azure.net/secrets/SampleSecret
-
-volumes:
-  - name: mysecrets
-    secret:
-      mysecret1: {{.Secrets.sampleSecret | b64enc}}
-      mysecret2: {{.Values.mysecret | b64enc}}
-
-steps:
-  - cmd: bash cat /run/test/mysecret1 /run/test/mysecret2
-    volumeMounts:
-      - name: mysecrets
-        mountPath: /run/test
-```
+[!code-yml[task](~/acr-tasks/mounts-secrets.yaml)]
 
 ## <a name="task-step-properties"></a>Propiedades de pasos de tareas
 
@@ -423,8 +404,7 @@ Cada tipo de paso admite varias propiedades adecuadas para su tipo. En la tabla 
 | `timeout` | int (segundos) | Sí | Número máximo de segundos que se puede ejecutar un paso antes de terminar. | 600 |
 | [`when`](#example-when) | [string, string, ...] | Sí | Configura la dependencia de un paso de uno o varios pasos dentro de la tarea. | None |
 | `user` | string | Sí | El nombre de usuario o UID de un contenedor. | None |
-| `volumeMounts` | object | No | Matriz de objetos [volumeMount](#volumemount). | None |
-| `workingDirectory` | string | Sí | Establece el directorio de trabajo de un paso. De forma predeterminada, ACR Tasks crea un directorio raíz como directorio de trabajo. Sin embargo, si la compilación tiene varios pasos, los pasos anteriores pueden compartir artefactos con los pasos posteriores mediante la especificación del mismo directorio de trabajo. | `/workspace` |
+| `workingDirectory` | string | Sí | Establece el directorio de trabajo de un paso. De forma predeterminada, ACR Tasks crea un directorio raíz como directorio de trabajo. Sin embargo, si la compilación tiene varios pasos, los pasos anteriores pueden compartir artefactos con los pasos posteriores mediante la especificación del mismo directorio de trabajo. | `c:\workspace` en Windows o `/workspace` en Linux |
 
 ### <a name="volumemount"></a>volumeMount
 
@@ -521,6 +501,10 @@ version: v1.1.0
 steps:
     - build: -t $Registry/hello-world:$ID .
 ```
+
+### <a name="runsharedvolume"></a>Run.SharedVolume
+
+Identificador único de un volumen compartido al que pueden acceder todos los pasos de la tarea. El volumen se monta en `c:\workspace` en Windows o en `/workspace` en Linux. 
 
 ### <a name="runregistry"></a>Run.Registry
 

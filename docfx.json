@@ -138,7 +138,8 @@
     "fileMetadata": {
       "author": {
         "articles/advisor/*.md": "saket-ms",
-	"articles/azure-arc/servers/**/*.md": "mgoedtel",
+        "articles/azure-arc/servers/**/*.md": "mgoedtel",
+    "articles/azure-arc/**/*.md": "mgoedtel",
         "articles/connectors/*.md": "ecfan",
         "articles/batch/**/*.md": "JnHs",
         "articles/event-grid/**/*.md": "spelluru",                
@@ -168,7 +169,7 @@
         "articles/backup/**/*.md": "dcurwin",
         "articles/blockchain/**/*.md": "PatAltimore",
         "articles/chef/**/*.md": "TomArcherMsft",
-	"articles/cognitive-services/**/*.md": "erhopf",
+    "articles/cognitive-services/**/*.md": "erhopf",
         "articles/cognitive-services/Anomaly-Detector/**/*.md": "aahill",
         "articles/cognitive-services/Bing-Autosuggest/**/*.md": "aahill",
         "articles/cognitive-services/Bing-Custom-Search/**/*.md": "aahill",
@@ -187,7 +188,7 @@
         "articles/cognitive-services/form-recognizer/**/*.md": "PatrickFarley",
         "articles/cognitive-services/Ink-Recognizer/**/*.md": "aahill",
         "articles/cognitive-services/LUIS/**/*.md": "diberry",
-	"articles/cognitive-services/personalizer/**/*.md": "edjez",
+    "articles/cognitive-services/personalizer/**/*.md": "edjez",
         "articles/cognitive-services/QnAMaker/**/*.md": "nerajput1607",
         "articles/cognitive-services/Speech/**/*.md": "nitinme",
         "articles/cognitive-services/Speech-Service/**/*.md": "trevorbye",
@@ -427,10 +428,10 @@
         "articles/migrate/**/*.md": "carmonm",
         "articles/service-bus-messaging/*.md": "femila",                
         "articles/batch/**/*.md": "evansma",
-	"articles/azure-arc/servers/**/*.md": "evansma",
+    "articles/azure-arc/servers/**/*.md": "evansma",
         "articles/virtual-machines/**/*.md": "gwallace",
         "articles/virtual-machine-scale-sets/**/*.md": "gwallace",
-		    "articles/remote-rendering/**/*.md": "jlyons"
+            "articles/remote-rendering/**/*.md": "jlyons"
       },
       "ms.collection": {
         "articles/application-gateway/*.md": "networking",
@@ -476,7 +477,8 @@
       },   
       "ms.author": {
         "articles/advisor/*.md": "sagupt",
-	"articles/azure-arc/servers/**/*.md": "magoedte",
+    "articles/azure-arc/servers/**/*.md": "magoedte",
+    "articles/azure-arc/**/*.md": "magoedte",
         "articles/connectors/*.md": "estfan",     
         "articles/logic-apps/*.md": "estfan",
         "articles/governance/*.md": "dacoulte",
@@ -573,7 +575,7 @@
         "articles/governance/management-groups/**/*.md": "governance",
         "articles/governance/resource-graph/**/*.md": "resource-graph",
         "articles/advisor/**/*.md": "advisor",
-	"articles/azure-arc/**/*.md": "azure-arc",
+    "articles/azure-arc/**/*.md": "azure-arc",
         "articles/azure-functions/**/*.md": "azure-functions",
         "articles/azure-monitor/**/*.md": "azure-monitor",
         "articles/azure-relay/*.md": "service-bus-relay",
@@ -613,11 +615,11 @@
         "articles/media-services/**/*.md": "media-services",
         "articles/azure-government/**/*.md": "azure-government",
         "articles/marketplace/**/*.md": "marketplace",
-	"articles/virtual-desktop/**/*.md": "virtual-desktop"
+    "articles/virtual-desktop/**/*.md": "virtual-desktop"
       },
       "ms.subservice": {
         "articles/industry/agriculture/**/*.md": "agriculture",
-	"articles/azure-arc/servers/**/*.md": "azure-arc-servers",
+    "articles/azure-arc/servers/**/*.md": "azure-arc-servers",
         "articles/azure-monitor/app/**/*.md": "application-insights",
         "articles/azure-monitor/log-query/**/.md": "logs",
         "articles/azure-monitor/platform/autoscale-*.md": "autoscale",
@@ -656,6 +658,10 @@
         "articles/media-services/azure-media-player/*.md": "media-player",
         "articles/media-services/live-video-analytics-edge/*.md": "lva-edge"
       },
+      "no-loc": {
+        "articles/governance/policy/**/*.md": "[audit, deny, modify, disabled, auditifnotexists, deployifnotexists]",
+        "includes/policy/**/*.md": "[audit, deny, modify, disabled, auditifnotexists, deployifnotexists]"
+      },
       "searchScope": {
         "articles/app-service/**/*.md": ["Azure","App Service"],
         "articles/azure-app-configuration/**/*.md": ["Azure","AppConfig"],
@@ -678,10 +684,20 @@
         "articles/data-share/**/*.yml": ["Azure","Azure Data Share"],
         "articles/hdinsight/**/*.md": ["Azure","Azure HDInsight"],
         "articles/hdinsight/**/*.yml": ["Azure","Azure HDInsight"],
-        "articles/iot-central/**/*.md": ["Azure","Azure IoT Central"],
-        "articles/iot-central/**/*.yml": ["Azure","Azure IoT Central"],
-        "articles/iot-pnp/**/*.md": ["Azure","IoT Plug and Play"],
-        "articles/iot-pnp/**/*.yml": ["Azure","IoT Plug and Play"],
+        "articles/iot-central/**/*.md": ["Azure","IoT","Azure IoT Central"],
+        "articles/iot-central/**/*.yml": ["Azure","IoT","Azure IoT Central"],
+        "articles/iot-pnp/**/*.md": ["Azure","IoT","IoT Plug and Play"],
+        "articles/iot-pnp/**/*.yml": ["Azure","IoT","IoT Plug and Play"],
+        "articles/digital-twins/**/*.md": ["Azure","IoT","Azure Digital Twins"],
+        "articles/digital-twins/**/*.yml": ["Azure","IoT","Azure Digital Twins"],
+        "articles/iot-dps/**/*.md": ["Azure","Azure IoT Hub","IoT","Azure IoT DPS"],
+        "articles/iot-dps/**/*.yml": ["Azure","Azure IoT Hub","IoT","Azure IoT DPS"],
+        "articles/iot-edge/**/*.md": ["Azure","IoT","Azure IoT Edge"],
+        "articles/iot-edge/**/*.yml": ["Azure","IoT","Azure IoT Edge"],
+        "articles/iot-hub/**/*.md": ["Azure","IoT","Azure IoT Hub"],
+        "articles/iot-hub/**/*.yml": ["Azure","IoT","Azure IoT Hub"],
+        "articles/iot-fundamentals/**/*.md": ["Azure","IoT"],
+        "articles/iot-fundamentals/**/*.yml": ["Azure","IoT"],
         "articles/mariadb/**/*.md": ["Azure","Azure Database for MariaDB"],
         "articles/mariadb/**/*.yml": ["Azure","Azure Database for MariaDB"],
         "articles/marketplace/**/*.md": ["Azure","Microsoft commercial marketplace"],
@@ -708,7 +724,7 @@
         "articles/service-health/*.yml": "Azure Service Health",
         "articles/advisor/**/*.md": "Azure Advisor",
         "articles/advisor/*.yml": "Azure Advisor",
-	"articles/azure-arc/servers/*.md": "Azure Arc",
+    "articles/azure-arc/**/*.md": "Azure Arc",
         "articles/asc-for-iot/**/*.md": "Azure Security Center for IoT",
         "articles/asc-for-iot/**/*.yml": "Azure Security Center for IoT",
         "articles/azure-monitor/**/*.yml" : "Azure Monitor",

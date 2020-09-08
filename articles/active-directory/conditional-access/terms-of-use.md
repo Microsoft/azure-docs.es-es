@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39e76468238a911c7a9e5543bf5063d1c7b6a8b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5cead917c6c98d10d3f9e5ebe2f75bd5513574c5
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253331"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948936"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Términos de uso de Azure Active Directory
 
@@ -50,7 +50,7 @@ Términos de uso de Azure AD tiene las siguientes funcionalidades:
 - Mostrar quién ha aceptado o no los términos de uso.
 - Ayudar a cumplir los reglamentos de privacidad.
 - Mostrar un registro de la actividad de términos de uso a efectos de cumplimiento y auditoría.
-- Crear y administrar los términos de uso mediante [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/agreement) (actualmente en versión preliminar).
+- Crear y administrar los términos de uso mediante [Microsoft Graph API](/graph/api/resources/agreement?view=graph-rest-beta) (actualmente en versión preliminar).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -363,22 +363,22 @@ A. No, si un administrador edita los detalles de una instancia de Términos de u
 A. Actualmente no se puede actualizar un documento de términos de uso existente. Para cambiarlo tendrá que crear una nueva instancia de los términos de uso.
 
 **P: Si hay hipervínculos en el documento PDF de términos de uso, ¿los usuarios finales podrán hacer clic en ellos?**<br />
-A. Sí, los usuarios finales pueden seleccionar hipervínculos a páginas adicionales, pero no se admiten vínculos a secciones del documento.
+A. Sí, los usuarios finales pueden seleccionar hipervínculos a páginas adicionales, pero no se admiten vínculos a secciones del documento. Además, los hipervínculos en los PDF de los términos de uso no funcionan cuando se accede a ellos desde el portal MyApps/MyAccount de Azure AD.
 
 **P: ¿Puede una instancia de Términos de uso admitir varios idiomas?**<br />
 A. Sí. Actualmente, un administrador puede configurar hasta 108 idiomas diferentes para unos solos términos de uso. Un administrador puede cargar varios documentos PDF y etiquetarlos con un idioma correspondiente (hasta 108). Cuando los usuarios finales inician sesión, nos fijamos en su preferencia de idioma del navegador y mostramos el documento coincidente. Si no hay ninguna coincidencia, mostraremos el documento predeterminado, que es el primer documento que se carga.
 
 **P: ¿Cuándo se desencadenan los términos de uso?**<br />
-A. Los términos de uso se desencadenan durante la experiencia de inicio de sesión.
+R: Los términos de uso se desencadenan durante la experiencia de inicio de sesión.
 
-**P: ¿Qué aplicaciones puedo usar como destino de una instancia de términos de uso?**<br />
+**P: ¿Qué aplicaciones puedo usar como destino de una condición de uso?**<br />
 A. Puede crear una directiva de acceso condicional en las aplicaciones empresariales que usan autenticación moderna. Para más información, consulte [aplicaciones empresariales](./../manage-apps/view-applications-portal.md).
 
 **P: ¿Puedo agregar varios términos de uso a un usuario o aplicación determinados?**<br />
 A. Sí, mediante la creación de varias directivas de acceso condicional cuyo destino sean dichos grupos o aplicaciones. Si un usuario se encuentra en el ámbito de varios términos de uso, aceptará primero unos y después otros.
 
 **P: ¿Qué ocurre si un usuario no acepta los términos de uso?**<br />
-A. Se bloqueará al usuario y no podrá obtener acceso a la aplicación. El usuario tendría que iniciar sesión de nuevo y aceptar las condiciones con el fin de obtener acceso.
+R: El usuario será bloqueado y no podrá obtener acceso a la aplicación. El usuario tendría que iniciar sesión de nuevo y aceptar las condiciones con el fin de obtener acceso.
 
 **P: ¿Es posible rechazar los términos de uso que se han aceptado previamente?**<br />
 A. Puede [revisar los términos de uso aceptados previamente](#how-users-can-review-their-terms-of-use), pero actualmente no hay ninguna manera de poderlos rechazar.
@@ -391,5 +391,5 @@ A. Los términos de uso usan los siguientes puntos de conexión para la autentic
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Inicio rápido: Solicitar la aceptación de los términos de uso antes de acceder a aplicaciones en la nube](require-tou.md)
+- [Inicio rápido: Solicitud de la aceptación de los términos de uso antes de acceder a aplicaciones en la nube](require-tou.md)
 - [Procedimientos recomendados para el acceso condicional en Azure Active Directory](best-practices.md)

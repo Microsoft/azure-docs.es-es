@@ -16,12 +16,12 @@ ms.date: 10/21/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa763c875b06bd7e22be0e814838f2e79b24e283
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b8f613cb7c75d9dd6af1fcf62f9d484398072c6
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358028"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279472"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Inicio de sesión del usuario con la autenticación de paso a través de Azure Active Directory
 
@@ -31,7 +31,7 @@ La autenticación de paso a través de Azure Active Directory (Azure AD) permite
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-Esta característica es una alternativa a la [sincronización de hash de contraseña de Azure AD](how-to-connect-password-hash-synchronization.md), que proporciona la misma ventaja de autenticación en la nube a las organizaciones. Sin embargo, las organizaciones que deseen aplicar sus directivas locales de seguridad y contraseñas de Active Directory, pueden usar la autenticación de paso a través en su lugar. Consulte [esta guía](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn) para ver una comparación de los distintos métodos de inicio de sesión de Azure AD y cómo elegir el método correcto para su organización.
+Esta característica es una alternativa a la [sincronización de hash de contraseña de Azure AD](how-to-connect-password-hash-synchronization.md), que proporciona la misma ventaja de autenticación en la nube a las organizaciones. Sin embargo, las organizaciones que deseen aplicar sus directivas locales de seguridad y contraseñas de Active Directory, pueden usar la autenticación de paso a través en su lugar. Consulte [esta guía](./choose-ad-authn.md) para ver una comparación de los distintos métodos de inicio de sesión de Azure AD y cómo elegir el método correcto para su organización.
 
 ![Autenticación de paso a través de Azure AD](./media/how-to-connect-pta/pta1.png)
 
@@ -42,14 +42,14 @@ Puede combinar la autenticación de paso a través con la característica de [in
 - *Mejor experiencia del usuario*
   - Los usuarios usan las mismas contraseñas para iniciar sesión tanto en las aplicaciones basadas en la nube como en las locales.
   - Los usuarios dedican menos tiempo a hablar con el departamento de soporte técnico de TI para que resuelvan problemas relacionados con las contraseñas.
-  - Los usuarios pueden realizar las tareas de [administración de contraseñas de autoservicio](../authentication/active-directory-passwords-overview.md) en la nube.
+  - Los usuarios pueden realizar las tareas de [administración de contraseñas de autoservicio](../authentication/concept-sspr-howitworks.md) en la nube.
 - *Es fácil de implementar y administrar*
   - No se requieren complejas implementaciones locales ni la configuración de la red.
   - Solo necesita instalar en local un agente ligero.
   - Sin sobrecarga de administración. El agente recibe automáticamente las mejoras y las correcciones de errores.
 - *Protección*
   - Las contraseñas locales nunca se almacenan en la nube.
-  - Protege las cuentas de usuario y, para ello, trabaja sin problemas con [directivas de acceso condicional de Azure AD](../active-directory-conditional-access-azure-portal.md), incluida la autenticación multifactor, el [bloqueo de autenticación heredada](../authentication/howto-password-smart-lockout.md) y el [filtrado de ataques por fuerza bruta](../conditional-access/concept-conditional-access-conditions.md).
+  - Protege las cuentas de usuario y, para ello, trabaja sin problemas con [directivas de acceso condicional de Azure AD](../conditional-access/overview.md), incluida la autenticación multifactor, el [bloqueo de autenticación heredada](../authentication/howto-password-smart-lockout.md) y el [filtrado de ataques por fuerza bruta](../conditional-access/concept-conditional-access-conditions.md).
   - El agente solo realiza conexiones salientes desde dentro de la red. Por lo tanto, no es necesario instalar el agente en una red perimetral, también conocida como DMZ.
   - La comunicación entre un agente y Azure AD está protegida mediante la autenticación basada en certificados. Azure AD renueva estos certificados automáticamente cada pocos meses.
 - *Alta disponibilidad*
@@ -59,8 +59,8 @@ Puede combinar la autenticación de paso a través con la característica de [in
 
 - Admite el inicio de sesión de usuario en todas las aplicaciones basadas en explorador web y en las aplicaciones cliente de Microsoft Office que usan la [autenticación moderna](https://aka.ms/modernauthga).
 - Los nombres de usuario de inicio de sesión pueden ser el predeterminado local (`userPrincipalName`) u otro atributo (conocido como `Alternate ID`) configurado en Azure AD Connect.
-- La característica funciona sin problemas con características de [acceso condicional](../active-directory-conditional-access-azure-portal.md), como Multi-Factor Authentication (MFA), para ayudar a proteger a los usuarios.
-- Se integra con la [administración de contraseñas de autoservicio](../authentication/active-directory-passwords-overview.md) basada en la nube, incluida la escritura diferida de contraseñas en Active Directory local y la protección con contraseña mediante la prohibición de contraseñas usadas habitualmente.
+- La característica funciona sin problemas con características de [acceso condicional](../conditional-access/overview.md), como Multi-Factor Authentication (MFA), para ayudar a proteger a los usuarios.
+- Se integra con la [administración de contraseñas de autoservicio](../authentication/concept-sspr-howitworks.md) basada en la nube, incluida la escritura diferida de contraseñas en Active Directory local y la protección con contraseña mediante la prohibición de contraseñas usadas habitualmente.
 - Se admiten entornos de varios bosques si hay relaciones de confianza de bosque entre los bosques de AD y si el enrutamiento de sufijos de nombre está configurado correctamente.
 - Es una característica gratuita y no es necesario usar ninguna versión de pago de Azure AD para usarla.
 - Puede habilitarse a través de [Azure AD Connect](whatis-hybrid-identity.md).

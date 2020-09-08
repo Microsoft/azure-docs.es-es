@@ -2,18 +2,18 @@
 title: 'Características de FHIR admitidas en Azure: Azure API for FHIR'
 description: En este artículo se explica qué características de la especificación de FHIR se implementan en Azure API for FHIR
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
-ms.author: mihansen
-ms.openlocfilehash: 7f92395f19d84f904493af458d1334f8013fd263
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: matjazl
+ms.openlocfilehash: bdf328222fef1f763776bd26c47f5cd4d65e487e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85808036"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000012"
 ---
 # <a name="features"></a>Características
 
@@ -90,7 +90,7 @@ Se admiten todos los tipos de parámetro de búsqueda.
 | `_security`             | Sí       | Sí       | Sí       |         |
 | `_text`                 | No        | No        | No        |         |
 | `_content`              | No        | No        | No        |         |
-| `_list`                 | No        | Sí       | Sí       |         |
+| `_list`                 | Sí       | Sí       | Sí       |         |
 | `_has`                  | No        | No        | No        |         |
 | `_type`                 | Sí       | Sí       | Sí       |         |
 | `_query`                | No        | No        | No        |         |
@@ -98,12 +98,12 @@ Se admiten todos los tipos de parámetro de búsqueda.
 | Operaciones de búsqueda       | Admitida: PaaS | Admitida: OSS (SQL) | Admitida: OSS (Cosmos DB) | Comentario |
 |-------------------------|-----------|-----------|-----------|---------|
 | `_filter`               | No        | No        | No        |         |
-| `_sort`                 | No        | No        | No        |         |
+| `_sort`                 | No        | Parcial   | Parcial        |   `_sort=_lastUpdated` se admite       |
 | `_score`                | No        | No        | No        |         |
 | `_count`                | Sí       | Sí       | Sí       |         |
 | `_summary`              | Parcial   | Parcial   | Parcial   | `_summary=count` se admite |
 | `_include`              | No        | Sí       | No        |         |
-| `_revinclude`           | No        | No        | No        |         |
+| `_revinclude`           | No        | Sí       | No        | Los elementos incluidos se limitan a 100. |
 | `_contained`            | No        | No        | No        |         |
 | `_elements`             | No        | No        | No        |         |
 

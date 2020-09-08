@@ -8,15 +8,15 @@
 - name: Tutoriales
   items:
     - name: G Suite
-      href: /azure/active-directory/saas-apps/google-apps-provisioning-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+      href: ../saas-apps/google-apps-provisioning-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - name: ServiceNow
-      href: /azure/active-directory/saas-apps/servicenow-provisioning-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+      href: ../saas-apps/servicenow-provisioning-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - name: Amazon Web Services (AWS) - Aprovisionamiento de roles
-      href: /azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-single-sign-ont?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+      href: ../saas-apps/amazon-web-service-tutorial.md?context=azure/active-directory/app-provisioning/context/app-provisioning-context#configure-azure-ad-sso
     - name: Workday
-      href: /azure/active-directory/saas-apps/workday-inbound-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+      href: ../saas-apps/workday-inbound-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - name: SAP SuccessFactors
-      href: /azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+      href: ../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - name: Todas las aplicaciones integradas de la galería
       href: /azure/active-directory/saas-apps
 - name: Conceptos
@@ -55,9 +55,13 @@
           href: check-status-user-account-provisioning.md
         - name: Exportación e importación de una configuración
           href: export-import-provisioning-configuration.md
+        - name: Aprovisionamiento de informes
+          href: ../reports-monitoring/concept-provisioning-logs.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - name: Solución de problemas de aprovisionamiento de aplicaciones
       items:
-        - name: Solución de problemas de aprovisionamiento de aplicaciones
+        - name: Problemas conocidos
+          href: known-issues.md
+        - name: Solución de problemas de configuración
           href: application-provisioning-config-problem.md
         - name: Estado de cuarentena
           href: application-provisioning-quarantine-status.md
@@ -70,7 +74,7 @@
         - name: Falta atributo de origen
           href: user-provisioning-sync-attributes-for-mapping.md
         - name: Registros de aprovisionamiento
-          href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+          href: ../reports-monitoring/concept-provisioning-logs.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - name: Compilación de un punto de conexión de SCIM y configuración del aprovisionamiento
       href: use-scim-to-provision-users-and-groups.md
     - name: Automatización de la configuración mediante MS Graph
@@ -96,11 +100,11 @@
 - name: Recursos
   items:
     - name: Opciones de ayuda y soporte técnico para desarrolladores
-      href: /azure/active-directory/develop/developer-support-help-options
+      href: ../develop/developer-support-help-options.md
     - name: Foro de comentarios de Azure
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
     - name: Página de preguntas y respuestas de Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-active-directory.html'
+      href: /answers/topics/azure-active-directory.html
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/active-directory'
     - name: Actualizaciones del servicio

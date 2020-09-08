@@ -13,12 +13,12 @@ ms.date: 10/10/2018
 ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: b76e84f6ae2449347604ab823fde5b74d5c68f07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: df3941c895ce67862eb53b8e96bc7a6d53c1ed02
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83740988"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799424"
 ---
 # <a name="possible-fixes-for-the-you-cant-get-there-from-here-error-message"></a>Correcciones posibles para el mensaje de error "No se puede llegar allí desde aquí"
 
@@ -68,6 +68,6 @@ Si el dispositivo no está unido a la red de la organización, puede realizar un
 - **Registro de un dispositivo personal para el trabajo.** Registre su dispositivo personal, que suele ser un teléfono o una tablet, en la red de su organización. Una vez registrado, el dispositivo tendrá acceso a los recursos restringidos de su organización. Para más información e instrucciones detalladas, vea el artículo sobre cómo [registrar su dispositivo personal en la red de su organización](user-help-register-device-on-network.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [¿Qué es el portal MyApps?](active-directory-saas-access-panel-introduction.md)
+- [¿Qué es el portal MyApps?](./my-apps-portal-end-user-access.md)
 
 - [Inicie sesión con el teléfono, no con la contraseña](user-help-auth-app-sign-in.md)

@@ -8,12 +8,12 @@ ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: f432c544d8632a548c397b63ffa8066f63424f67
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2d2a000879a95f86a6cdda3324add5b692476eee
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528390"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590122"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Habilitación de la eliminación temporal en recursos compartidos de archivos de Azure
 
@@ -22,6 +22,8 @@ Azure Storage ofrece la posibilidad de eliminar temporalmente recursos compartid
 En las secciones siguientes se muestra cómo habilitar y usar la eliminación temporal para recursos compartidos de archivos de Azure en una cuenta de almacenamiento existente:
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
+
+## <a name="getting-started"></a>Introducción
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 1. Vaya a la cuenta de almacenamiento y seleccione **Eliminación temporal** en **Servicio de archivos**.
@@ -33,7 +35,13 @@ En las secciones siguientes se muestra cómo habilitar y usar la eliminación te
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Los cmdlets de eliminación temporal están disponibles en la versión 2.1.1-preview del Módulo Az.Storage. Para habilitar la eliminación temporal, debe actualizar las propiedades de servicio de un cliente de archivo. En el ejemplo siguiente se habilita la eliminación temporal para todos los recursos compartidos de archivos en una cuenta de almacenamiento:
+## <a name="prerequisite"></a>Requisito previo
+
+Los cmdlets de eliminación temporal están disponibles en la versión preliminar [2.1.1](https://www.powershellgallery.com/packages/Az.Storage/2.1.1-preview) y la versión preliminar [2.3.1-](https://www.powershellgallery.com/packages/Az.Storage/2.3.1-preview)del Módulo Az.Storage. 
+
+## <a name="getting-started"></a>Introducción
+
+Para habilitar la eliminación temporal, debe actualizar las propiedades de servicio de un cliente de archivo. En el ejemplo siguiente se habilita la eliminación temporal para todos los recursos compartidos de archivos en una cuenta de almacenamiento:
 
 ```azurepowershell-interactive
 $rgName = "yourResourceGroupName"

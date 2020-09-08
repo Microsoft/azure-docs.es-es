@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 69b5e8721b320e799fbdfb31ff83f2e78e513b40
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 13a82aaa31734e98377d9f68c59c25c83a5d5f8a
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047513"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259139"
 ---
-# <a name="import-a-postman-collection-with-live-streaming-operations"></a>Importación de la colección de Postman con operaciones de streaming en vivo 
+# <a name="import-a-postman-collection-with-live-streaming-operations"></a>Importación de la colección de Postman con operaciones de streaming en vivo
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Este artículo contiene una definición de la colección de **Postman** que contiene solicitudes HTTP agrupadas que llaman a las API de REST de Azure Media Services de **streaming en vivo**. Para obtener información sobre cómo configurar **Postman** para que pueda usarse para llamar a las API de REST de Media Services, consulte el tutorial [Configuración de Postman para llamadas API de REST de Azure Media Services](media-rest-apis-with-postman.md).
 

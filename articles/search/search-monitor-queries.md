@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: f6594bbeb9899a255d0c38b6a5b2a378388501b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5589a46a63437fb395db280222f8a9e84775df3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552527"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935082"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Supervisión de solicitudes de consulta en Azure Cognitive Search
 
@@ -100,7 +100,7 @@ En la siguiente captura de pantalla, el primer número es el valor de "count" (o
 
 Para echar un vistazo a las cifras actuales, la pestaña **Supervisión** de la página de información general del servicio ofrece tres métricas (**Latencia de búsqueda**, **Consultas de búsqueda por segundo (por unidad de búsqueda)** , **Porcentaje de consultas de búsqueda limitadas**) en intervalos fijos que se miden en horas, días y semanas con la posibilidad de cambiar el tipo de agregación.
 
-Para un análisis en profundidad, abra el explorador de métricas en el menú **Supervisión** para que pueda clasificar, ampliar y visualizar los datos en busca de tendencias o anomalías. Para más información sobre el explorador de métricas, realice este [tutorial sobre creación de un gráfico de métricas](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-metrics-explorer).
+Para un análisis en profundidad, abra el explorador de métricas en el menú **Supervisión** para que pueda clasificar, ampliar y visualizar los datos en busca de tendencias o anomalías. Para más información sobre el explorador de métricas, realice este [tutorial sobre creación de un gráfico de métricas](../azure-monitor/learn/tutorial-metrics-explorer.md).
 
 1. En la sección Supervisión, seleccione **Métricas** para que se abra el explorador de métricas con el ámbito establecido en el servicio de búsqueda.
 

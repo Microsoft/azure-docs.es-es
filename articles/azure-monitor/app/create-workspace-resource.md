@@ -4,13 +4,13 @@ description: Obtenga información sobre los pasos necesarios para habilitar los 
 author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: 186d4c510b58e06fcb0b823ca0d5770a2684196e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.date: 08/24/2020
+ms.openlocfilehash: d6d6731ae087604e0a53a6721bb76dfba5fbf40c
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87824994"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783848"
 ---
 # <a name="workspace-based-application-insights-resources-preview"></a>Recursos de Application Insights basados en área de trabajo (versión preliminar)
 
@@ -27,7 +27,7 @@ Para probar la nueva experiencia, inicie sesión en [Azure Portal](https://porta
 
 Si aún no tiene un área de trabajo de Log Analytics, [vea la documentación de creación de áreas de trabajo de Log Analytics](../learn/quick-create-workspace.md).
 
-Actualmente, en la versión preliminar pública, **los recursos basados en área de trabajo están limitados a Oeste de EE. UU. 2, Este de EE. UU. y Centro-sur de EE. UU.**
+**Los recursos basados en el área de trabajo están disponibles actualmente en todas las regiones comerciales y en Azure Government**.
 
 Una vez creado el recurso, se ve la información del área de trabajo correspondiente en el panel de **información general**:
 
@@ -184,6 +184,14 @@ El comando `New-AzApplicationInsights` de PowerShell no admite actualmente la cr
 }
 
 ```
+
+## <a name="new-capabilities"></a>Funcionalidades nuevas
+
+Application Insights basado en áreas de trabajo le permite aprovechar las funcionalidades más recientes de Azure Monitor, como las siguientes:
+
+* Las [claves administradas por el cliente (CMK)](../platform/customer-managed-keys.md) proporcionan cifrado en reposo de los datos mediante claves de cifrado a las que solo tiene acceso el usuario.
+* [Azure Private Link](../platform/private-link-security.md) le permite vincular de forma segura los servicios PaaS de Azure a la red virtual mediante puntos de conexión privados.
+* [Traiga su propio almacenamiento (BYOS) para Profiler y Snapshot Debugger](./profiler-bring-your-own-storage.md) le proporciona control total sobre la directiva de cifrado en reposo, la directiva de administración de la duración y el acceso a la red para todos los datos asociados a Application Insights Profiler y Snapshot Debugger. 
 
 ## <a name="modifying-the-associated-workspace"></a>Modificación del área de trabajo asociada
 

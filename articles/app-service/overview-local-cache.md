@@ -6,17 +6,17 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: d1595354803b0625137dd1ac45d17962063ce4e0
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: b3c8f6015b4627d86a0665865fba2f3fdd39589d
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562453"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080718"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Información general de caché local de Azure App Service
 
 > [!NOTE]
-> La caché local no se admite en aplicaciones de funciones ni en aplicaciones de App Service en contenedores, como es el caso de [Windows Containers](app-service-web-get-started-windows-container.md) o [App Service en Linux](containers/app-service-linux-intro.md).
+> La caché local no se admite en aplicaciones de funciones ni en aplicaciones de App Service en contenedores, como es el caso de [Windows Containers](quickstart-custom-container.md?pivots=container-windows) o [App Service en Linux](overview.md#app-service-on-linux).
 
 
 El contenido de Azure App Service se almacena en Azure Storage y surge de manera duradera como un recurso compartido de contenido. Este diseño está pensado para trabajar con una amplia gama de aplicaciones y tiene los siguientes atributos:  
@@ -36,7 +36,7 @@ La característica de caché local de Azure App Service proporciona una vista de
 
 ## <a name="how-the-local-cache-changes-the-behavior-of-app-service"></a>Cómo la memoria caché local cambia el comportamiento de App Service
 * _D:\home_ apunta a la memoria caché local, que se crea en la instancia de la VM cuando se inicia la aplicación. _D:\local_ sigue apuntando al almacenamiento específico de la VM temporal.
-* La memoria caché local contiene una copia única de las carpetas _/site_ y _/siteextensions_ del almacén de contenido compartido, en _D:\home\site_ y _D:\home\siteextensions_, respectivamente. Los archivos se copian en la memoria caché local cuando se inicia la aplicación. El tamaño de las dos carpetas para cada aplicación se limita a 1 GB de forma predeterminada, pero se puede aumentar hasta 2 GB. Tenga en cuenta que, a medida que aumente el tamaño de la memoria caché, se tardará más tiempo en cargarla. Si los archivos copiados superan el tamaño de la memoria caché local, App Service omite silenciosamente la memoria caché local y se leen desde el recurso compartido de archivos remoto.
+* La memoria caché local contiene una copia única de las carpetas _/site_ y _/siteextensions_ del almacén de contenido compartido, en _D:\home\site_ y _D:\home\siteextensions_, respectivamente. Los archivos se copian en la memoria caché local cuando se inicia la aplicación. El tamaño de las dos carpetas para cada aplicación se limita a 1 GB de forma predeterminada, pero se puede aumentar hasta 2 GB. Tenga en cuenta que, a medida que aumente el tamaño de la memoria caché, se tardará más tiempo en cargarla. Si se ha aumentado el límite de la memoria caché local a 2 GB y los archivos copiados superan el tamaño máximo de 2 GB, App Service omitirá en modo silencioso la memoria caché local y leerá desde el recurso compartido de archivos remoto. Si no hay ningún límite definido o el límite se establece en un valor inferior a 2 GB y los archivos copiados superan el límite, la implementación o el intercambio pueden generar un error.
 * La caché local es de lectura y escritura. Sin embargo, se descartará cualquier modificación cuando la aplicación mueva máquinas virtuales o se reinicie. No use la memoria caché local para las aplicaciones que almacenan datos críticos en el almacén de contenido.
 * _D:\home\LogFiles_ y _D:\home\Data_ contienen archivos de registro y datos de la aplicación. Las dos subcarpetas se almacenan localmente en la instancia de la VM y se copian periódicamente en el almacén de contenido compartido. Las aplicaciones pueden conservar los archivos de registro y los datos al escribirlos en estas carpetas. Sin embargo, la copia en el almacén de contenido compartido es de mejor esfuerzo, por lo que es posible que los archivos de registro y datos se pierdan debido a un bloqueo repentino de una instancia de la VM.
 * Las [secuencias de registro](troubleshoot-diagnostic-logs.md#stream-logs) se ve afectada por la copia de mejor esfuerzo. Esto podría provocar un retraso de hasta un minuto en los registros en secuencia.

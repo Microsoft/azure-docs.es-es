@@ -10,13 +10,13 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/25/2019
-ms.openlocfilehash: f826113abc756654fbf02e7d643b8ac1f9d9f98a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/21/2020
+ms.openlocfilehash: b4cd1fefb728da797d5ff56fe833662f21630c58
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84338131"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796415"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Servicios vinculados en Azure Data Factory
 
@@ -69,19 +69,19 @@ La tabla siguiente describe las propiedades del JSON anterior:
 Propiedad | Descripción | Obligatorio |
 -------- | ----------- | -------- |
 name | Nombre del servicio vinculado. Consulte [Azure Data Factory - Naming rules](naming-rules.md) (Azure Data Factory: reglas de nomenclatura). |  Sí |
-type | Tipo de servicio vinculado. Por ejemplo: Azure Storage (almacén de datos) o AzureBatch (proceso). Vea la descripción de typeProperties. | Sí |
-typeProperties | Las propiedades de tipo son diferentes para cada almacén de datos o proceso. <br/><br/> Para los tipos de almacenes de datos compatibles y sus propiedades de tipo, consulte la tabla [Tipo de conjunto de datos](concepts-datasets-linked-services.md#dataset-type) en este artículo. Vaya al artículo del conector del almacén de datos para obtener información acerca de las propiedades de tipo específicas de un almacén de datos. <br/><br/> Para los tipos de procesos compatibles y sus propiedades de tipo, vea [Servicios de proceso vinculados](compute-linked-services.md). | Sí |
+type | Tipo de servicio vinculado. Por ejemplo: AzureBlobStorage (almacén de datos) o AzureBatch (proceso). Vea la descripción de typeProperties. | Sí |
+typeProperties | Las propiedades de tipo son diferentes para cada almacén de datos o proceso. <br/><br/> Para los tipos de almacenes de datos compatibles y sus propiedades de tipo, vea el artículo de [información general sobre los conectores](copy-activity-overview.md#supported-data-stores-and-formats). Vaya al artículo del conector del almacén de datos para obtener información acerca de las propiedades de tipo específicas de un almacén de datos. <br/><br/> Para los tipos de procesos compatibles y sus propiedades de tipo, vea [Servicios de proceso vinculados](compute-linked-services.md). | Sí |
 connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. | No
 
 ## <a name="linked-service-example"></a>Ejemplo de servicio vinculado
 
-El siguiente servicio vinculado no es un servicio vinculado de Azure Storage. Tenga en cuenta que el tipo está establecido en Azure Storage. Las propiedades de tipo del servicio vinculado de Azure Storage incluyen una cadena de conexión. El servicio Data Factory utiliza esta cadena de conexión para conectarse al almacén de datos en tiempo de ejecución.
+El siguiente servicio vinculado no es un servicio vinculado de Azure Blob Storage. Tenga en cuenta que el tipo está establecido en Azure Blob Storage. Las propiedades de tipo del servicio vinculado de Azure Blob Storage incluyen una cadena de conexión. El servicio Data Factory utiliza esta cadena de conexión para conectarse al almacén de datos en tiempo de ejecución.
 
 ```json
 {
-    "name": "AzureStorageLinkedService",
+    "name": "AzureBlobStorageLinkedService",
     "properties": {
-        "type": "AzureStorage",
+        "type": "AzureBlobStorage",
         "typeProperties": {
             "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
         },

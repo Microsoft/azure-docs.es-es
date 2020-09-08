@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: e00d6b674453f12f94a2859f9b0533aea0e7332c
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: e22908dc5d445f105c199e594443cd051eb4be41
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207556"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051362"
 ---
 # <a name="load-balancer-health-probes"></a>Sondeos de estado de Load Balancer
 
@@ -263,6 +263,6 @@ La instancia pública básica de Load Balancer expone el estado del sondeo de es
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre [Load Balancer Estándar](load-balancer-standard-overview.md)
-- [Empiece a crear un equilibrador de carga público en Resource Manager mediante Azure PowerShell](quickstart-create-standard-load-balancer-powershell.md)
+- [Empiece a crear un equilibrador de carga público en Resource Manager mediante Azure PowerShell](quickstart-load-balancer-standard-public-powershell.md)
 - [API REST para los sondeos de estado](https://docs.microsoft.com/rest/api/load-balancer/loadbalancerprobes/)
 - Solicite nuevas capacidades de sondeo de estado con [Uservoice de Load Balancer](https://aka.ms/lbuservoice)

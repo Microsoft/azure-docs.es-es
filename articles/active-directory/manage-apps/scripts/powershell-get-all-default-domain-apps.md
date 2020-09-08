@@ -2,22 +2,21 @@
 title: 'Ejemplo de PowerShell: aplicaciones de proxy de aplicación con dominios predeterminados'
 description: Ejemplo de PowerShell en el que se enumeran todas las aplicaciones de proxy de aplicación de Azure Active Directory (Azure AD) que usan dominios predeterminados (.msappproxy.net).
 services: active-directory
-author: msmimart
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: sample
 ms.date: 12/05/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40a9f7ce86981d6f03b25237a7a73869fd5fd4ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9de36d27b592576300728f3720087073c165a672
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75476030"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511208"
 ---
 # <a name="get-all-application-proxy-apps-using-default-domains-msappproxynet"></a>Obtención de todas las aplicaciones de Application Proxy con dominios predeterminados (.msappproxy.net)
 

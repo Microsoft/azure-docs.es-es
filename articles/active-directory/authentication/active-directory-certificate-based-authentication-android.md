@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9760624afec111a271ae5aa0ebbe5533d6ba8d6
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 7dd4c95c3c02f4b4a807b5238aa61e76ecb56e3e
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81680210"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716425"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Autenticación basada en certificados de Azure Active Directory en Android
 
@@ -64,7 +64,7 @@ Se recomienda actualizar las páginas de error de ADFS de su organización con l
 * El requisito de instalar Microsoft Authenticator en Android
 * Instrucciones sobre cómo obtener un certificado de usuario
 
-Para más información, consulte el artículo sobre la [personalización de las páginas de inicio de sesión de AD FS](https://technet.microsoft.com/library/dn280950.aspx).
+Para más información, consulte el artículo sobre la [personalización de las páginas de inicio de sesión de AD FS](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280950(v=ws.11)).
 
 Algunas aplicaciones de Office (con la autenticación moderna habilitada) envían "*prompt=login*" a Azure AD en su solicitud. De manera predeterminada, Azure AD traduce "*prompt=login*" en la solicitud para ADFS a "*wauth=usernamepassworduri*" (pide a ADFS que realice la autenticación de U y P) y "*wfresh=0*" (pide a ADFS que ignore el estado de SSO y realice una autenticación nueva). Si desea habilitar la autenticación basada en certificados para estas aplicaciones, es preciso que modifique el comportamiento predeterminado de Azure AD. Establezca "*PromptLoginBehavior*" en la configuración del dominio federado como "*Disabled*".
 Para realizar esta tarea, puede usar el cmdlet [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0):

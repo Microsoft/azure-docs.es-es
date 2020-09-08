@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Zoom | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Zoom.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 0ebdab6c-83a8-4737-a86a-974f37269c31
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f9d727154adf0a2099d7a9144c109cef9c91238
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d257935aa3e9ad54b64b0f416119931661809172
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "70743963"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545971"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zoom"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Zoom
 
@@ -87,6 +82,8 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `<companyname>.zoom.us`
 
+    c. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.zoom.us`
+
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Contacte con el [equipo de soporte al cliente de Zoom](https://support.zoom.us/hc/) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
@@ -138,15 +135,15 @@ En esta sección, va a permitir que B. Simon acceda a Zoom mediante el inicio d
 
 1. En otra ventana del explorador web, inicie sesión en su sitio de la compañía de Zoom como administrador.
 
-2. Haga clic en la pestaña **Inicio de sesión único** .
+2. Haga clic en la pestaña **Inicio de sesión único**.
 
-    ![Pestaña Inicio de sesión único](./media/zoom-tutorial/ic784700.png "Inicio de sesión único")
+    ![Pestaña Inicio de sesión único](./media/zoom-tutorial/zoom-sso1.png "Inicio de sesión único")
 
-3. Haga clic en la pestaña **Control de seguridad** y luego vaya a la configuración de **Inicio de sesión único**.
+3. Haga clic en la pestaña **Control de seguridad** y vaya a la configuración **Inicio de sesión único**.
 
 4. En la sección Inicio de sesión único, siga estos pasos:
 
-    ![Sección Inicio de sesión único](./media/zoom-tutorial/ic784701.png "Inicio de sesión único")
+    ![Sección Inicio de sesión único](./media/zoom-tutorial/zoom-sso2.png "Inicio de sesión único")
 
     a. En el cuadro de texto **Dirección URL de la página de inicio de sesión**, pegue el valor de la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
@@ -162,11 +159,11 @@ En esta sección, va a permitir que B. Simon acceda a Zoom mediante el inicio d
 
     ![Botón de Copiar punto de conexión](./media/zoom-tutorial/endpoint1.png)
 
-    e. Abra el certificado codificado en base 64 en el Bloc de notas, copie su contenido en el Portapapeles y luego péguelo en el cuadro de texto **Certificado de proveedor de identidades** .
+    e. Abra el certificado codificado en Base 64 en el Bloc de notas, copie el contenido del mismo en el Portapapeles y, a continuación, péguelo en el cuadro de texto **Certificado del proveedor de identidades**.
 
     f. En el cuadro de texto **Issuer** (Emisor), pegue el valor de **Identificador Azure AD** que ha copiado de Azure Portal. 
 
-    g. Haga clic en **Save**(Guardar).
+    g. Haga clic en **Guardar cambios**.
 
     > [!NOTE]
     > Para obtener más información, visite la documentación de Zoom [https://zoomus.zendesk.com/hc/articles/115005887566](https://zoomus.zendesk.com/hc/articles/115005887566).

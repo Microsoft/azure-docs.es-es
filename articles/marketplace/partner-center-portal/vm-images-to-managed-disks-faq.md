@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/22/2019
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.openlocfilehash: c9f6d5d2649aff03d4bfb2770ec97053e70027da
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 814a4012ace95e84e75bcb4071c549822b2b0633
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319888"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182435"
 ---
 # <a name="were-moving-virtual-machine-vm-images-on-azure-marketplace-to-managed-disk-storage"></a>Migración de imágenes de máquina virtual (VM) a almacenamiento de disco administrado en Azure Marketplace
 

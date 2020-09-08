@@ -1,6 +1,6 @@
 ---
 title: 'Administración de cuentas de CloudSimple: Azure'
-description: Obtenga información acerca de la administración de cuentas de CloudSimple
+description: Obtenga información sobre la administración de una cuenta de CloudSimple, que se crea junto con el servicio de CloudSimple y está asociada a su suscripción de Azure.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a180e2ba6c1a610116271d5a9b6e3fdf562cecdf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 68ddea6c58bfff5e82643acc947ac1e7de76d699
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77025119"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141047"
 ---
 # <a name="account-management-overview"></a>Información general sobre la administración de cuentas
 

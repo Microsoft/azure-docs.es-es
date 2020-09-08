@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Teamwork.com | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Teamwork.com.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: bd4413c2-0d7c-41a7-aba4-b7a7a28c9448
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a62bdc0f23f6769dca9914381a81674e470e695d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: ad0fa25b07448c291e5c6c0f591b43b8d2f3ba65
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86167783"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88542282"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>Tutorial: integración de Azure Active Directory con Teamwork.com
 

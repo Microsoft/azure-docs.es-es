@@ -1,15 +1,15 @@
 ---
 title: Matriz de compatibilidad de SAP HANA
-description: En este artículo, obtendrá información sobre los escenarios admitidos y las limitaciones al usar Azure Backup para realizar copias de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure.
+description: En este artículo se proporciona información sobre los escenarios admitidos y las limitaciones al usar Azure Backup para realizar copias de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.custom: references_regions
-ms.openlocfilehash: 674bbf968b42f66a4c421aec6653881c8fd52a8b
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: e3bfc5ab9a91ae3aee73d7ed24161acae60211ce
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439571"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022333"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Matriz de compatibilidad de la copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure
 
@@ -29,7 +29,7 @@ Azure Backup admite la realización de copias de seguridad de bases de datos de 
 | **Implementaciones de HANA**       | SAP HANA en una sola máquina virtual de Azure: solo escalado vertical. <br><br> En el caso de las implementaciones de alta disponibilidad, ambos nodos de las dos máquinas diferentes se tratan como individuales con cadenas de datos independientes.               | Escalado horizontal <br><br> En las implementaciones de alta disponibilidad, la copia de seguridad no conmutará por error automáticamente al nodo secundario. La configuración de la copia de seguridad debe realizarse por separado para cada nodo.                                           |
 | **Instancias de HANA**         | Una sola instancia de SAP HANA en una sola máquina virtual de Azure: solo escalado vertical | Varias instancias de SAP HANA en una sola máquina virtual                  |
 | **Tipos de base de datos HANA**    | Contenedor de base de datos única (SDC) en la versión 1.x, contenedor de varias bases de datos (MDC) en la versión 2.x | MDC en HANA 1.x                                              |
-| **Tamaño de base de datos de HANA**     | Bases de datos de HANA de tamaño < = 2 TB (este tamaño no es el de la memoria del sistema de HANA)               |                                                              |
+| **Tamaño de base de datos de HANA**     | Bases de datos de HANA de tamaño menor o igual que 2 TB (este tamaño no es el de la memoria del sistema de HANA)               |                                                              |
 | **Tipos de copia de seguridad**           | Copias de seguridad completas, diferenciales y de registros                          | Incrementales, instantáneas                                       |
 | **Tipos de restauración**          | Consulte la nota SAP HANA [1642148](https://launchpad.support.sap.com/#/notes/1642148) para obtener información sobre los tipos de restauración admitidos |                                                              |
 | **Límites de copia de seguridad**          | Copias de seguridad completas de hasta 2 TB por instancia de SAP HANA         |                                                              |
@@ -41,7 +41,6 @@ Azure Backup admite la realización de copias de seguridad de bases de datos de 
 >Azure Backup no se ajusta automáticamente a los cambios del horario de verano cuando realiza la copia de seguridad de una base de datos SAP HANA en una máquina virtual de Azure.
 >
 >Modifique la directiva de forma manual según sea necesario.
-
 
 > [!NOTE]
 > Ahora, puede [supervisar los trabajos de copia de seguridad y restauración](./sap-hana-db-manage.md#monitor-manual-backup-jobs-in-the-portal) (en la misma máquina) desencadenados por clientes nativos de HANA (SAP HANA Studio/Cockpit/DBA Cockpit) en Azure Portal.

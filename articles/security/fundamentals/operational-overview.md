@@ -1,6 +1,6 @@
 ---
 title: Información general sobre la seguridad operativa de Azure| Microsoft Docs
-description: En este artículo se proporciona información general sobre la seguridad operativa de Azure.
+description: Obtenga información sobre la seguridad operativa de Azure en esta introducción. La seguridad operativa hace referencia a los servicios, los controles y las características de protección de recursos.
 services: security
 documentationcenter: na
 author: unifycloud
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: 00a71fec9c0bfc1db45eee7129b7c2a8adaef0fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3ec284de3d43e75bd0832b1d98bb9d319a7ca0e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83674231"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925318"
 ---
 # <a name="azure-operational-security-overview"></a>Información general sobre la seguridad operativa de Azure
 
@@ -68,7 +68,7 @@ Azure AD también incluye un conjunto completo de [funcionalidades de administra
 - [Administración de contraseñas de autoservicio](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/)
 - [Administración de grupos de autoservicio](/azure/active-directory/active-directory-passwords-update-your-own-password)
 - [Administración de cuentas con privilegios](/azure/active-directory/active-directory-privileged-identity-management-configure)
-- [Control de acceso basado en rol](/azure/role-based-access-control/overview)
+- [Control de acceso basado en roles de Azure (Azure RBAC)](/azure/role-based-access-control/overview)
 - [Supervisión del uso de la aplicación](/azure/active-directory/connect-health/active-directory-aadconnect-health)
 - [Auditoría avanzada](/azure/active-directory/active-directory-reporting-activity-audit-logs)
 - [Supervisión de seguridad y alertas](/azure/operations-management-suite/oms-security-responding-alerts)
@@ -87,7 +87,7 @@ Con Azure Active Directory, todas las aplicaciones que publica para sus asociado
 - Validación de cifrado de disco.
 - Ataques basados en la red.
 
-Security Center usa el [control de acceso basado en rol (RBAC)](/azure/role-based-access-control/role-assignments-portal). RBAC proporciona [roles integrados](../../role-based-access-control/built-in-roles.md) que se pueden asignar a usuarios, grupos y servicios de Azure.
+Security Center usa el [control de acceso basado en roles (RBAC de Azure)](/azure/role-based-access-control/role-assignments-portal). RBAC proporciona [roles integrados](../../role-based-access-control/built-in-roles.md) que se pueden asignar a usuarios, grupos y servicios de Azure.
 
 Security Center evalúa la configuración de los recursos para identificar problemas de seguridad y vulnerabilidades. En Security Center, solo se muestra información relacionada con un recurso cuando tiene asignado el rol de propietario, colaborador o lector para la suscripción o grupo de recursos al que pertenece un recurso.
 

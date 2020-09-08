@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 0a35576435780ee43d9f2aa99167b736f90799ab
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 5581a4c43f0b78dc8c14c44bfb1ded371a925fd0
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87265252"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88706037"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Crear, cambiar o eliminar una red virtual
 
@@ -49,9 +49,8 @@ Complete las tareas siguientes antes de seguir los pasos de las secciones de est
 
      Aunque solo se puede definir un único rango de direcciones cuando se crea la red virtual en el portal, puede agregar varios rangos de direcciones al espacio de direcciones una vez creada la red virtual. Para obtener información sobre cómo agregar un rango de direcciones a una red virtual existente, consulte [Agregar o quitar un rango de direcciones](#add-or-remove-an-address-range).
 
-     >[!WARNING]
-     >Si una red virtual tiene rangos de direcciones que se superponen con otra red virtual o red local, las dos redes no se pueden conectar. Antes de definir un rango de direcciones, tenga en cuenta si es posible que en el futuro quiera conectar la red virtual a otras redes virtuales o redes locales.
-     >
+     > [!WARNING]
+     > Si una red virtual tiene rangos de direcciones que se superponen con otra red virtual o red local, las dos redes no se pueden conectar. Antes de definir un rango de direcciones, tenga en cuenta si es posible que en el futuro quiera conectar la red virtual a otras redes virtuales o redes locales. Microsoft recomienda configurar los rangos de direcciones de red virtual con espacio de direcciones privadas o espacio de direcciones públicas propiedad de la organización.
      >
 
      - **Nombre de subred**: El nombre de la subred debe ser único dentro de la red virtual. El nombre de subred no se puede cambiar después de crear la subred. El portal requiere que se defina una subred al crear una red virtual, aunque una red virtual no necesita tener ninguna subred. En el portal, solo se puede definir una subred cuando se crea una red virtual. Puede agregar más subredes a la red virtual más adelante, una vez creada la red virtual. Para agregar una subred a una red virtual, consulte [Administrar subredes](virtual-network-manage-subnet.md). Puede crear una red virtual que tenga varias subredes mediante la CLI de Azure o PowerShell.

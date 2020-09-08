@@ -75,6 +75,8 @@
       items:
         - name: Creación de un laboratorio
           href: devtest-lab-create-lab.md
+        - name: Creación de un laboratorio aislado de la red
+          href: network-isolation.md
         - name: Creación o modificación de laboratorios mediante una plantilla de Resource Manager
           href: devtest-lab-use-arm-and-powershell-for-lab-resources.md
         - name: Especificación del grupo de recursos para máquinas virtuales de laboratorio
@@ -83,6 +85,8 @@
           href: devtest-lab-internal-support-message.md
         - name: Configuración de directivas y programaciones
           href: devtest-lab-set-lab-policy.md
+        - name: "Configurar la identidad del laboratorio\_"
+          href: configure-lab-identity.md
         - name: Configuración de un laboratorio para usar una puerta de enlace de Escritorio remoto
           href: configure-lab-remote-desktop-gateway.md
         - name: Anuncio de entrada de blog en un laboratorio
@@ -95,8 +99,6 @@
           href: devtest-lab-auto-startup-vm.md
         - name: Escalado de un laboratorio
           href: devtest-lab-scale-lab.md
-        - name: Habilitación de identidades administradas en máquinas virtuales de laboratorio
-          href: enable-managed-identities-lab-vms.md
         - name: Administración de bases de máquinas virtuales
           items:
             - name: Configuración de imágenes de Azure Marketplace
@@ -133,7 +135,7 @@
               href: devtest-lab-add-vm.md
             - name: Azure PowerShell
               href: devtest-lab-vm-powershell.md
-            - name: CLI de Azure
+            - name: Azure CLI
               href: devtest-lab-vmcli.md
             - name: Plantilla de Resource Manager
               href: devtest-lab-use-resource-manager-template.md
@@ -167,6 +169,8 @@
           href: start-machines-use-automation-runbooks.md
         - name: Importación de máquinas virtuales de otro laboratorio
           href: import-virtual-machines-from-another-lab.md
+        - name: Habilitación de identidades administradas en máquinas virtuales de laboratorio
+          href: enable-managed-identities-lab-vms.md
     - name: Uso de entornos en un laboratorio
       items:
         - name: Creación de un entorno

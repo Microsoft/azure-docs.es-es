@@ -5,7 +5,7 @@
   items:
     - name: Machine Learning Studio (clásico)
       displayName: overview
-      href: what-is-ml-studio.md
+      href: studio-classic-overview.md
     - name: Comparación entre nuestros productos de aprendizaje automático
       href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context
 - name: Guías de inicio rápido
@@ -140,9 +140,6 @@
         - name: Datos de la galería
           displayName: export
           href: ai-gallery-control-personal-data-dsr.md
-        - name: Descarga de cuadernos
-          displayName: export
-          href: download-notebooks-data.md
 - name: Referencia
   items:
     - name: Referencia de módulos y algoritmos

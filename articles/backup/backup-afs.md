@@ -3,12 +3,12 @@ title: Copia de seguridad de los recursos compartidos de archivos de Azure en Az
 description: Aprenda a usar Azure Portal para realizar copias de seguridad de recursos compartidos de archivos de Azure en almacenes de Recovery Services
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: e0d9edbcb89dbdcac51893eb720da880a150bc7b
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: ca49f1ad48ab0534b27b91ad6a5a50b393cda782
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532705"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890355"
 ---
 # <a name="back-up-azure-file-shares"></a>Copia de seguridad de recursos compartidos de archivos de Azure
 
@@ -132,7 +132,7 @@ En los pasos siguientes se explica cómo puede configurar la copia de seguridad 
        ![Crear almacén](./media/backup-afs/create-new-vault.png)
 
       >[!IMPORTANT]
-      >Si la cuenta de almacenamiento está registrada con un almacén o hay pocos recursos compartidos protegidos dentro de la cuenta de almacenamiento que hospeda el recurso compartido de archivos que intenta proteger, el nombre del almacén de Recovery Services se rellenará previamente y no se le permitirá editarlo. [Más información aquí](backup-azure-files-faq.md#why-cant-i-change-the-vault-to-configure-backup-for-the-file-share)
+      >Si la cuenta de almacenamiento está registrada con un almacén o hay pocos recursos compartidos protegidos dentro de la cuenta de almacenamiento que hospeda el recurso compartido de archivos que intenta proteger, el nombre del almacén de Recovery Services se rellenará previamente y no se le permitirá editarlo. [Más información aquí](backup-azure-files-faq.md#why-cant-i-change-the-vault-to-configure-backup-for-the-file-share).
 
 1. Para la selección de **Directiva de copia de seguridad**, realice alguna de las siguientes acciones:
 

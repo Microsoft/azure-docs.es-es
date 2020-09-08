@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con ICIMS | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory e ICIMS.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 72dbd649-e4b1-4d72-ad76-636d84922596
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 03/20/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d608eb8caf9e4183d14d5a0ac416b7ba9107b977
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 471f5120f83512a09917df457d831618b5ac4157
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261143"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547518"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-icims"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con ICIMS
 

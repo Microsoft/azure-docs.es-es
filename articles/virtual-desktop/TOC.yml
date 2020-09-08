@@ -94,8 +94,14 @@
       href: configure-automatic-updates.md
     - name: Instalación de paquetes de idioma
       href: language-packs.md
+    - name: Uso de Azure Advisor
+      href: azure-advisor.md
+    - name: Resolver recomendaciones
+      href: azure-advisor-recommendations.md
 - name: Conceptos
   items:
+    - name: Authentication
+      href: authentication.md
     - name: Lista de direcciones URL seguras
       href: safe-url-list.md
     - name: Entorno de Windows Virtual Desktop
@@ -116,6 +122,14 @@
       href: faq.md
     - name: "Preguntas frecuentes sobre la sesión múltiple de Windows\_10\_Enterprise"
       href: windows-10-multisession-faq.md
+    - name: Asociación de aplicaciones en formato .MSIX
+      items:
+        - name: ¿Qué es la asociación de aplicaciones en formato .MSIX?
+          href: what-is-app-attach.md
+        - name: Glosario
+          href: app-attach-glossary.md
+        - name: Preguntas más frecuentes
+          href: app-attach-faq.md
     - name: Ubicaciones de datos
       href: data-locations.md
 - name: Solución de problemas
@@ -150,6 +164,10 @@
       href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
     - name: Interfaz de la línea de comandos (CLI) de Azure
       href: /cli/azure/ext/desktopvirtualization/?view=azure-cli-latest
+    - name: Escenarios de ejemplo de Azure
+      href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop
+    - name: Detección de correo electrónico
+      href: /windows-server/remote/remote-desktop-services/rds-email-discovery
 - name: Recursos
   items:
     - name: PowerShell

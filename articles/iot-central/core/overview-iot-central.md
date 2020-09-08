@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: c8cd789b16f839c60249b36f570ca1c945ef4e01
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 1af549feb551eca02bb1ef8df6481eceb959f6d1
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337184"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042724"
 ---
 # <a name="what-is-azure-iot-central"></a>¿Qué es Azure IoT Central?
 
@@ -34,10 +34,10 @@ Para IoT Central, en este artículo se describe lo siguiente:
 
 La documentación IoT Central hace referencia a cuatro personas que interactúan con una aplicación IoT Central:
 
-- Un _generador de soluciones_ es responsable de definir los tipos de dispositivos que se conectan a la aplicación y de personalizar la aplicación para el operador.
-- Un _operador_, que administra los dispositivos conectados a la aplicación.
+- Un _generador de soluciones_ es responsable de [definir los tipos de dispositivos](howto-set-up-template.md) que se conectan a la aplicación y de personalizar la aplicación para el operador.
+- Un _operador_, que [administra los dispositivos](howto-manage-devices.md) conectados a la aplicación.
 - Un _administrador_ es responsable de las tareas administrativas, como la administración de [roles de usuario y permisos](howto-administer.md) dentro de la aplicación.
-- Un _desarrollador de dispositivos_ crea el código que se ejecuta en un dispositivo o un módulo de IoT Edge conectado a la aplicación.
+- Un _desarrollador de dispositivos_ [crea el código que se ejecuta en un dispositivo](concepts-telemetry-properties-commands.md) o un [módulo de IoT Edge](concepts-iot-edge.md) conectado a la aplicación.
 
 ## <a name="create-your-iot-central-application"></a>Creación de la aplicación IoT Central
 
@@ -55,7 +55,7 @@ Como generador de soluciones, se usan las herramientas web para crear una _plant
 - Las propiedades del dispositivo que se establecen mediante un dispositivo y que son de solo lectura en la aplicación.
 - Propiedades, que un operador establece, que determinan el comportamiento del dispositivo.
 
-Esta plantilla de dispositivo incluye:
+Esta [plantilla de dispositivo](howto-set-up-template.md) incluye:
 
 - Un _modelo de funcionalidad del dispositivo_ que describe las funcionalidades que debe implementar un dispositivo, como los datos de telemetría que envía y las propiedades que notifica.
 - Propiedades de la nube que no están almacenadas en el dispositivo.
@@ -83,13 +83,13 @@ Como generador de soluciones, también puede personalizar la interfaz de usuario
 
 ## <a name="manage-your-devices"></a>Administración de los dispositivos
 
-Como operador, se usa la aplicación IoT Central para administrar los dispositivos de la solución de IoT Central. Los operadores realizan tareas como:
+Como operador, se usa la aplicación IoT Central para [administrar los dispositivos](howto-manage-devices.md) de la solución de IoT Central. Los operadores realizan tareas como:
 
 - Supervisar los dispositivos conectados a la aplicación.
 - Solucionar problemas y errores de los dispositivos.
 - Aprovisionar dispositivos nuevos.
 
-Como generador de soluciones, puede definir reglas y acciones personalizadas que funcionan a través de la transmisión de datos desde dispositivos conectados. Un operador puede habilitar o deshabilitar estas reglas en el nivel de dispositivo para controlar y automatizar las tareas dentro de la aplicación.
+Como generador de soluciones, puede [definir reglas y acciones](howto-configure-rules.md) personalizadas que funcionen a través de la transmisión de datos desde dispositivos conectados. Un operador puede habilitar o deshabilitar estas reglas en el nivel de dispositivo para controlar y automatizar las tareas dentro de la aplicación.
 
 Con cualquier solución de IoT diseñada para funcionar a escala es importante tener un enfoque estructurado en relación con la administración de dispositivos. No basta con conectar los dispositivos a la nube, sino que es necesario mantener los dispositivos conectados y en buen estado. Un operador puede usar las siguientes funcionalidades de IoT Central para administrar los dispositivos a lo largo del ciclo de vida de la aplicación:
 

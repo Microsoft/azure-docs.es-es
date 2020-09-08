@@ -3,12 +3,12 @@ title: 'Inicio rápido: Consulta de predicciones con el explorador: LUIS'
 description: En este inicio rápido, usará una aplicación de LUIS disponible públicamente para determinar la intención de un usuario a partir de texto conversacional en un explorador.
 ms.topic: quickstart
 ms.date: 04/21/2020
-ms.openlocfilehash: 5ba86882ebf3cb538ad6b865382342fcbd43d27c
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 24c7a8aca410ad10b8a9299c4bca2f13d0feb780
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81769981"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246002"
 ---
 # <a name="quickstart-query-prediction-runtime-with-user-text"></a>Inicio rápido: Consulta del entorno de ejecución de predicción con texto del usuario
 
@@ -19,7 +19,7 @@ Para entender lo que devuelve un punto de conexión de predicción de LUIS, vea 
 Para consultar una aplicación pública, necesita:
 
 * La información de recursos de Language Understanding (LUIS):
-    * **Clave de predicción**, que se puede obtener en el [portal de LUIS](https://www.luis.ai/). Si aún no tiene una suscripción para crear una clave, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/).
+    * **Clave de predicción**, que se puede obtener en el [portal de LUIS](https://www.luis.ai/). Si aún no tiene una suscripción para crear una clave, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services).
     * **Subdominio de punto de conexión de predicción**: el subdominio es también el **nombre** del recurso de LUIS.
 * Un identificador de aplicación de LUIS: use el identificador de aplicación de IoT público de `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. La consulta de usuario que se usa en el código del inicio rápido es específica de esa aplicación.
 

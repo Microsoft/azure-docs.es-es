@@ -8,12 +8,12 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-javascript
-ms.openlocfilehash: a93e0b6d29bb10e5e71f48134916cac9cd563fb2
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 3cf14ce3e8ef9b1d783191fe6c01c5e311d57786
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420046"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855952"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Creación de SDK personalizados para Azure Digital Twins con AutoRest
 
@@ -41,10 +41,10 @@ npm install -g autorest@2.0.4413
 Para ejecutar AutoRest con el archivo Swagger de Azure Digital Twins, siga estos pasos:
 1. Copie el archivo Swagger de Azure Digital Twins y su correspondiente carpeta de ejemplos en un directorio de trabajo.
 2. Use una ventana del símbolo del sistema para cambiar a ese directorio de trabajo.
-3. Ejecute AutoRest con el siguiente comando. Reemplace el marcador de posición `<language>` por el lenguaje que prefiera: `--python`, `--java`, `--go`, etc. (Puede encontrar la lista completa de opciones en el archivo [Léame de AutoRest](https://github.com/Azure/autorest)).
+3. Ejecute AutoRest con el siguiente comando. Reemplace el marcador de posición `<language>` por el lenguaje que prefiera: `python`, `java`, `go`, etc. (Puede encontrar la lista completa de opciones en el archivo [Léame de AutoRest](https://github.com/Azure/autorest)).
 
 ```cmd/sh
-autorest --input-file=adtApiSwagger.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
+autorest --input-file=digitaltwins.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
 ```
 
 Como resultado, verá una nueva carpeta denominada *ADTApi* en el directorio de trabajo. Los archivos de SDK generados tendrán el espacio de nombres *ADTApi*. Seguirá usando ese espacio de nombres en el resto de los ejemplos de uso de este artículo.

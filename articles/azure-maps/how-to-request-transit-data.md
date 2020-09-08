@@ -1,6 +1,6 @@
 ---
 title: Solicitud de información sobre el transporte mediante el servicio Mobility de Microsoft Azure Maps
-description: En este artículo, obtendrá información sobre cómo solicitar datos de tránsito público mediante el servicio Mobility de Microsoft Azure Maps.
+description: Aprenda a usar el servicio Mobility de Azure Maps para solicitar datos del transporte público, como los identificadores de áreas de metro, las paradas, las rutas y sus itinerarios.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/22/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 38fc6f213cbd58fc829a6605bdbed7d25e99bb8d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0aad822f0433a161e20c520296ce9fb9eb296f7e
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319021"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037752"
 ---
 # <a name="request-public-transit-data-using-the-azure-maps-mobility-service"></a>Solicitud de información sobre el transporte público mediante el servicio Mobility de Azure Maps
 

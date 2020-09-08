@@ -9,15 +9,15 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: a092ec3d211ed3fafadd73c37b3e58c353b618d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e83f69b2a46b54f92bbfe35ac96f870edf5cb807
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253416"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078034"
 ---
 # <a name="migrate-a-sql-server-database-to-azure-sql-database-using-azure-powershell"></a>Migración de una base de datos de SQL Server a Azure SQL Database mediante Azure PowerShell
 

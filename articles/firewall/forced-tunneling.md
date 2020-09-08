@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 06/01/2020
+ms.date: 08/19/2020
 ms.author: victorh
-ms.openlocfilehash: a467aa60b131e47e9251366369b3fae8dd95c004
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: da2b206bf24cb33180305e32e270b989eb64dfa3
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267705"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612609"
 ---
 # <a name="azure-firewall-forced-tunneling"></a>Tunelización forzada de Azure Firewall
 
@@ -24,13 +24,13 @@ De forma predeterminada, no se permite la tunelización forzada en Azure Firewal
 
 Para admitir la tunelización forzada, el tráfico de administración de servicio se separa del tráfico del cliente. Se requiere una subred dedicada adicional denominada *AzureFirewallManagementSubnet* (tamaño de subred mínimo /26) con su propia dirección IP pública asociada. La única ruta permitida en esta subred es una ruta predeterminada a Internet y la propagación de la ruta BGP debe estar deshabilitada.
 
-Si tiene una ruta predeterminada anunciada mediante BGP para forzar el tráfico a un entorno local, debe crear *AzureFirewallSubnet* y *AzureFirewallManagementSubnet* antes de implementar el firewall, tener una UDR con una ruta predeterminada a Internet y deshabilitar **Propagación de rutas de puerta de enlace de red virtual**.
+Si tiene una ruta predeterminada anunciada mediante BGP para forzar el tráfico a un entorno local, debe crear *AzureFirewallSubnet* y *AzureFirewallManagementSubnet* antes de implementar el firewall, tener una UDR con una ruta predeterminada a Internet y deshabilitar **Propagate gateway routes** (Propagar rutas de puerta de enlace).
 
-En esta configuración, *AzureFirewallSubnet* puede incluir rutas a cualquier firewall local o NVA para procesar el tráfico antes de pasarlo a Internet. También puede publicar estas rutas mediante BGP en *AzureFirewallSubnet* si está habilitada la opción **Propagación de rutas de puerta de enlace de red virtual** en esta subred.
+En esta configuración, *AzureFirewallSubnet* puede incluir rutas a cualquier firewall local o NVA para procesar el tráfico antes de pasarlo a Internet. También puede publicar estas rutas mediante BGP en *AzureFirewallSubnet* si está habilitada la opción **Propagate gateway routes** (Propagar rutas de puerta de enlace) en la subred.
 
-Por ejemplo, puede crear una ruta predeterminada en *AzureFirewallSubnet* con la puerta de enlace de VPN como siguiente salto para llegar al dispositivo local. O bien, puede habilitar la **Propagación de rutas de puerta de enlace de red virtual** para obtener las rutas adecuadas a la red local.
+Por ejemplo, puede crear una ruta predeterminada en *AzureFirewallSubnet* con la puerta de enlace de VPN como siguiente salto para llegar al dispositivo local. O bien, puede habilitar la **Propagate gateway routes** (Propagar rutas de puerta de enlace) para obtener las rutas adecuadas a la red local.
 
-![Propagación de rutas de puerta de enlace de red virtual](media/forced-tunneling/route-propagation.png)
+:::image type="content" source="media/forced-tunneling/route-propagation.png" alt-text="Propagación de rutas de puerta de enlace de red virtual":::
 
 Si ha habilitado la tunelización forzada, al tráfico vinculado a Internet se le aplica SNAT para una de las direcciones IP privadas del firewall en AzureFirewallSubnet, ocultando el origen del firewall local.
 

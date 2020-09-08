@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: zarhoads
-ms.openlocfilehash: bd6891ff4d15dc326c846efbaa37aea997ef2e17
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: fab4943cad1a87bda70a4c4332ab6135ed99bf1b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320687"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022282"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para la seguridad de pods en Azure Kubernetes Service (AKS)
 
@@ -85,7 +85,7 @@ Los siguientes [proyectos de código abierto de AKS asociados][aks-associated-pr
 
 Las identidades administradas de los recursos de Azure permiten a un pod autenticarse a sí mismo en cualquier servicio de Azure que lo permita, como Storage o SQL. Se asigna al pod una identidad de Azure que le permite autenticarse en Azure Active Directory y recibir un token digital. Este token digital se puede presentar a otros servicios de Azure que comprueban si el pod está autorizado para acceder al servicio y realizar las acciones necesarias. Este enfoque significa que no es necesario ningún secreto para las cadenas de conexión de base de datos, por ejemplo. El flujo de trabajo simplificado de la identidad administrada del pod se muestra en el diagrama siguiente:
 
-![Flujo de trabajo simplificado de la identidad administrada del pod en Azure](media/developer-best-practices-pod-security/basic-pod-identity.png)
+:::image type="content" source="media/developer-best-practices-pod-security/basic-pod-identity.svg" alt-text="Flujo de trabajo simplificado de la identidad administrada del pod en Azure":::
 
 Con una identidad administrada, el código de la aplicación no necesita incluir credenciales para acceder a un servicio como Azure Storage. Como cada pod se autentica con su propia identidad, puede auditar y revisar el acceso. Si la aplicación se conecta con otros servicios de Azure, utilice identidades administradas para limitar la reutilización de credenciales y el riesgo de exposición.
 
@@ -97,7 +97,7 @@ El uso del proyecto de identidades de pods permite la autenticación en los serv
 
 Cuando las aplicaciones necesitan una credencial, se comunican con el almacén digital, recuperan el contenido de los secretos más reciente y luego se conectan al servicio solicitado. Azure Key Vault puede ser este almacén digital. El flujo de trabajo simplificado para recuperar una credencial de Azure Key Vault mediante identidades administradas de pods se muestra en el diagrama siguiente:
 
-![Flujo de trabajo simplificado para recuperar una credencial de Key Vault mediante una identidad administrada de pods](media/developer-best-practices-pod-security/basic-key-vault.png)
+:::image type="content" source="media/developer-best-practices-pod-security/basic-key-vault.svg" alt-text="Flujo de trabajo simplificado para recuperar una credencial de Key Vault mediante una identidad administrada de pods":::
 
 Con Key Vault, puede almacenar y rotar periódicamente secretos como credenciales, claves de cuenta de almacenamiento o certificados. Puede integrar Azure Key Vault con un clúster de AKS mediante el [proveedor de Azure Key Vault para el controlador de CSI del almacén de secretos](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage). El controlador de CSI del almacén de secretos permite que el clúster de AKS pueda recuperar de forma nativa el contenido de los secretos de Key Vault y proporcionárselo de forma segura solo al pod solicitante. Trabaje con el operador de clúster para implementar el controlador de CSI del almacén de secretos en los nodos de trabajo de AKS. Puede usar una identidad administrada de pods para solicitar acceso a Key Vault y recuperar el contenido de los secretos que necesita mediante el controlador de CSI del almacén de secretos.
 
@@ -115,7 +115,7 @@ Este artículo se centra en cómo proteger los pods. Para implementar algunas de
 [aks-keyvault-csi-driver]: https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage
 [linux-capabilities]: http://man7.org/linux/man-pages/man7/capabilities.7.html
 [selinux-labels]: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#selinuxoptions-v1-core
-[aks-associated-projects]: https://github.com/Azure/AKS/blob/master/previews.md#associated-projects
+[aks-associated-projects]: https://awesomeopensource.com/projects/aks?categoryPage=11
 
 <!-- INTERNAL LINKS -->
 [best-practices-cluster-security]: operator-best-practices-cluster-security.md

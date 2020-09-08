@@ -11,12 +11,12 @@ author: nabhishek
 manager: anansub
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 8422d6978c21744696e3d37c34fdd867b014a19e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28836d0b1109952d8cf81c66b44b1f98d9b770bf
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84655756"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136055"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Creación de un entorno de ejecución de integración autohospedado compartido en Azure Data Factory
 
@@ -155,7 +155,7 @@ La respuesta contiene la clave de autenticación para este entorno de ejecución
 #### <a name="create-another-data-factory"></a>Creación de otra factoría de datos
 
 > [!NOTE]  
-> Este paso es opcional. Si ya dispone de la factoría de datos con la que quiere compartir contenido, omita este paso.
+> Este paso es opcional. Si ya dispone de la factoría de datos con la que quiere compartir contenido, omita este paso. Pero, para poder agregar o quitar asignaciones de roles en otra factoría de datos, debe tener permisos `Microsoft.Authorization/roleAssignments/write` y `Microsoft.Authorization/roleAssignments/delete` tales como [Administrador de acceso de usuarios](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) o [Propietario](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner).
 
 ```powershell
 $factory = Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `

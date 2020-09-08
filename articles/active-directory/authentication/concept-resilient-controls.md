@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec20a1bda8021e61f5147142a8e6bddd6cf5d166
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f58e5a07348dfde4e4618eb58746f08016c55ed6
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027621"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049577"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Crear una estrategia de administración de control de acceso resistente con Azure Active Directory
 
@@ -55,7 +55,7 @@ Mitigar una interrupción real debe ser el objetivo principal de la organizació
 
 ### <a name="administrator-lockout-contingency"></a>Medida de contingencia frente al bloqueo de administrador
 
-Para desbloquear el acceso de administrador a su inquilino, debe crear cuentas de acceso de emergencia. Estas cuentas de acceso de emergencia, también conocidas como cuentas *de emergencia*, permiten el acceso para administrar la configuración de Azure AD cuando los procedimientos de acceso con cuentas con privilegios normales no están disponibles. Se deben crear al menos dos cuentas de acceso de emergencia siguiendo las [recomendaciones sobre cuentas de acceso de emergencia]( https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access).
+Para desbloquear el acceso de administrador a su inquilino, debe crear cuentas de acceso de emergencia. Estas cuentas de acceso de emergencia, también conocidas como cuentas *de emergencia*, permiten el acceso para administrar la configuración de Azure AD cuando los procedimientos de acceso con cuentas con privilegios normales no están disponibles. Se deben crear al menos dos cuentas de acceso de emergencia siguiendo las [recomendaciones sobre cuentas de acceso de emergencia]( ../users-groups-roles/directory-emergency-access.md).
 
 ### <a name="mitigating-user-lockout"></a>Mitigación del bloqueo de usuario
 
@@ -65,11 +65,11 @@ Para desbloquear el acceso de administrador a su inquilino, debe crear cuentas d
 
 Incorpore los siguientes controles de acceso en las directivas de acceso condicional existentes para la organización:
 
-1. Aprovisione varios métodos de autenticación para cada usuario que se basan en diferentes canales de comunicación, por ejemplo la aplicación Microsoft Authenticator (basada en Internet), el token de OATH (generado en el dispositivo) y SMS (telefónica). El siguiente script de PowerShell le ayudará a identificar de antemano los métodos adicionales que los usuarios deben registrar: [Script para el análisis de los métodos de autenticación de Azure MFA](https://docs.microsoft.com/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
+1. Aprovisione varios métodos de autenticación para cada usuario que se basan en diferentes canales de comunicación, por ejemplo la aplicación Microsoft Authenticator (basada en Internet), el token de OATH (generado en el dispositivo) y SMS (telefónica). El siguiente script de PowerShell le ayudará a identificar de antemano los métodos adicionales que los usuarios deben registrar: [Script para el análisis de los métodos de autenticación de Azure MFA](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
 2. Implemente Windows Hello para empresas en dispositivos Windows 10 para satisfacer los requisitos de MFA directamente desde el inicio de sesión de dispositivo.
-3. Use dispositivos de confianza a través de [Unión a Azure AD híbrido](https://docs.microsoft.com/azure/active-directory/devices/overview) o de [dispositivos administrados de Microsoft Intune](https://docs.microsoft.com/intune/planning-guide). Los dispositivos de confianza mejorarán la experiencia del usuario porque el dispositivo de confianza puede satisfacer los requisitos de autenticación sólida de la directiva sin un desafío de MFA al usuario. Después MFA se solicitará al inscribir un dispositivo nuevo y al acceder a aplicaciones o recursos desde dispositivos de confianza.
+3. Use dispositivos de confianza a través de [Unión a Azure AD híbrido](../devices/overview.md) o de [dispositivos administrados de Microsoft Intune](/intune/planning-guide). Los dispositivos de confianza mejorarán la experiencia del usuario porque el dispositivo de confianza puede satisfacer los requisitos de autenticación sólida de la directiva sin un desafío de MFA al usuario. Después MFA se solicitará al inscribir un dispositivo nuevo y al acceder a aplicaciones o recursos desde dispositivos de confianza.
 4. Use directivas basadas en riesgos de protección de identidad de Azure AD que impidan el acceso cuando el usuario o el inicio de sesión esté en riesgo, en lugar de las directivas MFA fijas.
-5. Si va a proteger el acceso de VPN mediante la extensión NPS de Azure MFA, considere la posibilidad de federar la solución VPN como una [aplicación SAML](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications) y determinar la categoría de la aplicación como se recomienda a continuación. 
+5. Si va a proteger el acceso de VPN mediante la extensión NPS de Azure MFA, considere la posibilidad de federar la solución VPN como una [aplicación SAML](../manage-apps/view-applications-portal.md) y determinar la categoría de la aplicación como se recomienda a continuación. 
 
 >[!NOTE]
 > Las directivas basadas en riesgos requieren licencias [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -92,7 +92,7 @@ Este conjunto de directivas de ejemplo concederá a los usuarios seleccionados e
 
 ### <a name="contingencies-for-user-lockout"></a>Contingencias para el bloqueo de usuario
 
-Como alternativa, su organización también puede crear directivas de contingencia. Para crear directivas de contingencia, debe definir los criterios de equilibrio entre la continuidad del negocio, los costos operacionales, los costos financieros y los riesgos de seguridad. Por ejemplo, puede activar una directiva de contingencia solo a un subconjunto de usuarios, para un subconjunto de aplicaciones, para un subconjunto de clientes, o desde un subconjunto de ubicaciones. Las directivas de contingencia darán acceso a los administradores y usuarios finales a aplicaciones y recursos, durante una interrupción cuando no se implementase ningún método de mitigación. Microsoft recomienda habilitar las directivas de contingencia en [modo de solo informe](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-report-only) cuando no se usan, para que los administradores puedan supervisar el posible impacto de las directivas en caso de que deban activarse.
+Como alternativa, su organización también puede crear directivas de contingencia. Para crear directivas de contingencia, debe definir los criterios de equilibrio entre la continuidad del negocio, los costos operacionales, los costos financieros y los riesgos de seguridad. Por ejemplo, puede activar una directiva de contingencia solo a un subconjunto de usuarios, para un subconjunto de aplicaciones, para un subconjunto de clientes, o desde un subconjunto de ubicaciones. Las directivas de contingencia darán acceso a los administradores y usuarios finales a aplicaciones y recursos, durante una interrupción cuando no se implementase ningún método de mitigación. Microsoft recomienda habilitar las directivas de contingencia en [modo de solo informe](../conditional-access/howto-conditional-access-insights-reporting.md) cuando no se usan, para que los administradores puedan supervisar el posible impacto de las directivas en caso de que deban activarse.
 
  Comprender la exposición durante una interrupción ayuda a reducir el riesgo y es una parte fundamental del proceso de planeación. Para crear el plan de contingencia, primero determine los siguientes requisitos empresariales de su organización:
 
@@ -119,7 +119,7 @@ Una directiva de acceso condicional de contingencia es una **directiva de respal
 
 * Configure un conjunto de directivas de reserva si una interrupción en un tipo de credencial o un mecanismo de control de acceso afecta al acceso a sus aplicaciones. Configure una directiva en estado de solo informe que requiera la unión a un dominio como un control como una copia de seguridad para una directiva activa que requiera un proveedor de MFA de terceros.
 * Reduzca el riesgo de que actores malintencionados adivinen las contraseñas cuando no se requiere MFA, siguiendo las prácticas en la documentación técnica de [Password Guidance](https://aka.ms/passwordguidance) (Instrucciones sobre contraseñas).
-* Implemente el [Autoservicio de restablecimiento de contraseña de Azure AD (SSPR)](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr) y la [Protección con contraseña de Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-deploy) para asegurarse de que los usuarios no usan contraseñas comunes y términos que decide prohibir.
+* Implemente el [Autoservicio de restablecimiento de contraseña de Azure AD (SSPR)](./tutorial-enable-sspr.md) y la [Protección con contraseña de Azure AD](./howto-password-ban-bad-on-premises-deploy.md) para asegurarse de que los usuarios no usan contraseñas comunes y términos que decide prohibir.
 * Use directivas que restrinjan el acceso dentro de las aplicaciones si no se alcanza un cierto nivel de autenticación en lugar de simplemente retroceder al acceso completo. Por ejemplo:
   * Configure una directiva de copia de seguridad que envíe la reclamación de sesión restringida a Exchange y SharePoint.
   * Si la organización usa Microsoft Cloud App Security, considere la posibilidad de recurrir a una directiva que interactúe con MCAS y después MCAS permita acceso de solo lectura, pero no cargas.
@@ -208,7 +208,7 @@ Orden de activación:
 
 ### <a name="contingencies-for-user-lockout-from-on-prem-resources-nps-extension"></a>Contingencias para el bloqueo de usuarios de los recursos locales (extensión NPS)
 
-Si va a proteger el acceso de VPN mediante la extensión NPS de Azure MFA, considere la posibilidad de federar la solución VPN como una [aplicación SAML](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications) y determinar la categoría de la aplicación como se recomienda a continuación. 
+Si va a proteger el acceso de VPN mediante la extensión NPS de Azure MFA, considere la posibilidad de federar la solución VPN como una [aplicación SAML](../manage-apps/view-applications-portal.md) y determinar la categoría de la aplicación como se recomienda a continuación. 
 
 Si ha implementado la extensión NPS de MFA de Azure AD para proteger con MFA los recursos locales, como la VPN y la puerta de enlace de Escritorio remoto, debe tener en cuenta de antemano si está listo para deshabilitar MFA en caso de emergencia.
 
@@ -233,7 +233,7 @@ El bloqueo de usuarios también puede producirse si se cumplen las siguientes co
 - Su organización usa una solución de identidad híbrida con autenticación de paso a través o federación.
 - Los sistemas de identidad local (por ejemplo, Active Directory, AD FS o un componente dependiente) no están disponibles. 
  
-Para que sea más resistente, su organización debe [habilitar la sincronización de hash de contraseñas](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn), ya que le permite [cambiar al uso de la sincronización de hash de contraseña](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-user-signin) si sus sistemas de identidad locales están inactivos.
+Para que sea más resistente, su organización debe [habilitar la sincronización de hash de contraseñas](../hybrid/choose-ad-authn.md), ya que le permite [cambiar al uso de la sincronización de hash de contraseña](../hybrid/plan-connect-user-signin.md) si sus sistemas de identidad locales están inactivos.
 
 #### <a name="microsoft-recommendations"></a>Recomendaciones de Microsoft
  Habilite la sincronización de hash de contraseñas mediante el Asistente de Azure AD Connect, independientemente de si su organización usa la autenticación de paso a través o la federación.
@@ -255,7 +255,7 @@ En función de las mitigaciones o contingencias que se usen durante una interrup
 1. Como parte de su estrategia de control de cambios, documentar todos los cambios y el estado anterior para poder revertir cualquier contingencia que haya implementado tan pronto como los controles de acceso estén completamente operativos.
 2. Suponer que actores malintencionados intentarán obtener contraseñas a través de ataques de difusión de contraseña o de suplantación de identidad mientras la MFA esté deshabilitada. Además, es posible que los actores malintencionados ya tengan contraseñas que anteriormente no concediesen acceso a ningún recurso que pueden probar durante este período. Para los usuarios críticos como los ejecutivos, puede mitigar parcialmente este riesgo si restablece sus contraseñas antes de deshabilitar MFA para ellos.
 3. Archivar todas las actividades de inicio de sesión para identificar quién accedió a qué durante el tiempo que se deshabilitó la MFA.
-4. [Evalúe todas las detecciones de riesgos notificadas](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) durante este período.
+4. [Evalúe todas las detecciones de riesgos notificadas](../reports-monitoring/concept-sign-ins.md) durante este período.
 
 ## <a name="after-a-disruption"></a>Después de una interrupción
 
@@ -265,8 +265,8 @@ Deshaga los cambios realizados como parte del plan de contingencia activado una 
 2. Vuelva a establecer las directivas de contingencia en el modo de solo informe. 
 3. Revierta los cambios realizados y documentados durante la interrupción.
 4. Si usa una cuenta de acceso de emergencia, no olvide volver a generar las credenciales y proteger físicamente la nueva información de credenciales como parte de los procedimientos de la cuenta de acceso de emergencia.
-5. Siga [evaluando todas las detecciones de riesgos notificadas](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) después de la interrupción para detectar actividad sospechosa.
-6. Revoque todos los tokens de actualización que se emitieron [mediante PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) que tenían como destino un conjunto de usuarios. Revocar todos los tokens de actualización es importante para las cuentas con privilegios que se usaron durante la interrupción y hacerlo les obligará a volver autenticarse y cumplir con el control de las directivas restauradas.
+5. Siga [evaluando todas las detecciones de riesgos notificadas](../reports-monitoring/concept-sign-ins.md) después de la interrupción para detectar actividad sospechosa.
+6. Revoque todos los tokens de actualización que se emitieron [mediante PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) que tenían como destino un conjunto de usuarios. Revocar todos los tokens de actualización es importante para las cuentas con privilegios que se usaron durante la interrupción y hacerlo les obligará a volver autenticarse y cumplir con el control de las directivas restauradas.
 
 ## <a name="emergency-options"></a>Opciones de emergencia
 
@@ -280,17 +280,17 @@ Si su organización usa directivas heredadas de MFA por usuario, puede considera
  > Si amplía las direcciones IP de confianza para desbloquear el acceso, no se generarán las detecciones de riesgos asociados con las direcciones IP (por ejemplo, viajes imposibles o ubicaciones desconocidas).
 
 >[!NOTE]
- > La configuración de [direcciones IP de confianza](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings) solo está disponible para Azure MFA con [licencias de Azure AD Premium](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-licensing).
+ > La configuración de [direcciones IP de confianza](./howto-mfa-mfasettings.md) solo está disponible para Azure MFA con [licencias de Azure AD Premium](./concept-mfa-licensing.md).
 
 ## <a name="learn-more"></a>Más información
 
-* [Configuración de Servidor Azure Multi-Factor Authentication para aplicaciones web de IIS](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-iis)
-* [Administración de cuentas administrativas de acceso de emergencia en Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
-* [Inicio rápido: Configuración de ubicaciones con nombre en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
-  * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
-* [Planeamiento de la implementación de unión a Azure Active Directory híbrido](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
-* [Guía de implementación de Windows Hello para empresas](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
+* [Configuración de Servidor Azure Multi-Factor Authentication para aplicaciones web de IIS](./howto-mfaserver-iis.md)
+* [Administración de cuentas administrativas de acceso de emergencia en Azure AD](../users-groups-roles/directory-emergency-access.md)
+* [Inicio rápido: Configuración de ubicaciones con nombre en Azure Active Directory](../reports-monitoring/quickstart-configure-named-locations.md)
+  * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
+* [Planeamiento de la implementación de unión a Azure Active Directory híbrido](../devices/hybrid-azuread-join-plan.md)
+* [Guía de implementación de Windows Hello para empresas](/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
   * [Password Guidance - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf) (Instrucciones de contraseñas: Microsoft Research)
-* [¿Qué son las condiciones en el acceso condicional de Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
-* [¿Qué son los controles de acceso en el acceso condicional de Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)
-* [¿Qué es el modo de solo informe del acceso condicional?](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-report-only)
+* [¿Qué son las condiciones en el acceso condicional de Azure Active Directory?](../conditional-access/concept-conditional-access-conditions.md)
+* [¿Qué son los controles de acceso en el acceso condicional de Azure Active Directory?](../conditional-access/controls.md)
+* [¿Qué es el modo de solo informe del acceso condicional?](../conditional-access/concept-conditional-access-report-only.md)

@@ -11,15 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/20/2019
-ms.openlocfilehash: 4680d989cc1befe50955af408aec79a14031481e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/12/2020
+ms.openlocfilehash: bcc7ebd8d9a6e61425ba7cd980a400c3fe756492
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321248"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762341"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Actividad de eliminación en Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 
@@ -63,8 +64,11 @@ Estas son algunas recomendaciones para usar la actividad de eliminación:
             "referenceName": "<dataset name>",
             "type": "DatasetReference"
         },
-        "recursive": true/false,
-        "maxConcurrentConnections": <number>,
+        "storeSettings": {
+            "type": "<source type>",
+            "recursive": true/false,
+            "maxConcurrentConnections": <number>
+        },
         "enableLogging": true/false,
         "logStorageSettings": {
             "linkedServiceName": {
@@ -132,7 +136,7 @@ Root/ (Raíz):<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nb
 
 Ahora está usando la actividad de eliminación para eliminar archivos o carpetas mediante la combinación de diferentes valores de propiedad del conjunto de datos y la actividad de eliminación:
 
-| folderPath (del conjunto de datos) | fileName (del conjunto de datos) | recursive (de la actividad de eliminación) | Output |
+| folderPath | fileName | recursive | Output |
 |:--- |:--- |:--- |:--- |
 | Root (Raíz)/ Folder_A_2 | NULL | False | Root/ (Raíz):<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>5.csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.txt |
 | Root (Raíz)/ Folder_A_2 | NULL | True | Root/ (Raíz):<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;<strike>Folder_A_2/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>5.csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>Folder_B_1/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>6.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>7.csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>Folder_B_2/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>8.txt</strike> |
@@ -147,49 +151,60 @@ Puede crear una canalización para limpiar periódicamente la carpeta o los arch
 
 ```json
 {
-    "name": "cleanup_time_partitioned_folder",
-    "properties": {
-        "activities": [
+    "name":"cleanup_time_partitioned_folder",
+    "properties":{
+        "activities":[
             {
-                "name": "DeleteOneFolder",
-                "type": "Delete",
-                "policy": {
-                    "timeout": "7.00:00:00",
-                    "retry": 0,
-                    "retryIntervalInSeconds": 30,
-                    "secureOutput": false,
-                    "secureInput": false
+                "name":"DeleteOneFolder",
+                "type":"Delete",
+                "dependsOn":[
+
+                ],
+                "policy":{
+                    "timeout":"7.00:00:00",
+                    "retry":0,
+                    "retryIntervalInSeconds":30,
+                    "secureOutput":false,
+                    "secureInput":false
                 },
-                "typeProperties": {
-                    "dataset": {
-                        "referenceName": "PartitionedFolder",
-                        "type": "DatasetReference",
-                        "parameters": {
-                            "TriggerTime": {
-                                "value": "@formatDateTime(pipeline().parameters.TriggerTime, 'yyyy/MM/dd')",
-                                "type": "Expression"
+                "userProperties":[
+
+                ],
+                "typeProperties":{
+                    "dataset":{
+                        "referenceName":"PartitionedFolder",
+                        "type":"DatasetReference",
+                        "parameters":{
+                            "TriggerTime":{
+                                "value":"@formatDateTime(pipeline().parameters.TriggerTime, 'yyyy/MM/dd')",
+                                "type":"Expression"
                             }
                         }
                     },
-                    "recursive": true,
-                    "logStorageSettings": {
-                        "linkedServiceName": {
-                            "referenceName": "BloblinkedService",
-                            "type": "LinkedServiceReference"
+                    "logStorageSettings":{
+                        "linkedServiceName":{
+                            "referenceName":"BloblinkedService",
+                            "type":"LinkedServiceReference"
                         },
-                        "path": "mycontainer/log"
+                        "path":"mycontainer/log"
                     },
-                    "enableLogging": true
+                    "enableLogging":true,
+                    "storeSettings":{
+                        "type":"AzureBlobStorageReadSettings",
+                        "recursive":true
+                    }
                 }
             }
         ],
-        "parameters": {
-            "TriggerTime": {
-                "type": "String"
+        "parameters":{
+            "TriggerTime":{
+                "type":"string"
             }
-        }
-    },
-    "type": "Microsoft.DataFactory/factories/pipelines"
+        },
+        "annotations":[
+
+        ]
+    }
 }
 ```
 
@@ -197,26 +212,35 @@ Puede crear una canalización para limpiar periódicamente la carpeta o los arch
 
 ```json
 {
-    "name": "PartitionedFolder",
-    "properties": {
-        "linkedServiceName": {
-            "referenceName": "BloblinkedService",
-            "type": "LinkedServiceReference"
+    "name":"PartitionedFolder",
+    "properties":{
+        "linkedServiceName":{
+            "referenceName":"BloblinkedService",
+            "type":"LinkedServiceReference"
         },
-        "parameters": {
-            "TriggerTime": {
-                "type": "String"
+        "parameters":{
+            "TriggerTime":{
+                "type":"string"
             }
         },
-        "type": "AzureBlob",
-        "typeProperties": {
-            "folderPath": {
-                "value": "@concat('mycontainer/',dataset().TriggerTime)",
-                "type": "Expression"
+        "annotations":[
+
+        ],
+        "type":"Binary",
+        "typeProperties":{
+            "location":{
+                "type":"AzureBlobStorageLocation",
+                "folderPath":{
+                    "value":"@dataset().TriggerTime",
+                    "type":"Expression"
+                },
+                "container":{
+                    "value":"mycontainer",
+                    "type":"Expression"
+                }
             }
         }
-    },
-    "type": "Microsoft.DataFactory/factories/datasets"
+    }
 }
 ```
 
@@ -267,35 +291,48 @@ Puede crear una canalización para limpiar los archivos antiguos o expirados apr
 
 ```json
 {
-    "name": "CleanupExpiredFiles",
-    "properties": {
-        "activities": [
+    "name":"CleanupExpiredFiles",
+    "properties":{
+        "activities":[
             {
-                "name": "DeleteFilebyLastModified",
-                "type": "Delete",
-                "policy": {
-                    "timeout": "7.00:00:00",
-                    "retry": 0,
-                    "retryIntervalInSeconds": 30,
-                    "secureOutput": false,
-                    "secureInput": false
+                "name":"DeleteFilebyLastModified",
+                "type":"Delete",
+                "dependsOn":[
+
+                ],
+                "policy":{
+                    "timeout":"7.00:00:00",
+                    "retry":0,
+                    "retryIntervalInSeconds":30,
+                    "secureOutput":false,
+                    "secureInput":false
                 },
-                "typeProperties": {
-                    "dataset": {
-                        "referenceName": "BlobFilesLastModifiedBefore201811",
-                        "type": "DatasetReference"
+                "userProperties":[
+
+                ],
+                "typeProperties":{
+                    "dataset":{
+                        "referenceName":"BlobFilesLastModifiedBefore201811",
+                        "type":"DatasetReference"
                     },
-                    "recursive": true,
-                    "logStorageSettings": {
-                        "linkedServiceName": {
-                            "referenceName": "BloblinkedService",
-                            "type": "LinkedServiceReference"
+                    "logStorageSettings":{
+                        "linkedServiceName":{
+                            "referenceName":"BloblinkedService",
+                            "type":"LinkedServiceReference"
                         },
-                        "path": "mycontainer/log"
+                        "path":"mycontainer/log"
                     },
-                    "enableLogging": true
+                    "enableLogging":true,
+                    "storeSettings":{
+                        "type":"AzureBlobStorageReadSettings",
+                        "recursive":true,
+                        "modifiedDatetimeEnd":"2018-01-01T00:00:00.000Z"
+                    }
                 }
             }
+        ],
+        "annotations":[
+
         ]
     }
 }
@@ -305,17 +342,23 @@ Puede crear una canalización para limpiar los archivos antiguos o expirados apr
 
 ```json
 {
-    "name": "BlobFilesLastModifiedBefore201811",
-    "properties": {
-        "linkedServiceName": {
-            "referenceName": "BloblinkedService",
-            "type": "LinkedServiceReference"
+    "name":"BlobFilesLastModifiedBefore201811",
+    "properties":{
+        "linkedServiceName":{
+            "referenceName":"BloblinkedService",
+            "type":"LinkedServiceReference"
         },
-        "type": "AzureBlob",
-        "typeProperties": {
-            "fileName": "*",
-            "folderPath": "mycontainer",
-            "modifiedDatetimeEnd": "2018-01-01T00:00:00.000Z"
+        "annotations":[
+
+        ],
+        "type":"Binary",
+        "typeProperties":{
+            "location":{
+                "type":"AzureBlobStorageLocation",
+                "fileName":"*",
+                "folderPath":"mydirectory",
+                "container":"mycontainer"
+            }
         }
     }
 }
@@ -332,152 +375,251 @@ Puede mover un archivo mediante una actividad de copia para copiar un archivo y,
 
 ```json
 {
-    "name": "MoveFiles",
-    "properties": {
-        "activities": [
+    "name":"MoveFiles",
+    "properties":{
+        "activities":[
             {
-                "name": "GetFileList",
-                "type": "GetMetadata",
-                "typeProperties": {
-                    "dataset": {
-                        "referenceName": "OneSourceFolder",
-                        "type": "DatasetReference"
+                "name":"GetFileList",
+                "type":"GetMetadata",
+                "dependsOn":[
+
+                ],
+                "policy":{
+                    "timeout":"7.00:00:00",
+                    "retry":0,
+                    "retryIntervalInSeconds":30,
+                    "secureOutput":false,
+                    "secureInput":false
+                },
+                "userProperties":[
+
+                ],
+                "typeProperties":{
+                    "dataset":{
+                        "referenceName":"OneSourceFolder",
+                        "type":"DatasetReference",
+                        "parameters":{
+                            "Container":{
+                                "value":"@pipeline().parameters.SourceStore_Location",
+                                "type":"Expression"
+                            },
+                            "Directory":{
+                                "value":"@pipeline().parameters.SourceStore_Directory",
+                                "type":"Expression"
+                            }
+                        }
                     },
-                    "fieldList": [
+                    "fieldList":[
                         "childItems"
-                    ]
-                }
-            },
-            {
-                "name": "FilterFiles",
-                "type": "Filter",
-                "dependsOn": [
-                    {
-                        "activity": "GetFileList",
-                        "dependencyConditions": [
-                            "Succeeded"
-                        ]
-                    }
-                ],
-                "typeProperties": {
-                    "items": {
-                        "value": "@activity('GetFileList').output.childItems",
-                        "type": "Expression"
+                    ],
+                    "storeSettings":{
+                        "type":"AzureBlobStorageReadSettings",
+                        "recursive":true
                     },
-                    "condition": {
-                        "value": "@equals(item().type, 'File')",
-                        "type": "Expression"
+                    "formatSettings":{
+                        "type":"BinaryReadSettings"
                     }
                 }
             },
             {
-                "name": "ForEachFile",
-                "type": "ForEach",
-                "dependsOn": [
+                "name":"FilterFiles",
+                "type":"Filter",
+                "dependsOn":[
                     {
-                        "activity": "FilterFiles",
-                        "dependencyConditions": [
+                        "activity":"GetFileList",
+                        "dependencyConditions":[
                             "Succeeded"
                         ]
                     }
                 ],
-                "typeProperties": {
-                    "items": {
-                        "value": "@activity('FilterFiles').output.value",
-                        "type": "Expression"
+                "userProperties":[
+
+                ],
+                "typeProperties":{
+                    "items":{
+                        "value":"@activity('GetFileList').output.childItems",
+                        "type":"Expression"
                     },
-                    "batchCount": 20,
-                    "activities": [
+                    "condition":{
+                        "value":"@equals(item().type, 'File')",
+                        "type":"Expression"
+                    }
+                }
+            },
+            {
+                "name":"ForEachFile",
+                "type":"ForEach",
+                "dependsOn":[
+                    {
+                        "activity":"FilterFiles",
+                        "dependencyConditions":[
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "userProperties":[
+
+                ],
+                "typeProperties":{
+                    "items":{
+                        "value":"@activity('FilterFiles').output.value",
+                        "type":"Expression"
+                    },
+                    "batchCount":20,
+                    "activities":[
                         {
-                            "name": "CopyAFile",
-                            "type": "Copy",
-                            "policy": {
-                                "timeout": "7.00:00:00",
-                                "retry": 0,
-                                "retryIntervalInSeconds": 30,
-                                "secureOutput": false,
-                                "secureInput": false
+                            "name":"CopyAFile",
+                            "type":"Copy",
+                            "dependsOn":[
+
+                            ],
+                            "policy":{
+                                "timeout":"7.00:00:00",
+                                "retry":0,
+                                "retryIntervalInSeconds":30,
+                                "secureOutput":false,
+                                "secureInput":false
                             },
-                            "typeProperties": {
-                                "source": {
-                                    "type": "BlobSource",
-                                    "recursive": false
+                            "userProperties":[
+
+                            ],
+                            "typeProperties":{
+                                "source":{
+                                    "type":"BinarySource",
+                                    "storeSettings":{
+                                        "type":"AzureBlobStorageReadSettings",
+                                        "recursive":false,
+                                        "deleteFilesAfterCompletion":false
+                                    },
+                                    "formatSettings":{
+                                        "type":"BinaryReadSettings"
+                                    },
+                                    "recursive":false
                                 },
-                                "sink": {
-                                    "type": "BlobSink"
+                                "sink":{
+                                    "type":"BinarySink",
+                                    "storeSettings":{
+                                        "type":"AzureBlobStorageWriteSettings"
+                                    }
                                 },
-                                "enableStaging": false,
-                                "dataIntegrationUnits": 0
+                                "enableStaging":false,
+                                "dataIntegrationUnits":0
                             },
-                            "inputs": [
+                            "inputs":[
                                 {
-                                    "referenceName": "OneSourceFile",
-                                    "type": "DatasetReference",
-                                    "parameters": {
-                                        "path": "myFolder",
-                                        "filename": {
-                                            "value": "@item().name",
-                                            "type": "Expression"
+                                    "referenceName":"OneSourceFile",
+                                    "type":"DatasetReference",
+                                    "parameters":{
+                                        "Container":{
+                                            "value":"@pipeline().parameters.SourceStore_Location",
+                                            "type":"Expression"
+                                        },
+                                        "Directory":{
+                                            "value":"@pipeline().parameters.SourceStore_Directory",
+                                            "type":"Expression"
+                                        },
+                                        "filename":{
+                                            "value":"@item().name",
+                                            "type":"Expression"
                                         }
                                     }
                                 }
                             ],
-                            "outputs": [
+                            "outputs":[
                                 {
-                                    "referenceName": "OneDestinationFile",
-                                    "type": "DatasetReference",
-                                    "parameters": {
-                                        "DestinationFileName": {
-                                            "value": "@item().name",
-                                            "type": "Expression"
+                                    "referenceName":"OneDestinationFile",
+                                    "type":"DatasetReference",
+                                    "parameters":{
+                                        "Container":{
+                                            "value":"@pipeline().parameters.DestinationStore_Location",
+                                            "type":"Expression"
+                                        },
+                                        "Directory":{
+                                            "value":"@pipeline().parameters.DestinationStore_Directory",
+                                            "type":"Expression"
+                                        },
+                                        "filename":{
+                                            "value":"@item().name",
+                                            "type":"Expression"
                                         }
                                     }
                                 }
                             ]
                         },
                         {
-                            "name": "DeleteAFile",
-                            "type": "Delete",
-                            "dependsOn": [
+                            "name":"DeleteAFile",
+                            "type":"Delete",
+                            "dependsOn":[
                                 {
-                                    "activity": "CopyAFile",
-                                    "dependencyConditions": [
+                                    "activity":"CopyAFile",
+                                    "dependencyConditions":[
                                         "Succeeded"
                                     ]
                                 }
                             ],
-                            "policy": {
-                                "timeout": "7.00:00:00",
-                                "retry": 0,
-                                "retryIntervalInSeconds": 30,
-                                "secureOutput": false,
-                                "secureInput": false
+                            "policy":{
+                                "timeout":"7.00:00:00",
+                                "retry":0,
+                                "retryIntervalInSeconds":30,
+                                "secureOutput":false,
+                                "secureInput":false
                             },
-                            "typeProperties": {
-                                "dataset": {
-                                    "referenceName": "OneSourceFile",
-                                    "type": "DatasetReference",
-                                    "parameters": {
-                                        "path": "myFolder",
-                                        "filename": {
-                                            "value": "@item().name",
-                                            "type": "Expression"
+                            "userProperties":[
+
+                            ],
+                            "typeProperties":{
+                                "dataset":{
+                                    "referenceName":"OneSourceFile",
+                                    "type":"DatasetReference",
+                                    "parameters":{
+                                        "Container":{
+                                            "value":"@pipeline().parameters.SourceStore_Location",
+                                            "type":"Expression"
+                                        },
+                                        "Directory":{
+                                            "value":"@pipeline().parameters.SourceStore_Directory",
+                                            "type":"Expression"
+                                        },
+                                        "filename":{
+                                            "value":"@item().name",
+                                            "type":"Expression"
                                         }
                                     }
                                 },
-                                "logStorageSettings": {
-                                    "linkedServiceName": {
-                                        "referenceName": "BloblinkedService",
-                                        "type": "LinkedServiceReference"
+                                "logStorageSettings":{
+                                    "linkedServiceName":{
+                                        "referenceName":"BloblinkedService",
+                                        "type":"LinkedServiceReference"
                                     },
-                                    "path": "Container/log"
+                                    "path":"container/log"
                                 },
-                                "enableLogging": true
+                                "enableLogging":true,
+                                "storeSettings":{
+                                    "type":"AzureBlobStorageReadSettings",
+                                    "recursive":true
+                                }
                             }
                         }
                     ]
                 }
             }
+        ],
+        "parameters":{
+            "SourceStore_Location":{
+                "type":"String"
+            },
+            "SourceStore_Directory":{
+                "type":"String"
+            },
+            "DestinationStore_Location":{
+                "type":"String"
+            },
+            "DestinationStore_Directory":{
+                "type":"String"
+            }
+        },
+        "annotations":[
+
         ]
     }
 }
@@ -489,16 +631,36 @@ Conjunto de datos utilizado por la actividad GetMetadata para enumerar la lista 
 
 ```json
 {
-    "name": "OneSourceFolder",
-    "properties": {
-        "linkedServiceName": {
-            "referenceName": "AzureStorageLinkedService",
-            "type": "LinkedServiceReference"
+    "name":"OneSourceFolder",
+    "properties":{
+        "linkedServiceName":{
+            "referenceName":"AzureStorageLinkedService",
+            "type":"LinkedServiceReference"
         },
-        "type": "AzureBlob",
-        "typeProperties": {
-            "fileName": "",
-            "folderPath": "myFolder"
+        "parameters":{
+            "Container":{
+                "type":"String"
+            },
+            "Directory":{
+                "type":"String"
+            }
+        },
+        "annotations":[
+
+        ],
+        "type":"Binary",
+        "typeProperties":{
+            "location":{
+                "type":"AzureBlobStorageLocation",
+                "folderPath":{
+                    "value":"@{dataset().Directory}",
+                    "type":"Expression"
+                },
+                "container":{
+                    "value":"@{dataset().Container}",
+                    "type":"Expression"
+                }
+            }
         }
     }
 }
@@ -508,29 +670,42 @@ Conjunto de datos para origen de datos utilizado por la actividad de copia y la 
 
 ```json
 {
-    "name": "OneSourceFile",
-    "properties": {
-        "linkedServiceName": {
-            "referenceName": "AzureStorageLinkedService",
-            "type": "LinkedServiceReference"
+    "name":"OneSourceFile",
+    "properties":{
+        "linkedServiceName":{
+            "referenceName":"AzureStorageLinkedService",
+            "type":"LinkedServiceReference"
         },
-        "parameters": {
-            "path": {
-                "type": "String"
+        "parameters":{
+            "Container":{
+                "type":"String"
             },
-            "filename": {
-                "type": "String"
+            "Directory":{
+                "type":"String"
+            },
+            "filename":{
+                "type":"string"
             }
         },
-        "type": "AzureBlob",
-        "typeProperties": {
-            "fileName": {
-                "value": "@dataset().filename",
-                "type": "Expression"
-            },
-            "folderPath": {
-                "value": "@{dataset().path}",
-                "type": "Expression"
+        "annotations":[
+
+        ],
+        "type":"Binary",
+        "typeProperties":{
+            "location":{
+                "type":"AzureBlobStorageLocation",
+                "fileName":{
+                    "value":"@dataset().filename",
+                    "type":"Expression"
+                },
+                "folderPath":{
+                    "value":"@{dataset().Directory}",
+                    "type":"Expression"
+                },
+                "container":{
+                    "value":"@{dataset().Container}",
+                    "type":"Expression"
+                }
             }
         }
     }
@@ -541,24 +716,43 @@ Conjunto de datos de destino de datos utilizado por la actividad de copia.
 
 ```json
 {
-    "name": "OneDestinationFile",
-    "properties": {
-        "linkedServiceName": {
-            "referenceName": "AzureStorageLinkedService",
-            "type": "LinkedServiceReference"
+    "name":"OneDestinationFile",
+    "properties":{
+        "linkedServiceName":{
+            "referenceName":"AzureStorageLinkedService",
+            "type":"LinkedServiceReference"
         },
-        "parameters": {
-            "DestinationFileName": {
-                "type": "String"
+        "parameters":{
+            "Container":{
+                "type":"String"
+            },
+            "Directory":{
+                "type":"String"
+            },
+            "filename":{
+                "type":"string"
             }
         },
-        "type": "AzureBlob",
-        "typeProperties": {
-            "fileName": {
-                "value": "@dataset().DestinationFileName",
-                "type": "Expression"
-            },
-            "folderPath": "mycontainer/dest"
+        "annotations":[
+
+        ],
+        "type":"Binary",
+        "typeProperties":{
+            "location":{
+                "type":"AzureBlobStorageLocation",
+                "fileName":{
+                    "value":"@dataset().filename",
+                    "type":"Expression"
+                },
+                "folderPath":{
+                    "value":"@{dataset().Directory}",
+                    "type":"Expression"
+                },
+                "container":{
+                    "value":"@{dataset().Container}",
+                    "type":"Expression"
+                }
+            }
         }
     }
 }
@@ -570,7 +764,7 @@ También puede obtener la plantilla para mover archivos [aquí](solution-templat
 
 -   La actividad de eliminación no admite la eliminación de la lista de carpetas descrita con el comodín.
 
--   Cuando use el filtro de atributo de archivo: modifiedDatetimeStart y modifiedDatetimeEnd para seleccionar los archivos que van a eliminar, asegúrese de establecer "fileName": "*" en el conjunto de datos.
+-   Al usar el filtro de atributo de archivo en modifiedDatetimeStart y modifiedDatetimeEnd de la actividad de eliminación para seleccionar los archivos que se van a eliminar, asegúrese de establecer "wildcardFileName": "*" también en la actividad de eliminación también.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

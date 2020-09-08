@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Chatwork | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Chatwork.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 0982ee1d-7ae2-415b-9e47-cfc72e1885ca
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 368b87a4abd5b55a807f7184c3a56876169b2517
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: fdf9e16e5578f794d01671d391f3568eae6555cc
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87293548"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586263"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-chatwork"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Chatwork
 
@@ -87,7 +83,9 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://www.chatwork.com/s/<TENANT_NAME>`
 
     > [!NOTE]
-    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico al cliente de Chatwork](mailto:info@support.chatwork.com) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Este valor no es real. Actualice el valor con la dirección URL de inicio de sesión privada que estableció después de la **configuración de inicio de sesión único de Chatwork**.
+
+1. La aplicación Chatwork espera que el valor del atributo **identificador de usuario único** coincida con la dirección de correo electrónico registrada en Chatwork. El atributo se asigna a **user.principalname** de forma predeterminada. Si principalname es diferente de la dirección de correo electrónico, asigne el **identificador de usuario único** a **user.mail**.
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
@@ -129,11 +127,11 @@ En esta sección, va a permitir que B.Simon acceda a Chatwork mediante el inicio
 
 ## <a name="configure-chatwork-sso"></a>Configurar el inicio de sesión único de Chatwork
 
-Para configurar el inicio de sesión único en **Chatwork**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de Chatwork](mailto:info@support.chatwork.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en el lado de **Chatwork**, lea la [guía de administración de Chatwork](https://download.chatwork.com/Chatwork_AdminGuide.pdf) y configure un valor de Chatwork.
 
 ### <a name="create-chatwork-test-user"></a>Creación de un usuario de prueba de Chatwork
 
-En esta sección, va a crear un usuario llamado B.Simon en Chatwork. Trabaje con el  [equipo de soporte técnico de Chatwork](mailto:info@support.chatwork.com) para agregar los usuarios a la plataforma de chat. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, va a crear un usuario llamado B.Simon en Chatwork. Acceda a la [guía de administración de Chatwork](https://download.chatwork.com/Chatwork_AdminGuide.pdf) y agregue el usuario a la plataforma de Chatwork.
 
 ## <a name="test-sso"></a>Prueba de SSO 
 

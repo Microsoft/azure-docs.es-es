@@ -16,12 +16,12 @@ ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9618e02f54fbb2a3b92771761c5fcf700d126b5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 062b2cac093c3049f65dd485e280776602c06e4b
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698774"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279727"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologías de Azure AD Connect
 En este artículo se describen diversas topologías locales y de Azure Active Directory (Azure AD) que usan Azure AD Connect Sync como solución de integración de claves. En este artículo se describen tanto las configuraciones admitidas como las no admitidas.
@@ -122,8 +122,8 @@ Algunas cargas de trabajo de Office 365 presentan ciertas restricciones en cuant
 
 | Carga de trabajo | Restricciones |
 | --------- | --------- |
-| Exchange Online | Para más información sobre las topologías híbridas que se admiten en Exchange Online, consulte [Implementaciones híbridas con varios bosques de Active Directory](https://technet.microsoft.com/library/jj873754.aspx). |
-| Skype Empresarial | Cuando se usan varios bosques locales, solo se admite la topología de bosque de cuenta-recurso. Para más información, consulte los [requisitos de entorno de Skype para Business Server 2015](https://technet.microsoft.com/library/dn933910.aspx). |
+| Exchange Online | Para más información sobre las topologías híbridas que se admiten en Exchange Online, consulte [Implementaciones híbridas con varios bosques de Active Directory](/Exchange/hybrid-deployment/hybrid-with-multiple-forests). |
+| Skype Empresarial | Cuando se usan varios bosques locales, solo se admite la topología de bosque de cuenta-recurso. Para más información, consulte los [requisitos de entorno de Skype para Business Server 2015](/skypeforbusiness/plan-your-deployment/requirements-for-your-environment/environmental-requirements). |
 
 Si su organización es más grande, debería considerar la posibilidad de utilizar la característica [Office 365 PreferredDataLocation](how-to-connect-sync-feature-preferreddatalocation.md). Esta característica le permite definir en qué región del centro de datos se encuentran los recursos del usuario.
 
@@ -191,6 +191,11 @@ Los inquilinos de Azure AD están aislados por diseño. No se admiten las siguie
 ![GALSync en una topología para varios bosques y varios directorios](./media/plan-connect-topologies/MultiForestMultiDirectoryGALSync.png)
 
 Puede usar FIM 2010 o MIM 2016 local para sincronizar los usuarios (mediante GALSync) entre dos organizaciones de Exchange. Los usuarios de una organización se mostrarán como usuarios o contactos externos en la otra organización. Estas instancias de Active Directory locales se pueden sincronizar después con sus propios inquilinos de Azure AD.
+
+### <a name="using-unauthorized-clients-to-access-the-azure-ad-connect-backend"></a>Uso de clientes no autorizados para acceder al back-end de Azure AD Connect
+![Uso de clientes no autorizados para acceder al back-end de Azure AD Connect](./media/plan-connect-topologies/other-client-unsupported.png)
+
+El servidor de Azure Active Directory Connect se comunica con Azure Active Directory a través del back-end de Azure Active Directory Connect. El único software que se puede usar para la comunicación con este back-end es Azure Active Directory Connect. No se admite la comunicación con el back-end de Azure Active Directory Connect mediante otro tipo de software o método. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre cómo instalar Azure AD Connect en estos escenarios, consulte [Instalación personalizada de Azure AD Connect](how-to-connect-install-custom.md).

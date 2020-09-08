@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: f5218b2346b6ddebcee87a0e24f4924deafdb0f2
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 69f439e102edc53207e44d63cb29396f64f59e0e
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037195"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272508"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Protección contra amenazas en Azure Security Center
 
@@ -54,11 +54,15 @@ Azure Security Center se integra con servicios de Azure para supervisar y proteg
 
     Cuando Microsoft Defender ATP detecta una amenaza, desencadena una alerta. La alerta se muestra en el panel de Security Center. En el panel, puede dinamizar hasta la consola de Microsoft Defender ATP para realizar una investigación detallada y descubrir el alcance del ataque. Para más información sobre Microsoft Defender ATP, consulte [Incorporación de servidores al servicio Microsoft Defender ATP](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
 
-* **La detección de ataques con archivos** <a name="windows-fileless"></a>: ataques de archivos destinados a los puntos de conexión son habituales. Para evitar que se detecten, los ataques sin archivos insertan cargas malintencionadas en la memoria. Las cargas del atacante se conservan dentro de la memoria de los procesos en peligro y realizan una amplia variedad de actividades malintencionadas.
+* **Detección de ataques sin archivos** <a name="windows-fileless"></a>: Los ataques sin archivos inyectan cargas malintencionadas en la memoria para evitar la detección mediante técnicas de detección basadas en disco. Luego, la carga del atacante se conserva dentro de la memoria de los procesos en peligro y realiza una amplia variedad de actividades malintencionadas.
 
-    Con la detección de ataques sin archivos, las técnicas forense de memoria automatizadas identifican kits de herramientas, técnicas y comportamientos de los ataques sin archivos. Esta solución examina periódicamente la máquina en tiempo de ejecución y extrae conclusiones directamente de la memoria de los procesos críticos para la seguridad.
+    Con la detección de ataques sin archivos, las técnicas forense de memoria automatizadas identifican kits de herramientas, técnicas y comportamientos de los ataques sin archivos. Esta solución examina periódicamente la máquina en tiempo de ejecución y extrae conclusiones directamente de la memoria de los procesos. Las conclusiones específicas para Linux incluyen la identificación de: 
 
-    Asimismo, encuentra indicios de explotación, inserción de código y ejecución de cargas malintencionadas. La detección de ataques sin archivos genera alertas de seguridad detalladas que aceleran la evaluación de prioridades, la correlación y el tiempo de respuesta de bajada de las alertas. Este enfoque complementa a las soluciones EDR basadas en eventos al proporcionar mayor cobertura de detección.
+    - Kits de herramientas conocidas y software de minería de datos de cifrado. 
+    - Shellcode, que es un pequeño fragmento de código que se usa normalmente como carga útil para aprovechar una vulnerabilidad de software.
+    - Archivo ejecutable malintencionado insertado en la memoria de proceso.
+
+    La detección de ataques sin archivos genera alertas de seguridad detalladas que contienen las descripciones con metadatos de proceso adicionales, como la actividad de red. Esto acelera la evaluación de prioridades de alertas, la correlación y el tiempo de respuesta descendente. Este enfoque complementa a las soluciones EDR basadas en eventos y proporciona mayor cobertura de detección.
 
     Para obtener detalles de las alertas de detección de ataques sin archivo, consulte la [Tabla de referencia de alertas](alerts-reference.md#alerts-windows).
 
@@ -110,12 +114,13 @@ Para más información sobre los planes de App Service, consulte [Planes de App 
 
 ### <a name="availability"></a>Disponibilidad
 
-- Estado de la versión: **Disponibilidad general**
-- Roles necesarios: **Administración de seguridad** puede descartar las alertas. **El lector de seguridad** puede ver los resultados.
-- Nubes:<br>
-    ✔ Nubes comerciales<br>
-    ✘ US Gov<br>
-    ✘ China Gov, otros gobiernos
+|Aspecto|Detalles|
+|----|:----|
+|Estado de la versión:|Disponibilidad general|
+|Precios:|Nivel Standard|
+|Roles y permisos necesarios:|**Administración de seguridad** puede descartar las alertas.<br>**El lector de seguridad** puede ver los resultados.|
+|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![No](./media/icons/no-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)|
+|||
 
 [!INCLUDE [AKS in ASC threat protection](../../includes/security-center-azure-kubernetes-threat-protection.md)]
 
@@ -146,14 +151,13 @@ Para más información, consulte:
 
 ### <a name="availability"></a>Disponibilidad
 
-- Estado de la versión:
-    - [Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (disponibilidad general)
-    - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (versión preliminar)
-    - [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) (versión preliminar)
-- Nubes:<br>
-    ✔ Nubes comerciales<br>
-    ✔ US Gov<br>
-    ✘ China Gov, otros gobiernos
+|Aspecto|Detalles|
+|----|:----|
+|Estado de la versión:|[Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (disponibilidad general)<br>[Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (versión preliminar)<br>[Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) (versión preliminar)|
+|Precios:|Nivel Standard|
+|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, otros gobiernos|
+|||
+
 
 ### <a name="whats-protected"></a>¿Qué se protege?
 
@@ -226,7 +230,6 @@ Algunas configuraciones de red pueden restringir la Security Center de la genera
 
 Para obtener una lista de las alertas de nivel de red de Azure, consulte la [tabla de referencia de alertas](alerts-reference.md#alerts-azurenetlayer).
 
-Para obtener detalles sobre cómo Security Center pueden usar señales relacionadas con la red para aplicar la protección contra amenazas, consulte [Detecciones de DNS heurísticas en Security Center](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/).
 
 
 

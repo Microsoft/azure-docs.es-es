@@ -1,6 +1,6 @@
 ---
 title: Niveles de zoom y cuadrícula de mosaico en Microsoft Azure Maps
-description: En este artículo, obtendrá información sobre los niveles de zoom y la cuadrícula de mosaico en Microsoft Azure Maps.
+description: Aprenda a establecer niveles de zoom en Azure Maps. Vea cómo convertir las coordenadas geográficas en coordenadas de píxeles, coordenadas de mosaico y quadkeys. Vea ejemplos de código.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/14/2020
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9493ad21847cca230606ff1641c9ac02c3355f53
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ced524080df87468116a538d9b7c8e91fb178a41
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87093058"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035882"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Niveles de zoom y cuadrícula de mosaico
 

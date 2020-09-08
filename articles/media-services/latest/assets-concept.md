@@ -4,23 +4,25 @@ titleSuffix: Azure Media Services
 description: Conozca qué son los recursos y cómo se usan en Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
-ms.date: 03/09/2020
-ms.author: juliako
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 6c9f69a39f725b082771b66959a219581c281ed5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 99101f31ec955c822c784180dd8b04bfb8e5f73c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043514"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291609"
 ---
 # <a name="assets-in-azure-media-services-v3"></a>Recursos de la versión 3 de Azure Media Services
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 En Azure Media Services, un [recurso](/rest/api/media/assets) es un concepto básico. Es donde se introducen elementos multimedia (por ejemplo, a través de la carga o la ingesta en vivo), se generan elementos multimedia (a partir de la salida de un trabajo) y desde el que se publican elementos multimedia (para streaming). 
 
@@ -42,7 +44,7 @@ Los nombres de los archivos o blobs dentro de un recurso deben seguir los [requi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Administración de recursos en Azure Media Services](manage-asset-concept.md)
+[Introducción a Media Services](media-services-overview.md)
 
 ## <a name="see-also"></a>Consulte también
 

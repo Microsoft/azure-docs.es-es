@@ -3,12 +3,12 @@ title: Entidades de mensajería de suspensión de Azure Service Bus
 description: En este artículo se explica cómo suspender y reactivar temporalmente entidades de mensaje de Azure Service Bus (colas, temas y suscripciones).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: da7c25c8ef9f3daa32984ac26aa62710ab775951
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2dad0b774f271ed719ca09b1e749559d5e1868bd
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038144"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078874"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Suspensión y reactivación de entidades de mensajería (deshabilitar)
 
@@ -18,9 +18,11 @@ Normalmente la suspensión de una entidad se realiza por motivos administrativos
 
 El usuario o el sistema pueden realizar la suspensión o la reactivación. El sistema solo suspende las entidades por motivos administrativos graves como haber alcanzado el límite de gasto de suscripción. El usuario no puede reactivar las entidades deshabilitadas por el sistema, pero se restauran cuando se ha solucionado la causa de la suspensión.
 
-En el portal, la sección **Propiedades** de la entidad respectiva permite cambiar el estado; en la captura de pantalla siguiente se muestra la alternancia en una cola:
+En Azure Portal, el estado se puede cambiar en la sección **Información general** de la entidad respectiva; el estado actual se muestra en **Estado** en forma de hipervínculo.
 
-![Captura de pantalla de la característica Service Bus con el valor Propiedades resaltado y la opción Estado de cola establecida en Activo y enmarcada en rojo.][1]
+En la siguiente captura de pantalla se muestran los estados disponibles a los que se puede cambiar la entidad tras seleccionar el hipervínculo: 
+
+![Captura de pantalla de la característica Service Bus en Información general para cambiar la opción de estado de la entidad.][1]
 
 El portal solo permite deshabilitar completamente las colas. También puede deshabilitar las operaciones de envío y recepción por separado mediante las API [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) de Service Bus en el SDK de .NET Framework, o con una plantilla de Azure Resource Manager mediante la CLI de Azure o Azure PowerShell.
 
@@ -55,5 +57,5 @@ Para más información sobre la mensajería de Service Bus, consulte los siguien
 * [Introducción a las colas de Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Uso de temas y suscripciones de Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
-[1]: ./media/entity-suspend/queue-disable.png
+[1]: ./media/entity-suspend/entity-state-change.png
 

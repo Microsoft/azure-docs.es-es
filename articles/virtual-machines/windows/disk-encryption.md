@@ -8,14 +8,14 @@ ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 413ca677bc778069b92def043bf35ab7bb87b038
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 6174fbeb45c23c0ff04597305c6f65aef05bd26e
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448928"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815596"
 ---
-# <a name="server-side-encryption-of-azure-disk-storage"></a>Cifrado del lado servidor de Azure Disk Storage
+# <a name="server-side-encryption-of-azure-disk-storage-for-powershell"></a>Cifrado del lado servidor de Azure Disk Storage para PowerShell
 
 El cifrado del lado servidor (SSE) protege los datos y le ayuda a cumplir los compromisos de cumplimiento y seguridad de la organización. SSE cifra automáticamente los datos almacenados en discos administrados de Azure (discos de datos y SO) en reposo de forma predeterminada cuando los conserva en la nube. 
 
@@ -84,8 +84,8 @@ Los clientes confidenciales de alto nivel de seguridad que están preocupados po
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Habilite el cifrado de un extremo a otro mediante cifrado en el host con [PowerShell](disks-enable-host-based-encryption-powershell.md) o [Azure Portal](disks-enable-host-based-encryption-portal.md).
-- Habilite el cifrado doble en reposo para discos administrados con [PowerShell](disks-enable-double-encryption-at-rest-powershell.md) o [Azure Portal](disks-enable-double-encryption-at-rest-portal.md).
-- Habilite las claves administradas por el cliente para discos administrados con [PowerShell](disks-enable-customer-managed-keys-powershell.md) o [Azure Portal](disks-enable-customer-managed-keys-portal.md).
+- Habilite el cifrado de un extremo a otro mediante cifrado en el host con [PowerShell](disks-enable-host-based-encryption-powershell.md) o [Azure Portal](../disks-enable-host-based-encryption-portal.md).
+- Habilite el cifrado doble en reposo para discos administrados con [PowerShell](disks-enable-double-encryption-at-rest-powershell.md) o [Azure Portal](../disks-enable-double-encryption-at-rest-portal.md).
+- Habilite las claves administradas por el cliente para discos administrados con [PowerShell](disks-enable-customer-managed-keys-powershell.md) o [Azure Portal](../disks-enable-customer-managed-keys-portal.md).
 - [Explore las plantillas de Azure Resource Manager para crear discos cifrados con claves administradas por el cliente](https://github.com/ramankumarlive/manageddiskscmkpreview)
 - [¿Qué es Azure Key Vault?](../../key-vault/general/overview.md)

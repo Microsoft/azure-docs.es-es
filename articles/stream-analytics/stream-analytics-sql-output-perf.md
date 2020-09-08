@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: 6281e729c2663666cd61f22b2697edd61bbf88f5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: b760ad03318b3c31b39b6470251847150dc5a70a
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040799"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869429"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Salida de Azure Stream Analytics a Azure SQL Database
 

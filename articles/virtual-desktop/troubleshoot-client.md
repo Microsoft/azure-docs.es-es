@@ -1,19 +1,17 @@
 ---
 title: 'Solución de problemas del cliente de Escritorio remoto de Windows Virtual Desktop: Azure'
 description: Cómo resolver problemas al configurar conexiones de cliente en un entorno de inquilinos de Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 03/31/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f91e68ec2bd4b0b5400ee3e8e380d91ea6f31f36
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d1862e2e0dd9b1e566c6ee5d01a09213a0be4f8e
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291330"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88134486"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Solución de problemas del cliente de Escritorio remoto
 
@@ -43,13 +41,13 @@ nslookup rdweb.wvd.microsoft.com
 
 Intente conectarse con otro cliente, como el cliente de Escritorio remoto para Windows 7 o Windows 10, y compruebe si puede abrir el cliente web.
 
-### <a name="opening-another-site-fails"></a>error al abrir otro sitio
+### <a name="cant-open-other-websites-while-connected-to-the-web-client"></a>No se pueden abrir otros sitios web mientras se esté conectado al cliente web
 
-Esto se debe normalmente a problemas de conexión de red o a una interrupción de la red. Se recomienda que se ponga en contacto con el soporte técnico de red.
+Si no puede abrir otros sitios web mientras está conectado al cliente web, puede haber problemas de conexión de red o una interrupción de la red. Se recomienda que se ponga en contacto con el soporte técnico de red.
 
-### <a name="nslookup-cannot-resolve-the-name"></a>Nslookup no puede resolver el nombre
+### <a name="nslookup-cant-resolve-the-name"></a>Nslookup no puede resolver el nombre
 
-Esto se debe normalmente a problemas de conexión de red o a una interrupción de la red. Se recomienda que se ponga en contacto con el soporte técnico de red.
+Si nslookup no puede resolver el nombre, podría haber problemas de conexión de red o una interrupción de la red. Se recomienda que se ponga en contacto con el soporte técnico de red.
 
 ### <a name="your-client-cant-connect-but-other-clients-on-your-network-can-connect"></a>El cliente no se puede conectar, pero otros clientes de la red sí pueden
 
@@ -60,11 +58,13 @@ Si el explorador comienza a dar problemas o deja de funcionar mientras usa el cl
 3. Borre la memoria caché del explorador Consulte [Borrar la memoria caché del explorador](https://binged.it/2RKyfdU).
 4. Abra el explorador en modo privado.
 
-## <a name="web-client-does-not-show-my-resources"></a>El cliente web no muestra mis recursos
+## <a name="client-doesnt-show-my-resources"></a>El cliente web no muestra mis recursos
 
 Primero compruebe la cuenta de Azure Active Directory que está usando. Si ya ha iniciado sesión con una cuenta de Azure Active Directory diferente a la que quiere usar para Windows Virtual Desktop, debe cerrar la sesión o usar una ventana privada del explorador.
 
 Si usa Windows Virtual Desktop (clásico), use el vínculo del cliente web de [este artículo](./virtual-desktop-fall-2019/connect-web-2019.md) para conectarse a los recursos.
+
+Si eso no funciona, asegúrese de que el grupo de aplicaciones está asociado a un área de trabajo.
 
 ## <a name="web-client-stops-responding-or-disconnects"></a>El cliente web deja de responder o se desconecta
 
@@ -80,8 +80,8 @@ Si el cliente web sigue solicitando las credenciales, siga estas instrucciones:
 
 1. Confirme que la dirección URL del cliente web es correcta.
 2. Confirme que las credenciales que está usando son para el entorno de Windows Virtual Desktop asociado a la dirección URL.
-3. Borre las cookies del explorador. Para obtener más detalles, consulte [Cómo eliminar archivos de cookies en Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
-4. Borre la memoria caché del explorador Para obtener más detalles, consulte [Borrar la memoria caché del explorador](https://binged.it/2RKyfdU).
+3. Borre las cookies del explorador. Para más información, consulte [Cómo eliminar archivos de cookies en Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
+4. Borre la memoria caché del explorador Para más información, consulte [Borrar la memoria caché del explorador](https://binged.it/2RKyfdU).
 5. Abra el explorador en modo privado.
 
 ## <a name="next-steps"></a>Pasos siguientes

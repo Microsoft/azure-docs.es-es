@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: larryfr
 author: Blackmist
-ms.date: 06/25/2020
+ms.date: 07/28/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 4910dc03cc4ef24b8515271a9197650c4b041f01
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: how-to
+ms.openlocfilehash: 0eec9ce6b035b7bf3627c844abb97649ce972693
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489612"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167647"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Creación de un área de trabajo para Azure Machine Learning con la CLI de Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -141,6 +141,47 @@ La salida de este comando es similar al JSON siguiente:
   "workspaceid": "<GUID>"
 }
 ```
+
+### <a name="virtual-network-and-private-endpoint"></a>Red virtual y punto de conexión privado
+
+> [!IMPORTANT]
+> El uso de Azure Private Link con áreas de trabajo de Azure Machine Learning se encuentra actualmente en versión preliminar pública. Esta funcionalidad solo está disponible en las regiones **Este de EE. UU.** y **Oeste de EE. UU. 2**. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Si quiere restringir el acceso al área de trabajo a una red virtual, puede usar los siguientes parámetros:
+
+* `--pe-name`: nombre del punto de conexión privado creado.
+* `--pe-auto-approval`: indica si las conexiones de punto de conexión privado al área de trabajo se deben aprobar automáticamente.
+* `--pe-resource-group`: grupo de recursos en el que se va a crear el punto de conexión privado. Debe ser el mismo grupo que contiene la red virtual.
+* `--pe-vnet-name`: red virtual existente en la que se va a crear el punto de conexión privado.
+* `--pe-subnet-name`: nombre de la subred en la que se va a crear el punto de conexión privado. El valor predeterminado es `default`.
+
+Para obtener más información sobre el uso de un punto de conexión privado y una red virtual con el área de trabajo, vea [Aislamiento de red y privacidad](how-to-enable-virtual-network.md).
+
+### <a name="customer-managed-key-and-high-business-impact-workspace"></a>Clave administrada por el cliente y área de trabajo de alto impacto de negocio
+
+De forma predeterminada, las métricas y los metadatos del área de trabajo se almacenan en una instancia de Azure Cosmos DB que Microsoft mantiene. Estos datos se cifran con claves administradas por Microsoft. 
+
+Si va a crear una versión __Enterprise__ de Azure Machine Learning, puede usar la clave propia. Así, se crea la instancia de Azure Cosmos DB que almacena las métricas y los metadatos en la suscripción de Azure. Use el parámetro `--cmk-keyvault` para especificar la instancia de Azure Key Vault que contiene la clave y `--resource-cmk-uri` para especificar la dirección URL de la clave en el almacén.
+
+> [!IMPORTANT]
+> Para usar los parámetros `--cmk-keyvault` y `--resource-cmk-uri`, primero debe realizar las siguientes acciones:
+>
+> 1. Autorice __Machine Learning App__ (en Administración de identidades y acceso) con permisos de colaborador en la suscripción.
+> 1. Siga los pasos de [Configuración de claves administradas por el cliente](/azure/cosmos-db/how-to-setup-cmk) para:
+>     * Registrar el proveedor de Azure Cosmos DB
+>     * Creación y configuración de una instancia de Azure Key Vault
+>     * Generar una clave
+>
+>     No es necesario crear manualmente la instancia de Azure Cosmos DB; se crea una automáticamente durante la creación del área de trabajo. Esta instancia de Azure Cosmos DB se crea en un grupo de recursos independiente con un nombre basado en este patrón: `<your-resource-group-name>_<GUID>`.
+>
+> Este valor no se puede cambiar tras la creación del área de trabajo. Si elimina la instancia de Azure Cosmos DB que usa el área de trabajo, también debe eliminar el área de trabajo que la está usando.
+
+Para limitar los datos que Microsoft recopila sobre el área de trabajo, use el parámetro `--hbi-workspace`. 
+
+> [!IMPORTANT]
+> La selección de un alto impacto de negocio solo puede realizarse al crear un área de trabajo. Este valor no se puede cambiar tras la creación del área de trabajo.
+
+Para obtener más información sobre las claves administradas por el cliente y el área de trabajo de alto impacto de negocio, vea [Seguridad Enterprise para Azure Machine Learning](concept-enterprise-security.md#encryption-at-rest).
 
 ### <a name="use-existing-resources"></a>Uso de recursos existentes
 

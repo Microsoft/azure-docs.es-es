@@ -11,12 +11,13 @@ ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 252c033c1a9d4d45c3d48256e65ae9ad10a93c51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 9a082270e2c113bcdf31ed6bd6db3d38a7117500
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85360068"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279302"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurar los permisos de cuenta del conector de AD DS 
 
@@ -38,12 +39,12 @@ En la siguiente tabla se proporciona un resumen de los permisos necesarios en lo
 | Sincronización de hash de contraseñas |<li>Replicación de cambios de directorio</li>  <li>Replicación de todos los cambios de directorio |
 | Implementación híbrida de Exchange |Permisos de lectura y escritura en los atributos que se documentan en [Escritura diferida híbrida de Exchange](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) para usuarios, grupos y contactos. |
 | Carpeta pública de correo de Exchange |Permisos de lectura para los atributos que se documentan en [carpetas públicas de correo electrónico de Exchange](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) para las carpetas públicas. | 
-| escritura diferida de contraseñas |Permisos de lectura y escritura en los atributos que se documentan en [Introducción a la administración de contraseñas](../authentication/howto-sspr-writeback.md) para los usuarios. |
+| escritura diferida de contraseñas |Permisos de lectura y escritura en los atributos que se documentan en [Introducción a la administración de contraseñas](../authentication/tutorial-enable-sspr-writeback.md) para los usuarios. |
 | Escritura diferida de dispositivos |Permisos de lectura y escritura a objetos de dispositivo y contenedores que se documentan en la [escritura diferida de dispositivo](how-to-connect-device-writeback.md). |
 | Escritura diferida de grupos |Objetos de grupo Leer, Crear, Actualizar y Eliminar para **grupos de Office 365** sincronizados.|
 
 ## <a name="using-the-adsyncconfig-powershell-module"></a>Usar el módulo de PowerShell ADSyncConfig 
-El módulo ADSyncConfig requiere las [Herramientas de administración remota del servidor (RSAT) para AD DS](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools), ya que depende del módulo y las herramientas de PowerShell para AD DS. Para instalar RSAT para AD DS, abra una ventana de Windows PowerShell con la opción "Ejecutar como administrador" y ejecute: 
+El módulo ADSyncConfig requiere las [Herramientas de administración remota del servidor (RSAT) para AD DS](/windows-server/remote/remote-server-administration-tools), ya que depende del módulo y las herramientas de PowerShell para AD DS. Para instalar RSAT para AD DS, abra una ventana de Windows PowerShell con la opción "Ejecutar como administrador" y ejecute: 
 
 ``` powershell
 Install-WindowsFeature RSAT-AD-Tools 
@@ -310,4 +311,3 @@ Este cmdlet establecerá los siguientes permisos:
 - [Instalación rápida](how-to-connect-install-express.md)
 - [Instalación personalizada](how-to-connect-install-custom.md)
 - [Referencia de ADSyncConfig](reference-connect-adsyncconfig.md)
-

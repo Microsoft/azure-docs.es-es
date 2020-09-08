@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con BrowserStack Single Sign-on | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y BrowserStack Single Sign-on.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 122f2095-07cb-4e8e-9f87-d059271380c8
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/18/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 545fead0d80b204225c79ee7f365660a55cfbfef
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 48754b6ac1d6348df440db496d713f0d0a0b71ea
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85486612"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547654"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-browserstack-single-sign-on"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con BrowserStack Single Sign-on
 

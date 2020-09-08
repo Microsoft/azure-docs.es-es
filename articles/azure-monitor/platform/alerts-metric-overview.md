@@ -1,15 +1,15 @@
 ---
 title: Comprender cómo funcionan las alertas de métricas en Azure Monitor.
 description: Obtenga información general acerca de lo que puede hacer con las alertas de métricas y cómo funcionan en Azure Monitor.
-ms.date: 07/16/2020
+ms.date: 08/16/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 9ac034eb144e5873f8f73ab7b1d7459394ce4775
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 035b68afed7383956beb13e367aa7a1f6dfcd070
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327147"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258432"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprender cómo funcionan las alertas de métricas en Azure Monitor
 
@@ -138,9 +138,12 @@ Esta característica se admite actualmente en las métricas de plataforma (no m�
 | Servicio | Public Azure (Azure público) | Government | China |
 |:--------|:--------|:--------|:--------|
 | Máquinas virtuales  | **Sí** | No | No |
-| Bases de datos de SQL Server | **Sí** | **Sí** | No |
-| Grupos elásticos de SQL Server | **Sí** | **Sí** | No |
-| Dispositivos Data Box Edge | **Sí** | **Sí** | No |
+| Bases de datos de SQL Server | **Sí** | **Sí** | **Sí** |
+| Grupos elásticos de SQL Server | **Sí** | **Sí** | **Sí** |
+| Grupos de capacidad de NetApp Files | **Sí** | **Sí** | **Sí** |
+| Volúmenes de NetApp Files | **Sí** | **Sí** | **Sí** |
+| Almacenes de claves | **Sí** | **Sí** | **Sí** |
+| Dispositivos Data Box Edge | **Sí** | **Sí** | **Sí** |
 
 El ámbito de supervisión se puede especificar con una sola alerta de métrica de tres formas distintas. Por ejemplo, respecto a las máquinas virtuales, el ámbito se puede especificar como:  
 

@@ -3,7 +3,7 @@ title: Instalación de Update 5.1 en un dispositivo de la serie StorSimple 8000 
 description: Explica cómo instalar Update 5.1 de la serie StorSimple 8000 en un dispositivo de la serie StorSimple 8000.
 services: storsimple
 documentationcenter: NA
-author: priestlg
+author: twooley
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
@@ -11,13 +11,13 @@ ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/05/2020
-ms.author: v-grpr
-ms.openlocfilehash: fb2123bdb0e12571a58a32e414a610665935ebb6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: twooley
+ms.openlocfilehash: f9cc5181d6cc29ee4b3c2373dbbc91d6290fbe6e
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85508221"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782777"
 ---
 # <a name="install-update-51-on-your-storsimple-device"></a>Instalación de Update 5.1 en un dispositivo StorSimple
 

@@ -10,12 +10,13 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 3e83781a5ac8270cef37346b5850edd95a102f6a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 1f5a68bcf0069663d8ef1101407bea7ee26e9e8b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87834412"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919297"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Tutorial: Moderación de vídeos y transcripciones
 

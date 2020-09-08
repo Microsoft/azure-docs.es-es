@@ -13,12 +13,12 @@ ms.reviewer: krbain
 ms.date: 07/15/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbb2ad8e6d37190d0473f3f9f4af7738edd3b27f
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 1cc4a29c9d4b5ae93df81de5b77cb6355947813d
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475216"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798421"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Revocación del acceso de usuario en Azure Active Directory
 
@@ -38,7 +38,7 @@ Los tokens de acceso y los tokens de actualización se usan con frecuencia con a
 
 A continuación, Azure AD vuelve a evaluar sus directivas de autorización. Si el usuario sigue autorizado, Azure AD emite un nuevo token de acceso y un token de actualización.
 
-Los tokens de acceso pueden ser un problema de seguridad si el acceso se debe revocar en un período de tiempo menor que la duración del token, que suele ser de una hora aproximadamente. Por esta razón, Microsoft trabaja activamente para incorporar la [evaluación del acceso continua](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-continuous-access-evaluation) a las aplicaciones de Office 365, lo que ayuda a garantizar la invalidación de los tokens de acceso casi en tiempo real.  
+Los tokens de acceso pueden ser un problema de seguridad si el acceso se debe revocar en un período de tiempo menor que la duración del token, que suele ser de una hora aproximadamente. Por esta razón, Microsoft trabaja activamente para incorporar la [evaluación del acceso continua](../fundamentals/concept-fundamentals-continuous-access-evaluation.md) a las aplicaciones de Office 365, lo que ayuda a garantizar la invalidación de los tokens de acceso casi en tiempo real.  
 
 ## <a name="session-tokens-cookies"></a>Tokens de sesión (cookies)
 
@@ -60,13 +60,13 @@ Para un entorno híbrido con Active Directory local sincronizado con Azure Activ
 
 Como administrador de Active Directory, conéctese a la red local, abra PowerShell y realice las siguientes acciones:
 
-1. Deshabilite al usuario en Active Directory. Consulte [Disable-ADAccount](https://docs.microsoft.com/powershell/module/addsadministration/disable-adaccount?view=win10-ps).
+1. Deshabilite al usuario en Active Directory. Consulte [Disable-ADAccount](/powershell/module/addsadministration/disable-adaccount?view=win10-ps).
 
     ```PowerShell
     Disable-ADAccount -Identity johndoe  
     ```
 
-1. Restablezca la contraseña del usuario dos veces en Active Directory. Consulte [Set-ADAccountPassword](https://docs.microsoft.com/powershell/module/addsadministration/set-adaccountpassword?view=win10-ps).
+1. Restablezca la contraseña del usuario dos veces en Active Directory. Consulte [Set-ADAccountPassword](/powershell/module/addsadministration/set-adaccountpassword?view=win10-ps).
 
     > [!NOTE]
     > La razón para cambiar la contraseña de un usuario dos veces es mitigar el riesgo de ataques Pass-the-hash, especialmente si hay retrasos en la replicación de contraseñas local. Si puede suponer con seguridad que esta cuenta no está en peligro, puede restablecer la contraseña solo una vez.
@@ -83,18 +83,18 @@ Como administrador de Active Directory, conéctese a la red local, abra PowerShe
 
 Como administrador de Azure Active Directory, abra PowerShell, ejecute ``Connect-AzureAD`` y realice las siguientes acciones:
 
-1. Deshabilite al usuario en Azure AD. Consulte [Set-AzureADUser](https://docs.microsoft.com/powershell/module/azuread/Set-AzureADUser?view=azureadps-2.0).
+1. Deshabilite al usuario en Azure AD. Consulte [Set-AzureADUser](/powershell/module/azuread/Set-AzureADUser?view=azureadps-2.0).
 
     ```PowerShell
     Set-AzureADUser -ObjectId johndoe@contoso.com -AccountEnabled $false
     ```
-1. Revoque los tokens de actualización de Azure AD del usuario. Consulte [Revoke-AzureADUserAllRefreshToken](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0).
+1. Revoque los tokens de actualización de Azure AD del usuario. Consulte [Revoke-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0).
 
     ```PowerShell
     Revoke-AzureADUserAllRefreshToken -ObjectId johndoe@contoso.com
     ```
 
-1. Deshabilite los dispositivos del usuario. Consulte [Get-AzureADUserRegisteredDevice](https://docs.microsoft.com/powershell/module/azuread/get-azureaduserregistereddevice?view=azureadps-2.0).
+1. Deshabilite los dispositivos del usuario. Consulte [Get-AzureADUserRegisteredDevice](/powershell/module/azuread/get-azureaduserregistereddevice?view=azureadps-2.0).
 
     ```PowerShell
     Get-AzureADUserRegisteredDevice -ObjectId johndoe@contoso.com | Set-AzureADDevice -AccountEnabled $false
@@ -102,9 +102,9 @@ Como administrador de Azure Active Directory, abra PowerShell, ejecute ``Connect
 
 ## <a name="optional-steps"></a>Pasos opcionales
 
-- [Borre solo los datos corporativos de aplicaciones administradas por Intune](https://docs.microsoft.com/mem/intune/apps/apps-selective-wipe).
+- [Borre solo los datos corporativos de aplicaciones administradas por Intune](/mem/intune/apps/apps-selective-wipe).
 
-- [Borre los dispositivos de propiedad corporativa mediante el restablecimiento del dispositivo a la configuración predeterminada de fábrica](https://docs.microsoft.com/mem/intune/remote-actions/devices-wipe).
+- [Borre los dispositivos de propiedad corporativa mediante el restablecimiento del dispositivo a la configuración predeterminada de fábrica](/mem/intune/remote-actions/devices-wipe).
 
 > [!NOTE]
 > Los datos del dispositivo no se pueden recuperar después de un borrado.

@@ -5,15 +5,16 @@ author: bandersmsft
 ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: tutorial
-ms.date: 06/16/2020
+ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 5b0d30d31fbe65360c246282eb2dc2109a541a3f
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: a91f3781b490ee6f724e7d28a6be9a96c853426f
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888321"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684633"
 ---
 # <a name="tutorial-review-your-individual-azure-bill"></a>Tutorial: Revisión de la factura de Azure
 

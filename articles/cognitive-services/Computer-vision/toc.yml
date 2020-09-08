@@ -4,7 +4,7 @@
   expanded: true
   items:
     - name: ¿Qué es Computer Vision?
-      href: Home.md
+      href: overview.md
     - name: Novedades
       href: whats-new.md
 - name: Guías de inicio rápido

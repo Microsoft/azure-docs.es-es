@@ -1,6 +1,6 @@
 ---
 title: Métodos de creación de certificados
-description: Formas de crear un certificado en Key Vault.
+description: Obtenga información sobre las diferentes opciones con las que podemos crear o importar un certificado de Key Vault en Azure Key Vault. Hay varias formas de crear un certificado de Key Vault.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7450dd79247078afe02d1bb63727cfd260d674fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 71d8961af372f927fab909073daa715766542f87
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81866251"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606670"
 ---
 # <a name="certificate-creation-methods"></a>Métodos de creación de certificados
 
@@ -82,7 +82,7 @@ La creación de certificados puede completarse manualmente o con un emisor "Self
 
 |Proveedor|Tipo de certificado|Configuración  
 |--------------|----------------------|------------------|  
-|DigiCert|Key Vault ofrece certificados SSL OV o EV con DigiCert| [Guía de integración](https://docs.digicert.com/certificate-tools/azure-key-vault-integration-guide/)
+|DigiCert|Key Vault ofrece certificados SSL OV o EV con DigiCert| [Guía de integración](https://docs.microsoft.com/azure/key-vault/certificates/how-to-integrate-certificate-authority)
 |GlobalSign|Key Vault ofrece certificados SSL OV o EV con GlobalSign| [Guía de integración](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
 
  Un emisor de certificados es una entidad que se representa en Azure Key Vault (KV) como un recurso CertificateIssuer. Se utiliza para proporcionar información sobre el origen de un certificado de KV; el nombre del emisor, el proveedor, las credenciales y otros detalles administrativos.

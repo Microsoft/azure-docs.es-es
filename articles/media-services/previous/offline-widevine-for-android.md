@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
 ms.reviewer: dwgeo
-ms.openlocfilehash: b9a47ac9af1d96cbd65ed68dbafccefa3b95bb20
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4b3b2b8c39b5b2552b5ce9f508bacd1ea86b2638
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065490"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269597"
 ---
-# <a name="offline-widevine-streaming-for-android"></a>Streaming de Widevine sin conexión para Android  
+# <a name="offline-widevine-streaming-for-android"></a>Streaming de Widevine sin conexión para Android
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector" title1="Seleccione la versión de Media Services que se está usando:"]
 > * [Versión 3](../latest/offline-widevine-for-android.md)

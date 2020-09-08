@@ -3,12 +3,12 @@ title: Análisis de costos y presupuestos
 description: Obtenga información acerca de cómo obtener un análisis de costos y establecer un presupuesto para los recursos de proceso subyacentes y las licencias de software que se usan para ejecutar las cargas de trabajo de Batch.
 ms.topic: how-to
 ms.date: 07/19/2019
-ms.openlocfilehash: 13c8cc508a4940b5e21570104527c40988879919
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50ca1ecfd0a973ff39dabfcb62175ce820d0a0d6
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83725778"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654249"
 ---
 # <a name="cost-analysis-and-budgets-for-azure-batch"></a>Análisis de costos y presupuestos para Azure Batch
 
@@ -68,7 +68,7 @@ Obtenga más información sobre cómo configurar máquinas virtuales de priorida
 
 ### <a name="virtual-machine-os-disk-type"></a>Tipo de disco de sistema operativo de máquina virtual
 
-Existen varios [tipos de discos de sistema operativo de máquina virtual](../virtual-machines/windows/disks-types.md). Muchas de las series de máquinas virtuales tienen tamaños que permiten almacenamiento premium y estándar. Cuando se selecciona un tamaño de máquina virtual "s" para un grupo, Batch configura discos de sistema operativo SSD Premium. Cuando se selecciona un tamaño de máquina virtual "distinto de s", se usa el tipo de disco HDD estándar más barato. Por ejemplo, los discos de SO SSD Premium se usan para `Standard_D2s_v3` y los discos de SO HDD estándar se usan para `Standard_D2_v3`.
+Existen varios [tipos de discos de sistema operativo de máquina virtual](../virtual-machines/disks-types.md). Muchas de las series de máquinas virtuales tienen tamaños que permiten almacenamiento premium y estándar. Cuando se selecciona un tamaño de máquina virtual "s" para un grupo, Batch configura discos de sistema operativo SSD Premium. Cuando se selecciona un tamaño de máquina virtual "distinto de s", se usa el tipo de disco HDD estándar más barato. Por ejemplo, los discos de SO SSD Premium se usan para `Standard_D2s_v3` y los discos de SO HDD estándar se usan para `Standard_D2_v3`.
 
 Los discos de SO SSD Premium son más costosos, pero tienen un rendimiento más alto y las máquinas virtuales con discos premium pueden iniciarse ligeramente más rápido que las máquinas virtuales con discos OS HDD estándar. Con Batch, el disco de SO generalmente no se usa tanto como los archivos de tareas y las aplicaciones que se encuentran en el disco SSD temporal de las máquinas virtuales. Por lo tanto, en muchos casos, no es necesario pagar el aumento del costo por el disco SSD Premium que se aprovisiona cuando se especifica un tamaño de máquina virtual "s".
 

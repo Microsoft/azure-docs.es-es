@@ -3,12 +3,13 @@ title: Creación de temas y colas con particiones de Azure Service Bus | Microso
 description: Describe cómo realizar la partición de los temas y las colas de Service Bus mediante el uso de varios agentes de mensajes.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: c43d8d560ddede021b70b0cdc167f42052904b0b
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 11cc76b0dd0125c7b54438d3f991069b7c44db59
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064866"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007968"
 ---
 # <a name="partitioned-queues-and-topics"></a>Temas y colas con particiones
 

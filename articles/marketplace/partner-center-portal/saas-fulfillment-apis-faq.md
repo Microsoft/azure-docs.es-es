@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/11/2019
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 164a0e295179bb0c1e8d7da6b43d8e07a4e9f4e9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4c5d8b438764fa9aa3838b2225c63d412afc519b
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87304418"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606810"
 ---
 # <a name="common-questions-about-saas-fulfillment-apis"></a>Preguntas comunes sobre las API de cumplimiento de SaaS
 
@@ -67,9 +67,9 @@ La secuencia siguiente captura el flujo cuando un cliente de Azure cambia el pla
 
 ![Flujo de cambio del plan del cliente](media/saas-metering-service-integration-flow-b.png)
 
-La secuencia siguiente captura el flujo cuando un cliente de Azure cambia el plan en el escaparate de Microsoft.
+La secuencia siguiente captura el flujo cuando un cliente de Azure cambia un plan en la tienda en línea de Microsoft:
 
-![Flujo de cambio del plan de escaparate del cliente](media/saas-metering-service-integration-flow-c.png)
+![Flujo de cambio del plan de la tienda en línea del cliente](media/saas-metering-service-integration-flow-c.png)
 
 ### <a name="how-can-the-azure-user-unsubscribe-from-the-plan-associated-with-azure-subscription"></a>¿Cómo puede el usuario de Azure cancelar la suscripción del plan asociado con la suscripción de Azure?
 
@@ -79,9 +79,9 @@ La secuencia siguiente captura el flujo cuando un cliente de Azure cancela la su
 
 ![El cliente cancela la suscripción en la experiencia de SaaS](media/saas-metering-service-integration-flow-d.png)
 
-La secuencia siguiente captura el flujo cuando un usuario de Azure cancela la suscripción en el escaparate de Microsoft:
+La secuencia siguiente captura el flujo cuando un usuario de Azure cancela la suscripción en la tienda en línea de Microsoft:
 
-![El cliente cancela la suscripción en el escaparate de Microsoft](media/saas-metering-service-integration-flow-e.png)
+![El cliente cancela la suscripción en la tienda en línea de Microsoft](media/saas-metering-service-integration-flow-e.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

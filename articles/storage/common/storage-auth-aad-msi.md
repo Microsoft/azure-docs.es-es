@@ -1,7 +1,7 @@
 ---
 title: Autorización del acceso a datos con una identidad administrada
 titleSuffix: Azure Storage
-description: Aprenda a usar identidades administradas para los recursos de Azure para autenticar el acceso a blobs y colas desde aplicaciones que se ejecutan en máquinas virtuales de Azure, aplicaciones de funciones, conjuntos de escalado de máquinas virtuales y otros.
+description: Use identidades administradas para recursos de Azure para autorizar el acceso a datos de blobs y colas desde aplicaciones que se ejecutan en máquinas virtuales de Azure, aplicaciones de funciones y otras.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,12 +10,13 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 69e88aed1485d07bc4adc57abc0bda02a1def728
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 2087e5f8ec397123df504e9d30d351a0ba79b4a5
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808881"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018763"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autorización del acceso a datos de blobs y colas con identidades administradas para los recursos de Azure
 
@@ -45,9 +46,9 @@ Después de la autenticación, la biblioteca cliente de identidades de Azure obt
 
 Para más información sobre la biblioteca cliente de identidades de Azure, consulte [Biblioteca cliente de identidades de Azure para .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity). Para consultar documentación de referencia sobre la biblioteca cliente de identidades de Azure, consulte [Espacio de nombres Azure.Identity](/dotnet/api/azure.identity).
 
-### <a name="assign-role-based-access-control-rbac-roles-for-access-to-data"></a>Asignación de los roles del control de acceso basado en rol (RBAC) para obtener acceso a los datos
+### <a name="assign-azure-roles-for-access-to-data"></a>Asignación de roles de Azure para el acceso a los datos
 
-Cuando una entidad de seguridad de Azure AD intenta acceder a los datos de blobs o colas, dicha entidad debe tener permisos para el recurso. Si la entidad de seguridad es una identidad administrada en Azure o una cuenta de usuario de Azure AD que ejecuta código en el entorno de desarrollo, se le debe asignar un rol de RBAC que conceda acceso a los datos de blobs o colas en Azure Storage. Para información sobre la asignación de permisos a través de RBAC, consulte la sección titulada **Asignación de roles RBAC para derechos de acceso** en [Autorización del acceso a blobs y colas de Azure con Azure Active Directory](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights).
+Cuando una entidad de seguridad de Azure AD intenta acceder a los datos de blobs o colas, dicha entidad debe tener permisos para el recurso. Si la entidad de seguridad es una identidad administrada de Azure o una cuenta de usuario de Azure AD que ejecuta código en el entorno de desarrollo, se le debe asignar un rol de Azure que conceda acceso a los datos de blobs o colas en Azure Storage. Para información sobre la asignación de permisos a través de RBAC, consulte la sección titulada **Asignación de roles de Azure para derechos de acceso** en [Autorización del acceso a blobs y colas de Azure con Azure Active Directory](../common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
 
 ### <a name="authenticate-the-user-in-the-development-environment"></a>Autenticación del usuario en el entorno de desarrollo
 
@@ -61,7 +62,7 @@ Si el entorno de desarrollo no admite el inicio de sesión único a través de u
 
 #### <a name="create-the-service-principal"></a>Creación de la entidad de servicio
 
-Para crear una entidad de servicio con la CLI de Azure y asignar el rol RBAC, use el comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac). Proporcione un rol de acceso a datos Azure Storage para asignar a la nueva entidad de servicio. Además, proporcione el ámbito de la asignación de roles. Para más información acerca de los roles integrados que se proporcionan para Azure Storage, consulte [Roles integrados en los recursos de Azure](../../role-based-access-control/built-in-roles.md).
+Para crear una entidad de servicio con la CLI de Azure y asignar el rol de Azure, llame al comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac). Proporcione un rol de acceso a datos Azure Storage para asignar a la nueva entidad de servicio. Además, proporcione el ámbito de la asignación de roles. Para más información sobre los roles integrados que se proporcionan para Azure Storage, consulte [Roles integrados de Azure](../../role-based-access-control/built-in-roles.md).
 
 Si no tiene permisos suficientes para asignar un rol a la entidad de servicio, puede que tenga que pedir al propietario o administrador de la cuenta que realice la asignación de roles.
 
@@ -87,7 +88,7 @@ El comando `az ad sp create-for-rbac` devuelve una lista de propiedades de entid
 ```
 
 > [!IMPORTANT]
-> La propagación de las asignaciones de roles RBAC pueden tardar unos minutos.
+> La propagación de las asignaciones de roles de Azure pueden tardar unos minutos.
 
 #### <a name="set-environment-variables"></a>Establecimiento de variables de entorno
 

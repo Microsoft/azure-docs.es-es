@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con ThirdLight | Microsoft Docs'
 description: En este tutorial, aprenderá a configurar el inicio de sesión único entre Azure Active Directory y ThirdLight.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 168aae9a-54ee-4c2b-ab12-650a2c62b901
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 448d46cd21a63488c4f567d5555fe6406fc0fa73
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3193df0848c0d67935faa0020465e79bd50e2151
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67089087"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544985"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thirdlight"></a>Tutorial: Integración de Azure Active Directory con ThirdLight
 
@@ -166,7 +162,7 @@ En esta sección creará un usuario de prueba llamado Britta Simon en Azure Por
 
     1. En el cuadro **Nombre**, escriba **BrittaSimon**.
   
-    1. En el cuadro **Nombre de usuario**, escriba **BrittaSimon@\<dominioDeSuEmpresa>.\<extensión>** . (Por ejemplo, BrittaSimon@contoso.com).
+    1. En el cuadro **Nombre de usuario**, escriba **BrittaSimon@\<yourcompanydomain>.\<extension>** (Por ejemplo, BrittaSimon@contoso.com).
 
     1. Seleccione **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
 

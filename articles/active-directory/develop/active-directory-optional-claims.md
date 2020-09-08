@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/30/2020
+ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: e82f5fb868dd728d439c68943c8809c5373ae133
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: e53cf38c9544884caddfdf03c2615217c49ec3d0
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115737"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89068733"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Procedimientos: Proporcionar notificaciones opcionales a la aplicación
 
@@ -54,13 +54,12 @@ El conjunto de notificaciones opcionales disponibles de forma predeterminada par
 | `auth_time`                | Momento de la última autenticación del usuario. Consulte las especificaciones de Open ID Connect| JWT        |           |  |
 | `tenant_region_scope`      | Región del inquilino de los recursos | JWT        |           | |
 | `sid`                      | Identificador de sesión que se usa para el cierre de cada sesión de usuario. | JWT        |  Cuentas personal y de Azure AD.   |         |
-| `platf`                    | Plataforma de dispositivo    | JWT        |           | Restringido a los dispositivos administrados que pueden verificar el tipo de dispositivo|
 | `verified_primary_email`   | Procede del valor PrimaryAuthoritativeEmail del usuario.      | JWT        |           |         |
 | `verified_secondary_email` | Procede del valor SecondaryAuthoritativeEmail del usuario.   | JWT        |           |        |
 | `vnet`                     | Información del especificador de la red virtual | JWT        |           |      |
 | `fwd`                      | Dirección IP.| JWT    |   | Agrega la dirección IPv4 original del cliente solicitante (cuando se encuentra en una red virtual) |
-| `ctry`                     | País o región del usuario | JWT |  | Azure AD devuelve la notificación opcional `ctry` si existe, y el valor de la notificación es un código de país o región estándar de dos letras, como FR, JP, SZ, etc. |
-| `tenant_ctry`              | País o región del inquilino de recursos | JWT | | |
+| `ctry`                     | País o región del usuario | JWT, SAML |  | Azure AD devuelve la notificación opcional `ctry` si existe, y el valor del campo es un código de país o región estándar de dos letras, como FR, JP, SZ, etc. |
+| `tenant_ctry`              | País del inquilino de los recursos | JWT | | Igual que `ctry`, salvo que un administrador lo establezca en un nivel de inquilino.  También debe ser un valor estándar de dos letras. |
 | `xms_pdl`             | Ubicación de datos preferida   | JWT | | En los inquilinos multigeográficos, la ubicación de datos preferida es el código de tres letras que muestra la región geográfica en la que se encuentra el usuario. Para más información, vea la [documentación de Azure AD Connect acerca de la ubicación de datos preferida](../hybrid/how-to-connect-sync-feature-preferreddatalocation.md).<br/>Por ejemplo: `APC` para Asia Pacífico. |
 | `xms_pl`                   | Idioma preferido del usuario  | JWT ||Idioma preferido del usuario, si se establece. Se origina desde su inquilino principal, en escenarios de acceso de invitado. Con formato LL-CC ("en-us"). |
 | `xms_tpl`                  | Idioma preferido del inquilino| JWT | | Idioma preferido del inquilino de recursos, si se establece. Con formato LL ("en"). |

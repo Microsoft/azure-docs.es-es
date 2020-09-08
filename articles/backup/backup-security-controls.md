@@ -3,12 +3,12 @@ title: Controles de seguridad
 description: Obtenga información sobre los controles de seguridad que se usan en el servicio de Azure Backup. Estos controles ayudan al servicio a evitar, detectar y responder a las vulnerabilidades de seguridad.
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: 4a59ab0edeeba480475ac593d2721f95c7b5f48a
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: ce1ca0a79476e4985569c677b58892fad91866a5
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371726"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892969"
 ---
 # <a name="security-controls-for-azure-backup"></a>Controles de seguridad para Azure Backup
 
@@ -22,14 +22,14 @@ En este artículo se explican los controles de seguridad integrados en Azure Bac
 |---|---|--|--|
 | Compatibilidad con punto de conexión de servicio| No |  |  |
 | Compatibilidad con la inserción de redes virtuales| No |  |  |
-| Compatibilidad con el aislamiento de red y los firewalls| Sí | La tunelización forzada es compatible con copia de seguridad de VM. La tunelización forzada no se admite para las cargas de trabajo que se ejecutan en VM. |  |
+| Compatibilidad con el aislamiento de red y los firewalls| Sí | La tunelización forzada es compatible con copia de seguridad de VM. La tunelización forzada no es compatible con las cargas de trabajo que se ejecutan dentro de máquinas virtuales. |  |
 | Compatibilidad con la tunelización forzada| No |  |  |
 
 ## <a name="monitoring--logging"></a>Supervisión y registro
 
 | Control de seguridad | Sí/No | Notas| Documentación
 |---|---|--|--|
-| Compatibilidad con la supervisión de Azure (Log Analytics, Application Insights, etc.)| Sí | Log Analytics se admite mediante registros de recursos. Para más información, consulte [Supervisión de cargas de trabajo protegidas por Azure Backup con Log Analytics](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/). |  |
+| Compatibilidad con la supervisión de Azure (por ejemplo, Log Analytics o Application Insights)| Sí | Log Analytics se admite mediante registros de recursos. Para más información, consulte [Supervisión de cargas de trabajo protegidas por Azure Backup con Log Analytics](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/). |  |
 | Registro y auditoría del plano de administración y de control| Sí | Todas las acciones que desencadena el cliente desde Azure Portal se registran en los registros de actividad. |  |
 | Registro y auditoría del plano de datos| No | No se puede acceder al plano de datos de Azure Backup directamente.  |  |
 

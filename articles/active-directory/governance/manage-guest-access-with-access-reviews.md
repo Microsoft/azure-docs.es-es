@@ -16,17 +16,17 @@ ms.date: 07/22/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66f8020ec2561bf06716db0720a7ec4292f36eb3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 77c560ffd01fe6d0b93e18b963574136c086fdc4
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034129"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783202"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Administración del acceso de los invitados con las revisiones de acceso de Azure AD
 
 
-Con Azure Active Directory (Azure AD), puede habilitar fácilmente la colaboración entre distintas organizaciones mediante la [característica B2B de Azure AD](../b2b/what-is-b2b.md). Los usuarios invitados de otros inquilinos pueden ser [invitados por los administradores](../b2b/add-users-administrator.md) o por [otros usuarios](../b2b/what-is-b2b.md). Esta capacidad también se aplica a las identidades sociales como las cuentas Microsoft.
+Con Azure Active Directory (Azure AD), puede habilitar fácilmente la colaboración entre distintas organizaciones mediante la [característica B2B de Azure AD](../external-identities/what-is-b2b.md). Los usuarios invitados de otros inquilinos pueden ser [invitados por los administradores](../external-identities/add-users-administrator.md) o por [otros usuarios](../external-identities/what-is-b2b.md). Esta capacidad también se aplica a las identidades sociales como las cuentas Microsoft.
 
 También puede asegurarse fácilmente de que los usuarios invitados tengan el acceso adecuado. Puede pedir a los invitados o a quien decida en su lugar que participen en una revisión de acceso y vuelvan a certificar (o atestiguar) el acceso de los invitados. Los revisores pueden dar su aprobación para cada necesidad de acceso continuado de los usuarios, en función de las sugerencias de Azure AD. Cuando una revisión de acceso haya terminado, es posible hacer cambios y retirar la concesión de acceso a los invitados que ya no lo necesitan.
 
@@ -120,10 +120,3 @@ En algunas organizaciones, los invitados pueden no ser conscientes de a qué gru
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Creación de una revisión de acceso de grupos o aplicaciones](create-access-review.md)
-
-
-
-
-
-
-

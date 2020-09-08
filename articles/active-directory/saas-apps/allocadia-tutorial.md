@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Allocadia | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Allocadia.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: c415fc55-6dc1-49f2-a8a2-2fc6e3790d65
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: aea10f75c0072722f938922b9ebd06a0c54c7f44
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6d2017f3fb77f8b29fe1d1a504c11a176a892f77
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75429823"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548249"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-allocadia"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Allocadia
 

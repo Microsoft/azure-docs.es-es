@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 8142ef5e2aaaf5831c01215d28eecf8d06e1d8ab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4288e2e955f8205f3b6551c83a5c883eecf02501
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071921"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264817"
 ---
-# <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Codificación avanzada mediante la personalización de valores preestablecidos de MES 
+# <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Codificación avanzada mediante la personalización de valores preestablecidos de MES
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 ## <a name="overview"></a>Información general
 
@@ -50,7 +53,7 @@ Si se generan miniaturas, no será preciso especificar siempre la anchura y altu
 <Height>100%</Height>
 ```
 
-## <a name="generate-thumbnails"></a><a id="thumbnails"></a>Generación de miniaturas
+## <a name="generate-thumbnails"></a>Generación de miniaturas
 
 En esta sección se muestra cómo personalizar un valor preestablecido que genera vistas en miniatura. El valor preestablecido que se define a continuación contiene información sobre cómo se quiere codificar el archivo, así como la información necesaria para generar miniaturas. Puede usar cualquiera de los valores preestablecidos de MES que se documentan en [esta](media-services-mes-presets-overview.md) sección y agregar el código que genera miniaturas.  
 
@@ -63,7 +66,7 @@ Para obtener información sobre el esquema, consulte [este](media-services-mes-s
 
 Asegúrese de revisar la sección [Consideraciones](#considerations) .
 
-### <a name="json-preset"></a><a id="json"></a>Valor preestablecido JSON
+### <a name="json-preset"></a>Valor preestablecido JSON
 
 ```json
 {
@@ -165,7 +168,7 @@ Asegúrese de revisar la sección [Consideraciones](#considerations) .
 }
 ```
 
-### <a name="xml-preset"></a><a id="xml"></a>Valor preestablecido XML
+### <a name="xml-preset"></a>Valor preestablecido XML
 
 ```xml
 <?xml version="1.0" encoding="utf-16"?>

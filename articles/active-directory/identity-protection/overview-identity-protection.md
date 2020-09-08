@@ -5,20 +5,21 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 03/17/2020
+ms.date: 08/24/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
+ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80873b2e2655e7cedbafb526d0fe757eaa282312
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0f6ec9c1fb5ae359ca88b48dea97c6a00c0f2b40
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019618"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815188"
 ---
-# <a name="what-is-azure-active-directory-identity-protection"></a>¿Qué es Azure Active Directory Identity Protection?
+# <a name="what-is-identity-protection"></a>¿Qué es Identity Protection?
 
 Identity Protection es una herramienta que permite a las organizaciones realizar tres tareas clave:
 
@@ -51,9 +52,10 @@ Identity Protection identifica los riesgos de las siguientes clasificaciones:
 | Viaje atípico | Iniciar sesión desde una ubicación atípica, en función de los inicios de sesión del usuario recientes. |
 | Dirección IP anónima | Iniciar sesión desde una dirección IP anónima (por ejemplo: el explorador Tor o redes VPN anonimizadoras). |
 | Propiedades de inicio de sesión desconocidas | Iniciar sesión con propiedades que no hemos observado recientemente en el usuario en cuestión. |
-| Dirección IP vinculada al malware | Iniciar sesión desde una dirección IP vinculada al malware. |
+| Dirección IP vinculada al malware | Se inicia sesión desde una dirección IP vinculada al malware. |
 | Filtración de credenciales | Esta detección de riesgo indica que se han filtrado las credenciales válidas del usuario. |
-| Inteligencia de Azure AD sobre amenazas | Las fuentes de inteligencia sobre amenazas internas y externas de Microsoft han identificado un patrón de ataque conocido |
+| Difusión de contraseña | Indica que se está realizando un ataque de varios nombres de usuario mediante contraseñas comunes de manera unificada. |
+| Inteligencia de Azure AD sobre amenazas | Los orígenes de inteligencia sobre amenazas internas y externas de Microsoft han identificado un patrón de ataque conocido. |
 
 Puede encontrar más información sobre estos riesgos y cómo/cuándo se calculan en el artículo [Qué es el riesgo](concept-identity-protection-risks.md).
 
@@ -68,6 +70,12 @@ Los administradores pueden revisar las detecciones y realizar acciones manuales 
 - Detecciones de riesgo
 
 Puede encontrar más información en el artículo [Cómo investigar los riesgos](howto-identity-protection-investigate-risk.md).
+
+### <a name="risk-levels"></a>Niveles de riesgo
+
+Identity Protection clasifica el riesgo en tres niveles: bajo, medio y alto. 
+
+Aunque Microsoft no proporciona detalles específicos sobre cómo se calcula el riesgo, diremos que cada nivel aporta una mayor seguridad de que el usuario o el inicio de sesión están en peligro. Por ejemplo, cosas como un caso de propiedades de inicio de sesión desconocidas para un usuario podría no ser tan amenazante como la filtración de credenciales para otro usuario.
 
 ## <a name="exporting-risk-data"></a>Exportación de datos de riesgo
 

@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo escalar Web Apps, Cloud Services, 
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 67b041476ecc5b5da389ab1377025a94675fc42a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 710d4e1aa77f8ab3153dafc77a72eec2192cf205
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078893"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794541"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introducción al escalado automático en Azure
 Este artículo describe cómo configurar el escalado automático de recursos en Microsoft Azure Portal.
@@ -112,6 +112,28 @@ Ahora puede establecer el número de instancias a las que desea escalar manualme
 ![Definición manual de escalado][14]
 
 Siempre se puede volver al escalado automático; para ello, haga clic en **Enable autoscale** (Habilitar escalado automático) y luego haga clic en **Save** (Guardar).
+
+## <a name="route-traffic-to-healthy-instances-app-service"></a>Enrutamiento del tráfico a instancias en buen estado (App Service)
+
+Al escalar horizontalmente a varias instancias, App Service puede realizar comprobaciones de estado en ellas para enrutar el tráfico únicamente a las que estén en buen estado. Para ello, abra el portal de App Service y, luego, seleccione **Comprobación de estado** en **Supervisión**. Seleccione **Habilitar** y proporcione una ruta de acceso válida a una dirección URL en la aplicación, por ejemplo, `/health` o `/api/health`. Haga clic en **Save**(Guardar).
+
+### <a name="health-check-path"></a>Ruta de acceso de comprobación de estado
+
+La ruta de acceso debe responder en dos minutos con un código de estado entre 200 y 299 (incluido). Si no lo hace, o devuelve un código de estado que no está dentro del rango, la instancia se considera "incorrecta". La comprobación de estado se integra con las características de autenticación y autorización de App Service; el sistema alcanza el punto de conexión aunque estén habilitadas estas características de seguridad. Si usa un sistema de autenticación propio, la ruta de comprobación de estado debe permitir el acceso anónimo. Si el sitio tiene habilitado HTTP**S**, la comprobación de estado respeta HTTP**S** y envía la solicitud mediante ese protocolo.
+
+La ruta de acceso de comprobación de estado debe comprobar los componentes críticos de la aplicación. Por ejemplo, si la aplicación depende de una base de datos y de un sistema de mensajería, el punto de conexión de comprobación de estado debe conectarse a esos componentes. Si la aplicación no se puede conectar a un componente esencial, la ruta de acceso debe devolver un código de respuesta de nivel 500 para indicar que la aplicación tiene un estado incorrecto.
+
+### <a name="behavior"></a>Comportamiento
+
+Cuando se proporciona la ruta de acceso de comprobación de estado, App Service hace ping a la ruta de acceso en todas las instancias. Si después de cinco pings no se recibe un código de respuesta correcto, esa instancia se considera "incorrecta". Las instancias incorrectas se excluyen de la rotación del equilibrador de carga. Además, al escalar vertical u horizontalmente, App Service hace ping a la ruta de acceso de comprobación de estado para asegurarse de que las nuevas instancias están listas para las solicitudes.
+
+El resto de instancias en buen estado pueden experimentar un aumento de la carga. Para evitar saturarlas, se excluyen no más de la mitad de las instancias. Por ejemplo, si un plan de App Service se escala horizontalmente a cuatro instancias y tres de ellas están en mal estado, hasta dos se pueden excluir de la rotación del equilibrador de carga. Las otras dos instancias (una en buen estado y otra en mal estado) siguen recibiendo solicitudes. En el peor de los casos, si todas las instancias están en mal estado, no se excluye ninguna.
+
+Si una instancia permanece en mal estado durante una hora, se reemplaza por una nueva. A lo sumo, se reemplaza una instancia por hora, con un máximo de tres instancias al día por plan de App Service.
+
+### <a name="monitoring"></a>Supervisión
+
+Después de proporcionar la ruta de acceso de comprobación de estado de la aplicación, puede supervisar el estado del sitio mediante Azure Monitor. En la hoja **Comprobación de estado** del portal, haga clic en **Métricas** en la barra de herramientas superior. Se abre una nueva hoja donde puede ver el estado de mantenimiento histórico del sitio y crear una regla de alerta. Para obtener más información sobre la supervisión de sitios, [vea la guía sobre Azure Monitor](../../app-service/web-sites-monitor.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Creación de una alerta de registro de actividades para supervisar todas las operaciones del motor de escalado automático en su suscripción](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

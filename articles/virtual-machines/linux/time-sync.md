@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 08/20/2020
 ms.author: cynthn
-ms.openlocfilehash: 4214fca9e295dc7716d8e2c069f52c719aa74697
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8a122a36b14bd3c5f4912387dc98585cb89ab53b
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292100"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705647"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Sincronizar la hora en las máquinas virtuales de Linux en Azure
 
@@ -64,7 +64,7 @@ De forma predeterminada, la mayoría de las imágenes de Azure Marketplace para 
 - NTP como origen principal, que obtiene la hora de un servidor NTP. Por ejemplo, las imágenes de Ubuntu 16.04 LTS Marketplace usan **ntp.ubuntu.com**.
 - El servicio VMICTimeSync como origen secundario, que se usa para comunicar la hora del host a las máquinas virtuales y hacer correcciones después de pausar la máquina virtual para el proceso de mantenimiento. Los hosts de Azure usan dispositivos Stratum 1 de Microsoft para mantener la exactitud de la hora.
 
-En las últimas distribuciones de Linux, el servicio VMICTimeSync usa el protocolo de tiempo de precisión (PTP), pero es posible que las distribuciones anteriores no sean compatibles con PTP, por lo que recurrirán a NTP para obtener la hora del host.
+En las distribuciones de Linux más recientes, el servicio VMICTimeSync proporciona un origen de reloj de hardware del protocolo de tiempo de precisión (PTP), pero es posible que las distribuciones anteriores no proporcionen este origen de reloj y se reviertan a NTP para obtener la hora del host.
 
 Para confirmar que NTP se está sincronizando correctamente, ejecute el comando `ntpq -p`.
 
@@ -112,9 +112,9 @@ root        391      2  0 17:52 ?        00:00:00 [hv_balloon]
 ```
 
 
-### <a name="check-for-ptp"></a>Buscar un origen de PTP
+### <a name="check-for-ptp-clock-source"></a>Comprobación del origen del reloj de PTP
 
-Con las versiones más recientes de Linux, un origen del reloj del protocolo de tiempo de precisión (PTP) está disponible como parte del proveedor VMICTimeSync. En versiones anteriores de Red Hat Enterprise Linux o CentOS 7.x, los [servicios de integración de Linux](https://github.com/LIS/lis-next) se pueden descargar y usar para instalar el controlador actualizado. Cuando se usa el PTP, el dispositivo Linux tendrá el formato /dev/ptp*x*. 
+Con las versiones más recientes de Linux, un origen del reloj del protocolo de tiempo de precisión (PTP) está disponible como parte del proveedor VMICTimeSync. En versiones anteriores de Red Hat Enterprise Linux o CentOS 7.x, los [servicios de integración de Linux](https://github.com/LIS/lis-next) se pueden descargar y usar para instalar el controlador actualizado. Cuando el origen del reloj de PTP esté disponible, el dispositivo Linux tendrá el formato /dev/ptp*x*. 
 
 Consulte los orígenes de reloj del PTP que están disponibles.
 

@@ -2,25 +2,21 @@
 title: 'Tutorial: Configuración de Templafy para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
 description: Obtenga información sobre cómo configurar Azure Active Directory para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Templafy.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: 230877d5-e466-4449-82c8-88cfa42f6501
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: e03bfc1d3ce6490528f795d4ae5a83a59f044b67
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: af75c80c4380754ef1b0020108d3b6ad953f242f
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77064228"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88541976"
 ---
 # <a name="tutorial-configure-templafy-for-automatic-user-provisioning"></a>Tutorial: Configuración de Templafy para el aprovisionamiento automático de usuarios
 

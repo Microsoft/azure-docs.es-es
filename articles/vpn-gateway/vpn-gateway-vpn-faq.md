@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.author: yushwang
-ms.openlocfilehash: 027047a212df72479a4f1b2511729365f3fa09e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b5d66e79e79edd98f3192d0187d6f0454c3aeffa
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708933"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121483"
 ---
 # <a name="vpn-gateway-faq"></a>Preguntas más frecuentes sobre VPN Gateway
 
@@ -127,6 +127,10 @@ Las opciones están limitadas al uso de claves precompartidas (PSK) para la aute
 
 Sí. Consulte [Configuración de una tunelización forzada](vpn-gateway-about-forced-tunneling.md).
 
+### <a name="can-i-use-nat-t-on-my-vpn-connections"></a>¿Puedo usar NAT-T en las conexiones VPN?
+
+Sí, se admite NAT traversal (NAT-T). Azure VPN Gateway NO llevará a cabo ninguna funcionalidad similar a la de NAT en los paquetes internos hacia y desde los túneles de IPsec.  En esta configuración, asegúrese de que el dispositivo local inicie el túnel IPSec.
+
 ### <a name="can-i-set-up-my-own-vpn-server-in-azure-and-use-it-to-connect-to-my-on-premises-network"></a>¿Puedo configurar mi propio servidor VPN en Azure y usarlo para conectar a mi red local?
 
 Sí, puede implementar sus propias puertas de enlace o servidores VPN en Azure bien desde Azure Marketplace o creando sus propios enrutadores VPN. Necesita configurar las rutas definidas por el usuario en la red virtual para asegurarse de que el tráfico se enruta correctamente entre las redes locales y las subredes de la red virtual.
@@ -191,11 +195,11 @@ Esta sección se aplica al modelo de implementación de Resource Manager.
 
 ### <a name="can-i-use-azure-vpn-gateway-to-transit-traffic-between-my-on-premises-sites-or-to-another-virtual-network"></a>¿Puedo usar la puerta de enlace de VPN de Azure para el tráfico en tránsito entre mis sitios locales o a otra red virtual?
 
-**Modelo de implementación de Resource Manager**<br>
+**Modelo de implementación del Administrador de recursos**<br>
 Sí. Para más información, consulte la sección [BGP](#bgp).
 
 **Modelo de implementación clásica**<br>
-el tráfico en tránsito a través de Puerta de enlace de VPN de Azure es posible mediante el modelo de implementación clásica, pero se basa en espacios de direcciones definidos estáticamente en el archivo de configuración de red. BGP aún no se admite con instancias de Red virtual de Azure y Puerta de enlace de VPN mediante el modelo de implementación clásica. Sin BGP, definir manualmente los espacios de direcciones de tránsito es difícil de hacer sin errores y no se recomienda.
+ el tráfico en tránsito a través de Puerta de enlace de VPN de Azure es posible mediante el modelo de implementación clásica, pero se basa en espacios de direcciones definidos estáticamente en el archivo de configuración de red. BGP aún no se admite con instancias de Red virtual de Azure y Puerta de enlace de VPN mediante el modelo de implementación clásica. Sin BGP, definir manualmente los espacios de direcciones de tránsito es difícil de hacer sin errores y no se recomienda.
 
 ### <a name="does-azure-generate-the-same-ipsecike-pre-shared-key-for-all-my-vpn-connections-for-the-same-virtual-network"></a>¿Azure genera la misma clave precompartida de IPsec/IKE para todas mis conexiones VPN para la misma red virtual?
 
@@ -215,7 +219,7 @@ Sí, las VPN de punto a sitio (P2S) se pueden usar con las puertas de enlace de 
 
 ### <a name="can-i-connect-a-virtual-network-with-ipsec-vpns-to-my-expressroute-circuit"></a>¿Puedo conectar una red virtual con VPN sobre IPsec a mi circuito de ExpressRoute?
 
-Sí, este procedimiento se admite. Para más información, consulte [Configurar conexiones VPN ExpressRoute y sitio a sitio que coexistan](../expressroute/expressroute-howto-coexist-classic.md).
+Sí, se admite, Para más información, consulte [Configurar conexiones VPN ExpressRoute y sitio a sitio que coexistan](../expressroute/expressroute-howto-coexist-classic.md).
 
 ## <a name="ipsecike-policy"></a><a name="ipsecike"></a>Directiva de IPsec o IKE
 

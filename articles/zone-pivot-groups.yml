@@ -488,22 +488,16 @@ groups:
     title: Java
   - id: programming-language-python
     title: Python
-- id: app-service-platform-windows-linux
-  title: Plataforma App Service
-  prompt: Elección de una plataforma de hospedaje
+- id: programming-languages-spark-all-minus-sql
+  title: Lenguajes de programación
+  prompt: Elegir un idioma
   pivots:
-  - id: platform-linux
-    title: Linux
-  - id: platform-windows
-    title: Windows
-- id: app-service-containers-windows-linux
-  title: App Service con contenedores personalizados
-  prompt: Elección de una plataforma de contenedor personalizada
-  pivots:
-  - id: container-linux
-    title: Contenedor Linux
-  - id: container-windows
-    title: Contenedor Windows
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-scala
+    title: Scala
+  - id: programming-language-python
+    title: Python
 - id: aml-control-methods
   title: Plano de control de Azure Machine Learning
   prompt: Elección de una interfaz de plano de control de Azure Machine Learning
@@ -535,15 +529,47 @@ groups:
   - id: programming-language-csharp
     title: C#
   - id: programming-language-go
-    title: Ir
+    title: Go
   - id: programming-language-java
     title: Java
   - id: programming-language-more
     title: Más idiomas...
+- id: ams-lva-edge-programming-languages
+  title: Live Video Analytics en los lenguajes de programación de IoT Edge
+  prompt: Selección de un lenguaje de programación
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+- id: app-service-platform-windows-linux
+  title: Plataforma App Service
+  prompt: Elección de una plataforma de hospedaje
+  pivots:
+  - id: platform-linux
+    title: Linux
+  - id: platform-windows
+    title: Windows
+- id: app-service-containers-windows-linux
+  title: App Service con contenedores personalizados
+  prompt: Elección de una plataforma de contenedor personalizada
+  pivots:
+  - id: container-linux
+    title: Contenedor Linux
+  - id: container-windows
+    title: Contenedor Windows
+- id: programming-languages-spring-cloud
+  title: Lenguajes de programación
+  prompt: Selección de un lenguaje de programación
+  pivots:
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-csharp
+    title: C#
 metadata:
-  ms.openlocfilehash: a51aa5fcc88269e718375ed08f0238867da7079b
-  ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+  ms.openlocfilehash: 0659c68f39493c3e3b2e66ebc5a38d96cd13404d
+  ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/14/2020
-  ms.locfileid: "88225638"
+  ms.lasthandoff: 08/27/2020
+  ms.locfileid: "88998924"

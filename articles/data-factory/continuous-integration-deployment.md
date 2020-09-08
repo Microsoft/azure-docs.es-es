@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 7c12cfc21668a13586d94089a7049f6f0d6066d7
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 4de682bd315eef100bdbf8dd24faa128c5b8c2a1
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87336929"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815817"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integración y entrega continuas en Azure Data Factory
 
@@ -113,7 +113,7 @@ A continuación se ofrece una guía para configurar una versión de Azure Pipeli
     h. Seleccione **Incremental** para el **Modo de implementación**.
 
     > [!WARNING]
-    > Si selecciona **Completo** para **Modo de implementación**, es posible que se eliminen los recursos existentes, incluidos todos los del grupo de recursos de destino que no están definidos en la plantilla de Resource Manager.
+    > En el modo de implementación completa, se **eliminarán** aquellos recursos que existan en el grupo de recursos, pero no estén especificados en la nueva plantilla de Resource Manager. Para más información, consulte [Modos de implementación de Azure Resource Manager](../azure-resource-manager/templates/deployment-modes.md).
 
     ![Implementación de producción de Data Factory](media/continuous-integration-deployment/continuous-integration-image9.png)
 

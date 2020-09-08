@@ -5,22 +5,18 @@ services: container-service
 ms.topic: article
 ms.date: 07/06/2020
 author: jluk
-ms.openlocfilehash: 8be0b05c260037bbe8afc92726d81668e1391d4a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 18947f409ebcef570998671f9f421f8228e9692d
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050468"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987365"
 ---
 # <a name="secure-pods-with-azure-policy-preview"></a>Protección de pods con Azure Policy (versión preliminar)
 
 Para mejorar la seguridad del clúster de AKS, puede controlar qué funciones se conceden a los pods y si se ejecuta algo que no cumpla la directiva de la empresa. Este acceso se define mediante las directivas integradas proporcionadas por el [complemento de Azure Policy para AKS][kubernetes-policy-reference]. Al proporcionar un control adicional sobre los aspectos de seguridad de la especificación del pod, como los privilegios de usuario raíz, permite una adherencia más estricta de la seguridad y visibilidad sobre lo que se implementa en el clúster. Si un pod no cumple las condiciones especificadas en la directiva, Azure Policy puede impedir que se inicie el pod o marcar una infracción. En este artículo se muestra cómo usar Azure Policy para limitar la implementación de pods en AKS.
 
-> [!IMPORTANT]
-> Las características en vista previa de AKS son de autoservicio y se tienen que habilitar. Las versiones preliminares se proporcionan "tal cual" y "como están disponibles", y están excluidas de los contratos de nivel de servicio y la garantía limitada. Las versiones preliminares de AKS reciben cobertura parcial del soporte al cliente en la medida de lo posible. Por lo tanto, estas características no están diseñadas para usarse en producción. Para más información, consulte los siguientes artículos de soporte:
->
-> * [Directivas de soporte técnico para AKS][aks-support-policies]
-> * [Preguntas más frecuentes de soporte técnico de Azure][aks-faq]
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -47,7 +43,7 @@ En este documento se supone que dispone de los siguientes elementos, que se impl
 
 En un clúster de AKS, se usa un controlador de admisión para interceptar las solicitudes al servidor de API cuando se va a crear y actualizar un recurso. A continuación, el controlador de admisión puede *validar* la solicitud de recurso con un conjunto de reglas para determinar si se debería crear.
 
-Anteriormente, la característica [directiva de seguridad de pod (versión preliminar)](use-pod-security-policies.md) se habilitaba mediante el proyecto de Kubernetes para limitar los pods que se pueden implementar. Esta característica ya no está en desarrollo activo desde el proyecto Kubernetes.
+Anteriormente, la característica [directiva de seguridad de pod (versión preliminar)](use-pod-security-policies.md) se habilitaba mediante el proyecto de Kubernetes para limitar los pods que se pueden implementar.
 
 Mediante el complemento de Azure Policy, un clúster de AKS puede usar directivas integradas de Azure que protegen los pods y otros recursos de Kubernetes de forma similar a la anterior directiva de seguridad de pod. El complemento de Azure Policy para AKS instala una instancia administrada de [Gatekeeper](https://github.com/open-policy-agent/gatekeeper), un controlador de admisión para la validación. Azure Policy para Kubernetes se basa en el software de código abierto Open Policy Agent,que se basa en el [lenguaje de directivas Rego](../governance/policy/concepts/policy-for-kubernetes.md#policy-language).
 

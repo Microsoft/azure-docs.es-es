@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 1b77eb136b8415e5a6e4596dc0b192ea426f378f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b7cf0d35ae610c3f9fe477267e28e5449459148b
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292831"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924587"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configuración de la recuperación ante desastres de VMware en Azure en un entorno multiinquilino con el programa Proveedor de soluciones en la nube (CSP)
 
@@ -98,7 +98,7 @@ Existen tres modelos principales multiinquilino:
 Mediante la configuración de suscripciones de los inquilinos como se describe en este artículo, puede empezar a habilitar rápidamente a los clientes en todos los modelos multiinquilino pertinentes. Puede aprender más acerca de los diferentes modelos de multiinquilino y la habilitación de controles de acceso locales [aquí](vmware-azure-multi-tenant-overview.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Más información](site-recovery-role-based-linked-access-control.md) sobre el control de acceso basado en roles para administrar implementaciones de Azure Site Recovery.
+- Más información el [control de acceso basado en rol de Azure (Azure RBAC)](site-recovery-role-based-linked-access-control.md) para administrar implementaciones de Azure Site Recovery.
 - [Más información](vmware-azure-architecture.md) sobre la arquitectura de replicación de VMware a Azure.
 - [Revise el tutorial](vmware-azure-tutorial.md) de replicación de máquinas virtuales VMware en Azure.
 Más información sobre [entornos multiinquilino](vmware-azure-multi-tenant-overview.md) para la replicación de máquinas virtuales VMware en Azure.

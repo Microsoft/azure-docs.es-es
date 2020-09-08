@@ -5,13 +5,13 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 07/30/2020
-ms.openlocfilehash: 967b2dceab1f1702120cd3121ccd64b4e7286bc6
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.date: 08/14/2020
+ms.openlocfilehash: 0e81d04edff667b0526f1d286701b2e8701528dc
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87511911"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258593"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Almacenes de datos admitidos en Azure Data Share
 
@@ -30,7 +30,7 @@ La siguiente tabla detalla los orígenes de datos admitidos en Azure Data Share.
 | Azure Data Lake Storage Gen2 |✓ ||
 | Azure SQL Database |Vista previa pública | |
 | Azure Synapse Analytics (anteriormente Azure SQL DW) |Vista previa pública | |
-| Explorador de datos de Azure | |Vista previa pública |
+| Explorador de datos de Azure | |✓ |
 
 ## <a name="data-store-support-matrix"></a>Matriz de soporte de almacén de datos
 
@@ -62,9 +62,7 @@ El uso compartido de orígenes basados en SQL tiene requisitos previos relaciona
 ## <a name="share-from-azure-data-explorer"></a>Uso compartido desde Azure Data Explorer
 Azure Data Share permite compartir bases de datos en contexto desde los clústeres de Azure Data Explorer. El proveedor de datos puede compartir en el nivel de base de datos o de clúster. Cuando se comparta en el nivel de base de datos, el consumidor de datos solo podrá acceder a las bases de datos específicas compartidas por el proveedor de datos. Cuando se comparta en el nivel de clúster, el consumidor de datos puede acceder a todas las bases de datos desde el clúster del proveedor, incluidas todas las bases de datos futuras creadas por el proveedor de datos.
 
-Para acceder a las bases de datos compartidas, el consumidor de datos debe tener su propio clúster de Azure Data Explorer. Un clúster de Azure Data Explorer del consumidor de datos tiene que encontrarse en el mismo centro de datos de Azure que el clúster de Data Explorer del proveedor de datos. Cuando se establece la relación de uso compartido, Azure Data Share crea un vínculo simbólico entre los clústeres de Azure Data Explorer del consumidor y el proveedor.
-
-Azure Data Explorer admite dos modos de ingesta de datos: por lotes y streaming. Los datos recibidos del lote en la base de datos compartida aparecerán transcurrido un tiempo de entre varios segundos y varios minutos en el lado del consumidor de datos. Los datos recibidos por streaming pueden tardar hasta 24 horas en aparecer en el lado del consumidor de datos. 
+Para acceder a las bases de datos compartidas, el consumidor de datos debe tener su propio clúster de Azure Data Explorer. Un clúster de Azure Data Explorer del consumidor de datos tiene que encontrarse en el mismo centro de datos de Azure que el clúster de Data Explorer del proveedor de datos. Cuando se establece la relación de uso compartido, Azure Data Share crea un vínculo simbólico entre los clústeres de Azure Data Explorer del consumidor y el proveedor. Los datos ingeridos mediante el uso del modo por lotes en el clúster de Azure Data Explorer de origen se mostrarán en el clúster de destino en unos segundos o unos minutos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

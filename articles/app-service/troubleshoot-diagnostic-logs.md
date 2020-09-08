@@ -4,13 +4,13 @@ description: Obtenga información acerca de cómo habilitar el registro de diagn
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
-ms.custom: seodec18
-ms.openlocfilehash: 8b415c9582af2303451a8076307f07ee92ac08d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp, seodec18
+ms.openlocfilehash: 89162a0b8ca20e59319802f9e2359c2f27ff163f
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261348"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962186"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar el registro de diagnósticos para las aplicaciones de Azure App Service
 ## <a name="overview"></a>Información general
@@ -46,12 +46,12 @@ Para habilitar el registro de aplicaciones para aplicaciones Windows, en [Azure 
 
 Seleccione **Activado** en **Registro de la aplicación (sistema de archivos)** o **Registro de la aplicación (Blob)** , o en ambos. 
 
-La opción **Sistema de archivos** es para fines de depuración temporales y se desactiva en 12 horas. La opción **Blob** es para el registro a largo plazo y necesita un contenedor de almacenamiento de blobs en el que escribir los registros.  La opción **Blob** también incluye información adicional en los mensajes de registro, como el identificador de la instancia de máquina virtual de origen del mensaje de registro (`InstanceId`), el identificador de subproceso (`Tid`) y una marca de tiempo más pormenorizada ([`EventTickCount`](https://docs.microsoft.com/dotnet/api/system.datetime.ticks)).
+La opción **Sistema de archivos** es para fines de depuración temporales y se desactiva en 12 horas. La opción **Blob** es para el registro a largo plazo y necesita un contenedor de almacenamiento de blobs en el que escribir los registros.  La opción **Blob** también incluye información adicional en los mensajes de registro, como el identificador de la instancia de máquina virtual de origen del mensaje de registro (`InstanceId`), el identificador de subproceso (`Tid`) y una marca de tiempo más pormenorizada ([`EventTickCount`](/dotnet/api/system.datetime.ticks)).
 
 > [!NOTE]
 > Actualmente, solo los registros de aplicación de .NET pueden escribirse en el almacenamiento de blobs. Los registros de aplicaciones de Java, PHP, Node.js y Python solo se pueden almacenar en el sistema de archivos de App Service (sin modificaciones de código para escribir registros en almacenamiento externo).
 >
-> Además, si [regenera las claves de acceso de su cuenta de almacenamiento](../storage/common/storage-create-storage-account.md), deberá restablecer la configuración de registro correspondiente para usar las claves de acceso actualizadas. Para ello, siga estos pasos:
+> Además, si [regenera las claves de acceso de su cuenta de almacenamiento](../storage/common/storage-account-create.md), deberá restablecer la configuración de registro correspondiente para usar las claves de acceso actualizadas. Para ello, siga estos pasos:
 >
 > 1. En la pestaña **Configurar**, establezca la característica de registro correspondiente de **Desactivar**. Guarde la configuración.
 > 2. Vuelva a habilitar el registro en el blob de la cuenta de almacenamiento. Guarde la configuración.
@@ -89,7 +89,7 @@ Para el **registro de servidor web**, seleccione **Almacenamiento** para almacen
 En **Período de retención (días)** , establezca el número de días que se deben conservar los registros.
 
 > [!NOTE]
-> Si se [regeneran las claves de acceso de su cuenta de almacenamiento](../storage/common/storage-create-storage-account.md), deberá restablecer la configuración de registro correspondiente para usar las claves actualizadas. Para ello, siga estos pasos:
+> Si se [regeneran las claves de acceso de su cuenta de almacenamiento](../storage/common/storage-account-create.md), deberá restablecer la configuración de registro correspondiente para usar las claves actualizadas. Para ello, siga estos pasos:
 >
 > 1. En la pestaña **Configurar**, establezca la característica de registro correspondiente de **Desactivar**. Guarde la configuración.
 > 2. Vuelva a habilitar el registro en el blob de la cuenta de almacenamiento. Guarde la configuración.
@@ -116,7 +116,7 @@ En el código de la aplicación, se usan las funciones de registro habituales pa
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
     ```
 
-- De forma predeterminada, ASP.NET Core usa el proveedor de registro [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices). Para más información, consulte el artículo sobre el [registro de ASP.NET Core en Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging/).
+- De forma predeterminada, ASP.NET Core usa el proveedor de registro [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices). Para más información, consulte el artículo sobre el [registro de ASP.NET Core en Azure](/aspnet/core/fundamentals/logging/).
 
 ## <a name="stream-logs"></a>Transmisión de registros
 
@@ -151,7 +151,7 @@ az webapp log tail --name appname --resource-group myResourceGroup --path http
 
 ### <a name="in-local-terminal"></a>En el terminal local
 
-Para transmitir registros en la consola local, [instale la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e [inicie sesión en su cuenta](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Cuando haya iniciado sesión, siga las [instrucciones para Cloud Shell](#in-cloud-shell).
+Para transmitir registros en la consola local, [instale la CLI de Azure](/cli/azure/install-azure-cli) e [inicie sesión en su cuenta](/cli/azure/authenticate-azure-cli). Cuando haya iniciado sesión, siga las [instrucciones para Cloud Shell](#in-cloud-shell).
 
 ## <a name="access-log-files"></a>Acceso a los archivos de registro
 

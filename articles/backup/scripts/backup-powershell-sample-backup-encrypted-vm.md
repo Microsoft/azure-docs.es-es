@@ -3,13 +3,13 @@ title: 'Ejemplo de script de PowerShell: copia de seguridad de una máquina virt
 description: En este artículo, aprenderá a usar un ejemplo de script de Azure PowerShell para realizar una copia de seguridad de una máquina virtual de Azure.
 ms.topic: sample
 ms.date: 03/05/2019
-ms.custom: mvc
-ms.openlocfilehash: a60320c165499ed1fb02fa544deec0e304d447df
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 6e3af44284acdc96f6f0197c4153c6f7538570d2
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513649"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069549"
 ---
 # <a name="back-up-an-encrypted-azure-virtual-machine-with-powershell"></a>Copia de seguridad de una máquina virtual de Azure cifrada con PowerShell
 

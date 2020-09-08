@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 3f0de52782694e6cbc8fdb6b55d545191dbbb350
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 7459d674cde123bc45544322347bc4c1fe89e820
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010314"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009620"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Configuración de Azure Cache for Redis
 En este tema se describe la configuración disponible para las instancias de Azure Cache for Redis. En este tema también se describe la configuración predeterminada del servidor Redis para las instancias de Azure Cache for Redis.
@@ -185,12 +185,12 @@ Cada plan de tarifa tiene distintos límites para las conexiones de cliente, mem
 
 | Métrica de Azure Cache for Redis | Más información |
 | --- | --- |
-| Uso de ancho de banda de red |[Rendimiento de la caché: ancho de banda disponible](cache-faq.md#cache-performance) |
+| Uso de ancho de banda de red |[Rendimiento de la caché: ancho de banda disponible](cache-planning-faq.md#azure-cache-for-redis-performance) |
 | Clientes conectados |[Configuración predeterminada del servidor Redis: maxclients](#maxclients) |
 | Carga de servidor |[Gráficos de uso: carga del servidor Redis](cache-how-to-monitor.md#usage-charts) |
-| Uso de la memoria |[Rendimiento y tamaño de la memoria caché](cache-faq.md#cache-performance) |
+| Uso de la memoria |[Rendimiento y tamaño de la memoria caché](cache-planning-faq.md#azure-cache-for-redis-performance) |
 
-Para actualizar la memoria caché, haga clic en **Actualizar ahora** para cambiar el plan de tarifa y [escalar](#scale) la memoria caché. Para más información sobre cómo elegir un plan de tarifa, consulte [What Azure Cache for Redis offering and size should I use?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use) (¿Qué oferta y tamaño de Azure Cache for Redis debo usar?)
+Para actualizar la memoria caché, haga clic en **Actualizar ahora** para cambiar el plan de tarifa y [escalar](#scale) la memoria caché. Para más información sobre cómo elegir un plan de tarifa, consulte [Elección del plan de tarifa adecuado](cache-overview.md#choosing-the-right-tier).
 
 
 ### <a name="scale"></a>Escala
@@ -414,7 +414,7 @@ Las nuevas instancias de Azure Cache for Redis se configuran con los siguientes 
   * P4 (53 GB - 530 GB): hasta 64 bases de datos
   * Todas las memorias caché premium con clúster de Redis habilitado: el clúster de Redis solo admite el uso de la base de datos 0 con el fin de que el límite `databases` para cualquier caché premium con clúster de Redis habilitado sea 1; el comando [Select](https://redis.io/commands/select) no se admite. Para más información, consulte [Configuración de Caché en Redis de Azure](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 
-Para obtener más información sobre las bases de datos, consulte el artículo [¿Cuáles son las bases de datos de Redis?](cache-faq.md#what-are-redis-databases)
+Para obtener más información sobre las bases de datos, consulte el artículo [¿Cuáles son las bases de datos de Redis?](cache-development-faq.md#what-are-redis-databases)
 
 > [!NOTE]
 > Los ajustes `databases` solo se puede configurar al crear la memoria caché y solo mediante PowerShell, la CLI u otros clientes de administración. Para ver un ejemplo de configuración de `databases` al crear la memoria caché mediante PowerShell, consulte [New-AzRmRedisCache](cache-how-to-manage-redis-cache-powershell.md#databases).
@@ -505,4 +505,4 @@ Para mover la memoria caché a una nueva suscripción, haga clic en **Mover**.
 Para obtener información acerca de cómo mover recursos de un grupo de recursos a otro y de una suscripción a otra, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para más información sobre cómo trabajar con los comandos de Redis, consulte [¿Cómo puedo ejecutar comandos de Redis?](cache-faq.md#how-can-i-run-redis-commands).
+* Para más información sobre cómo trabajar con los comandos de Redis, consulte [¿Cómo puedo ejecutar comandos de Redis?](cache-development-faq.md#how-can-i-run-redis-commands).

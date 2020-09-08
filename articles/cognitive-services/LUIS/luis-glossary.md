@@ -3,12 +3,12 @@ title: 'Glosario: LUIS'
 description: En el glosario se explican los términos que puede encontrar cuando use el servicio de API de LUIS.
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: 93e3df755596f7f77d2cd11edfa616c44d1f6c16
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 44749648559994d986e4d84b06f38369850de6ca
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056385"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836418"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glosario de Language Understanding de conceptos y vocabulario común
 En el glosario de Language Understanding (LUIS) se explican los términos que pueden aparecer cuando se trabaja con el servicio LUIS.
@@ -94,11 +94,11 @@ Una [intención](#intent) es un ejemplo de un clasificador.
 
 ## <a name="collaborator"></a>Colaborador
 
-Un colaborador de este tipo es conceptualmente lo mismo que un [colaborador](#contributor). A un colaborador se le concede acceso cuando un propietario agrega la dirección de correo electrónico del colaborador a una aplicación que no está controlada con el acceso basado en roles (RBAC). Si todavía usa colaboradores, debe migrar su cuenta de LUIS y usar recursos de creación de LUIS para administrar los colaboradores con RBAC.
+Un colaborador de este tipo es conceptualmente lo mismo que un [colaborador](#contributor). A un colaborador se le concede acceso cuando un propietario agrega la dirección de correo electrónico del colaborador a una aplicación que no está controlada con el acceso basado en roles (RBAC de Azure). Si todavía usa colaboradores, debe migrar su cuenta de LUIS y usar recursos de creación de LUIS para administrar los colaboradores con RBAC.
 
 ## <a name="contributor"></a>Colaborador
 
-Un colaborador no es el [propietario](#owner) de la aplicación, pero tiene los mismos permisos para agregar, editar y eliminar intenciones, entidades y expresiones. Un colaborador proporciona acceso basado en rol (RBAC) a una aplicación LUIS.
+Un colaborador no es el [propietario](#owner) de la aplicación, pero tiene los mismos permisos para agregar, editar y eliminar intenciones, entidades y expresiones. Un colaborador proporciona control de acceso basado en roles de Azure (RBAC de Azure) a una aplicación de LUIS.
 
 Consulte también:
 * [Procedimientos](luis-how-to-collaborate.md#add-contributor-to-azure-authoring-resource) para agregar colaboradores

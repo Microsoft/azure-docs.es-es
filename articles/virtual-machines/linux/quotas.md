@@ -4,19 +4,22 @@ description: Obtenga información acerca de las cuotas de vCPU de Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 684c665d57127b7ca52771c0498ef370293e4003
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 028da1fa9d2b16b4d87c345d8435c99b565e1774
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292303"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949701"
 ---
-# <a name="virtual-machine-vcpu-quotas"></a>Cuotas de vCPU de máquinas virtuales
+# <a name="check-vcpu-quotas-using-the-azure-cli"></a>Comprobación de cuotas de vCPU mediante la CLI de Azure
 
 Las cuotas de vCPU para máquinas virtuales y conjuntos de escalado de máquinas virtuales se organizan en dos niveles para cada suscripción en cada región. El primer nivel es el número de vCPU regionales totales y el segundo son los núcleos de las diversas familias de tamaños de máquina virtual, como las vCPU de la serie D estándar. Siempre que se implemente una máquina virtual nueva, las vCPU de dicha máquina virtual no deben exceder la cuota de vCPU de la familia de tamaños de máquina virtual o el total de la cuota de vCPU regional. Si se supera cualquiera de esas dos cuotas, no se permitirá la implementación de la máquina virtual. También hay una cuota para el número total de máquinas virtuales en la región. Se pueden ver los detalles de cada una de estas cuotas en la sección **Uso y cuotas** de la página **Suscripción** de [Azure Portal](https://portal.azure.com), o bien puede consultar los valores mediante la CLI de Azure.
+
+> [!NOTE]
+> La cuota se calcula en función del número total de núcleos en uso tanto los asignados como los desasignados. Si necesita más núcleos, [solicite un aumento de la cuota](../../azure-portal/supportability/resource-manager-core-quotas-request.md) o elimine las máquinas virtuales que ya no sean necesarias. 
 
 
 ## <a name="check-usage"></a>Comprobación del uso

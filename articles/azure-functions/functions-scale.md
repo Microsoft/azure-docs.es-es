@@ -3,14 +3,14 @@ title: Escalado y hospedaje de Azure Functions
 description: Aprenda a elegir entre el plan de consumo de Azure Functions y el plan Prémium.
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
-ms.date: 03/27/2019
+ms.date: 08/17/2020
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 26924498f32b8aac2e3e7fb5cfd7c1965ee5884f
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 80bb59527f416afd78b992fb12a4ef72956f91b7
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025835"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587232"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escalado y hospedaje de Azure Functions
 
@@ -144,11 +144,19 @@ Una vez que la aplicación de funciones ha estado inactiva durante varios minuto
 
 El escalado puede variar en función de varios factores, y realizarse de forma diferente según el desencadenador y el idioma seleccionados. Hay algunas complejidades de los comportamientos del escalado que hay que tener en cuenta:
 
-* Una aplicación de funciones única solo se escala horizontalmente hasta un máximo de 200 instancias. Una única instancia puede procesar más de un mensaje o solicitud a la vez, por lo que no hay un límite establecido en el número de ejecuciones simultáneas.
+* Una aplicación de funciones única solo se escala horizontalmente hasta un máximo de 200 instancias. Una única instancia puede procesar más de un mensaje o solicitud a la vez, por lo que no hay un límite establecido en el número de ejecuciones simultáneas.  Puede [especificar un máximo inferior](#limit-scale-out) para limitar la escala según se requiera.
 * En el caso de los desencadenadores HTTP, solo se asignan nuevas instancias como máximo una vez cada segundo.
 * Para los desencadenadores que no son HTTP, solo se asignan nuevas instancias como máximo una vez cada 30 segundos. El escalado es más rápido cuando se ejecuta en un plan [Premium](#premium-plan).
 * En el caso de los desencadenadores de Service Bus, use los derechos de _Administración_ en los recursos para obtener el escalado más eficaz. Con los derechos de _Escucha_, el escalado no es tan preciso porque la longitud de la cola no se puede utilizar para informar sobre las decisiones de escalado. Para más información sobre cómo establecer derechos en las directivas de acceso de Service Bus, consulte [Directivas de autorización de acceso compartido](../service-bus-messaging/service-bus-sas.md#shared-access-authorization-policies).
 * Para los desencadenadores de Event Hubs, consulte la [guía de escalado](functions-bindings-event-hubs-trigger.md#scaling) en el artículo de referencia. 
+
+### <a name="limit-scale-out"></a>Límite de escalabilidad horizontal
+
+Es posible que desee restringir el número de instancias a las que una aplicación se escala horizontalmente.  Esto es más común en los casos en los que un componente de nivel inferior, como una base de datos, tiene un rendimiento limitado.  De forma predeterminada, las funciones del plan de consumo se escalarán horizontalmente hasta un máximo de 200 instancias, mientras que las funciones del plan Premium se escalarán horizontalmente hasta un máximo de 100 instancias.  Puede especificar un máximo inferior para una aplicación específica modificando el valor `functionAppScaleLimit`.  `functionAppScaleLimit` se puede establecer en 0 o NULL para Unrestricted o un valor válido entre 1 y el máximo de la aplicación.
+
+```azurecli
+az resource update --resource-type Microsoft.Web/sites -g <resource_group> -n <function_app_name>/config/web --set properties.functionAppScaleLimit=<scale_limit>
+```
 
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>Procedimientos recomendados y patrones para aplicaciones escalables
 

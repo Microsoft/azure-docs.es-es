@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3bb4d70b4c4f3f9edc525ffe5973bca633ddd1be
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 10b74f7b795df2cf8c19d044fce44da3f798af7a
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800422"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587640"
 ---
 # <a name="understand-event-data"></a>Descripción de los datos de eventos
 
@@ -30,7 +30,7 @@ En general, las notificaciones constan de dos partes: el encabezado y el cuerpo.
 
 Los encabezados de los mensajes de notificación se representan con pares clave-valor. En función del protocolo usado (MQTT, AMQP o HTTP), los encabezados del mensaje se serializarán de manera distinta. En esta sección se describe información general de los encabezados de los mensajes de notificación, independientemente del protocolo y la serialización específicos elegidos.
 
-Algunas notificaciones se ajustan al estándar CloudEvents. La conformidad con CloudEvents es la siguiente.
+Algunas notificaciones se ajustan al estándar [CloudEvents](https://cloudevents.io/). La conformidad con CloudEvents es la siguiente.
 * Las notificaciones emitidas desde dispositivos continúan siguiendo las especificaciones existentes para las notificaciones.
 * Las notificaciones procesadas y emitidas por IoT Hub continúan siguiendo las especificaciones existentes para las notificaciones, excepto en las que IoT Hub opta por admitir CloudEvents, como a través de Event Grid.
 * Las notificaciones emitidas desde [gemelos digitales](concepts-twins-graph.md) con un [modelo](concepts-models.md) se ajustan a CloudEvents.
@@ -107,7 +107,7 @@ Estos son los campos del cuerpo de una notificación del ciclo de vida.
 | --- | --- |
 | `id` | Identificador de la notificación, como un UUID o un contador mantenido por el servicio. `source` + `id` es único para cada evento distinto. |
 | `source` | Nombre de la instancia de IoT Hub o de Azure Digital Twins, como *myhub.azure-devices.net* o *mydigitaltwins.westus2.azuredigitaltwins.net* |
-| `specversion` | 1.0 |
+| `specversion` | *1.0*<br>El mensaje se ajusta a esta versión de la [especificación CloudEvents](https://github.com/cloudevents/spec). |
 | `type` | `Microsoft.DigitalTwins.Twin.Create`<br>`Microsoft.DigitalTwins.Twin.Delete` |
 | `datacontenttype` | `application/json` |
 | `subject` | Identificador del gemelo digital. |
@@ -193,7 +193,7 @@ Estos son los campos del cuerpo de una notificación de cambio perimetral.
 | --- | --- |
 | `id` | Identificador de la notificación, como un UUID o un contador mantenido por el servicio. `source` + `id` es único para cada evento distinto |
 | `source` | Nombre de la instancia de Azure Digital Twins, como *mydigitaltwins.westus2.azuredigitaltwins.net* |
-| `specversion` | 1.0 |
+| `specversion` | *1.0*<br>El mensaje se ajusta a esta versión de la [especificación CloudEvents](https://github.com/cloudevents/spec). |
 | `type` | `Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br>`Microsoft.DigitalTwins.Relationship.Delete`
 |`datacontenttype`| `application/json` |
 | `subject` | Identificador de la relación, como `<twinID>/relationships/<relationshipID>` |
@@ -249,7 +249,7 @@ Estos son los campos del cuerpo de una notificación de cambio de gemelo digital
 | --- | --- |
 | `id` | Identificador de la notificación, como un UUID o un contador mantenido por el servicio. `source` + `id` es único para cada evento distinto |
 | `source` | Nombre de la instancia de IoT Hub o de Azure Digital Twins, como *myhub.azure-devices.net* o *mydigitaltwins.westus2.azuredigitaltwins.net*
-| `specversion` | 1.0 |
+| `specversion` | *1.0*<br>El mensaje se ajusta a esta versión de la [especificación CloudEvents](https://github.com/cloudevents/spec). |
 | `type` | `Microsoft.DigitalTwins.Twin.Update` |
 | `datacontenttype` | `application/json` |
 | `subject` | Identificador del gemelo digital. |

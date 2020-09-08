@@ -1,6 +1,6 @@
 ---
 title: Autenticación, solicitudes y respuestas
-description: Autenticación a AD para usar Key Vault
+description: Obtenga información sobre el modo en que Azure Key Vault usa solicitudes y respuestas con formato JSON y la autenticación necesaria para usar un almacén de claves.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 33e3bc13e67e268b82bf517033b4b1c7c51c361f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b4c8ad666efa32d98e78a0bc2544d0f8851be5e
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81427344"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191784"
 ---
 # <a name="authentication-requests-and-responses"></a>Autenticación, solicitudes y respuestas
 

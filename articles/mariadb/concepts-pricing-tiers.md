@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 6/9/2020
-ms.openlocfilehash: 7ded54e0116e6c6e58c0ca8019942dfaaaa88480
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.date: 8/13/2020
+ms.openlocfilehash: cb785a6d988772ba160806621e44900d630b7e61
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954201"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225723"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Planes de tarifa de Azure Database for MariaDB
 
@@ -93,13 +93,11 @@ Recuerde que el almacenamiento solo se puede escalar verticalmente, no reducir.
 
 ## <a name="backup"></a>Copia de seguridad
 
-El servicio realiza automáticamente copias de seguridad del servidor. Puede seleccionar un período de retención de entre 7 y 35 días. Los servidores de uso general y optimizados para memoria pueden tener almacenamiento con redundancia geográfica para copias de seguridad. Obtenga más información sobre las copias de seguridad en el [artículo de conceptos](concepts-backup.md).
+Azure Database for MariaDB proporciona hasta un 100 % del almacenamiento del servidor aprovisionado como almacenamiento de copia de seguridad, sin costos adicionales. El almacenamiento de copia de seguridad que use que supere esta cantidad se cobrará en GB por mes. Por ejemplo, si aprovisiona un servidor con 250 GB de almacenamiento, tiene 250 GB de almacenamiento adicional disponible para las copias de seguridad del servidor sin ningún cargo. El almacenamiento de copias de seguridad que supere los 250 GB se cobra según el [modelo de precios](https://azure.microsoft.com/pricing/details/mariadb/). Para comprender los factores que influyen en el uso del almacenamiento de copia de seguridad, la supervisión y el control del costo del almacenamiento de copia de seguridad, puede consultar la [documentación de copia de seguridad](concepts-backup.md).
 
 ## <a name="scale-resources"></a>Escalado de recursos
 
 Después de crear el servidor, puede cambiar los núcleos virtuales, el plan de tarifa (excepto hacia y desde Básico), la cantidad de almacenamiento y el período de retención de copia de seguridad de manera independiente. No puede cambiar el tipo de almacenamiento de copia de seguridad. El número de núcleos virtuales se pueden escalar o reducir verticalmente. El período de retención de copia de seguridad se puede escalar o reducir verticalmente de 7 a 35 días. El tamaño de almacenamiento solo se puede aumentar. El escalado de los recursos puede realizarse a través del portal o la CLI de Azure. 
-
-<!--For an example of scaling by using Azure CLI, see [Monitor and scale an Azure Database for MariaDB server by using Azure CLI](scripts/sample-scale-server.md).-->
 
 Al cambiar el número de núcleos virtuales, o el plan de tarifa, se crea una copia del servidor original con la nueva asignación de recursos de proceso. Una vez que el nuevo servidor está en funcionamiento, las conexiones se transfieren a él. Durante el breve espacio de tiempo en que el sistema cambia al nuevo servidor, no se puede establecer ninguna nueva conexión y todas las transacciones no confirmadas se revierten. Este intervalo de tiempo varía, pero en la mayoría de los casos es inferior a un minuto.
 
@@ -112,6 +110,3 @@ Para conocer la información más actualizada sobre precios, consulte la [págin
 ## <a name="next-steps"></a>Pasos siguientes
 - Más información sobre las [limitaciones del servicio](concepts-limits.md).
 - Aprenda a [crear un servidor de MariaDB en Azure Portal](quickstart-create-mariadb-server-database-using-azure-portal.md).
-
-<!--
-- Learn how to [monitor and scale an Azure Database for MariaDB server by using Azure CLI](scripts/sample-scale-server.md).-->

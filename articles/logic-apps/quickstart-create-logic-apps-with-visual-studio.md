@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 07/22/2020
-ms.openlocfilehash: cd46821b74803d62be0361346166ed78a5f53286
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.date: 08/07/2020
+ms.openlocfilehash: cc38210690c88fec826dc727775d01884dedd997
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132371"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008889"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Inicio rápido: Creación y automatización de tareas, procesos y flujos de trabajo con Azure Logic Apps en Visual Studio
 
@@ -28,7 +28,7 @@ En este inicio rápido, crea la misma aplicación lógica que en el inicio rápi
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Suscripción a Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
+* Una cuenta y una suscripción de Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/). Si tiene una suscripción de Azure Government, siga estos pasos adicionales para [configurar Visual Studio para la nube de Azure Government](#azure-government).
 
 * Descargue e instale estas herramientas si no las tiene aún:
 
@@ -51,12 +51,6 @@ En este inicio rápido, crea la misma aplicación lógica que en el inicio rápi
   
     Puede descargar e instalar Herramientas de Azure Logic Apps directamente desde Visual Studio Marketplace o aprender [a instalar esta extensión desde Visual Studio](/visualstudio/ide/finding-and-using-visual-studio-extensions). Asegúrese de reiniciar Visual Studio después de finalizar la instalación.
 
-  * Para usar suscripciones de Azure Government con Visual Studio, consulte estos temas para conocer más datos de la configuración:
-
-    * Visual Studio 2019: [Inicio rápido: Conexión a Azure Government con Visual Studio](../azure-government/documentation-government-connect-vs.md)
-
-    * Visual Studio 2017: [Introducción a la extensión de Visual Studio del selector de entorno de Azure](https://devblogs.microsoft.com/azuregov/introducing-the-azure-environment-selector-visual-studio-extension/), que se puede descargar e instalar desde [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SteveMichelotti.AzureEnvironmentSelector).
-
 * Acceso a la web al usar el Diseñador de aplicaciones lógicas integrado
 
   El diseñador requiere una conexión a Internet para crear recursos en Azure y leer las propiedades y los datos de los conectores de la aplicación lógica.
@@ -65,6 +59,34 @@ En este inicio rápido, crea la misma aplicación lógica que en el inicio rápi
 
   > [!IMPORTANT]
   > Si quiere usar el conector de Gmail, solo las cuentas empresariales de G-Suite pueden usar este conector sin restricciones en las aplicaciones lógicas. Si tiene una cuenta de consumidor de Gmail, puede usar este conector solo con servicios específicos aprobados por Google o puede [crear una aplicación cliente de Google para usarla en la autenticación con el conector de Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Para más información, consulte [Directivas de privacidad y seguridad de datos de los conectores de Google en Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+
+<a name="azure-government"></a>
+
+## <a name="set-up-visual-studio-for-azure-government"></a>Configuración de Visual Studio para Azure Government
+
+### <a name="visual-studio-2017"></a>Visual Studio 2017
+
+Puede usar la [extensión Azure Environment Selector de Visual Studio](https://devblogs.microsoft.com/azuregov/introducing-the-azure-environment-selector-visual-studio-extension/), que puede descargar e instalar desde [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SteveMichelotti.AzureEnvironmentSelector).
+
+### <a name="visual-studio-2019"></a>Visual Studio 2019
+
+Para trabajar con suscripciones Azure Government en Azure Logic Apps, tiene que [agregar un punto de conexión de detección para la nube de Azure Government a Visual Studio](../azure-government/documentation-government-connect-vs.md). De todas formas, *antes de iniciar sesión en Visual Studio con la cuenta de Azure Government*, tiene que cambiar el nombre del archivo JSON que se genera después de agregar el punto de conexión de detección siguiendo estos pasos:
+
+1. Cierre Visual Studio.
+
+1. Busque el archivo JSON generado llamado `Azure U.S. Government-A3EC617673C6C70CC6B9472656832A26.Configuration` en esta ubicación:
+
+   `%localappdata%\.IdentityService\AadConfigurations`
+ 
+1. Cambie el nombre del archivo JSON a `AadProvider.Configuration.json`.
+
+1. Reinicie Visual Studio.
+
+1. Continúe con los pasos para iniciar sesión con su cuenta de Azure Government.
+
+Para revertir esta configuración, elimine el archivo JSON en la ubicación siguiente y reinicie Visual Studio:
+
+`%localappdata%\.IdentityService\AadConfigurations\AadProvider.Configuration.json`
 
 <a name="create-resource-group-project"></a>
 

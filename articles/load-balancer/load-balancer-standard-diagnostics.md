@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: 034a49793d3a3e416f307741e49446979eb33bb3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 97541a4f8d86b90bf6045fc2a9e5abbe86aee5cd
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090457"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717343"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnóstico de Standard Load Balancer con métricas, alertas y estado de los recursos
 
@@ -25,7 +25,7 @@ Azure Standard Load Balancer proporciona las siguientes funcionalidades de diagn
 
 * **Métricas y alertas multidimensionales**: Proporciona funcionalidades de diagnóstico multidimensionales para configuraciones de Standard Load Balancer mediante [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview). Puede supervisar, administrar y solucionar problemas con los recursos del equilibrador de carga estándar.
 
-* **Estado de los recursos**: La página Load Balancer en Azure Portal y la página Resource Health (en Monitor) exponen la sección Resource Health de Standard Load Balancer. 
+* **Estado de los recursos**: el estado de Resource Health de su instancia de Load Balancer está disponible en la página Resource Health de Monitor. Esta comprobación automática le informa de la disponibilidad actual del recurso de Load Balancer.
 
 En este artículo se proporciona una introducción a estas funcionalidades y maneras de usarlas con Load Balancer Estándar. 
 
@@ -91,7 +91,7 @@ Para configurar alertas:
 #### <a name="is-the-data-path-up-and-available-for-my-load-balancer-frontend"></a>¿Está lista y disponible la ruta de acceso de datos para mi front-end de Load Balancer?
 <details><summary>Expanda</summary>
 
-La métrica de disponibilidad de la ruta de acceso de datos describe el mantenimiento de la ruta de acceso de los datos dentro de la región para el host de proceso donde se encuentran las máquinas virtuales. Es un reflejo del mantenimiento de la infraestructura de Azure. Puede usar esta métrica para:
+La métrica de disponibilidad de la ruta de acceso a los datos describe el mantenimiento de la ruta de acceso de los datos dentro de la región para el host de proceso en el que se encuentran las máquinas virtuales. Es un reflejo del mantenimiento de la infraestructura de Azure. Puede usar esta métrica para:
 - Supervisar la disponibilidad externa del servicio
 - Profundizar y decidir si la plataforma en la que se implementa el servicio es correcta o si el sistema operativo invitado o la instancia de la aplicación son correctas.
 - Determinar si un evento está relacionado con el servicio o con el plano de datos subyacente. Esta métrica no debe confundirse con el estado de sondeo de mantenimiento ("disponibilidad de instancia de back-end").
@@ -110,7 +110,7 @@ La métrica se genera mediante una medición activa en la banda. Un servicio de 
 
 Se genera periódicamente un paquete que coincide con el front-end y la regla de la implementación. Recorre la región desde el origen hasta el host, donde se encuentra una máquina virtual en el grupo back-end. La infraestructura del equilibrador de carga llevará a cabo las mismas operaciones de traducción y equilibrio de carga que con el tráfico restante. Este sondeo está en la banda en el punto de conexión de la carga equilibrada. Una vez que el sondeo llega al host Compute donde se encuentra una máquina virtual correcta en el grupo de servidores back-end, el host Compute genera una respuesta al servicio de sondeo. La máquina virtual no ve este tráfico.
 
-Se produce un error en la disponibilidad de la ruta de acceso de datos por los motivos siguientes:
+Se produce un error en la disponibilidad de la ruta de acceso a los datos por las razones siguientes:
 - Para la implementación no queda ninguna máquina virtual correcta en el grupo de servidores back-end. 
 - Se ha producido una interrupción de la infraestructura.
 
@@ -155,14 +155,14 @@ Para obtener las estadísticas de conexión SNAT:
 #### <a name="how-do-i-check-my-snat-port-usage-and-allocation"></a>¿Cómo se comprueba el uso y asignación de puertos SNAT?
 <details>
   <summary>Expanda</summary>
-La métrica de uso de SNAT indica cuántos flujos únicos se establecen entre un origen de Internet y una máquina virtual back-end o un conjunto de escalado de máquinas virtuales que está detrás de un equilibrador de carga y carece de dirección IP pública. Al compararla con la métrica de asignación de SNAT, se puede determinar si el servicio está en fase o en riesgo de agotamiento de SNAT, lo que podría derivar en un error en el flujo saliente. 
+La métrica de puertos SNAT usados realiza un seguimiento de cuántos puertos SNAT se consumen para mantener los flujos salientes. Indica cuántos flujos únicos se establecen entre un origen de Internet y una máquina virtual back-end o un conjunto de escalado de máquinas virtuales que está detrás de un equilibrador de carga y carece de dirección IP pública. Al compararla el número de puertos SNAT que está usando con la métrica de puertos SNAT asignados, se puede determinar si el servicio está en fase o en riesgo de agotamiento de SNAT, lo que podría derivar en un error en el flujo saliente. 
 
 Si las métricas señalan que hay riesgo de error del [flujo saliente](https://aka.ms/lboutbound), vea el artículo y tome medidas para mitigar este problema para poder garantizar el estado del servicio.
 
 Para ver el uso y asignación de puertos SNAT:
 1. Establezca la agregación de tiempo del gráfico en 1 minuto para procurar que se muestren los datos deseados.
-1. Seleccione **Uso de SNAT** y/o **Asignación de SNAT** como tipo de métrica y **Promedio** como agregación.
-    * De forma predeterminada, este es el promedio de puertos SNAT asignados a (o usados por) cada máquina virtual o conjunto de máquinas virtuales de back-end, y se corresponde con todas las direcciones IP de front-end públicas asignadas al equilibrador de carga, agregadas a través de TCP y UDP.
+1. Seleccione **Used SNAT Ports** (Puertos SNAT usados) o **Allocated SNAT Ports** (Puertos SNAT asignados) como tipo de métrica y **Promedio** como agregación.
+    * De forma predeterminada, estas métricas son el número promedio de puertos SNAT asignados a cada VM o VMSS de back-end, o usados por estas, y se corresponde con todas las direcciones IP de front-end públicas asignadas a la instancia de Load Balancer, agregadas a través de TCP y UDP.
     * Para ver los puertos SNAT totales usados por (o asignados a) el equilibrador de carga, use la agregación de métricas **Suma**.
 1. Filtre por un **Tipo de protocolo** específico, un conjunto de **IP de back-end** y/o **IP de front-end**.
 1. Para supervisar el estado por instancia de front-end o back-end, use una división. 
@@ -252,13 +252,14 @@ Para ver el mantenimiento de los recursos públicos de Load Balancer Estándar:
 
    *Ilustración: Vista del mantenimiento de los recursos de Load Balancer*
  
-En la tabla siguiente se enumeran los estados de mantenimiento de varios recursos y su descripción. 
+La descripción genérica del estado de mantenimiento de los recursos está disponible en la [documentación de RHC](https://docs.microsoft.com/azure/service-health/resource-health-overview). En la tabla siguiente se enumeran los estados específicos de Azure Load Balancer: 
 
 | Estado de mantenimiento de los recursos | Descripción |
 | --- | --- |
 | Disponible | El recurso de Standard Load Balancer está listo y disponible. |
-| No disponible | El recurso de Standard Load Balancer público no es correcto. Diagnostique el estado seleccionando **Azure Monitor** > **Métricas**.<br>(El estado *No disponible* también puede significar que el recurso no está conectado a Standard Load Balancer). |
-| Desconocido | El estado de mantenimiento del recurso para Standard Load Balancer aún no se ha actualizado.<br>(El estado *Desconocido* también puede significar que el recurso no está conectado a Standard Load Balancer).  |
+| Degradado | El equilibrador de carga estándar tiene eventos iniciados por el usuario o la plataforma que afectan al rendimiento. La métrica de disponibilidad de la ruta de acceso a los datos ha informado un mantenimiento de menos del 90 %, pero superior que el 25 % durante al menos dos minutos. Experimentará un impacto entre moderado y grave en el rendimiento. [Siga la guía de solución de problemas de disponibilidad de la ruta de acceso a los datos] para determinar si hay eventos iniciados por el usuario que provoquen un impacto en la disponibilidad.
+| No disponible | El recurso de Standard Load Balancer público no es correcto. La métrica de disponibilidad de la ruta de acceso a los datos ha informado un mantenimiento de menos del 25 % durante al menos dos minutos. Experimentará un impacto significativo en el rendimiento o falta de disponibilidad para la conectividad entrante. Puede haber eventos de usuario o plataforma que generan la falta de disponibilidad. [Siga la guía de solución de problemas de disponibilidad de la ruta de acceso a los datos] para determinar si hay eventos iniciados por el usuario que afecten a la disponibilidad. |
+| Unknown | El estado de mantenimiento de recurso del recurso de Standard Load Balancer no se ha actualizado todavía o no ha recibido la información de disponibilidad de la ruta de acceso a los datos durante los últimos 10 minutos. Este estado debe ser transitorio y reflejará el estado correcto en cuanto se reciban dichos datos. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

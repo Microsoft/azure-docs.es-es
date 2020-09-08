@@ -3,12 +3,12 @@ title: Administración de bases de datos de SAP HANA con copia de seguridad en m
 description: En este artículo, aprenderá las tareas comunes para administrar y supervisar las bases de datos de SAP HANA que se ejecutan en máquinas virtuales de Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 98dd67668d1b88a25dfa3b91174cd96730c435e1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e257aa7771f6f76a4d53f16255c2f3cbb80c8967
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049460"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377461"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Administración y supervisión de bases de datos de SAP HANA de las que se ha realizado copia de seguridad
 
@@ -41,7 +41,7 @@ Las alertas son un medio sencillo de supervisar las copias de seguridad de bases
 
   ![Lista de alertas de copia de seguridad](./media/sap-hana-db-manage/backup-alerts-list.png)
 
-* Haga clic en las alertas para ver más detalles:
+* Seleccione las alertas para ver más detalles:
 
   ![Detalles de alertas](./media/sap-hana-db-manage/alert-details.png)
 
@@ -61,10 +61,12 @@ Azure Backup facilita la administración de una base de datos de SAP HANA de la 
 
 Las copias de seguridad se ejecutan según la programación de la directiva. Puede ejecutar una copia de seguridad a petición siguiendo estos pasos:
 
-1. En el menú Almacén, haga clic en **Elementos de copia de seguridad**.
-2. En **Elementos de copia de seguridad**, seleccione la máquina virtual que ejecuta la base de datos de SAP HANA y, a continuación, haga clic en **Hacer copia de seguridad ahora**.
-3. En **Hacer copia de seguridad ahora**, elija el tipo de copia de seguridad que desea realizar. A continuación, haga clic en **Aceptar**. Esta copia de seguridad se conservará de acuerdo con la directiva asociada a este elemento de copia de seguridad.
+1. En el menú del almacén, seleccione **Elementos de copia de seguridad**.
+2. En **Elementos de copia de seguridad**, seleccione la VM que ejecuta la base de datos de SAP HANA y, a continuación, seleccione **Hacer copia de seguridad ahora**.
+3. En **Hacer copia de seguridad ahora**, elija el tipo de copia de seguridad que desea realizar. Después, seleccione **Aceptar**. Esta copia de seguridad se conservará de acuerdo con la directiva asociada a este elemento de copia de seguridad.
 4. Supervise las notificaciones del portal. Puede supervisar el progreso del trabajo en el panel del almacén > **Trabajos de copia de seguridad** > **En curso**. Según el tamaño de la base de datos, la creación de la copia de seguridad inicial puede tardar un tiempo.
+
+De forma predeterminada, la retención de copias de seguridad a petición es de 45 días.
 
 ### <a name="hana-native-client-integration"></a>Integración de cliente nativo de HANA
 
@@ -112,7 +114,7 @@ Puede cambiar la directiva subyacente para un elemento de copia de seguridad de 
   ![Elección de SAP HANA en Azure VM](./media/sap-hana-db-manage/sap-hana-in-azure-vm.png)
 
 * Elija el elemento de copia de seguridad cuya directiva subyacente desea cambiar.
-* Haga clic en la directiva de copia de seguridad existente.
+* Seleccione la directiva de copia de seguridad existente.
 
   ![Selección de la directiva de copia de seguridad existente](./media/sap-hana-db-manage/existing-backup-policy.png)
 
@@ -129,7 +131,7 @@ Puede cambiar la directiva subyacente para un elemento de copia de seguridad de 
 >[!NOTE]
 > Cualquier cambio en el período de retención se aplicará de manera retrospectiva a todos los puntos de recuperación más antiguos, además de los nuevos.
 >
-> Las directivas de copia de seguridad incrementales no se pueden usar para las bases de datos de SAP HANA. Las copias de seguridad incrementales no se admite actualmente para estas bases de datos.
+> Las directivas de copia de seguridad incrementales no se pueden usar para las bases de datos de SAP HANA. Las copias de seguridad incrementales no se admiten actualmente para estas bases de datos.
 
 ### <a name="modify-policy"></a>Modificación de directivas
 
@@ -171,7 +173,7 @@ Puede dejar de proteger una base de datos SAP HANA de dos maneras:
 
 Si decide dejar los puntos de recuperación, tenga en cuenta estos detalles:
 
-* Todos los puntos de recuperación permanecerán intactos para siempre; al detenerse la protección de los datos se detendrá la eliminación de todos los puntos y se conservarán los datos.
+* Todos los puntos de recuperación permanecerán intactos para siempre y, al detenerse la protección de los datos, se detendrá la eliminación de todos los puntos y se conservarán los datos.
 * Se le cobrará la instancia protegida y el almacenamiento consumido. Para más información, consulte [Precios de Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
 * Si elimina un origen de datos sin detener las copias de seguridad, las nuevas copias de seguridad producirán errores.
 

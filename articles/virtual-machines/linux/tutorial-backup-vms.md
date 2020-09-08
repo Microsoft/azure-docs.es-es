@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9dcc1b6f6f3792682f81c0d37ef2046bd1840657
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1865d307e7b79e7e40b0e98f2dcfa2535b0313fd
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527003"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551714"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Tutorial: Copia de seguridad y restauración de archivos en máquinas virtuales Linux en Azure
 
@@ -45,7 +45,7 @@ Cree una copia de seguridad diaria programada en un almacén de Recovery Service
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. En el menú de la izquierda, haga clic en **Máquinas virtuales**. 
 3. En la lista, seleccione la máquina virtual de la que quiere realizar una copia de seguridad.
-4. En la hoja de la máquina virtual, en la sección **Configuración**, haga clic en **Copia de seguridad**. Se abre la hoja **Habilitar copia de seguridad**.
+4. En la hoja de la máquina virtual, en la sección **Operaciones**, haga clic en **Copia de seguridad**. Se abre la hoja **Habilitar copia de seguridad**.
 5. En **Almacén de Recovery Services**, haga clic en **Create new** (Crear nuevo) y especifique el nombre del nuevo almacén. Se crea un nuevo almacén en el grupo de recursos y ubicación en que se encuentra la máquina virtual.
 6. Haga clic en **Directiva de copia de seguridad**. En este ejemplo, conserve los valores predeterminados y haga clic en **Aceptar**.
 7. En la hoja **Habilitar copia de seguridad**, haga clic en **Habilitar copia de seguridad**. De esta forma se crea una copia de seguridad diaria según la programación predeterminada.

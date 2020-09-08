@@ -3,12 +3,12 @@ title: 'Configuración de registros de diagnóstico: Azure Event Hub | Microsoft
 description: Obtenga información sobre cómo configurar registros de actividad y registros de diagnóstico para centros de eventos en Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 65c3fc783506eae19c911eb035ebc51b2db19849
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ccd38d8924765df7bfd91b4fc26bb5304f6f180d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521945"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927738"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configuración de registros de diagnóstico de Azure Event Hubs
 
@@ -61,18 +61,18 @@ Las cadenas JSON de registros de archivo incluyen elementos enumerados en la tab
 
 Nombre | Descripción
 ------- | -------
-TaskName | La descripción de la tarea que produjo error
-ActivityId | El identificador interno, usado con fines de seguimiento
-trackingId | El identificador interno, usado con fines de seguimiento
-resourceId | El identificador de recursos de Azure Resource Manager
-eventHub | Nombre completo del centro de eventos (incluye el nombre del espacio de nombres)
-partitionId | La partición del centro de eventos en la que se escribe.
-archiveStep | Valores posibles: ArchiveFlushWriter, DestinationInit
-startTime | Hora de inicio del error
-errores | Número de veces que se ha producido el error.
-durationInSeconds | La duración del error
-message | Mensaje de error
-category | ArchiveLogs
+`TaskName` | La descripción de la tarea que produjo error
+`ActivityId` | El identificador interno, usado con fines de seguimiento
+`trackingId` | El identificador interno, usado con fines de seguimiento
+`resourceId` | El identificador de recursos de Azure Resource Manager
+`eventHub` | Nombre completo del centro de eventos (incluye el nombre del espacio de nombres)
+`partitionId` | La partición del centro de eventos en la que se escribe.
+`archiveStep` | Valores posibles: ArchiveFlushWriter, DestinationInit
+`startTime` | Hora de inicio del error
+`failures` | Número de veces que se ha producido el error.
+`durationInSeconds` | La duración del error
+`message` | Mensaje de error
+`category` | ArchiveLogs
 
 El código siguiente es un ejemplo de una cadena JSON de registro de archivo:
 
@@ -99,15 +99,15 @@ Las cadenas JSON de registros operativos incluyen elementos enumerados en la tab
 
 Nombre | Descripción
 ------- | -------
-ActivityId | Identificador interno, usado con fines de seguimiento. |
-EventName | Nombre de la operación |
-resourceId | El identificador de recursos de Azure Resource Manager |
-SubscriptionId | Id. de suscripción |
-EventTimeString | Hora de la operación |
-EventProperties | Propiedades de la operación |
-Estado | Estado de la operación |
-Autor de llamada | Autor de la llamada de la operación (Azure Portal o Management Client) |
-Category | OperationalLogs |
+`ActivityId` | Identificador interno, usado con fines de seguimiento. |
+`EventName` | Nombre de operación |
+`resourceId` | El identificador de recursos de Azure Resource Manager |
+`SubscriptionId` | Id. de suscripción |
+`EventTimeString` | Hora de la operación |
+`EventProperties` | Propiedades de la operación |
+`Status` | Estado de la operación |
+`Caller` | Autor de la llamada de la operación (Azure Portal o Management Client) |
+`Category` | OperationalLogs |
 
 El código siguiente es un ejemplo de una cadena JSON de registro operativo:
 
@@ -131,9 +131,9 @@ Las cadenas JSON del registro de escalabilidad automática incluyen los elemento
 
 | Nombre | Descripción |
 | ---- | ----------- | 
-| TrackingId | Identificador interno, que se usa con fines de seguimiento. |
-| ResourceId | Identificador de recursos de Azure Resource Manager. |
-| Message | Mensaje informativo, que proporciona detalles sobre la acción de inflado automático. El mensaje contiene el valor anterior y actual de la unidad de procesamiento de un espacio de nombres determinado y lo que desencadenó el inflado de la unidad de rendimiento. |
+| `TrackingId` | Identificador interno, que se usa con fines de seguimiento. |
+| `ResourceId` | Identificador de recursos de Azure Resource Manager. |
+| `Message` | Mensaje informativo, que proporciona detalles sobre la acción de inflado automático. El mensaje contiene el valor anterior y actual de la unidad de procesamiento de un espacio de nombres determinado y lo que desencadenó el inflado de la unidad de rendimiento. |
 
 Este es un evento de escalado automático de ejemplo: 
 
@@ -150,13 +150,13 @@ Las cadenas JSON del registro de coordinador de Kafka incluyen los elementos enu
 
 | Nombre | Descripción |
 | ---- | ----------- | 
-| RequestId | Identificador de solicitud, que se usa con fines de seguimiento. |
-| ResourceId | El identificador de recursos de Azure Resource Manager |
-| Operación | Nombre de la operación que se realiza durante la coordinación de grupos. |
-| ClientId | Id. de cliente |
-| NamespaceName | Nombre del espacio de nombres | 
-| SubscriptionId | Identificador de suscripción de Azure |
-| Message | Mensaje informativo o de advertencia, que proporciona detalles sobre las acciones realizadas durante la coordinación de grupos. |
+| `RequestId` | Identificador de solicitud, que se usa con fines de seguimiento. |
+| `ResourceId` | El identificador de recursos de Azure Resource Manager |
+| `Operation` | Nombre de la operación que se realiza durante la coordinación de grupos. |
+| `ClientId` | Id. de cliente |
+| `NamespaceName` | Nombre del espacio de nombres | 
+| `SubscriptionId` | Identificador de suscripción de Azure |
+| `Message` | Mensaje informativo o de advertencia, que proporciona detalles sobre las acciones realizadas durante la coordinación de grupos. |
 
 ### <a name="example"></a>Ejemplo
 
@@ -178,14 +178,14 @@ Las cadenas JSON del registro de errores de Kafka incluyen los elementos enumera
 
 | Nombre | Descripción |
 | ---- | ----------- |
-| TrackingId | Identificador de seguimiento, que se usa con fines de seguimiento. |
-| NamespaceName | Nombre del espacio de nombres |
-| Eventhub | Nombre del centro de eventos |
-| PartitionId | Id. de partición |
-| GroupId | Identificador de grupo |
-| ClientId | Id. de cliente |
-| ResourceId | Identificador de recursos de Azure Resource Manager. |
-| Message | Mensaje informativo, que proporciona detalles sobre un error. |
+| `TrackingId` | Identificador de seguimiento, que se usa con fines de seguimiento. |
+| `NamespaceName` | Nombre del espacio de nombres |
+| `Eventhub` | Nombre del centro de eventos |
+| `PartitionId` | Id. de partición |
+| `GroupId` | Identificador de grupo |
+| `ClientId` | Id. de cliente |
+| `ResourceId` | Identificador de recursos de Azure Resource Manager. |
+| `Message` | Mensaje informativo, que proporciona detalles sobre un error. |
 
 ## <a name="event-hubs-virtual-network-connection-event-schema"></a>Esquema de eventos de conexión de red virtual de Event Hubs
 
@@ -193,13 +193,13 @@ Las cadenas JSON del evento de conexión de red virtual (VNet) de Event Hubs con
 
 | Nombre | Descripción |
 | ---  | ----------- | 
-| SubscriptionId | Identificador de suscripción de Azure |
-| NamespaceName | Nombre del espacio de nombres |
-| IPAddress | Dirección IP de un cliente que se conecta al servicio de Event Hubs. |
-| Acción | Acción realizada por el servicio Event Hubs al evaluar las solicitudes de conexión. Las acciones admitidas son **Accept Connection** (Aceptar conexión) y **Deny Connection** (Denegar conexión). |
-| Motivo | Proporciona el motivo de que se haya realizado la acción. |
-| Count | Número de repeticiones de una acción dada. |
-| ResourceId | Identificador de recursos de Azure Resource Manager. |
+| `SubscriptionId` | Identificador de suscripción de Azure |
+| `NamespaceName` | Nombre del espacio de nombres |
+| `IPAddress` | Dirección IP de un cliente que se conecta al servicio de Event Hubs. |
+| `Action` | Acción realizada por el servicio Event Hubs al evaluar las solicitudes de conexión. Las acciones admitidas son **Accept Connection** (Aceptar conexión) y **Deny Connection** (Denegar conexión). |
+| `Reason` | Proporciona el motivo de que se haya realizado la acción. |
+| `Count` | Número de repeticiones de una acción dada. |
+| `ResourceId` | Identificador de recursos de Azure Resource Manager. |
 
 ### <a name="example"></a>Ejemplo
 
@@ -221,14 +221,14 @@ Las cadenas JSON del registro de usuario de claves administradas por el cliente 
 
 | Nombre | Descripción |
 | ---- | ----------- | 
-| Category | Tipo de categoría de un mensaje. Corresponde a uno de los siguientes valores: **error** e **info** |
-| ResourceId | Identificador de recurso interno, que incluye el identificador de suscripción y el nombre del espacio de nombres de Azure. |
-| KeyVault | Nombre del recurso de Key Vault. |
-| Clave | Nombre de la clave de Key Vault. |
-| Versión | Versión de la clave de Key Vault. |
-| Operación | El nombre de una operación realizada para atender solicitudes. |
-| Código | status code |
-| Message | Mensaje, que proporciona detalles sobre un error o un mensaje informativo. |
+| `Category` | Tipo de categoría de un mensaje. Corresponde a uno de los siguientes valores: **error** e **info** |
+| `ResourceId` | Identificador de recurso interno, que incluye el identificador de suscripción y el nombre del espacio de nombres de Azure. |
+| `KeyVault` | Nombre del recurso de Key Vault. |
+| `Key` | Nombre de la clave de Key Vault. |
+| `Version` | Versión de la clave de Key Vault. |
+| `Operation` | El nombre de una operación realizada para atender solicitudes. |
+| `Code` | Código de estado |
+| `Message` | Mensaje, que proporciona detalles sobre un error o un mensaje informativo. |
 
 
 
@@ -236,7 +236,7 @@ Las cadenas JSON del registro de usuario de claves administradas por el cliente 
 - [Introducción a Event Hubs](./event-hubs-about.md)
 - [Ejemplos de Event Hubs](sdks.md)
 - Introducción a Event Hubs
-    - [.NET Core](get-started-dotnet-standard-send-v2.md)
-    - [Java](get-started-java-send-v2.md)
-    - [Python](get-started-python-send-v2.md)
-    - [JavaScript](get-started-java-send-v2.md)
+    - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+    - [Java](event-hubs-java-get-started-send.md)
+    - [Python](event-hubs-python-get-started-send.md)
+    - [JavaScript](event-hubs-java-get-started-send.md)

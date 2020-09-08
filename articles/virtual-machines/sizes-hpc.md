@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 08/01/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: d0344247ba4dfffee275782bc2db83142d34cff3
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 8870c83506b1d962b94cd4d671bd3acd3e96c17c
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800252"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905370"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Tamaños de VM para informática de alto rendimiento
 
@@ -99,6 +99,6 @@ Azure ofrece varias opciones para crear clústeres de máquinas virtuales de HPC
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Puede encontrar más información sobre la optimización de aplicaciones de HPC para Azure y algunos ejemplos en [Cargas de trabajo de HPC](./workloads/hpc/overview.md).
+- Obtenga más información sobre la [configuración de VM](./workloads/hpc/configure.md), la [habilitación de InfiniBand](./workloads/hpc/enable-infiniband.md), la [configuración de MPI](./workloads/hpc/setup-mpi.md) y la optimización de las aplicaciones HPC para Azure en [cargas de trabajo de HPC](./workloads/hpc/overview.md).
 - En los [blogs de la comunidad de Azure Compute Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute), encontrará los anuncios más recientes y algunos ejemplos y resultados de HPC.
 - Si desea una visión general de la arquitectura de la ejecución de cargas de trabajo de HPC, consulte [Informática de alto rendimiento (HPC) en Azure](/azure/architecture/topics/high-performance-computing/).

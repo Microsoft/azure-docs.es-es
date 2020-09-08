@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2020
 ms.author: memildin
-ms.openlocfilehash: 3d63ccc2c47bca9410b5b9105b90aa1f0cf5854a
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: e378ffe00be9215c692a832e232fac7e866ab3c9
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439262"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890831"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Evitar las entradas DNS pendientes y la adquisición de subdominios
 
@@ -133,23 +133,22 @@ A menudo, los desarrolladores y los equipos de operaciones deben ejecutar proces
             $subscriptions = Get-AzSubscription
 
             $subscriptionIds = $subscriptions.Id
-                   # Output file path and names
-                   $date = get-date
-                   $fdate = $date.ToString("MM-dd-yyy hh_mm_ss tt")
-                   $fdate #log to console
-                   $rpath = [Environment]::GetFolderPath("MyDocuments") + '\' # Feel free to update your path.
-                   $rname = 'Tenant_FQDN_Report_' + $fdate + '.csv' # Feel free to update the document name.
-                   $fpath = $rpath + $rname
-                   $fpath #This is the output file of FQDN report.
+                    # Output file path and names
+                    $date = get-date
+                    $fdate = $date.ToString("MM-dd-yyy hh_mm_ss tt")
+                    $fdate #log to console
+                    $rpath = [Environment]::GetFolderPath("MyDocuments") + '\' # Feel free to update your path.
+                    $rname = 'Tenant_FQDN_Report_' + $fdate + '.csv' # Feel free to update the document name.
+                    $fpath = $rpath + $rname
+                    $fpath #This is the output file of FQDN report.
 
-            # query
-            $query = "where type in ('microsoft.network/frontdoors',
+            # queries
+            $allTypesFqdnsQuery = "where type in ('microsoft.network/frontdoors',
                                     'microsoft.storage/storageaccounts',
                                     'microsoft.cdn/profiles/endpoints',
                                     'microsoft.network/publicipaddresses',
                                     'microsoft.network/trafficmanagerprofiles',
                                     'microsoft.containerinstance/containergroups',
-                                    'microsoft.apimanagement/service',
                                     'microsoft.web/sites',
                                     'microsoft.web/sites/slots')
                         | extend FQDN = case(
@@ -159,12 +158,29 @@ A menudo, los desarrolladores y los equipos de operaciones deben ejecutar proces
                             type =~ 'microsoft.network/publicipaddresses', properties['dnsSettings']['fqdn'],
                             type =~ 'microsoft.network/trafficmanagerprofiles', properties['dnsConfig']['fqdn'],
                             type =~ 'microsoft.containerinstance/containergroups', properties['ipAddress']['fqdn'],
-                            type =~ 'microsoft.apimanagement/service', properties['hostnameConfigurations']['hostName'],
                             type =~ 'microsoft.web/sites', properties['defaultHostName'],
                             type =~ 'microsoft.web/sites/slots', properties['defaultHostName'],
                             '')
-                        | project id, ['type'], name, FQDN
+                        | project id, type, name, FQDN
                         | where isnotempty(FQDN)";
+
+            $apiManagementFqdnsQuery = "where type =~ 'microsoft.apimanagement/service'
+                        | project id, type, name,
+                            gatewayUrl=parse_url(tostring(properties['gatewayUrl'])).Host,
+                            portalUrl =parse_url(tostring(properties['portalUrl'])).Host,
+                            developerPortalUrl = parse_url(tostring(properties['developerPortalUrl'])).Host,
+                            managementApiUrl = parse_url(tostring(properties['managementApiUrl'])).Host,
+                            gatewayRegionalUrl = parse_url(tostring(properties['gatewayRegionalUrl'])).Host,
+                            scmUrl = parse_url(tostring(properties['scmUrl'])).Host,
+                            additionaLocs = properties['additionalLocations']
+                        | mvexpand additionaLocs
+                        | extend additionalPropRegionalUrl = tostring(parse_url(tostring(additionaLocs['gatewayRegionalUrl'])).Host)
+                        | project id, type, name, FQDN = pack_array(gatewayUrl, portalUrl, developerPortalUrl, managementApiUrl, gatewayRegionalUrl, scmUrl,             
+                            additionalPropRegionalUrl)
+                        | mvexpand FQDN
+                        | where isnotempty(FQDN)";
+
+            $queries = @($allTypesFqdnsQuery, $apiManagementFqdnsQuery);
 
             # Paging helper cursor
             $Skip = 0;
@@ -178,18 +194,21 @@ A menudo, los desarrolladores y los equipos de operaciones deben ejecutar proces
             # Group the subscriptions into batches.
             $subscriptionsBatch = $subscriptionIds | Group -Property { [math]::Floor($counter.Value++ / $batchSize) }
 
-            # Run the query for each subscription batch with paging.
-            foreach ($batch in $subscriptionsBatch)
-            { 
-                $Skip = 0; #Reset after each batch.
+            foreach($query in $queries)
+            {
+                # Run the query for each subscription batch with paging.
+                foreach ($batch in $subscriptionsBatch)
+                { 
+                    $Skip = 0; #Reset after each batch.
 
-                $response += do { Start-Sleep -Milliseconds 500;   if ($Skip -eq 0) {$y = Search-AzGraph -Query $query -First $First -Subscription $batch.Group ; } `
-                else {$y = Search-AzGraph -Query $query -Skip $Skip -First $First -Subscription $batch.Group } `
-                $cont = $y.Count -eq $First; $Skip = $Skip + $First; $y; } while ($cont)
+                    $response += do { Start-Sleep -Milliseconds 500;   if ($Skip -eq 0) {$y = Search-AzGraph -Query $query -First $First -Subscription $batch.Group ; } `
+                    else {$y = Search-AzGraph -Query $query -Skip $Skip -First $First -Subscription $batch.Group } `
+                    $cont = $y.Count -eq $First; $Skip = $Skip + $First; $y; } while ($cont)
+                }
             }
 
-            # View the completed results of the query on all subscriptions.
-            $response | Export-Csv -Path $fpath -Append 
+            # View the completed results of the query on all subscriptions
+            $response | Export-Csv -Path $fpath -Append  
 
         ```
 

@@ -1,6 +1,6 @@
 ---
 title: 'Ejemplo de script de Azure PowerShell: escalado de la instancia de servicio | Microsoft Docs'
-description: 'Ejemplo de script de Azure PowerShell: escalado de la instancia de servicio'
+description: Obtenga información sobre cómo escalar y agregar regiones a la instancia del servicio API Management. Consulte un script de ejemplo y los recursos adicionales disponibles.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 11/16/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: a880bf617f4d1d81b73fda1fbe27d2dd803619a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ec54f1dcf3f7f28415646a58c057453985d450f0
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008840"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902279"
 ---
 # <a name="scale-the-service-instance"></a>Escalado de la instancia de servicio
 

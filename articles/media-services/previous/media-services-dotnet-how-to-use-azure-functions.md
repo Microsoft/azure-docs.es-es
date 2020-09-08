@@ -14,14 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 43e16d15c48471d75a7ab5ce23898f1161a60153
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 90cd9605a166a00412ed77caf3727ffb3ad3e1fd
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052825"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89262131"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Desarrollo de Azure Functions con Media Services
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 En este artículo se muestra cómo empezar a crear instancias de Azure Functions que usan Media Services. La función de Azure definida en este artículo supervisa un contenedor de la cuenta de almacenamiento llamado **input** para los nuevos archivos MP4. Una vez que un archivo se coloca en el contenedor de almacenamiento, el desencadenador de blobs ejecuta la función. Puede consultar las funciones de Azure en la [Introducción](../../azure-functions/functions-overview.md) y otros temas relacionados en la sección **Azure Functions**.
 

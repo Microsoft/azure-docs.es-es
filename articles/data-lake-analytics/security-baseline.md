@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: cb93fa266111a0f60a139d7b76a149ba81b486e9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 33084d72e26f2926751def686c0a4c1d0485a5c2
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075089"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005120"
 ---
 # <a name="azure-security-baseline-for-data-lake-analytics"></a>Base de referencia de seguridad de Azure para Data Lake Analytics
 
@@ -256,7 +256,7 @@ También puede habilitar e incorporar datos en Azure Sentinel o en una herramien
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2: Cambie las contraseñas predeterminadas cuando proceda
 
-**Guía**: Data Lake Analytics no tiene el concepto de contraseñas predeterminadas, ya que la autenticación se proporciona con Azure Active Directory y se protege mediante controles de acceso basados en rol (RBAC).
+**Guía**: Data Lake Analytics no tiene el concepto de contraseñas predeterminadas, ya que la autenticación se proporciona con Azure Active Directory y se protege mediante el control de acceso basado en rol de Azure (Azure RBAC).
 
 * [Información general de Azure Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-overview)
 

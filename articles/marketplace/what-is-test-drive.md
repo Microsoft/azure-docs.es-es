@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 06/19/2020
-ms.openlocfilehash: abad72145b095b4da77ec499f936c6912fd970a6
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: bd3b77f80a414dd3db1d5106929fa0e215e34c1f
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229455"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121874"
 ---
 # <a name="what-is-a-test-drive"></a>¿Qué es una versión de prueba?
 
@@ -44,7 +44,17 @@ Para obtener más información sobre la configuración de una de estas unidades 
 
 ### <a name="azure-resource-manager-test-drive"></a>Versión de prueba de Azure Resource Manager
 
-Esta plantilla de implementación contiene todos los recursos de Azure que componen la solución. Los productos que se ajustan a este escenario usan solo recursos de Azure. Es la única opción de versión de prueba para las ofertas de máquina virtual o de aplicación de Azure.
+Esta plantilla de implementación contiene todos los recursos de Azure que componen la solución. Los productos que se ajustan a este escenario usan solo recursos de Azure. La versión de prueba de Azure Resource Manager está disponible para estos tipos de oferta: 
+
+- Aplicaciones de Azure
+- Dynamics 365 for Business Central
+- Dynamics 365 for Customer Engagement y Power Apps
+- Dynamics 365 for Operations
+- SaaS
+- Máquinas virtuales
+
+>[!NOTE]
+>Es la única opción de versión de prueba para las ofertas de máquina virtual o de aplicación de Azure.
 
 ### <a name="hosted-test-drive"></a>Versión de prueba hospedada
 

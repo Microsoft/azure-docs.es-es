@@ -8,12 +8,13 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviwer: mimckitt
-ms.openlocfilehash: 213d9fe2db148c6260a1271c3c2b22978b98a8f3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 41e8f6f3e3562654edcc4ba347abe57e300af511
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508209"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89074232"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata Service: Scheduled Events para máquinas virtuales Windows
 
@@ -42,7 +43,7 @@ Eventos programados proporciona eventos en los casos de uso siguientes:
 - [Mantenimiento iniciado por la plataforma](../maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json) (por ejemplo, reinicio de máquina virtual, migración en vivo o actualizaciones con conservación de memoria para el host)
 - La máquina virtual funciona en un [hardware de host degradado](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) que se predice que fallará pronto
 - Mantenimiento iniciado por el usuario (por ejemplo, el usuario reinicia o vuelve a implementar una máquina virtual)
-- Expulsiones de instancias de [máquina virtual de Spot](spot-vms.md) y [conjunto de escalado de Spot](../../virtual-machine-scale-sets/use-spot.md).
+- Expulsiones de instancias de [máquina virtual de Spot](../spot-vms.md) y [conjunto de escalado de Spot](../../virtual-machine-scale-sets/use-spot.md).
 
 ## <a name="the-basics"></a>Conceptos básicos  
 

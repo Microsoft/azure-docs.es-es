@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: feb7c4a4417d64e039793bd96141c965f6437414
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e09ad2991d552cb9886911ac75ea23c690204a71
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050928"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116655"
 ---
 # <a name="enforce-on-premises-azure-ad-password-protection-for-active-directory-domain-services"></a>Aplicación de Protección con contraseña de Azure AD local en Active Directory Domain Services
 
@@ -87,6 +87,9 @@ Los componentes de Protección con contraseña de Azure AD local funcionan de l
 Para implementar Protección con contraseña de Azure AD en un bosque de AD DS, es necesario registrar dicho bosque con Azure AD. Cada servicio de proxy que se implementa también debe registrarse con Azure AD. Ambos registros de bosque y de proxy están asociados a un determinado inquilino de Azure AD que se identifica implícitamente con las credenciales utilizadas durante el registro.
 
 El bosque de AD DS y todos los servicios de proxy implementados dentro de un bosque deben registrarse con el mismo inquilino. No se permite registrar un bosque de AD DS ni ningún servicio de proxy de ese bosque con diferentes inquilinos de Azure AD. Entre los síntomas de esa implementación mal configurada se incluye la imposibilidad de descargar las directivas de contraseña.
+
+> [!NOTE]
+> Por lo tanto, los clientes que tienen varios inquilinos de Azure AD deben elegir un inquilino distintivo para registrar cada bosque para la protección de contraseña de Azure AD.
 
 ## <a name="download"></a>Descargar
 

@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: f1ae8ca1ef940e45c2d32adc9a002b349f9e1b44
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8313243bf680ea1a1d63f2719b647149a04935a9
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783017"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88893108"
 ---
 # <a name="material-mapping-for-model-formats"></a>Asignación de materiales para formatos de modelos
 
@@ -113,7 +113,7 @@ La fórmula de brillo se describe en esta [especificación](http://www.itu.int/d
 
 `Roughness` se calcula a partir de `Specular` y `ShininessExponent` mediante [esta fórmula](https://www.cs.cornell.edu/~srm/publications/EGSR07-btdf.pdf). La fórmula es una aproximación de la rugosidad del exponente especular Phong:
 
-```Cpp
+```cpp
 Roughness = sqrt(2 / (ShininessExponent * SpecularIntensity + 2))
 ```
 
@@ -124,6 +124,7 @@ Roughness = sqrt(2 / (ShininessExponent * SpecularIntensity + 2))
 La idea es que se solucione la ecuación: Ax<sup>2</sup> + Bx + C = 0.
 Básicamente, las superficies dieléctricas reflejan aproximadamente el 4 % de la luz de forma especular y el resto se difumina. Las superficies metálicas no reflejan ninguna luz de forma difusa, sino todas de forma especular.
 Esta fórmula tiene algunas desventajas, ya que no hay ninguna manera de distinguir entre las superficies metálicas satinadas y las de plástico brillante. Suponemos la mayor parte del tiempo que la superficie tiene propiedades metálicas y, por tanto, las superficies de plástico y de caucho brillante podrían no tener la apariencia esperada.
+
 ```cpp
 dielectricSpecularReflectance = 0.04
 oneMinusSpecularStrength = 1 - SpecularStrength
@@ -143,7 +144,7 @@ Metalness = clamp(value, 0.0, 1.0);
 Tal y como se describe en la sección Metalness, las superficies dieléctricas reflejan aproximadamente el 4 % de la luz.  
 Aquí, la idea es interpolar linealmente entre los colores `Dielectric` y `Metal` con el valor `Metalness` como un factor. Si Metalness es `0.0`, en función del valor de Specular, será un color oscuro (si el valor es alto) o, si no, se cambiará el valor de Diffuse (si no hay ningún valor de Specular). Si el valor es grande, el color difuso desaparecerá en favor del color especular.
 
-```Cpp
+```cpp
 dielectricSpecularReflectance = 0.04
 oneMinusSpecularStrength = 1 - SpecularStrength
 

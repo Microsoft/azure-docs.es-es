@@ -4,12 +4,12 @@ ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 07/15/2020
-ms.openlocfilehash: 2fda9c41efd4c6765681d98011d8fb890b09d19f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fb3282666362e3ef592f253405cff01a52941203
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502065"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88655280"
 ---
 Cuando haga "commit" a una instancia reservada de VM de Azure, puede ahorrar dinero. El descuento de la reserva se aplica automáticamente el número de máquinas virtuales en ejecución que coincidan con el ámbito y los atributos de la reserva. No es necesario asignar una reserva a una máquina virtual para obtener los descuentos. Una compra de instancia reservada cubre solo la parte de proceso del uso de la máquina virtual. En el caso de las máquinas virtuales Windows, el medidor de uso se divide en dos medidores independientes. Hay un medidor de proceso, que es el mismo que el medidor de Linux, y un medidor de IP de Windows. Los cargos que verá al hacer la compra son solo por los costos de proceso. Los cargos no incluyen los costos de software de Windows. Para obtener más información sobre los costos de software, consulte los [costos de software no incluidos en Azure Reserved Virtual Machine Instances](../articles/cost-management-billing/reservations/reserved-instance-windows-software-costs.md).
 
@@ -53,7 +53,7 @@ Cuando la configuración está activada, los descuentos de reserva se aplican au
 
 Compruebe el valor *ConsumedService* en los datos de uso para determinar si el uso puede optar a los descuentos de reserva.
 
-Para más información sobre la flexibilidad de tamaño de instancia, vea [Flexibilidad en el tamaño de las máquinas virtuales con Azure Reserved VM Instances](../articles/virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+Para más información sobre la flexibilidad de tamaño de instancia, vea [Flexibilidad en el tamaño de las máquinas virtuales con Azure Reserved VM Instances](../articles/virtual-machines/reserved-vm-instance-size-flexibility.md).
 
 ### <a name="analyze-your-usage-information"></a>Analizar la información de uso
 
@@ -100,7 +100,7 @@ Si tiene un Contrato Enterprise, puede usar la opción **Agregar más** para agr
 |Ámbito       |El ámbito de la reserva puede cubrir una o varias suscripciones (ámbito compartido). Si selecciona: <ul><li>**Single resource group scope** (Ámbito de grupo de recursos único): aplica el descuento por reserva a los recursos coincidentes solo en el grupo de recursos seleccionado.</li><li>**Single subscription scope** (Ámbito de suscripción única): aplica el descuento por reserva a los recursos coincidentes de la suscripción seleccionada.</li><li>**Ámbito compartido**: aplica el descuento por reserva a los recursos coincidentes en suscripciones aptas que están en el contexto de facturación. Para los clientes de EA, el contexto de facturación es la inscripción. En el caso de suscripciones individuales con tarifas de pago por uso, el ámbito de facturación son todas las suscripciones aptas creadas por el administrador de la cuenta.</li></ul>|
 |Region    |Región de Azure que está cubierta por la reserva.|    
 |Tamaño de VM     |Tamaño de las instancias de máquina virtual.|
-|Optimizar para     |La flexibilidad de tamaño de instancia de máquina virtual está seleccionada de forma predeterminada. Haga clic en **Configuración avanzada** para cambiar el valor de flexibilidad de tamaño de instancia, con el fin de aplicar el descuento de reserva a otras VM del mismo [grupo de tamaño de VM](../articles/virtual-machines/windows/reserved-vm-instance-size-flexibility.md). La prioridad de capacidad da preferencia a la capacidad del centro de datos para las implementaciones. Esto ofrece una mayor confianza en su capacidad para iniciar instancias de máquinas virtuales cuando las necesite. La prioridad de capacidad solo está disponible si el ámbito de la reserva es de suscripción única. |
+|Optimizar para     |La flexibilidad de tamaño de instancia de máquina virtual está seleccionada de forma predeterminada. Haga clic en **Configuración avanzada** para cambiar el valor de flexibilidad de tamaño de instancia, con el fin de aplicar el descuento de reserva a otras VM del mismo [grupo de tamaño de VM](../articles/virtual-machines/reserved-vm-instance-size-flexibility.md). La prioridad de capacidad da preferencia a la capacidad del centro de datos para las implementaciones. Esto ofrece una mayor confianza en su capacidad para iniciar instancias de máquinas virtuales cuando las necesite. La prioridad de capacidad solo está disponible si el ámbito de la reserva es de suscripción única. |
 |Término        |Un año o tres años. También hay un período de 5 años disponible solo para las máquinas virtuales HBv2.|
 |Cantidad    |Número de instancias que se compran dentro de la reserva. La cantidad es el número de instancias de máquina virtual en ejecución a las que se aplica el descuento de facturación. Por ejemplo, si ejecuta 10 máquinas virtuales Standard_D2 en la región Este de EE. UU., debería especificar 10 como cantidad para maximizar el beneficio de todas las máquinas virtuales en ejecución. |
 

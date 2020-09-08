@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9274e147bcaec4b3e63a6720e369946d64e94628
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 27b745353521a44733c46170a5f5952c194c2343
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809891"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89293513"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Administración de puntos de conexión y rutas en Azure Digital Twins (API y CLI)
 
@@ -104,11 +104,11 @@ Los ejemplos de esta sección usan el SDK de C#.
 Las rutas de eventos se definen mediante las API de plano de datos. 
 
 Una definición de ruta puede contener estos elementos:
-* Id. de ruta que quiere usar.
+* El nombre de ruta que quiere usar.
 * Nombre del punto de conexión que quiere usar.
 * Filtro que define los eventos que se envían al punto de conexión. 
 
-Si no hay ningún id. de ruta, no se enruta ningún mensaje fuera de Azure Digital Twins. Si hay un id. de ruta y el filtro es `true`, todos los mensajes se enrutan al punto de conexión. Si hay un id. de ruta y se agrega un filtro diferente, los mensajes se filtrarán de acuerdo con este.
+Si no hay ningún nombre de ruta, no se enruta ningún mensaje fuera de Azure Digital Twins. Si hay un nombre de ruta y el filtro es `true`, todos los mensajes se enrutan al punto de conexión. Si hay un nombre de ruta y se agrega un filtro diferente, los mensajes se filtrarán de acuerdo con este.
 
 Una ruta debe permitir que se seleccionen varias notificaciones y tipos de evento. 
 
@@ -179,6 +179,8 @@ Estos son los filtros de ruta admitidos. Use los detalles de la columna *Filtrar
 ## <a name="manage-endpoints-and-routes-with-cli"></a>Administración de puntos de conexión y rutas con la CLI
 
 Los puntos de conexión y las rutas también se pueden administrar mediante la CLI de Azure Digital Twins. Para obtener más información sobre el uso de la CLI y los comandos disponibles, consulte [*Procedimiento: Uso de la CLI de Azure Digital Twins*](how-to-use-cli.md).
+
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 [!INCLUDE [digital-twins-route-metrics](../../includes/digital-twins-route-metrics.md)]
 

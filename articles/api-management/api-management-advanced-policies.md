@@ -1,6 +1,6 @@
 ---
 title: Directivas avanzadas de Azure API Management | Microsoft Docs
-description: Aprenda sobre las directivas avanzadas disponibles para su uso en Azure API Management.
+description: Aprenda sobre las directivas avanzadas disponibles para su uso en Azure API Management. Consulte ejemplos y examine los recursos adicionales disponibles.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 3843ff986fdc37c37690bee9616861f16a334c67
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 6ac3457a22128f313084ab070a5a61c2d26d4b85
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243739"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87851688"
 ---
 # <a name="api-management-advanced-policies"></a>Directivas avanzadas de API Management
 
@@ -69,7 +69,7 @@ La directiva de flujo de control debe contener al menos un elemento `<when/>`. E
 
 En el ejemplo siguiente se muestra una directiva [set-variable](api-management-advanced-policies.md#set-variable) y dos directivas de flujo de control.
 
-La directiva de establecimiento de variable se encuentra en la sección de entrada y crea una variable de [contexto](api-management-policy-expressions.md#ContextVariables) booleana `isMobile` que se establece en true si el encabezado de la solicitud `User-Agent` contiene el texto `iPad` o `iPhone`.
+La directiva de variable establecida se encuentra en la sección de entrada y crea una variable de [contexto](api-management-policy-expressions.md#ContextVariables) booleana `isMobile` que se establece en true si el encabezado de solicitud `User-Agent` contiene el texto `iPad` o `iPhone`.
 
 La primera directiva de flujo de control se encuentra también en la sección de entrada y aplica condicionalmente una de las dos directivas de [establecimiento del parámetro de cadena de consulta](api-management-transformation-policies.md#SetQueryStringParameter) dependiendo del valor de la variable de contexto `isMobile`.
 
@@ -305,7 +305,7 @@ En el ejemplo siguiente se muestra cómo limitar el número de solicitudes que s
 | Atributo | Descripción                                                                                        | Obligatorio | Valor predeterminado |
 | --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
 | key       | Una cadena. Expresión que se permite. Especifica el ámbito de la simultaneidad. Puede compartirse entre varias directivas. | Sí      | N/D     |
-| número máximo | Un entero. Especifica el número máximo de solicitudes que se pueden especificar en la directiva.           | Sí      | N/D     |
+| número máximo | Entero. Especifica el número máximo de solicitudes que se pueden especificar en la directiva.           | Sí      | N/D     |
 
 ### <a name="usage"></a>Uso
 
@@ -584,8 +584,8 @@ Esto es un ejemplo de cómo usar la directiva `send-one-way-request` para enviar
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | send-one-way-request       | Elemento raíz.                                                                                               | Sí                             |
 | url                        | Dirección URL de la solicitud.                                                                                     | No si mode=copy; de lo contrario, sí. |
-| method                     | Método HTTP usado en la solicitud.                                                                            | No si mode=copy; de lo contrario, sí. |
-| encabezado                     | Encabezado de la solicitud. Utilice varios elementos de encabezado si hay varios encabezados de solicitud.                                  | No                              |
+| método                     | Método HTTP usado en la solicitud.                                                                            | No si mode=copy; de lo contrario, sí. |
+| header                     | Encabezado de la solicitud. Utilice varios elementos de encabezado si hay varios encabezados de solicitud.                                  | No                              |
 | body                       | Cuerpo de la solicitud.                                                                                           | No                              |
 | authentication-certificate | [Certificado usado para la autenticación de cliente](api-management-authentication-policies.md#ClientCertificate) | No                              |
 
@@ -668,8 +668,8 @@ En este ejemplo se muestra una forma de comprobar un token de referencia con un 
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | send-request               | Elemento raíz.                                                                                               | Sí                             |
 | url                        | Dirección URL de la solicitud.                                                                                     | No si mode=copy; de lo contrario, sí. |
-| method                     | Método HTTP usado en la solicitud.                                                                            | No si mode=copy; de lo contrario, sí. |
-| encabezado                     | Encabezado de la solicitud. Utilice varios elementos de encabezado si hay varios encabezados de solicitud.                                  | No                              |
+| método                     | Método HTTP usado en la solicitud.                                                                            | No si mode=copy; de lo contrario, sí. |
+| header                     | Encabezado de la solicitud. Utilice varios elementos de encabezado si hay varios encabezados de solicitud.                                  | No                              |
 | body                       | Cuerpo de la solicitud.                                                                                           | No                              |
 | authentication-certificate | [Certificado usado para la autenticación de cliente](api-management-authentication-policies.md#ClientCertificate) | No                              |
 
@@ -850,7 +850,7 @@ La directiva `set-variable` declara una variable de [contexto](api-management-po
 
 ### <a name="example"></a><a name="set-variableExample"></a> Ejemplo
 
-En el ejemplo siguiente se muestra una directiva de establecimiento de variable en la sección de entrada. Esta directiva de establecimiento de variable crea una variable de [contexto](api-management-policy-expressions.md#ContextVariables) booleana de `isMobile` que se establece en true si el encabezado de la solicitud `User-Agent` contiene el texto `iPad` o `iPhone`.
+En el ejemplo siguiente se muestra una directiva de establecimiento de variable en la sección de entrada. Esta variable de directiva establecida crea una variable de [contexto](api-management-policy-expressions.md#ContextVariables) booleana `isMobile` que se establece en true si el encabezado de la solicitud `User-Agent` contiene el texto `iPad` o `iPhone`.
 
 ```xml
 <set-variable name="IsMobile" value="@(context.Request.Headers["User-Agent"].Contains("iPad") || context.Request.Headers["User-Agent"].Contains("iPhone"))" />
@@ -867,7 +867,7 @@ En el ejemplo siguiente se muestra una directiva de establecimiento de variable 
 | Atributo | Descripción                                                              | Obligatorio |
 | --------- | ------------------------------------------------------------------------ | -------- |
 | name      | El nombre de la variable.                                                | Sí      |
-| value     | El valor de la variable. Puede ser una expresión o un valor literal. | Sí      |
+| value     | Valor de la variable. Puede ser una expresión o un valor literal. | Sí      |
 
 ### <a name="usage"></a>Uso
 
@@ -1025,7 +1025,7 @@ En el ejemplo siguiente hay dos directivas `choose` que son directivas secundari
 
 | Atributo | Descripción                                                                                                                                                                                                                                                                                                                                                                                                            | Obligatorio | Valor predeterminado |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| for       | Determina si la directiva `wait` espera a que se hayan completado todas las directivas secundarias inmediatas o solo una. Los valores permitidos son:<br /><br /> - `all`: espera a que se hayan completado todas las directivas secundarias inmediatas.<br />- any: espera a que se haya completado cualquier directiva secundaria inmediata. En cuanto se completa la primera, la directiva `wait` también se completa y finaliza la ejecución de cualquier otra directiva secundaria inmediata. | No       | all     |
+| para       | Determina si la directiva `wait` espera a que se hayan completado todas las directivas secundarias inmediatas o solo una. Los valores permitidos son:<br /><br /> - `all`: espera a que se hayan completado todas las directivas secundarias inmediatas.<br />- any: espera a que se haya completado cualquier directiva secundaria inmediata. En cuanto se completa la primera, la directiva `wait` también se completa y finaliza la ejecución de cualquier otra directiva secundaria inmediata. | No       | todo     |
 
 ### <a name="usage"></a>Uso
 

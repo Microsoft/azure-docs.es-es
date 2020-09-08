@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/31/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 68ccf3518a7011c0c39003d8e447a4e1d233fd91
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: ce159bc61a1f21c52b8d182c1248ba1d436462da
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88164587"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640521"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Uso de Azure AD Application Proxy para publicar aplicaciones locales para usuarios remotos
 
@@ -76,7 +76,7 @@ Application Proxy es un servicio de Azure AD que se configura en Azure Portal. L
 
 Los componentes de esta característica incluyen el servicio Application Proxy, que se ejecuta en la nube, el conector de Application Proxy, que es un agente ligero que se ejecuta en un servidor local, y Azure AD, que es el proveedor de identidades. Los tres componentes trabajan juntos para proporcionar al usuario una experiencia de inicio de sesión única para acceder a las aplicaciones web locales.
 
-Después de iniciar sesión, los usuarios externos pueden acceder a las aplicaciones web locales mediante una dirección URL conocida o el [panel de acceso de MyApps](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access) desde su escritorio o dispositivos iOS o MAC. Por ejemplo, Application Proxy puede proporcionar acceso remoto e inicio de sesión único para Escritorio remoto, sitios de SharePoint, Tableau, Qlik y Outlook en la web, así como aplicaciones de línea de negocio (LOB).
+Después de iniciar sesión, los usuarios externos pueden acceder a las aplicaciones web locales mediante una dirección URL conocida o por medio de la página [Aplicaciones](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access) desde sus dispositivos de escritorio o iOS/MAC. Por ejemplo, Application Proxy puede proporcionar acceso remoto e inicio de sesión único para Escritorio remoto, sitios de SharePoint, Tableau, Qlik y Outlook en la web, así como aplicaciones de línea de negocio (LOB).
 
 ![Arquitectura de Azure AD Application Proxy](media/what-is-application-proxy/azure-ad-application-proxy-architecture.png)
 

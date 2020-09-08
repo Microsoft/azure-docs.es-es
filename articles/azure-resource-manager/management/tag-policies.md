@@ -3,12 +3,12 @@ title: Directivas para etiquetar recursos
 description: Describe las instancias de Azure Policy que puede asignar para garantizar el cumplimiento de la etiqueta.
 ms.topic: conceptual
 ms.date: 03/20/2020
-ms.openlocfilehash: e3eeb28ea23b18c3492f68d2fac294fc014420c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c6867bc01306ac3c08a9797ece0567a45e060af2
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82147861"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89293749"
 ---
 # <a name="assign-policies-for-tag-compliance"></a>Asignación de directivas para el cumplimiento de la etiqueta
 
@@ -16,7 +16,7 @@ Puede usar [Azure Policy](../../governance/policy/overview.md) para aplicar regl
 
 ## <a name="policies"></a>Directivas
 
-[!INCLUDE [Tag policies](../../../includes/policy/samples/bycat/policies-tags.md)]
+[!INCLUDE [Tag policies](../../../includes/policy/reference/bycat/policies-tags.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

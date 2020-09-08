@@ -2,22 +2,21 @@
 title: 'Ejemplo de PowerShell: Enumeración de aplicaciones de Application Proxy con caracteres comodín'
 description: Ejemplo de PowerShell en el que se enumeran todas las aplicaciones de Azure Active Directory (Azure AD) Application Proxy que usan caracteres comodín.
 services: active-directory
-author: msmimart
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: sample
 ms.date: 12/05/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8149e9230de3e8b6c18d150c81ea67b1d861746c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1b41f6c960c19a6569e95814fd2bf5b1234a338c
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75475614"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511174"
 ---
 # <a name="get-all-application-proxy-apps-using-wildcard-publishing"></a>Obtención de todas las aplicaciones de Application Proxy mediante la publicación con caracteres comodín
 

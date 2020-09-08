@@ -12,22 +12,22 @@ ms.date: 04/09/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: it-pro
-ms.openlocfilehash: dce579596563855022f14bb2c07353b84d1e6127
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: a79078977d25c55edfb4ad72bbd4602a073231f6
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808378"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277942"
 ---
 # <a name="quickstart-view-the-list-of-applications-that-are-using-your-azure-active-directory-azure-ad-tenant-for-identity-management"></a>Inicio rápido: Visualización de la lista de aplicaciones que usan el inquilino de Azure Active Directory (Azure AD) para la administración de identidades
 
-Comience a usar Azure AD como sistema de Administración de identidad y acceso (IAM) de las aplicaciones que usa su organización. En este inicio rápido, verá las aplicaciones que ya están configuradas para usar el inquilino de Azure AD como proveedor de identidades.
+Comience a usar Azure AD como sistema de Administración de identidad y acceso (IAM) de las aplicaciones que usa su organización. En este inicio rápido, verá las aplicaciones que ya están configuradas para usar el inquilino de Azure AD como proveedor de identidades (IdP).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para ver las aplicaciones que se han registrado en el inquilino de Azure AD, necesita:
 
-- Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Una cuenta de Azure. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 >[!IMPORTANT]
 >Para probar los pasos de este inicio rápido, se recomienda usar un entorno que no sea de producción.

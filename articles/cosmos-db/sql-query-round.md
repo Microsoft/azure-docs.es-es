@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: b6aac5a963d0f58a3b21b9fb0958793169a3d444
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9712aedd3d6748f3bceea67a3270b6c080cc16f2
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78302124"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794278"
 ---
 # <a name="round-azure-cosmos-db"></a>ROUND (Azure Cosmos DB)
  Devuelve un valor numérico, redondeado al valor entero más cercano.  
@@ -34,7 +34,7 @@ ROUND(<numeric_expr>)
   
 ## <a name="remarks"></a>Observaciones
   
-  La operación de redondeo realizada sigue el redondeo de punto medio alejado del cero. Si la entrada es una expresión numérica que se encuentra exactamente entre dos enteros, el resultado será el valor entero más cercano alejado de cero.  
+  La operación de redondeo realizada sigue el redondeo de punto medio alejado del cero. Si la entrada es una expresión numérica que se encuentra exactamente entre dos enteros, el resultado será el valor entero más cercano alejado de cero. Esta función del sistema se beneficiará de un [índice de intervalo](index-policy.md#includeexclude-strategy).
   
   |<numeric_expr>|Redondeo|
   |-|-|
@@ -56,10 +56,6 @@ SELECT ROUND(2.4) AS r1, ROUND(2.6) AS r2, ROUND(2.5) AS r3, ROUND(-2.4) AS r4, 
 ```json
 [{r1: 2, r2: 3, r3: 3, r4: -2, r5: -3}]  
 ```  
-
-## <a name="remarks"></a>Observaciones
-
-Esta función del sistema se beneficiará de un [índice de intervalo](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

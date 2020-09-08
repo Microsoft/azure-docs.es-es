@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Getabstract | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Getabstract.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 2b63d048-b529-4fad-9e90-f244323409dd
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: a7de0dfadd7af4f5baca30a037651b4201278cba
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: e95dadd81cd021d0d54d77e70251495b1bd5b6a5
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902174"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550863"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getabstract"></a>Tutorial: Integración de Azure Active Directory con Getabstract
 

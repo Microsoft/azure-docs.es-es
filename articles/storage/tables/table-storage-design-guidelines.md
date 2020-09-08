@@ -1,19 +1,19 @@
 ---
 title: Directrices de diseño de tablas de Azure Storage | Microsoft Docs
-description: Diseñe su instancia de Azure Table service para que admita operaciones de lectura eficientes.
+description: Conozca las directrices de diseño del servicio Azure Table Storage para respaldar las operaciones de lectura y escritura de manera eficaz.
 services: storage
-author: SnehaGunda
 ms.service: storage
+author: tamram
+ms.author: tamram
 ms.topic: article
 ms.date: 04/23/2018
-ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: d056d29469ad9a60fceeee307aca3c0e1319283c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f84707e454a8b1f5d5947478fe65108a142a9757
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "61269854"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236325"
 ---
 # <a name="guidelines-for-table-design"></a>Directrices para el diseño de tablas
 

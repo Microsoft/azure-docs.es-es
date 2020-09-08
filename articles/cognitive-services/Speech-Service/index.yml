@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: trbye
-  ms.openlocfilehash: 74fd89633e4add1c577e44b822f1f90a86b3f498
-  ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+  ms.openlocfilehash: 17cc7914c8e02d3b38e2527e1c0bff3afb885b0b
+  ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/13/2020
-  ms.locfileid: "88167783"
+  ms.lasthandoff: 08/28/2020
+  ms.locfileid: "89055103"
 highlightedContent:
   items:
   - title: ¿Qué es Speech Service?
@@ -65,15 +65,12 @@ conceptualContent:
       url: index-text-to-speech.yml
   - title: Traducción de voz
     links:
+    - itemType: overview
+      text: Acerca de la traducción de voz
+      url: speech-translation.md
     - itemType: quickstart
-      text: Traducción de voz a texto
-      url: quickstarts/translate-speech-to-text.md
-    - itemType: quickstart
-      text: Traducción de voz a varios idiomas
-      url: quickstarts/translate-speech-to-text-multiple-languages.md
-    - itemType: how-to-guide
-      text: Conceptos básicos de la traducción de voz
-      url: speech-translation-basics.md
+      text: Introducción a la traducción de voz
+      url: get-started-speech-translation.md
     footerLink:
       text: Más
       url: index-speech-translation.yml
@@ -141,7 +138,7 @@ conceptualContent:
     - itemType: overview
       text: Acerca de Speech Studio (personalizaciones)
       url: https://speech.microsoft.com
-  - title: Hospedaje
+  - title: Hosting
     links:
     - itemType: how-to-guide
       text: Contenedores del servicio de voz

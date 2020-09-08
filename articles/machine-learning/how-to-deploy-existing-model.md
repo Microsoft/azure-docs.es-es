@@ -10,13 +10,13 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
-ms.openlocfilehash: e9177fdbac6173040145ff6d84dda8a579ee1d9e
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: 04442ad2c6f12960a6c27cc96b52eae20b046851
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87429420"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008209"
 ---
 # <a name="deploy-your-existing-model-with-azure-machine-learning"></a>Implementación de un modelo existente con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -28,7 +28,7 @@ Para más información sobre los conceptos y términos usados en este artículo,
 ## <a name="prerequisites"></a>Requisitos previos
 
 * [Un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md)
-  + En los ejemplos de Python se supone que la variable `ws` está establecida en el área de trabajo de Azure Machine Learning.
+  + En los ejemplos de Python se supone que la variable `ws` está establecida en el área de trabajo de Azure Machine Learning. Para obtener más información sobre cómo conectarse al área de trabajo, consulte la documentación del SDK de [Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#workspace).
   
   + En los ejemplos de la CLI se usan los marcadores de posición `myworkspace` y `myresourcegroup`, que debe reemplazar por el nombre del área de trabajo y el grupo de recursos que lo contiene.
 

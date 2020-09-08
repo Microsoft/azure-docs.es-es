@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: aahi
-ms.openlocfilehash: 00a4f7f6de207d5e8ad1bcd448cc587e3106d3a6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a28a8f22a8aa20612a177d88fd99a66660c74618
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87316988"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607561"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Creación de un recurso de Cognitive Services con Azure Portal
 
@@ -120,5 +120,6 @@ Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede elimin
 
 * [Autenticación de solicitudes en Azure Cognitive Services](authentication.md)
 * [¿Qué es Azure Cognitive Services?](Welcome.md)
+* [Creación de un recurso mediante la biblioteca cliente de la administración de Azure](.\cognitive-services-apis-create-account-client-library.md)
 * [Compatibilidad con idiomas naturales](language-support.md)
 * [Compatibilidad con contenedores de Docker](cognitive-services-container-support.md)

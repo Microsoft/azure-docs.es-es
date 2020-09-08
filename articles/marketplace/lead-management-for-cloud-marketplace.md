@@ -1,5 +1,5 @@
 ---
-title: Administración de clientes potenciales de Marketplace comercial | Azure Marketplace y AppSource
+title: Administración de clientes potenciales del marketplace comercial | Azure Marketplace y AppSource
 description: Información general sobre diversos temas relacionados con la publicación de ofertas y los artefactos técnicos en Azure Marketplace y AppSource
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,14 +7,14 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: 2abbef88ed7bac41b84eb06c8c0ec9c8a906b2f6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b08324654a046b5a2296f6e533107c1b26a0e1fc
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119454"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606883"
 ---
-# <a name="lead-management-for-commercial-marketplace"></a>Administración de clientes potenciales de Marketplace comercial
+# <a name="lead-management-for-the-commercial-marketplace"></a>Administración de clientes potenciales del marketplace comercial
 
 Los clientes son el centro de cualquier negocio bien llevado. En la transformación de las adquisiciones de producto de hoy en día, los vendedores tienen que centrarse en conectar directamente con los clientes y generar una relación. Este es el motivo por el que generar clientes potenciales de alta calidad es una herramienta esencial para su ciclo de ventas. Tras publicar su oferta en [Cloud Partner Portal](https://partner.microsoft.com/), hay herramientas que le permiten recibir la información de contacto de clientes mediante programación inmediatamente después de que un cliente exprese interés o implemente el producto en Marketplace. 
 

@@ -40,7 +40,7 @@
               href: connect-aws.md
             - name: Azure Active Directory
               href: connect-azure-active-directory.md
-            - name: Office 365
+            - name: "Office\_365 (ahora con Teams)"
               href: connect-office-365.md
             - name: Cloud App Security
               href: connect-cloud-app-security.md
@@ -54,14 +54,18 @@
               href: connect-microsoft-defender-advanced-threat-protection.md
             - name: Azure ATP
               href: connect-azure-atp.md
+            - name: Azure DDoS Protection
+              href: connect-azure-ddos-protection.md
+            - name: Azure Firewall
+              href: connect-azure-firewall.md
             - name: Azure Security Center
               href: connect-azure-security-center.md
             - name: Preguntas más frecuentes de Azure Security Center for IoT
               href: connect-asc-iot.md
+            - name: Firewall de aplicaciones web (WAF) de Azure
+              href: connect-azure-waf.md
             - name: Servidor de nombres de dominio
               href: connect-dns.md
-            - name: Firewall de aplicaciones web de Microsoft
-              href: connect-microsoft-waf.md
             - name: Firewall de Windows
               href: connect-windows-firewall.md
             - name: Eventos de seguridad de Windows
@@ -169,6 +173,10 @@
           href: livestream.md
     - name: Eliminación de Azure Sentinel
       href: offboard.md
+- name: Referencia (nuevo)
+  items:
+    - name: API REST
+      href: 'https://docs.microsoft.com/rest/api/securityinsights/'
 - name: Recursos
   items:
     - name: Recursos útiles
@@ -176,7 +184,7 @@
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/updates/?updateType=security&category=security&query=sentinel'
     - name: 'Blog sobre seguridad, privacidad y cumplimiento de Azure'
-      href: 'https://blogs.msdn.com/b/azuresecurity/'
+      href: 'https://docs.microsoft.com/archive/blogs/azuresecurity/'
     - name: Disponibilidad regional
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel'
     - name: Precios

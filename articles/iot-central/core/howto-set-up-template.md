@@ -7,19 +7,19 @@ ms.date: 12/06/2019
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-manager: peterpr
-ms.openlocfilehash: 1f5e1347850c038386d32b52378674ac20316e4c
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.custom: contperfq1
+ms.openlocfilehash: a75fbeb9a12f61f827411e56c57ff6a4460ab083
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337218"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136276"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definición de un nuevo tipo de dispositivo IoT en la aplicación de Azure IoT Central
 
 *Este artículo se aplica a generadores de soluciones y desarrolladores de dispositivos.*
 
-Una plantilla de dispositivo es un plano técnico que define las características y los comportamientos de un tipo de dispositivo que se conecta a una aplicación de Azure IoT Central.
+Una plantilla de dispositivo es un plano técnico que define las características y los comportamientos de un tipo de dispositivo que se conecta a una [aplicación de Azure IoT Central](concepts-app-templates.md).
 
 Por ejemplo, un generador puede crear una plantilla de dispositivo para un ventilador conectado que tenga las siguientes características:
 
@@ -31,17 +31,21 @@ Por ejemplo, un generador puede crear una plantilla de dispositivo para un venti
 - Proporciona un comando para reiniciar el dispositivo
 - Le ofrece una vista global del dispositivo mediante un panel
 
-A partir de esta plantilla de dispositivo, un operador puede crear y conectar dispositivos de ventilador reales. Todos estos ventiladores tienen medidas, propiedades y comandos que los operadores utilizan para supervisar y administrar. Los operadores usan los paneles de dispositivos y los formularios para interactuar con los dispositivos de ventilador.
+A partir de esta plantilla de dispositivo, un operador puede crear y conectar dispositivos de ventilador reales. Todos estos ventiladores tienen medidas, propiedades y comandos que los operadores utilizan para supervisar y administrar. Los operadores usan los [paneles de dispositivos](#add-dashboards) y los formularios para interactuar con los dispositivos de ventilación. Un desarrollador de dispositivos usa la plantilla para comprender cómo interactúa el dispositivo con la aplicación. Para más información, consulte [Cargas de telemetría, propiedades y comandos](concepts-telemetry-properties-commands.md).
 
 > [!NOTE]
 > Solo los generadores y administradores pueden crear, editar y eliminar plantillas de dispositivo. Cualquier usuario puede crear dispositivos en la página **Devices** (Dispositivos) a partir de las plantillas de dispositivo existentes.
 
 En una aplicación de IoT Central, una plantilla de dispositivo usa un modelo de funcionalidad del dispositivo para describir las capacidades de un dispositivo. Como generador, tiene varias opciones para crear plantillas de dispositivo:
 
-- Diseñe la plantilla de dispositivo en IoT Central y, después, implemente el modelo de funcionalidad del dispositivo en el código del dispositivo.
+- Diseñe la plantilla de dispositivo en IoT Central y, después, [implemente el modelo de funcionalidad del dispositivo en el código del dispositivo](concepts-telemetry-properties-commands.md).
 - Importe un modelo de funcionalidad del dispositivo desde el [catálogo de dispositivos Azure Certified for IoT](https://aka.ms/iotdevcat). Después, agregue las propiedades, las personalizaciones y los paneles en la nube que la aplicación de IoT Central necesita.
 - Cree un modelo de funcionalidad del dispositivo mediante Visual Studio Code. Implemente el código del dispositivo a partir del modelo. Importe manualmente el modelo de funcionalidad del dispositivo en la aplicación de IoT Central y, a continuación, agregue las propiedades, las personalizaciones y los paneles en la nube que necesite la aplicación de IoT Central.
 - Cree un modelo de funcionalidad del dispositivo mediante Visual Studio Code. Implemente el código del dispositivo desde el modelo y conecte el dispositivo real a la aplicación de IoT Central mediante una primera conexión del dispositivo. IoT Central busca e importa el modelo de funcionalidad del dispositivo desde el repositorio público. Después, puede agregar las propiedades, las personalizaciones y los paneles en la nube que la aplicación de IoT Central necesita a la plantilla del dispositivo.
+
+También puede agregar plantillas de dispositivo a una aplicación de IoT Central mediante la [API de REST](https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/) o la [CLI](howto-manage-iot-central-from-cli.md).
+
+Algunas [plantillas de aplicación](concepts-app-templates.md) ya incluyen plantillas de dispositivo que son útiles en el escenario que admite la plantilla de aplicación. Por ejemplo, consulte [Arquitectura de análisis en tienda](../retail/store-analytics-architecture.md).
 
 ## <a name="create-a-device-template-from-the-device-catalog"></a>Creación de una plantilla de dispositivo desde el catálogo de dispositivos
 

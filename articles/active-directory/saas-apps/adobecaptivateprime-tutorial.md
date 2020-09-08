@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Adobe Captivate Prime | Microsoft Docs'
 description: Obtenga información para configurar el inicio de sesión único entre Azure Active Directory y Adobe Captivate Prime.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 2f95b226-1465-47f4-b8b7-de4b0772abbc
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdc93cb5d04630307026c2786fda117e16f60f4e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a705119120af9e5eca5815880096b884b5199a09
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73153992"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88537936"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-captivate-prime"></a>Tutorial: Integración de Azure Active Directory con Adobe Captivate Prime
 

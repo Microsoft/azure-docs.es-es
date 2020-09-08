@@ -6,13 +6,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 07/30/2020
-ms.openlocfilehash: 0fb2f9dd156d18705308b41ef8d6b015b3b6d71b
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.date: 08/14/2020
+ms.openlocfilehash: c68c9dc961475d6916b1f00e7d4f596bfd8c77dd
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534454"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257797"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Solución de problemas habituales de Azure Data Share 
 
@@ -34,7 +34,7 @@ Esto puede deberse a los siguientes motivos:
     1. Busque **Microsoft.DataShare**
     1. Haga clic en **Registrar**. 
 
-    Para completar estos pasos, tiene que tener el [rol Colaborador de Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor). 
+    Para completar estos pasos, debe tener el [rol Colaborador de Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) para la suscripción de Azure. 
 
 * **La invitación se envía a su alias de correo electrónico en lugar de a su correo electrónico de inicio de sesión de Azure.** Si ha registrado el servicio de Azure Data Share o ya ha creado un recurso compartido de datos en el inquilino de Azure, pero sigue sin poder ver la invitación, es posible que el proveedor haya escrito su alias de correo electrónico como destinatario en lugar de su dirección de correo electrónico de inicio de sesión de Azure. Póngase en contacto con el proveedor de datos y asegúrese de que ha enviado la invitación a su dirección de correo electrónico de inicio de sesión de Azure y no a su alias de correo electrónico.
 

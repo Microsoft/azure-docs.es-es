@@ -3,12 +3,12 @@ title: Configuración de Azure Backup Server para Azure VMware Solution
 description: Configure el entorno de Azure VMware Solution para realizar copias de seguridad de máquinas virtuales mediante Azure Backup Server.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: c45d2030e282057c487d142669ab634cd81f6929
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0dd2b16254e697a08d0ff542a5ddcb3fc7e4103d
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079543"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750623"
 ---
 # <a name="set-up-azure-backup-server-for-azure-vmware-solution"></a>Configuración de Azure Backup Server para Azure VMware Solution
 
@@ -56,7 +56,7 @@ Para configurar Azure Backup Server para Azure VMware Solution, debe completar l
 
 Azure Backup Server se implementa como una máquina virtual de infraestructura como servicio (IaaS) de Azure para proteger las máquinas virtuales de Azure VMware Solution.
 
-:::image type="content" source="media/avs-backup/deploy-mabs-avs-diagram.png" alt-text="Arquitectura de implementación de AVS" border="false":::
+:::image type="content" source="media/avs-backup/deploy-mabs-avs-diagram.png" alt-text="Azure Backup Server se implementa como una máquina virtual de infraestructura como servicio (IaaS) de Azure para proteger las máquinas virtuales de Azure VMware Solution." border="false":::
 
 ## <a name="prerequisites-for-the-azure-backup-server-environment"></a>Requisitos previos para el entorno de Azure Backup Server
 
@@ -140,23 +140,23 @@ Un almacén de Recovery Services es una entidad de almacenamiento que almacena l
 
 1. En el menú izquierdo, seleccione **Todos los servicios**.
 
-   ![Seleccionar Todos los servicios](../backup/media/backup-create-rs-vault/click-all-services.png)
+   ![En el menú izquierdo, seleccione Todos los servicios.](../backup/media/backup-create-rs-vault/click-all-services.png)
 
 1. En el cuadro de diálogo **Todos los servicios**, escriba **Recovery Services** y, en la lista, seleccione **Almacenes de Recovery Services**.
 
-   ![Escribir y elegir Almacenes de Recovery Services](../backup/media/backup-create-rs-vault/all-services.png)
+   ![Escribir y elegir almacenes de Recovery Services.](../backup/media/backup-create-rs-vault/all-services.png)
 
    Aparece la lista de almacenes de Recovery Services de la suscripción.
 
 1. En el panel **Almacenes de Recovery Services**, seleccione **Agregar**.
 
-   ![Agregar un almacén de Recovery Services](../backup/media/backup-create-rs-vault/add-button-create-vault.png)
+   ![Agregar un almacén de Recovery Services.](../backup/media/backup-create-rs-vault/add-button-create-vault.png)
 
    Se abre el cuadro de diálogo **Almacén de Recovery Services**.
 
 1. Especifique los valores de **Nombre**, **Suscripción**, **Grupo de recursos** y **Ubicación**.
 
-   ![Configurar el almacén de Recovery Services](../backup/media/backup-create-rs-vault/create-new-vault-dialog.png)
+   ![Configurar el almacén de Recovery Services.](../backup/media/backup-create-rs-vault/create-new-vault-dialog.png)
 
    - **Name**: escriba un nombre descriptivo que identifique el almacén. El nombre debe ser único para la suscripción de Azure. Escriba un nombre que tenga un mínimo de 2 caracteres y un máximo de 50. El nombre debe comenzar por una letra y consta solo de letras, números y guiones.
    - **Suscripción**: elija la suscripción que desee usar. Si es miembro de una sola suscripción, verá solo ese nombre. Si no está seguro de qué suscripción va a utilizar, use la predeterminada (sugerida). Solo hay varias opciones si la cuenta profesional o educativa está asociada a más de una suscripción de Azure.
@@ -165,11 +165,11 @@ Un almacén de Recovery Services es una entidad de almacenamiento que almacena l
 
 1. Cuando esté listo para crear el almacén de Recovery Services, seleccione **Crear**.
 
-   ![Crear almacén de Recovery Services](../backup/media/backup-create-rs-vault/click-create-button.png)
+   ![Crear el almacén de Recovery Services.](../backup/media/backup-create-rs-vault/click-create-button.png)
 
    La creación del almacén de Recovery Services puede tardar unos minutos. Supervise las notificaciones de estado en el área **Notificaciones** de la parte superior derecha del portal. Tras crear el almacén, se ve en la lista de almacenes de Recovery Services. Si no lo ve, haga clic en **Actualizar**.
 
-   ![Actualizar lista de almacenes de Backup](../backup/media/backup-create-rs-vault/refresh-button.png)
+   ![Actualizar la lista de almacenes de copia de seguridad.](../backup/media/backup-create-rs-vault/refresh-button.png)
 
 ## <a name="set-storage-replication"></a>Configuración de la replicación del almacenamiento
 
@@ -184,7 +184,7 @@ La opción de replicación de almacenamiento permite elegir entre almacenamiento
 
 1. Seleccione el tipo de replicación almacenamiento y seleccione **Guardar**.
 
-   ![Establecimiento de la configuración de almacenamiento del nuevo almacén](../backup/media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+   ![Establecer la configuración de almacenamiento del almacén nuevo.](../backup/media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
 ## <a name="download-and-install-the-software-package"></a>Descarga e instalación del paquete de software
 
@@ -206,15 +206,15 @@ Siga los pasos de esta sección para descargar, extraer e instalar el paquete de
 
    Se abre el panel del almacén seleccionado.
 
-   ![Apertura del panel del almacén](../backup/media/backup-azure-microsoft-azure-backup/vault-dashboard.png)
+   ![Se abre el panel del almacén seleccionado.](../backup/media/backup-azure-microsoft-azure-backup/vault-dashboard.png)
 
    De forma predeterminada, la opción **Configuración** abre el almacén. Si está cerrado, seleccione **Configuración** para abrirlo.
 
-   ![Opción Configuración para abrir el almacén](../backup/media/backup-azure-microsoft-azure-backup/vault-setting.png)
+   ![De forma predeterminada, la opción Configuración abre el almacén. Si está cerrado, seleccione Configuración para abrirlo.](../backup/media/backup-azure-microsoft-azure-backup/vault-setting.png)
 
 1. Seleccione **Copia de seguridad** para abrir el **Asistente para introducción**.
 
-   ![Apertura del Asistente para introducción con Backup](../backup/media/backup-azure-microsoft-azure-backup/getting-started-backup.png)
+   ![Seleccione Copia de seguridad para abrir el Asistente para introducción.](../backup/media/backup-azure-microsoft-azure-backup/getting-started-backup.png)
 
 1. En la ventana que se abre, haga lo siguiente:
 
@@ -241,7 +241,7 @@ Siga los pasos de esta sección para descargar, extraer e instalar el paquete de
    > [!NOTE]
    > Debe descargar todos los archivos en la misma carpeta. Puesto que el tamaño de descarga de todos los archivos juntos es superior a 3 GB, la descarga podría tardar hasta 60 minutos en completarse. 
 
-   ![Selección de archivos en el Centro de descarga](../backup/media/backup-azure-microsoft-azure-backup/downloadcenter.png)
+   ![En la página de descarga, seleccione todos los archivos y elija Siguiente.](../backup/media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
 ### <a name="extract-the-software-package"></a>Extracción del paquete de software
 
@@ -256,7 +256,7 @@ Si descargó el paquete de software en otro servidor, copie los archivos en la m
 
 1. Seleccione **Extraer** para iniciar el proceso de extracción.
 
-   ![Microsoft Azure Backup: Asistente para instalación](../backup/media/backup-azure-microsoft-azure-backup/extract/03.png)
+   ![Seleccione Extraer para iniciar el proceso de extracción.](../backup/media/backup-azure-microsoft-azure-backup/extract/03.png)
 
 1. Al concluir la extracción, seleccione la opción para **ejecutar setup.exe** y, luego, elija **Finalizar**.
 
@@ -267,17 +267,17 @@ Si descargó el paquete de software en otro servidor, copie los archivos en la m
 
 1. En la ventana de instalación, en **Instalar**, seleccione **Microsoft Azure Backup** para abrir el Asistente para instalación.
 
-   ![Botón Instalar del Asistente para instalación de Microsoft Azure Backup](../backup/media/backup-azure-microsoft-azure-backup/launch-screen2.png)
+   ![En la ventana de instalación, en Instalar, seleccione Microsoft Azure Backup para abrir el Asistente para instalación.](../backup/media/backup-azure-microsoft-azure-backup/launch-screen2.png)
 
 1. En la **pantalla de bienvenida**, seleccione **Siguiente** para ir a la página **Comprobaciones de requisitos previos**.
 
 1. Seleccione **Comprobar de nuevo** para determinar si se cumplen los requisitos previos de hardware y software para Azure Backup Server. Si se cumplen, seleccione **Siguiente**.
 
-   ![Comprobación de requisitos previos de Azure Backup Server](../backup/media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
+   ![ Seleccione Comprobar de nuevo para determinar si se cumplen los requisitos previos de hardware y software para Azure Backup Server. Si se cumplen, seleccione Siguiente.](../backup/media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
 
 1. En el paquete de instalación de Azure Backup Server se incluyen los archivos binarios de SQL Server que se necesitan. Al iniciar una nueva instalación de Azure Backup Server, seleccione la opción **Instalar una nueva instancia de SQL Server con esta instalación**. Después, seleccione **Comprobar e instalar**.
 
-   ![Comprobación de SQL Server de Azure Backup Server](../backup/media/backup-azure-microsoft-azure-backup/sql/01.png)
+   ![En el paquete de instalación de Azure Backup Server se incluyen los archivos binarios de SQL Server que se necesitan.](../backup/media/backup-azure-microsoft-azure-backup/sql/01.png)
 
    > [!NOTE]
    > Si quiere usar su propia instancia de SQL Server, las versiones de SQL Server admitidas son SQL Server 2014 SP1 o posterior, 2016 y 2017. Todas las versiones de SQL Server deben ser Estándar o Enterprise de 64 bits. Azure Backup Server no funciona con una instancia remota de SQL Server. La instancia que Azure Backup Server usa debe ser local. Si utiliza una instancia de SQL Server existente para Azure Backup Server, el programa de instalación solo admite el uso de *instancias con nombre* de SQL Server.
@@ -321,18 +321,18 @@ Si descargó el paquete de software en otro servidor, copie los archivos en la m
    > [!NOTE]
    > La ubicación temporal es necesaria para realizar copias de seguridad en Azure. Asegúrese de que la ubicación temporal sea al menos el 5% de los datos cuya copia de seguridad se planea hacer en la nube. Para la protección de disco, hay que configurar discos independientes una vez completada la instalación. Para más información sobre los bloques de almacenamiento, consulte [Configuración de bloques de almacenamiento y almacenamiento en disco](/previous-versions/system-center/system-center-2012-r2/hh758075(v=sc.12)).
 
-   ![Configuración de la instalación en el programa de instalación de Microsoft Azure Backup](../backup/media/backup-azure-microsoft-azure-backup/space-screen.png)
+   ![Especifique una ubicación para la instalación de los archivos de Microsoft Azure Backup Server y seleccione Siguiente.](../backup/media/backup-azure-microsoft-azure-backup/space-screen.png)
 
 1. Proporcione una contraseña segura para las cuentas de usuario locales con permisos restringidos y seleccione **Siguiente**.
 
-   ![Configuración de seguridad en el programa de instalación de Microsoft Azure Backup](../backup/media/backup-azure-microsoft-azure-backup/security-screen.png)
+   ![Proporcione una contraseña segura para las cuentas de usuario locales con permisos restringidos y seleccione Siguiente.](../backup/media/backup-azure-microsoft-azure-backup/security-screen.png)
 
 1. Seleccione si quiere usar Microsoft Update para buscar actualizaciones y elija **Siguiente**.
 
    > [!NOTE]
    > Se recomienda que Windows Update se redirija a Microsoft Update, que ofrece actualizaciones importantes y de seguridad para Windows y otros productos como Azure Backup Server.
 
-   ![Participación en Microsoft Update en el programa de instalación de Microsoft Azure Backup](../backup/media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
+   ![Seleccione si quiere usar Microsoft Update para buscar actualizaciones y elija Siguiente.](../backup/media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
 
 1. Revise la página **Resumen de la configuración** y seleccione **Instalar**.
 
@@ -352,7 +352,7 @@ Si descargó el paquete de software en otro servidor, copie los archivos en la m
 
    Una vez finalizada la instalación del servicio Agente de Microsoft Azure Recovery Services, el paso de instalación sigue con la instalación y configuración de SQL Server, y los componentes de Azure Backup Server.
 
-   ![Instalación en el programa de instalación de Microsoft Azure Backup](../backup/media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
+   ![Una vez finalizada la instalación del servicio Agente de Microsoft Azure Recovery Services, el paso de instalación sigue con la instalación y configuración de SQL Server, y los componentes de Azure Backup Server.](../backup/media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
 
 1. Cuando finalice la instalación, seleccione **Cerrar**.
 

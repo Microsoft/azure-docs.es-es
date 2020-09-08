@@ -6,13 +6,14 @@ ms.author: robinsh
 ms.date: 04/04/2018
 ms.topic: conceptual
 ms.service: iot-dps
+ms.custom: fasttrack-edit, iot
 services: iot-dps
-ms.openlocfilehash: 5cb0e25ec70956e66f7b867f0d0b9473160fc3ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4a5e8b6f430f6af49ab79ca0f8cb2253bd0f2049
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74975081"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88520663"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Cómo administrar inscripciones de dispositivos con los SDK del servicio Azure Device Provisioning
 La *inscripción de un dispositivo* crea un registro de un único dispositivo o de grupo de ellos que, en algún momento, pueden registrarse en el servicio Device Provisioning. El registro de inscripción contiene la configuración inicial preferida para los dispositivos como parte de la inscripción, incluida la instancia de IoT. En este artículo se muestra cómo administrar inscripciones de dispositivos para el servicio de aprovisionamiento mediante programación con los SDK del servicio de aprovisionamiento de Azure IoT.  Los SDK están disponibles en GitHub en el mismo repositorio que los SDK de Azure IoT.
@@ -39,7 +40,7 @@ Hay dos maneras de inscribir los dispositivos con el servicio de aprovisionamien
     Puede crear un grupo de inscripción con los SDK mediante este flujo de trabajo:
 
     1. En el grupo de inscripción, el mecanismo de atestación emplea el certificado raíz X.509.  Llame a la API ```X509Attestation.createFromRootCertificate``` del SDK de servicio con el certificado raíz para crear la atestación de la inscripción.  El certificado raíz X.509 se proporciona en un archivo PEM o como una cadena.
-    1. Cree una nueva variable ```EnrollmentGroup``` mediante el elemento ```attestation``` creado y un valor único de ```enrollmentGroupId```.  También tiene la opción de definir parámetros como ```Device ID```, ```IoTHubHostName``` o ```ProvisioningStatus```.
+    1. Cree una nueva variable ```EnrollmentGroup``` mediante el elemento ```attestation``` creado y un valor único de ```enrollmentGroupId```.  También tiene la opción de definir parámetros, como ```IoTHubHostName```, ```ProvisioningStatus```.
     2. Llame a la API ```createOrUpdateEnrollmentGroup``` del SDK de servicio de la aplicación back-end con ```EnrollmentGroup``` para crear un grupo de inscripción.
 
 * Una **inscripción individual** es una entrada para el registro de un único dispositivo. Las inscripciones individuales pueden usar certificados X.509 o tokens de SAS (de un módulo de plataforma segura físico o virtual) como mecanismos de atestación. Se recomiendan las inscripciones individuales para los dispositivos que requieran configuraciones iniciales únicas o para los dispositivos que solo se puedan utilizar tokens de SAS a través de módulos de plataforma segura físicos o virtuales como mecanismo de atestación. En las inscripciones individuales se puede especificar el identificador de dispositivo del centro de IoT deseado.

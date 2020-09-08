@@ -3,12 +3,12 @@ title: Copia de seguridad sin conexión con Azure Data Box
 description: Aprenda a usar Azure Data Box para propagar los datos de grandes copias de seguridad iniciales sin conexión desde el agente de MARS hasta un almacén de Recovery Services.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: e377ccde714c1486ff731d24d5a0cd64364bca37
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6ad97ee60c3c7debea72357cf7fc8d483a3c1d46
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091035"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761566"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Copia de seguridad sin conexión de Azure Backup con Azure Data Box
 
@@ -259,13 +259,13 @@ Al configurar la copia de seguridad sin conexión, es posible que se produzca un
 
 Para ver si el problema es el mismo que el descrito anteriormente, realice uno de los pasos siguientes.
 
-#### <a name="step-1"></a>Paso 1
+#### <a name="step-1-of-verification"></a>Paso 1 de la verificación
 
 Compruebe si aparece el siguiente mensaje de error en la consola de MAB cuando configuró la copia de seguridad sin conexión.
 
 ![No se puede crear la directiva Copia de seguridad sin conexión para la cuenta actual de Azure](./media/offline-backup-azure-data-box/unable-to-create-policy.png)
 
-#### <a name="step-2"></a>Paso 2
+#### <a name="step-2-of-verification"></a>Paso 2 de la verificación
 
 1. Abra la carpeta **Temp** en la ruta de acceso de instalación. La ruta de acceso predeterminada de la carpeta Temp es *C:\Program Files\Microsoft Azure Recovery Services Agent\Temp*. Busque el archivo *CBUICurr* y ábralo.
 
@@ -275,11 +275,11 @@ Compruebe si aparece el siguiente mensaje de error en la consola de MAB cuando c
 
 Como solución alternativa para resolver este problema, siga los pasos a continuación y vuelva a intentar la configuración de la directiva.
 
-#### <a name="step-1"></a>Paso 1
+#### <a name="step-1-of-workaround"></a>Paso 1 de la solución alternativa
 
 Inicie sesión en la instancia de PowerShell que aparece en la interfaz de usuario de MAB con una cuenta diferente con acceso de administrador en la suscripción en la que se creará el trabajo de importación o exportación.
 
-#### <a name="step-2"></a>Paso 2
+#### <a name="step-2-of-workaround"></a>Paso 2 de la solución alternativa
 
 Si no hay ningún otro servidor configurado para la propagación sin conexión y ningún otro servidor depende de la aplicación `AzureOfflineBackup_<Azure User Id>`, elimine esta aplicación. Seleccione **Azure Portal** > **Azure Active Directory** > **Registros de aplicaciones**.
 

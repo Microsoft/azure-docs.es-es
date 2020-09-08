@@ -12,12 +12,12 @@ ms.author: garye
 ms.reviewer: carlrab, davidph
 manager: cgronlun
 ms.date: 06/03/2020
-ms.openlocfilehash: b5daf283df1ef5d6b42da5bf0a4652aedf2f6284
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad25a9a62757e1e031ce8b93a44e6f2ada4d9964
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708746"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88689514"
 ---
 # <a name="machine-learning-services-in-azure-sql-managed-instance-preview"></a>Machine Learning Services de Instancia administrada de Azure SQL (versión preliminar)
 
@@ -52,7 +52,23 @@ Machine Learning Services incluye las distribuciones base de Python y R. Se pued
 
 Esta versión preliminar pública limitada está sujeta a las [Condiciones de la versión preliminar de Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
-Si le interesa unirse al programa de versión preliminar y acepta estas condiciones, puede solicitar la inscripción mediante la creación de una incidencia de soporte técnico de Azure en [https://azure.microsoft.com/support/create-ticket/](https://azure.microsoft.com/support/create-ticket/). En "Tipo de problema", seleccione "Técnico"; en "Servicio", seleccione "Instancia administrada de SQL Database", y en "Tipo de problema", seleccione "Otro". En la solicitud, indique que le gustaría inscribirse en una versión preliminar pública limitada de Machine Learning para Instancia administrada de SQL con estos detalles: nombre del servidor lógico, región e identificador de la suscripción.
+Si le interesa unirse al programa de versión preliminar y acepta estas condiciones, puede solicitar la inscripción mediante la creación de una incidencia de soporte técnico de Azure en [ **https://azure.microsoft.com/support/create-ticket/** ](https://azure.microsoft.com/support/create-ticket/). 
+
+1. Seleccione las opciones siguientes:
+   - Tipo de problema: **Técnico**
+   - Suscripción: *seleccione su suscripción*.
+   - Servicio: **Instancia administrada de SQL Database**
+   - Resumen: *proporcione una breve descripción de la solicitud*.
+   - Tipo de problema: **Machine Learning Services para SQL Managed Instance (versión preliminar)**
+   - Subtipo de problema: **Other issue or "How To" questions** (Otra incidencia o preguntas de procedimientos)
+
+1. Haga clic en **Siguiente: Soluciones**.
+
+1. Lea la información sobre la versión preliminar y, luego, haga clic en **Detalles**.
+
+1. En **Descripción**, escriba los detalles de la solicitud, como el nombre del servidor lógico, la región y el identificador de la suscripción que le gustaría inscribir en la versión preliminar. Escriba otros detalles según corresponda.
+
+1. Cuando haya terminado, haga clic en **Siguiente: Revisar y crear** y, luego, en **Crear**.
 
 Cuando ya esté inscrito en el programa, Microsoft le incorporará a la versión preliminar pública y habilitará Machine Learning Services para su base de datos existente o para una nueva.
 

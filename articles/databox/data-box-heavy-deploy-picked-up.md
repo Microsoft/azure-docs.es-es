@@ -1,6 +1,6 @@
 ---
 title: Tutorial para devolver Azure Data Box Heavy | Microsoft Docs
-description: Aprenda a enviar Azure Data Box Heavy a Microsoft
+description: En este tutorial, aprenderá a devolver un dispositivo Azure Data Box Heavy, lo que incluye la preparación del envío, el envío de Data Box Heavy, la comprobación de la carga de datos y la eliminación de datos.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 3aedfed980a61ea6718a02a188ff88d4941026d9
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: fa4df7119763e835cf62e67512105b748c7e2265
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199173"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921017"
 ---
 ::: zone target = "docs"
 

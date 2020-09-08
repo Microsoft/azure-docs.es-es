@@ -3,13 +3,13 @@ title: Autenticación del acceso a Azure Event Hubs con firmas de acceso compart
 description: En este artículo se muestra cómo autenticar el acceso a recursos de Event Hubs mediante firmas de acceso compartido.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 5397cd746f33fc82ee63cc7d2a1f396ba704f334
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: bf1f42020237c0907ec7656735adfa46a21370f9
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423106"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008325"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autenticación del acceso a recursos de Event Hubs mediante firmas de acceso compartido (SAS)
 La firma de acceso compartido (SAS) le ofrece un control pormenorizado sobre el tipo de acceso que se concede a los clientes que la tienen. Estos son algunos de los controles que puede establecer en una SAS: 

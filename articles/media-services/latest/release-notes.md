@@ -3,22 +3,24 @@ title: Notas de la versión de Azure Media Services v3 | Microsoft Docs
 description: Para mantenerse al día con los últimos desarrollos, en este artículo se proporcionan las actualizaciones más reciente en Azure Media Services v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 06/03/2020
-ms.author: juliako
-ms.openlocfilehash: 53e337cf4ccbabf7f0b7a227632ba5e996e2b4f3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 055a3e9ec360e5b2c29cedd0f26c976c269f92bb
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072134"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400626"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 >Reciba notificaciones para volver a visitar esta página y obtener actualizaciones; para ello, copie y pegue esta URL (`https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+release+notes%22&locale=en-us`) en el lector de fuentes RSS.
 
@@ -35,6 +37,18 @@ Para mantenerse al día con los avances más recientes, este artículo proporcio
 > Puede usar [Azure Portal](https://portal.azure.com/) para administrar los [eventos en directo](live-events-outputs-concept.md) de la versión 3, ver los [recursos](assets-concept.md) y trabajos de la versión 3, obtener información sobre el acceso a las API y cifrar contenido. Para las tareas de administración restantes (por ejemplo, la administración de transformaciones y trabajos), use la [API REST](https://aka.ms/ams-v3-rest-ref), la [CLI](https://aka.ms/ams-v3-cli-ref), o uno de los [SDK](media-services-apis-overview.md#sdks) compatibles.
 >
 > Para más detalles, consulte [las limitaciones de Azure Portal para Media Services v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
+
+
+## <a name="august-2020"></a>Agosto de 2020
+
+### <a name="dynamic-encryption"></a>Cifrado dinámico
+La compatibilidad con el cifrado Protected Interoperable File Format (PIFF 1.1) de PlayReady heredado ya está disponible en el empaquetador dinámico. Proporciona compatibilidad con los televisores inteligentes heredados de Samsung y LG que implementaron los borradores iniciales del estándar Common Encryption (CENC) publicado por Microsoft.  El formato PIFF 1.1 también se conoce como el formato de cifrado admitido anteriormente por la biblioteca cliente de Silverlight. En la actualidad, el único caso de uso para este formato de cifrado es la segmentación del mercado de los televisores inteligentes heredados, donde todavía existen una cantidad considerable de televisores inteligentes en algunas regiones que solo admiten Smooth Streaming con el cifrado PIFF 1.1. 
+
+Para usar la compatibilidad con el nuevo cifrado PIFF 1.1, cambie el valor de cifrado a "piff" en la ruta de acceso de la dirección URL del localizador de streaming. Para obtener más información, vea [Introducción a Content Protection](content-protection-overview.md).
+Por ejemplo: `https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=piff)`|
+
+> [!NOTE]
+> La compatibilidad con PIFF 1.1 se proporciona como una solución compatible con versiones anteriores de televisores inteligentes (Samsung y LG) que implementó la versión "Silverlight" anterior de Common Encryption. Se recomienda usar solo el formato PIFF cuando sea necesario para la compatibilidad con los televisores inteligentes Samsung o LG heredados vendidos entre 2009-2015 compatibles con la versión PIFF 1.1 del cifrado de PlayReady. 
 
 ## <a name="july-2020"></a>Julio de 2020
 

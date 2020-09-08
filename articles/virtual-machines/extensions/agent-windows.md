@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2019
 ms.author: akjosh
-ms.openlocfilehash: 6ff5825f3272f0dadc74147d36e8c5fd8e7838d7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 42470df5391a976e8023467758d2a3fd0890883e
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010961"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041483"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Información general del agente de máquina virtual de Azure
 El agente de máquina virtual de Microsoft Azure (agente VM) es un proceso ligero y seguro que administra la interacción de máquinas virtuales (VM) con el controlador de tejido de Azure. El agente de VM tiene un rol principal que consiste en habilitar y ejecutar extensiones de máquina virtual de Azure. Las extensiones de máquina virtual habilitan la configuración posterior a la implementación de máquinas virtuales, como la instalación y la configuración de software. Las extensiones de máquina virtual también habilitan características de recuperación, como el restablecimiento de la contraseña administrativa de una máquina virtual. Sin el agente de máquina virtual de Azure, no se pueden ejecutar extensiones de máquina virtual.
@@ -69,9 +69,13 @@ $vm | Update-AzVM
 ```
 
 ### <a name="prerequisites"></a>Requisitos previos
+
 - El Agente de máquina virtual de Windows necesita como mínimo Windows Server 2008 (64 bits) para ejecutarse, con .NET Framework 4.0. Consulte [Versión mínima admitida para los agentes de la máquina virtual en Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 - Asegúrese de que la máquina virtual tenga acceso a la dirección IP 168.63.129.16. Para más información, vea [¿Qué es la dirección IP 168.63.129.16?](../../virtual-network/what-is-ip-address-168-63-129-16.md).
+
+- Asegúrese de que DHCP esté habilitado en la máquina virtual invitada. Es necesario a fin de obtener la dirección de host o de tejido de DHCP para que funcionen las extensiones y el agente de máquina virtual de IaaS. Si necesita una dirección IP privada estática, debe configurarla a través de Azure Portal o PowerShell y asegurarse de que está habilitada la opción DHCP dentro de la máquina virtual. [Obtenga más información](https://docs.microsoft.com/azure/virtual-network/virtual-networks-static-private-ip-arm-ps#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) acerca de cómo configurar una dirección IP estática con PowerShell.
+
 
 ## <a name="detect-the-vm-agent"></a>Detección del agente de VM
 
@@ -111,7 +115,7 @@ Cuando inicia sesión en una máquina virtual de Windows, el Administrador de ta
 
 
 ## <a name="upgrade-the-vm-agent"></a>Actualización del agente de VM
-El agente de VM de Azure para Windows se actualiza automáticamente. A medida que se implementan nuevas máquinas virtuales en Azure, reciben el agente de máquina virtual más reciente en tiempo de aprovisionamiento de máquina virtual. Las imágenes de máquina virtual personalizadas se deben actualizar manualmente para que incluyan el nuevo agente de máquina virtual en tiempo de creación de la imagen.
+El agente de VM de Azure para Windows se actualiza automáticamente en las imágenes implementadas desde Azure Marketplace. A medida que se implementan nuevas máquinas virtuales en Azure, reciben el agente de máquina virtual más reciente en tiempo de aprovisionamiento de máquina virtual. Si ha instalado el agente manualmente o está implementando imágenes de VM personalizadas, deberá realizar la actualización manualmente para incluir el nuevo agente de VM en el momento de creación de la imagen.
 
 ## <a name="windows-guest-agent-automatic-logs-collection"></a>Recopilación de registros automáticos de Windows Guest Agent
 Windows Guest Agent tiene una característica para recopilar automáticamente algunos registros. Esta característica está controlada por el proceso CollectGuestLogs.exe. Existe tanto para los servicios en la nube PaaS como para las máquinas virtuales de IaaS, y su objetivo es recopilar rápida y automáticamente algunos registros de diagnóstico de una máquina virtual, de modo que se puedan usar para realizar un análisis sin conexión. Los registros recopilados son registros de eventos, registros del sistema operativo, registros de Azure y algunas claves del Registro. Se genera un archivo ZIP que se transfiere al host de la máquina virtual. Este archivo ZIP puede ser consultado por los equipos de ingeniería y los profesionales de soporte técnico para investigar problemas en la solicitud del cliente propietario de la máquina virtual.

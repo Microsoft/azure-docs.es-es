@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.subservice: metrics
-ms.openlocfilehash: ca697fe0174a62532f3fa9ffbc5b3fcfc0c06ad7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 73c9b2bf8cf88ca5e8576c451c9d9ac5f0eae8a3
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321282"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639909"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Métricas personalizadas en Azure Monitor (versión preliminar)
 
@@ -26,6 +26,7 @@ Las métricas personalizadas en Azure Monitor están actualizadas en la versión
 
 Las métricas personalizadas pueden enviarse a Azure Monitor a través de distintos métodos:
 - Instrumente la aplicación con el SDK de Azure Application Insights y envíe datos de telemetría personalizados a Azure Monitor. 
+- Instale el agente de Azure Monitor (versión preliminar) en la [máquina virtual de Azure Windows o Linux](azure-monitor-agent-overview.md) y use una [regla de recopilación de datos](data-collection-rule-azure-monitor-agent.md) para enviar contadores de rendimiento a las métricas de Azure Monitor.
 - Instale la extensión Windows Azure Diagnostics (WAD) en su [máquina virtual Azure](collect-custom-metrics-guestos-resource-manager-vm.md), [conjunto de escalado de máquinas virtuales](collect-custom-metrics-guestos-resource-manager-vmss.md), [máquina virtual clásica](collect-custom-metrics-guestos-vm-classic.md) o [Cloud Services clásico](collect-custom-metrics-guestos-vm-cloud-service-classic.md), y envíe los contadores de rendimiento a Azure Monitor. 
 - Instale el [agente de InfluxData Telegraf](collect-custom-metrics-linux-telegraf.md) en su máquina virtual Linux de Azure y envíe las métricas mediante el complemento de salida de Azure Monitor.
 - Envíe las métricas personalizadas [directamente a la API REST de Azure Monitor](./metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.

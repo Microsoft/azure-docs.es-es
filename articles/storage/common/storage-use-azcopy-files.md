@@ -1,18 +1,18 @@
 ---
 title: Transferencia de datos con Azure Files como origen o destino mediante AzCopy v10 | Microsoft Docs
-description: Transferencia de datos con AzCopy y File Storage.
+description: Transferencia de datos con AzCopy y File Storage. AzCopy es una herramienta de línea de comandos para copiar blobs o archivos a una cuenta de almacenamiento o de ella. Use AzCopy con Azure Files.
 author: normesta
 ms.service: storage
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 7123a90505e5068422d76f22042deac46e721218
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 793f3869a9534c71d860cc8dea7a1995f5ee278d
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292715"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871248"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Transferencia de datos con AzCopy y File Storage 
 
@@ -101,7 +101,7 @@ Puede cargar el contenido de un directorio sin copiar el propio directorio conte
 
 ### <a name="upload-specific-files"></a>Carga de archivos específicos
 
-Puede cargar archivos específicos usando nombres de archivo completos, nombres parciales con caracteres comodín (*) o fechas y horas.
+Puede cargar archivos específicos mediante nombres de archivo completos, nombres parciales con caracteres comodín (*) o fechas y horas.
 
 #### <a name="specify-multiple-complete-file-names"></a>Especificación de varios nombres de archivo completos
 
@@ -196,7 +196,7 @@ Puede descargar el contenido de un directorio sin copiar el propio directorio co
 
 ### <a name="download-specific-files"></a>Descarga de archivos específicos
 
-Puede descargar archivos específicos usando nombres de archivo completos, nombres parciales con caracteres comodín (*) o fechas y horas.
+Puede descargar archivos específicos mediante nombres de archivo completos, nombres parciales con caracteres comodín (*) o fechas y horas.
 
 #### <a name="specify-multiple-complete-file-names"></a>Especificación de varios nombres de archivo completos
 
@@ -306,7 +306,8 @@ Si establece la marca `--delete-destination` en `true`, AzCopy elimina los archi
 >
 > |Escenario|Marca|
 > |---|---|
-> |Especificar cómo de estrictamente se deben validar los hashes MD5 al descargarse.|**--check-md5**=\[NoCheck\|LogOnly\|FailIfDifferent\|FailIfDifferentOrMissing\]|
+> |Copiar las listas de control de acceso (ACL) junto con los archivos.|**--preserve-smb-permissions**=\[true\|false\]|
+> |Copiar la información de la propiedad SMB junto con los archivos.|**--preserve-smb-info**=\[true\|false\]|
 > |Excluir archivos en función de un patrón.|**--exclude-path**|
 > |Especifique el grado de detalles que quiere que sean las entradas de registro relacionadas con la sincronización.|**--log-level**=\[WARNING\|ERROR\|INFO\|NONE\]|
 > 

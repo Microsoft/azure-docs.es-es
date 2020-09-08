@@ -1,20 +1,20 @@
 ---
 title: 'Azure Key Vault: Uso de la eliminación temporal con la CLI'
-description: Ejemplos de casos de uso de eliminación temporal con fragmentos de código de la CLI
+description: Aprenda a la usar CLI de Azure para usar la característica de eliminación temporal de Azure Key Vault que permite la recuperación de almacenes de claves y objetos de Key Vault.
 services: key-vault
-author: msmbaldwin
-manager: rkarlin
+author: ShaneBala-keyvault
+manager: ravijan
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
-ms.date: 08/12/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 7023a2301b6b6137f7a0485523c68f21d72d67a9
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.topic: how-to
+ms.date: 08/11/2020
+ms.author: sudbalas
+ms.openlocfilehash: a86402fec698a299c7f233dcd8c7fde8270dd74d
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385745"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585668"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Uso de la eliminación temporal de Key Vault con la CLI
 
@@ -58,11 +58,7 @@ az keyvault update -n ContosoVault --enable-soft-delete true
 
 ### <a name="new-key-vault"></a>Almacén de claves nuevo
 
-La habilitación de la eliminación temporal para un nuevo almacén de claves se realiza en el momento de la creación agregando el indicador de habilitación de eliminación temporal al comando create.
-
-```azurecli
-az keyvault create --name ContosoVault --resource-group ContosoRG --enable-soft-delete true --location westus
-```
+La eliminación temporal se habilita automáticamente en todos los almacenes de claves de forma predeterminada. El 31 de diciembre de 2020 ya no será posible crear un nuevo almacén de claves sin habilitar la eliminación temporal.
 
 ### <a name="verify-soft-delete-enablement"></a>Comprobación de la habilitación de la eliminación temporal
 

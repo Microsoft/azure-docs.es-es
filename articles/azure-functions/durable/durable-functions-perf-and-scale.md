@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 58c28160de15bc99c94c84ab23fdbb358125132d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e98792c81604b0f867343db289a44dfec9704b5e
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033588"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853705"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Rendimiento y escalado horizontal en Durable Functions (Azure Functions)
 
@@ -224,6 +224,10 @@ Hay dos posibles inconvenientes de este valor que se deben tener en cuenta:
 Por ejemplo, si `durableTask/extendedSessionIdleTimeoutInSeconds` se establece en 30 segundos, un episodio de función de orquestador o entidad de corta duración que se ejecuta en menos de 1 segundo sigue ocupando memoria durante 30 segundos. También se descuenta de la cuota `durableTask/maxConcurrentOrchestratorFunctions` mencionada antes, lo que puede evitar que se ejecuten otras funciones de orquestador o entidad.
 
 En las secciones siguientes se describen los efectos concretos de las sesiones extendidas en las funciones de orquestador y entidad.
+
+> [!NOTE]
+> Las sesiones extendidas solo se admiten actualmente en lenguajes .NET, como C# o F#. Establecer `extendedSessionsEnabled` en `true` para otras plataformas puede conducir a problemas en tiempo de ejecución, como el error silencioso en la ejecución de las funciones desencadenadas por la actividad y la orquestación.
+
 
 ### <a name="orchestrator-function-replay"></a>Reproducción de una función de orquestador
 

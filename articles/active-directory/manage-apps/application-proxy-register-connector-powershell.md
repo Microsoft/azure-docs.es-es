@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea90c80d9edbefe9df05a5d64da612a89c3b251f
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: a5fc1b84e624828d7feb64bd53e8fe8ffff2a7ff
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850824"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054841"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Creación de un script de instalación desatendida para el conector del proxy de la aplicación de Azure AD
 
@@ -37,6 +37,9 @@ Esta capacidad resulta útil cuando desea hacer lo siguiente:
 Para que el [conector del proxy de la aplicación](application-proxy-connectors.md) funcione, debe registrarse con el directorio de Azure AD mediante un administrador de aplicaciones y una contraseña. Normalmente, esta información se especifica durante la instalación del conector en un cuadro de diálogo emergente, pero también puede usar PowerShell para automatizar este proceso.
 
 Hay dos pasos para una instalación desatendida. Primero, instale el conector. Después, registre el conector con Azure AD.
+
+> [!IMPORTANT]
+> Si va a instalar el conector para la nube de Azure Government, consulte los [requisitos previos](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#allow-access-to-urls) y los [pasos de instalación](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#install-the-agent-for-the-azure-government-cloud). Esto requiere habilitar el acceso a un conjunto diferente de direcciones URL y que un parámetro adicional ejecute la instalación.
 
 ## <a name="install-the-connector"></a>Instalación del conector
 Siga estos pasos para instalar el conector sin registrarlo:

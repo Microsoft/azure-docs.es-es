@@ -1,21 +1,21 @@
 ---
-title: 'Tutorial: Creación y ejecución de un cuaderno de Jupyter en la versión preliminar de Azure Notebooks'
-description: Aprenda a crear y ejecutar un cuaderno de Jupyter en la versión preliminar de Azure Notebooks para demostrar el proceso de regresión lineal en ciencia de datos.
+title: 'Tutorial: Creación y ejecución de un cuaderno de Jupyter Notebook en la versión preliminar de Azure Notebooks'
+description: Aprenda a crear y ejecutar un cuaderno de Jupyter Notebook en la versión preliminar de Azure Notebooks para demostrar el proceso de regresión lineal en ciencia de datos.
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: f6480a93610761061462be8e83ce3e719f3e8bdf
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: cb8be1618de7e95a7096e4ea9dec78bf4aa277f6
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846919"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589285"
 ---
-# <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutorial: Creación y ejecución de un cuaderno de Jupyter con Python
+# <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutorial: Creación y ejecución de un cuaderno de Jupyter Notebook con Python
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-Este tutorial le guiará en el proceso de uso de Azure Notebooks para crear un cuaderno de Jupyter completo que muestra la regresión lineal simple. En el transcurso de este tutorial, se familiarizará con la interfaz de usuario de Jupyter Notebook, que incluye la creación de distintas celdas, la ejecución de celdas y la visualización del cuaderno como una presentación.
+Este tutorial le lleva por el proceso de uso de Azure Notebooks para crear un cuaderno completo de Jupyter Notebook que muestra la regresión lineal simple. En su transcurso, se familiarizará con la interfaz de usuario de Jupyter Notebook, que incluye la creación de distintas celdas, la ejecución de celdas y la visualización del cuaderno como una presentación.
 
 Encontrará el cuaderno completo en [GitHub: Ejemplos de Azure Notebooks](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps). Sin embargo, este tutorial empieza con un proyecto nuevo y un cuaderno vacío para que pueda experimentar su creación paso a paso.
 
@@ -219,7 +219,7 @@ Use estos comandos mientras rellena el cuaderno en las secciones siguientes.
 
 ## <a name="create-a-code-cell-with-commands"></a>Creación de una celda de código con comandos
 
-Tal y como se explicó para la celda Markdown anterior, puede incluir comandos directamente en el cuaderno. Puede usar comandos para instalar paquetes, ejecutar curl o wget para recuperar datos, u otras acciones. Los cuadernos de Jupyter se ejecutan bien en una máquina virtual Linux, lo que permite trabajar con el conjunto completo de comandos Linux.
+Tal y como se explicó para la celda Markdown anterior, puede incluir comandos directamente en el cuaderno. Puede usar comandos para instalar paquetes, ejecutar curl o wget para recuperar datos, u otras acciones. Los cuadernos de Jupyter Notebook se ejecutan bien en una máquina virtual Linux, lo que permite trabajar con el conjunto completo de comandos de Linux.
 
 1. Escriba los siguientes comandos en la celda de código que apareció después de usar **Run** (Ejecutar) en la celda Markdown anterior. Si no ve una nueva celda, cree una con **Insert** > **Insert Cell Below** (Insertar > Insertar celda debajo) o use el botón **+** de la barra de herramientas.
 
@@ -417,9 +417,9 @@ Si las celdas de código del cuaderno no se comportan de la manera esperada, qui
 
 Afortunadamente, puede descargar el archivo *.ipynb* del cuaderno y, después, abrirlo en Visual Studio Code con la extensión de Python. La extensión importa directamente un cuaderno como un solo archivo de código, conservando las celdas de Markdown en los comentarios. Una vez importado el cuaderno, puede usar el depurador de Visual Studio Code para recorrer el código, establecer puntos de interrupción, examinar el estado, etc. Después de realizar correcciones en el código, exporte el archivo *.ipynb* de Visual Studio Code y cárguelo en Azure Notebooks.
 
-Para más información, consulte el artículo [Debug a Jupyter notebook](https://code.visualstudio.com/docs/python/jupyter-support#debug-a-jupyter-notebook) (Depurar un cuaderno de Jupyter) en la documentación de Visual Studio Code.
+Para más información, consulte el artículo [Depurar un cuaderno de Jupyter Notebook](https://code.visualstudio.com/docs/python/jupyter-support#debug-a-jupyter-notebook) en la documentación de Visual Studio Code.
 
-Consulte también [Visual Studio Code - Jupyter support](https://code.visualstudio.com/docs/python/jupyter-support) (Visual Studio Code: compatibilidad con Jupyter) para conocer las características adicionales de Visual Studio Code para cuadernos de Jupyter.
+Consulte también [Visual Studio Code: compatibilidad con Jupyter](https://code.visualstudio.com/docs/python/jupyter-support) para conocer las características adicionales de Visual Studio Code para cuadernos de Jupyter Notebook.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

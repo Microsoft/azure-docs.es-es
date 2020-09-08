@@ -1,6 +1,6 @@
 ---
 title: Uso de una memoria caché externa en Azure API Management | Microsoft Docs
-description: Obtenga información sobre cómo configurar y usar una memoria caché externa en Azure API Management.
+description: Obtenga información sobre cómo configurar y usar una memoria caché externa en Azure API Management. El uso de una caché externa permite superar algunas limitaciones de la caché integrada.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -11,18 +11,18 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: apimpm
-ms.openlocfilehash: 3f1f3d0fd0164a37c8011dc82a95337c89e103df
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: cfb7dd7a3831d90235b25af9598cfbc137ffcb3d
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250641"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904962"
 ---
 # <a name="use-an-external-redis-compatible-cache-in-azure-api-management"></a>Uso de una memoria caché compatible con Redis externa en Azure API Management
 
 Además de utilizar la memoria caché integrada, Azure API Management permite almacenar en caché las respuestas en una memoria caché compatible con Redis, por ejemplo, Azure Cache for Redis.
 
-El uso de una memoria caché externa permite superar algunas limitaciones de la memoria caché integrada:
+El uso de una caché externa permite superar algunas limitaciones de la caché integrada:
 
 * Evitar que la memoria caché se borre periódicamente durante las actualizaciones de API Management
 * Tener más control sobre la configuración de la memoria caché
@@ -56,7 +56,7 @@ En esta sección se explica cómo crear una instancia de Azure Redis Cache en Az
 
 En el caso del almacenamiento en caché, las puertas de enlace autohospedadas se basan exclusivamente en memorias caché externas. Para que el almacenamiento en caché sea eficaz, las puertas de enlace autohospedadas y la caché en la que se basan, debe estar cerca unas de otras para minimizar las latencias de búsqueda y almacenamiento. La implementación de una memoria Redis Cache en el mismo clúster de Kubernetes o en un clúster independiente cercano son las mejores opciones. Siga este [vínculo](https://github.com/kubernetes/examples/tree/master/guestbook) para aprender a implementar Redis Cache en un clúster de Kubernetes.
 
-## <a name="add-an-external-cache"></a><a name="add-external-cache"> </a>Adición de una memoria caché externa
+## <a name="add-an-external-cache"></a><a name="add-external-cache"> </a> Adición de una memoria caché externa
 
 Siga estos pasos para agregar una instancia externa de Azure Redis Cache en Azure API Management.
 
@@ -65,7 +65,7 @@ Siga estos pasos para agregar una instancia externa de Azure Redis Cache en Azur
 > [!NOTE]
 > La configuración **Utilizar desde** especifica una región de Azure o una ubicación de puerta de enlace autohospedada que usará la caché configurada. Las memorias caché configuradas como **Predeterminadas** se reemplazarán por memorias caché con un valor de región o ubicación coincidente específico.
 >
-> Por ejemplo, si API Management está hospedado en las regiones Este de EE. UU., Sudeste de Asia y Oeste de Europa y hay dos memorias caché configuradas, una como **Predeterminada** y otra para **Sudeste de Asia**, la instancia de API Management de  **Sudeste de Asia** usará su propia memoria caché, mientras que las otras dos regiones utilizará la entrada de caché **Predeterminada**.
+> Por ejemplo, si API Management está hospedado en las regiones Este de EE. UU., Sudeste de Asia y Oeste de Europa y hay dos memorias caché configuradas, una como **Predeterminada** y otra para **Sudeste de Asia**, la instancia de API Management de ** Sudeste de Asia** usará su propia memoria caché, mientras que las otras dos regiones utilizará la entrada de caché **Predeterminada**.
 
 ### <a name="add-an-azure-cache-for-redis-from-the-same-subscription"></a>Incorporación de una instancia de Azure Redis Cache desde la misma suscripción
 

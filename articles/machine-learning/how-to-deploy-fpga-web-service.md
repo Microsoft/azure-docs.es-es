@@ -11,12 +11,12 @@ author: jpe316
 ms.date: 06/03/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: 0c78245a64fa9bcb7faef2c07973d1d7b5080e76
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 263038ee1be8b31d493282cd920f386132420156
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843103"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648792"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>Descripción de las matrices de puertas programables por campo (FPGA) y procedimiento para realizar la implementación
 
@@ -163,7 +163,7 @@ Use el [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/py
    print(feature_tensor.shape)
    ```
 
-1. Agregue un clasificador. Este clasificador se ha entrenado en el conjunto de datos de ImageNet.  Hay ejemplos disponibles para transferir aprendizaje y entrenamiento de las ponderaciones personalizadas en el conjunto de [cuadernos de ejemplo](https://aka.ms/aml-notebooks).
+1. Agregue un clasificador. Este clasificador se ha entrenado en el conjunto de datos de ImageNet.  Hay ejemplos disponibles para transferir aprendizaje y entrenamiento de las ponderaciones personalizadas en el conjunto de [cuadernos de ejemplo](https://github.com/Azure/MachineLearningNotebooks).
 
    ```python
    classifier_output = model_graph.get_default_classifier(feature_tensor)
@@ -405,7 +405,7 @@ converted_model.delete()
 
 Consulte estos cuadernos, vídeos y blogs:
 
-+ Varios [cuadernos de ejemplo](https://aka.ms/aml-accel-models-notebooks).
++ Varios [cuadernos de ejemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/accelerated-models).
 + Para proteger los servicios web FPGA, consulte el documento [Protección de servicios web](how-to-secure-web-service.md).
 + [Hardware de hiperescala: ML at scale on top of Azure + FPGA: Build 2018 (video)](https://channel9.msdn.com/events/Build/2018/BRK3202) (Hardware de hiperescala: ML a escala sobre Azure + FPGA: compilación 2018 [vídeo])
 + [Inside the Microsoft FPGA-based configurable cloud (video)](https://channel9.msdn.com/Events/Build/2017/B8063) (Dentro de la nube configurable basada en FPGA de Microsoft [vídeo])

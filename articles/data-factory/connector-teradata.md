@@ -9,16 +9,17 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 4eed79210e3e39f82b892ac0681e161ebb59597e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 182e04625f829304168bfdefe000bb8797646c75
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418038"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926899"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Copia de datos de Teradata Vantage mediante Azure Data Factory
+
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 >
 > * [Versión 1](v1/data-factory-onprem-teradata-connector.md)
@@ -71,6 +72,7 @@ Puede establecer más propiedades de conexión en la cadena de conexión, según
 
 | Propiedad | Descripción | Valor predeterminado |
 |:--- |:--- |:--- |
+| UseDataEncryption | Especifica si se va a cifrar toda la comunicación con la base de datos de Teradata. Los valores permitidos son 0 o 1.<br><br/>- **0 (deshabilitado, valor predeterminado)** : cifra únicamente la información de autenticación.<br/>- **1 (habilitado)** : cifra todos los datos que se pasan entre el controlador y la base de datos. | No |
 | CharacterSet | El juego de caracteres que se va a utilizar para la sesión. Por ejemplo, `CharacterSet=UTF16`.<br><br/>Este valor puede ser un juego de caracteres definido por el usuario o uno de los siguientes juegos de caracteres predefinidos: <br/>- ASCII<br/>- UTF8<br/>- UTF16<br/>- LATIN1252_0A<br/>- LATIN9_0A<br/>- LATIN1_0A<br/>- Shift-JIS (Windows, compatible con DOS, KANJISJIS_0S)<br/>- EUC (compatible con Unix, KANJIEC_0U)<br/>- IBM Mainframe (KANJIEBCDIC5035_0I)<br/>- KANJI932_1S0<br/>- BIG5 (TCHBIG5_1R0)<br/>- GB (SCHGB2312_1T0)<br/>- SCHINESE936_6R0<br/>- TCHINESE950_8R0<br/>- NetworkKorean (HANGULKSC5601_2R4)<br/>- HANGUL949_7R0<br/>- ARABIC1256_6A0<br/>- CYRILLIC1251_2A0<br/>- HEBREW1255_5A0<br/>- LATIN1250_1A0<br/>- LATIN1254_7A0<br/>- LATIN1258_8A0<br/>- THAI874_4A0 | El valor predeterminado es `ASCII`. |
 | MaxRespSize |El tamaño máximo del búfer de respuesta para las solicitudes SQL, en kilobytes (KB). Por ejemplo, `MaxRespSize=‭10485760‬`.<br/><br/>En Teradata Database versión 16.00 o posterior, el valor máximo es 7361536. En el caso de las conexiones que usan versiones anteriores, el valor máximo es 1048576. | El valor predeterminado es `65536`. |
 
@@ -206,7 +208,7 @@ Para copiar datos desde Teradata, en la sección **source** de la actividad de c
 | Query | Use la consulta SQL personalizada para leer los datos. Un ejemplo es `"SELECT * FROM MyTable"`.<br>Si habilita la carga con particiones, deberá enlazar todos los parámetros de partición integrados correspondientes en la consulta. Consulte la sección [Copia en paralelo desde Teradata](#parallel-copy-from-teradata) para obtener algunos ejemplos. | No (si se especifica la tabla en el conjunto de datos) |
 | partitionOptions | Especifica las opciones de creación de particiones de datos que se usan para cargar datos desde Teradata. <br>Los valores permitidos son los siguientes: **None** (valor predeterminado), **Hash** y **DynamicRange**.<br>Cuando se habilita una opción de partición (es decir, no `None`), el grado de paralelismo para cargar simultáneamente datos desde Teradata se controla mediante la configuración [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) en la actividad de copia. | No |
 | partitionSettings | Especifique el grupo de configuración para la creación de particiones de datos. <br>Se aplica cuando la opción de partición no es `None`. | No |
-| partitionColumnName | Especifique el nombre de la columna de origen que usará la partición por rangos o la partición de hash para la copia en paralelo. Si no se especifica, se detectará automáticamente el índice principal de la tabla y se usará como columna de partición. <br>Se aplica si la opción de partición es `Hash` o `DynamicRange`. Si usa una consulta para recuperar datos de origen, enlace `?AdfHashPartitionCondition` o `?AdfRangePartitionColumnName` en la cláusula WHERE. Consulte un ejemplo en la sección [Copia en paralelo desde Teradata](#parallel-copy-from-teradata). | No |
+| partitionColumnName | Especifique el nombre de la columna de origen que usará la partición por rangos o la partición de hash para la copia en paralelo. Si no se especifica, se detecta automáticamente el índice principal de la tabla y se usa como columna de partición. <br>Se aplica si la opción de partición es `Hash` o `DynamicRange`. Si usa una consulta para recuperar datos de origen, enlace `?AdfHashPartitionCondition` o `?AdfRangePartitionColumnName` en la cláusula WHERE. Consulte un ejemplo en la sección [Copia en paralelo desde Teradata](#parallel-copy-from-teradata). | No |
 | partitionUpperBound | El valor máximo de la columna de partición para copiar datos. <br>Se aplica cuando la opción de partición es `DynamicRange`. Si usa la consulta para recuperar datos de origen, enlace `?AdfRangePartitionUpbound` en la cláusula WHERE. Consulte la sección [Copia en paralelo desde Teradata](#parallel-copy-from-teradata) para ver un ejemplo. | No |
 | partitionLowerBound | El valor mínimo de la columna de partición para copiar datos. <br>Se aplica si la opción de partición es `DynamicRange`. Si usa una consulta para recuperar datos de origen, enlace `?AdfRangePartitionLowbound` en la cláusula WHERE. Consulte la sección [Copia en paralelo desde Teradata](#parallel-copy-from-teradata) para ver un ejemplo. | No |
 

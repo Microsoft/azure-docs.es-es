@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Yodeck | Microsoft Docs'
 description: Obtenga información para configurar el inicio de sesión único entre Azure Active Directory y Yodeck.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: b2c8dccb-eeb0-4f4d-a24d-8320631ce819
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: af0748f36e8d2299921f987c517f7a4923bd0d55
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8eed884ed9d957ede4ae9fc192ae5a8e501b652e
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67086473"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546243"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yodeck"></a>Tutorial: Integración de Azure Active Directory con Yodeck
 
@@ -119,13 +115,23 @@ Para configurar el inicio de sesión único de Azure AD con Yodeck, realice los 
 
 ### <a name="configure-yodeck-single-sign-on"></a>Configuración del inicio de sesión único de Yodeck
 
+1. Para automatizar la configuración en **Yodeck**, debe instalar la **extensión del explorador de inicio de sesión seguro Mis aplicaciones**. Para ello, haga clic en **Instalar la extensión**.
+
+    ![imagen](./media/target-process-tutorial/install_extension.png)
+
+1. Después de agregar la extensión al explorador, haga clic en **Configurar Yodeck** para ir a la aplicación Yodeck. En ella, escriba las credenciales de administrador para iniciar sesión en Yodeck. La extensión de explorador configurará automáticamente la aplicación y automatizará los pasos 3 a 5.
+
+    ![Configuración](common/setup-sso.png)
+
+    **Si desea configurar la aplicación manualmente, realice los siguientes pasos:**
+
 1. En otra ventana del explorador web, inicie sesión en el sitio de la empresa de Yodeck como administrador.
 
-2. Haga clic en la opción **Configuración de usuario** de la esquina superior derecha de la página y seleccione **Configuración de cuenta**.
+1. Haga clic en la opción **Configuración de usuario** de la esquina superior derecha de la página y seleccione **Configuración de cuenta**.
 
     ![Configuración de Yodeck](./media/yodeck-tutorial/configure1.png)
 
-3. Seleccione **SAML** y realice los siguientes pasos:
+1. Seleccione **SAML** y realice los siguientes pasos:
 
     ![Configuración de Yodeck](./media/yodeck-tutorial/configure2.png)
 
@@ -203,7 +209,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Yodeck, tienen que
 
     ![Agregar empleado](./media/yodeck-tutorial/user2.png)
 
-4. En la página de diálogo **User Details** (Detalles del usuario), siga estos pasos:
+4. En la página de diálogo **Detalles del usuario**, lleve a cabo los pasos siguientes:
 
     ![Agregar empleado](./media/yodeck-tutorial/user3.png)
 

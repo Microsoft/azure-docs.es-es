@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con 360 Online | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y 360 Online.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: cda8eba6-843f-4a09-8c55-0aaf6e593d75
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 493b593d50219ebc0350c2fda63428173d9ac3e9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c0b34611c509ac136c0760c5790c5c50005508cb
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73154723"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88539001"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-360-online"></a>Tutorial: Integración de Azure Active Directory con 360 Online
 

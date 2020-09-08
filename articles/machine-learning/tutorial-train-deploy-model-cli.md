@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 03/26/2020
-ms.openlocfilehash: b4167f8958f7a1613c4d48625f7a79a02c7588d0
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 4028d6732220dba4848c88306a501ce22af7487a
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543408"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144036"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Tutorial: Entrenar e implementar un modelo desde la CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -300,7 +300,7 @@ El archivo runconfig también contiene información que se usa para configurar e
 > [!TIP]
 > Aunque es posible crear manualmente un archivo runconfig, el que se encuentra en este ejemplo se creó con el archivo `generate-runconfig.py` incluido en el repositorio. Este archivo obtiene una referencia al conjunto de datos registrado, crea una configuración de ejecución mediante programación y, luego, la guarda en el archivo.
 
-Para más información sobre los archivos de configuración de ejecución, consulte [Configuración y uso de destinos de proceso para el entrenamiento del modelo](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli). Para obtener una referencia JSON completa, consulte el archivo [runconfigschema.json](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json).
+Para más información sobre los archivos de configuración de ejecución, consulte [Uso de destinos de proceso para el entrenamiento del modelo](how-to-set-up-training-targets.md#whats-a-run-configuration). Para obtener una referencia JSON completa, consulte el archivo [runconfigschema.json](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json).
 
 ## <a name="submit-the-training-run"></a>Envío de la ejecución de entrenamiento
 

@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 08/21/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: 3069ee020d5f127eb0bdb8cbaf251cd3f3cef8d9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e037607d1f86e6df4d3f5b12e29ba8fde447ebc9
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118430"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757938"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Configuración de Advanced Threat Protection para Azure Storage
 
@@ -32,6 +32,17 @@ La protección contra amenazas avanzada para Azure Storage está disponible actu
 Las cuentas con espacios de nombres jerárquicos habilitados para Data Lake Storage admiten transacciones que usan las API de Azure Blob Storage y las API de Data Lake Storage. Los recursos compartidos de Azure admiten transacciones en SMB.
 
 Para obtener más información, incluida una evaluación gratuita de 30 días, consulte la [página de precios de Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+
+En la lista siguiente se resume la disponibilidad de protección contra amenazas avanzada para Azure Storage:
+
+- Estado de la versión:
+  - [Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (disponibilidad general)
+  - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (la versión preliminar admite transacciones SMB y REST)
+  - Azure Data Lake Storage Gen2 (versión preliminar)
+- Nubes:<br>
+    ✔ Nubes comerciales<br>
+    ✔ US Gov<br>
+    ✘ China Gov, otros gobiernos
 
 ## <a name="set-up-advanced-threat-protection"></a>Configuración de Advanced Threat Protection
 

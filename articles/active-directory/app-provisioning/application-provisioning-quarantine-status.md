@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 04/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: ac5b1f72e4c70e15ccb12ea41e5f080ca0b8a505
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 54d02b3189825d08716b73b7250efd4e3f334aa0
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203034"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234751"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Aprovisionamiento de aplicaciones en el estado de cuarentena
 
@@ -34,7 +34,7 @@ Hay tres maneras de comprobar si una aplicación está en cuarentena:
 
 - En Azure Portal, vaya a **Azure Active Directory** > **Registros de auditoría** > filtro en **Actividad: cuarentena** y revise el historial de cuarentena. Aunque la vista de la barra de progreso, tal como se ha descrito anteriormente, muestra si el aprovisionamiento está actualmente en cuarentena, los registros de auditoría permiten ver el historial de cuarentena de una aplicación. 
 
-- Utilice la solicitud de Microsoft Graph [Get synchronizationJob](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-get?view=graph-rest-beta&tabs=http) (Obtener trabajo de sincronización) para obtener, mediante programación, el estado del trabajo de aprovisionamiento:
+- Utilice la solicitud de Microsoft Graph [Get synchronizationJob](/graph/api/synchronization-synchronizationjob-get?tabs=http&view=graph-rest-beta) (Obtener trabajo de sincronización) para obtener, mediante programación, el estado del trabajo de aprovisionamiento:
 
 ```microsoft-graph
         GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/
@@ -52,7 +52,7 @@ Hay tres maneras de comprobar si una aplicación está en cuarentena:
 |---|---|
 |**Problema de cumplimiento de SCIM:** se devolvió una respuesta HTTP/404 No encontrado en lugar de la respuesta HTTP/200 Correcto esperada. En este caso, el servicio de aprovisionamiento de Azure AD realizó una solicitud a la aplicación de destino y recibió una respuesta inesperada.|Consulte la sección Credenciales de administrador para ver si la aplicación requiere de especificar la dirección URL del inquilino. Además, asegúrese de que la dirección URL sea correcta. Si no experimenta ningún problema, póngase en contacto con el desarrollador de la aplicación para asegurarse de que su servicio sea conforme con SCIM. https://tools.ietf.org/html/rfc7644#section-3.4.2 |
 |**Credenciales no válidas:** al intentar autorizar el acceso a la aplicación de destino, se recibió una respuesta de la aplicación de destino que indica que las credenciales proporcionadas no son válidas.|Vaya a la sección Credenciales de administrador de la interfaz de usuario de la configuración de aprovisionamiento y autorice el acceso de nuevo con credenciales válidas. Si la aplicación está en la galería, revise el tutorial de configuración correspondiente para ver los pasos adicionales necesarios.|
-|**Roles duplicados:** los roles importados de ciertas aplicaciones como Salesforce y Zendesk deben ser únicos. |Vaya al [manifiesto](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) de la aplicación en Azure Portal y quite el rol duplicado.|
+|**Roles duplicados:** los roles importados de ciertas aplicaciones como Salesforce y Zendesk deben ser únicos. |Vaya al [manifiesto](../develop/reference-app-manifest.md) de la aplicación en Azure Portal y quite el rol duplicado.|
 
  Una solicitud de Microsoft Graph para obtener el estado del trabajo de aprovisionamiento muestra la siguiente razón para la cuarentena:
 
@@ -74,11 +74,10 @@ Una vez resuelto el problema, reinicie el trabajo de aprovisionamiento. Algunos 
 
 - Use Azure Portal para reiniciar el trabajo de aprovisionamiento. En la página **Provisioning** (Aprovisionamiento) de la aplicación en **Settings** (Configuración), seleccione **Clear state and restart synchronization** (Borrar estado y reinicie la sincronización) y establezca el **estado de aprovisionamiento** en **On** (Activado). Esta acción reinicia completamente el servicio de aprovisionamiento, que puede tardar algún tiempo. Se volverá a ejecutar un ciclo inicial completo, que borrará los elementos en custodia, quitará la aplicación de la cuarentena y borrará las marcas de agua.
 
-- Use Microsoft Graph para [reiniciar el trabajo de aprovisionamiento](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Así tendrá control total sobre lo que reinicie. Puede optar por borrar los elementos en custodia (para reiniciar el contador de custodia que se acumula en el estado de cuarentena), borrar la cuarentena (para quitar la aplicación de la cuarentena) o borrar las marcas de agua. Use la siguiente solicitud:
+- Use Microsoft Graph para [reiniciar el trabajo de aprovisionamiento](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta). Así tendrá control total sobre lo que reinicie. Puede optar por borrar los elementos en custodia (para reiniciar el contador de custodia que se acumula en el estado de cuarentena), borrar la cuarentena (para quitar la aplicación de la cuarentena) o borrar las marcas de agua. Use la siguiente solicitud:
  
 ```microsoft-graph
         POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart
 ```
 
-Reemplace "{id}" con el valor de la ID de la aplicación y reemplace "{jobId}" con la [ID del trabajo de sincronización](https://docs.microsoft.com/graph/api/resources/synchronization-configure-with-directory-extension-attributes?view=graph-rest-beta&tabs=http#list-synchronization-jobs-in-the-context-of-the-service-principal). 
-
+Reemplace "{id}" con el valor de la ID de la aplicación y reemplace "{jobId}" con la [ID del trabajo de sincronización](/graph/api/resources/synchronization-configure-with-directory-extension-attributes?tabs=http&view=graph-rest-beta#list-synchronization-jobs-in-the-context-of-the-service-principal).

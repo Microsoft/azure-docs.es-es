@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: d83aae778c940958d545a9402b09d24a55b1c5a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 888118d227529110c209d7c8d5a3bb79cfcf3a9a
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482690"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959798"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Supervisión de aplicaciones en Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) proporciona funciones de supervisión integradas para aplicaciones Web, móviles y aplicaciones de API en el [Azure Portal](https://portal.azure.com).
@@ -63,6 +63,10 @@ Se pueden incrementar o quitar de la aplicación mediante la actualización del 
 
 > [!IMPORTANT]
 > **Tiempo medio de respuesta** pasará a estar en desuso para evitar confusiones con las agregaciones de métricas. Use **Tiempo de respuesta** a modo de reemplazo.
+
+> [!NOTE]
+> Las métricas de una aplicación incluyen las solicitudes al sitio de SCM de la aplicación (Kudu).  Esto incluye las solicitudes para ver el LogStream del sitio con Kudu.  Las solicitudes de LogStream pueden abarcar varios minutos, lo que afectará a las métricas de tiempo de solicitud.  Los usuarios deben tener en cuenta esta relación al usar estas métricas con la lógica de escalado automático.
+> 
 
 Las métricas proporcionan información acerca de la aplicación o el comportamiento del plan de App Service.
 
@@ -148,14 +152,14 @@ Para buscar las cuotas, seleccione **Configuración** > **Cuotas**. En el gráfi
 
 Al hacer clic en cualquiera de estos gráficos, irá a la vista de métricas, donde puede crear gráficos personalizados, consultar diferentes métricas y mucho más. 
 
-Para más información sobre las métricas, consulte [Supervisión de las métricas del servicio](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
+Para más información sobre las métricas, consulte [Supervisión de las métricas del servicio](../azure-monitor/platform/data-platform.md).
 
 ## <a name="alerts-and-autoscale"></a>Alertas y escalabilidad automática
-Las métricas para una aplicación o un plan de App Service pueden enlazarse con las alertas. Para más información, consulte [Recibir notificaciones de alerta](../monitoring-and-diagnostics/insights-alerts-portal.md).
+Las métricas para una aplicación o un plan de App Service pueden enlazarse con las alertas. Para más información, consulte [Recibir notificaciones de alerta](../azure-monitor/platform/alerts-classic-portal.md).
 
 Las aplicaciones de App Service hospedadas en los planes de App Service básico o superior admiten el escalado automático. Con la escalabilidad automática puede configurar reglas que supervisan las métricas del plan de App Service. Las reglas pueden aumentar o disminuir el recuento de instancias que pueden proporcionar recursos adicionales, según sea necesario. Las reglas también le ayudan a ahorrar dinero cuando la aplicación se aprovisiona en exceso.
 
-Para más información acerca de la escalabilidad automática, consulte [Escalado](../monitoring-and-diagnostics/insights-how-to-scale.md) y [Procedimientos recomendados de escalado automático en Azure Monitor](../azure-monitor/platform/autoscale-best-practices.md).
+Para más información acerca de la escalabilidad automática, consulte [Escalado](../azure-monitor/platform/autoscale-get-started.md) y [Procedimientos recomendados de escalado automático en Azure Monitor](../azure-monitor/platform/autoscale-best-practices.md).
 
 [fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169

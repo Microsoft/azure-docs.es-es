@@ -7,19 +7,19 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 5cfc13700decf0176b283f5f1f9bd81503c1b10a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1c1ea19c22d003ed1aa7c3d3191ff20a69513bc5
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037600"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299514"
 ---
 # <a name="manage-and-monitor-app-with-azure-spring-boot-actuator"></a>Administración y supervisión de aplicaciones con el accionador de Spring Boot de Azure
 
 Después de implementar el nuevo archivo binario en la aplicación, recomendamos comprobar la característica y ver información sobre la aplicación en ejecución. En este artículo se explica cómo acceder a la API desde un punto de conexión de prueba proporcionado por Azure Spring Cloud y exponer las características listas para producción de la aplicación.
 
 ## <a name="prerequisites"></a>Requisitos previos
-En este artículo se presupone que tiene una aplicación Spring Boot 2.x que se puede implementar y arrancar correctamente en el servicio Azure Spring Cloud.  Consulte [Quickstart: Inicio de una aplicación de Azure Spring Cloud existente desde Azure Portal](spring-cloud-quickstart-launch-app-portal.md)
+En este artículo se presupone que tiene una aplicación Spring Boot 2.x que se puede implementar y arrancar correctamente en el servicio Azure Spring Cloud.  Consulte [Quickstart: Inicio de una aplicación de Azure Spring Cloud existente desde Azure Portal](spring-cloud-quickstart.md)
 
 ## <a name="verify-app-through-test-endpoint"></a>Comprobación de la aplicación a través del punto de conexión de prueba
 1. Vaya al **Panel de la aplicación** y haga clic en la aplicación para acceder a la página de información general de la aplicación.

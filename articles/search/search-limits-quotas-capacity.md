@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.openlocfilehash: 35cac2c05a8603313bb2bbe1bde3817dc88c6ed2
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 08/21/2020
+ms.openlocfilehash: 62a0b0ec5312b4d00724fe7c13a5e20b5d35e34f
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682634"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926871"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Límites de servicio en Azure Cognitive Search
 
@@ -44,8 +44,8 @@ Los límites máximos sobre el almacenamiento, las cargas de trabajo, las cantid
 | Campos de colección complejos máximos por índice |40 |40 |40 |40 |40 |40 |40 |40 |
 | Número máximo de elementos en todas las colecciones complejas por documento&nbsp;<sup>2</sup> |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
 | Profundidad máxima de campos complejos |10 |10 |10 |10 |10 |10 |10 |10 |
-| [Proveedores de sugerencias](https://docs.microsoft.com/rest/api/searchservice/suggesters) máximos por índice |1 |1 |1 |1 |1 |1 |1 |1 |
-| [Perfiles de puntuación](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) máximos por índice |100 |100 |100 |100 |100 |100 |100 |100 |
+| [Proveedores de sugerencias](/rest/api/searchservice/suggesters) máximos por índice |1 |1 |1 |1 |1 |1 |1 |1 |
+| [Perfiles de puntuación](/rest/api/searchservice/add-scoring-profiles-to-a-search-index) máximos por índice |100 |100 |100 |100 |100 |100 |100 |100 |
 | Funciones máximas por perfil |8 |8 |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> Los servicios básicos creados antes de diciembre de 2017 tienen límites inferiores (5 en lugar de 15) en los índices. El nivel básico es la única SKU con un límite inferior de 100 campos por índice.
@@ -58,7 +58,7 @@ Los límites máximos sobre el almacenamiento, las cargas de trabajo, las cantid
 
 A partir de octubre de 2018, ya no existen límites de documentos para ningún nuevo servicio creado en ningún nivel facturable (Básico, S1, S2, S3, S3 HD) en ninguna región. Los servicios antiguos creados antes de octubre del 2018 todavía pueden estar sujetos a límites en el número de documentos.
 
-Para determinar si su servicio tiene límites de documento, use la [API de REST de estadísticas del servicio GET](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics). Los límites de documento se reflejan en la respuesta, con `null` indicando que no hay límites.
+Para determinar si su servicio tiene límites de documento, use la [API de REST de estadísticas del servicio GET](/rest/api/searchservice/get-service-statistics). Los límites de documento se reflejan en la respuesta, con `null` indicando que no hay límites.
 
 > [!NOTE]
 > Aunque no hay ningún límite de documentos impuesto por el servicio, hay un límite de particiones de aproximadamente 24 mil millones de documentos por índice en los servicios de búsqueda Básico, S1, S2 y S3. En el caso de S3 HD, el límite de particiones es de 2 mil millones de documentos por índice. Cada elemento de una colección compleja cuenta como un único documento en lo que respecta a los límites de las particiones.
@@ -83,8 +83,8 @@ Los tiempos de ejecución máximos existen para proporcionar equilibrio y estabi
 | Conjuntos de habilidades máximos <sup>4</sup> |3 |5 o 15 |50 |200 |200 |N/D |10 |10 |
 | Carga máxima de indexación por invocación |10 000 documentos |Limitado solamente por el número máximo de documentos |Limitado solamente por el número máximo de documentos |Limitado solamente por el número máximo de documentos |Limitado solamente por el número máximo de documentos |N/D |Sin límite |Sin límite |
 | Programación mínima | 5 minutos |5 minutos |5 minutos |5 minutos |5 minutos |5 minutos |5 minutos | 5 minutos |
-| Tiempo de ejecución máximo <sup>5</sup> | 1-3 minutos |24 horas |24 horas |24 horas |24 horas |N/D  |24 horas |24 horas |
-| Tiempo de ejecución máximo para conocimientos adicionales de búsqueda cognitiva o indización de blobs con análisis de imágenes <sup>5</sup> | 3-10 minutos |2 horas |2 horas |2 horas |2 horas |N/D  |2 horas |2 horas |
+| Tiempo de ejecución máximo| 1-3 minutos |24 horas |24 horas |24 horas |24 horas |N/D  |24 horas |24 horas |
+| Tiempo máximo de ejecución de los indexadores con un aptitudes <sup>5</sup> | 3-10 minutos |2 horas |2 horas |2 horas |2 horas |N/D  |2 horas |2 horas |
 | Indexador de blobs: tamaño máximo de blob, MB |16 |16 |128 |256 |256 |N/D  |256 |256 |
 | Indexador de blobs: número máximo de caracteres del contenido extraído de un blob |32 000 |64 000 |4&nbsp;millones |8&nbsp;millones |16&nbsp;millones |N/D |4&nbsp;millones |4&nbsp;millones |
 
@@ -120,7 +120,7 @@ En el caso de los niveles de Almacenamiento optimizado (L1 y L2), debe esperar u
 
 ## <a name="data-limits-ai-enrichment"></a>Límites de datos (enriquecimiento de inteligencia artificial)
 
-Una [canalización de enriquecimiento con IA](cognitive-search-concept-intro.md) que realiza llamadas a un recurso de Text Analytics para el [reconocimiento de entidades](cognitive-search-skill-entity-recognition.md), la [extracción de frases clave](cognitive-search-skill-keyphrases.md), el [análisis de sentimiento](cognitive-search-skill-sentiment.md), la [detección de idioma](cognitive-search-skill-language-detection.md) y la [detección de información personal](cognitive-search-skill-pii-detection.md) está sujeta a límites de datos. El tamaño máximo de un registro debe tener menos de 50 000 caracteres según la medición de [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Si tiene que dividir los datos antes de enviarlos al analizador de opiniones, use la [aptitud División de texto](cognitive-search-skill-textsplit.md).
+Una [canalización de enriquecimiento con IA](cognitive-search-concept-intro.md) que realiza llamadas a un recurso de Text Analytics para el [reconocimiento de entidades](cognitive-search-skill-entity-recognition.md), la [extracción de frases clave](cognitive-search-skill-keyphrases.md), el [análisis de sentimiento](cognitive-search-skill-sentiment.md), la [detección de idioma](cognitive-search-skill-language-detection.md) y la [detección de información personal](cognitive-search-skill-pii-detection.md) está sujeta a límites de datos. El tamaño máximo de un registro debe tener menos de 50 000 caracteres según la medición de [`String.Length`](/dotnet/api/system.string.length). Si tiene que dividir los datos antes de enviarlos al analizador de opiniones, use la [aptitud División de texto](cognitive-search-skill-textsplit.md).
 
 ## <a name="throttling-limits"></a>Limitaciones
 
@@ -141,7 +141,7 @@ Límites estáticos de frecuencia de solicitudes para las operaciones relacionad
 * Máximo de 32 campos en cláusula $orderby
 * El tamaño máximo del término de búsqueda es de 32 766 bytes (32 KB menos 2 bytes) de texto con codificación UTF-8
 
-<sup>1</sup> En Azure Cognitive Search, el cuerpo de una solicitud está sujeto a un límite superior de 16 MB, lo que impone un límite práctico sobre el contenido de campos individuales o colecciones que no están restringidos de algún modo por límites teóricos (consulte [Tipos de datos admitidos](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) para más información sobre composición de campos y restricciones).
+<sup>1</sup> En Azure Cognitive Search, el cuerpo de una solicitud está sujeto a un límite superior de 16 MB, lo que impone un límite práctico sobre el contenido de campos individuales o colecciones que no están restringidos de algún modo por límites teóricos (consulte [Tipos de datos admitidos](/rest/api/searchservice/supported-data-types) para más información sobre composición de campos y restricciones).
 
 ## <a name="api-response-limits"></a>Límites de respuesta de API
 * Máximo de 1000 documentos devueltos por página de resultados de búsqueda

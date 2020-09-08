@@ -5,17 +5,18 @@ metadata:
   title: Administración de costos + facturación de Azure
   description: Azure Cost Management + facturación le ayudará a conocer la facturación de Azure, administrar su cuenta y sus suscripciones, supervisar y controlar el gasto de Azure, y optimizar el uso de recursos. Aprenda a analizar costos, crear y administrar presupuestos, exportar datos, y revisar y actuar sobre recomendaciones.
   ms.service: cost-management-billing
+  ms.subservice: common
   ms.topic: landing-page
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 06/01/2020
-  ms.openlocfilehash: c119a7da6da42266c2cfb615a8aad887ac846579
-  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+  ms.date: 08/20/2020
+  ms.openlocfilehash: 1d3fafd26b5ad7f92d9280701a386a09f1ad3d22
+  ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/23/2020
-  ms.locfileid: "87039766"
+  ms.lasthandoff: 08/20/2020
+  ms.locfileid: "88683137"
 landingContent:
 - title: Análisis de los costos
   linkLists:
@@ -71,6 +72,8 @@ landingContent:
     links:
     - text: Uso de alertas sobre los costos
       url: costs/cost-mgt-alerts-monitor-usage-spending.md
+    - text: Asignación de costos
+      url: costs/allocate-costs.md
     - text: Visualización y descarga de la factura de Azure
       url: understand/download-azure-invoice.md
     - text: Visualización y descarga de los datos de uso y los cargos de Azure

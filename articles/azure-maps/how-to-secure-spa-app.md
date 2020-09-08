@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 0aa688d6e56629ca376844ce2d0669197b1bb2b7
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 83fbf6fa9190953d902ab60a8a5ce131f1fd8a0e
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531352"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006424"
 ---
 # <a name="how-to-secure-a-single-page-application-with-non-interactive-sign-in"></a>Protección de una aplicación de página única con inicio de sesión no interactivo
 
@@ -100,14 +100,14 @@ Cree una aplicación de servicio web segura que sea responsable de la autenticac
         });
     ```
 
-## <a name="grant-role-based-access"></a>Concesión de acceso basado en roles
+## <a name="grant-role-based-access"></a>Concesión del acceso basado en roles
 
-Puede conceder el *control de acceso basado en roles (RBAC)* mediante la asignación de la identidad asignada por el sistema a una o más definiciones de roles de Azure. Para ver las definiciones de roles de Azure disponibles para Azure Maps, vaya a **Control de acceso (IAM)** . Seleccione **Roles** y busque los roles que comienzan con *Azure Maps*.
+Puede conceder el *control de acceso basado en roles de Azure (RBAC de Azure)* mediante la asignación de la identidad asignada por el sistema a una o más definiciones de roles de Azure. Para ver las definiciones de roles de Azure disponibles para Azure Maps, vaya a **Control de acceso (IAM)** . Seleccione **Roles** y busque los roles que comienzan con *Azure Maps*.
 
 1. Vaya a su **cuenta de Azure Maps**. Seleccione **Control de acceso (IAM)**  > **Asignación de roles**.
 
     > [!div class="mx-imgBorder"]
-    > ![Concesión de RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
+    > ![Concesión del acceso mediante RBAC de Azure](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
 2. En la pestaña **Asignaciones de roles**, en **Rol**, seleccione una definición de roles de Azure Maps integrada, como **Lector de datos de Azure Maps** o **Colaborador de datos de Azure Maps**. En **Asignar acceso a**, seleccione **Function App**. Seleccione la entidad de seguridad por nombre. Después, seleccione **Guardar**.
 

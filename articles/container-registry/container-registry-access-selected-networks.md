@@ -2,13 +2,13 @@
 title: Configuración del acceso a un registro público
 description: Configure reglas de IP para permitir el acceso a un registro de contenedor de Azure desde intervalos de direcciones o direcciones IP públicas seleccionadas.
 ms.topic: article
-ms.date: 05/19/2020
-ms.openlocfilehash: 967f27c05301ff339765706d0b3088ffcbaed1f2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/17/2020
+ms.openlocfilehash: 0fbca1ec2734bf8275e12249f63ab134837fea12
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523832"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660932"
 ---
 # <a name="configure-public-ip-network-rules"></a>Configuración de reglas de red de dirección IP pública
 
@@ -61,12 +61,12 @@ az acr network-rule add \
 
 De forma opcional, deshabilite el punto de conexión público en el registro. Al deshabilitar el punto de conexión público, se invalidan todas las configuraciones del firewall. Por ejemplo, puede que quiera deshabilitar el acceso público a un registro protegido de una red virtual mediante [Private Link](container-registry-private-link.md).
 
+> [!NOTE]
+> Si el registro se configura en una red virtual con un [punto de conexión de servicio](container-registry-vnet.md), al deshabilitar el acceso al punto de conexión público del registro también se deshabilita el acceso al registro dentro de la red virtual.
+
 ### <a name="disable-public-access---cli"></a>Deshabilitación del acceso público: CLI
 
-Para deshabilitar el acceso público mediante la CLI de Azure, ejecute [az acr update][az-acr-update] y establezca `--public-network-enabled` en `false`. 
-
-> [!NOTE]
-> El argumento `public-network-enabled` requiere una versión 2.6.0 o posterior de la CLI de Azure. 
+Para deshabilitar el acceso público mediante la CLI de Azure, ejecute [az acr update][az-acr-update] y establezca `--public-network-enabled` en `false`. El argumento `public-network-enabled` requiere una versión 2.6.0 o posterior de la CLI de Azure. 
 
 ```azurecli
 az acr update --name myContainerRegistry --public-network-enabled false

@@ -1,11 +1,19 @@
 - name: Documentación de Azure Data Share
   href: index.yml
 - name: Información general
+  expanded: true
   items:
     - name: ¿Qué es Azure Data Share?
       href: overview.md
     - name: Almacenes de datos compatibles
       href: supported-data-stores.md
+- name: Guías de inicio rápido
+  items:
+    - name: 'Uso compartido de datos: Azure Portal'
+      href: share-your-data-portal.md
+    - name: 'Uso compartido de datos: plantilla de Resource Manager'
+      displayName: Resource Manager
+      href: share-your-data-arm.md
 - name: Tutoriales
   expanded: true
   items:
@@ -29,6 +37,15 @@
       href: samples-powershell.md
 - name: Guías paso a paso
   items:
+    - name: Uso compartido y recepción de datos por origen
+      items:
+        - name: Uso compartido desde Azure Storage
+          href: how-to-share-from-storage.md
+        - name: Uso compartido desde Azure SQL Database o Synapse Analytics
+          href: how-to-share-from-sql.md
+        - name: Uso compartido desde Azure Data Explorer
+          href: /azure/data-explorer/data-share
+          maintainContext: true
     - name: Supervisión
       href: how-to-monitor.md
     - name: Solución de problemas

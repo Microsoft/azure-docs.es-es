@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: reference
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: cabc3d2a0f8eb3a75938d1768bb0085aab528391
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: e0df3de5eadfd2cc5c00c52da5c4942b42a68b2b
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584610"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88722575"
 ---
 # <a name="azure-cognitive-services-container-image-tags"></a>Etiquetas de imágenes de contenedor de Azure Cognitive Services
 
@@ -35,13 +35,29 @@ Esta imagen de contenedor tiene disponibles las siguientes etiquetas:
 
 ## <a name="computer-vision"></a>Computer Vision
 
-La imagen del contenedor de [Computer Vision][cv-containers] se puede encontrar en el registro de contenedor de `containerpreview.azurecr.io`. Reside en el repositorio `microsoft` y se denomina `cognitive-services-read`. El nombre completo de la imagen de contenedor es `containerpreview.azurecr.io/microsoft/cognitive-services-read`.
+La imagen del contenedor de lectura de OCR de [Computer Vision][cv-containers] se puede encontrar en el registro de contenedor de `containerpreview.azurecr.io`. Reside en el repositorio `microsoft` y se denomina `cognitive-services-read`. El nombre completo de la imagen de contenedor es `containerpreview.azurecr.io/microsoft/cognitive-services-read`.
 
 Esta imagen de contenedor tiene disponibles las siguientes etiquetas:
 
 | Etiquetas de imagen                    | Notas |
 |-------------------------------|:------|
-| `latest`                      |       |
+| `latest ( (2.0.013250001-amd64-preview)` | • Se reduce aún más el uso de memoria para el contenedor. |
+|                                          | • La memoria caché externa es necesaria para la configuración de varios pods. Por ejemplo, configure Redis para el almacenamiento en caché. |
+|                                          | • Se corrige el problema de los resultados que faltan cuando se configura Redis Cache y ResultExpirationPeriod=0.  |
+|                                          | • Se quita el límite de 26 MB para el tamaño del cuerpo de la solicitud. Ahora, el contenedor puede aceptar archivos de más de 26 MB.  |
+|                                          | • Se agrega una marca de tiempo y una versión de compilación al registro de la consola.  |
+| `1.1.013050001-amd64-preview`            | * Se ha agregado la configuración de inicialización de contenedores ReadEngineConfig:ResultExpirationPeriod para especificar el momento en que el sistema debe limpiar los resultados de reconocimiento. |
+|                                          | La configuración se encuentra en horas y el valor predeterminado es 48 h.   |
+|                                          |   La configuración puede reducir el uso de memoria para el almacenamiento de resultados, en especial cuando se usa el almacenamiento en memoria del contenedor.  |
+|                                          |    * Ejemplo 1. ReadEngineConfig:ResultExpirationPeriod=1: el sistema borrará el resultado del reconocimiento 1 h después del proceso.   |
+|                                          |    * Ejemplo 2. ReadEngineConfig:ResultExpirationPeriod=0: el sistema borrará el resultado del reconocimiento después de recuperarlo.  |
+|                                          | Se corrigió un error interno del servidor (500) cuando se pasa un formato de imagen no válido al sistema. Ahora se devolverá un error 400:   |
+|                                          | `{`  |
+|                                          | `"error": {`  |
+|                                          |      `"code": "InvalidImageSize",`  |
+|                                          |      `"message": "Image must be between 1024 and 209715200 bytes."`  |
+|                                          |          `}`  |
+|                                          | `}`  |
 | `1.1.011580001-amd64-preview` |       |
 | `1.1.009920003-amd64-preview` |       |
 | `1.1.009910003-amd64-preview` |       |

@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
-ms.openlocfilehash: 01287f344d77dedade30892d76f5fdbd54481df1
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 76be966d8202bb56a6762a261be5adeaf2d58d6b
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042890"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926406"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Información de rendimiento de consultas para Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,7 +39,7 @@ Información de rendimiento de consultas requiere que el [Almacén de consultas]
 
 ## <a name="permissions"></a>Permisos
 
-Necesitará los siguientes permisos de [control de acceso basado en rol](../../role-based-access-control/overview.md) para usar Información de rendimiento de consultas:
+Necesitará los siguientes permisos de [control de acceso basado en rol de Azure (Azure RBAC)](../../role-based-access-control/overview.md) para usar Información de rendimiento de consultas:
 
 * Se requieren permisos de **lector**, **propietario**, **colaborador**, **colaborador de base de datos SQL** o **colaborador de SQL Server** para ver las consultas y los gráficos que más recursos consumen.
 * Se requieren permisos de **propietario**, **colaborador**, **colaborador de base de datos SQL** o **colaborador de SQL Server** para ver el texto de la consulta.

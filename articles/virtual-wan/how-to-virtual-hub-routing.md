@@ -8,22 +8,18 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 634967fbe50c74770bdc3b526d68896728e4ee07
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 00d79f8058d7d478f7fe97ba9677e47098b70e1b
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513067"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145933"
 ---
 # <a name="how-to-configure-virtual-hub-routing"></a>Configuración del enrutamiento de centro virtual
 
 Un centro virtual puede contener varias puertas de enlace, como una puerta de enlace de VPN de sitio a sitio, una puerta de enlace de ExpressRoute, una puerta de enlace de punto a sitio y Azure Firewall. Las funcionalidades de enrutamiento del centro virtual se proporcionan mediante un enrutador que administra todo el enrutamiento, incluido el enrutamiento del tránsito, entre las puertas de enlace mediante el Protocolo de puerta de enlace de borde (BGP). Este enrutador también proporciona conectividad de tránsito entre las redes virtuales que se conectan a un centro virtual y pueden admitir hasta un rendimiento agregado de 50 Gbps. Estas funcionalidades de enrutamiento se aplican a los clientes de Virtual WAN estándar.
 
 Para obtener más información, consulte [Acerca del enrutamiento de centros virtuales](about-virtual-hub-routing.md).
-
-> [!NOTE]
-> Es posible que algunas de estas funcionalidades todavía se estén implementando. Se espera que la implementación se haya completado el 17 de agosto.
->
 
 ## <a name="create-a-route-table"></a><a name="create-table"></a>Creación de una tabla de rutas
 

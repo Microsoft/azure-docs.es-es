@@ -8,13 +8,13 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: tutorial
-ms.date: 04/25/2020
-ms.openlocfilehash: 66289c512a746a30ed8dbd3e5c2df92bea27d907
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.date: 08/21/2020
+ms.openlocfilehash: 887017f60deb832bd5c53f28bde4b57a3d82bde5
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85565838"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918050"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>Tutorial: Consulta de un índice de Cognitive Search desde Power Apps
 
@@ -92,7 +92,7 @@ Un conector de Power Apps es una conexión de origen de datos. En este paso, cre
 
 1. En *Seleccionar*: Establezca `HotelName,Description,Address/City` como **valor predeterminado**, establezca **Requerido** en *No* y establezca **Visibilidad** en *ninguna*.  
 
-    :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="Metadatos del parámetro de versión" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="Selección de metadatos del parámetro" border="true":::
 
 1. Parámetro *api-version*: Establezca `2020-06-30` como **valor predeterminado**, establezca **Requerido** en *Sí* y establezca **Visibilidad** en *interna*.  
 
@@ -261,5 +261,4 @@ Si está usando un servicio gratuito, recuerde que está limitado a tres índice
 Power Apps permite el desarrollo rápido de aplicaciones personalizadas. Ahora que sabe cómo conectarse a un índice de búsqueda, aprenda más sobre cómo crear una experiencia de visualización enriquecida en una aplicación personalizada de Power Apps.
 
 > [!div class="nextstepaction"]
-> [Catálogo de aprendizaje de Power Apps](https://docs.microsoft.com/powerapps/learning-catalog/get-started)
-
+> [Catálogo de aprendizaje de Power Apps](/powerapps/learning-catalog/get-started)

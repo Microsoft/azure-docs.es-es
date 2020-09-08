@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: aahi
-ms.openlocfilehash: b77d69248059a494d823afcd149382dd52b0e49d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 36e21a131181831c2a87c0c6d2c24c9aa6e0acf7
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317134"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245016"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Creación de un recurso de Cognitive Services mediante la interfaz de la línea de comandos (CLI) de Azure
 
-Use esta guía de inicio rápido para empezar a trabajar con Azure Cognitive Services mediante la [interfaz de la línea de comandos (CLI) de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Los servicios de Cognitive Services se representan por medio de [recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) de Azure que se crean en la suscripción de Azure. Después de crear el recurso, use las claves y el punto de conexión generados para autenticar las aplicaciones. 
+Use esta guía de inicio rápido para empezar a trabajar con Azure Cognitive Services mediante la [interfaz de la línea de comandos (CLI) de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Los servicios de Cognitive Services se representan por medio de [recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) de Azure que se crean en la suscripción de Azure. Después de crear el recurso, use las claves y el punto de conexión generados para autenticar las aplicaciones.
 
 
 En este artículo de inicio rápido, aprenderá a suscribirse a Azure Cognitive Services y a crear una cuenta con una suscripción de un solo servicio o de varios servicios mediante la [interfaz de la línea de comandos de Azure (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Estos servicios se representan mediante los [recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) de Azure, que le permitirán conectarse a una o varias API de Azure Cognitive Services.
@@ -27,10 +27,10 @@ En este artículo de inicio rápido, aprenderá a suscribirse a Azure Cognitive 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Una suscripción de Azure válida: [cree una de forma gratuita](https://azure.microsoft.com/free/).
+* Una suscripción de Azure válida: [cree una de forma gratuita](https://azure.microsoft.com/free/cognitive-services).
 * [Interfaz de la línea de comandos (CLI) de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 
-## <a name="install-the-azure-cli-and-sign-in"></a>Instale la CLI de Azure e inicie sesión. 
+## <a name="install-the-azure-cli-and-sign-in"></a>Instale la CLI de Azure e inicie sesión.
 
 Instale la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Para iniciar sesión en la instalación local de la CLI, ejecute el comando [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login):
 
@@ -39,7 +39,7 @@ az login
 ```
 
 También puede usar el botón verde **Probar** para ejecutar estos comandos en su navegador.
- 
+
 ## <a name="create-a-new-azure-cognitive-services-resource-group"></a>Creación de un nuevo grupo de recursos de Azure Cognitive Services
 
 Antes de crear un recurso de Cognitive Services, debe tener un grupo de recursos de Azure que contenga el recurso. Al crear un nuevo recurso, puede elegir entre crear un grupo de recursos o usar uno existente. En este artículo se muestra cómo crear un nuevo grupo de recursos.

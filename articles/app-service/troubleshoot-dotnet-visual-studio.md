@@ -5,17 +5,17 @@ ms.assetid: def8e481-7803-4371-aa55-64025d116c97
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
-ms.custom: seodec18
-ms.openlocfilehash: f7c35fa2d69df9c900eb64f10da1948fade02b5f
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-csharp, seodec18
+ms.openlocfilehash: de39789a45856211421e3ec5638a2df94d49976c
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079814"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958718"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Solución de problemas de una aplicación en Azure App Service con Visual Studio
 ## <a name="overview"></a>Información general
-En este tutorial se muestra cómo usar herramientas de Visual Studio para ayudar a depurar una aplicación en [App Service](https://go.microsoft.com/fwlink/?LinkId=529714), ya sea en [modo de depuración](https://docs.microsoft.com/visualstudio/debugger/) de manera remota o consultando los registros del servidor web o de aplicación.
+En este tutorial se muestra cómo usar herramientas de Visual Studio para ayudar a depurar una aplicación en [App Service](https://go.microsoft.com/fwlink/?LinkId=529714), ya sea en [modo de depuración](/visualstudio/debugger/) de manera remota o consultando los registros del servidor web o de aplicación.
 
 Aprenderá a realizar los siguientes procedimientos:
 
@@ -680,7 +680,7 @@ Para obtener más información acerca del análisis de registros de servidor web
   Una herramienta para visualizar datos en registros de servidor web (archivos *.log* ).
 * [Solución de problemas de rendimiento de IIS o errores de aplicación al usar LogParser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   Una introducción a la herramienta de analizador del registro que puede utilizar para analizar registros de servidor web.
-* [Publicaciones en el blog de Robert McMurray sobre el uso de LogParser](https://docs.microsoft.com/archive/blogs/robert_mcmurray/using-logparser-with-ftp-7-x-sessions)<br/>
+* [Publicaciones en el blog de Robert McMurray sobre el uso de LogParser](/archive/blogs/robert_mcmurray/using-logparser-with-ftp-7-x-sessions)<br/>
 * [El código de estado HTTP en IIS 7.0, IIS 7.5 y IIS 8.0](https://support.microsoft.com/kb/943891)
 
 ### <a name="analyzing-failed-request-tracing-logs"></a>Análisis de registros de seguimiento de solicitudes con error

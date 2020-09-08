@@ -79,18 +79,15 @@
 - name: Ejemplos
   items:
     - name: Ejemplos de C#
-      href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=csharp'
+      href: /samples/browse/?languages=csharp&products=azure-cognitive-search
     - name: Ejemplos de Java
-      href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=java'
+      href: /samples/browse/?languages=java&products=azure-cognitive-search
     - name: Ejemplos de JavaScript
-      href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=javascript'
+      href: /samples/browse/?languages=javascript&products=azure-cognitive-search
     - name: Ejemplos de Python
-      href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=python'
+      href: /samples/browse/?languages=python&products=azure-cognitive-search
     - name: Ejemplos de REST
-      href: 'https://docs.microsoft.com/samples/browse/?languages=http&expanded=azure&products=azure-cognitive-search'
-    - name: Elementos integrados de Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
+      href: /samples/browse/?expanded=azure&languages=http&products=azure-cognitive-search
 - name: Conceptos
   items:
     - name: Búsqueda de texto completo
@@ -117,6 +114,8 @@
         - name: Controles de seguridad de Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
+        - name: Protección de recursos del indizador
+          href: search-indexer-securing-resources.md
 - name: Guías paso a paso
   items:
     - name: Creación de índices y construcciones
@@ -155,7 +154,7 @@
           href: search-howto-large-index.md
         - name: Manejo de actualizaciones simultáneas
           href: search-howto-concurrency.md
-    - name: Ingesta de datos de Azure
+    - name: Ingesta de datos solo de Azure
       items:
         - name: Configuración de indexadores
           href: search-indexer-overview.md
@@ -183,7 +182,7 @@
                   href: search-howto-index-json-blobs.md
             - name: Azure Tables
               href: search-howto-indexing-azure-tables.md
-            - name: Azure Cosmos DB
+            - name: "Azure Cosmos\_DB"
               href: search-howto-index-cosmosdb.md
             - name: Azure Data Lake Storage Gen2
               href: search-howto-index-azure-data-lake-storage.md
@@ -199,11 +198,11 @@
               href: search-howto-managed-identities-data-sources.md
             - name: Azure Storage
               href: search-howto-managed-identities-storage.md
-            - name: Azure Cosmos DB
+            - name: "Azure Cosmos\_DB"
               href: search-howto-managed-identities-cosmos-db.md
             - name: SQL Database
               href: search-howto-managed-identities-sql.md
-    - name: Ingesta mediante inteligencia artificial
+    - name: Uso de aptitudes (IA)
       items:
         - name: Adjuntar un recurso de Cognitive Services
           href: cognitive-search-attach-cognitive-services.md
@@ -215,7 +214,7 @@
               href: cognitive-search-concept-annotations-syntax.md
             - name: Asignación a campos de índice
               href: cognitive-search-output-field-mapping.md
-            - name: Extracción de información de imágenes
+            - name: Proceso de archivos de imagen
               href: cognitive-search-concept-image-scenarios.md
             - name: Enriquecimiento de la caché (incremental)
               href: search-howto-incremental-index.md
@@ -357,6 +356,14 @@
               href: search-security-trimming-for-azure-search.md
             - name: Filtro por identidades de usuario
               href: search-security-trimming-for-azure-search-with-aad.md
+        - name: Seguridad de salida (indizadores)
+          items:
+            - name: Acceso a través de un intervalo IP
+              href: search-indexer-howto-access-ip-restricted.md
+            - name: Acceso a través de una excepción de un servicio de confianza
+              href: search-indexer-howto-access-trusted-service-exception.md
+            - name: Acceso a través de puntos de conexión privados
+              href: search-indexer-howto-access-private.md
     - name: Administrar
       items:
         - name: Portal
@@ -387,7 +394,7 @@
           href: cognitive-search-common-errors-warnings.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/search?view=azure-cli-latest
     - name: Azure PowerShell
       href: /powershell/module/az.search
@@ -395,36 +402,36 @@
       href: /azure/templates/microsoft.search/searchservices
     - name: REST
       items:
-        - name: Search 2020-06-30
+        - name: Search API (estable)
           href: /rest/api/searchservice
-        - name: Search 2020-06-30-Preview
+        - name: Search API (versión preliminar)
           href: /rest/api/searchservice/index-preview
-        - name: Management 2020-03-13
+        - name: Management API (estable)
           href: /rest/api/searchmanagement
-        - name: Management 2019-10-01-Preview
-          href: /rest/api/searchmanagement/index-2019-10-01-preview
+        - name: Management API (versión preliminar)
+          href: /rest/api/searchmanagement/index-preview
     - name: .NET
       items:
         - name: API de búsqueda
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet'
+          href: /dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet
         - name: API de administración
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/search/management?view=azure-dotnet'
+          href: /dotnet/api/overview/azure/search/management?view=azure-dotnet
     - name: Java
       items:
         - name: API de administración
-          href: 'https://docs.microsoft.com/java/api/overview/azure/search/management?view=azure-java-stable'
+          href: /java/api/overview/azure/search/management?view=azure-java-stable
     - name: JavaScript
       items:
         - name: API de búsqueda
-          href: 'https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest'
+          href: /javascript/api/overview/azure/search-documents-readme?view=azure-node-latest
         - name: API de administración
-          href: 'https://docs.microsoft.com/javascript/api/overview/azure/search/management?view=azure-node-latest'
+          href: /javascript/api/overview/azure/search/management?view=azure-node-latest
     - name: Python
       items:
         - name: API de búsqueda
-          href: 'https://docs.microsoft.com/python/api/overview/azure/search-documents-readme?view=azure-python'
+          href: /python/api/overview/azure/search-documents-readme?view=azure-python
         - name: API de administración
-          href: 'https://docs.microsoft.com/python/api/overview/azure/search/management?view=azure-python'
+          href: /python/api/overview/azure/search/management?view=azure-python
     - name: Referencia al lenguaje OData
       items:
         - name: Información general
@@ -496,6 +503,9 @@
           items:
             - name: Reconocimiento de entidades con nombre
               href: cognitive-search-skill-named-entity-recognition.md
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Soporte técnico de la comunidad de Azure
@@ -517,7 +527,7 @@
     - name: Cursos
       items:
         - name: Introducción (Microsoft Learn)
-          href: 'https://docs.microsoft.com/learn/modules/intro-to-azure-search/'
+          href: /learn/modules/intro-to-azure-search/
         - name: Incorporación de la función Búsqueda a las aplicaciones (Pluralsight)
           href: 'https://www.pluralsight.com/courses/azure-adding-search-abilities-apps'
         - name: Curso para desarrolladores (Pluralsight)

@@ -5,18 +5,18 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/26/2019
+ms.date: 09/02/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 5407c38f33d167ff5114cd55878e3470e7248d71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 976cb096ca654c38d7c4c2534bc6938026be5771
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77188716"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397039"
 ---
-# <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Período de vida (TTL) en Azure Cosmos DB 
+# <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Período de vida (TTL) en Azure Cosmos DB
 
-Mediante el **período de vida** o TTL, Azure Cosmos DB proporciona la capacidad de eliminar automáticamente elementos de un contenedor después de un determinado período de tiempo. De forma predeterminada, puede establecer el período de vida en el nivel de contenedor e invalidar el valor en cada elemento. Después de establecer el TTL en el nivel de contenedor o de elemento, Azure Cosmos DB eliminará automáticamente estos elementos cuando haya pasado el período de tiempo seleccionado tras la hora de la última modificación. El valor del período de vida se configura en segundos. Cuando se configura el TTL, el sistema elimina automáticamente los elementos expirados en función del valor de TTL, sin necesidad de una operación de eliminación que se emita explícitamente desde la aplicación cliente.
+Mediante el **período de vida** o TTL, Azure Cosmos DB proporciona la capacidad de eliminar automáticamente elementos de un contenedor después de un determinado período de tiempo. De forma predeterminada, puede establecer el período de vida en el nivel de contenedor e invalidar el valor en cada elemento. Después de establecer el TTL en el nivel de contenedor o de elemento, Azure Cosmos DB eliminará automáticamente estos elementos cuando haya pasado el período de tiempo seleccionado tras la hora de la última modificación. El valor del período de vida se configura en segundos. Cuando se configura el TTL, el sistema elimina automáticamente los elementos expirados en función del valor de TTL, sin necesidad de una operación de eliminación que se emita explícitamente desde la aplicación cliente. El valor máximo de TTL es 2147483647.
 
 La eliminación de los elementos expirados es una tarea en segundo plano que usa las [unidades de solicitud](request-units.md) restantes, es decir, las unidades de solicitud que no han consumido las solicitudes del usuario. Incluso después de que expire el período de vida, si el contenedor está sobrecargado con solicitudes y no hay suficientes RU disponibles, se retrasa la eliminación de los datos. Los datos se eliminan cuando hay suficientes RU disponibles para realizar la operación de eliminación. Aunque se retrasa la eliminación de los datos, las consultas (por parte de cualquier API) no devuelven los datos después de que expira el período de vida.
 
@@ -30,7 +30,7 @@ El valor de período de vida se establece en segundos, y se interpreta como una 
 
    - Si existe y el valor se ha establecido en "-1", es igual a infinito y los documentos no expiran de forma predeterminada.
 
-   - Si existe y el valor se ha establecido en un número *"n"* , los elementos expiran *"n"* segundos después de la última modificación.
+   - Si existe y el valor se ha establecido en un número *"n"*, los elementos expiran *"n"* segundos después de la última modificación.
 
 2. **Período de vida en un elemento** (se establece mediante `ttl`):
 

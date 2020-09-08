@@ -16,12 +16,12 @@ ms.date: 05/12/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35aa75fcbd579c3e2c587b370b0926393b4e58c1
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 352b4d46e1693580c386f11f7f4d949740f90cc6
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87383773"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231051"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Preguntas frecuentes en torno a los informes de Azure Active Directory
 
@@ -37,7 +37,7 @@ Este artículo incluye respuestas a preguntas más frecuentes sobre los informes
 
 **P: Actualmente uso las API de punto de conexión `https://graph.windows.net/<tenant-name>/reports/`para extraer informes de seguridad de Azure AD (tipos específicos de detecciones, como credenciales perdidas o inicios de sesión desde direcciones IP anónimas) en nuestros sistemas de informes mediante programación. ¿A cuál debo cambiar?**
 
-**R:** Puede usar la  [API de detecciones de riesgo de Identity Protection](../identity-protection/graph-get-started.md)  para acceder a las detecciones de seguridad mediante Microsoft Graph. Este nuevo formato proporciona mayor flexibilidad en el modo en que permite consultar los datos, con filtrado avanzado, selección de campos y mucho más, y normaliza las detecciones de riesgo en un tipo para facilitar la integración en SIEM y otras herramientas de recolección de datos. Dado que los datos están en un formato diferente, no puede sustituir una nueva consulta para las consultas anteriores. Sin embargo, [la nueva API utiliza Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), que es el estándar de Microsoft para estas API como Office 365 o Azure AD. Así, el trabajo necesario puede dilatar sus inversiones actuales en Microsoft Graph o ayudarle a comenzar la transición a esta nueva plataforma estándar.
+**R:** Puede usar la  [API de detecciones de riesgo de Identity Protection](../identity-protection/howto-identity-protection-graph-api.md)  para acceder a las detecciones de seguridad mediante Microsoft Graph. Este nuevo formato proporciona mayor flexibilidad en el modo en que permite consultar los datos, con filtrado avanzado, selección de campos y mucho más, y normaliza las detecciones de riesgo en un tipo para facilitar la integración en SIEM y otras herramientas de recolección de datos. Dado que los datos están en un formato diferente, no puede sustituir una nueva consulta para las consultas anteriores. Sin embargo, [la nueva API utiliza Microsoft Graph](/graph/api/resources/identityriskevent?view=graph-rest-beta), que es el estándar de Microsoft para estas API como Office 365 o Azure AD. Así, el trabajo necesario puede dilatar sus inversiones actuales en Microsoft Graph o ayudarle a comenzar la transición a esta nueva plataforma estándar.
 
 ---
 
@@ -89,7 +89,7 @@ Este artículo incluye respuestas a preguntas más frecuentes sobre los informes
 
 **P: ¿Qué API utilizo para obtener información sobre los registros de actividad de Office 365?**
 
-**R:** Use las [API de Administración de Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview) para acceder a los registros de actividad de Office 365 a través de una API.
+**R:** Use las [API de Administración de Office 365](/office/office-365-management-api/office-365-management-apis-overview) para acceder a los registros de actividad de Office 365 a través de una API.
 
 ---
 
@@ -162,4 +162,4 @@ Este artículo incluye respuestas a preguntas más frecuentes sobre los informes
 
 **P: Mi inicio de sesión se ha bloqueado debido a una directiva de acceso condicional, pero el informe de actividad de inicio de sesión muestra que el inicio de sesión se realizó correctamente. ¿Por qué?**
 
-**R:** Actualmente, el informe de inicio de sesión es posible que muestre resultados que no son precisos para los escenarios de Exchange ActiveSync cuando se aplica el acceso condicional. En el informe puede haber casos en los que el resultado del inicio de sesión del informe muestra un inicio de sesión correcto, pero en realidad se produjo un error debido a una directiva de acceso condicional. 
+**R:** Actualmente, el informe de inicio de sesión es posible que muestre resultados que no son precisos para los escenarios de Exchange ActiveSync cuando se aplica el acceso condicional. En el informe puede haber casos en los que el resultado del inicio de sesión del informe muestra un inicio de sesión correcto, pero en realidad se produjo un error debido a una directiva de acceso condicional.

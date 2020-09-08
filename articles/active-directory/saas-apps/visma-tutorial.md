@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Visma | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Visma.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: a9de1cfb-5611-485e-ad9b-16be094afde6
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/18/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff4c4e71da2a0e736c989e52d2fcb6f9f8636551
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 321ce2e1f0443e8b94c74f463d98f708bfdf7bb3
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74485384"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88531572"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-visma"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Visma
 

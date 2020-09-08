@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 2/20/2020
 ms.author: allensu
-ms.openlocfilehash: fbf996a66bf76520002a22169903c7961080e38b
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: b06ae396ae15c8572cf8160ce576651f47001add
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131538"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920507"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Cómo proteger registros y zonas DNS
 
@@ -20,7 +20,7 @@ ms.locfileid: "87131538"
 
 Los registros y las zonas DNS son recursos críticos. La eliminación de una zona DNS o incluso de un solo un registro DNS puede dar lugar a una interrupción total del servicio. Es importante proteger las zonas y los registros DNS contra cambios accidentales o no autorizados.
 
-En este artículo se explica cómo Azure DNS le permite proteger las zonas y los registros DNS privados de dichos cambios.  Se aplican dos características de seguridad eficaces que proporciona Azure Resource Manager: [control de acceso basado en rol](../role-based-access-control/overview.md) y [bloqueos de recursos](../azure-resource-manager/management/lock-resources.md).
+En este artículo se explica cómo Azure DNS le permite proteger las zonas y los registros DNS privados de dichos cambios.  Se aplican dos características de seguridad eficaces que proporciona Azure Resource Manager: [control de acceso basado en rol de Azure (Azure RBAC)](../role-based-access-control/overview.md) y [bloqueos de recursos](../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="role-based-access-control"></a>Control de acceso basado en rol
 

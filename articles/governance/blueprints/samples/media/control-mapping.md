@@ -1,14 +1,14 @@
 ---
 title: Controles de ejemplo de planos técnicos de Media
 description: Asignación de controles de los ejemplos de plano técnico de Media. Cada control se asigna a una o varias directivas de Azure que ayudan en la evaluación.
-ms.date: 02/24/2020
+ms.date: 08/13/2020
 ms.topic: sample
-ms.openlocfilehash: bdc4ef65c6d61a9d4217d7873bb29bd787842e71
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4101b9030425c22b8806870d467581521870d639
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78201742"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208460"
 ---
 # <a name="control-mapping-of-the-media-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico de Media
 
@@ -137,7 +137,7 @@ Las siguientes asignaciones son para los controles de **Media**. Use el panel de
 
 ### <a name="cm-514--identify-and-disable-unnecessary-andor-non-secure-functions-ports-protocols-and-services"></a>CM-5.14: identifique y deshabilite las funciones, puertos, protocolos y servicios innecesarios o no seguros.
 
-- Las interfaces de red deben deshabilitar el reenvío de IP
+- Las interfaces de red deben deshabilitar el reenvío IP
 - \[Versión preliminar\]: el reenvío de IP en la máquina virtual debe estar deshabilitado
 
 ### <a name="cm-519--monitor-changes-to-the-security-configuration-settings"></a>CM-5.19: supervise los cambios en la configuración de seguridad
@@ -174,7 +174,7 @@ Las siguientes asignaciones son para los controles de **Media**. Use el panel de
 
 - \[Versión preliminar\]: se implementan los requisitos previos para auditar las configuraciones de las VM Windows en "Propiedades de Firewall de Windows"
 
-## <a name="security-planning"></a>Planeamiento de la seguridad
+## <a name="security-planning"></a>Planeación de seguridad
 
 ### <a name="sp-113--threats-must-be-identified-that-could-negatively-impact-the-confidentiality-integrity-or-availability-of-company-information-and-content-along-with-the-likelihood-of-their-occurrence"></a>SP-11.3: se deben identificar las amenazas que puedan afectar de forma desfavorable a la confidencialidad, la integridad o la disponibilidad del contenido y la información de la empresa, junto con la probabilidad de que se produzcan
 
@@ -236,8 +236,8 @@ Las siguientes asignaciones son para los controles de **Media**. Use el panel de
 Ya ha leído la asignación de controles del ejemplo de plano técnico de Media. Ahora, consulte los siguientes artículos para ver una introducción y aprender a implementar este ejemplo:
 
 > [!div class="next step action"]
-> [Plano técnico de Media: introducción](./control-mapping.md)
-> [Plano técnico de Media: implementación](./deploy.md)
+> [Plano técnico de Media Framework: asignación de controles](./control-mapping.md)
+> [Plano técnico de Media Framework: pasos de implementación](./deploy.md)
 
 Artículos adicionales sobre planos técnicos y cómo utilizarlos:
 

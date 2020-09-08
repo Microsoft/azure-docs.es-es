@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: e7ebcf39c203f9956b23ef22754b38f32e9d9352
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 0a383e8e2c38dbd00e0a55f9debb9b4daf40fa9c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323025"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832763"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Introducción para operadores de TI de Azure
 
@@ -178,7 +178,7 @@ Los administradores pueden acceder a Azure PowerShell y la CLI de Azure mediante
 
 ## <a name="azure-subscriptions"></a>Suscripciones de Azure
 
-Una suscripción es una agrupación lógica de servicios de Azure que está vinculada a una cuenta de Azure. Una única cuenta de Azure puede contener varias suscripciones. La facturación de los servicios de Azure se realiza por suscripción. Las suscripciones de Azure tienen un administrador de cuenta, que tiene control total sobre la suscripción y un administrador de servicios, que tiene control sobre todos los servicios de la suscripción. Para saber más sobre los administradores de suscripción clásica, vea [Agregar o cambiar los administradores de la suscripción de Azure](../../cost-management-billing/manage/add-change-subscription-administrator.md). Además de a los administradores, se puede conceder control detallado de los recursos de Azure con [control de acceso basado en rol (RBAC)](../../role-based-access-control/overview.md) a cuentas individuales.
+Una suscripción es una agrupación lógica de servicios de Azure que está vinculada a una cuenta de Azure. Una única cuenta de Azure puede contener varias suscripciones. La facturación de los servicios de Azure se realiza por suscripción. Las suscripciones de Azure tienen un administrador de cuenta, que tiene control total sobre la suscripción y un administrador de servicios, que tiene control sobre todos los servicios de la suscripción. Para saber más sobre los administradores de suscripción clásica, vea [Agregar o cambiar los administradores de la suscripción de Azure](../../cost-management-billing/manage/add-change-subscription-administrator.md). Además de a los administradores, se puede conceder control detallado de los recursos de Azure con [control de acceso basado en rol de Azure (Azure RBAC)](../../role-based-access-control/overview.md) a cuentas individuales.
 
 ### <a name="select-and-enable-an-azure-subscription"></a>Seleccionar y habilitar una suscripción de Azure
 

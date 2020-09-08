@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ad84b8910e8d4f8af9845c33c22d128e317dedc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 20b83291dc37c6248761214654f99d3ce214b551
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74232102"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229759"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planeamiento de la implementación de la supervisión y los informes de Azure Active Directory
 
@@ -47,9 +47,9 @@ Con la supervisión de Azure AD, puede enrutar los registros a:
 * un centro de eventos de Azure en el que puede realizar la integración con sus herramientas de SIEM existentes, como Splunk, Sumologic o QRadar.
 
 > [!NOTE]
-Recientemente hemos empezado a usar el término registros de Azure Monitor, en lugar de Log Analytics. Los datos de registro siguen almacenándose en un área de trabajo de Log Analytics y siguen recopilándose y analizándose por el mismo servicio de Log Analytics. Estamos actualizando la terminología para reflejar mejor el rol de los [registros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection). Consulte [Azure Monitor terminology changes](https://docs.microsoft.com/azure/azure-monitor/azure-monitor-rebrand) (Cambios en la terminología de Azure Monitor) para obtener más información.
+Recientemente hemos empezado a usar el término registros de Azure Monitor, en lugar de Log Analytics. Los datos de registro siguen almacenándose en un área de trabajo de Log Analytics y siguen recopilándose y analizándose por el mismo servicio de Log Analytics. Estamos actualizando la terminología para reflejar mejor el rol de los [registros de Azure Monitor](../../azure-monitor/platform/data-platform.md). Consulte [Azure Monitor terminology changes](../../azure-monitor/terminology.md) (Cambios en la terminología de Azure Monitor) para obtener más información.
 
-[Más información sobre las directivas de retención de informes](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-reports-data-retention).
+[Más información sobre las directivas de retención de informes](./reference-reports-data-retention.md).
 
 ### <a name="licensing-and-prerequisites-for-azure-ad-reporting-and-monitoring"></a>Licencias y requisitos previos para los informes y la supervisión de Azure AD
 
@@ -115,25 +115,25 @@ Con la supervisión de Azure AD, puede enrutar los registros de actividad de Azu
 
 #### <a name="archive-logs-in-a-storage-account"></a>Archivo de registros en una cuenta de almacenamiento
 
-Si se enrutan los registros a una cuenta de Azure Storage, se pueden conservar durante más tiempo que el período de retención predeterminado que se describe en las [directivas de retención](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-reports-data-retention). Use este método si necesita archivar los registros, pero no necesita integrarlos en un sistema SIEM ni realizar consultas y análisis continuos. Aunque lo use puede seguir realizando búsquedas a petición.
+Si se enrutan los registros a una cuenta de Azure Storage, se pueden conservar durante más tiempo que el período de retención predeterminado que se describe en las [directivas de retención](./reference-reports-data-retention.md). Use este método si necesita archivar los registros, pero no necesita integrarlos en un sistema SIEM ni realizar consultas y análisis continuos. Aunque lo use puede seguir realizando búsquedas a petición.
 
-Obtenga información sobre cómo [enrutar datos a la cuenta de almacenamiento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account).
+Obtenga información sobre cómo [enrutar datos a la cuenta de almacenamiento](./quickstart-azure-monitor-route-logs-to-storage-account.md).
 
 #### <a name="send-logs-to-azure-monitor-logs"></a>Envío de registros a registros de Azure Monitor
 
-Los [registros de Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) consolidan los datos de supervisión de distintos orígenes. También proporciona un lenguaje de consulta y un motor de análisis que ofrece información detallada acerca del funcionamiento de las aplicaciones y del uso de los recursos. Al enviar los registros de actividad de Azure AD a los registros de Azure Monitor, puede recuperar, supervisar y enviar alertas rápidamente de los datos recopilados. Use este método si no tiene una solución SIEM existente a la que desee enviar los datos directamente, pero desea realizar consultas y análisis. Una vez que los datos estén en los registros de Azure Monitor, puede enviarlos al centro de eventos y desde ahí a un SIEM si lo desea.
+Los [registros de Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) consolidan los datos de supervisión de distintos orígenes. También proporciona un lenguaje de consulta y un motor de análisis que ofrece información detallada acerca del funcionamiento de las aplicaciones y del uso de los recursos. Al enviar los registros de actividad de Azure AD a los registros de Azure Monitor, puede recuperar, supervisar y enviar alertas rápidamente de los datos recopilados. Use este método si no tiene una solución SIEM existente a la que desee enviar los datos directamente, pero desea realizar consultas y análisis. Una vez que los datos estén en los registros de Azure Monitor, puede enviarlos al centro de eventos y desde ahí a un SIEM si lo desea.
 
-Aprenda a [enviar datos a los registros de Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
+Aprenda a [enviar datos a los registros de Azure Monitor](./howto-integrate-activity-logs-with-log-analytics.md).
 
 También puede instalar las vistas precompiladas de los registros de actividad de Azure AD para supervisar escenarios comunes que impliquen eventos de inicio de sesión y auditoría.
 
-Aprenda a [instalar y utilizar las vistas de Log Analytics para los registros de actividad de Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-install-use-log-analytics-views).
+Aprenda a [instalar y utilizar las vistas de Log Analytics para los registros de actividad de Azure AD](./howto-install-use-log-analytics-views.md).
 
 #### <a name="stream-logs-to-your-azure-event-hub"></a>Transmitir en secuencias de registros a un centro de eventos de Azure
 
 El enrutamiento de registros a un centro de eventos de Azure permite la integración con herramientas SIEM de terceros. Esta integración le permite combinar los datos de registro de actividad de Azure AD con otros datos administrados por el SIEM, a fin de proporcionar una mejor comprensión del entorno. 
 
-Aprenda cómo [transmitir registros a un centro de eventos](https://docs.microsoft.com//azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub).
+Aprenda cómo [transmitir registros a un centro de eventos](//azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub).
 
 ## <a name="plan-operations-and-security-for-azure-ad-reporting-and-monitoring"></a>Planeamiento de las operaciones y la seguridad de los informes y la de Azure AD
 
@@ -151,9 +151,9 @@ Los siguientes roles pueden leer informes de Azure AD:
 
 * Lector de informes
 
-Más información acerca de los [roles administrativos de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal).
+Más información acerca de los [roles administrativos de Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 
-*Aplique siempre el concepto de privilegios mínimos para reducir el riesgo de que una cuenta esté en peligro*. Considere la posibilidad de implementar [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) para aumentar la protección de su organización.
+*Aplique siempre el concepto de privilegios mínimos para reducir el riesgo de que una cuenta esté en peligro*. Considere la posibilidad de implementar [Privileged Identity Management](../privileged-identity-management/pim-configure.md) para aumentar la protección de su organización.
 
 ##  
 
@@ -163,27 +163,27 @@ En función de las decisiones que haya tomado anteriormente mediante la guía de
 
 ### <a name="consume-and-archive-azure-ad-logs"></a>Consumo y archivo de registros de Azure AD
 
-[Búsqueda de informes de actividad en Azure Portal](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-find-activity-reports)
+[Búsqueda de informes de actividad en Azure Portal](./howto-find-activity-reports.md)
 
-[Archivo de registros de Azure AD en una cuenta de Azure Storage](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account)
+[Archivo de registros de Azure AD en una cuenta de Azure Storage](./quickstart-azure-monitor-route-logs-to-storage-account.md)
 
 ### <a name="implement-monitoring-and-analytics"></a>Implementación de supervisión y análisis
 
-[Envío de registros a Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+[Envío de registros a Azure Monitor](./howto-integrate-activity-logs-with-log-analytics.md)
 
-[Instalación y uso de las vistas de Log Analytics para Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-install-use-log-analytics-views)
+[Instalación y uso de las vistas de Log Analytics para Azure Active Directory](./howto-install-use-log-analytics-views.md)
 
-[Análisis de registros de actividad de Azure AD con registros de Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics)
+[Análisis de registros de actividad de Azure AD con registros de Azure Monitor](./howto-analyze-activity-logs-log-analytics.md)
 
-* [Interpretación del esquema de registros de auditoría en Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema)
+* [Interpretación del esquema de registros de auditoría en Azure Monitor](./reference-azure-monitor-audit-log-schema.md)
 
-* [Interpretación del esquema de registros de inicio de sesión en Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema)
+* [Interpretación del esquema de registros de inicio de sesión en Azure Monitor](./reference-azure-monitor-sign-ins-log-schema.md)
 
- * [Transmisión en secuencias de los registros de Azure AD a Azure Event Hubs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub)
+ * [Transmisión en secuencias de los registros de Azure AD a Azure Event Hubs](./tutorial-azure-monitor-stream-logs-to-event-hub.md)
 
-* [Integración de registros de Azure AD con Splunk mediante Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/tutorial-integrate-activity-logs-with-splunk)
+* [Integración de registros de Azure AD con Splunk mediante Azure Monitor](./howto-integrate-activity-logs-with-splunk.md)
 
-* [Integración de registros de Azure AD con SumoLogic mediante Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-sumologic)
+* [Integración de registros de Azure AD con SumoLogic mediante Azure Monitor](./howto-integrate-activity-logs-with-sumologic.md)
 
  
 
@@ -191,8 +191,6 @@ En función de las decisiones que haya tomado anteriormente mediante la guía de
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Considere la posibilidad de implementar [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) 
+Considere la posibilidad de implementar [Privileged Identity Management](../privileged-identity-management/pim-configure.md) 
 
-Considere la posibilidad de implementar el [control de acceso basado en rol (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)
-
- 
+Considere la posibilidad de implementar el [control de acceso basado en rol de Azure (RBAC de Azure)](../../role-based-access-control/overview.md).

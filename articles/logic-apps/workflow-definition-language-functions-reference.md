@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 07/22/2020
-ms.openlocfilehash: 45ff681bdf0260b6e3c12f7e644d102a49206c9f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 08/26/2020
+ms.openlocfilehash: e4f9fa554a7c0e45abe1e9686605c95bb79d1739
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288903"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932957"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guía de referencia para usar las funciones en las expresiones para Azure Logic Apps y Power Automate
 
@@ -1128,27 +1128,27 @@ bool(<value>)
 
 | Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Sí | Any | Valor que se va a convertir |
+| <*value*> | Sí | Any | Valor para convertir en booleano. |
 |||||
+
+Si está utilizando `bool()` con un objeto, el valor del objeto debe ser una cadena o un entero que se pueda convertir en un valor booleano.
 
 | Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
-| true o false | Boolean | Versión booleana del valor especificado |
+| `true` o `false` | Boolean | Versión booleana del valor especificado. |
 ||||
 
-*Ejemplo*
+*Salidas*
 
-Estos ejemplos convierten los valores especificados en valores booleanos:
+En estos ejemplos se muestran los diferentes tipos de entrada admitidos para `bool()`:
 
-```
-bool(1)
-bool(0)
-```
-
-Y devuelve estos resultados:
-
-* Primer ejemplo: `true`
-* Segundo ejemplo: `false`
+| Valor de entrada | Tipo | Valor devuelto |
+| ----------- | ---------- | ---------------------- |
+| `bool(1)` | Entero | `true` |
+| `bool(0)` | Entero    | `false` |
+| `bool(-1)` | Entero | `true` |
+| `bool('true')` | String | `true` |
+| `bool('false')` | String | `false` |
 
 <a name="coalesce"></a>
 
@@ -1276,7 +1276,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
-| <*zona_horaria_de_destino*> | Sí | String | Nombre de la zona horaria de destino. Para los nombres de zonas horarias, consulte [Valores de índice de zona horaria de Microsoft](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), pero es posible que tenga que quitar los signos de puntuación del nombre de zona horaria. |
+| <*zona_horaria_de_destino*> | Sí | String | Nombre de la zona horaria de destino. Para los nombres de zonas horarias, consulte [Valores de índice de zona horaria de Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), pero es posible que tenga que quitar los signos de puntuación del nombre de zona horaria. |
 | <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
@@ -1318,8 +1318,8 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 | Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
-| <*zona_horaria_de_origen*> | Sí | String | Nombre de la zona horaria de origen. Para los nombres de zonas horarias, consulte [Valores de índice de zona horaria de Microsoft](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), pero es posible que tenga que quitar los signos de puntuación del nombre de zona horaria. |
-| <*zona_horaria_de_destino*> | Sí | String | Nombre de la zona horaria de destino. Para los nombres de zonas horarias, consulte [Valores de índice de zona horaria de Microsoft](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), pero es posible que tenga que quitar los signos de puntuación del nombre de zona horaria. |
+| <*zona_horaria_de_origen*> | Sí | String | Nombre de la zona horaria de origen. Para los nombres de zonas horarias, consulte [Valores de índice de zona horaria de Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), pero es posible que tenga que quitar los signos de puntuación del nombre de zona horaria. |
+| <*zona_horaria_de_destino*> | Sí | String | Nombre de la zona horaria de destino. Para los nombres de zonas horarias, consulte [Valores de índice de zona horaria de Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), pero es posible que tenga que quitar los signos de puntuación del nombre de zona horaria. |
 | <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
@@ -1361,7 +1361,7 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 | Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
-| <*zona_horaria_de_origen*> | Sí | String | Nombre de la zona horaria de origen. Para los nombres de zonas horarias, consulte [Valores de índice de zona horaria de Microsoft](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), pero es posible que tenga que quitar los signos de puntuación del nombre de zona horaria. |
+| <*zona_horaria_de_origen*> | Sí | String | Nombre de la zona horaria de origen. Para los nombres de zonas horarias, consulte [Valores de índice de zona horaria de Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), pero es posible que tenga que quitar los signos de puntuación del nombre de zona horaria. |
 | <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
@@ -2699,10 +2699,9 @@ Y devuelve estos resultados:
 
 ### <a name="lastindexof"></a>lastIndexOf
 
-Devuelve la posición inicial o el valor de índice de la última repetición de una subcadena.
-Esta función no distingue entre mayúsculas y minúsculas y los índices comienzan por el número 0.
+Devuelve la posición inicial o el valor de índice de la última repetición de una subcadena. Esta función no distingue entre mayúsculas y minúsculas y los índices comienzan por el número 0.
 
-```
+```json
 lastIndexOf('<text>', '<searchText>')
 ```
 
@@ -2710,22 +2709,38 @@ lastIndexOf('<text>', '<searchText>')
 | --------- | -------- | ---- | ----------- |
 | <*texto*> | Sí | String | Cadena que contiene la subcadena que se va a buscar |
 | <*texto_a_buscar*> | Sí | String | Subcadena que se va a buscar |
-|||||
+|||
 
 | Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
-| <*valor-de-índice-final*> | Entero | Posición inicial o valor de índice de la última repetición de la subcadena especificada. <p>Si no se encuentra la cadena, devuelve el número -1. |
-||||
+| <*valor-de-índice-final*> | Entero | Posición inicial o valor de índice de la última repetición de la subcadena especificada. |
+|||
 
-*Ejemplo*
+Si el valor de cadena o subcadena está vacío, se produce el comportamiento siguiente:
 
-Este ejemplo busca el valor de índice inicial de la última repetición de la subcadena "world" en la cadena "hello world":
+* Si el valor de cadena está vacío, se devuelve `-1`:
 
+* Si los valores de cadena y subcadena están vacíos, se devuelve `0`.
+
+* Si solo el valor de subcadena está vacío, se devuelve el mayor de los dos valores siguientes:
+
+  * `0`
+
+  * La longitud del valor de cadena, menos 1.
+
+*Ejemplos*
+
+En este ejemplo se busca el valor de índice inicial de la última aparición de la subcadena `world` en la cadena `hello world hello world`. El resultado devuelto es `18`:
+
+```json
+lastIndexOf('hello world hello world', 'world')
 ```
-lastIndexOf('hello world', 'world')
-```
 
-Y devuelve este resultado: `6`
+En este ejemplo falta el parámetro de subcadena, y se devuelve un valor de `22` porque el valor de la cadena de entrada (`23`) menos 1 es mayor que 0.
+
+```json
+lastIndexOf('hello world hello world', '')
+```
 
 <a name="length"></a>
 

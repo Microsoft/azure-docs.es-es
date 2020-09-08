@@ -2,15 +2,20 @@
 title: 'Uso del portal para cargar, codificar y hacer streaming de contenido: Azure'
 description: En este inicio rápido se muestra cómo usar el portal para cargar, codificar y hacer streaming de contenido con Azure Media Services.
 ms.topic: quickstart
-ms.date: 06/08/2020
-ms.openlocfilehash: bab13b7b878f8992ac5523b9902054a42a3dc769
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+author: IngridAtMicrosoft
+ms.author: inhenkel
+manager: femila
+ms.openlocfilehash: 16a5793f9848a6e16856728877727dbefc3e0805
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053362"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264936"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Inicio rápido: Carga, codificación y streaming de contenido con el portal
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 En este inicio rápido se muestra cómo usar Azure Portal para cargar, codificar y hacer streaming de contenido con Azure Media Services.
 
@@ -28,7 +33,6 @@ En este inicio rápido se muestra cómo usar Azure Portal para cargar, codificar
 
   * [Carga y almacenamiento en la nube](storage-account-concept.md)
   * [Concepto de recursos](assets-concept.md)
-  * [Administración de recursos](manage-asset-concept.md)
 * Una vez que cargue el archivo de medios digitales de alta calidad en un recurso (un recurso de entrada), puede procesarlo (codificarlo o analizarlo). El contenido procesado entra en otro recurso (recurso de salida). 
     * [Codifique](encoding-concept.md) el archivo cargado en formatos que se puedan reproducir en una gran variedad de exploradores y dispositivos.
     * [Analice](analyzing-video-audio-files-concept.md) el archivo cargado. 

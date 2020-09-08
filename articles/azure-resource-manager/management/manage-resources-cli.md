@@ -5,12 +5,13 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: edd424d7d64e484f3b42084d1aa0744ec522bf92
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 8ecaf7a7df80cbb62bcb27373c47e26c70108d1e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87366824"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827017"
 ---
 # <a name="manage-azure-resources-by-using-azure-cli"></a>Administración de recursos de Azure mediante la CLI de Azure
 
@@ -136,7 +137,7 @@ El etiquetado ayuda a organizar lógicamente los grupos de recursos y los recurs
 
 ## <a name="manage-access-to-resources"></a>Administración del acceso a los recursos
 
-El [control de acceso basado en rol (RBAC)](../../role-based-access-control/overview.md) es la forma en que se administra el acceso a los recursos en Azure. Para obtener más información, consulte [Administración del acceso a los recursos de Azure mediante RBAC y la CLI de Azure](../../role-based-access-control/role-assignments-cli.md).
+El [control de acceso basado en rol (RBAC) de Azure](../../role-based-access-control/overview.md) es la forma en la que se administra el acceso a los recursos de Azure. Para obtener más información, consulte [Administración del acceso a los recursos de Azure mediante RBAC y la CLI de Azure](../../role-based-access-control/role-assignments-cli.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,12 +8,12 @@ ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8bb10c8e0e1f62e72d48d80014d75dd656490889
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c2d5b4758f80d07516500c663762d7c8607e2a30
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565924"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88917965"
 ---
 # <a name="full-text-search-in-azure-cognitive-search"></a>Búsqueda de texto completo en Azure Cognitive Search
 
@@ -49,7 +49,7 @@ El diagrama siguiente muestra los componentes que se utilizan para procesar una 
 
 Una solicitud de búsqueda es una especificación completa de lo que se debe devolver en un conjunto de resultados. En su forma más simple, es una consulta vacía sin ningún criterio de ningún tipo. Un ejemplo más realista incluye parámetros, varios términos de consulta, quizás con un ámbito en algunos de los campos, con posiblemente una expresión de filtro y reglas de ordenación.  
 
-El ejemplo siguiente es una solicitud de búsqueda que puede enviar a Azure Cognitive Search mediante la [API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents).  
+El ejemplo siguiente es una solicitud de búsqueda que puede enviar a Azure Cognitive Search mediante la [API REST](/rest/api/searchservice/search-documents).  
 
 ~~~~
 POST /indexes/hotels/docs/search?api-version=2020-06-30
@@ -69,7 +69,7 @@ Para esta solicitud, el motor de búsqueda realiza lo siguiente:
 2. Ejecuta la consulta. En este ejemplo, la consulta de búsqueda consta de frases y términos: `"Spacious, air-condition* +\"Ocean view\""` (por lo general, los usuarios no especifican la puntuación, pero si la incluyen en el ejemplo, podemos explicar cómo la administran los analizadores). Para esta consulta, el motor de búsqueda examina la descripción y los campos de título especificados en `searchFields` para los documentos que contienen "vistas al mar", y además en el término "espacioso" o en términos que comienzan por el prefijo "post-vacacional". El parámetro `searchMode` se utiliza para que coincida con cualquier término (valor predeterminado) o todos ellos, para los casos donde no se requiere de forma explícita un término (`+`).
 3. Ordena el conjunto de hoteles por proximidad a una ubicación geográfica determinada y, a continuación, los devuelve a la aplicación que realiza la llamada. 
 
-La mayor parte de este artículo es sobre el procesamiento de la *consulta de búsqueda*: `"Spacious, air-condition* +\"Ocean view\""`. El filtrado y la ordenación están fuera del ámbito. Para más información, consulte la [Documentación de referencia de API de búsqueda](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+La mayor parte de este artículo es sobre el procesamiento de la *consulta de búsqueda*: `"Spacious, air-condition* +\"Ocean view\""`. El filtrado y la ordenación están fuera del ámbito. Para más información, consulte la [Documentación de referencia de API de búsqueda](/rest/api/searchservice/search-documents).
 
 <a name="stage1"></a>
 ## <a name="stage-1-query-parsing"></a>Fase 1 Consulta de análisis 
@@ -86,7 +86,7 @@ El analizador de consultas separa los operadores (como `*` y `+` en el ejemplo) 
 + *consultas de frases* de términos entre comillas (como "vistas al mar")
 + *consulta de prefijo* de términos seguidos por un operador de prefijo `*` (como "post-vacacional")
 
-Para obtener una lista completa de los tipos de consultas admitidas, consulte [Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) (Sintaxis de consulta de Lucene)///.
+Para obtener una lista completa de los tipos de consultas admitidas, consulte [Lucene query syntax](/rest/api/searchservice/lucene-query-syntax-in-azure-search) (Sintaxis de consulta de Lucene)///.
 
 Los operadores asociados a una subconsulta determinan si la cadena "tiene que" cumplirse o "debe" cumplirse para que un documento se considere una coincidencia. Por ejemplo, `+"Ocean view"` es obligatorio debido al operador `+`. 
 
@@ -96,7 +96,7 @@ El analizador de consultas reestructura las subconsultas en un *árbol de consul
 
 ### <a name="supported-parsers-simple-and-full-lucene"></a>Analizadores admitidos: versión simple y completa de Lucene 
 
- Azure Cognitive Search expone dos lenguajes de consulta diferentes, `simple` (predeterminado) y `full`. Si establece el parámetro `queryType` con su solicitud de búsqueda, indica al analizador de consultas qué lenguaje de consulta elegir de modo que sepa cómo interpretar los operadores y la sintaxis. El [lenguaje de consulta simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) es intuitivo y sólido, y suele ser adecuado para interpretar la entrada del usuario como está, sin que sea necesario ningún procesamiento por parte del cliente. Admite los operadores de consulta familiares desde motores de búsqueda web. El [lenguaje de consulta completo de Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), que obtendrá estableciendo `queryType=full`, amplía el lenguaje de consulta simple predeterminado mediante la adición de compatibilidad con más operadores y tipos de consulta como carácter comodín, coincidencias parciales, regex y consultas centrada en el campo. Por ejemplo, una expresión regular enviada con la sintaxis de consulta simple se interpretaría como una cadena de consulta y no una expresión. La solicitud de ejemplo de este artículo utiliza el lenguaje de consulta completo de Lucene.
+ Azure Cognitive Search expone dos lenguajes de consulta diferentes, `simple` (predeterminado) y `full`. Si establece el parámetro `queryType` con su solicitud de búsqueda, indica al analizador de consultas qué lenguaje de consulta elegir de modo que sepa cómo interpretar los operadores y la sintaxis. El [lenguaje de consulta simple](/rest/api/searchservice/simple-query-syntax-in-azure-search) es intuitivo y sólido, y suele ser adecuado para interpretar la entrada del usuario como está, sin que sea necesario ningún procesamiento por parte del cliente. Admite los operadores de consulta familiares desde motores de búsqueda web. El [lenguaje de consulta completo de Lucene](/rest/api/searchservice/lucene-query-syntax-in-azure-search), que obtendrá estableciendo `queryType=full`, amplía el lenguaje de consulta simple predeterminado mediante la adición de compatibilidad con más operadores y tipos de consulta como carácter comodín, coincidencias parciales, regex y consultas centrada en el campo. Por ejemplo, una expresión regular enviada con la sintaxis de consulta simple se interpretaría como una cadena de consulta y no una expresión. La solicitud de ejemplo de este artículo utiliza el lenguaje de consulta completo de Lucene.
 
 ### <a name="impact-of-searchmode-on-the-parser"></a>Impacto de searchMode en el analizador 
 
@@ -123,7 +123,7 @@ Un árbol de consulta modificado para esta consulta el siguiente, donde un docum
  ![Consulta booleana searchmode all][3]
 
 > [!Note] 
-> Elegir `searchMode=any` sobre `searchMode=all` es la mejor decisión cuando se ejecutan consultas representativas. Los usuarios que suelen incluir operadores (algo común cuando se buscan almacenes de documentos) pueden encontrar resultados más intuitivos si `searchMode=all` informa de construcciones de consultas booleanas. Para obtener más información sobre la interacción entre `searchMode` y los operadores, vea [Sintaxis de consulta simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search).
+> Elegir `searchMode=any` sobre `searchMode=all` es la mejor decisión cuando se ejecutan consultas representativas. Los usuarios que suelen incluir operadores (algo común cuando se buscan almacenes de documentos) pueden encontrar resultados más intuitivos si `searchMode=all` informa de construcciones de consultas booleanas. Para obtener más información sobre la interacción entre `searchMode` y los operadores, vea [Sintaxis de consulta simple](/rest/api/searchservice/simple-query-syntax-in-azure-search).
 
 <a name="stage2"></a>
 ## <a name="stage-2-lexical-analysis"></a>Fase 2: Análisis léxico 
@@ -137,10 +137,10 @@ La forma más común de análisis léxico es el *análisis lingüístico*, que t
 * División de una palabra compuesta en partes 
 * Uso de minúsculas en una palabra con mayúsculas 
 
-Todas estas operaciones tienden a borrar las diferencias entre la entrada de texto proporcionada por el usuario y los términos almacenados en el índice. Estas operaciones van más allá del procesamiento de texto y requieren un conocimiento más profundo del propio idioma. Para agregar esta capa de reconocimiento lingüístico, Azure Cognitive Search admite una larga lista de [analizadores de idioma](https://docs.microsoft.com/rest/api/searchservice/language-support) de Lucene y Microsoft.
+Todas estas operaciones tienden a borrar las diferencias entre la entrada de texto proporcionada por el usuario y los términos almacenados en el índice. Estas operaciones van más allá del procesamiento de texto y requieren un conocimiento más profundo del propio idioma. Para agregar esta capa de reconocimiento lingüístico, Azure Cognitive Search admite una larga lista de [analizadores de idioma](/rest/api/searchservice/language-support) de Lucene y Microsoft.
 
 > [!Note]
-> Los requisitos de análisis pueden ser mínimos para la elaboración en función de su escenario. Puede controlar la complejidad del análisis léxico seleccionando uno de los analizadores predefinidos o creando su propio [analizador personalizado](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search). Los analizadores se limitan a campos de búsqueda y se especifican como parte de una definición de campo. Esto le permite modificar el análisis léxico por campo. Si no se especifica, se utiliza el analizador *estándar* de Lucene.
+> Los requisitos de análisis pueden ser mínimos para la elaboración en función de su escenario. Puede controlar la complejidad del análisis léxico seleccionando uno de los analizadores predefinidos o creando su propio [analizador personalizado](/rest/api/searchservice/Custom-analyzers-in-Azure-Search). Los analizadores se limitan a campos de búsqueda y se especifican como parte de una definición de campo. Esto le permite modificar el análisis léxico por campo. Si no se especifica, se utiliza el analizador *estándar* de Lucene.
 
 En nuestro ejemplo, antes del análisis, el árbol de consulta inicial tiene el término "Espacioso," con una "E" mayúscula y una coma que el analizador de consultas interpreta como parte del término de consulta (la coma no se considera un operador de idioma de consulta).  
 
@@ -150,7 +150,7 @@ Cuando el analizador predeterminado procesa el término, cambiará a minúscula 
 
 ### <a name="testing-analyzer-behaviors"></a>Prueba de comportamientos del analizador 
 
-Se puede probar el comportamiento de un analizador mediante la [Análisis de la API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer). Proporcione el texto que desea analizar para ver qué términos generará un analizador determinado. Por ejemplo, para ver cómo el analizador estándar procesaría el texto "post-vacacional", puede emitir la solicitud siguiente:
+Se puede probar el comportamiento de un analizador mediante la [Análisis de la API](/rest/api/searchservice/test-analyzer). Proporcione el texto que desea analizar para ver qué términos generará un analizador determinado. Por ejemplo, para ver cómo el analizador estándar procesaría el texto "post-vacacional", puede emitir la solicitud siguiente:
 
 ~~~~
 {
@@ -359,8 +359,8 @@ El ejemplo muestra por qué esto es importante. Las búsquedas con caracteres co
 
 Existen dos maneras de optimizar las puntuaciones de relevancia en Azure Cognitive Search:
 
-1. Los **perfiles de puntuación** favorecen a los documentos de la lista de clasificación basados en un conjunto de reglas. En nuestro ejemplo, podemos considerar los documentos que coincidieron en el campo de título más importantes que los documentos que coincidieron en el campo de descripción. Además, si el índice tenía un campo de precio para cada hotel, podríamos favorecer a los documentos con un precio menor. Obtenga información sobre cómo [agregar perfiles de puntuación a un índice de búsqueda.](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
-2. **Priorización de términos** (disponible solo en la sintaxis de consulta completa Lucene) proporciona un operador de priorización `^` que puede aplicarse a cualquier parte del árbol de consulta. En nuestro ejemplo, en lugar de buscar en el prefijo *post-vacacional*\*, puede buscar el término exacto *post-vacacional* o el prefijo, pero los documentos que coinciden con el término exacto se clasifican en una posición superior aplicando la priorización a la consulta de término: *post-vacacional^2||post-vacacional*\*. Más información sobre la [priorización de términos](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
+1. Los **perfiles de puntuación** favorecen a los documentos de la lista de clasificación basados en un conjunto de reglas. En nuestro ejemplo, podemos considerar los documentos que coincidieron en el campo de título más importantes que los documentos que coincidieron en el campo de descripción. Además, si el índice tenía un campo de precio para cada hotel, podríamos favorecer a los documentos con un precio menor. Obtenga información sobre cómo [agregar perfiles de puntuación a un índice de búsqueda.](/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
+2. **Priorización de términos** (disponible solo en la sintaxis de consulta completa Lucene) proporciona un operador de priorización `^` que puede aplicarse a cualquier parte del árbol de consulta. En nuestro ejemplo, en lugar de buscar en el prefijo *post-vacacional*\*, puede buscar el término exacto *post-vacacional* o el prefijo, pero los documentos que coinciden con el término exacto se clasifican en una posición superior aplicando la priorización a la consulta de término: *post-vacacional^2||post-vacacional*\*. Más información sobre la [priorización de términos](/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
 
 
 ### <a name="scoring-in-a-distributed-index"></a>Puntuación en un índice distribuido
@@ -383,23 +383,23 @@ En este artículo se ha analizado la búsqueda de texto completo en el contexto 
 
 + Generar el índice de ejemplo, probar distintas consultas y revisar los resultados. Para obtener instrucciones, vea [Creación y consulta de un índice en el portal](search-get-started-portal.md#query-index).
 
-+ Probar la sintaxis de consulta adicional de la sección de ejemplo [Buscar documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) o desde [Sintaxis de consulta simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) en el explorador de búsqueda en el portal.
++ Probar la sintaxis de consulta adicional de la sección de ejemplo [Buscar documentos](/rest/api/searchservice/search-documents#bkmk_examples) o desde [Sintaxis de consulta simple](/rest/api/searchservice/simple-query-syntax-in-azure-search) en el explorador de búsqueda en el portal.
 
-+ Revisar los [perfiles de puntuación](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) si desea ajustar la clasificación en la aplicación de búsqueda.
++ Revisar los [perfiles de puntuación](/rest/api/searchservice/add-scoring-profiles-to-a-search-index) si desea ajustar la clasificación en la aplicación de búsqueda.
 
-+ Obtener información sobre cómo aplicar [analizadores léxicos específicos del idioma](https://docs.microsoft.com/rest/api/searchservice/language-support).
++ Obtener información sobre cómo aplicar [analizadores léxicos específicos del idioma](/rest/api/searchservice/language-support).
 
-+ [Configurar los analizadores personalizados](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) para un procesamiento mínimo o especializado en campos específicos.
++ [Configurar los analizadores personalizados](/rest/api/searchservice/custom-analyzers-in-azure-search) para un procesamiento mínimo o especializado en campos específicos.
 
 ## <a name="see-also"></a>Consulte también
 
-[API de REST de documentos de búsqueda](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
+[API de REST de documentos de búsqueda](/rest/api/searchservice/search-documents) 
 
-[Sintaxis de consulta simplificada](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 
+[Sintaxis de consulta simplificada](/rest/api/searchservice/simple-query-syntax-in-azure-search) 
 
-[Sintaxis de consulta completa de Lucene ](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
+[Sintaxis de consulta completa de Lucene ](/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
 
-[Control de los resultados de la búsqueda](https://docs.microsoft.com/azure/search/search-pagination-page-layout)
+[Control de los resultados de la búsqueda](./search-pagination-page-layout.md)
 
 <!--Image references-->
 [1]: ./media/search-lucene-query-architecture/architecture-diagram2.png

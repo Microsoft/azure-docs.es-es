@@ -16,16 +16,16 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e7e3a6666d467045b733b5401476fd83c93be19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 155a91ded6c814e2d868e8edd4572459460d006f
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764883"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642068"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Establecimiento de una página principal personalizada para aplicaciones publicadas mediante el Proxy de aplicación de Azure AD
 
-En este artículo se explica cómo configurar una aplicación para que dirija a un usuario a una página principal personalizada. Al publicar una aplicación con el proxy de la aplicación, se establece una dirección URL interna pero, a veces, esa no es la primera página que debe ver un usuario. Establezca una página principal personalizada para que un usuario vaya a la página correcta cuando acceda a la aplicación. Un usuario verá la página principal personalizada que ha establecido, independientemente de si accede a las aplicaciones desde el Panel de acceso de Azure Active Directory o desde el iniciador de aplicaciones de Office 365.
+En este artículo se explica cómo configurar una aplicación para que dirija a un usuario a una página principal personalizada. Al publicar una aplicación con el proxy de la aplicación, se establece una dirección URL interna pero, a veces, esa no es la primera página que debe ver un usuario. Establezca una página principal personalizada para que un usuario vaya a la página correcta cuando acceda a la aplicación. Un usuario verá la página principal personalizada que ha establecido, independientemente de si accede a la aplicación desde Aplicaciones de Azure Active Directory o desde el iniciador de aplicaciones de Microsoft 365.
 
 Cuando un usuario inicia la aplicación, se le dirige de manera predeterminada a la dirección URL raíz del dominio raíz de la aplicación publicada. La página de aterrizaje normalmente se establece como la dirección URL de la página principal. Use el módulo de Azure AD PowerShell para definir las direcciones URL de una página principal personalizada cuando desee que un usuario de la aplicación llegue a una página concreta de la aplicación.
 
@@ -37,7 +37,7 @@ En este escenario se explica por qué la empresa establecería una página princ
 - En su lugar, quiere establecer `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` como la dirección URL de la página principal para que un usuario externo vea primero la página de inicio de sesión.
 
 > [!NOTE]
-> Al proporcionar a los usuarios acceso a las aplicaciones publicadas, estas aparecen en el [panel de acceso de Azure AD](../user-help/my-apps-portal-end-user-access.md) y el [iniciador de aplicaciones de Office 365](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/).
+> Al proporcionar a los usuarios acceso a las aplicaciones publicadas, estas aparecen en [Aplicaciones](../user-help/my-apps-portal-end-user-access.md) y el [iniciador de aplicaciones de Office 365](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/).
 
 ## <a name="before-you-start"></a>Antes de comenzar
 

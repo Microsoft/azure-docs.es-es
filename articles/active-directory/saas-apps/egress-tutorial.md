@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Egress | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Egress.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: d1a3c6b6-af9a-440a-8451-c77f83ceacd4
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 07/17/2020
+ms.date: 07/29/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ce816b74c12333477203cce690c955d5aaf1cda
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: adbadc14caad6594dc30f0f9fd9cb1cb49b47888
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87093694"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544271"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-egress"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Egress
 
@@ -130,7 +126,7 @@ En esta sección, va a permitir que B.Simon acceda a Egress mediante el inicio d
 
 1. En la página siguiente, realice estos pasos.
 
-    ![Configuración de Egress](./media/egress-tutorial/configure1.PNG)
+    ![Configuración de Egress](./media/egress-tutorial/configure-1.PNG)
 
     a. En el menú del lado izquierdo, haga clic en **Configuración del inicio de sesión único**.
 
@@ -150,11 +146,11 @@ En esta sección, va a permitir que B.Simon acceda a Egress mediante el inicio d
 
 1. Haga clic en **Invite Users** (Invitar a usuarios) en el menú izquierdo y haga clic en **Invite Single User** (Invitar a un solo usuario) para agregar el usuario.
 
-    ![Creación de usuario de prueba de Egress](./media/egress-tutorial/createuser1.PNG)
+    ![Creación de usuario de prueba de Egress](./media/egress-tutorial/create-user-1.PNG)
 
 1. Rellene los campos obligatorios y haga clic en **Invite** (Invitar).
 
-    ![Creación de usuario de prueba de Egress](./media/egress-tutorial/createuser2.PNG)
+    ![Creación de usuario de prueba de Egress](./media/egress-tutorial/create-user-2.PNG)
 
 ## <a name="test-sso"></a>Prueba de SSO 
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 422c174116bb6973993f5c6093a83f8bdb42a62a
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 659d136695943d846fe57986d4b64a37f0d8f30e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808242"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300126"
 ---
 # <a name="quickstart-delete-an-application-from-your-azure-active-directory-azure-ad-tenant"></a>Inicio rápido: Eliminación de una aplicación del inquilino de Azure Active Directory (Azure AD)
 
@@ -30,10 +30,11 @@ Para eliminar una aplicación del inquilino de Azure AD, necesita:
 - Opcional: Haber finalizado el inicio rápido de [Visualización de las aplicaciones](view-applications-portal.md).
 - Opcional: Haber finalizado el inicio rápido de [Incorporación de una aplicación](add-application-portal.md).
 - Opcional: Haber finalizado el inicio rápido de [Configuración de una aplicación](add-application-portal-configure.md).
+- Opcional: haber finalizado [Asignación de usuarios a una aplicación](add-application-portal-assign-users.md).
 - Opcional: Haber finalizado el inicio rápido de [Configuración del inicio de sesión único](add-application-portal-setup-sso.md).
 
 >[!IMPORTANT]
->Para probar los pasos de este inicio rápido, use un entorno que no sea de producción.
+>Use un entorno que no sea de producción para probar los pasos de esta guía de inicio rápido.
 
 ## <a name="delete-an-application-from-your-azure-ad-tenant"></a>Eliminación de una aplicación del inquilino de Azure AD
 

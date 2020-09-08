@@ -1,7 +1,7 @@
 ---
 title: Errores de empaquetado y origen de Azure Media Services | Microsoft Docs
 description: En este tema se describen los errores que podría recibir desde el servicio de punto de conexión de streaming de Azure Media Services (origen).
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -10,17 +10,17 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: error-reference
 ms.date: 05/07/2019
-ms.author: juliako
-ms.openlocfilehash: 1fc201cc1f3d4d26ca7b9e949d2917688e6fea8c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: inhenkel
+ms.openlocfilehash: 8442c52052a2016da002d392c6fe0834b3813229
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091987"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295332"
 ---
-# <a name="streaming-endpoint-origin-errors"></a>Errores de punto de conexión de streaming (origen) 
+# <a name="streaming-endpoint-origin-errors"></a>Errores de punto de conexión de streaming (origen)
 
 En este tema se describen los errores que podría recibir desde el [servicio de punto de conexión de streaming](streaming-endpoint-concept.md) de Azure Media Services.
 

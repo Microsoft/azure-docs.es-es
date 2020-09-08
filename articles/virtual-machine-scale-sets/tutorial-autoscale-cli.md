@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 05/18/2018
 ms.reviewer: avverma
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: 5e1cc5512eeaec058a9ce3030517391a54a7707f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: cdad018de9f7683d68f1b6d3b63c722134b2bc80
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501668"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783780"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Escalado automático de un conjunto de escalado de máquinas virtuales con la CLI de Azure
 
@@ -126,6 +126,7 @@ ssh azureuser@13.92.224.66 -p 50001
 Una vez iniciada la sesión, instale la utilidad **stress**. Inicie *10* trabajos de **stress** que generen carga de CPU. Estos trabajos se ejecutan durante *420* segundos, lo suficiente para que las reglas de escalado automático implementen la acción deseada.
 
 ```console
+sudo apt-get update
 sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```

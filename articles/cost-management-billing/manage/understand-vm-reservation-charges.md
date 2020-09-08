@@ -3,15 +3,16 @@ title: Información sobre el descuento de Azure Reserved VM Instances
 description: Obtenga información sobre cómo se aplica el descuento de Azure Reserved VM Instance a las máquinas virtuales en ejecución.
 author: yashesvi
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: a9d9a5661e8a094b7d92a9dd83db3cdcd76b8b65
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: dd21faa07426c80bb3a95dbd1b6d4ee93f783881
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84018389"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88686452"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Aplicación del descuento por reserva de Azure en las máquinas virtuales
 
@@ -56,11 +57,15 @@ Cuando ejecuta instancias de máquina virtual Windows, la reserva se aplica para
 
 ## <a name="discount-can-apply-to-different-sizes"></a>Se puede aplicar el descuento a los distintos tamaños
 
-Al comprar una instancia reservada de máquina virtual, si selecciona **Optimizado para**: **flexibilidad de tamaño de instancia**, la cobertura de descuento dependerá del tamaño de máquina virtual que elija. La reserva se puede aplicar a los tamaños de máquinas virtuales (VM) en el mismo grupo de series de tamaño. Si quiere saber más, vea [Flexibilidad en el tamaño de las máquinas virtuales con Azure Reserved VM Instances](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+Si se compra una instancia reservada de máquina virtual y selecciona **Optimized for instance size flexibility** (Optimización en la flexibilidad de tamaño de la instancia), la cobertura del descuento se aplica al tamaño de máquina virtual que seleccione. También se puede aplicar a otros tamaños de máquina virtual que se encuentren en el mismo grupo de flexibilidad de tamaño de instancia de la serie. Si quiere saber más, vea [Flexibilidad en el tamaño de las máquinas virtuales con Azure Reserved VM Instances](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
 
-## <a name="discount-applies-to-matching-servicetype-only"></a>El descuento solo se aplica al tipo de servicio coincidente
+## <a name="premium-storage-vms-dont-get-non-premium-discounts"></a>Las máquinas virtuales de Premium Storage no obtienen descuentos no Premium
 
-Se aplica un descuento de reserva solo para el uso de la máquina virtual donde el valor `ServiceType` de `AdditionalInfo` coincide con la reserva que se compra. La aplicación del descuento de reserva omite el medidor que se utiliza para las máquinas virtuales y que solo evalúa `ServiceType`. Sepa para qué tipo de servicio compró la máquina virtual. Puede cambiar una reserva de máquina virtual de almacenamiento no Premium por una reserva de almacenamiento Premium, o de la manera opuesta.
+Este es un ejemplo. Suponga que ha comprado una reserva para cinco máquinas virtuales Estándar_D1. el descuento de la reserva solo se aplica a las máquinas virtuales Estándar_D1 o a otras máquinas virtuales de la misma familia de instancias. El descuento no se aplica a la máquina virtual Estándar_DS1 o a otros tamaños del grupo de flexibilidad de tamaño de instancia DS1.
+
+La aplicación de descuento de la reserva omite el medidor que se utiliza para las máquinas virtuales y solo evalúa ServiceType. Observe el valor `ServiceType` de `AdditionalInfo` para determinar la información de la serie o grupo de flexibilidad de la instancia para sus máquinas virtuales. Los valores se encuentran en el archivo .csv de uso.
+
+La serie o grupo de flexibilidad de la instancia no se puede cambiar directamente después de la compra. Sin embargo, puede *cambiar* una reserva de máquina virtual de una serie o un grupo de flexibilidad de instancia a otro.
 
 ## <a name="services-that-get-vm-reservation-discounts"></a>Servicios que obtienen descuentos de reserva de máquina virtual
 
@@ -89,7 +94,7 @@ Cuando la configuración está activada, los descuentos de reserva se aplican au
 
 Compruebe el valor *ConsumedService* en los datos de uso para determinar si el uso puede optar a los descuentos de reserva.
 
-Para más información sobre la flexibilidad de tamaño de instancia, vea [Flexibilidad en el tamaño de las máquinas virtuales con Azure Reserved VM Instances](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+Para más información sobre la flexibilidad de tamaño de instancia, vea [Flexibilidad en el tamaño de las máquinas virtuales con Azure Reserved VM Instances](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
 
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Ponerse en contacto con nosotros

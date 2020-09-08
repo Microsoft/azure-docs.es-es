@@ -7,7 +7,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 08/05/2020
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 68e6ec0af0b24771b21dac35c944fc7fa098b404
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 83ab2c6b97435ace0d2bc508cbf522600391b60b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203109"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926837"
 ---
 # <a name="odata-orderby-syntax-in-azure-cognitive-search"></a>Sintaxis de $orderby de OData en Azure Cognitive Search
 
@@ -50,7 +50,9 @@ También está disponible un diagrama de sintaxis interactivo:
 > [!NOTE]
 > Consulte [Referencia de la sintaxis de expresiones OData para Azure Cognitive Search](search-query-odata-syntax-reference.md) para obtener la EBNF completa.
 
-Cada cláusula tiene criterios de ordenación, seguidos opcionalmente por una dirección de ordenación (`asc` para ascendente o `desc` para descendente). Si no se especifica una dirección, el valor predeterminado es ascendente. Los criterios de ordenación pueden ser la ruta de acceso de un campo `sortable` o una llamada a las funciones [`geo.distance`](search-query-odata-geo-spatial-functions.md) o [`search.score`](search-query-odata-search-score-function.md).
+Cada cláusula tiene criterios de ordenación, seguidos opcionalmente por una dirección de ordenación (`asc` para ascendente o `desc` para descendente). Si no se especifica una dirección, el valor predeterminado es ascendente. Si hay valores NULL en el campo, los valores NULL aparecen en primer lugar si la ordenación es `asc` y Last si la ordenación es `desc`.
+
+Los criterios de ordenación pueden ser la ruta de acceso de un campo `sortable` o una llamada a las funciones [`geo.distance`](search-query-odata-geo-spatial-functions.md) o [`search.score`](search-query-odata-search-score-function.md).
 
 Si varios documentos tienen los mismos criterios de ordenación y no se usa la función `search.score` (por ejemplo, si se ordena por el campo numérico `Rating` y tres documentos tienen una valoración de 4), los empates se resolverán por la puntuación del documento en orden descendente. Cuando las puntuaciones de documento sean las mismas (por ejemplo, cuando no se especifica ninguna consulta de búsqueda de texto completo en la solicitud), entonces el orden relativo de los documentos empatados es indeterminado.
 
@@ -90,5 +92,5 @@ Clasificar hoteles en orden descendente por search.score y valoración, y despu�
 
 - [Procedimientos para trabajar con los resultados de búsqueda en Azure Cognitive Search](search-pagination-page-layout.md)
 - [Información general sobre el lenguaje de expresiones OData para Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
-- [Referencia de sintaxis de expresiones OData para Azure Cognitive Search](search-query-odata-syntax-reference.md)
-- [Búsqueda de documentos &#40;API REST de Azure Cognitive Search&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Referencia de sintaxis de expresiones de OData para Azure Cognitive Search](search-query-odata-syntax-reference.md)
+- [Búsqueda de documentos &#40;API REST de Azure Cognitive Search&#41;](/rest/api/searchservice/Search-Documents)

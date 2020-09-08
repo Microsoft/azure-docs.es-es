@@ -1,17 +1,17 @@
 ---
 title: 'Tutorial: Incorporación de nodos a un clúster de Azure FXT Edge Filer'
-description: Cómo agregar nodos a la caché de almacenamiento de Azure FXT Edge Filer
+description: Aprenda a agregar nodos de clúster a la caché de almacenamiento de Azure FXT Edge Storage y habilitar la característica de alta disponibilidad (HA).
 author: ekpgh
 ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: 6251fe8f88b7db25e3c09898540e07754d72fb0d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5b62927930212fc7e59fc4329a29ceecbe2815e5
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75551954"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185339"
 ---
 # <a name="tutorial-add-cluster-nodes-to-an-azure-fxt-edge-filer-cluster"></a>Tutorial: Incorporación de nodos de clúster a un clúster de Azure FXT Edge Filer
 

@@ -3,13 +3,14 @@ title: Canales de telemetría en Azure Application Insights | Microsoft Docs
 description: Cómo personalizar los canales de telemetría en el SDK de Azure Application Insights para .NET y .NET Core.
 ms.topic: conceptual
 ms.date: 05/14/2019
+ms.custom: devx-track-csharp
 ms.reviewer: mbullwin
-ms.openlocfilehash: b5ae1ee1e4bf9f64eb4587f0ceb76972a4571b2e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 41d2feefc5af1e795520d9b3d90809e625502fa6
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318936"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918407"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Canales de telemetría en Application Insights
 

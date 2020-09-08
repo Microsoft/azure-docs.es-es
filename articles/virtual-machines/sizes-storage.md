@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 038433e3b83ba936c14142053b86e0a7b0ed9dc6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 5af7b3373993dce1939ecd7534140e58db688579
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291063"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835585"
 ---
 # <a name="storage-optimized-virtual-machine-sizes"></a>Tamaños de máquina virtual optimizada para almacenamiento
 
@@ -36,3 +36,5 @@ La [serie Lsv2](lsv2-series.md) proporciona un alto rendimiento, baja latencia, 
 Obtenga más información sobre cómo las [unidades de proceso de Azure (ACU)](acu.md) pueden ayudarlo a comparar el rendimiento en los distintos SKU de Azure.
 
 Aprenda a optimizar el rendimiento en las máquinas virtuales de la serie Lsv2 para [Windows](windows/storage-performance.md) o [Linux](linux/storage-performance.md).
+
+Para obtener más información sobre cómo Azure asigna nombres a las máquinas virtuales, consulte [Convenciones de nomenclatura de los tamaños de las máquinas virtuales de Azure](./vm-naming-conventions.md).

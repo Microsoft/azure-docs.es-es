@@ -11,12 +11,12 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/07/2020
-  ms.openlocfilehash: 4a96f74418536a60c1501f7bd593ab2f5b9f82ae
-  ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+  ms.openlocfilehash: 320895ac02293f46f1e6c03718b50800cc405be8
+  ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/29/2020
-  ms.locfileid: "87386476"
+  ms.lasthandoff: 08/17/2020
+  ms.locfileid: "88262898"
 landingContent:
 - title: Claves
   linkLists:
@@ -44,6 +44,18 @@ landingContent:
     links:
     - text: Importación de claves protegidas con HSM (información general)
       url: hsm-protected-keys.md
+- title: Bibliotecas cliente para claves de Key Vault
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Biblioteca cliente de .NET
+      url: /dotnet/api/azure.security.keyvault.keys?view=azure-dotnet
+    - text: Biblioteca cliente de Python
+      url: /python/api/overview/azure/keyvault-keys-readme?view=azure-python
+    - text: Biblioteca cliente de Java
+      url: https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html
+    - text: Biblioteca cliente de Node.js
+      url: /javascript/api/@azure/keyvault-keys/?view=azure-node-latest
 - title: Más información acerca de Key Vault
   linkLists:
   - linkListType: overview

@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: rohink
 ms.openlocfilehash: 2b122a34cfd382a58f7680743d3a1cb1ae598fd1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "76939249"
 ---
 # <a name="tutorial-create-an-alias-record-to-refer-to-a-zone-resource-record"></a>Tutorial: Creación de un registro de alias para hacer referencia a un registro de recursos de zona
@@ -58,7 +58,7 @@ Cree un registro de alias que apunta a un registro de recursos en la zona.
 ## <a name="test-the-alias-record"></a>Probar el registro de alias
 
 1. Inicie su herramienta nslookup favorita. Una opción es ir a [https://network-tools.com/nslook](https://network-tools.com/nslook).
-2. Establezca el tipo de consulta para los registros A y busque **test.\<su nombre de dominio\>** . La respuesta es **10.10.10.10**.
+2. Establezca el tipo de consulta para los registros A y busque **test.\<your domain name\>** . La respuesta es **10.10.10.10**.
 3. En Azure Portal, cambie el registro A **server** a **10.11.11.11**.
 4. Espere unos minutos y, después, utilice de nuevo nslookup para el registro **test**. La respuesta es **10.11.11.11**.
 

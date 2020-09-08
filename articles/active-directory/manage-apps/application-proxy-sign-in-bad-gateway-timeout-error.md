@@ -16,12 +16,12 @@ ms.date: 05/21/2019
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eca304901e391c931aba892abf3cb2a19d4ae3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18c3b0397a0ad3e9e368d1a14e20a999ced5545b
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367757"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690279"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Error "Can't Access this Corporate Application" al usar una aplicación de Proxy de aplicación
 
@@ -50,7 +50,7 @@ Estos errores se producen cuando el servicio intenta alcanzar el conector y no l
 Estos errores indican que el conector no puede alcanzar la aplicación back-end. Asegúrese de que ha publicado la aplicación correcta. Errores comunes que provocan este error:
 
 - Un error de escritura o un error en la dirección URL interna
-- Que la raíz de la aplicación no se haya publicado. Por ejemplo, publicando <http://expenses/reimbursement>, pero tratando de acceder a <http://expenses>.
+- Que la raíz de la aplicación no se haya publicado. Por ejemplo, publicando `http://expenses/reimbursement`, pero tratando de acceder a `http://expenses`.
 - Problemas con la configuración de la delegación restringida de Kerberos (KCD)
 - Problemas con la aplicación de back-end
 
@@ -95,7 +95,7 @@ También puede buscar directamente en los registros del conector para identifica
 
 Si los pasos anteriores no solucionan el problema, existen otras posibles causas. Para identificar el problema:
 
-Si la aplicación está configurada para usar autenticación integrada de Windows (IWA), pruebe la aplicación sin el inicio de sesión único. En caso contrario, pase al párrafo siguiente. Para comprobar la aplicación sin inicio de sesión único, abra la aplicación a través de **Aplicaciones empresariales** y vaya al menú **Inicio de sesión único**. Cambie el menú desplegable de "Autenticación integrada de Windows" a "Se desactivó el inicio de sesión único de Azure AD".
+Si la aplicación está configurada para usar autenticación integrada de Windows (IWA), pruebe la aplicación sin el inicio de sesión único. En caso contrario, pase al párrafo siguiente. Para comprobar la aplicación sin inicio de sesión único, abra la aplicación a través de **Aplicaciones empresariales** y vaya al menú **Inicio de sesión único**. Cambie el menú desplegable de "Autenticación integrada de Windows" a "Se desactivó el inicio de sesión único de Azure AD".
 
 Ahora abra un explorador e intente volver a acceder a la aplicación. Se le debería solicitar autenticación para acceder a la aplicación. Si puede realizar la autenticación, el problema reside en la configuración de delegación limitada de kerberos (KCD) que permite el inicio de sesión único. Para más información, consulte la página de solución de problemas de KCD.
 

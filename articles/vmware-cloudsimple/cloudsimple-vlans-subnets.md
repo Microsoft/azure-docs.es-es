@@ -1,6 +1,6 @@
 ---
 title: VLAN y subredes en VMware Solution by CloudSimple
-description: Información acerca de las VLAN y subredes en una nube privada de CloudSimple
+description: Obtenga información sobre las VLAN y las subredes en Nube privada de CloudSimple y sobre la red que CloudSimple proporciona para implementar el servicio CloudSimple.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/15/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 2451fbb69636624db354006df2a7925ef9e75459
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e3235b394f739e8af846f30dfe51705d0926c843
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77024898"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140673"
 ---
 # <a name="vlans-and-subnets-overview"></a>Introducción a las VLAN y subredes
 

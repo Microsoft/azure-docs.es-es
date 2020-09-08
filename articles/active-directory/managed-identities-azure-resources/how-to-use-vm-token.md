@@ -3,7 +3,7 @@ title: 'Uso de usar identidades administradas en una máquina virtual para adqui
 description: Paso a paso las instrucciones y ejemplos de uso de administran identidades para los recursos de Azure en una máquina virtual para adquirir un token de acceso de OAuth.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51f254bef223294661180f21019ae8c5a842015c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4683a77b9467775fbe368e2017416e0fbff9718c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608388"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266296"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Cómo usar identidades administradas de recursos de Azure en una máquina virtual de Azure para adquirir un token de acceso 
 
@@ -125,7 +125,7 @@ Content-Type: application/json
 
 ## <a name="get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net"></a>Obtención de un token con la biblioteca Microsoft.Azure.Services.AppAuthentication para .NET
 
-En el caso de las aplicaciones y las funciones de .NET, la manera más sencilla de trabajar con identidades administradas de recursos de Azure es a través del paquete Microsoft.Azure.Services.AppAuthentication. Esta biblioteca también le permite probar el código localmente en la máquina de desarrollo, con su cuenta de usuario de Visual Studio, la [CLI de Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) o la autenticación integrada de Active Directory. Para obtener más información sobre las opciones de desarrollo local con esta biblioteca, consulte la [referencia de Microsoft.Azure.Services.AppAuthentication](/azure/key-vault/service-to-service-authentication). En esta sección se muestra cómo empezar a usar la biblioteca en su código.
+En el caso de las aplicaciones y las funciones de .NET, la manera más sencilla de trabajar con identidades administradas de recursos de Azure es a través del paquete Microsoft.Azure.Services.AppAuthentication. Esta biblioteca también le permite probar el código localmente en la máquina de desarrollo, con su cuenta de usuario de Visual Studio, la [CLI de Azure](/cli/azure?view=azure-cli-latest) o la autenticación integrada de Active Directory. Para obtener más información sobre las opciones de desarrollo local con esta biblioteca, consulte la [referencia de Microsoft.Azure.Services.AppAuthentication](../../key-vault/general/service-to-service-authentication.md). En esta sección se muestra cómo empezar a usar la biblioteca en su código.
 
 1. Agregue referencias a los paquetes de NuGet [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) y [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) para la aplicación.
 
@@ -141,7 +141,7 @@ En el caso de las aplicaciones y las funciones de .NET, la manera más sencilla 
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
     ```
     
-Para obtener más información sobre Microsoft.Azure.Services.AppAuthentication y las operaciones que expone, consulte la [referencia de Microsoft.Azure.Services.AppAuthentication](/azure/key-vault/service-to-service-authentication) y el [ejemplo de .NET sobre App Service y KeyVault con identidades administradas de recursos de Azure](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
+Para obtener más información sobre Microsoft.Azure.Services.AppAuthentication y las operaciones que expone, consulte la [referencia de Microsoft.Azure.Services.AppAuthentication](../../key-vault/general/service-to-service-authentication.md) y el [ejemplo de .NET sobre App Service y KeyVault con identidades administradas de recursos de Azure](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
 ## <a name="get-a-token-using-c"></a>Obtención de un token con C#
 
@@ -381,7 +381,7 @@ En esta sección se documentan las posibles respuestas de error. Un estado de "2
 |           | access_denied | El propietario del recurso o el servidor de consentimiento rechazaron la solicitud. |  |
 |           | unsupported_response_type | El servidor de consentimiento no admite la obtención de un token de acceso con este método. |  |
 |           | invalid_scope | El ámbito solicitado no es válido, es desconocido o tiene un formato incorrecto. |  |
-| 500 Error interno del servidor | unknown | No se pudo recuperar el token de Active Directory. Para más información, vea los registros en *\<file path\>* . | Compruebe que las identidades administradas de recursos de Azure se han habilitado en la máquina virtual. Consulte [Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md) (Configuración de identidades administradas de recursos de Azure en una VM mediante Azure Portal) si necesita ayuda con la configuración de la VM.<br><br>Compruebe que el URI de la solicitud HTTP GET tiene el formato correcto, especialmente el del recurso especificado en la cadena de consulta. Consulte "Solicitud de ejemplo" en la sección REST anterior para obtener un ejemplo o [Servicios de Azure que admiten la autenticación de Azure AD](services-support-msi.md) para obtener una lista de servicios y sus respectivos identificadores de recurso.
+| 500 Error interno del servidor | unknown | No se pudo recuperar el token de Active Directory. Para más información, vea los registros en *\<file path\>* . | Compruebe que las identidades administradas de recursos de Azure se han habilitado en la máquina virtual. Consulte [Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md) (Configuración de identidades administradas de recursos de Azure en una VM mediante Azure Portal) si necesita ayuda con la configuración de la VM.<br><br>Compruebe que el URI de la solicitud HTTP GET tiene el formato correcto, especialmente el del recurso especificado en la cadena de consulta. Consulte "Solicitud de ejemplo" en la sección REST anterior para obtener un ejemplo o [Servicios de Azure que admiten la autenticación de Azure AD](./services-support-managed-identities.md) para obtener una lista de servicios y sus respectivos identificadores de recurso.
 
 ## <a name="retry-guidance"></a>Instrucciones de reintento 
 
@@ -397,17 +397,9 @@ Para volver a intentarlo, se recomienda la estrategia siguiente:
 
 ## <a name="resource-ids-for-azure-services"></a>Identificadores de recurso para los servicios de Azure
 
-Consulte [Servicios de Azure que admiten la autenticación de Azure AD](services-support-msi.md) para ver una lista de recursos que admite Azure AD y que se han probado con identidades administradas de recursos de Azure y sus respectivos identificadores de recursos.
+Consulte [Servicios de Azure que admiten la autenticación de Azure AD](./services-support-managed-identities.md) para ver una lista de recursos que admite Azure AD y que se han probado con identidades administradas de recursos de Azure y sus respectivos identificadores de recursos.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para habilitar las identidades administradas de recursos de Azure en una máquina virtual de Azure, consulte [Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md) (Configuración de identidades administradas de recursos de Azure en una VM mediante Azure Portal).
-
-
-
-
-
-
-
-

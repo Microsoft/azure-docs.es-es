@@ -3,7 +3,7 @@ title: 'Tutorial: Configuración de HTTPS en un dominio personalizado para Azure
 description: En este tutorial, aprenderá a habilitar y deshabilitar HTTPS en su configuración de Azure Front Door para un dominio personalizado.
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.workload: infrastructure-services
@@ -11,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
-ms.author: sharadag
-ms.openlocfilehash: 56a2246b4f1da51d9b18a34279eff04264530ef5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.author: duau
+ms.openlocfilehash: 3956a843e67dba82486f350fc4380d4c8f6065f1
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82160092"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399827"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configuración de HTTPS en un dominio personalizado de Front Door
 
@@ -68,6 +68,9 @@ Para habilitar HTTPS en un dominio personalizado, siga estos pasos:
 4. Haga clic en Guardar.
 
 5. Continúe y [valide el dominio](#validate-the-domain).
+
+> [!NOTE]
+> En el caso de los certificados administrados por AFD, se aplica el límite de 64 caracteres de DigiCert. Se producirá un error de validación si se supera ese límite.
 
 
 ### <a name="option-2-use-your-own-certificate"></a>Opción 2: Usar su propio certificado

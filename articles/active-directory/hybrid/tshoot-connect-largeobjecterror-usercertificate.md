@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82c66231bcbdcaeb5371838291f1e6998f9f8bd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2eb656e46ce5e26fca5ae5c094f9b8bb85819caa
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356175"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89275783"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Sincronización de Azure AD Connect: Control de errores LargeObject causados por el atributo userCertificate
 
@@ -30,28 +30,28 @@ Azure AD exige un límite máximo de **15** valores de certificado en el atribut
 
 >*que el objeto aprovisionado es demasiado grande y se debe recordar el número de valores de atributo en este objeto. La operación se volverá a intentar en el siguiente ciclo de sincronización.*
 
-El error LargeObject puede deberse a otros atributos de AD. Para confirmar que realmente está causado por el atributo userCertificate, debe comprobarlo en el objeto ya sea en AD local o en la [búsqueda de metaverso de Synchronization Service Manager](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-mvsearch).
+El error LargeObject puede deberse a otros atributos de AD. Para confirmar que realmente está causado por el atributo userCertificate, debe comprobarlo en el objeto ya sea en AD local o en la [búsqueda de metaverso de Synchronization Service Manager](./how-to-connect-sync-service-manager-ui-mvsearch.md).
 
 Para obtener la lista de objetos en el inquilino con errores LargeObject, siga uno de los métodos siguientes:
 
- * Si está habilitado el inquilino para Azure AD Connect Health para sincronización, puede hacer referencia al [informe de errores de sincronización](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-sync) proporcionado.
+ * Si está habilitado el inquilino para Azure AD Connect Health para sincronización, puede hacer referencia al [informe de errores de sincronización](./how-to-connect-health-sync.md) proporcionado.
  
  * El correo electrónico de notificación de los errores de sincronización de directorios que se envía al final de cada ciclo de sincronización tiene la lista de objetos con errores LargeObject. 
- * La pestaña [Operaciones de Synchronization Service Manager](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-operations) muestra la lista de objetos con errores LargeObject si hace clic en la exportación más reciente a la operación de Azure AD.
+ * La pestaña [Operaciones de Synchronization Service Manager](./how-to-connect-sync-service-manager-ui-operations.md) muestra la lista de objetos con errores LargeObject si hace clic en la exportación más reciente a la operación de Azure AD.
  
 ## <a name="mitigation-options"></a>Opciones de mitigación
 Hasta que se resuelva el error LargeObject, no se pueden exportar a Azure AD otros cambios de atributo en el mismo objeto. Para resolver el error, puede considerar las siguientes opciones:
 
- * Actualice a la compilación 1.1.524.0 o posterior de Azure AD Connect. En la compilación 1.1.524.0 de Azure AD Connect, las reglas de sincronización originales se han actualizado para no exportar los atributos userSMIMECertificate y userCertificate, si estos tienen más de 15 valores. Para más información acerca cómo actualizar Azure AD Connect, consulte el artículo [Azure AD Connect: actualización de una versión anterior a la versión más reciente](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version)
+ * Actualice a la compilación 1.1.524.0 o posterior de Azure AD Connect. En la compilación 1.1.524.0 de Azure AD Connect, las reglas de sincronización originales se han actualizado para no exportar los atributos userSMIMECertificate y userCertificate, si estos tienen más de 15 valores. Para más información acerca cómo actualizar Azure AD Connect, consulte el artículo [Azure AD Connect: actualización de una versión anterior a la versión más reciente](./how-to-upgrade-previous-version.md)
 
  * Implemente una **regla de sincronización de salida** en Azure AD Connect que exporte un **valor null en lugar de los valores reales para objetos con más de 15 valores de certificado**. Esta opción es adecuada si no necesita que ninguno de los valores de certificado se exporte a Azure AD para objetos con más de 15 valores. Para más información sobre cómo implementar esta regla de sincronización, consulte la sección siguiente [Implementación de la regla de sincronización para limitar la exportación del atributo userCertificate](#implementing-sync-rule-to-limit-export-of-usercertificate-attribute).
 
  * Reduzca el número de valores de certificado en el objeto de AD local (15 o menos) mediante la eliminación de los valores que ya no están en uso por su organización. Esto es adecuado si el sobredimensionamiento del atributo está causado por los certificados expirados o sin usar. Puede usar [el script de PowerShell disponible aquí](https://gallery.technet.microsoft.com/Remove-Expired-Certificates-0517e34f) para buscar, hacer una copia de seguridad y eliminar certificados expirados en el AD local. Antes de eliminar los certificados, se recomienda que los compruebe con los administradores de infraestructura de clave pública de su organización.
 
  * Configure Azure AD Connect para que el atributo userCertificate no se exporte a Azure AD. En general, no se recomienda esta opción ya que el atributo lo puede usar Microsoft Online Services para habilitar escenarios concretos. En concreto:
-    * El atributo userCertificate del objeto de usuario lo usan los clientes de Outlook y Exchange Online para el cifrado y la firma de mensajes. Para más información sobre esta característica, consulte el artículo [S/MIME para la firma y el cifrado de mensajes](https://technet.microsoft.com/library/dn626158(v=exchg.150).aspx).
+    * El atributo userCertificate del objeto de usuario lo usan los clientes de Outlook y Exchange Online para el cifrado y la firma de mensajes. Para más información sobre esta característica, consulte el artículo [S/MIME para la firma y el cifrado de mensajes](/microsoft-365/security/office-365-security/s-mime-for-message-signing-and-encryption?view=o365-worldwide).
 
-    * El atributo userCertificate del objeto Computer lo utiliza Azure AD para permitir que dispositivos unidos a un dominio de Windows 10 local se conecten a Azure AD. Para más información sobre esta característica, consulte el artículo [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy).
+    * El atributo userCertificate del objeto Computer lo utiliza Azure AD para permitir que dispositivos unidos a un dominio de Windows 10 local se conecten a Azure AD. Para más información sobre esta característica, consulte el artículo [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](../devices/hybrid-azuread-join-plan.md).
 
 ## <a name="implementing-sync-rule-to-limit-export-of-usercertificate-attribute"></a>Implementación de la regla de sincronización para limitar la exportación del atributo userCertificate
 Para resolver el error LargeObject causado por el atributo userCertificate, puede implementar una regla de sincronización de salida en Azure AD Connect que exporte un **valor null en lugar de los valores reales para objetos con más de 15 valores de certificado**. En esta sección se describen los pasos necesarios para implementar la regla de sincronización para objetos **User**. Los pasos se pueden adaptados para los objetos **Contact** y **Computer**.
@@ -183,4 +183,3 @@ Ahora que el problema se ha resuelto, vuelva a habilitar el programador de sincr
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](whatis-hybrid-identity.md).
-

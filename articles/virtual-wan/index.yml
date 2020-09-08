@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc
-  ms.date: 05/08/2020
-  ms.openlocfilehash: 14336a28630e7a62a19e2b3a51934950cf12e2f8
-  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+  ms.date: 08/19/2020
+  ms.openlocfilehash: 772fa134eabc45dcbaa9e9b05c573aec493dd57b
+  ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/30/2020
-  ms.locfileid: "85564026"
+  ms.lasthandoff: 09/03/2020
+  ms.locfileid: "89438165"
 landingContent:
 - title: Acerca de Virtual WAN
   linkLists:
@@ -25,6 +25,8 @@ landingContent:
       url: virtual-wan-about.md
   - linkListType: concept
     links:
+    - text: Migración a Virtual WAN
+      url: migrate-from-hub-spoke-topology.md
     - text: Uso de ubicaciones y asociados
       url: virtual-wan-locations-partners.md
     - text: Preguntas más frecuentes
@@ -39,29 +41,65 @@ landingContent:
       url: virtual-wan-expressroute-portal.md
     - text: Creación de una conexión de VPN de usuario (de punto a sitio)
       url: virtual-wan-point-to-site-portal.md
-  - linkListType: how-to-guide
-    links:
-    - text: Configuración de automatización para asociados de Virtual WAN
-      url: virtual-wan-configure-automation-providers.md
   - linkListType: concept
     links:
     - text: Directivas predeterminadas para la conectividad de IPsec
       url: virtual-wan-ipsec.md
+    - text: Directrices de automatización para asociados de Virtual WAN
+      url: virtual-wan-configure-automation-providers.md
+  - linkListType: how-to-guide
+    links:
+    - text: Creación de una aplicación virtual de red en un centro
+      url: how-to-nva-hub.md
+    - text: Configuración de IPsec sobre ExpressRoute para Virtual WAN
+      url: vpn-over-expressroute.md
+    - text: Conexión de una instancia de VPN Gateway a Virtual WAN
+      url: connect-virtual-network-gateway-vwan.md
 - title: Architecture
   linkLists:
   - linkListType: concept
     links:
     - text: Migración a Virtual WAN
       url: migrate-from-hub-spoke-topology.md
+  - linkListType: architecture
+    links:
     - text: Arquitectura de red de tránsito global
       url: virtual-wan-global-transit-network-architecture.md
     - text: Arquitectura de conectividad SD-WAN
       url: sd-wan-connectivity-architecture.md
+- title: Enrutamiento
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Acerca del enrutamiento de centros virtuales
+      url: about-virtual-hub-routing.md
+    - text: 'Escenario: enrutamiento del tráfico a través de una aplicación virtual de red'
+      url: scenario-route-through-nva.md
+    - text: 'Escenario: cualquiera a cualquiera'
+      url: scenario-any-to-any.md
+    - text: 'Escenario: redes virtuales aisladas'
+      url: scenario-isolate-vnets.md
+    - text: 'Escenario: redes virtuales de servicios compartidos'
+      url: scenario-shared-services-vnet.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configuración del enrutamiento de centros virtuales
+      url: how-to-virtual-hub-routing.md
+- title: Supervisión
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Supervisión mediante Azure Monitor Insights
+      url: azure-monitor-insights.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configuración de registros y métricas de Azure Monitor
+      url: azure-monitor-insights.md
 - title: Referencia
   linkLists:
   - linkListType: reference
     links:
-    - text: Azure CLI
+    - text: CLI de Azure
       url: /cli/azure/ext/virtual-wan/network
     - text: Azure PowerShell
       url: /powershell/module/az.network#networking

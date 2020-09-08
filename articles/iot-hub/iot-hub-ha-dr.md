@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
-ms.openlocfilehash: 84fa7ae50b69e7e1a2fe341e34497f2bf1a75b0d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d4a5ad36e9d6d71ad88d0b5c56b6079f34483347
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260174"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021439"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Alta disponibilidad y recuperación ante desastres de IoT Hub
 
@@ -57,12 +57,14 @@ Ambas opciones de conmutación por error ofrecen los siguientes objetivos de pun
 
 <sup>1</sup>Los mensajes de la nube al dispositivo y los trabajos primarios no se recuperan como parte de la conmutación por error manual.
 
-Una vez completada la operación de conmutación por error para la instancia de IoT Hub, se espera que todas las operaciones de las aplicaciones de dispositivo y back-end sigan funcionando sin necesidad de una intervención manual. Esto significa que los mensajes del dispositivo a la nube deben seguir funcionando y todo el registro del dispositivo está intacto. Los eventos emitidos mediante Event Grid pueden consumirse con las mismas suscripciones configuradas anteriormente, siempre y cuando esas suscripciones de Event Grid sigan estando disponibles.
+Una vez completada la operación de conmutación por error para la instancia de IoT Hub, se espera que todas las operaciones de las aplicaciones de dispositivo y back-end sigan funcionando sin necesidad de una intervención manual. Esto significa que los mensajes del dispositivo a la nube deben seguir funcionando y todo el registro del dispositivo está intacto. Los eventos emitidos mediante Event Grid pueden consumirse con las mismas suscripciones configuradas anteriormente, siempre y cuando esas suscripciones de Event Grid sigan estando disponibles. No se requiere manipulación adicional para los puntos de conexión personalizados.
 
 > [!CAUTION]
-> - El nombre compatible con Event Hub y el punto de conexión de eventos integrados en IoT Hub cambian tras la conmutación por error. Cuando se reciben mensajes de telemetría desde el punto de conexión integrado mediante el cliente de Event Hub o el host del procesador de eventos, se debe [usar la cadena de conexión de IoT Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) para establecer la conexión. Esto garantiza que las aplicaciones de back-end sigan funcionando sin necesidad de intervención manual después de la conmutación por error. Si usa el nombre y el punto de conexión compatibles con Event Hub directamente en la aplicación, tendrá que [capturar el nuevo punto de conexión compatible con Event Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) después de la conmutación por error para continuar con las operaciones. Si usa Azure Functions o Azure Stream Analytics para conectar el punto de conexión integrado, puede que tenga que realizar un **reinicio**.
+> - El nombre compatible con Event Hub y el punto de conexión de eventos integrados en IoT Hub cambian tras la conmutación por error. Cuando se reciben mensajes de telemetría desde el punto de conexión integrado mediante el cliente de Event Hub o el host del procesador de eventos, se debe [usar la cadena de conexión de IoT Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) para establecer la conexión. Esto garantiza que las aplicaciones de back-end sigan funcionando sin necesidad de intervención manual después de la conmutación por error. Si usa el nombre y el punto de conexión compatibles con Event Hub directamente en la aplicación, tendrá que [capturar el nuevo punto de conexión compatible con Event Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) después de la conmutación por error para continuar con las operaciones. 
 >
-> - Al enrutar al almacenamiento, se recomienda enumerar los blobs o los archivos e iterar sobre ellos para garantizar que se leen todos sin pasar por alto ninguna partición. El intervalo de partición podría cambiar durante una conmutación por error iniciada por Microsoft o una conmutación por error manual. Puede usar la [API List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) para la lista de blobs o la [API List ADLS Gen2](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/list) para la lista de archivos. 
+> - Si usa Azure Functions o Azure Stream Analytics para conectar el punto de conexión de eventos integrado, puede que tenga que realizar un **reinicio**. Esto se debe a que, durante la conmutación por error, los desplazamientos anteriores ya no son válidos.
+>
+> - Al enrutar al almacenamiento, se recomienda enumerar los blobs o los archivos e iterar sobre ellos para garantizar que se leen todos sin pasar por alto ninguna partición. El intervalo de partición podría cambiar durante una conmutación por error iniciada por Microsoft o una conmutación por error manual. Puede usar la [API List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) para la lista de blobs o la [API List ADLS Gen2](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/list) para la lista de archivos. Para obtener más información, vea [Azure Storage como punto de conexión de enrutamiento](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
 
 ## <a name="microsoft-initiated-failover"></a>Conmutación por error iniciada por Microsoft
 

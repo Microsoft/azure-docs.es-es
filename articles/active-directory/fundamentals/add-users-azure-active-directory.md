@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6d8e6ed412a0e71e8c85827cfc8fc05cd744e3d
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 9fbdccfa7ff16bd63dda1f7c21c07e6d20e086e1
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797107"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321096"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Incorporación o eliminación de usuarios mediante Azure Active Directory
 
@@ -60,7 +60,7 @@ El usuario se crea y se agrega a la organización de Azure AD.
 
 ## <a name="add-a-new-guest-user"></a>Incorporación de un usuario invitado nuevo
 
-También puede invitar a un usuario invitado nuevo a colaborar con su organización si selecciona **Invitar usuario** en la página **Nuevo usuario**. Si la configuración de colaboración externa de la organización se configura de modo tal que se le permite invitar a otros usuarios, el usuario recibirá una invitación por correo electrónico que debe aceptar para empezar a colaborar. Para más información sobre cómo invitar a usuarios de colaboración B2B, consulte [Invitación a usuarios B2B a Azure Active Directory](../b2b/add-users-administrator.md).
+También puede invitar a un usuario invitado nuevo a colaborar con su organización si selecciona **Invitar usuario** en la página **Nuevo usuario**. Si la configuración de colaboración externa de la organización se configura de modo tal que se le permite invitar a otros usuarios, el usuario recibirá una invitación por correo electrónico que debe aceptar para empezar a colaborar. Para más información sobre cómo invitar a usuarios de colaboración B2B, consulte [Invitación a usuarios B2B a Azure Active Directory](../external-identities/add-users-administrator.md).
 
 ## <a name="add-a-consumer-user"></a>Incorporación de un usuario consumidor
 
@@ -105,4 +105,4 @@ Después de agregar a los usuarios, puede realizar los procesos básicos siguien
 
 - [Trabajo con usuarios y grupos dinámicos](../users-groups-roles/groups-create-rule.md)
 
-O bien puede realizar otras tareas de administración de usuarios, como [agregar usuarios invitados de otro directorio](../b2b/what-is-b2b.md) o [restaurar un usuario eliminado](active-directory-users-restore.md). Para obtener más información acerca de otras acciones disponibles, consulte la [documentación de administración de usuarios en Azure Active Directory](../users-groups-roles/index.yml).
+O bien puede realizar otras tareas de administración de usuarios, como [agregar usuarios invitados de otro directorio](../external-identities/what-is-b2b.md) o [restaurar un usuario eliminado](active-directory-users-restore.md). Para obtener más información acerca de otras acciones disponibles, consulte la [documentación de administración de usuarios en Azure Active Directory](../users-groups-roles/index.yml).

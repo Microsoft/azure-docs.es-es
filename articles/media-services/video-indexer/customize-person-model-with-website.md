@@ -8,14 +8,14 @@ manager: johndeu
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 08/06/2020
 ms.author: kumud
-ms.openlocfilehash: 28cb73df2df91fc96d7ac19e25d7bd13f47df41e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6894eb783b990ebe98f9ebe5eb2fe112a59309a4
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047297"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904503"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-website"></a>Personalización de un modelo de persona con el sitio web de Video Indexer
 
@@ -126,9 +126,20 @@ Para ver el contenido de cualquier modelo de persona, seleccione la flecha situa
 
 ### <a name="manage-a-person"></a>Administración de una persona
 
-Si seleccione **Manage** (Administrar), verá todas las caras para las que se está entrenando este modelo de persona. Estas caras proceden de apariciones de esa persona en los vídeos que usan este modelo de persona, o de imágenes que se hayan cargado manualmente.
+Si selecciona **Manage** (Administrar), verá la ventana **Person's details** (Detalles de la persona) con todas las caras con las que se está entrenando a este modelo Person. Estas caras proceden de apariciones de esa persona en los vídeos que usan este modelo de persona, o de imágenes que se hayan cargado manualmente.
+
+> [!TIP]
+> Para ir a la ventana **Person's details** (Detalles de la persona), haga clic en el nombre de la persona o haga clic en **Manage** (Administrar), como se ha mostrado anteriormente.
+
+#### <a name="add-a-face"></a>Adición de una cara
 
 Para agregar más caras a la persona, seleccione **Add images** (Agregar imágenes).
+
+#### <a name="delete-a-face"></a>Eliminación de un archivo
+
+Seleccione la imagen que quiere eliminar y haga clic en **Delete** (Eliminar).
+
+#### <a name="rename-and-delete-the-person"></a>Cambio de nombre y eliminación de la persona 
 
 Puede usar el panel de administración para cambiar el nombre de la persona y eliminar la persona del modelo.
 

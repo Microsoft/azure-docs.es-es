@@ -3,12 +3,12 @@ title: Estimación de los costos del plan de consumo en Azure Functions
 description: Obtenga información sobre cómo estimar mejor los costos que se pueden producir al ejecutar la aplicación de funciones en un plan de consumo de Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 880d1c20c75ce297b556ac203e309e446227e97a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 33c892bd7904d2921039a4b2afb9c775d6a4926a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083045"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207770"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Estimación de los costos según el plan de consumo
 
@@ -36,6 +36,8 @@ Dado que el uso de la memoria cambia con el tiempo, el cálculo es esencialmente
 
 > [!NOTE]
 > Aunque el uso de CPU no se considera directamente en el costo de la ejecución, puede tener un impacto en el costo cuando afecta al tiempo de ejecución de la función.
+
+En el caso de una función desencadenada por HTTP, cuando se produce un error antes de que el código de la función empiece a ejecutarse, no se cobra por una ejecución. Esto significa que las respuestas 401 de la plataforma debidas a la validación de la clave de API o a la característica de autenticación o autorización de App Service no cuentan en el costo de ejecución. Del mismo modo, las respuestas de código de estado 5xx no cuentan cuando se producen en la plataforma antes de que una función procese la solicitud. Una respuesta 5xx generada por la plataforma después de que el código de función se haya empezado a ejecutar se cuenta como una ejecución, aunque el código de la función no genere el error.
 
 ## <a name="other-related-costs"></a>Otros costos relacionados
 

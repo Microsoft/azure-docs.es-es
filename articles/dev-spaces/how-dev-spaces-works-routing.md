@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Describe los procesos que posibilitan el funcionamiento de Azure Dev Spaces y cómo funciona el enrutamiento.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
-ms.openlocfilehash: 19a55f37725464da73e93877d9c5238f3ebaced1
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: abdd8a573b7e120c5494b8878c2eb19813fc9507
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077672"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213409"
 ---
 # <a name="how-routing-works-with-azure-dev-spaces"></a>Funcionamiento del enrutamiento con Azure Dev Spaces
 
@@ -66,11 +66,9 @@ Al usar *azureuser*, todas las solicitudes a *serviceA* se enrutarán a la versi
 
 Para ver algunos ejemplos de cómo Azure Dev Spaces usa el enrutamiento para proporcionar una iteración y un desarrollo rápidos, consulte [Funcionamiento del proceso local con Kubernetes][how-it-works-local-process-kubernetes], [Funcionamiento de la depuración remota del código con Azure Dev Spaces][how-it-works-remote-debugging] y [Acciones de GitHub y Azure Kubernetes Service][pr-flow].
 
-Para empezar a usar el enrutamiento con Azure Dev Spaces para el desarrollo en equipo, consulte el inicio rápido [Desarrollo en equipo en Azure Dev Spaces][quickstart-team].
 
 [helm-upgrade]: https://helm.sh/docs/intro/using_helm/#helm-upgrade-and-helm-rollback-upgrading-a-release-and-recovering-on-failure
 [how-it-works-local-process-kubernetes]: /visualstudio/containers/overview-local-process-kubernetes
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
 [pr-flow]: how-to/github-actions.md
-[quickstart-team]: quickstart-team-development.md
 [troubleshooting]: troubleshooting.md

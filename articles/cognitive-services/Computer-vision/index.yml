@@ -11,19 +11,19 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 10/01/2019
-  ms.openlocfilehash: 58cb24b55be516fed5b72178ab83f38cc3d1caac
-  ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+  ms.openlocfilehash: 6b72b632cb1cea104d7db2afbb870725496326b8
+  ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/04/2020
-  ms.locfileid: "87760658"
+  ms.lasthandoff: 09/02/2020
+  ms.locfileid: "89321810"
 landingContent:
 - title: Acerca de Computer Vision
   linkLists:
   - linkListType: overview
     links:
     - text: ¿Qué es Computer Vision?
-      url: Home.md
+      url: overview.md
   - linkListType: whats-new
     links:
     - text: Novedades

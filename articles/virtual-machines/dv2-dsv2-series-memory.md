@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: bcefe19183ea5f511ce8255914b3ea8edd4306e8
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: aee88420fe8b88de9af9a2397316dd065144e610
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837098"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88685296"
 ---
 # <a name="memory-optimized-dv2-and-dsv2-series"></a>Series Dv2 y DSv2 optimizadas para memoria
 
@@ -65,7 +65,7 @@ Actualizaciones con conservación de memoria: Compatible
 | Standard_DS14_v2 <sup>3</sup> | 16 | 112 | 224 | 64 | 64000/512 (576) | 51200/768 | 8|12000 |
 | Standard_DS15_v2 <sup>2</sup> | 20 | 140 | 280 | 64 | 80000/640 (720) | 64000/960 | 8|25000 <sup>4</sup> |
 
-<sup>1</sup> El rendimiento de disco máx. (E/S por segundo o Mbps) posible con una VM de la serie DSv2 puede estar limitado por el número, el tamaño y la fragmentación de los discos conectados.  Para información detallada, consulte [Azure Premium Storage: Diseño de alto rendimiento](./windows/premium-storage-performance.md).
+<sup>1</sup> El rendimiento de disco máx. (E/S por segundo o Mbps) posible con una VM de la serie DSv2 puede estar limitado por el número, el tamaño y la fragmentación de los discos conectados.  Para información detallada, consulte [Azure Premium Storage: Diseño de alto rendimiento](./premium-storage-performance.md).
 <sup>2</sup> La instancia está aislada en el hardware basado en Intel Haswell y se dedica a un solo cliente.  
 <sup>3</sup> Tamaños de núcleos restringidos disponibles.  
 <sup>4</sup> 25 000 Mbps con redes aceleradas.
@@ -83,7 +83,7 @@ Actualizaciones con conservación de memoria: Compatible
 
 Calculadora de precios: [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 
-Más información sobre los tipos de disco: [Tipos de disco](./linux/disks-types.md#ultra-disk)
+Más información sobre los tipos de disco: [Tipos de disco](./disks-types.md#ultra-disk)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

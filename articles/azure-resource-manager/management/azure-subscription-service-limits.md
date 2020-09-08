@@ -2,14 +2,13 @@
 title: Límites y cuotas de suscripción de Azure
 description: Se proporciona una lista de límites, cuotas y restricciones de suscripción y servicio comunes de Azure. Este artículo incluye información acerca de cómo aumentar los límites junto con los valores máximos.
 ms.topic: conceptual
-author: davidsmatlak
-ms.date: 06/04/2020
-ms.openlocfilehash: 79aaa594a708fe775a2cdcc6e15b7c7f880f9f50
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.date: 09/02/2020
+ms.openlocfilehash: 87018f58a59c34c5027ca63102e4c5ca841e652b
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810486"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376235"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
 
@@ -275,6 +274,10 @@ Para conocer los límites específicos de Media Services v2 (heredado), vea [Me
 ### <a name="expressroute-limits"></a>Límites de ExpressRoute
 
 [!INCLUDE [expressroute-limits](../../../includes/expressroute-limits.md)]
+
+### <a name="virtual-network-gateway-limits"></a>Límites de la puerta de enlace de red virtual
+
+[!INCLUDE [virtual-wan-limits](../../../includes/azure-virtual-network-gateway-limits.md)]
 
 ### <a name="virtual-wan-limits"></a>Límites de Virtual WAN
 

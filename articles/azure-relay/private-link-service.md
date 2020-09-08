@@ -3,12 +3,12 @@ title: Integración de Azure Relay con el servicio Azure Private Link
 description: Información sobre la integración de Azure Relay con el servicio Azure Private Link
 ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: a113e52b892a25fd2b12a18d73df443d9a9866f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5c35f9333378a5f0b87956e8a916491d51e3cb3
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317313"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719434"
 ---
 # <a name="integrate-azure-relay-with-azure-private-link-preview"></a>Integración de Azure Relay con Azure Private Link (versión preliminar)
 El **servicio Azure Private Link** le permite acceder a los servicios de Azure (por ejemplo, Azure Relay, Azure Service Bus, Azure Event Hubs, Azure Storage y Azure Cosmos DB) y a los servicios de asociados o clientes hospedados por Azure mediante un punto de conexión privado de la red virtual. Para más información, consulte [¿Qué es Azure Private Link?](../private-link/private-link-overview.md)
@@ -207,7 +207,7 @@ Hay cuatro estados de aprovisionamiento:
 3. Ahora puede ver que el estado ha cambiado a **Desconectado**. A continuación, verá que el punto de conexión desaparece de la lista. 
 
 ## <a name="validate-that-the-private-link-connection-works"></a>Validación de que la conexión de vínculo privado funciona
-Debe validar que los recursos de la misma subred del punto de conexión privado se están conectando a su espacio de nombres de Azure Relay a través de su dirección IP privada.
+Debe validar que los recursos de la red virtual del punto de conexión privado se están conectando a su espacio de nombres de Azure Relay a través de su dirección IP privada.
 
 Para esta prueba, cree una máquina virtual siguiendo los pasos que encontrará en [Creación de una máquina virtual Windows en Azure Portal](../virtual-machines/windows/quick-create-portal.md).
 

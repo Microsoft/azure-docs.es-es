@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con IntSights | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory e IntSights.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 236feb7c-998b-4504-94d2-99656e500259
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 07/16/2020
+ms.date: 08/06/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1ef70535ecd84a97bde9650eb8a3ea3b9406bd2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7be7eb30484d1e0002a4fe44a15a14e18ff5d277
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87093693"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88552992"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-intsights"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con IntSights
 
@@ -105,6 +101,9 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     | lastName | user.surname |
     | intsightsAccountId | < intsightsAccountId > |
     | intsightsRole | < intsightsRole > |
+
+    > [!NOTE]
+    > **intsightsAccountId** y **intsightsRole** son las notificaciones opcionales que no se han agregado de manera predeterminada y que se deben agregar manualmente solo cuando se habilite el aprovisionamiento de usuarios **Just In Time**.
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 

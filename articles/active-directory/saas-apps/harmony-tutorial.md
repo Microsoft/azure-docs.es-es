@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Harmony | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Harmony.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 332bf450-7242-4494-a4d9-057f6a24b858
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/10/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce15d89b0a67fd9b165b0b8b65537e72f5264eef
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: d9dc1ab3840abfff80619ae73484b3921587c566
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81264860"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88535686"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-harmony"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Harmony
 

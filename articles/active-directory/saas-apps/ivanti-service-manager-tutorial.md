@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Ivanti Service Manager | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory e Ivanti Service Manager (ISM).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 14297c74-0d57-4146-97fa-7a055fb73057
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32bccdf538b637b7706824b4cf5499bed63af9dc
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: db7838224b004d50234586d14e43e77a9c2ce26b
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85799164"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88552754"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ivanti-service-manager-ism"></a>Tutorial: Integración de Azure Active Directory con Ivanti Service Manager (ISM)
 

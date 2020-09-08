@@ -30,10 +30,10 @@
     - name: Conceptos
       expanded: false
       items:
+        - name: Precios de identidades externas
+          href: external-identities-pricing.md
         - name: Procedimientos recomendados de B2B
           href: b2b-fundamentals.md
-        - name: Licencias B2B
-          href: licensing-guidance.md
         - name: Uso compartido externo de B2B y Office 365
           href: o365-external-user.md
         - name: Canje de invitación

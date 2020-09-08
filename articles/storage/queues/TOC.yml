@@ -9,7 +9,7 @@
   items:
     - name: Administración de colas sin código
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: storage-quickstart-queues-portal.md
     - name: Desarrollo con colas
       items:
@@ -45,8 +45,6 @@
       href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Seguridad
       items:
-        - name: Línea de base de seguridad
-          href: ../common/security-baseline.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Cifrado en reposo de Azure Storage
           href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
           items:
@@ -58,7 +56,15 @@
             - name: Autenticación y autorización con Azure AD
               href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
             - name: Autorización con clave compartida
-              href: /rest/api/storageservices/authorize-with-shared-key
+              items:
+                - name: Visualización y administración de claves de cuentas
+                  href: ../common/storage-account-keys-manage.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+                - name: Configurar cadenas de conexión
+                  href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+                - name: Evitar autorización con clave compartida
+                  href: ../common/shared-key-authorization-prevent.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+                - name: Uso de la API REST de Azure Storage
+                  href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
             - name: Autorización con SAS
               href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Autorización de operaciones de administración
@@ -69,6 +75,11 @@
           href: ../common/storage-security-controls.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Uso de puntos de conexión privados de Azure
           href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Controles de seguridad de Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ../common/security-controls-policy.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+        - name: Línea de base de seguridad
+          href: ../common/security-baseline.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Redundancia de datos
       href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Recuperación ante desastres y conmutación por error
@@ -150,6 +161,8 @@
                   href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
                 - name: Uso de la API REST de Azure Storage
                   href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+                - name: Evitar autorización con clave compartida
+                  href: ../common/shared-key-authorization-prevent.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Administración del cifrado de servicio Azure Storage
           items:
             - name: Creación de una cuenta que admita las claves administradas por el cliente
@@ -210,14 +223,14 @@
           href: storage-dotnet-how-to-use-queues.md
         - name: Java
           href: storage-java-how-to-use-queue-storage.md
+        - name: Python
+          href: storage-python-how-to-use-queue-storage.md
         - name: Node.js
           href: storage-nodejs-how-to-use-queues.md
         - name: C++
           href: storage-c-plus-plus-how-to-use-queues.md
         - name: PHP
           href: storage-php-how-to-use-queues.md
-        - name: Python
-          href: storage-python-how-to-use-queue-storage.md
         - name: Ruby
           href: storage-ruby-how-to-use-queue-storage.md
     - name: Administración de colas
@@ -253,12 +266,12 @@
           href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Accesibilidad al Explorador de Storage
           href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Foro de Azure Storage
+    - name: Azure Storage en Microsoft Q&A
       href: 'https://docs.microsoft.com/answers/topics/azure-queue-storage.html'
     - name: Azure Storage en Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
-    - name: Precios de Azure Storage
-      href: 'https://azure.microsoft.com/pricing/details/storage/'
+    - name: Precios de Queue Storage
+      href: 'https://azure.microsoft.com/pricing/details/storage/queues/'
     - name: Calculadora de precios de Azure
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Vídeos

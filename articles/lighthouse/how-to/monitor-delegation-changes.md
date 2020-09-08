@@ -1,14 +1,14 @@
 ---
 title: Supervisión de los cambios en la delegación en el inquilino de administración
 description: Aprenda a supervisar la actividad de delegación en los inquilinos de clientes o en el inquilino de administración.
-ms.date: 07/10/2020
+ms.date: 08/18/2020
 ms.topic: how-to
-ms.openlocfilehash: 63b19f56538f060a158fd665a9bef3bf43a9d087
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4d9d8b18634f94c355ea7fc0b5c125d631ec419c
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252290"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589748"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Supervisión de los cambios en la delegación en el inquilino de administración
 
@@ -23,7 +23,7 @@ En este tema se explican los permisos necesarios para supervisar la actividad de
 
 ## <a name="enable-access-to-tenant-level-data"></a>Habilitar el acceso a los datos en el nivel del inquilino
 
-Para acceder a los datos del registro de actividad en el nivel del inquilino, se debe asignar a una cuenta el rol integrado [Lector de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-reader) en el ámbito raíz (/). Esta asignación la debe realizar un usuario que tenga el rol Administrador global con privilegios de acceso elevados adicionales.
+Para acceder a los datos del registro de actividad en el nivel del inquilino, se tiene que asignar a una cuenta el rol integrado de Azure [Lector de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-reader) en el ámbito raíz (/). Esta asignación la debe realizar un usuario que tenga el rol Administrador global con privilegios de acceso elevados adicionales.
 
 ### <a name="elevate-access-for-a-global-administrator-account"></a>Elevación de los privilegios de acceso de una cuenta de administrador global
 
@@ -31,16 +31,18 @@ Para asignar un rol en el ámbito raíz (/), deberá disponer del rol Administra
 
 Para obtener instrucciones detalladas sobre cómo agregar y eliminar la elevación, consulte [Elevación de los privilegios de acceso para administrar todas las suscripciones y los grupos de administración de Azure](../../role-based-access-control/elevate-access-global-admin.md).
 
-Después de elevar los privilegios de acceso, la cuenta tendrá el rol Administrador de acceso de usuarios en Azure en el ámbito raíz. Esta asignación de roles le permite ver todos los recursos y asignar acceso en cualquier suscripción o grupo de administración en el directorio, así como realizar asignaciones de roles en el ámbito raíz. 
+Después de elevar los privilegios de acceso, la cuenta tendrá el rol Administrador de acceso de usuarios en Azure en el ámbito raíz. Esta asignación de roles le permite ver todos los recursos y asignar acceso en cualquier suscripción o grupo de administración en el directorio, así como realizar asignaciones de roles en el ámbito raíz.
 
 ### <a name="create-a-new-service-principal-account-to-access-tenant-level-data"></a>Creación de una nueva cuenta de entidad de servicio para acceder a los datos en el nivel de inquilino
 
-Una vez que haya elevado el acceso, puede asignar los permisos adecuados a una cuenta para que pueda consultar los datos del registro de actividad en el nivel de inquilino. Será necesario asignar el rol integrado [Lector de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-reader) a esta cuenta en el ámbito raíz del inquilino de administración.
+Una vez que haya elevado el acceso, puede asignar los permisos adecuados a una cuenta para que pueda consultar los datos del registro de actividad en el nivel de inquilino. Será necesario asignar el rol integrado de Azure [Lector de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-reader) a esta cuenta en el ámbito raíz del inquilino administrador.
 
 > [!IMPORTANT]
 > La concesión de una asignación de roles en el ámbito raíz significa que los mismos permisos se aplicarán a todos los recursos del inquilino.
 
-Dado que se trata de un amplio nivel de acceso, se recomienda que asigne este rol a una cuenta de entidad de servicio en lugar de a un usuario individual o a un grupo. Además, son recomendables los siguientes procedimientos recomendados:
+Dado que se trata de un amplio nivel de acceso, se recomienda que asigne este rol a una cuenta de entidad de servicio en lugar de a un usuario individual o a un grupo.
+
+ Además, son recomendables los siguientes procedimientos recomendados:
 
 - [Cree una nueva cuenta de entidad de servicio](../../active-directory/develop/howto-create-service-principal-portal.md) que se usará solo para esta función, en vez de asignar este rol a una entidad de servicio existente usada para otra automatización.
 - Asegúrese de que esta entidad de servicio no tiene acceso a ningún recurso de cliente delegado.
@@ -71,7 +73,7 @@ Una vez creada la cuenta de la entidad de servicio y asignado el rol Lector de s
 
 ## <a name="query-the-activity-log"></a>Consulta del registro de actividad
 
-Una vez que haya creado una nueva cuenta de entidad de servicio con el acceso de Lector de supervisión en el ámbito raíz del inquilino de administración, puede usarla para consultar e informar sobre las actividades de delegación en el inquilino. 
+Una vez que haya creado una nueva cuenta de entidad de servicio con el acceso de Lector de supervisión en el ámbito raíz del inquilino de administración, puede usarla para consultar e informar sobre las actividades de delegación en el inquilino.
 
 [Este script de Azure PowerShell](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/monitor-delegation-changes) se puede usar para consultar el último día de actividad y notifica sobre cualquier delegación agregada o eliminada (o intentos de delegaciones que no se realizaron correctamente). Consulta los datos del [registro de actividad del inquilino](/rest/api/monitor/TenantActivityLogs/List) y, a continuación, construye los valores siguientes para notificar las delegaciones que se han agregado o eliminado:
 
@@ -85,7 +87,7 @@ Al consultar estos datos, tenga en cuenta lo siguiente:
 
 - Si se delegan varios grupos de recursos en una sola implementación, se devolverán entradas independientes para cada grupo de recursos.
 - Los cambios realizados en una delegación anterior (como la actualización de la estructura de permisos) se registrarán como una delegación agregada.
-- Como se indicó anteriormente, una cuenta debe tener el rol integrado Lector de supervisión en el ámbito raíz (/) para poder acceder a estos datos en el nivel de inquilino.
+- Como se indicó anteriormente, una cuenta tiene que tener el rol integrado de Azure Lector de supervisión en el ámbito raíz (/) para poder acceder a estos datos en el nivel de inquilino.
 - Puede usar estos datos en sus propios flujos de trabajo e informes. Por ejemplo, puede usar [HTTP Data Collector API (versión preliminar pública)](../../azure-monitor/platform/data-collector-api.md) para registrar datos en Azure Monitor desde un cliente de la API REST y, después, usar [grupos de acciones](../../azure-monitor/platform/action-groups.md) para crear notificaciones o alertas.
 
 ```azurepowershell-interactive
@@ -159,6 +161,9 @@ else {
     Write-Output "No new delegation events for tenant: $($currentContext.Tenant.TenantId)"
 }
 ```
+
+> [!TIP]
+> Aunque en este tema hacemos referencia a los proveedores de servicios y clientes, las [empresas que administran varios inquilinos](../concepts/enterprise.md) pueden usar los mismos procesos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

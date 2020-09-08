@@ -6,17 +6,17 @@ author: anumjs
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: machine-learning
 ms.date: 07/21/2020
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: d28f37e6020e3a3165b012548868a3ec798651c2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ef56274e0bda3f1a9d494852520a77ecdfc25799
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87293896"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048013"
 ---
 # <a name="score-machine-learning-models-with-predict"></a>Puntuación de modelos de Machine Learning con PREDICT
 

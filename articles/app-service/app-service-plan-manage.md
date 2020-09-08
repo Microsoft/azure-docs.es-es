@@ -6,12 +6,12 @@ ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: d40f5db65ce9ca90ae978bac4491bdebccc2a328
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: bb0765a1d7934d60f787ed277dd3bd1f9bc1359b
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811717"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962951"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Administración de un plan de App Service en Azure
 
@@ -82,7 +82,7 @@ Puede encontrar **Clonar aplicación** en la sección **Herramientas de desarrol
 
 Para escalar verticalmente un plan de tarifa del plan de App Service, consulte [Escalado vertical de aplicaciones en Azure](manage-scale-up.md).
 
-Para escalar horizontalmente el recuento de instancias de una aplicación, consulte [Escalado del recuento de instancias de forma manual o automática](../monitoring-and-diagnostics/insights-how-to-scale.md).
+Para escalar horizontalmente el recuento de instancias de una aplicación, consulte [Escalado del recuento de instancias de forma manual o automática](../azure-monitor/platform/autoscale-get-started.md).
 
 <a name="delete"></a>
 

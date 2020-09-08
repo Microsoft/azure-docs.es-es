@@ -3,13 +3,13 @@ title: Cargas de trabajo de contenedor
 description: Aprenda a ejecutar y escalar aplicaciones desde imágenes de contenedor en Azure Batch. Cree un grupo de nodos de proceso que admita la ejecución de tareas de contenedor.
 ms.topic: how-to
 ms.date: 05/20/2020
-ms.custom: seodec18
-ms.openlocfilehash: b1310af2797e43659ac8859e74d1be8bdbab3c98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: a26582572302f670010f3038147687b47feef84a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83726730"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933552"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Ejecución de aplicaciones de contenedor en Azure Batch
 

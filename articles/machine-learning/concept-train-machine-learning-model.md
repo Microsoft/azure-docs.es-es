@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: dee74c787f6546494d12ea582eab383fbd99079d
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 186839425e6ab2fb5430a82650615425bb93d51a
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876910"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651767"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Entrenamiento de modelos con Azure Machine Learning
 
@@ -90,7 +90,7 @@ Las canalizaciones de aprendizaje automático pueden usar los métodos de entren
 * [Tutorial: Uso de canalizaciones de Azure Machine Learning para la puntuación por lotes](tutorial-pipeline-batch-scoring-classification.md)
 * [Ejemplos: ejemplos de Jupyter Notebook para las canalizaciones de aprendizaje automático](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 * [Ejemplos: canalización con aprendizaje automático automatizado](https://aka.ms/pl-automl)
-* [Ejemplos: canalización con estimadores](https://aka.ms/pl-estimator)
+* [Ejemplos: canalización con estimadores](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-estimatorstep.ipynb)
 
 ### <a name="understand-what-happens-when-you-submit-a-training-job"></a>Descripción de lo que ocurre cuando se envía un trabajo de entrenamiento
 

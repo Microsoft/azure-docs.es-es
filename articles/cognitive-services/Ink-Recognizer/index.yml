@@ -1,6 +1,6 @@
 ### YamlMime:Landing
-title: Documentación de la API Ink Recognizer
-summary: Aprenda a usar la API Ink Recognizer para disponer del reconocimiento de entradas de lápiz digital en sus aplicaciones y servicios. La API es un servicio basado en la nube que usa el aprendizaje automático para reconocer texto y formas manuscritas en cualquier contexto.
+title: Documentación de la API Ink Recognizer (retirada)
+summary: La API Ink Recognizer ha finalizado su versión preliminar el 26 de agosto de 2020. Si aún tiene recursos de Ink Recognizer, puede seguir utilizándolos hasta que el servicio se retire completamente, el 31 de enero de 2021. Aprenda a usar la API Ink Recognizer para disponer del reconocimiento de entradas de lápiz digital en sus aplicaciones y servicios. La API es un servicio basado en la nube que usa el aprendizaje automático para reconocer texto y formas manuscritas en cualquier contexto.
 metadata:
   title: 'API Ink Recognizer: Tutoriales, inicios rápidos, referencia de API'
   titleSuffix: Azure Cognitive Services
@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/23/2019
   ms.author: aahi
-  ms.openlocfilehash: f7e273639e5a5efd5e52517d9729bb7ba8908604
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: e0886171d074863009dd83163599c888db10e187
+  ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "79415681"
+  ms.lasthandoff: 09/03/2020
+  ms.locfileid: "89419595"
 landingContent:
 - title: Acerca de API Ink Recognizer
   linkLists:
@@ -48,7 +48,7 @@ landingContent:
       url: https://go.microsoft.com/fwlink/?linkid=2089907
     - text: Azure PowerShell
       url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
-    - text: Azure CLI
+    - text: CLI de Azure
       url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
 - title: Ejemplos
   linkLists:

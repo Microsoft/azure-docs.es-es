@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Azure AD SAML Toolkit | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Azure AD SAML Toolkit.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 3f4348e7-c34e-43c7-926e-f1b26ffacf6d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/24/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d2681c09030ff0f36938d7a09e1d1b2e9aa645c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: aa37cef84bb1d2cb92f2bb0e4a227c5be60fa345
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82166317"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543421"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-azure-ad-saml-toolkit"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Azure AD SAML Toolkit
 
@@ -161,7 +157,7 @@ En esta sección, vas a permitir que B. Simon use el inicio de sesión único d
 
 ### <a name="create-azure-ad-saml-toolkit-test-user"></a>Crear un usuario de prueba de Azure AD SAML Toolkit
 
-En esta sección, se crea una usuaria llamada B. Simon en Azure AD SAML Toolkit. Azure AD SAML Toolkit admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario no existe en Azure AD SAML Toolkit, se crea después de la autenticación.
+En esta sección, se crea una usuaria llamada B. Simon en Azure AD SAML Toolkit. Cree un usuario de prueba en la herramienta; para ello, registre un nuevo usuario y proporcione todos sus detalles. 
 
 ## <a name="test-sso"></a>Prueba de SSO 
 

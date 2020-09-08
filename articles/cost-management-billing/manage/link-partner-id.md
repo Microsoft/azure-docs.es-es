@@ -6,13 +6,14 @@ ms.reviewer: dhgandhi
 ms.author: banders
 ms.date: 07/24/2020
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: 5f50c63fa95018c13c48e9769f9e4049b2a81021
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 8f3e4762b0c0286a47b407595cf73b66bef8d750
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87529923"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88682848"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Vinculación de un Id. de partner a cuentas de Azure
 

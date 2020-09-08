@@ -11,12 +11,12 @@ ms.topic: end-user-help
 ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 8f084057c8bc2d0be1e04dc1821378c9733cc050
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e003c45aa1e7d75b709b7fbf99532fb1302fcbb9
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83741540"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797656"
 ---
 # <a name="add-your-work-or-school-account-to-the-microsoft-authenticator-app"></a>Agregar la cuenta profesional o educativa a la aplicación Microsoft Authenticator
 
@@ -30,7 +30,7 @@ Si su organización usa la verificación en dos pasos, puede configurar su cuent
 1. En el equipo, vaya a la página [Comprobación de seguridad adicional](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1).
 
     >[!Note]
-    >Si no ve la página **Comprobación de seguridad adicional**, es posible que el administrador haya activado la experiencia de información de seguridad (versión preliminar). Si es así, debe seguir las instrucciones de la sección [Configuración de la información de seguridad para usar una aplicación autenticadora](security-info-setup-auth-app.md). Si no es así, deberá ponerse en contacto con el departamento de soporte técnico de su organización para obtener ayuda. Para más información sobre seguridad, consulte [Introducción a la información de seguridad (versión preliminar)](user-help-security-info-overview.md).
+    >Si no ve la página **Comprobación de seguridad adicional**, es posible que el administrador haya activado la experiencia de información de seguridad (versión preliminar). Si es así, debe seguir las instrucciones de la sección [Configuración de la información de seguridad para usar una aplicación autenticadora](security-info-setup-auth-app.md). Si no es así, deberá ponerse en contacto con el departamento de soporte técnico de su organización para obtener ayuda. Para más información sobre seguridad, consulte [Introducción a la información de seguridad (versión preliminar)](./security-info-setup-signin.md).
 
 2. Active la casilla situada junto a **Aplicación Authenticator** y luego seleccione **Configurar**.
 

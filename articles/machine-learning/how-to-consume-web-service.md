@@ -10,13 +10,13 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: e5fb19b0d8d94b5ccc07c465c3e9f3bf0de50ab7
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: how-to, devx-track-python, devx-track-csharp
+ms.openlocfilehash: 56cd2117a352626cf59023d62ea8c931401389c5
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843069"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018100"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir un modelo de Azure Machine Learning que está implementado como un servicio web
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -158,30 +158,6 @@ La API REST espera que el cuerpo de la solicitud sea un documento JSON con la si
 > [!IMPORTANT]
 > La estructura de los datos debe coincidir con lo que esperan el script y el modelo de puntuación en el servicio. El script de puntuación podría modificar los datos antes de pasarlos al modelo.
 
-Por ejemplo, el modelo en el ejemplo [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) espera una matriz de 10 números. El script de puntuación de este ejemplo crea una matriz Numpy a partir de la solicitud y la pasa al modelo. En el siguiente ejemplo se muestran los datos que este servicio espera:
-
-```json
-{
-    "data": 
-        [
-            [
-                0.0199132141783263, 
-                0.0506801187398187, 
-                0.104808689473925, 
-                0.0700725447072635, 
-                -0.0359677812752396, 
-                -0.0266789028311707, 
-                -0.0249926566315915, 
-                -0.00259226199818282, 
-                0.00371173823343597, 
-                0.0403433716478807
-            ]
-        ]
-}
-```
-
-El servicio web puede aceptar varios conjuntos de datos en una solicitud. Devuelve un documento JSON que contiene una matriz de respuestas.
-
 ### <a name="binary-data"></a>Datos binarios
 
 Para obtener información sobre cómo habilitar la compatibilidad con datos binarios en un servicio, consulte [Datos binarios](how-to-deploy-advanced-entry-script.md#binary-data).
@@ -203,7 +179,7 @@ Para obtener información sobre cómo habilitar la compatibilidad con CORS en un
 
 ## <a name="call-the-service-c"></a>Llamada al servicio (C#)
 
-En este ejemplo se muestra cómo usar C# para llamar al servicio web creado a partir del ejemplo [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb):
+En este ejemplo se muestra cómo usar C# para llamar al servicio web creado a partir del ejemplo [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/notebook_example.ipynb):
 
 ```csharp
 using System;
@@ -292,7 +268,7 @@ Los resultados devueltos son similares al siguiente documento JSON:
 
 ## <a name="call-the-service-go"></a>Llamada al servicio (Go)
 
-En este ejemplo se muestra cómo usar Go para llamar al servicio web creado a partir del ejemplo [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb):
+En este ejemplo se muestra cómo usar Go para llamar al servicio web creado a partir del ejemplo [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/notebook_example.ipynb):
 
 ```go
 package main
@@ -384,7 +360,7 @@ Los resultados devueltos son similares al siguiente documento JSON:
 
 ## <a name="call-the-service-java"></a>Llamada al servicio (Java)
 
-En este ejemplo se muestra cómo usar Java para llamar al servicio web creado a partir del ejemplo [Train within notebook ](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb):
+En este ejemplo se muestra cómo usar Java para llamar al servicio web creado a partir del ejemplo [Train within notebook ](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/notebook_example.ipynb):
 
 ```java
 import java.io.IOException;
@@ -464,7 +440,7 @@ Los resultados devueltos son similares al siguiente documento JSON:
 
 ## <a name="call-the-service-python"></a>Llamada al servicio (Python)
 
-En este ejemplo muestra cómo utilizar Python para llamar al servicio web creado a partir del ejemplo [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb):
+En este ejemplo muestra cómo utilizar Python para llamar al servicio web creado a partir del ejemplo [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/notebook_example.ipynb):
 
 ```python
 import requests

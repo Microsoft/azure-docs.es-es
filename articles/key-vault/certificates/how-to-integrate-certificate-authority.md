@@ -7,15 +7,15 @@ manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: 7627625a917a8f652da62d4197368f023ad8c110
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 01383acad9f221e376f814ecf99794eb0431d0cd
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964505"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88588932"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Integración de Key Vault con la entidad de certificación DigiCert
 
@@ -105,7 +105,7 @@ New-AzKeyVault -Name 'Contoso-Vaultname' -ResourceGroupName 'ContosoResourceGrou
 
 ```azurepowershell-interactive
 $accountId = "myDigiCertCertCentralAccountID"
-$org = New-AzureKeyVaultCertificateOrganizationDetails -Id OrganizationIDfromDigiCertAccount
+$org = New-AzKeyVaultCertificateOrganizationDetails -Id OrganizationIDfromDigiCertAccount
 $secureApiKey = ConvertTo-SecureString DigiCertCertCentralAPIKey -AsPlainText –Force
 $issuerName = "DigiCertCA"
 ```
@@ -131,6 +131,16 @@ Si el certificado emitido se encuentra en el estado "deshabilitado" en Azure Por
  ![Propiedades del certificado](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
 
 Para más información, consulte las [operaciones con certificados en la referencia de la API REST de Key Vault](/rest/api/keyvault). Para obtener información sobre cómo establecer permisos, vea [Almacenes: crear o actualizar](/rest/api/keyvault/vaults/createorupdate) y [Almacenes: actualizar directiva de acceso](/rest/api/keyvault/vaults/updateaccesspolicy).
+
+## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
+
+- ¿Puedo generar un certificado comodín de DigiCert con KeyVault? 
+   Sí. Dependería de cómo haya configurado la cuenta de DigiCert.
+- Si vamos a crear un certificado EV, ¿cómo lo especificamos? 
+   Al crear un certificado, haga clic en Configuración de directiva avanzada y, a continuación, especifique el tipo de certificado. Los valores admitidos son: OV-SSL, EV-SSL
+- ¿Hay un retraso de tiempo en la creación de un certificado de DigiCert mediante la integración y la adquisición de un certificado con DigiCert directamente?
+   No. Al crear un certificado, el proceso de comprobación es lo que puede tardar en realizarse y esa comprobación depende del proceso DigiCert siguiente.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

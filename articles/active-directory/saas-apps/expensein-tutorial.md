@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con ExpenseIn | Microsoft Docs'
 description: Obtenga información sobre cómo configurar el inicio de sesión único entre Azure Active Directory y ExpenseIn.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-ms.assetid: 6ac8053b-a216-45d8-bf5e-ecd37d808e57
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/17/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 377499b1dd263398e1be42379f8db60e8a0477f9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7d0b0a6c935182737a7f207b7c7831fefcd491ea
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87017523"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88555336"
 ---
 # <a name="tutorial-integrate-expensein-with-azure-active-directory"></a>Tutorial: Integración de ExpenseIn con Azure Active Directory
 
@@ -127,7 +123,15 @@ En esta sección, va a permitir que B.Simon acceda a ExpenseIn mediante el inici
 
 ## <a name="configure-expensein-sso"></a>Configuración del inicio de sesión único de ExpenseIn
 
-1. Abra una nueva ventana del explorador web e inicie sesión como administrador en el sitio de la empresa ExpenseIn.
+1. Para automatizar la configuración en ExpenseIn, debe instalar la **extensión del explorador de inicio de sesión seguro de Aplicaciones**. Para ello, haga clic en **Instalar la extensión**.
+
+    ![Extensión Mis aplicaciones](common/install-myappssecure-extension.png)
+
+1. Después de agregar la extensión al explorador, haga clic en **Configurar ExpenseIn** para ir a la aplicación ExpenseIn. En ella, escriba las credenciales de administrador para iniciar sesión en ExpenseIn. La extensión de explorador configurará automáticamente la aplicación y automatizará los pasos 3 a 5.
+
+    ![Configuración](common/setup-sso.png)
+
+1. Si desea configurar ExpenseIn manualmente, inicie sesión en el sitio de la empresa ExpenseIn como administrador.
 
 1. Haga clic en **Admin** en la parte superior de la página, a continuación, vaya a **Single Sign-On** (Inicio de sesión único) y haga clic en **Add provider** (Agregar proveedor).
 

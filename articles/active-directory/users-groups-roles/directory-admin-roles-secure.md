@@ -1,6 +1,6 @@
 ---
 title: Procedimientos de acceso seguro para administradores en Azure AD | Microsoft Docs
-description: Asegúrese de que el acceso administrativo y las cuentas de administrador de la organización son seguras. Para arquitectos de sistemas y profesionales de TI que configuran Azure AD, Azure y Microsoft Online Services.
+description: Asegúrese de que el acceso administrativo y las cuentas de administrador de la organización sean seguras. Para arquitectos de sistemas y profesionales de TI que configuran Azure AD, Azure y Microsoft Online Services.
 services: active-directory
 keywords: ''
 author: curtand
@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51b18b05dc9fee06b0a9866f59b4bf52ad54e0ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd189db10b599c0bc6bd5a3dbae2b1bc21b53b0c
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807866"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795922"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD
 
@@ -37,7 +37,7 @@ La seguridad del acceso con privilegios requiere que se realicen cambios en:
 * Los procesos, las prácticas administrativas y la administración del conocimiento.
 * Los componentes técnicos, como las defensas de los hosts, las protecciones de las cuentas y la administración de identidades.
 
-Proteja el acceso con privilegios de manera que se administre y se notifique en los servicios de Microsoft que le interesan. Si tiene cuentas administrativas locales, consulte la guía para el acceso con privilegios a entornos locales e híbridos en Active Directory en [Protección del acceso con privilegios](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access).
+Proteja el acceso con privilegios de manera que se administre y se notifique en los servicios de Microsoft que le interesan. Si tiene cuentas administrativas locales, consulte la guía para el acceso con privilegios a entornos locales e híbridos en Active Directory en [Protección del acceso con privilegios](/windows-server/identity/securing-privileged-access/securing-privileged-access).
 
 > [!NOTE]
 > Las directrices de este artículo hacen referencia principalmente a las características de Azure Active Directory que se incluyen en los planes P1 y P2 de Azure Active Directory Premium. Azure Active Directory Premium P2 se incluye en los conjuntos EMS E5 y Microsoft 365 E5. En esta guía se da por supuesto que la organización ya ha adquirido licencias de Azure AD Premium P2 para los usuarios. Si no es así, es posible que algunas de las instrucciones no sean válidas para la organización. Además, en este artículo, el término administrador global tiene el mismo significado que "administrador de la empresa" o "administrador de inquilinos".
@@ -93,7 +93,7 @@ Después de activar Azure AD Privileged Identity Management, puede ver los usua
 * Administrador de Exchange
 * Administrador de SharePoint
 
-Si no dispone de Azure AD Privileged Identity Management en la organización, puede usar la [API de PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Comience por el rol de administrador global, ya que un administrador global tiene los mismos permisos en todos los servicios en la nube a los que la organización se ha suscrito. Estos permisos se conceden independientemente de dónde se hayan asignado: en el centro de administración de Microsoft 365, en Azure Portal o en el módulo de Azure AD para Microsoft PowerShell.
+Si no dispone de Azure AD Privileged Identity Management en la organización, puede usar la [API de PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Comience por el rol de administrador global, ya que un administrador global tiene los mismos permisos en todos los servicios en la nube a los que la organización se ha suscrito. Estos permisos se conceden independientemente de dónde se hayan asignado: en el centro de administración de Microsoft 365, en Azure Portal o en el módulo de Azure AD para Microsoft PowerShell.
 
 Quite las cuentas que ya no sean necesarias en esos roles. A continuación, clasifique las restantes que están asignadas a roles de administrador:
 
@@ -130,7 +130,7 @@ El aumento de las directivas "Bring your own device" (BYOD) y del trabajo desde 
 
 * Identifique a los usuarios que tengan roles administrativos y los servicios donde pueden administrarlos.
 * Use Azure AD PIM para averiguar qué usuarios de la organización tienen acceso de administrador a Azure AD.
-* Más allá de los roles definidos en Azure AD, Office 365 incluye un conjunto de roles de administrador que se pueden asignar a los usuarios de una organización. Cada rol de administrador se asigna a funciones empresariales comunes y proporciona a las personas de su organización permisos para realizar tareas específicas en el [Centro de administración de Microsoft 365](https://admin.microsoft.com). Use el Centro de administración de Microsoft 365 para averiguar qué usuarios de la organización tienen acceso de administrador a Office 365, lo que incluye mediante roles no administrados en Azure AD. Para más información, consulte [Acerca de los roles de administrador de Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) y [Procedimientos de seguridad para Office 365](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center).
+* Más allá de los roles definidos en Azure AD, Office 365 incluye un conjunto de roles de administrador que se pueden asignar a los usuarios de una organización. Cada rol de administrador se asigna a funciones empresariales comunes y proporciona a las personas de su organización permisos para realizar tareas específicas en el [Centro de administración de Microsoft 365](https://admin.microsoft.com). Use el Centro de administración de Microsoft 365 para averiguar qué usuarios de la organización tienen acceso de administrador a Office 365, lo que incluye mediante roles no administrados en Azure AD. Para más información, consulte [Acerca de los roles de administrador de Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) y [Procedimientos de seguridad para Office 365](/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center).
 * Realice el inventario de los servicios utilizados en la organización, como Azure, Intune o Dynamics 365.
 * Asegúrese de que las cuentas que se usan con fines de administración:
 
@@ -169,11 +169,11 @@ Active:
 
 * [MFA usando directivas de acceso condicional](../authentication/howto-mfa-getstarted.md) para todos los usuarios de su organización.
 
-Si usa Windows Hello para empresas, el requisito de MFA se puede cumplir con la experiencia de inicio de sesión de Windows Hello. Para más información, consulte [Windows Hello](https://docs.microsoft.com/windows/uwp/security/microsoft-passport).
+Si usa Windows Hello para empresas, el requisito de MFA se puede cumplir con la experiencia de inicio de sesión de Windows Hello. Para más información, consulte [Windows Hello](/windows/uwp/security/microsoft-passport).
 
 #### <a name="configure-identity-protection"></a>Configure Identity Protection
 
-Azure AD Identity Protection es una herramienta de supervisión y generación de informes basada en algoritmos que detecta posibles vulnerabilidades que afectan a las identidades de la organización. Puede configurar respuestas automáticas a las actividades sospechosas detectadas y realizar la acción apropiada para resolverlas. Para obtener más información, consulte [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
+Azure AD Identity Protection es una herramienta de supervisión y generación de informes basada en algoritmos que detecta posibles vulnerabilidades que afectan a las identidades de la organización. Puede configurar respuestas automáticas a las actividades sospechosas detectadas y realizar la acción apropiada para resolverlas. Para obtener más información, consulte [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md).
 
 #### <a name="obtain-your-office-365-secure-score-if-using-office-365"></a>Obtenga su Puntuación segura de Office 365 (si usa Office 365)
 
@@ -193,7 +193,7 @@ El establecimiento de una funcionalidad adecuada de respuesta ante incidentes re
 
 #### <a name="secure-on-premises-privileged-administrative-accounts-if-not-already-done"></a>Proteja las cuentas administrativas con privilegios locales, si no lo ha hecho
 
-Si la organización de Azure Active Directory está sincronizada con la instancia local de Active Directory, siga las instrucciones que encontrará en [Mapa de ruta para proteger el acceso con privilegios](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): Esta fase incluye:
+Si la organización de Azure Active Directory está sincronizada con la instancia local de Active Directory, siga las instrucciones que encontrará en [Mapa de ruta para proteger el acceso con privilegios](/windows-server/identity/securing-privileged-access/securing-privileged-access): Esta fase incluye:
 
 * Creación de cuentas de administrador independientes para aquellos usuarios que deban llevar a cabo tareas administrativas en el entorno local
 * Implementación de estaciones de trabajo con acceso con privilegios para los administradores de Active Directory
@@ -211,13 +211,13 @@ Las cuentas Microsoft de otros programas, como Xbox, Live y Outlook, no deben us
 
 #### <a name="monitor-azure-activity"></a>Supervise la actividad de Azure
 
-El registro de actividad de Azure proporciona un historial de los eventos de nivel de suscripción en Azure. Ofrece información acerca de quién creó, actualizó o eliminó los recursos y cuándo se produjeron estos eventos. Para más información, consulte, [Auditoría y recepción de notificaciones sobre las acciones importantes en su suscripción de Azure](../../azure-monitor/platform/quick-audit-notify-action-subscription.md).
+El registro de actividad de Azure proporciona un historial de los eventos de nivel de suscripción en Azure. Ofrece información acerca de quién creó, actualizó o eliminó los recursos y cuándo se produjeron estos eventos. Para más información, consulte, [Auditoría y recepción de notificaciones sobre las acciones importantes en su suscripción de Azure](../../azure-monitor/platform/alerts-activity-log.md).
 
 ### <a name="additional-steps-for-organizations-managing-access-to-other-cloud-apps-via-azure-ad"></a>Pasos adicionales para las organizaciones que administran el acceso a otras aplicaciones en la nube a través de Azure AD
 
 #### <a name="configure-conditional-access-policies"></a>Configuración de directivas de acceso condicional
 
-Prepare directivas de acceso condicional tanto para las aplicaciones locales como para las hospedadas en la nube. Si los usuarios han unido dispositivos al área de trabajo, obtenga más información de [Configuración del acceso condicional local mediante el registro de dispositivos de Azure Active Directory](../active-directory-device-registration-on-premises-setup.md).
+Prepare directivas de acceso condicional tanto para las aplicaciones locales como para las hospedadas en la nube. Si los usuarios han unido dispositivos al área de trabajo, obtenga más información de [Configuración del acceso condicional local mediante el registro de dispositivos de Azure Active Directory](../devices/overview.md).
 
 ## <a name="stage-3-take-control-of-admin-activity"></a>Fase 3: Toma de control de la actividad administrativa
 
@@ -255,11 +255,11 @@ Los atacantes podrían intentar dirigirse a cuentas con privilegios con el fin d
 * Ataques de suplantación.
 * Ataques de robo de credenciales, como el registro de pulsaciones de teclas, Pass-the-Hash y Pass-the-Ticket.
 
-Mediante la implementación de estaciones de trabajo de acceso con privilegios, se puede reducir el riesgo de que los administradores escriban las credenciales de administrador en un entorno de escritorio que no se haya protegido. Para más información, consulte [Estaciones de trabajo con privilegios de acceso](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations).
+Mediante la implementación de estaciones de trabajo de acceso con privilegios, se puede reducir el riesgo de que los administradores escriban las credenciales de administrador en un entorno de escritorio que no se haya protegido. Para más información, consulte [Estaciones de trabajo con privilegios de acceso](/windows-server/identity/securing-privileged-access/privileged-access-workstations).
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>Consulte las recomendaciones de control de incidentes que realiza el Instituto Nacional de Normas y Tecnología
 
-El Instituto Nacional de Normas y Tecnología (NIST) proporciona directrices para el control de incidentes, especialmente para analizar los datos relacionados con los incidentes y determinar la respuesta más apropiada ante cada incidente. Para más información, consulte [la guía para el control de incidentes de seguridad en los equipos del NIST (SP 800-61, revisión 2)](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf).
+El National Institute of Standards and Technology (NIST) proporciona directrices para el control de incidentes, especialmente para analizar los datos relacionados con estos y determinar la respuesta más apropiada en cada caso. Para más información, consulte [la guía para el control de incidentes de seguridad en los equipos del NIST (SP 800-61, revisión 2)](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf).
 
 #### <a name="implement-privileged-identity-management-pim-for-jit-to-additional-administrative-roles"></a>Implemente Privileged Identity Management (PIM) para JIT en más roles administrativos
 
@@ -275,11 +275,11 @@ En el caso de Azure Active Directory, use la funcionalidad [Azure AD Privileged 
   * Ver informes de auditoría.
   * Crear revisiones de acceso para identificar a todos aquellos usuarios que sean aptos para activar privilegios administrativos.
 
-Si ya usa Azure AD Privileged Identity Management, ajuste los períodos de tiempo de los privilegios limitados en tiempo según sea necesario (por ejemplo, las ventanas de mantenimiento).
+Si ya usa Azure AD Privileged Identity Management, ajuste los períodos de tiempo de los privilegios con tiempo limitado, según sea necesario (por ejemplo, las ventanas de mantenimiento).
 
 #### <a name="determine-exposure-to-password-based-sign-in-protocols-if-using-exchange-online"></a>Determine la exposición a protocolos de inicio de sesión mediante contraseña (si usa Exchange Online)
 
-Se recomienda identificar a todos los posibles usuarios con credenciales que resultaría catastrófico para la organización que se vieran en peligro. Para esos usuarios, aplique requisitos de autenticación seguros y use el acceso condicional de Azure AD para evitar que inicien sesión en su correo electrónico con el nombre de usuario y la contraseña. Puede bloquear la [autenticación heredada mediante el acceso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication) y [bloquear la autenticación básica](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) mediante Exchange Online.
+Se recomienda identificar a todos los posibles usuarios con credenciales que resultaría catastrófico para la organización que se vieran en peligro. Para esos usuarios, aplique requisitos de autenticación seguros y use el acceso condicional de Azure AD para evitar que inicien sesión en su correo electrónico con el nombre de usuario y la contraseña. Puede bloquear la [autenticación heredada mediante el acceso condicional](../conditional-access/block-legacy-authentication.md) y [bloquear la autenticación básica](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) mediante Exchange Online.
 
 #### <a name="complete-a-roles-review-assessment-for-office-365-roles-if-using-office-365"></a>Realice una valoración del examen de los roles de Office 365 (si usa Office 365)
 
@@ -291,7 +291,7 @@ Este informe se puede descargar de [Security Incident Management in Microsoft Of
 
 #### <a name="continue-to-secure-on-premises-privileged-administrative-accounts"></a>Continúe con la protección de las cuentas administrativas con privilegios locales
 
-Si Azure Active Directory está conectado con la instancia local de Active Directory, siga las instrucciones de [Hoja de ruta de la seguridad del acceso con privilegios](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): Fase 2. En esta fase, puede:
+Si Azure Active Directory está conectado con la instancia local de Active Directory, siga las instrucciones de [Hoja de ruta de la seguridad del acceso con privilegios](/windows-server/identity/securing-privileged-access/securing-privileged-access): Fase 2. En esta fase, puede:
 
 * Implementar estaciones de trabajo con acceso con privilegios para todos los administradores.
 * Requerir MFA
@@ -310,15 +310,15 @@ Si Azure Active Directory está conectado con la instancia local de Active Direc
 
 #### <a name="inventory-your-privileged-accounts-within-hosted-virtual-machines"></a>Realice un inventario de sus cuentas con privilegios en las máquinas virtuales hospedadas
 
-Normalmente no es necesario conceder a los usuarios permisos sin restricciones a todas las suscripciones o recursos de Azure. Use los roles de administrador de Azure AD para conceder solo el acceso que los usuarios necesitan para realizar su trabajo. Puede usar los roles de administrador de Azure AD para que un administrador pueda administrar solo las máquinas virtuales de una suscripción, mientras que otro pueda administrar las bases de datos SQL de la misma suscripción. Para más información, consulte [Introducción al control de acceso basado en roles en Azure Portal](../../role-based-access-control/overview.md).
+Normalmente, no es necesario conceder a los usuarios permisos sin restricciones a todas las suscripciones o recursos de Azure. Use los roles de administrador de Azure AD para conceder solo el acceso que los usuarios necesitan para realizar su trabajo. Puede usar los roles de administrador de Azure AD para que un administrador pueda administrar solo las máquinas virtuales de una suscripción, mientras que otro pueda administrar las bases de datos SQL de la misma suscripción. Para más información, consulte [Introducción al control de acceso basado en roles en Azure Portal](../../role-based-access-control/overview.md).
 
 #### <a name="implement-pim-for-azure-ad-administrator-roles"></a>Implemente PIM para los roles de administrador de Azure AD
 
-Use Privileged Identity Management con los roles de administrador de Azure AD para administrar, controlar y supervisar el acceso a los recursos de Azure. El uso de PIM protege mediante la reducción del tiempo de exposición de los privilegios y el aumento de la visibilidad de su uso mediante alertas e informes. Para más información, consulte [Administración del acceso a los recursos de Azure con Privileged Identity Management](../../role-based-access-control/pim-azure-resource.md).
+Use Privileged Identity Management con los roles de administrador de Azure AD para administrar, controlar y supervisar el acceso a los recursos de Azure. El uso de PIM protege mediante la reducción del tiempo de exposición de los privilegios y el aumento de la visibilidad de su uso mediante alertas e informes. Para más información, consulte [Administración del acceso a los recursos de Azure con Privileged Identity Management](../../role-based-access-control/best-practices.md).
 
 #### <a name="use-azure-log-integrations-to-send-relevant-azure-logs-to-your-siem-systems"></a>Use las integraciones de registros de Azure para enviar los registros de Azure relevantes a los sistemas de SIEM
 
-Azure Log Integration permite integrar los registros sin procesar de los recursos de Azure en los sistemas de administración de eventos e información de seguridad (SIEM) existentes de la organización. La [integración de registros de Azure](../../security/fundamentals/azure-log-integration-overview.md) recopila los eventos de Windows a partir de los registros del Visor de eventos de Windows y los recursos de Azure desde:
+Azure Log Integration permite integrar los registros sin procesar de los recursos de Azure en los sistemas de administración de eventos e información de seguridad (SIEM) existentes de la organización. La [integración de registros de Azure](/previous-versions/azure/security/fundamentals/azure-log-integration-overview) recopila los eventos de Windows a partir de los registros del Visor de eventos de Windows y los recursos de Azure desde:
 
 * Registros de actividad de Azure
 * Alertas de Azure Security Center
@@ -332,7 +332,7 @@ Azure AD permite automatizar la creación y el mantenimiento de las identidades
 
 #### <a name="integrate-information-protection"></a>Integre la protección de la información
 
-Microsoft Cloud App Security permite investigar archivos y establecer directivas en función de las etiquetas de clasificación de Azure Information Protection, lo que permite tener mayor visibilidad y control de los datos en la nube. Analice y clasifique los archivos de la nube y aplique las etiquetas de Azure Information Protection. Para más información, consulte [Integración de Azure Information Protection](https://docs.microsoft.com/cloud-app-security/azip-integration).
+Microsoft Cloud App Security permite investigar archivos y establecer directivas en función de las etiquetas de clasificación de Azure Information Protection, lo que permite tener mayor visibilidad y control de los datos en la nube. Analice y clasifique los archivos de la nube y aplique las etiquetas de Azure Information Protection. Para más información, consulte [Integración de Azure Information Protection](/cloud-app-security/azip-integration).
 
 #### <a name="configure-conditional-access"></a>Configuración del acceso condicional
 
@@ -340,7 +340,7 @@ Configure el acceso condicional en función del grupo, la ubicación y la confid
 
 #### <a name="monitor-activity-in-connected-cloud-apps"></a>Supervise la actividad en las aplicaciones en la nube conectadas
 
-Para asegurarse de que el acceso de los usuarios también se protege en las aplicaciones conectadas, se recomienda usar [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security). Esta característica protege el acceso de la empresa a las aplicaciones en la nube y protege sus cuentas de administrador, ya que le permite:
+Para asegurarse de que el acceso de los usuarios también se protege en las aplicaciones conectadas, se recomienda usar [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security). Esta característica protege el acceso de la empresa a las aplicaciones en la nube y protege sus cuentas de administrador, ya que le permite:
 
 * Ampliar la visibilidad y el control a las aplicaciones en la nube
 * Crear directivas de acceso, actividades y uso compartido de datos
@@ -348,7 +348,7 @@ Para asegurarse de que el acceso de los usuarios también se protege en las apli
 * Evitar la pérdida de datos
 * Minimizar el riesgo, realizar una prevención automática de las amenazas y exigir la aplicación de directivas
 
-El agente de SIEM de Cloud App Security integra Cloud App Security en el servidor de SIEM para habilitar la supervisión centralizada de las actividades y alertas de Office 365. Se ejecuta en el servidor y extrae las alertas y actividades de Cloud App Security y las transmite por secuencias al servidor de SIEM. Para más información, consulte [Integración de SIEM](https://docs.microsoft.com/cloud-app-security/siem).
+El agente de SIEM de Cloud App Security integra Cloud App Security en el servidor de SIEM para habilitar la supervisión centralizada de las actividades y alertas de Office 365. Se ejecuta en el servidor y extrae las alertas y actividades de Cloud App Security y las transmite por secuencias al servidor de SIEM. Para más información, consulte [Integración de SIEM](/cloud-app-security/siem).
 
 ## <a name="stage-4-continue-building-defenses"></a>Fase 4: Continuar creando defensas
 
@@ -373,7 +373,7 @@ Se recomiendan los siguientes procedimientos para administrar las cuentas con ac
 * Conceda acceso con privilegios solo cuando sea necesario y revóquelo inmediatamente después (Just-In-Time).
 * Conserve los registros de las actividades de auditoría relacionadas con las cuentas con privilegios.
 
-Para más información acerca de cómo crear toda una hoja de ruta de seguridad, consulte [Recursos de arquitectura de TI de la nube de Microsoft](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources). Para solicitar los servicios de Microsoft para ayudarle a implementar cualquiera de las áreas de la hoja de ruta, póngase en contacto con su representante de Microsoft o consulte [Creación de ciberdefensas críticas para proteger la empresa](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
+Para más información acerca de cómo crear toda una hoja de ruta de seguridad, consulte [Recursos de arquitectura de TI de la nube de Microsoft](https://almbok.com/office365/microsoft_cloud_it_architecture_resources). Para solicitar los servicios de Microsoft para ayudarle a implementar cualquiera de las áreas de la hoja de ruta, póngase en contacto con su representante de Microsoft o consulte [Creación de ciberdefensas críticas para proteger la empresa](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
 
 Esta fase final de la hoja de ruta del acceso con privilegios protegido incluye los siguientes componentes.
 
@@ -385,7 +385,7 @@ Determine si los roles de administrador de Azure AD integrados actuales siguen 
 
 #### <a name="review-users-who-have-administration-of-azure-ad-joined-devices"></a>Examine los usuarios que tengan la administración de dispositivos unidos a Azure AD
 
-Para más información, consulte [Configuración de dispositivos híbridos unidos a Azure Active Directory](../device-management-hybrid-azuread-joined-devices-setup.md).
+Para más información, consulte [Configuración de dispositivos híbridos unidos a Azure Active Directory](../devices/hybrid-azuread-join-plan.md).
 
 #### <a name="review-members-of-built-in-office-365-admin-roles"></a>Revise los miembros de los [roles de administrador de Office 365 integrados](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)
 Omita este paso si no usa Office 365.
@@ -418,7 +418,7 @@ Determine si necesita [transferir la propiedad de una suscripción de Azure a ot
 
 5. Examine los [informes de inicio de sesión de Azure AD](../reports-monitoring/overview-reports.md). Puede transcurrir un tiempo entre el momento en el que se produce un evento y el momento en el que se incluye en el informe.
 
-6. En el caso de los entornos híbridos, si la infraestructura local federada y el servidor de AD FS no están disponibles, puede cambiar temporalmente de la autenticación federada a usar la sincronización de hash de contraseña. Este cambio revierte la federación del dominio a la autenticación administrada hasta que el servidor de AD FS vuelva a estar disponible.
+6. En el caso de los entornos híbridos, si la infraestructura local federada y el servidor de AD FS no están disponibles, puede cambiar temporalmente de la autenticación federada al uso de la sincronización de hash de contraseña. Este cambio revierte la federación del dominio a la autenticación administrada hasta que el servidor de AD FS vuelva a estar disponible.
 
 7. Supervisar el correo electrónico de las cuentas con privilegios.
 
@@ -434,7 +434,7 @@ Para más información acerca de la forma en que Microsoft Office 365 controla l
 
 **P:** Después de una infracción, ¿qué problema es el primero que se debe solucionar?
 
-**Respuesta:** Asegúrese de requerir la autenticación más sólida posible a los usuarios con mayor exposición.
+**Respuesta:** Asegúrese de exigir la autenticación más segura posible a los usuarios con mayor exposición.
 
 **P:** ¿Qué ocurre si se han desactivado nuestros administradores con privilegios?
 
@@ -468,7 +468,7 @@ Para más información acerca de la forma en que Microsoft Office 365 controla l
 
 * [Centro de confianza de Microsoft para la seguridad de los productos](https://www.microsoft.com/trustcenter/security): características de seguridad de los productos y servicios en la nube de Microsoft
 
-* [Centro de confianza de Microsoft - Cumplimiento normativo](https://www.microsoft.com/trustcenter/compliance/complianceofferings): conjunto completo de ofertas de cumplimiento de normas para los servicios en la nube de Microsoft
+* [Centro de confianza de Microsoft: cumplimiento](https://www.microsoft.com/trustcenter/compliance/complianceofferings): conjunto completo de ofertas de cumplimiento para los servicios en la nube de Microsoft
 
 * [Guía para realizar una evaluación del riesgo](https://www.microsoft.com/trustcenter/guidance/risk-assessment): administre la seguridad y los requisitos de cumplimiento de los servicios en la nube de Microsoft
 

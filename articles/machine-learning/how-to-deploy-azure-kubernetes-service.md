@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 9503abf147ee89ec03e7e1317df823426ea37b1c
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 6c85a7315fe05bb4fedabd176295523c2fa95d81
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87758890"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855234"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implementación de un modelo en un clúster de Azure Kubernetes Service
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -28,7 +28,9 @@ Aprenda a usar Azure Machine Learning para implementar un modelo como un servici
 - Opciones de  __aceleración de hardware__, como GPU y matrices de puertas programables (FPGA).
 
 > [!IMPORTANT]
-> El escalado de clústeres no se proporciona a través del SDK de Azure Machine Learning. Para más información acerca del escalado de nodos en un clúster de Azure Kubernetes Service, consulte [Escalado del número de nodos en un clúster de Azure Kubernetes Service](../aks/scale-cluster.md).
+> El escalado de clústeres no se proporciona a través del SDK de Azure Machine Learning. Para más información acerca del escalado de nodos en un clúster de AKS, consulte 
+- [Escalado manual del número de nodos en un clúster de AKS](../aks/scale-cluster.md)
+- [Configuración del escalador automático en AKS](../aks/cluster-autoscaler.md)
 
 En Azure Kubernetes Service, la implementación se realiza en un clúster de AKS que está __conectado a su área de trabajo__. Hay dos formas de conectar un clúster de AKS a un área de trabajo:
 
@@ -41,7 +43,7 @@ El clúster de AKS y el área de trabajo de AML pueden estar en distintos grupos
 > El proceso de creación o de conexión es una tarea que se realiza una sola vez. Una vez que un clúster de AKS está conectado al área de trabajo, puede usarlo para las implementaciones. Cuando deje de necesitar el clúster de AKS puede desasociarlo o eliminarlo. Una vez que lo haga, ya no podrá realizar ninguna implementación en el clúster.
 
 > [!IMPORTANT]
-> Se recomienda realizar una depuración local antes de la implementación en el servicio web. Para obtener más información, vea [Depuración local](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally).
+> Se recomienda depurar localmente antes de la implementación en el servicio web. Para obtener más información, consulte [Depuración de forma local](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally).
 >
 > También puede consultar Azure Machine Learning: [Implementación en el cuaderno local](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local).
 
@@ -65,9 +67,16 @@ El clúster de AKS y el área de trabajo de AML pueden estar en distintos grupos
 
 - Si necesita implementar un Standard Load Balancer (SLB) en el clúster en lugar de un Basic Load Balancer (BLB), cree un clúster en el portal de AKS, la CLI o el SDK y, a continuación, asócielo al área de trabajo de AML.
 
+- Si tiene una instancia de Azure Policy que restringe la creación de direcciones IP públicas, se producirá un error en la creación del clúster de AKS. AKS requiere una dirección IP pública para el [tráfico de salida](https://docs.microsoft.com/azure/aks/limit-egress-traffic). En este artículo también se proporcionan instrucciones para bloquear el tráfico de salida desde el clúster a través de la dirección IP pública, excepto en el caso de algunos FQDN. Hay dos formas de habilitar una dirección IP pública:
+  - El clúster puede usar la dirección IP pública creada de forma predeterminada con BLB o SLB.
+  - El clúster se puede crear sin una dirección IP pública y luego configurar una dirección IP pública con un firewall con una ruta definida por el usuario, como se documenta [aquí](https://docs.microsoft.com/azure/aks/egress-outboundtype) 
+  
+  El plano de control AML no se comunica con esta dirección IP pública. Se comunica con el plano de control AKS para las implementaciones. 
+
 - Si adjunta un clúster de AKS, que tiene un [intervalo IP autorizado habilitado para tener acceso al servidor de API](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), habilite los intervalos IP del plano de control de AML del clúster de AKS. El plano de control de AML se implementa entre regiones emparejadas e implementa pods de inferencia en el clúster de AKS. Sin acceso al servidor de la API, no se pueden implementar los pods de inferencia. Use el [intervalo IP](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) para las [regiones emparejadas]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) al habilitar los intervalos IP en un clúster de AKS.
 
-__Los intervalos IP autorizados solo funcionan con Standard Load Balancer.__
+
+  Los intervalos IP autorizados solo funcionan con Standard Load Balancer.
  
  - El nombre del proceso DEBE ser único dentro de un área de trabajo.
    - El nombre es obligatorio y debe tener una longitud de entre 3 y 24 caracteres.
@@ -76,10 +85,6 @@ __Los intervalos IP autorizados solo funcionan con Standard Load Balancer.__
    - El nombre debe ser único en todos los procesos existentes dentro de una región de Azure. Verá una alerta si el nombre elegido no es único
    
  - Si quiere implementar modelos en nodos de GPU o en nodos de FPGA (o en cualquier SKU específica), debe crear un clúster con la SKU específica. No se admite la creación de un grupo de nodos secundarios en un clúster existente ni la implementación de modelos en el grupo de nodos secundarios.
- 
- 
-
-
 
 ## <a name="create-a-new-aks-cluster"></a>Creación de un clúster de AKS
 
@@ -109,6 +114,13 @@ from azureml.core.compute import AksCompute, ComputeTarget
 # For example, to create a dev/test cluster, use:
 # prov_config = AksCompute.provisioning_configuration(cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST)
 prov_config = AksCompute.provisioning_configuration()
+# Example configuration to use an existing virtual network
+# prov_config.vnet_name = "mynetwork"
+# prov_config.vnet_resourcegroup_name = "mygroup"
+# prov_config.subnet_name = "default"
+# prov_config.service_cidr = "10.0.0.0/16"
+# prov_config.dns_service_ip = "10.0.0.10"
+# prov_config.docker_bridge_cidr = "172.17.0.1/16"
 
 aks_name = 'myaks'
 # Create the cluster
@@ -222,6 +234,10 @@ Para más información, consulte la referencia de [az ml computetarget attach ak
 
 Para implementar un modelo en Azure Kubernetes Service, cree una __configuración de implementación__ que describa los recursos de proceso necesarios. Por ejemplo, el número de núcleos y la memoria. También necesita una __configuración de inferencia__, que describe el entorno necesario para hospedar el modelo y el servicio web. Para más información sobre cómo crear la configuración de inferencia, consulte [Cómo y dónde implementar modelos](how-to-deploy-and-where.md).
 
+> [!NOTE]
+> El número de modelos que se implementará se limita a 1000 modelos por implementación (por contenedor).
+
+
 ### <a name="using-the-sdk"></a>Uso del SDK
 
 ```python
@@ -267,7 +283,7 @@ Para obtener información acerca del uso de Visual Studio Code, consulte cómo s
 
 ### <a name="understand-the-deployment-processes"></a>Comprender los procesos de implementación
 
-La palabra "implementación" se usa en Kubernetes y Azure Machine Learning. "Implementación" tiene significados muy diferentes en estos dos contextos. En Kubernetes, una `Deployment` es una entidad concreta, que se especifica con un archivo YAML declarativo. Una `Deployment` de Kubernetes tiene un ciclo de vida definido y relaciones concretas con otras entidades de Kubernetes, como `Pods` y `ReplicaSets`. Puede obtener información sobre Kubernetes desde documentos y vídeos en [¿Qué es Kubernetes?](https://aka.ms/k8slearning).
+La palabra "implementación" se usa en Kubernetes y Azure Machine Learning. "Implementación" tiene significados diferentes en estos dos contextos. En Kubernetes, una `Deployment` es una entidad concreta, que se especifica con un archivo YAML declarativo. Una `Deployment` de Kubernetes tiene un ciclo de vida definido y relaciones concretas con otras entidades de Kubernetes, como `Pods` y `ReplicaSets`. Puede obtener información sobre Kubernetes desde documentos y vídeos en [¿Qué es Kubernetes?](https://aka.ms/k8slearning).
 
 En Azure Machine Learning, "implementación" se usa en el sentido general de poner a disposición y limpiar los recursos del proyecto. Los pasos que Azure Machine Learning considera parte de la implementación son:
 

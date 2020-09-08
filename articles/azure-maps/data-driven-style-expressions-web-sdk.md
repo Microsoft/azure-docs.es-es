@@ -1,6 +1,6 @@
 ---
 title: Expresiones de estilo basadas en datos en el SDK web de Azure Maps | Microsoft Azure Maps
-description: En este artículo, aprenderá a usar expresiones de estilo basadas en datos en el SDK web de Microsoft Azure Maps.
+description: Aprenda sobre las expresiones de estilo controladas por datos. Vea cómo usar estas expresiones en el SDK web de Azure Maps para ajustar los estilos de mapas.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 4/4/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 54477bd74df660edb12f6daffbaa2a7390f9516a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c8de7148e91f8fafa4a2b1f8a661964a77ead215
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285720"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009144"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expresiones de estilo basadas en datos (SDK web)
 

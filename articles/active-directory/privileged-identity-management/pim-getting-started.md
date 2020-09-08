@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.subservice: pim
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/23/2020
+ms.date: 08/24/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cad6c41b465e14b11d4fa7b8e7fa6037d49e8eae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8bad5b0256ee445767689ea2752e918a1fbf5fae
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84742919"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816004"
 ---
 # <a name="start-using-privileged-identity-management"></a>Empiece a usar Privileged Identity Management
 
@@ -38,9 +38,7 @@ Para más información, consulte [Requisitos de licencia para usar Privileged Id
 
 ## <a name="prepare-pim-for-azure-ad-roles"></a>Preparación de PIM para roles de Azure AD
 
-Una vez que haya habilitado Privileged Identity Management para su directorio, podrá prepararlo para administrar los roles de Azure AD.
-
-Estas son las tareas que se recomienda preparar para los roles de Azure AD, en este orden:
+Estas son las tareas que se recomiendan para preparar Privileged Identity Management a fin de administrar los roles de Azure AD:
 
 1. [Configuración de roles de Azure AD](pim-how-to-change-default-settings.md)
 1. [Proporcione asignaciones elegibles](pim-how-to-add-role-to-user.md).
@@ -48,11 +46,9 @@ Estas son las tareas que se recomienda preparar para los roles de Azure AD, en 
 
 ## <a name="prepare-pim-for-azure-roles"></a>Preparación de PIM para roles de Azure
 
-Una vez que haya habilitado Privileged Identity Management para su directorio, podrá prepararlo para administrar los roles de Azure para el acceso a los recursos de Azure en una suscripción.
+Estas son las tareas que recomendamos si desea preparar Privileged Identity Management para administrar los roles de Azure para una suscripción:
 
-Estas son las tareas que se recomienda preparar para los roles de Azure, en este orden:
-
-1. [Detecte recursos de Azure](pim-resource-roles-discover-resources.md).
+1. [Detección de recursos de Azure](pim-resource-roles-discover-resources.md)
 1. [Configuración de roles de Azure AD](pim-resource-roles-configure-role-settings.md)
 1. [Proporcione asignaciones elegibles](pim-resource-roles-assign-roles.md).
 1. [Permita que los usuarios elegibles activen sus roles de Azure cuando sea necesario](pim-resource-roles-activate-your-roles.md).
@@ -82,11 +78,11 @@ Para que sea más fácil abrir Privileged Identity Management, agregue un icono 
 
     ![Azure AD Privileged Identity Management en Todos los servicios](./media/pim-getting-started/pim-all-services-find.png)
 
-1. Seleccione el inicio rápido de Privileged Identity Management.
+1. Seleccione el **inicio rápido** de Privileged Identity Management.
 
-1. Active la opción **Anclar hoja al panel** para anclar la hoja Inicio rápido de Privileged Identity Management al panel.
+1. Active la opción **Anclar hoja al panel** para anclar la hoja **Inicio rápido** de Privileged Identity Management al panel.
 
-    ![Icono de marcador para anclar la hoja Privileged Identity Management al panel](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
+    ![Icono de marcador para anclar la página Privileged Identity Management al panel](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
 
     En el panel de Azure, verá un icono como este:
 

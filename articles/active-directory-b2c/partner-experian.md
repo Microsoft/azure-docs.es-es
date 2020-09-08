@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 2a69bc40090e74ad5885c2576c040693f90d5d03
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5c2fb330149d3e6530e7cb0fc3350d5db3fa24cf
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095129"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88683885"
 ---
 # <a name="tutorial-for-configuring-experian-with-azure-active-directory-b2c"></a>Tutorial para configurar Experian con Azure Active Directory B2C
 
@@ -48,7 +48,7 @@ Para empezar, necesitará lo siguiente:
 
 La integración de Experian incluye los siguientes componentes:
 
-- Azure AD B2C: el servidor de autorización, responsable de comprobar las credenciales del usuario, al que también se le conoce como proveedor de identidades.
+- Azure AD B2C: el servidor de autorización, responsable de comprobar las credenciales del usuario, al que también se le conoce como proveedor de identidades.
 
 - Experian: el servicio Experian toma la entrada que el usuario proporciona y comprueba la identidad de este.
 
@@ -121,7 +121,7 @@ En las directivas personalizadas proporcionadas, busque los siguientes marcadore
 
 |                      Marcador de posición                       |                                   Reemplazar por el valor                                 |                   Ejemplo                    |
 | ------------------------------------------------------ | -------------------------------------------------------------------------------- | -------------------------------------------- |
-| {your_tenant_name}                                     | Su nombre corto de inquilino                                                           | "yourtenant" de yourtenant.onmicrosoft.com |
+| {your_tenant_name}                                     | Su nombre corto de inquilino                                                           | "suinquilino" de suinquilino.onmicrosoft.com |
 | {your_trustframeworkbase_policy}                       | Nombre de Azure AD B2C de la directiva de TrustFrameworkBase                  | B2C_1A_experian_TrustFrameworkBase           |
 | {your_tenant_IdentityExperienceFramework_appid}        | Identificador de aplicación de la aplicación IdentityExperienceFramework configurada en el inquilino de Azure AD B2C      | 01234567-89ab-cdef-0123-456789abcdef         |
 | {your_tenant_ ProxyIdentityExperienceFramework _appid} | Identificador de aplicación de la aplicación ProxyIdentityExperienceFramework configurada en el inquilino de Azure AD B2C | 01234567-89ab-cdef-0123-456789abcdef         |
@@ -129,7 +129,7 @@ En las directivas personalizadas proporcionadas, busque los siguientes marcadore
 | {your_tenant_extensions_app_objectid}                  | Identificador de objeto de la aplicación de almacenamiento del inquilino                                   | 01234567-89ab-cdef-0123-456789abcdef         |
 | {your_api_username_key_name}                           | Nombre de la clave del nombre de usuario que creó [aquí](#part-4---create-api-policy-keys)             | B2C\_1A\_RestApiUsername                     |
 | {your_api_password_key_name}                           | Nombre de la clave de contraseña que creó [aquí](#part-4---create-api-policy-keys)             | B2C\_1A\_RestApiPassword                     |
-| {your_app_service_URL}                                 | Dirección URL del servicio de aplicaciones que ha configurado                                             | <https://yourapp.azurewebsites.net>          |
+| {your_app_service_URL}                                 | Dirección URL del servicio de aplicaciones que ha configurado                                             | `https://yourapp.azurewebsites.net`          |
 
 ### <a name="part-6---configure-the-azure-ad-b2c-policy"></a>Parte 6: configuración de la directiva de Azure AD B2C
 

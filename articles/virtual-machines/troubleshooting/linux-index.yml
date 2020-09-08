@@ -10,12 +10,12 @@ metadata:
   author: genlin
   ms.author: genli
   ms.date: 09/09/2019
-  ms.openlocfilehash: b78ce7baf60431e0f9ee1b1218d2d57019b35359
-  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+  ms.openlocfilehash: 7367bc378cf2a271d69d78cd08c4d1252b11fd62
+  ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/23/2020
-  ms.locfileid: "87068986"
+  ms.lasthandoff: 08/25/2020
+  ms.locfileid: "88816395"
 landingContent:
 - title: Solución de errores en la implementación
   linkLists:
@@ -88,13 +88,13 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Preguntas frecuentes sobre discos virtuales
-      url: ../linux/faq-for-disks.md
+      url: ../faq-for-disks.md
     - text: Solución de errores de asignación al cambiar el tamaño de una máquina virtual
       url: ./allocation-failure.md
     - text: Descripción de la unidad temporal de la máquina virtual
-      url: ../linux/managed-disks-overview.md#temporary-disk
+      url: ../managed-disks-overview.md#temporary-disk
     - text: Introducción a Azure Managed Disks
-      url: ../linux/managed-disks-overview.md
+      url: ../managed-disks-overview.md
     - text: Preguntas frecuentes sobre los discos de máquina virtual de Azure y los discos prémium administrados y no administrados
       url: ../linux/convert-unmanaged-to-managed-disks.md
 - title: Problemas de cifrado de disco

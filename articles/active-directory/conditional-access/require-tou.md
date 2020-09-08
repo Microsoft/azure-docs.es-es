@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34cc8154660db8afcd5859d45ccfd622bc7ca88f
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 53f99456449e778ff7c1fd3ab096e1afd3562c1e
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039830"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948868"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Inicio rápido: Solicitud de la aceptación de los términos de uso antes de acceder a aplicaciones en la nube
 
@@ -25,7 +25,7 @@ Antes de acceder a determinadas aplicaciones en la nube de su entorno, puede obt
 - Un método sencillo para configurar las condiciones de uso
 - La opción para solicitar la aceptación de las condiciones de uso mediante una directiva de acceso condicional  
 
-En este inicio rápido se muestra cómo configurar una [directiva de acceso condicional de Azure AD](../active-directory-conditional-access-azure-portal.md) que exija la aceptación de unas condiciones de uso para una aplicación en la nube seleccionada de su entorno.
+En este inicio rápido se muestra cómo configurar una [directiva de acceso condicional de Azure AD](./overview.md) que exija la aceptación de unas condiciones de uso para una aplicación en la nube seleccionada de su entorno.
 
 ![Creación de directiva](./media/require-tou/5555.png)
 
@@ -209,4 +209,4 @@ Cuando ya no sean necesarios, elimine el usuario de prueba y la directiva de acc
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Requerir MFA para aplicaciones específicas](app-based-mfa.md)
+> [Requerir MFA para aplicaciones específicas](../authentication/tutorial-enable-azure-mfa.md)

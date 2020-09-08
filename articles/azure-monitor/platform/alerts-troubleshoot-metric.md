@@ -4,14 +4,14 @@ description: Problemas comunes con las alertas de métricas de Azure Monitor y p
 author: harelbr
 ms.author: harelbr
 ms.topic: reference
-ms.date: 07/21/2020
+ms.date: 08/13/2020
 ms.subservice: alerts
-ms.openlocfilehash: b4a2329640387ab1c3cda93d18c6cb22c7d511cd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 1c1fe613721ea2bc2d4b9665d6da73b094487efc
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327487"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190666"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Solución de problemas en las alertas de métricas de Azure Monitor 
 
@@ -108,9 +108,9 @@ Las alertas de métricas tienen estado de forma predeterminada y, por lo tanto, 
 
 ## <a name="define-an-alert-rule-on-a-custom-metric-that-isnt-emitted-yet"></a>Definición de una regla de alerta en una métrica personalizada que todavía no se ha emitido
 
-Al crear una regla de alerta de métrica, el nombre de la métrica se valida con la [API de definiciones de métricas](/rest/api/monitor/metricdefinitions/list) para asegurarse de que existe. En algunos casos, le gustaría crear una regla de alerta en una métrica personalizada incluso antes de que se emita. Por ejemplo, al crear (mediante una plantilla de ARM) un recurso de Application Insights que emitirá una métrica personalizada, junto con una regla de alerta que supervise esa métrica.
+Al crear una regla de alerta de métrica, el nombre de la métrica se valida con la [API de definiciones de métricas](/rest/api/monitor/metricdefinitions/list) para asegurarse de que existe. En algunos casos, le gustaría crear una regla de alerta en una métrica personalizada incluso antes de que se emita. Por ejemplo, al crear (mediante una plantilla de Resource Manager) un recurso de Application Insights que emitirá una métrica personalizada, junto con una regla de alerta que supervise esa métrica.
 
-Para evitar que se produzca un error en la implementación al intentar validar las definiciones de la métrica personalizada, puede usar el parámetro *skipMetricValidation* en la sección de criterios de la regla de alerta, lo que hará que se omita la validación de la métrica. Vea el ejemplo siguiente para obtener información sobre cómo usar este parámetro en una plantilla de ARM (para ver ejemplos completos de plantillas de ARM para crear reglas de alertas de métricas, consulte [este artículo]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)).
+Para evitar que se produzca un error en la implementación al intentar validar las definiciones de la métrica personalizada, puede usar el parámetro *skipMetricValidation* en la sección de criterios de la regla de alerta, lo que hará que se omita la validación de la métrica. Vea el ejemplo siguiente para obtener información sobre cómo usar este parámetro en una plantilla de Resource Manager. Para más información, consulte los [ejemplos de plantilla de Resource Manager completos para crear reglas de alertas de métricas](./alerts-metric-create-templates.md).
 
 ```json
 "criteria": {
@@ -129,6 +129,15 @@ Para evitar que se produzca un error en la implementación al intentar validar l
               ]
         }
 ```
+
+## <a name="export-the-azure-resource-manager-template-of-a-metric-alert-rule-via-the-azure-portal"></a>Exportación de la plantilla de Azure Resource Manager de una regla de alertas de métricas mediante Azure Portal
+
+La exportación de la plantilla de Resource Manager de una regla de alertas de métricas le ayuda a conocer su sintaxis y sus propiedades JSON, y se puede usar para automatizar implementaciones futuras.
+1. Vaya a la sección **Grupos de recursos** en el portal y seleccione el grupo de recursos que contenga la regla.
+2. En la sección de información general, active la casilla **Mostrar tipos ocultos**.
+3. En el filtro **Tipo**, seleccione *microsoft.insights/metricalerts*.
+4. Seleccione la regla de regla apropiada para ver sus detalles.
+5. En **Configuración**, seleccione **Exportar plantilla**.
 
 ## <a name="metric-alert-rules-quota-too-small"></a>La cuota de las reglas de alertas de métricas es demasiado baja
 
@@ -198,7 +207,7 @@ Asegúrese de usar los comandos de la CLI adecuados para las alertas de métrica
 
    - Para una métrica de plataforma: asegúrese de usar el nombre de la **métrica** de [la página de métricas admitidas de Azure Monitor](./metrics-supported.md) y no el **nombre para mostrar de la métrica**.
 
-   - Para una métrica personalizada: asegúrese de que la métrica ya se esté generando (no puede crear una regla de alerta en una métrica personalizada que todavía no existe) y de que proporcione el espacio de nombres de la métrica personalizada (consulte [en este artículo](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric) un ejemplo de plantilla de ARM).
+   - Para una métrica personalizada: asegúrese de que la métrica ya se esté generando (no puede crear una regla de alerta en una métrica personalizada que todavía no existe) y de que proporcione el espacio de nombres de la métrica personalizada (consulte [aquí](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric) un ejemplo de plantilla de Resource Manager).
 
 - Si va a crear [alertas de métricas en registros](./alerts-metric-logs.md), asegúrese de incluir las dependencias correspondientes. Consulte la [plantilla de ejemplo](./alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
@@ -247,4 +256,3 @@ Por ejemplo:
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener información general sobre la solución de problemas de alertas y notificaciones, consulte [Solución de problemas en las alertas de Azure Monitor](alerts-troubleshoot.md).
-

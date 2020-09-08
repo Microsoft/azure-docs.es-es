@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: larryfr
 author: BlackMist
 ms.date: 07/08/2020
-ms.openlocfilehash: 828c8a33315f5a76eea780705e2cdf3c2871bd14
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cc4c39cf26f3ab8d1037222f967789bfbeca05ba
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012814"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166780"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>¿Qué son los entornos de Azure Machine Learning?
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -94,7 +94,7 @@ Para determinar si se debe reutilizar una imagen almacenada en caché o se debe 
  * Lista de los paquetes de Python en la definición de Conda
  * Lista de los paquetes en la definición de Spark 
 
-El valor de hash no depende del nombre o de la versión del entorno; si cambia el nombre del entorno o crea uno con exactamente las mismas propiedades y paquetes de un entorno existente, el valor de hash seguirá siendo el mismo. Sin embargo, los cambios en la definición del entorno, como la adición o eliminación de un paquete de Python o el cambio de versión del paquete, hacen que el valor de hash cambie. Es importante tener en cuenta que cualquier cambio en un entorno mantenido invalidará el valor de hash y dará como resultado un nuevo entorno "no mantenido".
+El valor de hash no depende del nombre o de la versión del entorno; si cambia el nombre del entorno o crea uno con exactamente las mismas propiedades y paquetes de un entorno existente, el valor de hash seguirá siendo el mismo. Sin embargo, los cambios en la definición del entorno, como la adición o eliminación de un paquete de Python o el cambio de versión del paquete, hacen que el valor de hash cambie. Si se cambia el orden de las dependencias o de los canales de un entorno, se generará un nuevo entorno y, por tanto, será necesario volver a compilar la imagen. Es importante tener en cuenta que cualquier cambio en un entorno mantenido invalidará el valor de hash y dará como resultado un nuevo entorno "no mantenido".
 
 El valor de hash calculado se compara con el de la instancia de ACR global y del área de trabajo (o con el del destino de proceso si se trata de ejecuciones locales). Si se encuentra una coincidencia, se extrae la imagen almacenada en caché; de lo contrario, se desencadena una compilación de la imagen. La duración de la extracción de una imagen almacenada en caché incluye el tiempo de descarga, mientras que la duración de la extracción de una imagen recién compilada incluye el tiempo de compilación y el tiempo de descarga. 
 
@@ -105,7 +105,7 @@ En el siguiente diagrama se muestran tres definiciones de entorno. Dos de ellas 
 >[!IMPORTANT]
 > Si crea un entorno con una dependencia de paquete desanclada (por ejemplo, ```numpy```), ese entorno seguirá usando la versión del paquete instalada _en el momento de la creación del entorno_. Además, cualquier entorno futuro con una definición coincidente seguirá usando la versión anterior. 
 
-Para actualizar el paquete, especifique un número de versión para forzar la recompilación de la imagen; por ejemplo, ```numpy==1.18.1```. Se instalarán nuevas dependencias, incluidas las anidadas, que podrían estropear un escenario que anteriormente funcionaba.
+Para actualizar el paquete, especifique un número de versión para forzar la recompilación de la imagen; por ejemplo, ```numpy==1.18.1```. Se instalarán nuevas dependencias, incluidas las anidadas, que podrían estropear un escenario que anteriormente funcionaba. 
 
 > [!WARNING]
 >  El método [Environment.build](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-workspace--image-build-compute-none-) recompilará la imagen almacenada en caché, con el posible efecto secundario de que se actualicen los paquetes sin especificar y que todas las definiciones de entorno correspondientes a esa imagen almacenada en caché ya no puedan reproducirse.

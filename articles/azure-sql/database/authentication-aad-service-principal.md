@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 07/27/2020
-ms.openlocfilehash: bfe609dc480dcdb71f162ca1bfd383a27257fedc
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/17/2020
+ms.openlocfilehash: d8268ebf89bed6b67919e77576118343b58edb6c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321707"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88516629"
 ---
 # <a name="azure-active-directory-service-principal-with-azure-sql"></a>Entidad de servicio de Azure Active Directory con Azure SQL
 
@@ -80,6 +80,8 @@ Para habilitar la creación de un objeto de Azure AD en SQL Database y Azure Sy
 
 > [!IMPORTANT]
 > Los pasos 1 y 2 se deben ejecutar en el orden anterior. En primer lugar, cree o asigne la identidad del servidor y, a continuación, conceda el permiso [**Lectores de directorio**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers). Si se omite uno de estos pasos, o ambos, se producirá un error de ejecución durante la creación de un objeto de Azure AD en Azure SQL en nombre de una aplicación de Azure AD. Para obtener instrucciones paso a paso para crear un usuario de Azure AD en nombre de una aplicación de Azure AD, consulte [Tutorial: Creación de usuarios de Azure AD mediante aplicaciones de Azure AD](authentication-aad-service-principal-tutorial.md).
+>
+> En la **versión preliminar pública**, puede asignar el rol **Lectores de directorio** a un grupo en Azure AD. A continuación, los propietarios del grupo pueden agregar la identidad administrada como miembro de este grupo, lo que omitiría la necesidad de que un usuario **Administrador global** o **Administrador de roles con privilegios** concedieran el rol **Lectores de directorio**. Para más información sobre esta característica, vea [Rol Lectores de directorio en Azure Active Directory de Azure SQL](authentication-aad-directory-readers-role.md).
 
 ## <a name="troubleshooting-and-limitations-for-public-preview"></a>Solución de problemas y limitaciones de la versión preliminar pública
 

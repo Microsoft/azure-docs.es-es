@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 07/28/2020
-ms.openlocfilehash: 33f87bf6f030adb48f2c4f8eb45027c1b298d812
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c36a8e6f2e104d91bd7738849918c46802cd0dca
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419723"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225944"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Los grupos elásticos ayudan a administrar y escalar varias bases de datos de Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -113,11 +113,11 @@ Los siguientes pasos pueden ayudarle a calcular si un grupo es más rentable que
 
 Para el modelo de compra basado en DTU:
 
-MAX(<*Número total de bases de datos* X *promedio de uso de DTU por base de datos*>, <*Número de bases de datos con picos simultáneos* X *Uso de picos de DTU por base de datos*)
+MAX(<*Número total de bases de datos* X *promedio de uso de DTU por base de datos*>, <*Número de bases de datos con picos simultáneos* X *Uso de picos de DTU por base de datos*>)
 
 Para el modelo de compra basado en núcleo virtual:
 
-MAX(<*Número total de bases de datos* X *promedio de uso de núcleo virtual por base de datos*>, <*Número de bases de datos con picos simultáneos* X *Uso de picos de núcleo virtual por base de datos*)
+MAX(<*Número total de bases de datos* X *promedio de uso de núcleo virtual por base de datos*>, <*Número de bases de datos con picos simultáneos* X *Uso de picos de núcleo virtual por base de datos*>)
 
 2. Calcule el espacio de almacenamiento necesario para el grupo agregando el número de bytes necesarios para todas las bases de datos del grupo. A continuación, determine el tamaño del grupo de eDTU que proporciona esta cantidad de almacenamiento.
 3. El modelo de compra basado en DTU toma las estimaciones de eDTU más grandes del paso 1 y el paso 2. El modelo de compra basado en núcleo virtual toma la estimación de núcleos virtuales del paso 1.

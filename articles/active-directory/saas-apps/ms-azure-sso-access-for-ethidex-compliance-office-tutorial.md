@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración de inicio de sesión único (SSO) de Azure Active Directory con MS Azure SSO Access for Ethidex Compliance Office™ | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y MS Azure SSO Access for Ethidex Compliance Office™.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 58b2e70f-d1dd-47b6-b91f-f77581df01c6
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/06/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00cbb5ff4b9354d0d1702161460b2646669f34c2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: cee76d78e934931e6f2d0ff6787d755717ea8b0b
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "70844380"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549031"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ms-azure-sso-access-for-ethidex-compliance-office"></a>Tutorial: Integración de inicio de sesión único (SSO) de Azure Active Directory con MS Azure SSO Access for Ethidex Compliance Office™
 

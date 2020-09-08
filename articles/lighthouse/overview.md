@@ -1,41 +1,42 @@
 ---
 title: ¿Qué es Azure Lighthouse?
 description: Azure Lighthouse permite a los proveedores de servicios ofrecer servicios administrados para sus clientes con mayor automatización y eficacia a escala.
-ms.date: 05/28/2020
+ms.date: 08/19/2020
 ms.topic: overview
-ms.openlocfilehash: 119f1465c9fdf03779f28a46967c30d899ae37d5
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d21d11d1316b177f38b6bce197dec4f2c3d3fac8
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131374"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660740"
 ---
 # <a name="what-is-azure-lighthouse"></a>¿Qué es Azure Lighthouse?
 
-Azure Lighthouse ofrece a los proveedores de servicios un plano de control único para ver y administrar Azure a través de todos sus clientes con una mayor automatización, escalado y gobernanza mejorada. Con Azure Lighthouse, los proveedores de servicios pueden ofrecer servicios administrados mediante herramientas de administración completas y sólidas integradas en la plataforma Azure. Esta oferta también puede ayudar a las organizaciones de TI empresariales a administrar recursos en varios inquilinos.
+Azure Lighthouse permite la administración de varios inquilinos, lo que proporciona no solo unas mayores automatización y escalabilidad, sino también una mejor gobernanza de recursos e inquilinos. Con Azure Lighthouse, los proveedores de servicios pueden ofrecer servicios administrados mediante herramientas de administración completas y sólidas integradas en la plataforma Azure. Esta oferta también puede ayudar a las organizaciones de TI empresariales a administrar recursos en varios inquilinos.
 
 ![Diagrama de información general de Azure Lighthouse](media/azure-lighthouse-overview.jpg)
 
 ## <a name="benefits"></a>Ventajas
 
-Azure Lighthouse le ayuda a compilar y ofrecer servicios administrados de forma rentable y eficaz para sus clientes. Entre las ventajas se incluye lo siguiente:
+Azure Lighthouse le ayuda a compilar y ofrecer servicios administrados de forma rentable y eficaz. Entre las ventajas se incluye lo siguiente:
 
-- **Administración a escala**: la involucración del cliente y las operaciones de ciclo de vida para administrar los recursos del cliente son más fáciles y escalables. Las API, las herramientas de administración y los flujos de trabajo existentes se pueden usar con los recursos de cliente delegados, independientemente de la región en que se encuentren.
+- **Administración a escala**: la involucración del cliente y las operaciones de ciclo de vida para administrar los recursos del cliente son más fáciles y escalables. Las API, las herramientas de administración y los flujos de trabajo existentes se pueden usar con recursos delegados, independientemente de las regiones en que se encuentren.
 - **Mayor visibilidad y precisión para los clientes**: los clientes tendrán mayor visibilidad de sus acciones y un control preciso sobre el ámbito que delegan para la administración, incluida la capacidad de quitar el acceso por completo, mientras que la dirección IP se conserva.
 - **Herramientas de plataforma completas y unificadas**: nuestra experiencia de herramientas aborda los escenarios clave del proveedor de servicios, incluidos varios modelos de licencia como EA, CSP y pago por uso. Las nuevas funcionalidades funcionan con herramientas y API, modelos de licencias y programas de asociados existentes, como el [Programa Cloud Solution Provider](/partner-center/csp-overview). Azure Lighthouse se puede integrar en sus flujos de trabajo y aplicaciones existentes, y puede realizar un seguimiento de su impacto sobre la involucración del cliente [vinculando su identificador de asociado](../cost-management-billing/manage/link-partner-id.md).
 
-No hay costos adicionales asociados con el uso de Azure Lighthouse para administrar los recursos de Azure de los clientes. Cualquier cliente o asociado de Azure puede usar Azure Lighthouse.
+No hay costos adicionales asociados con el uso de Azure Lighthouse para administrar los recursos de Azure. Cualquier cliente o asociado de Azure puede usar Azure Lighthouse.
 
 ## <a name="capabilities"></a>Capacidades
 
-Azure Lighthouse incluye varias maneras de ayudar a simplificar la administración y la involucración de los clientes:
+Azure Lighthouse incluye varias formas de ayudar a simplificar la administración y la involucración:
 
 - **Administración de recursos delegados de Azure**: Administre los recursos de Azure de sus clientes de forma segura desde su propio inquilino sin tener que cambiar los planos de contexto y control. Las suscripciones y los grupos de recursos se pueden delegar a usuarios y roles especificados en el inquilino de administración, con la capacidad de quitar el acceso según sea necesario. Para obtener más información, consulte la [administración de recursos delegados de Azure](concepts/azure-delegated-resource-management.md).
-- **Nuevas experiencias de Azure Portal**: vea la información de distintos inquilinos en la nueva página **Mis clientes** de [Azure Portal](https://portal.azure.com). Una hoja de **proveedores de servicios** correspondiente permite a los clientes ver y administrar el acceso del proveedor de servicios. Para obtener más información, consulte [Ver y administrar clientes](./how-to/view-manage-customers.md) y [View and manage service providers](how-to/view-manage-service-providers.md) (Ver y administrar proveedores de servicios).
-- **Plantillas de Azure Resource Manager**: realice tareas de administración más fácilmente, incluida la incorporación de clientes para la administración de recursos delegados de Azure. Para obtener más información, consulte nuestro [repositorio de ejemplos](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates) y [Onboard a customer to Azure delegated resource management](how-to/onboard-customer.md) (Incorporar a un cliente en la administración de recursos delegados de Azure).
-- **Ofertas de servicio administrado en Azure Marketplace**: ofrezca sus servicios a los clientes mediante ofertas privadas o públicas, y pídales que se incorporen automáticamente a la administración de recursos delegados de Azure, como alternativa a la incorporación mediante plantillas de Azure Resource Manager. Para más información, consulte [Ofertas de servicio administrado en Azure Marketplace](concepts/managed-services-offers.md).
+- **Nuevas experiencias de Azure Portal**: Vea la información de distintos inquilinos en la página [**Mis clientes** de](./how-to/view-manage-customers.md) Azure Portal. Una página de [**proveedores de servicios** correspondiente](how-to/view-manage-service-providers.md) permite a los clientes ver y administrar el acceso de los proveedores de servicios.
+- **Plantillas de Azure Resource Manager**: Nuestras plantillas le ayudan a realizar tareas de administración entre inquilinos e incorporar los recursos de clientes delegados. Para más información, consulte nuestro [repositorio de ejemplos](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates) e [Incorporación de un cliente a Azure Lighthouse](how-to/onboard-customer.md).
+- **Ofertas de servicio administrado en Azure Marketplace**: Ofrezca sus servicios a los clientes a través de ofertas públicas o privadas e incorpórelos automáticamente a Azure Lighthouse. Para más información, consulte [Ofertas de servicio administrado en Azure Marketplace](concepts/managed-services-offers.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre la [administración de recursos delegados de Azure](concepts/azure-delegated-resource-management.md).
-- Más información sobre las [experiencias de administración entre inquilinos](concepts/cross-tenant-management-experience.md).
+- Explore las [experiencias de administración entre inquilinos](concepts/cross-tenant-management-experience.md).
+- Vea cómo [usar Azure Lighthouse en una empresa](concepts/enterprise.md).

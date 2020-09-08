@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 279f4cb1d8891f64fb01f4f8abb6b23a004c2b4d
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 99c8ee79c51205c33d14328530f527ad8e3ff7b4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84269037"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085474"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Distribuciones y controladores admitidos
 
@@ -29,9 +29,11 @@ Los controladores NVIDIA CUDA para máquinas virtuales de las series NC, NCv2, N
 
 Microsoft redistribuye los instaladores del controlador NVIDIA GRID para VM de las series NV y NVv3 que se emplean como estaciones de trabajo virtuales o para aplicaciones virtuales. Instale estos controladores GRID en máquinas virtuales de la serie NV de Azure y solo en los sistemas operativos enumerados en la tabla siguiente. Estos controladores incluyen licencias del software GRID Virtual GPU en Azure. No es necesario configurar un servidor de licencias de software vGPU NVIDIA.
 
+Los controladores de GRID redistribuidos por Azure no funcionan en máquinas virtuales que no son de la serie NV, como las máquinas virtuales de las series NC (NCv2, NCv3, ND y NDv2).
+
 | Distribución | Controlador |
 | --- | -- |
-|Ubuntu 18.04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.0 a 7.7<br/><br/>Basado en CentOS 7.0 a 7.7<br/><br/>SUSE Linux Enterprise Server 12 SP2 | NVIDIA GRID 10.1, rama de controlador R440|
+|Ubuntu 18.04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.6 a 7.8, 8.0, 8.1<br/><br/>Basado en CentOS 7.6, 7.7, 8.0 u 8(1911)<br/><br/>SUSE Linux Enterprise Server 12 SP2 | NVIDIA GRID 11, rama de controlador R450|
 
 > [!WARNING] 
 > La instalación de software de terceros en productos de Red Hat puede afectar a los términos de soporte técnico de Red Hat. Vea el [artículo de Knowledgebase de Red Hat](https://access.redhat.com/articles/1067).

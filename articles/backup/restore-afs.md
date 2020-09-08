@@ -3,12 +3,12 @@ title: Restauración de recursos compartidos de archivos de Azure
 description: Aprenda a usar Azure Portal para restaurar un recurso compartido de archivos completo o archivos específicos desde un punto de restauración creado por Azure Backup.
 ms.topic: conceptual
 ms.date: 01/12/2020
-ms.openlocfilehash: f0e232fcde12a0c035afa139e3043bfa52fbe714
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 35ca0936ae6efba716adb51f43326cdd5bfa2d98
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503649"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376781"
 ---
 # <a name="restore-azure-file-shares"></a>Restauración de recursos compartidos de archivos de Azure
 
@@ -50,23 +50,23 @@ Puede usar esta opción para restaurar el recurso compartido de archivos complet
 
    ![Selección de Restaurar el recurso compartido](./media/restore-afs/restore-share.png)
 
-1. Después de seleccionar **Restaurar el recurso compartido**, se abre el panel **Restaurar**. Para seleccionar el punto de restauración que quiere usar para realizar la operación de restauración, haga clic en el texto del vínculo **Seleccionar** debajo del cuadro de texto **Punto de restauración**.
+1. Después de seleccionar **Restaurar el recurso compartido**, se abre el panel **Restaurar**. Para seleccionar el punto de restauración que quiere usar para realizar la operación de restauración, elija el texto del vínculo **Seleccionar** debajo del cuadro de texto **Punto de restauración**.
 
-    ![Selección del punto de restauración al hacer clic en Seleccionar](./media/restore-afs/select-restore-point.png)
+    ![Seleccionar el punto de restauración mediante la opción Seleccionar](./media/restore-afs/select-restore-point.png)
 
 1. El panel de contexto **Seleccionar punto de restauración** se abre a la derecha y muestra los puntos de restauración disponibles para el recurso compartido de archivos seleccionado. Seleccione el punto de restauración que desee usar para la operación de restauración y seleccione **Aceptar**.
 
     ![Seleccionar punto de restauración](./media/restore-afs/restore-point.png)
 
     >[!NOTE]
-    >De forma predeterminada, el panel **Seleccionar punto de restauración** muestra los puntos de restauración de los últimos 30 días. Si quiere examinar los puntos de restauración que se crearon durante un período de tiempo específico, proporcione el intervalo. Para ello, seleccione la **Fecha de inicio** y la **Fecha de finalización** y haga clic en el botón **Actualizar**.
+    >De forma predeterminada, el panel **Seleccionar punto de restauración** muestra los puntos de restauración de los últimos 30 días. Si desea examinar los puntos de restauración que se crearon durante un período de tiempo específico, proporcione el intervalo. Para ello, elija la **Fecha de inicio** y la **Fecha de finalización** y seleccione el botón **Actualizar**.
 
 1. El siguiente paso consiste en elegir la **ubicación de restauración**. En la sección **Destino de la recuperación**, especifique dónde o cómo restaurar los datos. Seleccione una de las dos opciones siguientes mediante el botón de alternancia:
 
     * **Ubicación original**: restaure el recurso compartido de archivos completo en la misma ubicación que el origen inicial.
     * **Ubicación alternativa**: restaure el recurso compartido de archivos completo en una ubicación alternativa y mantenga el recurso compartido de archivos original como está.
 
-#### <a name="restore-to-the-original-location"></a>Restauración en la ubicación original
+#### <a name="restore-to-the-original-location-full-share-recovery"></a>Restauración en la ubicación original (recurso compartido completo)
 
 1. Seleccione **Ubicación original** como **Destino de recuperación** y seleccione si prefiere omitir o sobrescribir cuando haya conflictos; para ello, elija la opción adecuada de la lista desplegable **En caso de conflictos**.
 
@@ -74,7 +74,7 @@ Puede usar esta opción para restaurar el recurso compartido de archivos complet
 
     ![Seleccionar Restaurar para iniciar](./media/restore-afs/click-restore.png)
 
-#### <a name="restore-to-an-alternate-location"></a>Restauración a una ubicación alternativa
+#### <a name="restore-to-an-alternate-location-full-share-recovery"></a>Restauración en una ubicación alternativa (recurso compartido completo)
 
 1. Seleccione **Ubicación alternativa** como **Destino de recuperación**.
 1. Seleccione la cuenta de almacenamiento de destino en la que desea restaurar el contenido del que se ha realizado una copia de seguridad, en la lista desplegable **Cuenta de almacenamiento**.
@@ -93,9 +93,9 @@ Puede usar esta opción para restaurar archivos o carpetas en la ubicación orig
 
     ![Selección de Recuperación de archivos](./media/restore-afs/file-recovery.png)
 
-1. Después de seleccionar **Recuperación de archivos**, se abre el panel **Restaurar**. Para seleccionar el punto de restauración que quiere usar para realizar la operación de restauración, haga clic en el texto del vínculo **Seleccionar** debajo del cuadro de texto **Punto de restauración**.
+1. Después de seleccionar **Recuperación de archivos**, se abre el panel **Restaurar**. Para elegir el punto de restauración que quiere usar para realizar la operación de restauración, seleccione el texto del vínculo **Seleccionar** debajo del cuadro de texto **Punto de restauración**.
 
-    ![Selección del punto de restauración al hacer clic en Seleccionar](./media/restore-afs/select-restore-point.png)
+    ![Seleccionar el punto de restauración mediante el vínculo Seleccionar](./media/restore-afs/select-restore-point.png)
 
 1. El panel de contexto **Seleccionar punto de restauración** se abre a la derecha y muestra los puntos de restauración disponibles para el recurso compartido de archivos seleccionado. Seleccione el punto de restauración que desee usar para la operación de restauración y seleccione **Aceptar**.
 
@@ -106,13 +106,13 @@ Puede usar esta opción para restaurar archivos o carpetas en la ubicación orig
     * **Ubicación original**: restaure los archivos o carpetas seleccionados en el mismo recurso compartido de archivos que el origen inicial.
     * **Ubicación alternativa**: restaure los archivos o carpetas seleccionados en una ubicación alternativa y mantenga el contenido del recurso compartido de archivos original como está.
 
-#### <a name="restore-to-the-original-location"></a>Restauración en la ubicación original
+#### <a name="restore-to-the-original-location-item-level-recovery"></a>Restauración en la ubicación original (recuperación de nivel de elemento)
 
 1. Seleccione **Ubicación original** como **Destino de recuperación** y seleccione si prefiere omitir o sobrescribir cuando haya conflictos. Para ello, elija la opción adecuada de la lista desplegable **En caso de conflictos**.
 
     ![Ubicación original de la recuperación en el nivel de elementos](./media/restore-afs/original-location-item-level.png)
 
-1. Para seleccionara los archivos o carpetas que quiere restaurar, haga clic en el botón **Agregar archivo**. Se abrirá un panel de contexto a la derecha y mostrará el contenido del punto de recuperación del recurso compartido de archivos que seleccionó para restaurar.
+1. Para elegir los archivos o las carpetas que quiere restaurar, seleccione el botón **Agregar archivo**. Se abrirá un panel de contexto a la derecha y mostrará el contenido del punto de recuperación del recurso compartido de archivos que seleccionó para restaurar.
 
     ![Selección de Agregar archivo](./media/restore-afs/add-file.png)
 
@@ -125,14 +125,14 @@ Puede usar esta opción para restaurar archivos o carpetas en la ubicación orig
 
     ![Seleccionar Restaurar para iniciar](./media/restore-afs/click-restore.png)
 
-#### <a name="restore-to-an-alternate-location"></a>Restauración a una ubicación alternativa
+#### <a name="restore-to-an-alternate-location-item-level-recovery"></a>Restauración en una ubicación alternativa (recuperación de nivel de elemento)
 
 1. Seleccione **Ubicación alternativa** como **Destino de recuperación**.
 1. Seleccione la cuenta de almacenamiento de destino en la que desea restaurar el contenido del que se ha realizado una copia de seguridad, en la lista desplegable **Cuenta de almacenamiento**.
 1. En la lista desplegable **Seleccionar recurso compartido de archivos**, se muestran los recursos compartidos de archivos presentes en la cuenta de almacenamiento seleccionada en el paso 2. Seleccione el recurso compartido de archivos en el que desea restaurar el contenido de la copia de seguridad.
 1. En el cuadro **Nombre de la carpeta**, especifique el nombre de la carpeta que desea crear en el recurso compartido de archivos de destino con el contenido restaurado.
 1. Seleccione si desea omitir o sobrescribir si hay conflictos.
-1. Para seleccionar los archivos o carpetas que quiere restaurar, haga clic en el botón **Agregar archivo**. Se abrirá un panel de contexto a la derecha y mostrará el contenido del punto de recuperación del recurso compartido de archivos que seleccionó para restaurar.
+1. Para elegir los archivos o las carpetas que quiere restaurar, seleccione el botón **Agregar archivo**. Se abrirá un panel de contexto a la derecha y mostrará el contenido del punto de recuperación del recurso compartido de archivos que seleccionó para restaurar.
 
     ![Selección de elementos para restaurar en una ubicación alternativa](./media/restore-afs/restore-to-alternate-location.png)
 

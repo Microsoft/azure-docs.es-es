@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/15/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 1b32ae55030cc24c8892b204ff7330269993a483
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 15b129db56a9c6854bc3c1f2814a8776ec39adc6
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095278"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961574"
 ---
 # <a name="availability-zone-support-for-app-service-environments"></a>Compatibilidad de zonas de disponibilidad con instancias de App Service Environment
 
@@ -77,7 +77,7 @@ El fragmento de la plantilla de Resource Manager de ejemplo que aparece a contin
     ]
 ```
 
-Para hacer que la zona de aplicaciones sea redundante, debe implementar dos instancias de ASE de ILB de zona. Las dos instancias de ASE de ILB de zona deben estar en zonas de disponibilidad independientes. Luego debe implementar las aplicaciones en cada una de las instancias de ASE de ILB. Una vez creadas las aplicaciones, debe configurar una solución de equilibrio de carga. La solución recomendada es implementar una instancia ascendente de [Application Gateway con redundancia de zona](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) de las instancias de ASE de ILB de zona. 
+Para hacer que la zona de aplicaciones sea redundante, debe implementar dos instancias de ASE de ILB de zona. Las dos instancias de ASE de ILB de zona deben estar en zonas de disponibilidad independientes. Luego debe implementar las aplicaciones en cada una de las instancias de ASE de ILB. Una vez creadas las aplicaciones, debe configurar una solución de equilibrio de carga. La solución recomendada es implementar una instancia ascendente de [Application Gateway con redundancia de zona](../../application-gateway/application-gateway-autoscaling-zone-redundant.md) de las instancias de ASE de ILB de zona. 
 
 ## <a name="in-region-data-residency"></a>Residencia de datos en la región ##
 
@@ -90,5 +90,3 @@ Para validar que hay una instancia de App Service Environment configurada correc
 1. Con el [Explorador de recursos](https://resources.azure.com), vaya al recurso de Azure Resource Manager correspondiente a la instancia de App Service Environment.  Las instancias de ASE aparecen en *providers/Microsoft.Web/hostingEnvironments*.
 2. Si hay una propiedad *zones* en la vista de la sintaxis JSON de ARM y contiene una matriz JZON de un solo valor con un valor de "1", "2" o "3", la instancia de ASE está implementada en la zona y los datos de cliente permanecen en la misma región.
 2. Si no existe una propiedad *zones* o la propiedad no tiene un valor de zona válido según lo especificado anteriormente, la instancia de ASE no está implementada en la zona y los datos de cliente no se almacenan de manera exclusiva en la misma región.
-
-

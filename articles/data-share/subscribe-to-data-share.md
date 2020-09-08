@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 07/30/2020
-ms.openlocfilehash: 999d99b0ed4701eb6758ed0bf7a71ca625e622b5
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.date: 08/14/2020
+ms.openlocfilehash: 104654a721912324cdc8ea636e8b4e75765e73f7
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87512098"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268900"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Tutorial: Aceptación y recepción de datos con Azure Data Share  
 
@@ -38,7 +38,7 @@ Asegúrese de que se cumplen todos los requisitos previos antes de aceptar una i
 * Permisos para escribir en la cuenta de almacenamiento, que se encuentra en *Microsoft.Storage/storageAccounts/write*. Este permiso existe en el rol de colaborador. 
 * Permisos para agregar la asignación de roles a la cuenta de almacenamiento, que se encuentra en *Microsoft.Authorization/role assignments/write*. Este permiso existe en el rol de propietario.  
 
-### <a name="receive-data-into-a-sql-based-source"></a>Recepción de datos en un origen basado en SQL:
+### <a name="receive-data-into-a-sql-based-target"></a>Recepción de datos en un destino basado en SQL:
 
 * Permisos para escribir en las bases de datos de SQL Server, que se encuentra en *Microsoft.Sql/servers/databases/write*. Este permiso existe en el rol de colaborador. 
 * Permisos para que la identidad administrada del recurso compartido de datos acceda a Azure SQL Database o Azure SQL Data Warehouse. Esto se puede hacer mediante los siguientes pasos: 
@@ -78,7 +78,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
    Para abrir la invitación desde Azure Portal directamente, busque **Invitaciones de recurso compartido de datos** en Azure Portal. Este paso le lleva a la lista de invitaciones de Data Share.
 
-   ![Invitaciones](./media/invitations.png "Lista de invitaciones") 
+   ![Lista de invitaciones](./media/invitations.png "Lista de invitaciones") 
 
 1. Seleccione el recurso compartido que desea ver. 
 
@@ -93,38 +93,35 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
    En el campo **Received Share Name** (Nombre del recurso compartido recibido), puede dejar el valor predeterminado que ha especificado el proveedor de datos o especificar un nombre nuevo para el recurso compartido recibido. 
 
-   ![Cuenta de Data Share de destino](./media/target-data-share.png "Cuenta de Data Share de destino") 
-
-1. Una vez que haya aceptado las condiciones de uso y haya especificado una ubicación para el recurso compartido, seleccione *Accept and configure* (Aceptar y configurar). Se creará una suscripción al recurso compartido.
-
-   Para el uso compartido basado en instantáneas, en la siguiente pantalla se le pedirá que seleccione una cuenta de almacenamiento de destino para que se copien los datos. 
+   Cuando haya aceptado los términos de uso y especificado una cuenta de Data Share para administrar el recurso compartido recibido, seleccione **Accept and configure** (Aceptar y configurar). Se creará una suscripción al recurso compartido. 
 
    ![Opciones de aceptación](./media/accept-options.png "Opciones de aceptación") 
 
-   Si prefiere aceptar la invitación ahora, pero configurar el almacenamiento de datos de destino más adelante, seleccione *Accept and configure later* (Aceptar y configurar más adelante). Para continuar con la configuración del almacenamiento más adelante, consulte la página [Configuración de asignaciones de conjuntos de datos](how-to-configure-mapping.md), donde encontrará pasos detallados para reanudar la configuración del recurso compartido de datos. 
-
-   Para el uso compartido en contexto, consulte la página [Configuración de asignaciones de conjuntos de datos](how-to-configure-mapping.md), donde encontrará pasos detallados para reanudar la configuración del recurso compartido de datos. 
+   Esta opción le lleva al recurso compartido recibido en la cuenta de Data Share. 
 
    Si no desea aceptar la invitación, seleccione *Reject* (Rechazar). 
 
-## <a name="configure-storage"></a>Configuración del almacenamiento
-1. En *Target Storage Settings* (Configuración del almacenamiento de destino), seleccione la suscripción, el grupo de recursos y la cuenta de almacenamiento en los que desea recibir los datos. 
+## <a name="configure-received-share"></a>Configuración del recurso compartido recibido
+Siga los pasos que se indican a continuación para configurar dónde quiere recibir los datos.
 
-   ![Configuración del almacenamiento de destino](./media/target-storage-settings.png "Almacenamiento de destino") 
+1. Seleccione la pestaña **Conjuntos de datos**. Active la casilla situada junto al conjunto de datos al que desearía asignar un destino. Seleccione **+ Asignar a destino** para elegir un almacén de datos de destino. 
 
-1. Para recibir actualizaciones periódicas de los datos, asegúrese de que habilita la configuración de las instantáneas. Tenga en cuenta que solo verá una programación de la configuración de las instantáneas si el proveedor de datos la ha incluido en el recurso compartido de datos. 
+   ![Asignación a destino](./media/dataset-map-target.png "Asignar a destino") 
 
-   ![Configuración de instantáneas](./media/snapshot-settings.png "Configuración de instantáneas") 
+1. Seleccione un tipo de datos de destino en el que quiera colocar los datos. Los archivos de datos o las tablas del almacén de datos de destino se sobrescribirán con la misma ruta de acceso y nombre. 
 
-1. Seleccione *Guardar*. 
+   Para el uso compartido en contexto, seleccione un almacén de datos en la ubicación especificada. La ubicación es el centro de datos de Azure donde se encuentra el almacén de datos de origen del proveedor de datos. Una vez que se asigna un conjunto de datos, puede seguir el vínculo de la ruta de acceso de destino para acceder a los datos.
 
-> [!IMPORTANT]
-> Si recibe datos basados en SQL y desea hacerlo en un origen basado en SQL, visite nuestra guía paso a paso [Configuración de asignaciones de conjuntos de datos](how-to-configure-mapping.md) para aprender a configurar una instancia de SQL Server como destino del conjunto de datos. 
+   ![Cuenta de almacenamiento de destino](./media/dataset-map-target-sql.png "Almacenamiento de destino") 
+
+1. En el caso del uso compartido basado en instantáneas, si el proveedor de datos ha creado una programación de instantáneas para proporcionar una actualización periódica de los datos, también puede habilitarla seleccionando la pestaña **Programación de instantáneas**. Active la casilla situada junto a la programación de instantáneas y seleccione **+ Habilitar**.
+
+   ![Habilitación de la programación de instantáneas](./media/enable-snapshot-schedule.png "Habilitación de la programación de instantáneas")
 
 ## <a name="trigger-a-snapshot"></a>Desencadenamiento de una instantánea
 Estos pasos solo se aplican al uso compartido basado en instantáneas.
 
-1. Para desencadenar a una instantánea, diríjase a la pestaña Received Shares -> Details (Recursos compartidos recibidos -> Detalles) y seleccione**Trigger snapshot** (Desencadenar instantánea). En este caso, puede desencadenar una instantánea completa o incremental de los datos. Si es la primera vez que recibe datos del proveedor de datos, seleccione una copia completa. 
+1. Para desencadenar una instantánea, seleccione la pestaña **Detalles** y, luego, **Desencadenar instantánea**. En este caso, puede desencadenar una instantánea completa o incremental de los datos. Si es la primera vez que recibe datos del proveedor de datos, seleccione una copia completa. 
 
    ![Desencadenamiento de instantánea](./media/trigger-snapshot.png "Desencadenamiento de instantánea") 
 
@@ -133,7 +130,7 @@ Estos pasos solo se aplican al uso compartido basado en instantáneas.
    ![Conjuntos de datos de consumidor](./media/consumer-datasets.png "Asignación de conjunto de datos de consumidor") 
 
 ## <a name="view-history"></a>Visualización del historial
-Para ver un historial de las instantáneas, vaya a Received Shares -> History (Recursos compartidos recibidos > Historial). Aquí encontrará un historial de todas las instantáneas que se generaron en los últimos 60 días. 
+Este paso solo se aplica al uso compartido basado en instantáneas. Para ver el historial de las instantáneas, seleccione la pestaña **Historial**. Aquí encontrará un historial de todas las instantáneas que se generaron en los últimos 30 días. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, ha aprendido a aceptar y recibir un recurso de Azure Data Share. Para más información acerca de los conceptos de Azure Data Share, diríjase a [Conceptos: terminología de Azure Data Share](terminology.md).

@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Kintone | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Kintone.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: c2b947dc-e1a8-4f5f-b40e-2c5180648e4f
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: b473502f740717fb0426d09261c1f1107144d047
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 2e831fd561b7c8dcf78e9203ec6d38c60c22a5bf
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85799851"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88535416"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kintone"></a>Tutorial: Integración de Azure Active Directory con Kintone
 

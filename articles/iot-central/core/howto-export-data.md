@@ -8,16 +8,17 @@ ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: 6660f413c741b36f4dd28f6e1bcf83873e4f5c26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1428df124272816927c6bbbc4a242170c7f46c00
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483931"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008532"
 ---
-# <a name="export-iot-data-to-destinations-in-azure"></a>Exportación de datos de IoT a destinos en Azure
+# <a name="export-iot-data-to-destinations-in-azure-using-data-export-legacy"></a>Exportación de datos de IoT a destinos en Azure (método heredado)
 
-*Este tema se aplica a administradores*.
+> [!Note]
+> Hay una nueva forma de exportar datos a IoT Central. Puede usar la nueva exportación de datos para filtrar y enriquecer los datos exportados y exportarlos a nuevos destinos, como los puntos de conexión de webhook. Más información sobre la nueva exportación de datos [aquí](./howto-use-data-export.md). Para información sobre las diferencias entre la nueva exportación de datos y la exportación de datos heredada, consulte la [tabla de comparación](./howto-use-data-export.md#comparison-of-legacy-data-export-and-new-data-export).
 
 En este artículo se describe cómo usar la característica de exportación de datos en Azure IoT Central. Esta característica permite exportar los datos de forma continua a **Azure Event Hubs**, **Azure Service Bus** o **Azure Blob Storage**. La exportación de datos usa el formato JSON y pueden incluir telemetría, información del dispositivo e información de la plantilla de dispositivo. Use los datos exportados para:
 
@@ -27,7 +28,7 @@ En este artículo se describe cómo usar la característica de exportación de d
 > [!Note]
 > Cuando se activa la exportación de datos, solo se obtienen los datos a partir de ese momento. Actualmente, no se pueden recuperar los datos del tiempo durante el que la exportación de datos estaba desactivada. Para conservar más datos históricos, active la exportación de datos al principio.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Ser administrador en la aplicación de IoT Central o contar con permisos de exportación de datos.
 

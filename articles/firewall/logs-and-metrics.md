@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 07/21/2020
+ms.date: 08/25/2020
 ms.author: victorh
-ms.openlocfilehash: 9d0a46135e5f763e6253540fe62d63cb59026ccb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 51804a9f98bfa17dcfbeb90a268b91b2d28dbbde
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086598"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827229"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Métricas y registros de Azure Firewall
 
@@ -125,7 +125,7 @@ Las siguientes métricas están disponibles para Azure Firewall:
 
     Unit: porcentaje
 
-   Al agregar más direcciones IP públicas al firewall, hay más puertos SNAT disponibles, lo que reduce el uso de estos puertos. Además, cuando el firewall se escala horizontalmente por distintos motivos (por ejemplo, CPU o rendimiento), los puertos SNAT adicionales también pasan a estar disponibles. De forma eficaz, un porcentaje determinado del uso de puertos SNAT puede reducirse sin agregar ninguna dirección IP pública, simplemente porque el servicio se ha escalado horizontalmente. Puede controlar directamente el número de direcciones IP públicas disponibles para aumentar los puertos disponibles en el firewall. Sin embargo, no puede controlar directamente el escalado del firewall. Actualmente, los puertos SNAT solo se agregan para las primeras cinco direcciones IP públicas.   
+   Al agregar más direcciones IP públicas al firewall, hay más puertos SNAT disponibles, lo que reduce el uso de estos puertos. Además, cuando el firewall se escala horizontalmente por distintos motivos (por ejemplo, CPU o rendimiento), los puertos SNAT adicionales también pasan a estar disponibles. De forma eficaz, un porcentaje determinado del uso de puertos SNAT puede reducirse sin agregar ninguna dirección IP pública, simplemente porque el servicio se ha escalado horizontalmente. Puede controlar directamente el número de direcciones IP públicas disponibles para aumentar los puertos disponibles en el firewall. Sin embargo, no puede controlar directamente el escalado del firewall.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

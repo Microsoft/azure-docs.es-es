@@ -3,12 +3,12 @@ title: Solución de problemas de copia de seguridad de bases de datos de SQL Se
 description: Información para solución de problemas para realizar copias de seguridad de bases de datos de SQL Server que se ejecutan en máquinas virtuales de Azure con Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: f4049cca317d254bd5ee120e47cedc4cd42300e8
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 53b701e5bfae9313732f4b76a4e13b63afb3864a
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926491"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826725"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Solución de problemas de la copia de seguridad de base de datos de SQL Server con Azure Backup
 
@@ -24,13 +24,13 @@ Para configurar la protección de una base de datos de SQL Server en una máquin
 
 Después de crear y configurar un almacén de Recovery Services, la detección de bases de datos y la configuración de la copia de seguridad es un proceso de dos pasos.<br>
 
-![sql](./media/backup-azure-sql-database/sql.png)
+![Objetivo de Backup: SQL Server en máquinas virtuales de Azure](./media/backup-azure-sql-database/sql.png)
 
 Durante la configuración de copia de seguridad, si la máquina virtual de SQL y sus instancias no están visibles en **Detección de bases de datos en máquinas virtuales** y **Configurar copia de seguridad** (consulte la imagen anterior), asegúrese de lo siguiente:
 
 ### <a name="step-1-discovery-dbs-in-vms"></a>Paso 1: Detección de bases de datos en máquinas virtuales
 
-- Si la máquina virtual no aparece en la lista de máquinas virtuales detectadas ni tampoco está registrada como copia de seguridad de SQL en otro almacén, siga los pasos de [detección de copia de seguridad de SQL Server](./backup-sql-server-database-azure-vms.md#discover-sql-server-databases).
+- Si la máquina virtual no aparece en la lista de máquinas virtuales detectadas ni tampoco está registrada como copia de seguridad de SQL en otro almacén, siga los pasos de [Detección de copia de seguridad de SQL Server](./backup-sql-server-database-azure-vms.md#discover-sql-server-databases).
 
 ### <a name="step-2-configure-backup"></a>Paso 2: Configurar la copia de seguridad
 
@@ -62,13 +62,13 @@ En ocasiones, es posible que se produzcan errores aleatorios en las operaciones 
 
 | severity | Descripción | Causas posibles | Acción recomendada |
 |---|---|---|---|
-| Advertencia | La configuración actual de esta base de datos no admite determinados tipos de copia de seguridad presentes en la directiva asociada. | <li>Solo se puede realizar una operación de copia de seguridad de bases de datos completa en la base de datos maestra. No es posible realizar una copia de seguridad diferencial ni una copia de seguridad del registro de transacciones. </li> <li>Ninguna base de datos del modelo de recuperación simple admite la copia de seguridad de registros de transacciones.</li> | Modifique la configuración de la base de datos de tal forma que se admitan todos los tipos de copia de seguridad de la directiva. O bien, cambie la directiva actual para incluir solo los tipos de copia de seguridad compatibles. De lo contrario, se omitirán los tipos de copia de seguridad no compatibles durante la copia de seguridad programada o el trabajo de copia de seguridad generará errores en caso de que se trate de una copia de seguridad a petición.
+| Advertencia | La configuración actual de esta base de datos no admite determinados tipos de copia de seguridad presentes en la directiva asociada. | <li>Solo se puede realizar una operación de copia de seguridad de bases de datos completa en la base de datos maestra. No es posible realizar una copia de seguridad diferencial y una copia de seguridad del registro de transacciones. </li> <li>Ninguna base de datos del modelo de recuperación simple admite la copia de seguridad de registros de transacciones.</li> | Modifique la configuración de la base de datos para que se admitan todos los tipos de copia de seguridad de la directiva. O bien cambie la directiva actual para incluir solo los tipos de copia de seguridad compatibles. De lo contrario, se omitirán los tipos de copia de seguridad no compatibles durante la copia de seguridad programada o el trabajo de copia de seguridad generará errores en caso de que se trate de una copia de seguridad a petición.
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
 
 | Mensaje de error | Causas posibles | Acción recomendada |
 |---|---|---|
-| Esta base de datos SQL no admite el tipo de copia de seguridad solicitado. | Se produce cuando el modelo de recuperación de base de datos no admite el tipo de copia de seguridad solicitado. El error puede ocurrir en las siguientes situaciones: <br/><ul><li>Una base de datos que usa un modelo de recuperación simple no permite la copia de seguridad de registros.</li><li>No se permiten copias de seguridad diferenciales ni de registros de bases de datos maestras.</li></ul>Para más información, consulte el documento [Modelos de recuperación (SQL Server)](/sql/relational-databases/backup-restore/recovery-models-sql-server). | Si se produce un error en la copia de seguridad de registros de la base de datos en el modelo de recuperación simple, pruebe una de estas opciones:<ul><li>Si la base de datos está en modo de recuperación simple, deshabilite las copias de seguridad de registros.</li><li>Use la [documentación de SQL Server](/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) para cambiar el modelo de recuperación de base de datos a completo o registro masivo. </li><li> Si no desea cambiar el modelo de recuperación y tiene una directiva estándar para realizar copias de seguridad de varias bases de datos que no se puede cambiar, ignore el error. Las copias de seguridad completas y diferenciales funcionarán en función de la programación. Se omitirán las copias de seguridad del registro, que es lo esperable en este caso.</li></ul>Si es una base de datos maestra y ha configurado una base de datos diferencial o de registros, siga cualquiera de estos pasos:<ul><li>Use el portal para cambiar la programación de la directiva de copia de seguridad para la base de datos maestra a completa.</li><li>Si tiene una directiva estándar para realizar copias de seguridad de varias bases de datos que no se puede cambiar, ignore el error. La copia de seguridad completa funcionará según la programación. No se realizarán copias de seguridad diferenciales o de registro, que es lo que se espera en este caso.</li></ul> |
+| Esta base de datos SQL no admite el tipo de copia de seguridad solicitado. | Se produce cuando el modelo de recuperación de base de datos no admite el tipo de copia de seguridad solicitado. El error puede ocurrir en las siguientes situaciones: <br/><ul><li>Una base de datos que usa un modelo de recuperación simple no permite las copias de seguridad de registros.</li><li>No se permiten las copias de seguridad diferenciales ni de registros para las bases de datos maestras.</li></ul>Para más información, consulte el documento [Modelos de recuperación (SQL Server)](/sql/relational-databases/backup-restore/recovery-models-sql-server). | Si se produce un error en la copia de seguridad de registros de la base de datos en el modelo de recuperación simple, pruebe una de estas opciones:<ul><li>Si la base de datos está en modo de recuperación simple, deshabilite las copias de seguridad de registros.</li><li>Use la [documentación de SQL Server](/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) para cambiar el modelo de recuperación de base de datos a completo o registro masivo. </li><li> Si no desea cambiar el modelo de recuperación y tiene una directiva estándar para realizar copias de seguridad de varias bases de datos que no se puede cambiar, ignore el error. Las copias de seguridad completas y diferenciales funcionarán en función de la programación. Se omitirán las copias de seguridad del registro, que es lo esperable en este caso.</li></ul>Si es una base de datos maestra y ha configurado una base de datos diferencial o de registros, siga cualquiera de estos pasos:<ul><li>Use el portal para cambiar la programación de la directiva de copia de seguridad para la base de datos maestra a completa.</li><li>Si tiene una directiva estándar para realizar copias de seguridad de varias bases de datos que no se puede cambiar, ignore el error. La copia de seguridad completa funcionará según la programación. No se realizarán copias de seguridad diferenciales o de registro, que es lo que se espera en este caso.</li></ul> |
 | La operación se canceló, porque ya se estaba ejecutando una operación en conflicto en la misma base de datos. | Consulte la [entrada del blog acerca de las limitaciones en las operaciones de copia de seguridad y restauración](https://deep.data.blog/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database/) que se ejecutan de forma concurrente.| [Utilice SQL Server Management Studio (SSMS) para supervisar los trabajos de la base de datos](manage-monitor-sql-database-backup.md). Una vez que se produzca un error en la operación en conflicto, reinicie la operación.|
 
 ### <a name="usererrorsqlpodoesnotexist"></a>UserErrorSQLPODoesNotExist
@@ -113,6 +113,13 @@ En ocasiones, es posible que se produzcan errores aleatorios en las operaciones 
 |---|---|---|
 | Se produjo un error en la restauración, ya que no se pudo desconectar. | Al realizar una restauración, la base de datos de destino debe desconectarse. Azure Backup no puede ofrecer estos datos sin conexión. | Utilice los detalles adicionales del menú del error de Azure Portal para reducir las causas principales. Para más información, consulte la [documentación de SQL Server](/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
 
+### <a name="wlextgenericiofaultusererror"></a>WlExtGenericIOFaultUserError
+
+|Mensaje de error |Causas posibles  |Acción recomendada  |
+|---------|---------|---------|
+|Error de entrada/salida durante la operación. Compruebe los errores comunes de E/S en la máquina virtual.   |   Permisos de acceso o restricciones de espacio en el destino.       |  Compruebe los errores comunes de E/S en la máquina virtual. Asegúrese de que la unidad de disco o recurso compartido de red de destino de la máquina: <li> tiene permiso de lectura/escritura para la cuenta NT AUTHORITY\SYSTEM en el equipo. <li> tiene suficiente espacio para que la operación se complete correctamente.<br> Para más información, consulte [Restaurar como archivos](restore-sql-database-azure-vm.md#restore-as-files).
+       |
+
 ### <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
 
 | Mensaje de error | Causas posibles | Acción recomendada |
@@ -153,19 +160,19 @@ En ocasiones, es posible que se produzcan errores aleatorios en las operaciones 
 
 | Mensaje de error | Causas posibles | Acción recomendada |
 |---|---|---|
-La operación se bloquea porque ha alcanzado el límite en el número de operaciones permitidas en 24 horas. | Este error se generará cuando haya alcanzado el límite máximo permitido para una operación en un intervalo de 24 horas. <br> Por ejemplo: Si ha alcanzado el límite para el número de trabajos de configuración de copia de seguridad que se pueden desencadenar al día e intenta configurar la copia de seguridad de un nuevo elemento, verá este error. | Normalmente, si se vuelve a intentar la operación después de 24 horas, se resuelve este problema. Sin embargo, si el problema persiste, puede ponerse en contacto con el equipo de soporte técnico de Microsoft para obtener ayuda.
+La operación se bloquea porque ha alcanzado el límite en el número de operaciones permitidas en 24 horas. | Este error aparecerá cuando haya alcanzado el límite máximo permitido para una operación en un intervalo de 24 horas. <br> Por ejemplo: Si ha alcanzado el límite para el número de trabajos de configuración de copia de seguridad que se pueden desencadenar al día e intenta configurar la copia de seguridad de un nuevo elemento, verá este error. | Normalmente, si se vuelve a intentar la operación después de 24 horas, se resuelve este problema. Sin embargo, si el problema persiste, puede ponerse en contacto con el equipo de soporte técnico de Microsoft para obtener ayuda.
 
 ### <a name="clouddosabsolutelimitreachedwithretry"></a>CloudDosAbsoluteLimitReachedWithRetry
 
 | Mensaje de error | Causas posibles | Acción recomendada |
 |---|---|---|
-La operación está bloqueada porque el almacén ha alcanzado su límite máximo permitido para ese tipo de operaciones en un intervalo de 24 horas. | Este error se generará cuando haya alcanzado el límite máximo permitido para una operación en un intervalo de 24 horas. Normalmente, este error se produce cuando hay operaciones a escala, como la modificación de una directiva o la protección automática. A diferencia de lo que sucede en el caso de CloudDosAbsoluteLimitReached, no hay mucho que se pueda hacer para resolver este estado; de hecho, el servicio Azure Backup volverá a intentar las operaciones internamente para todos los elementos en cuestión.<br> Por ejemplo: si tiene un gran número de orígenes de datos protegidos con una directiva e intenta modificar esa directiva, se desencadenará la configuración de los trabajos de protección para cada uno de los elementos protegidos y, en ocasiones, puede alcanzar el límite máximo permitido para tales operaciones al día.| El servicio Azure Backup volverá a intentar esta operación automáticamente después de 24 horas.
+La operación está bloqueada porque el almacén ha alcanzado su límite máximo permitido para ese tipo de operaciones en un intervalo de 24 horas. | Este error aparecerá cuando haya alcanzado el límite máximo permitido para una operación en un intervalo de 24 horas. Normalmente, este error aparece cuando hay operaciones a escala, como la modificación de una directiva o la protección automática. A diferencia de lo que sucede en el caso de CloudDosAbsoluteLimitReached, no se puede hacer mucho para resolver este estado. De hecho, el servicio de Azure Backup volverá a intentar internamente las operaciones para todos los elementos en cuestión.<br> Por ejemplo: si tiene un gran número de orígenes de datos protegidos con una directiva e intenta modificar esa directiva, se desencadenará la configuración de los trabajos de protección para cada uno de los elementos protegidos y, en ocasiones, puede alcanzar el límite máximo permitido para tales operaciones al día.| El servicio Azure Backup volverá a intentar esta operación automáticamente después de 24 horas.
 
 ### <a name="usererrorvminternetconnectivityissue"></a>UserErrorVMInternetConnectivityIssue
 
 | Mensaje de error | Causas posibles | Acción recomendada |
 |---|---|---|
-La máquina virtual no es capaz de ponerse en contacto con el servicio Azure Backup debido a problemas de conectividad de Internet. | La máquina virtual necesita conectividad de salida con el servicio Azure Backup y los servicios Azure Storage o Azure Active Directory.| - Si usa NSG para restringir la conectividad, debe usar la etiqueta de servicio AzureBackup para permitir el acceso saliente de Azure Backup al servicio Azure Backup o los servicios Azure Storage y Azure Active Directory. Siga estos [pasos](./backup-sql-server-database-azure-vms.md#nsg-tags) para conceder acceso.<br>- Asegúrese de que DNS está resolviendo los puntos de conexión de Azure.<br>- Compruebe si la máquina virtual está detrás de un equilibrador de carga que bloquea el acceso a Internet. Mediante la asignación de una dirección IP pública a las máquinas virtuales, la detección funcionará.<br>- Compruebe que no hay ningún firewall/antivirus/proxy que esté bloqueando las llamadas a los tres servicios de destino anteriores.
+La máquina virtual no es capaz de ponerse en contacto con el servicio Azure Backup debido a problemas de conectividad de Internet. | La máquina virtual necesita conectividad de salida con el servicio Azure Backup y los servicios Azure Storage o Azure Active Directory.| - Si usa NSG para restringir la conectividad, debe usar la etiqueta de servicio AzureBackup para permitir el acceso saliente al servicio de Azure Backup o los servicios Azure Storage y Azure Active Directory. Siga estos [pasos](./backup-sql-server-database-azure-vms.md#nsg-tags) para conceder acceso.<br>- Asegúrese de que DNS está resolviendo los puntos de conexión de Azure.<br>- Compruebe si la máquina virtual está detrás de un equilibrador de carga que bloquea el acceso a Internet. Mediante la asignación de una dirección IP pública a las máquinas virtuales, la detección funcionará.<br>- Compruebe que no hay ningún firewall/antivirus/proxy que esté bloqueando las llamadas a los tres servicios de destino anteriores.
 
 ## <a name="re-registration-failures"></a>Errores de repetición del registro
 
@@ -261,7 +268,7 @@ En el contenido anterior puede obtener el nombre lógico del archivo de base de 
 SELECT mf.name AS LogicalName FROM sys.master_files mf
                 INNER JOIN sys.databases db ON db.database_id = mf.database_id
                 WHERE db.name = N'<Database Name>'"
-  ```
+```
 
 Este archivo se debe colocar antes de desencadenar la operación de restauración.
 

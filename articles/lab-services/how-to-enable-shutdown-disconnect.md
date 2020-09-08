@@ -1,34 +1,44 @@
 ---
-title: Habilitación del apagado de las máquinas virtuales al desconectar Azure Lab Services | Microsoft Docs
+title: Configuración del apagado automático de las máquinas virtuales de un laboratorio en Azure Lab Services
 description: Obtenga información sobre cómo habilitar o deshabilitar el apagado automático de las máquinas virtuales cuando se desconecta una conexión a escritorio remoto.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: 0c5c22d5e4a9d66413e37cce095f5497915bd122
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/17/2020
+ms.openlocfilehash: 0df3fdcaea99c00461caac37a3b655d152a0e527
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445719"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798489"
 ---
-# <a name="enable-automatic-shutdown-of-vms-on-disconnect"></a>Habilitación del apagado automático de las máquinas virtuales al desconectarse
-En este artículo se muestra cómo habilitar o deshabilitar el apagado automático de máquinas virtuales de laboratorio **Windows 10** (plantilla o alumno) después de cerrar una conexión de escritorio remoto. También puede especificar cuánto tiempo deben esperar las máquinas virtuales para que el usuario se vuelva a conectar antes de que se apaguen automáticamente.
+# <a name="configure-automatic-shutdown-of-vms-for-a-lab"></a>Configuración del apagado automático de las máquinas virtuales de un laboratorio
 
-Un administrador de cuentas de laboratorio puede configurar esta opción para la cuenta de laboratorio en la que crea laboratorios. Para obtener más información, consulte [Configurar el apagado automático de las máquinas virtuales al desconectarse de una cuenta de laboratorio](how-to-configure-lab-accounts.md). Como propietario de un laboratorio, puede invalidar la configuración al crear un laboratorio o después de su creación. 
+En este artículo se muestra cómo configurar el apagado automático de las máquinas virtuales de un laboratorio.
 
-## <a name="configure-when-creating-a-lab"></a>Configuración al crear un laboratorio
-En la página del paso 3 del Asistente para creación del laboratorio, puede habilitar o deshabilitar esta característica y también especificar cuánto tiempo debe esperar la máquina virtual para que el usuario se vuelva a conectar antes de cerrarse automáticamente. 
+Cuando las máquinas virtuales no se están usando, se pueden habilitar varias características de control de costos para el apagado automático, a fin de impedir costos adicionales. La combinación de las tres características siguientes de apagado y desconexión automáticos detecta la mayoría de los casos en los que los usuarios dejan funcionando sin querer sus máquinas virtuales:
+ 
+* Desconectar automáticamente a los usuarios de las máquinas virtuales que el sistema operativo considere inactivas (solo Windows).
+* Apagar automáticamente las máquinas virtuales cuando los usuarios se desconectan (Windows y Linux)
+* Apagar automáticamente las máquinas virtuales que se han iniciado, pero a las que los usuarios no se conectan.
 
-![Configuración al crear el laboratorio](./media/how-to-enable-shutdown-disconnect/configure-lab-creation.png)
+Puede encontrar más detalles sobre las características de apagado automático en la sección [Maximización del control de costos con la configuración de apagado automático](cost-management-guide.md#automatic-shutdown-settings-for-cost-control).
 
-## <a name="configure-after-the-lab-is-created"></a>Configuración después de crear el laboratorio
-Puede configurar esta opción en la página **Configuración** tal y como se muestra en la siguiente imagen: 
+Un administrador de cuentas de laboratorio puede configurar esta opción para la cuenta de laboratorio en la que crea laboratorios. Para más información, consulte [Configuración del apagado automático de las máquinas virtuales de una cuenta de laboratorio](how-to-configure-lab-accounts.md). Como propietario de un laboratorio, puede invalidar la configuración al crear un laboratorio o después de su creación. 
 
-![Configuración después de crear el laboratorio](./media/how-to-enable-shutdown-disconnect/configure-lab-automatic-shutdown.png)
+## <a name="configure-for-the-lab-level"></a>Configuración en el nivel de laboratorio
+
+Se puede configurar la opción de apagado automático en [Azure Lab Services](https://labs.azure.com/).
+
+* al crear un laboratorio (en **Directivas de laboratorio**), o
+* una vez creado el laboratorio (en **Configuración**).
+
+> [!div class="mx-imgBorder"]
+> ![Configuración al crear el laboratorio](./media/how-to-enable-shutdown-disconnect/configure-lab-creation.png)
+
+Asegúrese de revisar los detalles sobre el apagado automático en la sección [Maximización del control de costos con la configuración de apagado automático](cost-management-guide.md#automatic-shutdown-settings-for-cost-control).
 
 > [!WARNING]
 > Si apaga el sistema operativo Windows (SO) en una máquina virtual antes de desconectar en ella una sesión RDP, la característica de apagado automático no funcionará correctamente.  
 
 ## <a name="next-steps"></a>Pasos siguientes
-Vea los artículos siguientes:
 
-- [Panel para laboratorios de clase](use-dashboard.md)
+[Panel para laboratorios de clase](use-dashboard.md)

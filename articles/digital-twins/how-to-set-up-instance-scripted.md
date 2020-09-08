@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 82ddba67a6bd9fcc56b74c3f830663228feb945b
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 86597521f762237b5c4bc9a7a5268d7dae1303b4
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009705"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88588007"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configuración de una instancia de Azure Digital Twins y autenticación (con scripts)
 
@@ -110,6 +110,8 @@ Para comprobar que se ha creado la instancia, vaya a la [página de Azure Digita
 
 > [!NOTE]
 > Recuerde que actualmente el script asigna este rol necesario al mismo usuario que ejecuta el script desde Cloud Shell. Si tiene que asignar este rol a otra persona que vaya a administrar la instancia, puede hacerlo ahora a través de Azure Portal ([instrucciones](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) o la CLI ([instrucciones](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
+>
+> También puede usar el portal o la CLI para rehacer su propia asignación de roles si se produjeron problemas con la configuración con scripts.
 
 ### <a name="verify-app-registration"></a>Comprobación del registro de la aplicación
 

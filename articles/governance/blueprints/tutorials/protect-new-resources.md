@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Protección de nuevos recursos con bloqueos'
 description: En este tutorial, usará las opciones Solo lectura y No eliminar de los bloqueos de recursos de Azure Blueprints para proteger los recursos recién implementados.
-ms.date: 05/06/2020
+ms.date: 08/27/2020
 ms.topic: tutorial
-ms.openlocfilehash: 738c627d350c5e11b41a65d159cf2cc7de807334
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 3ed75a1dee925f2a55ac46705a171bec5fc1d30e
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969649"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048577"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Tutorial: Protección de los nuevos recursos con bloqueos de recursos de Azure Blueprints
 

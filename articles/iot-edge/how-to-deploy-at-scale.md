@@ -9,12 +9,12 @@ ms.date: 4/21/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b0952f31bf6e327ff6d9f632f242919139ed6cae
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0c1d83c2dac0163cd9b9cbc07969103381e85471
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512017"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855391"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implementación de módulos de IoT Edge a escala mediante Azure Portal
 
@@ -61,7 +61,7 @@ Hay cinco pasos para crear una implementación. En las siguientes secciones se a
 
 ### <a name="step-2-modules"></a>Paso 2: Módulos
 
-Puede agregar hasta 30 módulos a una implementación. Si crea una implementación sin módulos, se quitan todos los módulos actuales de los dispositivos de destino.
+Puede agregar hasta 50 módulos a una implementación. Si crea una implementación sin módulos, se quitan todos los módulos actuales de los dispositivos de destino.
 
 En las implementaciones, puede administrar la configuración de los módulos de agente y centro de IoT Edge. Seleccione **Configuración del entorno de ejecución** para configurar los dos módulos del entorno de ejecución. En la implementación superpuesta, los módulos del entorno de ejecución no se incluyen, por lo que no se pueden configurar.
 

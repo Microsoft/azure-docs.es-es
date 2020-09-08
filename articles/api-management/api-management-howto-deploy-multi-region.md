@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 17c92558ebef2eee0a4daead45d16a295cedd1bb
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 427ebfe865002612be2f9aeb9db416f5c2f41e52
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790486"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065461"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Implementación de una instancia del servicio Azure API Management en varias regiones de Azure
 
@@ -28,6 +28,9 @@ Inicialmente, un nuevo servicio Azure API Management contiene solo una [unidad][
 
 > [!NOTE]
 > Solo el componente de puerta de enlace de API Management se implementa en todas las regiones. El componente de administración de servicios y el portal para desarrolladores se hospedan en la región primaria únicamente. Por lo tanto, en caso de interrupción de la región primaria, el acceso al portal para desarrolladores y la capacidad de cambiar la configuración (por ejemplo, agregar API y aplicar directivas) se verán impedidos hasta que la región primaria vuelva a estar en línea. Mientras la región principal esté sin conexión, las regiones secundarias seguirán atendiendo al tráfico de las API con la configuración más reciente disponible.
+
+>[!IMPORTANT]
+> La característica para permitir el almacenamiento de datos de clientes en una única región solo está disponible actualmente en la región Sudeste Asiático (Singapur) de la geoárea Asia Pacífico. En todas las demás regiones, los datos del cliente se almacenan en la geoárea.
 
 [!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 

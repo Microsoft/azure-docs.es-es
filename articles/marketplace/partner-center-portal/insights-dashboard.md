@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 07/22/2019
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 877d5436628fdeb973f6d7f30cc71e91eeb92364
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: cc950c4915a57dd949941fbb9802c51a47c9a00d
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323288"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607141"
 ---
 # <a name="marketplace-insights-dashboard-in-partner-center"></a>Panel de Información de Marketplace en Centro de partners
 
-En este artículo se proporciona información sobre el panel Información de Marketplace del Centro de partners. En este panel se muestra un resumen de los análisis web de marketplace que permite a los editores medir la participación del cliente en sus respectivas páginas de detalles de productos en los escaparates de marketplace comercial: Microsoft AppSource y Azure Marketplace.
+En este artículo se proporciona información sobre el panel Información de Marketplace del Centro de partners. En este panel se muestra un resumen de los análisis web de marketplace que permite a los editores medir la participación del cliente en sus respectivas páginas de detalles de productos en las tiendas en línea de marketplace comercial: Microsoft AppSource y Azure Marketplace.
 
 ## <a name="marketplace-insights-dashboard"></a>Panel de información de Marketplace
 
@@ -42,11 +42,11 @@ La latencia máxima entre los usuarios que visitan ofertas en Azure Marketplace 
 
 Vea las métricas de marketplace comercial de varias maneras:
 
-- Pestañas de escaparate
+- Pestañas de tienda en línea
 - Filtros de página
 - Filtros de fecha
 
-**Pestañas de escaparate**: puede ver las métricas de las ofertas por separado mediante las pestañas AppSource y Azure Marketplace. Seleccione las ofertas en la lista desplegable de ofertas del lado derecho para obtener una visualización de las métricas de las ofertas seleccionadas. De forma predeterminada, se seleccionan todas las opciones.
+**Pestañas de tienda en línea**: puede ver las métricas de las ofertas por separado mediante las pestañas AppSource y Azure Marketplace. Seleccione las ofertas en la lista desplegable de ofertas del lado derecho para obtener una visualización de las métricas de las ofertas seleccionadas. De forma predeterminada, se seleccionan todas las opciones.
 
 ![Lista desplegable de las ofertas del panel Información del Centro de partners](./media/insights-offer-dropdown.png)
 
@@ -96,7 +96,7 @@ El mapa térmico incluye las siguientes funcionalidades:
 
 ## <a name="page-visits-versus-unique-visitors-trend"></a>Tendencia de visitas a la página frente a visitantes únicos
 
-En las columnas siguientes se representa el recuento de visitas a la página mensuales, que se muestran en el eje Y (eje del lado izquierdo del gráfico). La línea de tendencia representa la tendencia mensual de visitantes únicos, que se muestra en el eje Y secundario (eje del lado derecho del gráfico), de las ofertas publicadas en los escaparates: Azure Marketplace y AppSource.
+En las columnas siguientes se representa el recuento de visitas a la página mensuales, que se muestran en el eje Y (eje del lado izquierdo del gráfico). La línea de tendencia representa la tendencia mensual de visitantes únicos, que se muestra en el eje Y secundario (eje del lado derecho del gráfico), de las ofertas publicadas en las tiendas en línea: Azure Marketplace y AppSource.
 
 ![Tendencia de visitas a la página de Información del Centro de partners frente a visitantes únicos](./media/insights-page-vists-unique-visitors.png)
 

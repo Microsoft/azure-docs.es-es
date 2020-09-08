@@ -34,6 +34,10 @@
               href: quickstarts/curl-receipts.md
             - name: Python
               href: quickstarts/python-receipts.md
+        - name: Uso del modelo de tarjeta de presentación predefinido
+          items:
+            - name: Python
+              href: quickstarts/python-business-cards.md
         - name: Obtención información acerca del diseño de texto
           items:
             - name: Python
@@ -44,6 +48,12 @@
       href: 'https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-form'
     - name: Uso de Form Recognizer con AI Builder
       href: tutorial-ai-builder.md
+- name: Conceptos
+  items:
+    - name: Receipts
+      href: concept-receipts.md
+    - name: Tarjetas de presentación
+      href: concept-business-cards.md
 - name: Guías paso a paso
   items:
     - name: Creación de un conjunto de datos de aprendizaje
@@ -64,6 +74,8 @@
       href: disaster-recovery.md
 - name: Referencia
   items:
+    - name: "Versión preliminar de API Form Recognizer\_v2.1"
+      href: 'https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync'
     - name: 'API de Form Recognizer, versión 2.0'
       href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm'
     - name: SDK

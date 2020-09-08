@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 20be34191355e6ade40e0f3b218818bfa5345a28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 8/7/2020
+ms.openlocfilehash: a9d6c1b2438f20a06062842b96b147e094760238
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79533239"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031224"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Replicar datos en Azure Database for MySQL
 
@@ -29,6 +29,11 @@ Para los escenarios de migración, use [Azure Database Migration Service](https:
 
 ### <a name="data-not-replicated"></a>Datos no replicados
 La [*base de datos del sistema mysql*](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) del servidor maestro no se replica. No se replican los cambios en las cuentas y permisos en el servidor maestro. Si crea una cuenta en el servidor maestro y esta cuenta debe tener acceso al servidor de réplica, cree manualmente la misma cuenta en el servidor de réplica. Para reconocer qué tablas se encuentran en la base de datos del sistema, vea el [manual de MySQL](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html).
+
+### <a name="filtering"></a>Filtrado
+Para omitir la replicación de tablas del servidor maestro (hospedado de forma local, en máquinas virtuales o en un servicio de base de datos hospedado por otros proveedores de nube), se admite el parámetro `replicate_wild_ignore_table`. También tiene la opción de actualizar este parámetro en el servidor de réplica hospedado en Azure mediante [Azure Portal](howto-server-parameters.md) o la [CLI de Azure](howto-configure-server-parameters-using-cli.md).
+
+Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table) para más información acerca de este parámetro.
 
 ### <a name="requirements"></a>Requisitos
 - La versión del servidor maestro debe ser al menos la versión 5.6 de MySQL. 

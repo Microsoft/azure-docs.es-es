@@ -1,22 +1,22 @@
 ---
 title: 'Detalles de pagos por región: Marketplace comercial de Microsoft'
-description: Aprenda cómo el tiempo estimado para transferir los pagos y los escaparates de Microsoft desde los que puede recibir pagos varían en función de su país o región, así como de su tipo de cuenta de pago.
+description: Aprenda cómo el tiempo estimado para transferir pagos, y los almacenes en línea de Microsoft desde los que puede recibir pagos, varía en función del país o región, así como del tipo de cuenta de pago.
 author: mingshen-ms
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/24/2020
-ms.openlocfilehash: 44246fa122b7c602e47c44e48c43c2a42d01de77
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 09/02/2020
+ms.openlocfilehash: 0d98afb97113f222b9ff0edc8405ea75ad10a3fb
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327334"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322082"
 ---
 # <a name="payment-thresholds-methods-and-time-frames"></a>Umbrales de pago, métodos e intervalos de tiempo
 
-El tiempo estimado para transferir los pagos y los escaparates desde los que puede recibir pagos pueden variar en función de su país o región, así como de su tipo de cuenta de pago. En este artículo se describen los métodos de pago admitidos en cada país y región.
+El tiempo estimado para transferir los pagos, y los almacenes en línea desde los que puede recibir pagos, puede variar en función del país o región, así como del tipo de cuenta de pago. En este artículo se describen los métodos de pago admitidos en cada país y región.
 
 Para cualquier país o región dados, pagamos mediante ACH/SEPA o transferencia bancaria. Algunos países o regiones también admiten PayPal como método de pago.
 
@@ -78,7 +78,7 @@ Estos son los países y regiones en los que se usan estos métodos de pago para 
 | Côte d'Ivoire | Sí | Sí | Sí | No |
 | Croacia | Sí | Sí | Sí | No |
 | Chipre | Sí | Sí | Sí | Sí |
-| República Checa | Sí | Sí | Sí | Sí |
+| Chequia | Sí | Sí | Sí | Sí |
 | Dinamarca | Sí | Sí | Sí | Sí |
 | Dominica | Sí | Sí | No | Sí |
 | República Dominicana | Sí | Sí | Sí | Sí |
@@ -123,7 +123,6 @@ Estos son los países y regiones en los que se usan estos métodos de pago para 
 | Liechtenstein | Sí | Sí | Sí | Sí |
 | Lituania | Sí | Sí | Sí | No |
 | Luxemburgo | Sí | Sí | Sí | Sí |
-| Macedonia del Norte | No | Sí | Sí | No |
 | Madagascar | Sí | Sí | Sí | No |
 | Malaui | Sí | Sí | Sí | Sí |
 | Malasia | Sí | Sí | Sí | Sí |
@@ -142,6 +141,7 @@ Estos son los países y regiones en los que se usan estos métodos de pago para 
 | Nicaragua | Sí | Sí | Sí | Sí |
 | Níger | Sí | Sí | Sí | No |
 | Nigeria | Sí | Sí | Sí | No |
+| Macedonia del Norte | No | Sí | Sí | No |
 | Noruega | Sí | Sí | Sí | Sí |
 | Omán | Sí | Sí | Sí | Sí |
 | Pakistán | Sí | Sí | Sí | No |

@@ -3,12 +3,12 @@ title: 'Tutorial: Copia de seguridad de bases de datos de SQL Server en Azure'
 description: En este tutorial, aprenderá a hacer una copia de seguridad de una base de datos de SQL Server que se ejecuta en una VM de Azure en un almacén de Azure Backup Recovery Services.
 ms.topic: tutorial
 ms.date: 06/18/2019
-ms.openlocfilehash: e0f3ec8e9407c97f91a7f215a6a2734a254006d1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 17a8472da2595c08cb198baaf853faf110a619fa
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513339"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612459"
 ---
 # <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Copia de seguridad de una base de datos de SQL Server en una máquina virtual de Azure
 
@@ -53,7 +53,7 @@ Azure Backup lleva a cabo una serie de acciones al configurar la copia de seguri
 * Para detectar las bases de datos en la máquina virtual, Azure Backup crea la cuenta **NT SERVICE\AzureWLBackupPluginSvc**. Esta cuenta se usa para la copia de seguridad y restauración, y es necesario tener permisos de administrador del sistema.
 * Azure Backup aprovecha la cuenta **NT AUTHORITY\SYSTEM** para la detección o consulta de bases de datos, por lo que esta cuenta debe tener un inicio de sesión público en SQL.
 
-Si no se creó la VM con SQL Server en Azure Marketplace, podría recibir el error **UserErrorSQLNoSysadminMembership**. Si esto sucede, [siga estas instrucciones](backup-azure-sql-database.md#set-vm-permissions).
+Si no se creó la máquina virtual con SQL Server en Azure Marketplace, podría recibir el error **UserErrorSQLNoSysadminMembership**. Si esto sucede, [siga estas instrucciones](backup-azure-sql-database.md#set-vm-permissions).
 
 ### <a name="verify-database-naming-guidelines-for-azure-backup"></a>Compruebe las directrices de nomenclatura de las bases de datos de Azure Backup.
 
@@ -104,7 +104,7 @@ Detecte las bases de datos que se ejecutan en la máquina virtual.
     * Azure Backup instala la extensión **AzureBackupWindowsWorkload** en la máquina virtual. No se instala ningún agente en la base de datos SQL.
     * Azure Backup crea la cuenta de servicio **NT Service\AzureWLBackupPluginSvc** en la máquina virtual.
       * Todas las operaciones de copia de seguridad y restauración utilizan la cuenta de servicio.
-      * **NT Service\AzureWLBackupPluginSvc** necesita permisos de administrador del sistema de SQL. Todas las máquinas virtuales de SQL Server creadas en Azure Marketplace llevan instalado **SqlIaaSExtension**. La extensión **AzureBackupWindowsWorkload** usa **SQLIaaSExtension** para obtener automáticamente los permisos necesarios.
+      * **NT Service\AzureWLBackupPluginSvc** necesita permisos de administrador del sistema de SQL. Todas las máquinas virtuales de SQL Server creadas en Azure Marketplace llevan instalado **SqlIaaSExtension**. La extensión **AzureBackupWindowsWorkload** usa **SQLIaaSExtension** para obtener automáticamente los permisos necesarios.
     * Si no ha creado la máquina virtual desde Marketplace, no tendrá instalado **SqlIaaSExtension** y la operación de detección no se podrá realizar; se muestra el mensaje de error **UserErrorSQLNoSysAdminMembership**. Siga las [instrucciones](backup-azure-sql-database.md#set-vm-permissions) para solucionar el problema.
 
         ![Seleccionar la máquina virtual y la base de datos](./media/backup-azure-sql-database/registration-errors.png)
@@ -117,7 +117,7 @@ Configure la copia de seguridad de la manera siguiente:
 
    ![Seleccionar Configurar copia de seguridad](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
-2. Haga clic en **Configurar copia de seguridad**, en la hoja **Seleccionar elementos de los que realizar copia de seguridad** que aparece. Esto hace que se enumeren todos los grupos de disponibilidad registrados y los servidores de SQL Server independientes. Expanda el botón de contenido adicional situado a la izquierda de la fila para ver todas las bases de datos desprotegidas de esa instancia o los grupos de disponibilidad de AlwaysOn.  
+2. Seleccione **Configurar copia de seguridad**, en el panel **Seleccionar elementos de los que realizar copia de seguridad** que aparece. Esto hace que se enumeren todos los grupos de disponibilidad registrados y los servidores de SQL Server independientes. Expanda el botón de contenido adicional situado a la izquierda de la fila para ver todas las bases de datos desprotegidas de esa instancia o los grupos de disponibilidad de AlwaysOn.  
 
     ![Mostrar todas las instancias de SQL Server con bases de datos independientes](./media/backup-azure-sql-database/list-of-sql-databases.png)
 
@@ -129,11 +129,11 @@ Configure la copia de seguridad de la manera siguiente:
 
      * Como alternativa, puede habilitar la protección automática en la instancia completa o el grupo de disponibilidad AlwaysOn si selecciona la opción **ON** (Activado) en la lista desplegable correspondiente de la columna **AUTOPROTECT** (Protección automática). La característica de protección automática no solo habilita la protección en todas las bases de datos existentes en una sola operación, sino que también protege automáticamente las nuevas bases de datos que se agregarán a esa instancia o al grupo de disponibilidad en el futuro.  
 
-4. Haga clic en **Aceptar** para abrir la hoja **Directiva de copia de seguridad**.
+4. Seleccione **Aceptar** para abrir el panel **Directiva de copia de seguridad**.
 
     ![Habilitar la protección automática en el grupo de disponibilidad Always On](./media/backup-azure-sql-database/enable-auto-protection.png)
 
-5. En **Choose backup policy** (Elegir directiva de copia de seguridad), seleccione una directiva y haga clic en **OK** (Aceptar).
+5. En **Elegir directiva de copia de seguridad**, seleccione una directiva y haga clic en **Aceptar**.
 
    * Selección de la directiva predeterminada: HourlyLogBackup.
    * Elegir una directiva de copia de seguridad existente creada previamente para SQL.
@@ -161,8 +161,8 @@ Una directiva de copia de seguridad define cuándo se realizan las copias de seg
 
 Para crear una directiva de copia de seguridad:
 
-1. En el almacén, haga clic en **Backup policies** > **Add** (Directivas de copia de seguridad > Agregar).
-2. En el menú **Agregar**, haga clic en **SQL Server en una máquina virtual de Azure** para definir el tipo de directiva.
+1. En el almacén, seleccione **Directivas de copia de seguridad** > **Agregar**.
+2. En el menú **Agregar**, seleccione **SQL Server en una máquina virtual de Azure** para definir el tipo de directiva.
 
    ![Elección de un tipo de directiva para la nueva directiva de copia de seguridad](./media/backup-azure-sql-database/policy-type-details.png)
 
@@ -171,7 +171,7 @@ Para crear una directiva de copia de seguridad:
 
    * En **Diariamente**, seleccione la hora y zona horaria en la que comienza el trabajo de copia de seguridad.
    * Es necesario ejecutar una copia de seguridad completa; no se puede desactivar la opción **Copia de seguridad completa**.
-   * Haga clic en **Full Backup** (Copia de seguridad completa) para ver la directiva.
+   * Seleccione **Copia de seguridad completa** para ver la directiva.
    * No puede crear copias de seguridad diferenciales para copias de seguridad completas diarias.
    * Para **Semanalmente**, seleccione el día de la semana, la hora y la zona horaria, en la que se inicia el trabajo de copia de seguridad.
 
@@ -214,7 +214,7 @@ Para crear una directiva de copia de seguridad:
 ## <a name="run-an-on-demand-backup"></a>Ejecución de una copia de seguridad a petición
 
 1. En el almacén de Recovery Services, elija los elementos de copia de seguridad.
-2. Haga clic en "SQL en la máquina virtual de Azure".
+2. Seleccione "SQL en Azure VM".
 3. Haga clic con el botón derecho en una base de datos y elija "Realizar copia de seguridad ahora".
 4. Elija el tipo de copia de seguridad (completa, diferencial, de registro, copiar solo copia de seguridad completa) y Compresión (Habilitar o Deshabilitar).
 5. Seleccione Aceptar para iniciar la copia de seguridad.

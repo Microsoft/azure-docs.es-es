@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Mind Tools Toolkit | Microsoft Docs'
 description: Obtenga información sobre cómo configurar el inicio de sesión único entre Azure Active Directory y Mind Tools Toolkit.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: 65b2979d-9e2f-4530-bc08-546975269ebc
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 03/12/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c0c1cab94a6b83ca429fd640759bed8af0ae881
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 10773a2a379291fa861dbb2adfdda2ba3f63117f
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124880"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550646"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mind-tools-toolkit"></a>Tutorial: Integración de Azure Active Directory con Mind Tools Toolkit
 

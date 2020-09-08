@@ -12,12 +12,12 @@ ms.date: 03/21/2019
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: ed1f06e4747492c43d19a00c1091b2b4d7f7050f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5d1b08944417493d175de23c7738db58f1c7bd3
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83741881"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798013"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Solución de problemas relacionados con el portal Mis aplicaciones
 
@@ -51,7 +51,7 @@ Si tiene problemas para iniciar sesión en el portal **Mis aplicaciones**, puede
 
 - Asegúrese de que la contraseña es correcta y de que no ha expirado. Para obtener más información, consulte [Restablecimiento de la contraseña profesional o educativa](active-directory-passwords-update-your-own-password.md).
 
-- Asegúrese de que la información de comprobación esté actualizada y sea precisa. Para obtener más información, consulte [¿Qué significa Azure Multi-factor Authentication para mí?](multi-factor-authentication-end-user.md) o [Cambio de métodos de información de seguridad e información](security-info-add-update-methods-overview.md).
+- Asegúrese de que la información de comprobación esté actualizada y sea precisa. Para obtener más información, consulte [¿Qué significa Azure Multi-factor Authentication para mí?](./multi-factor-authentication-end-user-first-time.md) o [Cambio de métodos de información de seguridad e información](./security-info-setup-auth-app.md).
 
 - Agregue la dirección URL del portal **Mis aplicaciones** a la configuración **Propiedades de Internet > Seguridad > Sitios de confianza**.
 
@@ -75,7 +75,7 @@ Si recibe un mensaje de **acceso denegado** mensaje después de iniciar una apli
 
 - Asegúrese de que la contraseña es correcta y de que no ha expirado. Para obtener más información, consulte [Restablecimiento de la contraseña profesional o educativa](active-directory-passwords-update-your-own-password.md).
 
-- Asegúrese de que la información de comprobación esté actualizada y sea precisa. Para obtener más información, consulte [¿Qué significa Azure Multi-factor Authentication para mí?](multi-factor-authentication-end-user.md) o [Cambio de métodos de información de seguridad e información](security-info-add-update-methods-overview.md).
+- Asegúrese de que la información de comprobación esté actualizada y sea precisa. Para obtener más información, consulte [¿Qué significa Azure Multi-factor Authentication para mí?](./multi-factor-authentication-end-user-first-time.md) o [Cambio de métodos de información de seguridad e información](./security-info-setup-auth-app.md).
 
 - Borre la caché del explorador e intente iniciar sesión de nuevo.
 

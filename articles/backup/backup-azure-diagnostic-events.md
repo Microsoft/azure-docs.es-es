@@ -3,12 +3,12 @@ title: Uso de la configuración de diagnóstico en almacenes de Recovery Service
 description: En este artículo, se explica cómo se utilizan los nuevos y los antiguos eventos de diagnóstico de Azure Backup.
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 7dbc6d97cd923c75a25eadccef2c2292b10deb41
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e5f666886dca0959b0f06b799088cadf4593ec39
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514156"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826674"
 ---
 # <a name="use-diagnostics-settings-for-recovery-services-vaults"></a>Uso de la configuración de diagnóstico en almacenes de Recovery Services
 
@@ -29,7 +29,7 @@ Azure Backup proporciona los siguientes eventos de diagnóstico. Cada evento pro
 * AddonAzureBackupPolicy
 * AddonAzureBackupStorage
 
-Si usa el [evento heredado](#legacy-event) AzureBackupReport, se recomienda cambiar al uso de los eventos anteriores lo antes posible.
+Si sigue usando el [evento heredado](#legacy-event) AzureBackupReport, se recomienda cambiar al uso de los eventos anteriores.
 
 Para más información, consulte [Modelo de datos para eventos de diagnóstico de Azure Backup](./backup-azure-reports-data-model.md).
 
@@ -82,7 +82,7 @@ En la actualidad, aún se permite utilizar el evento AzureBackupReport para gara
         | where TimeGenerated >= RangeStart | where OperationName == "Vault"
         | summarize arg_max(TimeGenerated, *) by ResourceId
         | project ResourceId, Category};
-        // Some Workspaces will not have AzureDiagnostics Table, hence you need to use isFuzzy
+        // Some Workspaces will not have AzureDiagnostics Table, so you need to use isFuzzy
     let CombinedVaultTable = (){
         union isfuzzy = true
         (VaultUnderAzureDiagnostics() ),

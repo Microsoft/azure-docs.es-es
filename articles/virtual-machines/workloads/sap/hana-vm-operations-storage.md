@@ -12,25 +12,25 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/30/2020
+ms.date: 08/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1e0efc2c64a1cbdcc2c83c019f7743406054afe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: aa6aba12af08e2b5e044eaeb299ec6090ab6d750
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074031"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650475"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA
 
 Azure proporciona distintos tipos de almacenamiento adecuados para máquinas virtuales de Azure que ejecutan SAP HANA. Los **tipos de almacenamiento de Azure con certificación de SAP HANA** que pueden considerarse para las implementaciones de SAP HANA, como: 
 
 - SSD Premium o Premium Storage de Azure 
-- [Disco Ultra](../../linux/disks-enable-ultra-ssd.md)
+- [Disco Ultra](../../disks-enable-ultra-ssd.md)
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) 
 
-Para obtener información sobre estos tipos de disco, consulte el artículo [Tipos de Azure Storage para la carga de trabajo de SAP](./planning-guide-storage.md) y [Seleccionar un tipo de disco](../../linux/disks-types.md).
+Para obtener información sobre estos tipos de disco, consulte el artículo [Tipos de Azure Storage para la carga de trabajo de SAP](./planning-guide-storage.md) y [Seleccionar un tipo de disco](../../disks-types.md).
 
 Azure ofrece dos métodos de implementación de VHD en Azure Standard Storage y Azure Premium Storage. Esperamos que aproveche el [disco administrado de Azure](https://azure.microsoft.com/services/managed-disks/) para implementaciones de almacenamiento en bloque de Azure. 
 
@@ -42,7 +42,7 @@ Para obtener una lista de tipos de almacenamiento y sus Acuerdos de Nivel de Ser
 
 Las condiciones de certificación mínimas de SAP HANA para los diferentes tipos de almacenamiento son: 
 
-- Azure Premium Storage: el [Acelerador de escritura](../../linux/how-to-enable-write-accelerator.md) de Azure debe admitir **/hana/log**. El volumen **/hana/data** puede colocarse en Premium Storage sin el Acelerador de escritura de Azure o bien en un disco Ultra.
+- Azure Premium Storage: el [Acelerador de escritura](../../how-to-enable-write-accelerator.md) de Azure debe admitir **/hana/log**. El volumen **/hana/data** puede colocarse en Premium Storage sin el Acelerador de escritura de Azure o bien en un disco Ultra.
 - Disco Ultra de Azure al menos para el volumen **/hana/log**. El volumen **/hana/data** se puede colocar en el Premium Storage sin el Acelerador de escritura de Azure o en un disco Ultra para obtener un tiempo de reinicio más rápido.
 - Volúmenes de **NFS v4.1** sobre Azure NetApp Files para **/hana/log y /hana/data**. El volumen de /hana/shared puede usar el protocolo NFS v3 o NFS v 4.1.
 
@@ -59,7 +59,7 @@ Debido a que la baja latencia de almacenamiento es fundamental para los sistemas
 
 Estos son algunos principios de la selección de la configuración de almacenamiento para HANA:
 
-- Decida el tipo de almacenamiento según [Tipos de Azure Storage para la carga de trabajo de SAP](./planning-guide-storage.md) y [Seleccionar un tipo de disco](../../linux/disks-types.md).
+- Decida el tipo de almacenamiento según [Tipos de Azure Storage para la carga de trabajo de SAP](./planning-guide-storage.md) y [Seleccionar un tipo de disco](../../disks-types.md).
 - El rendimiento global de E/S de la VM y los límites de IOPS al elegir una VM o determinar su tamaño. El rendimiento general del almacenamiento de VM está documentado en el artículo [Tamaños de máquina virtual optimizada para memoria](../../sizes-memory.md).
 - A la hora de decidirse por la configuración del almacenamiento, intente permanecer por debajo del rendimiento general de la VM con la configuración del volumen **/hana/data**. En cuanto a los puntos de retorno, SAP HANA puede presentar cierta agresividad al emitir E/S. Es fácil alcanzar los límites de rendimiento del volumen **/hana/data** al escribir un punto de retorno. Si los discos que compilan el volumen **/hana/data** tienen un rendimiento superior al que permite la VM, puede que se produzcan situaciones en que el rendimiento usado por la escritura del punto de retorno interfiera con las demandas de rendimiento de las escrituras de registros de fase de puesta al día. Esta situación puede afectar al rendimiento de la aplicación.
 - Si usa Azure Premium Storage, la configuración menos costosa es usar administradores de volúmenes lógicos para crear conjuntos de franjas con el fin de compilar los volúmenes **/hana/data** y **/hana/log**.
@@ -75,7 +75,7 @@ Linux tiene varios modos diferentes de programación de E/S. Una recomendación 
 El Acelerador de escritura de Azure es una funcionalidad que está disponible exclusivamente para las máquinas virtuales de la serie M de Azure. Como el nombre indica, el propósito de la funcionalidad es mejorar la latencia de E/S de las escrituras en Azure Premium Storage. Para SAP HANA, el Acelerador de escritura se supone que debe usarse solo en el volumen **/hana/log**. Por lo tanto, **/hana/data** y **/hana/log** son volúmenes independientes y el Acelerador de escritura de Azure admite solo el volumen **/hana/log**. 
 
 > [!IMPORTANT]
-> Cuando se usa Azure Premium Storage, es obligatorio usar el [Acelerador de escritura](../../linux/how-to-enable-write-accelerator.md) para el volumen **/hana/log**. El Acelerador de escritura solo está disponible para Premium Storage y para las VM de las series M y Mv2. El Acelerador de escritura no funciona en combinación con otras familias de VM de Azure, como Esv3 o Edsv4.
+> Cuando se usa Azure Premium Storage, es obligatorio usar el [Acelerador de escritura](../../how-to-enable-write-accelerator.md) para el volumen **/hana/log**. El Acelerador de escritura solo está disponible para Premium Storage y para las VM de las series M y Mv2. El Acelerador de escritura no funciona en combinación con otras familias de VM de Azure, como Esv3 o Edsv4.
 
 Las recomendaciones de almacenamiento en caché para los siguientes discos Premium de Azure suponen que se dan las siguientes características de E/S para SAP HANA:
 
@@ -194,7 +194,7 @@ For the other volumes, the configuration would look like:
 
 Compruebe si el rendimiento del almacenamiento para los diferentes volúmenes sugeridos se adapta a la carga de trabajo que se va a ejecutar. Si la carga de trabajo requiere volúmenes mayores para **/hana/data** y **/hana/log**, debe aumentar el número de VHD de Azure Premium Storage. Ajustar el tamaño de un volumen con más discos duros virtuales de los que se enumeran, aumenta el IOPS y el rendimiento de E/S dentro de los límites del tipo de máquina virtual de Azure.
 
-El Acelerador de escritura de Azure solo funciona en conjunto con [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/). Así pues, al menos los discos de Azure Premium Storage que forman el volumen **/hana/log** deben implementarse como discos administrados. Puede encontrar instrucciones y restricciones del Acelerador de escritura de Azure en el artículo [Acelerador de escritura](../../linux/how-to-enable-write-accelerator.md).
+El Acelerador de escritura de Azure solo funciona en conjunto con [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/). Así pues, al menos los discos de Azure Premium Storage que forman el volumen **/hana/log** deben implementarse como discos administrados. Puede encontrar instrucciones y restricciones del Acelerador de escritura de Azure en el artículo [Acelerador de escritura](../../how-to-enable-write-accelerator.md).
 
 En el caso de las VM certificadas para HANA de la familia de [Esv3](../../ev3-esv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#esv3-series) y [Edsv4](../../edv4-edsv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#edsv4-series), debe aplicar ANF para los volúmenes **/hana/data** y **/hana/log**. O bien debe aprovechar el almacenamiento en disco Ultra de Azure en lugar de Azure Premium Storage solo para el volumen **/hana/log**. Como resultado, las configuraciones del volumen **/hana/data** en Azure Premium Storage podrían tener este aspecto:
 
@@ -218,7 +218,7 @@ En el caso del resto de volúmenes, incluido **/hana/log** del disco Ultra, la c
 
 
 ## <a name="azure-ultra-disk-storage-configuration-for-sap-hana"></a>Configuración de almacenamiento en el disco Ultra de Azure para SAP HANA
-Otro tipo de almacenamiento de Azure se denomina [disco Ultra de Azure](../../windows/disks-types.md#ultra-disk). Una diferencia considerable entre el almacenamiento de Azure que se ofrecía hasta ahora y el disco Ultra es que las funcionalidades del disco ya no están asociadas a su tamaño. Como un cliente, para el disco Ultra puede definir estas funcionalidades:
+Otro tipo de almacenamiento de Azure se denomina [disco Ultra de Azure](../../disks-types.md#ultra-disk). Una diferencia considerable entre el almacenamiento de Azure que se ofrecía hasta ahora y el disco Ultra es que las funcionalidades del disco ya no están asociadas a su tamaño. Como un cliente, para el disco Ultra puede definir estas funcionalidades:
 
 - El tamaño de disco, de 4 GiB a 65 536 GiB
 - Intervalo de 100 operaciones de E/S por segundo a 160 000 operaciones de E/S por segundo (el máximo depende también de los tipos de máquina virtual)
@@ -321,6 +321,44 @@ Por tanto, podría considerar la posibilidad de implementar un rendimiento simil
 > Puede cambiar el tamaño de los volúmenes de Azure NetApp Files de manera dinámica, sin necesidad de `unmount` los volúmenes, detener las máquinas virtuales o detener SAP HANA. Esto permite que la aplicación se adapte a las demandas de rendimiento esperadas e imprevistas.
 
 La documentación sobre cómo implementar una configuración de escalabilidad horizontal de SAP HANA con un nodo de espera mediante los volúmenes de NFS v4.1 hospedados en ANF y publicados en [Escalabilidad horizontal de SAP HANA con nodo en espera en máquinas virtuales de Azure con Azure NetApp Files en SUSE Linux Enterprise Server](./sap-hana-scale-out-standby-netapp-files-suse.md).
+
+
+## <a name="cost-conscious-solution-with-azure-premium-storage"></a>Solución con control de costo con Azure Premium Storage
+Hasta ahora, la solución de Azure Premium Storage que se describe en este documento en la sección [Soluciones con Premium Storage y el Acelerador de escritura de Azure para máquinas virtuales de la serie M de Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) estaba diseñada para escenarios admitidos de producción de SAP HANA. Una de las características de las configuraciones admitidas con la producción es la separación de los volúmenes de datos de SAP HANA y el registro de la fase de puesta al día en dos volúmenes diferentes. La razón de esta separación es que las características de la carga de trabajo en los volúmenes son diferentes. Además, con las configuraciones de producción sugeridas, podría ser necesario un tipo de almacenamiento en caché diferente o incluso diferentes tipos de almacenamiento de bloques de Azure. Las configuraciones admitidas de producción con el destino de almacenamiento en bloque de Azure para cumplir también con el [Acuerdo de Nivel de Servicio de única máquina virtual para Azure Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/).  En escenarios que no son de producción, es posible que algunas de las consideraciones tomadas para los sistemas de producción no se apliquen a sistemas que no sean de producción de menor calidad. Como resultado, se pueden combinar los datos y el volumen de registro de HANA. Aunque eventualmente con algunos culpables, como por ejemplo no cumplir con ciertos KPI de rendimiento o latencia que se requieren para los sistemas de producción. Otro aspecto para reducir costos en estos entornos puede ser el uso del [almacenamiento SSD estándar de Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage#azure-standard-ssd-storage). A pesar de una opción que invalida el [Acuerdo de Nivel de Servicio de una única máquina virtual para Azure Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/). 
+
+Una alternativa menos costosa para estas configuraciones podría ser similar a la siguiente:
+
+
+| SKU de la máquina virtual | RAM | Máx. E/S de VM<br /> Throughput | /hana/data y /hana/log<br /> seccionado con LVM o MDAADM | /hana/shared | /root volume | /usr/sap | comments |
+| --- | --- | --- | --- | --- | --- | --- | -- |
+| DS14v2 | 112 GiB | 768 MB/s | 4 x P6 | 1 x E10 | 1 x E6 | 1 x E6 | No obtendrá una latencia de almacenamiento inferior a 1 ms<sup>1</sup>. |
+| E16v3 | 128 GB | 384 MB/s | 4 x P6 | 1 x E10 | 1 x E6 | 1 x E6 | Tipo de máquina virtual no certificado por HANA <br /> No obtendrá una latencia de almacenamiento inferior a 1 ms<sup>1</sup>. |
+| M32ts | 192 GiB | 500 MB/s | 3 x P10 | 1 x E15 | 1 x E6 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 5 000<sup>2</sup>. |
+| E20ds_v4 | 160 GiB | 480 MB/s | 4 x P6 | 1 x E15 | 1 x E6 | 1 x E6 | No obtendrá una latencia de almacenamiento inferior a 1 ms<sup>1</sup>. |
+| E32v3 | 256 GiB | 768 MB/s | 4 x P10 | 1 x E15 | 1 x E6 | 1 x E6 | Tipo de máquina virtual no certificado por HANA <br /> No obtendrá una latencia de almacenamiento inferior a 1 ms<sup>1</sup>. |
+| E32ds_v4 | 256 GiB | 768 MBps | 4 x P10 | 1 x E15 | 1 x E6 | 1 x E6 | No obtendrá una latencia de almacenamiento inferior a 1 ms<sup>1</sup>. |
+| M32ls | 256 GiB | 500 MB/s | 4 x P10 | 1 x E15 | 1 x E6 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 5 000<sup>2</sup>. |
+| E48ds_v4 | 384 GiB | 1152 Mbps | 6 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | No obtendrá una latencia de almacenamiento inferior a 1 ms<sup>1</sup>. |
+| E64v3 | 432 GiB | 1200 MB/s | 6 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | No obtendrá una latencia de almacenamiento inferior a 1 ms<sup>1</sup>. |
+| E64ds_v4 | 504 GiB | 1200 MB/s |  7 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | No obtendrá una latencia de almacenamiento inferior a 1 ms<sup>1</sup>. |
+| M64ls | 512 GB | 1000 MB/s | 7 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 10 000<sup>2</sup>. |
+| M64s | 1000 GiB | 1000 MB/s | 7 x P15 | 1 x E30 | 1 x E6 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 10 000<sup>2</sup>. |
+| M64ms | 1750 GiB | 1000 MB/s | 6 x P20 | 1 x E30 | 1 x E6 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 10 000<sup>2</sup>. |
+| M128s | 2000 GiB | 2000 MB/s |6 x P20 | 1 x E30 | 1 x E10 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 20 000<sup>2</sup>. |
+| M208s_v2 | 2850 GiB | 1000 MB/s | 4 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 10 000<sup>2</sup>. |
+| M128ms | 3800 GiB | 2000 MB/s | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 20 000<sup>2</sup>. |
+| M208ms_v2 | 5700 GiB | 1000 MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 10 000<sup>2</sup>. |
+| M416s_v2 | 5700 GiB | 2000 MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 20 000<sup>2</sup>. |
+| M416ms_v2 | 11400 GiB | 2000 MB/s | 7 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 20 000<sup>2</sup>. |
+
+
+<sup>1</sup> [Acelerador de escritura de Azure](../../how-to-enable-write-accelerator.md) no se puede usar con las familias de máquinas virtuales Ev4. Como resultado del uso de Azure Premium Storage, la latencia de E/S no será inferior a 1 ms.
+
+<sup>2</sup> La familia de máquinas virtuales admite [Acelerador de escritura de Azure](../../how-to-enable-write-accelerator.md), pero existe la posibilidad de que el límite de IOPS de Acelerador de escritura limite las funcionalidades de IOPS de las configuraciones de disco.
+
+En el caso de combinar el volumen de datos y de registro para SAP HANA, los discos que forman el volumen seccionado no deben tener habilitada la memoria caché de lectura o escritura.
+
+Se muestran los tipos de máquina virtual que no están certificados con SAP y, como tal, no se incluyen en el denominado [directorio de hardware de SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Los comentarios de los clientes fueron que los tipos de máquina virtual no enumerados se usaban correctamente para algunas tareas que no son de producción.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -2,13 +2,13 @@
 title: Anotaciones de la versión de Application Insights | Microsoft Docs
 description: Agregue marcadores de implementación o compilación a sus gráficos del Explorador de métricas en Application Insights.
 ms.topic: conceptual
-ms.date: 07/01/2019
-ms.openlocfilehash: 8e9e0cb49343524e8a45831566cf802b1c8c5d9b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/14/2020
+ms.openlocfilehash: e21981f134f6a78109d70b1edf6d61e204b64e12
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320670"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258406"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anotaciones sobre gráficos de métricas en Application Insights
 
@@ -68,6 +68,10 @@ Cree una clave de API independiente para cada una de las plantillas de versión 
    ![En la pestaña Variables de Azure DevOps, seleccione Agregar, asigne a la variable el nombre ApiKey y pegue la clave de API en Valor.](./media/annotations/7-paste-api-key.png)
    
 1. Seleccione **Guardar** en la ventana de la plantilla de versión principal para guardar la plantilla.
+
+
+   > [!NOTE]
+   > Los límites de las claves de API se describen en la [documentación de los límites de frecuencia de la API de REST](https://dev.applicationinsights.io/documentation/Authorization/Rate-limits).
 
 ## <a name="view-annotations"></a>Ver anotaciones
 

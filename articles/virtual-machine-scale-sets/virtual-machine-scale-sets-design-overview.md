@@ -10,12 +10,12 @@ ms.subservice: management
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 5aad73db2f01cec8c1c8b0144d29c105b6e8ae0e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 99dc7a2350631f662e1c993908f7ef56e4f9a194
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080512"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648571"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Consideraciones de diseño para conjuntos de escalado
 En este artículo se analizan consideraciones de diseño de Virtual Machine Scale Sets. Para información sobre qué son los conjuntos de escalado de máquinas virtuales, consulte [Información general de conjuntos de escalado de máquinas virtuales](./overview.md).
@@ -42,7 +42,7 @@ Algunas características solo están disponibles actualmente en las máquinas vi
 ## <a name="storage"></a>Storage
 
 ### <a name="scale-sets-with-azure-managed-disks"></a>Conjuntos de escalado con Azure Managed Disks
-Los conjuntos de escalado se pueden crear con [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md) en lugar de las cuentas de Azure Storage tradicionales. Managed Disks ofrece las siguientes ventajas:
+Los conjuntos de escalado se pueden crear con [Azure Managed Disks](../virtual-machines/managed-disks-overview.md) en lugar de las cuentas de Azure Storage tradicionales. Managed Disks ofrece las siguientes ventajas:
 - No necesita crear previamente un conjunto de cuentas de Azure Storage para las VM de conjunto de escalado.
 - Puede definir [discos de datos conectados](virtual-machine-scale-sets-attached-disks.md) para las VM del conjunto de escalado.
 - Los conjuntos de escalado se pueden configurar para [que admitan hasta 1000 VM en un conjunto](virtual-machine-scale-sets-placement-groups.md). 

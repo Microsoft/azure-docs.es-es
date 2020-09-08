@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: 225fb1099c1a095a4ec5bced4acc010d7cec6835
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 44d77c36b9aacb8a2f06fd7a0f167cffa06ae4eb
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043881"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716119"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Creación y combinación de solicitudes de firma de certificado en Key Vault
 
@@ -100,7 +100,9 @@ Ejemplo
 
 ## <a name="troubleshoot"></a>Solución de problemas
 
-Si el certificado emitido se encuentra en el estado "deshabilitado" en Azure Portal, consulte la pantalla **Operación de certificados** y revise el mensaje de error sobre ese certificado.
+- **Error de tipo "La clave pública del certificado de entidad final en el contenido del certificado X.509 especificado no coincide con la parte pública de la clave privada especificada. Compruebe si el certificado es válido"** Este error se puede producir si no se combina el CSR con la misma solicitud de CSR iniciada. Cada vez que se crea un CSR, se crea una clave privada que debe coincidir al combinar la solicitud firmada.
+    
+- Si el certificado emitido se encuentra en el estado "deshabilitado" en Azure Portal, consulte la pantalla **Operación de certificados** y revise el mensaje de error sobre ese certificado.
 
 Para más información, consulte las [operaciones con certificados en la referencia de la API REST de Key Vault](/rest/api/keyvault). Para obtener información sobre cómo establecer permisos, vea [Almacenes: crear o actualizar](/rest/api/keyvault/vaults/createorupdate) y [Almacenes: actualizar directiva de acceso](/rest/api/keyvault/vaults/updateaccesspolicy).
 

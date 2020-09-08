@@ -2,18 +2,18 @@
 title: 'Solución de problemas de rendimiento en los vínculos de red: Azure'
 description: En esta página se proporciona un método de prueba normalizado del rendimiento de vínculos de red de Azure.
 services: expressroute
-author: tracsman
+author: duongau
 ms.service: expressroute
 ms.topic: troubleshooting
 ms.date: 12/20/2017
-ms.author: jonor
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: e882035af3ac0a086c58b4886fd6999970712df1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4d6dac98125827a303b8370b5a0a959ea425fb57
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521673"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401459"
 ---
 # <a name="troubleshooting-network-performance"></a>Solución de problemas de rendimiento de red
 ## <a name="overview"></a>Información general

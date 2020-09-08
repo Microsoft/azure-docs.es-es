@@ -1,6 +1,6 @@
 ---
 title: Ofertas de cumplimiento de Azure Storage | Microsoft Docs
-description: Resumen de las ofertas de cumplimiento en Azure Storage
+description: Lea un resumen de las ofertas de cumplimiento de Azure Storage para los requisitos nacionales, regionales y específicos del sector que rigen la recopilación y el uso de los datos.
 services: storage
 author: fhryo-msft
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: c24db9fb1b411de31ba8d086b6baa418f656c920
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac37dc66c9861c974c2d5fea435a3ae6771e6c7d
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514408"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035015"
 ---
 # <a name="azure-storage-compliance-offerings"></a>Ofertas de cumplimiento de Azure Storage
 

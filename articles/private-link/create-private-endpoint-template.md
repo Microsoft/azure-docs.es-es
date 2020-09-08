@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/26/2020
 ms.author: allensu
-ms.openlocfilehash: 9fde76b86b290e1271f408cb7810e549dd9502a8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 553d36a86671617417b6b9b1ea47966c3ba3fdf6
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071489"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705816"
 ---
 # <a name="quickstart-create-a-private-endpoint-by-using-an-arm-template"></a>Inicio rápido: Creación de un punto de conexión privado mediante una plantilla de Resource Manager
 
@@ -37,7 +37,7 @@ Esta plantilla crea un punto de conexión privado para una instancia de Azure SQ
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-private-endpoint-sql/).
 
-:::code language="json" source="~/quickstart-templates/101-private-endpoint-sql/azuredeploy.json" range="001-295" highlight="131-156":::
+:::code language="json" source="~/quickstart-templates/101-private-endpoint-sql/azuredeploy.json":::
 
 En la plantilla se definen varios recursos de Azure:
 

@@ -33,8 +33,6 @@
           href: concept-conditional-access-grant.md
         - name: Sesión
           href: concept-conditional-access-session.md
-    - name: Información detallada e informes
-      href: howto-conditional-access-insights-reporting.md
     - name: Modo de solo informe
       href: concept-conditional-access-report-only.md
     - name: Dependencias del servicio
@@ -43,6 +41,8 @@
       href: location-condition.md
     - name: Herramienta What if
       href: what-if-tool.md
+    - name: Evaluación continua de acceso
+      href: concept-continuous-access-evaluation.md
     - name: Controles personalizados
       href: controls.md
     - name: Migraciones con directiva clásica
@@ -78,6 +78,8 @@
           href: howto-conditional-access-policy-block-access.md
     - name: Bloquear la autenticación heredada
       href: block-legacy-authentication.md
+    - name: Configuración del modo de solo informe
+      href: howto-conditional-access-insights-reporting.md
     - name: Requerir aplicaciones cliente aprobadas
       href: app-based-conditional-access.md
     - name: Requerir la directiva de protección de aplicaciones
@@ -88,12 +90,8 @@
       href: untrusted-networks.md
     - name: Requerir condiciones de uso
       href: terms-of-use.md
-    - name: Configuración del modo de solo informe
-      href: howto-conditional-access-report-only.md
     - name: Controles de frecuencia de inicio de sesión y de persistencia del explorador
       href: howto-conditional-access-session-lifetime.md
-    - name: Migración de directivas clásicas
-      href: policy-migration-mfa.md
     - name: Solución de problemas
       items:
         - name: Solución de problemas con el inicio de sesión
@@ -102,6 +100,8 @@
           href: troubleshoot-conditional-access-what-if.md
         - name: Preguntas más frecuentes
           href: faqs.md
+    - name: Migración de directivas clásicas
+      href: policy-migration-mfa.md
 - name: Referencia
   items:
     - name: 'Graph API, versión beta'
@@ -119,7 +119,7 @@
     - name: Foro de comentarios de Azure
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
     - name: Página de preguntas y respuestas de Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-active-directory.html'
+      href: /answers/topics/azure-active-directory.html
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/active-directory/'
     - name: Actualizaciones del servicio

@@ -10,24 +10,24 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 07/01/2020
+ms.date: 08/08/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c85f273a0b245d54b966a43d7a69abe761a2dcaf
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: a4a081bc5a8040fa3ccd0599341eb2671bbe2d4d
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023928"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047826"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>¿Qué es Azure AD Privileged Identity Management?
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) es un servicio que permite administrar, controlar y supervisar el acceso a recursos importantes dentro de la organización. Estos recursos incluyen los recursos de Azure AD, los recursos de Azure y los de otros servicios de Microsoft Online Services, como Office 365 o Microsoft Intune.
+ Privileged Identity Management (PIM) es un servicio de Azure Active Directory (Azure AD) que permite administrar, controlar y supervisar el acceso a recursos importantes de la organización. Estos recursos incluyen los recursos de Azure AD, los recursos de Azure y los de otros servicios de Microsoft Online Services, como Office 365 o Microsoft Intune.
 
 ## <a name="reasons-to-use"></a>Motivos para su uso
 
-Las organizaciones buscan reducir el número de personas que tienen acceso a información segura o a recursos, ya que de esta manera se reduce la posibilidad de que personas malintencionadas obtengan acceso a ellos o de que algún usuario autorizado haga algo involuntariamente que pueda afectar a recursos sensibles. Sin embargo, los usuarios siguen teniendo la necesidad de llevar a cabo operaciones con privilegios en aplicaciones de Azure AD, Azure, Office 365 o SaaS. Las organizaciones pueden conceder a los usuarios privilegios de acceso Just-In-Time (JIT) a los recursos de Azure y a Azure AD. Es necesario supervisar lo que los usuarios hacen con los privilegios de administrador.
+Las organizaciones buscan reducir el número de personas que tienen acceso a información segura o a recursos, ya que de esta manera se reduce la posibilidad de que personas malintencionadas obtengan acceso a ellos o de que algún usuario autorizado haga algo involuntariamente que pueda afectar a recursos sensibles. Sin embargo, los usuarios siguen teniendo la necesidad de llevar a cabo operaciones con privilegios en aplicaciones de Azure AD, Azure, Office 365 o SaaS. Las organizaciones pueden conceder a los usuarios privilegios de acceso Just-In-Time a los recursos de Azure y a Azure AD. Es necesario supervisar lo que los usuarios hacen con los privilegios de administrador.
 
 ## <a name="what-does-it-do"></a>¿Para qué sirve?
 
@@ -44,7 +44,7 @@ Privileged Identity Management proporciona activación de rol basada en tiempo y
 
 ## <a name="what-can-i-do-with-it"></a>¿Qué se puede hacer con Privileged Identity Management (PIM)?
 
-Una vez que se haya configurado Privileged Identity Management, verá las opciones **Tareas**, **Administrar**, y **Actividad** en el menú de navegación izquierdo. Como administrador, podrá elegir entre la administración de **Roles de Azure AD** y de **Roles de recursos de Azure**. Al elegir el tipo de roles que administrar, verá un conjunto similar de opciones para ese tipo de rol.
+Una vez que se haya configurado Privileged Identity Management, verá las opciones **Tareas**, **Administrar**, y **Actividad** en el menú de navegación izquierdo. Como administrador, tendrá que elegir entre distintas opciones, como administrar **roles de Azure AD**, administrar roles de **recursos de Azure** o grupos de acceso con privilegios. Cuando elija lo que desea administrar, verá el conjunto de opciones adecuado para esa opción.
 
 ![Captura de pantalla de Privileged Identity Management en Azure Portal](./media/pim-configure/pim-quickstart.png)
 

@@ -3,21 +3,23 @@ title: Envío de datos de entrada de lápiz a la API Ink Recognizer
 titleSuffix: Azure Cognitive Services
 description: Aprenda más sobre cómo llamar a la API Ink Analyzer para diferentes aplicaciones
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.author: erhopf
-ms.openlocfilehash: 0ad961495d44f13522a3c02224a5612aaedaf076
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 08/24/2020
+ms.author: aahi
+ms.openlocfilehash: 8665e27b6b7c43bce7d749d9bfe0a2f815a0f46d
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79219210"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051107"
 ---
 # <a name="send-ink-data-to-the-ink-recognizer-api"></a>Envío de datos de entrada de lápiz a la API Ink Recognizer 
+
+[!INCLUDE [ink-recognizer-deprecation](../includes/deprecation-note.md)]
 
 La entrada de lápiz digital hace referencia a las tecnologías que permiten las representaciones digitales de la entrada de texto, como la escritura a mano y los dibujos. Esto se logra típicamente mediante un digitalizador que captura los movimientos de los dispositivos de entrada, como un lápiz. A medida que los dispositivos siguen permitiendo experiencias de entradas de lápiz digital enriquecidas, la inteligencia artificial y el aprendizaje automático permiten el reconocimiento de formas escritas y textos en cualquier contexto. La API Ink Recognizer le permite enviar trazos de entrada de lápiz y obtener información detallada sobre ellos. 
 

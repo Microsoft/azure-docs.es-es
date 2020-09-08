@@ -7,12 +7,13 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: ralphe
-ms.openlocfilehash: 92fc7aeec87015a9ddbe4e52f870334582e28c14
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: devx-track-csharp
+ms.openlocfilehash: dff5c7c7018945bb93ce492ee3205f3567dff1d7
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80671692"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88925914"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -201,7 +202,7 @@ Antes de comenzar, compruebe lo siguiente:
 
 1. En el mismo archivo, reemplace la cadena `YourSubscriptionKey` por su clave de suscripción de Cognitive Speech.
 
-1. Reemplace la cadena `YourServiceRegion` por la [región](~/articles/cognitive-services/Speech-Service/regions.md) asociada a sus suscripción (por ejemplo, `westus` para la suscripción de evaluación gratuita).
+1. Reemplace la cadena `YourServiceRegion` por la [región](~/articles/cognitive-services/Speech-Service/regions.md) asociada a su suscripción.
 
 1. En la barra de menús, elija **Archivo** > **Guardar todo**.
 

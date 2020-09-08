@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/04/2020
+ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 97da7428090935daf95ae28a54b8ff10bca2e546
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 3c5b7debe0c94839e2ca7742817a49216328c571
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760913"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855339"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Instalación de alta disponibilidad para SAP NetWeaver en un clúster de conmutación por error de Windows y un disco compartido para una instancia de ASCS/SCS de SAP en Azure
 
@@ -124,6 +124,7 @@ ms.locfileid: "87760913"
 [sap-ha-guide-figure-3044]:./media/virtual-machines-shared-sap-high-availability-guide/3044-data-keeper-synchronous-mirroring-for-SAP-gui.png
 [sap-ha-guide-figure-3045]:./media/virtual-machines-shared-sap-high-availability-guide/3045-replicated-disk-by-data-keeper-in-wsfc.png
 [sap-ha-guide-figure-3046]:./media/virtual-machines-shared-sap-high-availability-guide/3046-dns-entry-sap-ascs-virtual-name-ip.png
+[sap-ha-guide-figure-3046-ers2]:./media/virtual-machines-shared-sap-high-availability-guide/3046-dns-entry-sap-ers2-virtual-name-ip.png
 [sap-ha-guide-figure-3047]:./media/virtual-machines-shared-sap-high-availability-guide/3047-dns-manager.png
 [sap-ha-guide-figure-3048]:./media/virtual-machines-shared-sap-high-availability-guide/3048-default-cluster-probe-port.png
 [sap-ha-guide-figure-3049]:./media/virtual-machines-shared-sap-high-availability-guide/3049-cluster-probe-port-after.png
@@ -146,7 +147,10 @@ ms.locfileid: "87760913"
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
-Este artículo describe cómo instalar y configurar un sistema SAP de alta disponibilidad en Azure mediante el uso de un clúster de conmutación por error de Windows Server y un disco compartido de clúster para agrupar en clústeres una instancia de SAP ASCS/SCS.
+Este artículo describe cómo instalar y configurar un sistema SAP de alta disponibilidad en Azure mediante el uso de un clúster de conmutación por error de Windows Server y un disco compartido de clúster para agrupar en clústeres una instancia de SAP ASCS/SCS. Como se describe en [Guía de arquitectura: Agrupación de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un disco compartido de clúster][sap-high-availability-guide-wsfc-shared-disk] hay dos alternativas para el *disco compartido de clúster*:
+
+- [Discos compartidos de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared)
+- Uso de [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/datakeeper-cluster/) para crear un almacenamiento reflejado, que simulará el disco compartido en clúster 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -156,21 +160,18 @@ Antes de comenzar la instalación, consulte estos documentos:
 
 * [Preparación de la infraestructura de Azure para alta disponibilidad de SAP con un clúster de conmutación por error de Windows y un disco compartido para ASCS/SCS de SAP][sap-high-availability-infrastructure-wsfc-shared-disk]
 
-En este artículo no se describe la configuración de DBMS porque las opciones varían en función del sistema DBMS que use. Se da por supuesto que las cuestiones relacionadas con la alta disponibilidad con DBMS se solucionan con las funcionalidades que admiten los diversos proveedores de DBMS para Azure. Por ejemplo, AlwaysOn o creación de reflejo de la base de datos para SQL Server y Oracle Data Guard para bases de datos de Oracle. En el escenario de este artículo, no se añade más protección a DBMS.
+En este artículo no se describe la configuración de DBMS porque las opciones varían en función del sistema DBMS que use. Se da por supuesto que las cuestiones relacionadas con la alta disponibilidad con DBMS se solucionan con las funcionalidades que admiten los diversos proveedores de DBMS para Azure. Por ejemplo, AlwaysOn o creación de reflejo de la base de datos para SQL Server y Oracle Data Guard para bases de datos de Oracle. Los escenarios de alta disponibilidad del DBMS no se describen en este artículo.
 
 No hay ninguna consideración especial cuando distintos servicios de DBMS interactúan con una configuración de ASCS/SCS de SAP en clúster en Azure.
 
 > [!NOTE]
-> Los procedimientos de instalación de sistemas ABAP de SAP NetWeaver, sistemas Java y sistemas ABAP+Java son casi idénticos. La diferencia más significativa es que un sistema ABAP de SAP tiene una instancia de ASCS. El sistema Java de SAP tiene una instancia de SCS. El sistema ABAP+Java de SAP tiene una instancia de ASCS y una instancia de SCS en ejecución en el mismo grupo de clústeres de conmutación por error de Microsoft. Cualquier diferencia de instalación de cada pila de instalación de SAP NetWeaver se menciona explícitamente. Puede asumir que todos los demás componentes son iguales.  
->
->
+> Los procedimientos de instalación de sistemas ABAP de SAP NetWeaver, sistemas Java y sistemas ABAP+Java son casi idénticos. La diferencia más significativa es que un sistema ABAP de SAP tiene una instancia de ASCS. El sistema Java de SAP tiene una instancia de SCS. El sistema ABAP+Java de SAP tiene una instancia de ASCS y una instancia de SCS en ejecución en el mismo grupo de clústeres de conmutación por error de Microsoft. Cualquier diferencia de instalación de cada pila de instalación de SAP NetWeaver se menciona explícitamente. Puede suponer que el resto de los pasos son los mismos.  
 
 ## <a name="install-sap-with-a-high-availability-ascsscs-instance"></a><a name="31c6bd4f-51df-4057-9fdf-3fcbc619c170"></a>Instalación de SAP con una instancia de ASCS/SCS de alta disponibilidad
 
 > [!IMPORTANT]
-> Asegúrese de no colocar el archivo de paginación en los volúmenes reflejados de SIOS DataKeeper. DataKeeper no admite los volúmenes reflejados. Puede dejar el archivo de paginación en la unidad temporal D de una máquina virtual de Azure, que es la opción predeterminada. Si todavía no se encuentra ahí, mueva el archivo de paginación de Windows a la unidad D de la máquina virtual de Azure.
->
->
+> Si usa SIOS para presentar el disco compartido, no coloque el archivo de paginación en los volúmenes reflejados de SIOS DataKeeper. Puede dejar el archivo de paginación en la unidad temporal D de una máquina virtual de Azure, que es la opción predeterminada. Si todavía no se encuentra ahí, mueva el archivo de paginación de Windows a la unidad D de la máquina virtual de Azure.  
+
 
 Para instalar SAP con una instancia de ASCS/SCS de alta disponibilidad, siga estos pasos:
 
@@ -185,174 +186,229 @@ Para instalar SAP con una instancia de ASCS/SCS de alta disponibilidad, siga est
 1. En el Administrador de DNS de Windows, cree una entrada de DNS para el nombre de host virtual de la instancia de ASCS/SCS.
 
    > [!IMPORTANT]
-   > La dirección IP que asigna al nombre de host virtual de la instancia de ASCS/SCS debe ser la misma dirección IP que asignó a Azure Load Balancer (\<SID\>-lb-ascs).  
-   >
-   >
-
-   La dirección IP del nombre de host de ASCS/SCS de SAP virtual (pr1-ascs-sap) es la misma dirección IP de Azure Load Balancer (pr1-lb-ascs).
-
+   > La dirección IP que asigna al nombre de host virtual de la instancia de ASCS/SCS debe ser la misma dirección IP que asignó a Azure Load Balancer.  
+   
+   
    ![Figura 1: Definición de la entrada DNS del nombre virtual del clúster de ASCS/SCS de SAP y la dirección TCP/IP][sap-ha-guide-figure-3046]
 
-   _**Ilustración 1:** Definición de la entrada DNS del nombre virtual del clúster de ASCS/SCS de SAP y la dirección TCP/IP_
+   _Definición de la entrada DNS del nombre virtual del clúster de ASCS/SCS de SAP y la dirección TCP/IP_
 
-2. Para definir la dirección IP asignada al nombre de host virtual, seleccione **Administrador de DNS** > **Dominio**.
+2. Si usa el nuevo Enqueue Replication Server 2 de SAP, que también es una instancia en clúster, debe reservar en DNS un nombre de host virtual para ERS2 también. 
+
+   > [!IMPORTANT]
+   > La dirección IP que asigne al nombre de host virtual de la instancia de ERS2 debe ser la segunda dirección IP que asignó a Azure Load Balancer.    
+   
+   
+   ![Figura 1A: Definición de la entrada DNS del nombre virtual del clúster de ASCS/SCS de SAP y la dirección TCP/IP][sap-ha-guide-figure-3046-ers2]
+
+   _Definición de la entrada DNS del nombre virtual del clúster de ERS2 de SAP y la dirección TCP/IP_
+
+
+3. Para definir la dirección IP asignada al nombre de host virtual, seleccione **Administrador de DNS** > **Dominio**.
 
    ![Ilustración 2: Nuevo nombre virtual y dirección TCP/IP para la configuración del clúster de ASCS/SCS de SAP][sap-ha-guide-figure-3047]
 
-   _**Ilustración 2:** Nuevo nombre virtual y dirección TCP/IP para la configuración del clúster de ASCS/SCS de SAP_
+   _Nuevo nombre virtual y dirección TCP/IP para la configuración del clúster de ASCS/SCS de SAP_
 
 ### <a name="install-the-sap-first-cluster-node"></a><a name="eb5af918-b42f-4803-bb50-eff41f84b0b0"></a> Instalación del primer nodo de clúster de SAP
 
-1. Ejecute la opción de primer nodo del clúster en el nodo de clúster A, por ejemplo, en el host pr1-ascs-0*.
-2. Para mantener los puertos predeterminados para el equilibrador de carga interno de Azure, seleccione:
+1. Ejecute la opción de primer nodo de clúster en el nodo de clúster. Seleccione:
 
    * **Sistema ABAP**: número de instancia de **ASCS** **00**
    * **Sistema Java**: número de instancia de **SCS** **01**
    * **Sistema ABAP+Java**: número de instancia de **ASCS** **00** y número de instancia de **SCS** **01**
 
-   Para utilizar números de instancia distintos de 00 para la instancia de ABAP ASCS y 01 para la instancia de SCS de Java, en primer lugar, cambie las reglas predeterminadas de equilibrio de carga para el equilibrador de carga interno de Azure. Para obtener más información, vea [Cambio de las reglas predeterminadas de equilibrio de carga de ASCS/SCS para el equilibrador de carga interno de Azure][sap-ha-guide-8.9].
+   
+   > [!IMPORTANT]
+   > Tenga en cuenta que debe coincidir la configuración de las reglas de equilibrio de carga de Azure Internal Load Balancer (si se usa la SKU básica) y los números de instancia de SAP seleccionados.
 
-Luego, realice unos pasos que no se describen en la documentación de instalación usual de SAP.
+2. Siga el procedimiento de instalación descrito de SAP. Asegúrese de que en la opción de inicio de la instalación "First Cluster Node" (Primer nodo de clúster), elige "Cluster Shared Disk" (Disco compartido de clúster) como opción de configuración.
 
-> [!NOTE]
+> [!TIP]
 > La documentación de instalación de SAP describe cómo instalar el primer nodo de clúster de ASCS/SCS.
->
->
+
+
 
 ### <a name="modify-the-sap-profile-of-the-ascsscs-instance"></a><a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a> Modificación del perfil SAP de la instancia de ASCS/SCS
 
-En primer lugar, añada un nuevo parámetro de perfil. El parámetro de perfil evita el cierre de las conexiones entre los procesos de trabajo de SAP y el servidor de puesta en cola cuando lleven inactivas demasiado tiempo. El escenario del problema se menciona en [Incorporación de entradas del Registro en ambos nodos del clúster usados para la instancia de ASCS/SCS de SAP][sap-ha-guide-8.11]. En esa sección, también se presentan dos cambios para algunos parámetros básicos de la conexión TCP/IP. En el segundo paso, es necesario configurar el servidor de puesta en cola para enviar una señal `keep_alive` de forma que las conexiones no alcancen el umbral de inactividad del equilibrador de carga interno de Azure.
+Si dispone de Enqueue Replication Server 1, agregue el parámetro de perfil de SAP `enque/encni/set_so_keepalive`, como se describe a continuación. El parámetro de perfil evita el cierre de las conexiones entre los procesos de trabajo de SAP y el servidor de puesta en cola cuando lleven inactivas demasiado tiempo. El parámetro de SAP no es necesario para ERS2. 
 
-Para modificar el perfil SAP de la instancia de ASCS/SCS, siga estos pasos:
-
-1. Agregue este parámetro de perfil al perfil de la instancia de ASCS/SCS de SAP si usa ENSA1.
+1. Agregue este parámetro de perfil al perfil de la instancia de ASCS/SCS de SAP, si usa ERS1.
 
    ```
    enque/encni/set_so_keepalive = true
    ```
-   En este ejemplo, la ruta de acceso es:
-
-   `<ShareDisk>:\usr\sap\PR1\SYS\profile\PR1_ASCS00_pr1-ascs-sap`
-
-   Por ejemplo, al perfil de la instancia de SCS de SAP y la ruta de acceso correspondiente:
-
-   `<ShareDisk>:\usr\sap\PR1\SYS\profile\PR1_SCS01_pr1-ascs-sap`
    
-   En el caso de ENSA1 y ENSA2, asegúrese de que los parámetros del sistema operativo `keepalive` se establecen tal y como se describe en la nota de SAP [1410736](https://launchpad.support.sap.com/#/notes/1410736).   
+   En el caso de ERS1 y ERS2, asegúrese de que los parámetros del sistema operativo `keepalive` se establecen tal y como se describe en la nota de SAP [1410736](https://launchpad.support.sap.com/#/notes/1410736).   
 
-2. Para aplicar los cambios, reinicie la instancia de ASCS/SCS de SAP.
+2. Para aplicar los cambios de parámetros de perfil de SAP, reinicie la instancia de ASCS/SCS de SAP.
 
 ### <a name="add-a-probe-port"></a><a name="10822f4f-32e7-4871-b63a-9b86c76ce761"></a> Incorporación de un puerto de sondeo
 
 Use la funcionalidad de sondeo del equilibrador de carga interno para que toda la configuración del clúster funcione con Azure Load Balancer. Habitualmente, el equilibrador de carga interno de Azure distribuye la carga de trabajo entrante de manera equitativa entre las máquinas virtuales que participan.
 
- Sin embargo, esto no funcionará en algunas configuraciones de clúster porque solo hay una instancia activa. La otra instancia es pasiva y no puede aceptar nada de la carga de trabajo. Una funcionalidad de sondeo resulta útil cuando el equilibrador de carga interno de Azure asigna trabajo solo a una instancia activa. Con la funcionalidad de sondeo, el equilibrador de carga interno puede detectar cuáles son las instancias activas y, luego, orientarse solo a la instancia con la carga de trabajo.
+Sin embargo, esto no funcionará en algunas configuraciones de clúster porque solo hay una instancia activa. La otra instancia es pasiva y no puede aceptar nada de la carga de trabajo. Una funcionalidad de sondeo ayuda cuando Azure Internal Load Balancer detecta qué instancia está activa y solo tiene como destino la instancia activa.  
 
-Para agregar un puerto de sondeo, siga estos pasos:
+> [!IMPORTANT]
+> En esta configuración de ejemplo, **ProbePort** se establece en 620**Nr**. En el caso de la instancia de ASCS de SAP con el número **00** es 620**00**. Tendrá que ajustar la configuración para que coincida con los números de instancia de SAP y el SID de SAP.
 
-1. Compruebe el valor de **ProbePort** actual con este comando de PowerShell:
+Para agregar un puerto de sondeo, ejecute este módulo de PowerShell en una de las máquinas virtuales del clúster:
 
+- En el caso de la instancia de ASC/SCS de SAP 
    ```powershell
-   $SAPSID = "PR1"     # SAP <SID>
-
-   $SAPNetworkIPClusterName = "SAP $SAPSID IP"
-   Get-ClusterResource $SAPNetworkIPClusterName | Get-ClusterParameter
+   Set-AzureLoadBalancerHealthCheckProbePortOnSAPClusterIPResource -SAPSID SID -ProbePort 62000
    ```
 
-   Ejecute el comando dentro de una de las máquinas virtuales de la configuración del clúster.
-
-2. Defina un puerto de sondeo. El número de puerto de sondeo predeterminado es 0. En el ejemplo, se usa el puerto de sondeo 62000.
-
-   ![Ilustración 3: De manera predeterminada, el puerto de sondeo de configuración de clúster es 0][sap-ha-guide-figure-3048]
-
-   _**Ilustración 3:** El puerto de sondeo de configuración de clúster es 0_
-
-   El número de puerto está definido en las plantillas de Azure Resource Manager para SAP. Puede asignar el número de puerto en PowerShell.
-
-   Para establecer un nuevo valor de ProbePort del recurso de clúster de IP de \<SID\> de SAP, ejecute el siguiente script de PowerShell para actualizar las variables de PowerShell para el entorno:
-
+- Si se usa ERS2, que está en clúster. No es necesario configurar el puerto de sondeo para ERS1, ya que no está en clúster.  
    ```powershell
-   $SAPSID = "PR1"      # SAP <SID>
-   $ProbePort = 62000   # ProbePort of the Azure internal load balancer
-
-   Clear-Host
-   $SAPClusterRoleName = "SAP $SAPSID"
-   $SAPIPresourceName = "SAP $SAPSID IP"
-   $SAPIPResourceClusterParameters =  Get-ClusterResource $SAPIPresourceName | Get-ClusterParameter
-   $IPAddress = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "Address" }).Value
-   $NetworkName = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "Network" }).Value
-   $SubnetMask = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "SubnetMask" }).Value
-   $OverrideAddressMatch = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "OverrideAddressMatch" }).Value
-   $EnableDhcp = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "EnableDhcp" }).Value
-   $OldProbePort = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "ProbePort" }).Value
-
-   $var = Get-ClusterResource | Where-Object {  $_.name -eq $SAPIPresourceName  }
-
-   Write-Host "Current configuration parameters for SAP IP cluster resource '$SAPIPresourceName' are:" -ForegroundColor Cyan
-   Get-ClusterResource -Name $SAPIPresourceName | Get-ClusterParameter
-
-   Write-Host
-   Write-Host "Current probe port property of the SAP cluster resource '$SAPIPresourceName' is '$OldProbePort'." -ForegroundColor Cyan
-   Write-Host
-   Write-Host "Setting the new probe port property of the SAP cluster resource '$SAPIPresourceName' to '$ProbePort' ..." -ForegroundColor Cyan
-   Write-Host
-
-   $var | Set-ClusterParameter -Multiple @{"Address"=$IPAddress;"ProbePort"=$ProbePort;"Subnetmask"=$SubnetMask;"Network"=$NetworkName;"OverrideAddressMatch"=$OverrideAddressMatch;"EnableDhcp"=$EnableDhcp}
-
-   Write-Host
-
-   $ActivateChanges = Read-Host "Do you want to take restart SAP cluster role '$SAPClusterRoleName', to activate the changes (yes/no)?"
-
-   if($ActivateChanges -eq "yes"){
-   Write-Host
-   Write-Host "Activating changes..." -ForegroundColor Cyan
-
-   Write-Host
-   write-host "Taking SAP cluster IP resource '$SAPIPresourceName' offline ..." -ForegroundColor Cyan
-   Stop-ClusterResource -Name $SAPIPresourceName
-   sleep 5
-
-   Write-Host "Starting SAP cluster role '$SAPClusterRoleName' ..." -ForegroundColor Cyan
-   Start-ClusterGroup -Name $SAPClusterRoleName
-
-   Write-Host "New ProbePort parameter is active." -ForegroundColor Green
-   Write-Host
-
-   Write-Host "New configuration parameters for SAP IP cluster resource '$SAPIPresourceName':" -ForegroundColor Cyan
-   Write-Host
-   Get-ClusterResource -Name $SAPIPresourceName | Get-ClusterParameter
-   }else
-   {
-   Write-Host "Changes are not activated."
-   }
+   Set-AzureLoadBalancerHealthCheckProbePortOnSAPClusterIPResource -SAPSID SID -ProbePort 62001 -IsSAPERSClusteredInstance $True
    ```
 
-   Después de conectar el rol de clúster \<SID\> de SAP, compruebe que **ProbePort** esté establecido en el nuevo valor.
-
+ El código de la función `Set-AzureLoadBalancerHealthCheckProbePortOnSAPClusterIPResource` tendría el siguiente aspecto:
    ```powershell
-   $SAPSID = "PR1"     # SAP <SID>
-
-   $SAPNetworkIPClusterName = "SAP $SAPSID IP"
-   Get-ClusterResource $SAPNetworkIPClusterName | Get-ClusterParameter
+    function Set-AzureLoadBalancerHealthCheckProbePortOnSAPClusterIPResource {
+    
+    <#
+    .SYNOPSIS 
+    Set-AzureLoadBalancerHealthProbePortOnSAPClusterIPResource will set a new Azure Load Balancer Health Probe Port on 'SAP $SAPSID IP' cluster resource.
+    
+    .DESCRIPTION
+    Set-AzureLoadBalancerHealthProbePortOnSAPClusterIPResource will set a new Azure Load Balancer Health Probe Port on 'SAP $SAPSID IP' cluster resource.
+    It will also restart SAP Cluster group (default behavior), to activate the changes. 
+    
+    You need to run it on one of the SAP ASCS/SCS Windows cluster nodes.
+    
+    Expectation is that SAP group is installed with official SWPM installation tool, which will set default expected naming convention for:
+    - SAP Cluster Group:               'SAP $SAPSID'
+    - SAP Cluster IP Address Resource: 'SAP $SAPSID IP' 
+    
+    .PARAMETER SAPSID 
+    SAP SID - 3 characters staring with letter.
+    
+    .PARAMETER ProbePort 
+    Azure Load Balancer Health Check Probe Port.
+    
+    .PARAMETER RestartSAPClusterGroup 
+    Optional parameter. Default value is '$True', so SAP cluster group will be restarted to activate the changes.
+    
+    .PARAMETER IsSAPERSClusteredInstance 
+    Optional parameter.Default value is '$False'.
+    If set to $True , then handle clsutered new SAP ERS2 instance.
+    
+    
+    .EXAMPLE 
+    # Set probe port to 62000, on SAP cluster resource 'SAP AB1 IP', and restart the SAP cluster group 'SAP AB1', to activate the changes.
+    Set-AzureLoadBalancerHealthCheckProbePortOnSAPClusterIPResource -SAPSID AB1 -ProbePort 62000 
+    
+    .EXAMPLE 
+    # Set probe port to 62000, on SAP cluster resource 'SAP AB1 IP'. SAP cluster group 'SAP AB1' IS NOT restarted, therefore changes are NOT active.
+    # To activate the changes you need to manualy restart 'SAP AB1' cluster group.
+    Set-AzureLoadBalancerHealthCheckProbePortOnSAPClusterIPResource -SAPSID AB1 -ProbePort 62000 -RestartSAPClusterGroup $False
+    
+    .EXAMPLE 
+    # Set probe port to 62001, on SAP cluster resource 'SAP AB1 ERS IP'. SAP cluster group 'SAP AB1 ERS' IS restarted, to activate the changes.
+    Set-AzureLoadBalancerHealthCheckProbePortOnSAPClusterIPResource -SAPSID AB1 -ProbePort 62000 -IsSAPERSClusteredInstance $True
+    
+    #> 
+    
+        [CmdletBinding()]
+        param(
+            
+            [Parameter(Mandatory=$True)]
+            [ValidateNotNullOrEmpty()]  
+            [ValidateLength(3,3)]      
+            [string]$SAPSID,
+                  
+            [Parameter(Mandatory=$True)]
+            [ValidateNotNullOrEmpty()]        
+            [int] $ProbePort,
+    
+            [Parameter(Mandatory=$False)] 
+            [bool] $RestartSAPClusterGroup = $True,
+    
+            [Parameter(Mandatory=$False)] 
+            [bool] $IsSAPERSClusteredInstance = $False
+        )
+    
+        BEGIN{}
+        
+        PROCESS{
+            try{                                      
+                
+                if($IsSAPERSClusteredInstance){
+                    #Handle clustered SAP ERS Instance
+                    $SAPClusterRoleName = "SAP $SAPSID ERS"
+                    $SAPIPresourceName = "SAP $SAPSID ERS IP"            
+                }else{
+                    #Handle clustered SAP ASCS/SCS Instance
+                    $SAPClusterRoleName = "SAP $SAPSID"
+                    $SAPIPresourceName = "SAP $SAPSID IP"
+                }
+    
+                $SAPIPResourceClusterParameters =  Get-ClusterResource $SAPIPresourceName | Get-ClusterParameter
+                $IPAddress = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "Address" }).Value
+                $NetworkName = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "Network" }).Value
+                $SubnetMask = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "SubnetMask" }).Value
+                $OverrideAddressMatch = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "OverrideAddressMatch" }).Value
+                $EnableDhcp = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "EnableDhcp" }).Value
+                $OldProbePort = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "ProbePort" }).Value
+    
+                $var = Get-ClusterResource | Where-Object {  $_.name -eq $SAPIPresourceName  }
+                Write-Output "Current configuration parameters for SAP IP cluster resource '$SAPIPresourceName' are:" 
+    
+                Get-ClusterResource -Name $SAPIPresourceName | Get-ClusterParameter
+    
+                Write-Output " "
+                Write-Output "Current probe port property of the SAP cluster resource '$SAPIPresourceName' is '$OldProbePort'." 
+                Write-Output " "
+                Write-Output "Setting the new probe port property of the SAP cluster resource '$SAPIPresourceName' to '$ProbePort' ..." 
+                Write-Output " "
+    
+                $var | Set-ClusterParameter -Multiple @{"Address"=$IPAddress;"ProbePort"=$ProbePort;"Subnetmask"=$SubnetMask;"Network"=$NetworkName;"OverrideAddressMatch"=$OverrideAddressMatch;"EnableDhcp"=$EnableDhcp}
+    
+                Write-Output " "
+                    
+                if($RestartSAPClusterGroup){
+                    Write-Output ""
+                    Write-Output "Activating changes..." 
+    
+                    Write-Output " "
+                    Write-Output "Taking SAP cluster IP resource '$SAPIPresourceName' offline ..."
+                    Stop-ClusterResource -Name $SAPIPresourceName
+                    sleep 5
+    
+                    Write-Output "Starting SAP cluster role '$SAPClusterRoleName' ..."
+                    Start-ClusterGroup -Name $SAPClusterRoleName
+    
+                    Write-Output "New ProbePort parameter is active." 
+                    Write-Output " "
+    
+                    Write-Output "New configuration parameters for SAP IP cluster resource '$SAPIPresourceName':" 
+                    Write-Output " " 
+                    Get-ClusterResource -Name $SAPIPresourceName | Get-ClusterParameter
+                }else
+                {
+                    Write-Output "SAP cluster role '$SAPClusterRoleName' is not restarted, therefore changes are not activated."
+                }   
+            }
+            catch{
+               Write-Error  $_.Exception.Message
+           }
+        }
+        END {}
+    }
 
    ```
-   Después de ejecutar el script, se le pedirá que reinicie el grupo de clústeres de SAP para activar los cambios.
-
-   ![Ilustración 4: Sondeo del puerto de clúster después de establecer el valor nuevo][sap-ha-guide-figure-3049]
-
-   _**Ilustración 4:** Sondeo del puerto de clúster después de establecer el valor nuevo_
 
 ### <a name="open-the-windows-firewall-probe-port"></a><a name="4498c707-86c0-4cde-9c69-058a7ab8c3ac"></a> Apertura del puerto de sondeo de Firewall de Windows
 
-Abra el puerto de sondeo de firewall de Windows en ambos nodos del clúster. El siguiente script permite abrir un puerto de sondeo de firewall de Windows. Actualice las variables de PowerShell de su entorno.
+Abra el puerto de sondeo de firewall de Windows en ambos nodos del clúster. El siguiente script permite abrir un puerto de sondeo de firewall de Windows. Actualice las variables de PowerShell de su entorno.  
+Si utiliza ERS2, también tendrá que abrir el puerto de firewall para el puerto de sondeo de ERS2.  
 
   ```powershell
-  $ProbePort = 62000   # ProbePort of the Azure internal load balancer
-
-  New-NetFirewallRule -Name AzureProbePort -DisplayName "Rule for Azure Probe Port" -Direction Inbound -Action Allow -Protocol TCP -LocalPort $ProbePort
+    $ProbePort = 62000   # ProbePort of the Azure internal load balancer
+    New-NetFirewallRule -Name AzureProbePort -DisplayName "Rule for Azure Probe Port" -Direction Inbound -Action Allow -Protocol TCP -LocalPort $ProbePort
   ```
-
-**ProbePort** está establecido en **62000**. Ahora puede tener acceso al recurso compartido de archivos \\\ascsha-clsap\sapmnt desde otros hosts, como ascsha-dbas.
 
 ## <a name="install-the-database-instance"></a><a name="85d78414-b21d-4097-92b6-34d8bcb724b7"></a> Instalación de la instancia de base de datos
 
@@ -362,69 +418,44 @@ Para instalar la instancia de base de datos, siga el proceso que se describe en 
 
 Para instalar el segundo clúster, siga los pasos que se describen en la guía de instalación de SAP.
 
-## <a name="change-the-start-type-of-the-sap-ers-windows-service-instance"></a><a name="094bc895-31d4-4471-91cc-1513b64e406a"></a> Cambio del tipo de inicio del servicio de Windows para la instancia de ERS de SAP
-
-Cambie el tipo de inicio del servicio o servicios de Windows de ERS de SAP a **Automático (inicio retrasado)** en ambos nodos del clúster.
-
-![Ilustración 5: Cambio del tipo de servicio de la instancia de ERS de SAP a automático retrasado][sap-ha-guide-figure-3050]
-
-_**Ilustración 5:** Cambio del tipo de servicio de la instancia de ERS de SAP a automático retrasado_
-
 ## <a name="install-the-sap-primary-application-server"></a><a name="2477e58f-c5a7-4a5d-9ae3-7b91022cafb5"></a> Instalación del servidor de aplicaciones principal de SAP
 
-Instale la instancia del servidor de aplicaciones principal (PAS) \<SID\>-di-0 en la máquina virtual que designó para hospedar el PAS. No hay ninguna dependencia en Azure. No hay ninguna configuración específica de DataKeeper.
+Instale la instancia del servidor de aplicaciones principal (PAS) \<SID\>-di-0 en la máquina virtual que designó para hospedar el PAS. No hay ninguna dependencia en Azure. Si usa SIOS, no hay ninguna configuración específica de DataKeeper.
 
 ## <a name="install-the-sap-additional-application-server"></a><a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a> Instalación del servidor de aplicaciones adicional de SAP
 
-Instale un servidor de aplicaciones adicional (AAS) de SAP en todas las máquinas virtuales que designó para hospedar una instancia de servidores de aplicaciones de SAP. Por ejemplo, en \<SID\>-di-1 a \<SID\>-di-&lt;n&gt;.
+Instale un servidor de aplicaciones adicional (AAS) de SAP en todas las máquinas virtuales que designó para hospedar una instancia de servidores de aplicaciones de SAP. 
 
-> [!NOTE]
-> Esta acción finaliza la instalación de un sistema SAP NetWeaver de alta disponibilidad. Después, continúe con las pruebas de conmutación por error.
->
+## <a name="test-the-sap-ascsscs-instance-failover"></a><a name="18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9"></a> Prueba de la conmutación por error de la instancia de ASCS/SCS de SAP
 
+En el caso de las pruebas de conmutación por error descritas, asumimos que ASCS de SAP está activo en el nodo A.  
 
-## <a name="test-the-sap-ascsscs-instance-failover-and-sios-replication"></a><a name="18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9"></a> Prueba de la conmutación por error de la instancia de ASCS/SCS de SAP y de la replicación de SIOS
-Es fácil probar y supervisar la conmutación por error de la instancia de ASCS/SCS de SAP y la replicación de disco de SIOS mediante el uso del Administrador de clústeres de conmutación por error, la interfaz de usuario de SIOS DataKeeper y la herramienta de configuración.
+1. Verifique que el sistema SAP pueda conmutar por error con éxito del nodo A al nodo B, elija una de estas opciones para iniciar una conmutación por error del grupo de clústeres \<SID\> de SAP desde el nodo del clúster A al B:
+    - Administrador de clústeres de conmutación por error  
+    - PowerShell del clúster de conmutación por error
 
-### <a name="sap-ascsscs-instance-is-running-on-cluster-node-a"></a><a name="65fdef0f-9f94-41f9-b314-ea45bbfea445"></a> La instancia de ASCS/SCS de SAP se ejecuta en el nodo de clúster A
+    ```powershell
+    $SAPSID = "PR1"     # SAP <SID>
+ 
+    $SAPClusterGroup = "SAP $SAPSID"
+    Move-ClusterGroup -Name $SAPClusterGroup
 
-El grupo de clústeres SAP PR1 se ejecuta en el nodo de clúster A. Por ejemplo, en pr1-ascs-0. Asigne la unidad de disco compartido S, que forma parte del grupo de clústeres SAP PR1, al nodo de clúster A. La instancia de ASCS/SCS también usa la unidad de disco S. 
+    ```
 
-![Figura 6: Administrador de clústeres de conmutación por error: El grupo de clústeres \<SID\> de SAP se ejecuta en el nodo del clúster A][sap-ha-guide-figure-5000]
-
-_**Figura 6:** Administrador de clústeres de conmutación por error: El grupo de clústeres \<SID\> de SAP se ejecuta en el nodo del clúster A_.
-
-En la interfaz de usuario de SIOS DataKeeper y la herramienta de configuración, puede ver que los datos del disco compartido se replican sincrónicamente desde la unidad de volumen de origen S en el nodo de clúster A. Por ejemplo, de pr1-ascs-0 [10.0.0.40] a pr1-ascs-1 [10.0.0.41].
-
-![Figura 7: En SIOS DataKeeper, replique el volumen local desde el nodo de clústeres A al nodo de clústeres B][sap-ha-guide-figure-5001]
-
-_**Figura 7:** En SIOS DataKeeper, replique el volumen local desde el nodo de clústeres A al nodo de clústeres B_
-
-### <a name="failover-from-node-a-to-node-b"></a><a name="5e959fa9-8fcd-49e5-a12c-37f6ba07b916"></a> Conmutación por error del nodo A al nodo B
-
-1. Elija una de estas opciones para iniciar una conmutación por error del grupo de clústeres \<SID\> de SAP desde el nodo del clúster A al B:
-   - Administrador de clústeres de conmutación por error  
-   - PowerShell del clúster de conmutación por error
-
-   ```powershell
-   $SAPSID = "PR1"     # SAP <SID>
-
-   $SAPClusterGroup = "SAP $SAPSID"
-   Move-ClusterGroup -Name $SAPClusterGroup
-
-   ```
 2. Reinicie el nodo del clúster A dentro del sistema operativo invitado Windows. Al hacerlo, se inicia una conmutación automática por error del grupo de clústeres \<SID\> de SAP del nodo A al B.  
 3. Reinicie el nodo del clúster A desde Azure Portal. Al hacerlo, se inicia una conmutación automática por error del grupo de clústeres \<SID\> de SAP del nodo A al B.  
 4. Reinicie el nodo del clúster A mediante Azure PowerShell. Al hacerlo, se inicia una conmutación automática por error del grupo de clústeres \<SID\> de SAP del nodo A al B.
 
-   Después de la conmutación por error, el grupo de clústeres \<SID\> de SAP se ejecuta en el nodo del clúster B. Por ejemplo, en pr1-ascs-1.
+5. Comprobación
+   - Después de conmutación por error, verifique que el grupo de clústeres \<SID\> de SAP se ejecuta en el nodo del clúster B. 
 
-   ![Figura 8: En el Administrador de clústeres de conmutación por error, el grupo de clústeres \<SID\> de SAP se ejecuta en el nodo del clúster B][sap-ha-guide-figure-5002]
+      ![Figura 8: En el Administrador de clústeres de conmutación por error, el grupo de clústeres \<SID\> de SAP se ejecuta en el nodo del clúster B][sap-ha-guide-figure-5002]
 
-   _**Figura 8**: En el Administrador de clústeres de conmutación por error, el grupo de clústeres \<SID\> de SAP se ejecuta en el nodo del clúster B._
+      _En el Administrador de clústeres de conmutación por error, el grupo de clústeres \<SID\> de SAP se ejecuta en el nodo del clúster B_
 
-   Ahora, el disco compartido está montado en el nodo del clúster B. SIOS DataKeeper replica datos desde la unidad de volumen de origen S en el nodo del clúster B a la unidad de volumen de destino S en el nodo del clúster A. Por ejemplo, de pr1-ascs-1 [10.0.0.41] a pr1-ascs-0 [10.0.0.40].
+   - Después de la conmutación por error, compruebe que el disco compartido ahora está montado en el nodo del clúster B. 
+   - Después de la conmutación por error, si usa SIOS, compruebe que SIOS DataKeeper replica los datos de la unidad de volumen de origen S en el nodo de clúster B a la unidad de volumen de destino S en el nodo de clúster A. 
 
-   ![Figura 9: SIOS DataKeeper replica el volumen local desde el nodo del clúster B al nodo del clúster A][sap-ha-guide-figure-5003]
+      ![Figura 9: SIOS DataKeeper replica el volumen local desde el nodo del clúster B al nodo del clúster A][sap-ha-guide-figure-5003]
 
-   _**Figura 9:** SIOS DataKeeper replica el volumen local desde el nodo del clúster B al nodo del clúster A_
+      _SIOS DataKeeper replica el volumen local desde el nodo del clúster B al nodo del clúster A_

@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con IMAGE WORKS | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory e IMAGE WORKS.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 635d86a1-b512-442d-8851-3b18ec1a24a5
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7625cf273f4adad057674368dc501bc914ae5577
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a67c379ed24b0cf04706b6a506ee0aecb456ad54
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73158962"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545240"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-works"></a>Tutorial: Integración de Azure Active Directory con IMAGE WORKS
 

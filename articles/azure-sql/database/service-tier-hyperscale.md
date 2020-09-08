@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/03/2020
-ms.openlocfilehash: d74e3f196e58e522eb9377ca9f18fd05ec8460ae
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 655486d8273719e89187ebac0992cf83904d9b98
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024000"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120650"
 ---
 # <a name="hyperscale-service-tier"></a>Nivel de servicio Hiperescala
 
@@ -105,7 +105,9 @@ Azure Storage contiene todos los archivos de datos de una base de datos. Los ser
 
 ## <a name="backup-and-restore"></a>Copia de seguridad y restauración
 
-Las copias de seguridad están basadas en instantáneas de archivos y, por tanto, se realizan de forma prácticamente instantánea. La separación del almacenamiento y los procesos permite insertar la operación de copia de seguridad y restauración en la capa de almacenamiento para reducir la carga de procesamiento en replica de proceso principal. Como resultado, la copia de seguridad de base de datos no afecta al rendimiento del nodo de ejecución principal. De forma similar, las restauraciones se realizan revirtiendo las instantáneas de los archivos y, por tanto, no dependen de la operación de datos. La restauración es una operación de tiempo constante, e incluso las bases de datos de varios terabytes se pueden restaurar en minutos en lugar de horas o días. La creación de bases de datos nuevas mediante la restauración de una copia de seguridad existente también aprovecha esta característica: la creación de copias de base de datos para fines de desarrollo o pruebas, incluso cuando se trata de bases de datos con un tamaño de terabytes, es factible en cuestión de minutos.
+Las copias de seguridad están basadas en instantáneas de archivos y, por tanto, se realizan de forma prácticamente instantánea. La separación del almacenamiento y los procesos permite insertar la operación de copia de seguridad y restauración en la capa de almacenamiento para reducir la carga de procesamiento en replica de proceso principal. Como resultado, la copia de seguridad de base de datos no afecta al rendimiento del nodo de ejecución principal. De forma similar, la recuperación a un momento dado (PITR) se realiza revirtiendo las instantáneas de los archivos y, por tanto, no depende de la operación de datos. La restauración de una base de datos de Hiperescala en la misma región de Azure es una operación de tiempo constante, e incluso las bases de datos de varios terabytes se pueden restaurar en minutos en lugar de horas o días. La creación de bases de datos nuevas mediante la restauración de una copia de seguridad existente también aprovecha esta característica: la creación de copias de base de datos para fines de desarrollo o pruebas, incluso cuando se trata de bases de datos con un tamaño de terabytes, es factible en cuestión de minutos.
+
+Para la restauración geográfica de bases de datos de Hiperescala, consulte [Restauración de una base de datos de Hiperescala en una región diferente](#restoring-a-hyperscale-database-to-a-different-region).
 
 ## <a name="scale-and-performance-advantages"></a>Ventajas de escala y rendimiento
 
@@ -156,7 +158,7 @@ Para el contrato de nivel de servicio de Hiperescala, consulte [Contrato de nive
 
 ## <a name="disaster-recovery-for-hyperscale-databases"></a>Recuperación ante desastres para bases de datos Hiperescala
 
-### <a name="restoring-a-hyperscale-database-to-a-different-geography"></a>Restaurar una base de datos Hiperescala en una ubicación geográfica diferente
+### <a name="restoring-a-hyperscale-database-to-a-different-region"></a>Restauración de una base de datos de Hiperescala en una región diferente
 
 Si necesita restaurar una base de datos Hiperescala de Azure SQL Database en una región distinta a donde se hospeda actualmente —como parte de una operación de recuperación ante desastres, una exploración en profundidad, una reubicación o cualquier otro motivo—, el método principal es realizar una restauración geográfica de la base de datos. Esto implica exactamente los mismos pasos que seguiría para restaurar cualquier otra base de datos de SQL Database en una región diferente:
 
@@ -224,7 +226,7 @@ Estas son las limitaciones actuales para el nivel de servicio Hiperescala en dis
 | Instancia administrada de SQL | Actualmente Azure SQL Managed Instance no es compatible con las bases de datos de Hiperescala. |
 | Grupos elásticos |  Los grupos elásticos no son compatibles actualmente con Hiperescala.|
 | La migración a Hiperescala actualmente es una operación unidireccional. | Una vez que una base de datos se migra a Hiperescala, no puede migrarse directamente a un nivel de servicio que no sea Hiperescala. En la actualidad, la única manera de migrar una base de datos de Hiperescala a un recursos que no sea de Hiperescala es exportar o importar mediante un archivo bacpac u otras tecnologías de movimiento de datos (copia masiva, Azure Data Factory, Azure Databricks, SSIS, etc.) No se admite la exportación o importación de bacpac desde Azure Portal, desde PowerShell mediante [New-AzSqlDatabaseExport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseexport) o [New-AzSqlDatabaseImport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseimport), desde la CLI de Azure con [az sql db export](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-export) y [az sql db import](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-import) ni desde la [API REST](https://docs.microsoft.com/rest/api/sql/databases%20-%20import%20export). Se admite la importación y exportación de bases de datos de Hiperescala (200 GB como máximo) mediante SSMS y [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) versión 18.4 y posteriores. En el caso de las bases de datos de mayor tamaño, la importación y exportación de bacpac puede tardar mucho tiempo y producir errores por diversos motivos.|
-| Migración de bases de datos con objetos OLTP en memoria persistentes | Hiperescala solo admite objetos OLTP en memoria no persistentes (tipos de tabla, SP nativos y funciones).  Las tablas OLTP en memoria persistentes y otros objetos deben quitarse y volver a crearse como objetos basados en disco antes de migrar una base de datos al nivel de servicio Hiperescala.|
+| Migración de bases de datos con objetos OLTP en memoria | Hiperescala admite un subconjunto de objetos OLTP en memoria, incluidos los tipos de tablas optimizadas para memoria, las variables de tablas y los módulos compilados de forma nativa. Sin embargo, cuando hay presente cualquier tipo de objeto OLTP en memoria en la base de datos que se está migrando, no se admite la migración desde los niveles de servicio Premium y Crítico para la empresa a Hiperescala. Para migrar este tipo de base de datos a Hiperescala, se deben quitar todos los objetos OLTP en memoria y sus dependencias. Después de migrar la base de datos, estos objetos se pueden volver a crear. En la actualidad, no se admiten tablas optimizadas para memoria duraderas y no duraderas en Hiperescala, y deben volver a crearse como tablas de disco.|
 | Replicación geográfica  | Todavía no se puede configurar la replicación geográfica activa para Azure SQL Database Hiperescala. |
 | Copia de base de datos | Todavía no puede usar la copia de base de datos para crear una base de datos nueva en Hiperescala de Azure SQL. |
 | Integración de TDE/AKV | El cifrado de base de datos transparente mediante Azure Key Vault (comúnmente conocido como "traiga su propia clave" o BYOK) se encuentra actualmente en versión preliminar. |

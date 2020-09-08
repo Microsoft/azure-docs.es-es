@@ -1,18 +1,19 @@
 ---
 title: Planeamiento de una implementación de Azure File Sync |Microsoft Docs
-description: Conozca los aspectos que debe tener en cuenta al planear una implementación de Azure Files.
+description: Planee sus implementaciones con Azure File Sync, que es un servicio que permite almacenar en caché varios recursos compartidos de archivos de Azure en una VM en la nube o en una instancia local de Windows Server.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f09e84d20b1a3c568eea015d92b93a99b8cf024e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: references_regions
+ms.openlocfilehash: c2d3237e629c7ed5d2931e15939b154e0239f259
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036801"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88553114"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
 
@@ -376,7 +377,7 @@ Si prefiere usar una solución de copia de seguridad local, las copias de seguri
 > La reconstrucción completa (BMR) puede causar resultados inesperados y actualmente no se admite.
 
 > [!Note]  
-> Con la versión 9 del agente de Azure File Sync, las instantáneas de VSS (incluida la pestaña Versiones anteriores) ya se admiten en los volúmenes que tienen habilitada la nube por niveles. Sin embargo, debe habilitar la compatibilidad con la versión anterior a través de PowerShell. [Más información](storage-files-deployment-guide.md).
+> Con la versión 9 del agente de Azure File Sync, las instantáneas de VSS (incluida la pestaña Versiones anteriores) ya se admiten en los volúmenes que tienen habilitada la nube por niveles. Sin embargo, debe habilitar la compatibilidad con la versión anterior a través de PowerShell. [Más información](storage-sync-files-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service).
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Directiva de actualización del agente de Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

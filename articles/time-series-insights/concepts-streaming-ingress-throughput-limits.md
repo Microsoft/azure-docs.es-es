@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: fb10effce8b94a6443e1daa8dadaa99111da0d4e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a9ac55802e4bcc435bb4bd6fd4af8977db9fd293
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095385"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950466"
 ---
 # <a name="streaming-ingestion-throughput-limits"></a>Límites de rendimiento de ingesta de streaming
 
@@ -34,7 +34,7 @@ De forma predeterminada, Azure Time Series Insights Gen2 puede ingerir los datos
 
 > [!TIP]
 >
-> * La compatibilidad del entorno con velocidades de ingesta de hasta 16 MBps se puede proporcionar a petición.
+> * La compatibilidad del entorno con velocidades de ingesta de hasta 8 Mbps se puede proporcionar a petición.
 > * Póngase en contacto con nosotros si necesita mayor rendimiento mediante el envío de una incidencia de soporte técnico a través de Azure Portal.
  
 * **Ejemplo 1:**
@@ -42,16 +42,16 @@ De forma predeterminada, Azure Time Series Insights Gen2 puede ingerir los datos
     Contoso Shipping tiene 100.000 dispositivos que emiten un evento tres veces por minuto. El tamaño de un evento es de 200 bytes. Usan una instancia de IoT Hub con cuatro particiones como origen de eventos de Azure Time Series Insights Gen2.
 
     * La tasa de ingesta para su entorno de Azure Time Series Insights Gen2 sería: **100 000 dispositivos * 200 bytes/evento * (3/60 evento/segundo) = 1 MBps**.
-    * La tasa de ingesta por partición sería de 0,25 MBps.
-    * La tasa de ingesta de Contoso Shipping se encuentra dentro del límite de escala.
+    * Si se da por hecho que las particiones están equilibradas, la tasa de ingesta por partición sería de 0,25 Mbps.
+    * La tasa de ingesta de Contoso Shipping estaría dentro de los límites de escala.
 
 * **Ejemplo 2:**
 
-    Contoso Fleet Analytics tiene 60.000 dispositivos que emiten un evento cada segundo. Usan una instancia de Event Hub con un número de particiones de 4 como origen de eventos de Azure Time Series Insights Gen2. El tamaño de un evento es de 200 bytes.
+    Contoso Fleet Analytics tiene 40 000 dispositivos que emiten un evento cada segundo. Se usa un centro de eventos con un recuento de particiones de 2 como origen del evento de Azure Time Series Insights Gen2. El tamaño de un evento es de 200 bytes.
 
-    * La tasa de ingesta de entorno sería: **60 000 dispositivos * 200 bytes/evento * 1 evento/segundo = 12 MBps**.
-    * La velocidad por partición sería de 3 MBps.
-    * La tasa de ingesta de análisis de Contoso Fleet Analytics supera los límites del entorno y de la partición. Pueden enviar una solicitud a Azure Time Series Insights Gen2 a través de Azure Portal para aumentar la tasa de ingesta de su entorno y crear una instancia de Event Hub con más particiones que estén dentro de los límites.
+    * La tasa de ingesta de entorno sería: **40 000 dispositivos * 200 bytes/evento * 1 evento/segundo = 8 Mbps**.
+    * Si se da por hecho que las particiones están equilibradas, la tasa por partición sería de 4 Mbps.
+    * La tasa de ingesta de análisis de Contoso Fleet Analytics supera los límites del entorno y de la partición. Es posible enviar una solicitud a Azure Time Series Insights Gen2 a través de Azure Portal para aumentar la tasa de ingesta del entorno y crear un centro de eventos con más particiones para estar dentro de los límites.
 
 ## <a name="hub-partitions-and-per-partition-limits"></a>Particiones del centro y límites por partición
 

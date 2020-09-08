@@ -17,18 +17,18 @@ ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4702b12bea2e078af4d10fe9d709d16c361b3f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 22a8a0efe16b4ab2ea7b8a647284a3449741ac02
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608269"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226971"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Requisitos previos para acceder a la API de generación de informes de Azure Active Directory
 
-Las [API de generación de informes de Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-reporting-api) proporcionan acceso mediante programación a los datos a través de un conjunto de API de REST. A estas API se les puede llamar desde los lenguajes y herramientas de programación.
+Las [API de generación de informes de Azure Active Directory (Azure AD)](./concept-reporting-api.md) proporcionan acceso mediante programación a los datos a través de un conjunto de API de REST. A estas API se les puede llamar desde los lenguajes y herramientas de programación.
 
-La API de generación de informes utiliza [OAuth](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad) para autorizar el acceso a las API web.
+La API de generación de informes utiliza [OAuth](../../api-management/api-management-howto-protect-backend-with-aad.md) para autorizar el acceso a las API web.
 
 Para preparar el acceso a la API de generación de informes, necesita lo siguiente:
 
@@ -225,5 +225,5 @@ Siga los pasos del artículo [Requisitos previos para acceder a la API de genera
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Obtención de datos mediante la API de generación de informes de Azure Active Directory con certificados](tutorial-access-api-with-certificates.md)
-* [Referencia de la API de auditoría](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
-* [Referencia de la API de generación de informes de actividad de inicio de sesión](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+* [Referencia de la API de auditoría](/graph/api/resources/directoryaudit?view=graph-rest-beta) 
+* [Referencia de la API de generación de informes de actividad de inicio de sesión](/graph/api/resources/signin?view=graph-rest-beta)

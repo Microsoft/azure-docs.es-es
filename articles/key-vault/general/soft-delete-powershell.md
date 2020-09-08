@@ -1,20 +1,21 @@
 ---
 title: 'Azure Key Vault: Uso de la eliminación temporal con PowerShell'
-description: Ejemplos de casos de uso de eliminación temporal con fragmentos de código de PowerShell
+description: Aprenda a usar Azure PowerShell para utilizar la característica de eliminación temporal de Azure Key Vault que permite la recuperación de almacenes de claves y objetos de Key Vault.
 services: key-vault
-author: msmbaldwin
-manager: rkarlin
+author: ShaneBala-keyvault
+manager: ravijan
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
-ms.date: 08/12/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 9b9a7a5b3d92833a0f24f6bc646b19110dcfd66a
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.topic: how-to
+ms.date: 08/11/2020
+ms.author: sudbalas
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 251159c4fcf27ceb4d8b0dddeecbe501c7346e9e
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386085"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89073240"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Uso de la eliminación temporal de Key Vault con PowerShell
 
@@ -67,11 +68,7 @@ Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 
 ### <a name="new-key-vault"></a>Almacén de claves nuevo
 
-La habilitación de la eliminación temporal para un nuevo almacén de claves se realiza en el momento de la creación agregando el indicador de habilitación de eliminación temporal al comando create.
-
-```powershell
-New-AzKeyVault -Name "ContosoVault" -ResourceGroupName "ContosoRG" -Location "westus" -EnableSoftDelete
-```
+La eliminación temporal se activa automáticamente de forma predeterminada para todos los nuevos almacenes de claves. El 31 de diciembre de 2020 ya no será posible deshabilitar la eliminación temporal en ningún almacén de claves. 
 
 ### <a name="verify-soft-delete-enablement"></a>Comprobación de la habilitación de la eliminación temporal
 

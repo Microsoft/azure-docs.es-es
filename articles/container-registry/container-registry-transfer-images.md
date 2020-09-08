@@ -4,12 +4,12 @@ description: Transferir colecciones de imágenes u otros artefactos de un regist
 ms.topic: article
 ms.date: 05/08/2020
 ms.custom: ''
-ms.openlocfilehash: 7f63936ad8f2a97bae6ff63e783e38c15db35e13
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 0bbdfc8d1586b7d71daf6d4cbfdc4288357aa45b
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259462"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009161"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Transferir artefactos a otro registro
 
@@ -234,6 +234,8 @@ Escriba los siguientes valores de parámetro en el archivo `azuredeploy.paramete
 |targetName     |  Nombre que elija para el blob de artefactos exportado a la cuenta de almacenamiento de origen, como *myblob*
 |artifacts | Matriz de artefactos de origen que se van a transferir, como etiquetas o resúmenes de manifiestos<br/>Ejemplo: `[samples/hello-world:v1", "samples/nginx:v1" , "myrepository@sha256:0a2e01852872..."]` |
 
+Si vuelve a implementar un recurso PipelineRun con propiedades idénticas, también debe usar la propiedad [forceUpdateTag](#redeploy-pipelinerun-resource).
+
 Ejecute [az deployment group create][az-deployment-group-create] para crear el recurso PipelineRun. En el ejemplo siguiente se nombra a la implementación como *exportPipelineRun*.
 
 ```azurecli
@@ -291,6 +293,8 @@ Escriba los siguientes valores de parámetro en el archivo `azuredeploy.paramete
 |pipelineResourceId     |  Identificador de recurso de la canalización de importación.<br/>Ejemplo: `/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ContainerRegistry/registries/<sourceRegistryName>/importPipelines/myImportPipeline`       |
 |sourceName     |  Nombre del blob existente para los artefactos exportados en la cuenta de almacenamiento, como *myblob*
 
+Si vuelve a implementar un recurso PipelineRun con propiedades idénticas, también debe usar la propiedad [forceUpdateTag](#redeploy-pipelinerun-resource).
+
 Ejecute [az deployment group create][az-deployment-group-create] para ejecutar el recurso.
 
 ```azurecli
@@ -304,6 +308,23 @@ Cuando la implementación finalice correctamente, compruebe la importación de a
 
 ```azurecli
 az acr repository list --name <target-registry-name>
+```
+
+## <a name="redeploy-pipelinerun-resource"></a>Nueva implementación del recurso PipelineRun
+
+Si vuelve a implementar un recurso PipelineRun con *propiedades idénticas*, debe aprovechar la propiedad **forceUpdateTag**. Esta propiedad indica que el recurso PipelineRun debe volver a crearse incluso si la configuración no ha cambiado. Asegúrese de que forceUpdateTag sea diferente cada vez que vuelva a implementar el recurso PipelineRun. En el ejemplo siguiente se vuelve a crear un recurso PipelineRun para exportarlo. La fecha y hora actual se utiliza para establecer forceUpdateTag, lo que garantiza que esta propiedad sea siempre única.
+
+```console
+CURRENT_DATETIME=`date +"%Y-%m-%d:%T"`
+```
+
+```azurecli
+az deployment group create \
+  --resource-group $SOURCE_RG \
+  --template-file azuredeploy.json \
+  --name exportPipelineRun \
+  --parameters azuredeploy.parameters.json \
+  --parameters forceUpdateTag=$CURRENT_DATETIME
 ```
 
 ## <a name="delete-pipeline-resources"></a>Eliminar recursos de canalización

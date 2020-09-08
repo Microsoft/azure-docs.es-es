@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con CloudSign | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y CloudSign.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 2ecfde55-6a37-4b82-80bb-30390e0a0404
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/15/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1bc880d7e01879f7ac89eb2e2fcd36d19f583a7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b47f9156b9e18db5ff61f0ea8af37cc0d39988ae
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87093763"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88521185"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cloudsign"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con CloudSign
 

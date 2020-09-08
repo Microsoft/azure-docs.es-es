@@ -13,12 +13,12 @@ ms.date: 05/08/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: dc4e71f4283d78c2b241441810a8c1313f002152
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: da358ecb126dda21d18120bbe698fec234c85e4f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850894"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798965"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>Administración de los usuarios con Mi personal (versión preliminar)
 
@@ -64,7 +64,7 @@ Una vez que haya configurado las UA, puede aplicar este ámbito a los usuarios c
 
 Puede proteger el portal Mi personal mediante una directiva de acceso condicional de Azure AD. Úselo para tareas como requerir la autenticación multifactor antes de tener acceso a Mi personal.
 
-Se recomienda que proteja Mi personal mediante [directivas de acceso condicional de Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/). Para aplicar una directiva de acceso condicional a Mi personal, debe crear manualmente la entidad de servicio de Mi personal mediante PowerShell.
+Se recomienda que proteja Mi personal mediante [directivas de acceso condicional de Azure AD](../conditional-access/index.yml). Para aplicar una directiva de acceso condicional a Mi personal, debe crear manualmente la entidad de servicio de Mi personal mediante PowerShell.
 
 ### <a name="apply-a-conditional-access-policy-to-my-staff"></a>Aplicación de una directiva de acceso condicional a Mi personal
 

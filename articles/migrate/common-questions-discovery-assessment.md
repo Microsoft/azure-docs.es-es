@@ -3,12 +3,12 @@ title: Preguntas sobre la detección, la valoración y el análisis de dependenc
 description: Obtenga respuestas a preguntas comunes sobre detección, valoración y análisis de dependencias en Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 8db9103494c0006127c45c0ae5f9672d3bd2bbb1
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d4f833926541bafbae211caff37e5974b57e1047
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829890"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019018"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Detección, valoración y análisis de dependencias: preguntas comunes
 
@@ -36,23 +36,34 @@ Puede detectar hasta 10 000 máquinas virtuales de VMware, 5000 máquinas virtu
 - Utilice las valoraciones de **Azure VMware Solution (AVS)** cuando quiera evaluar [las máquinas virtuales VMware](how-to-set-up-appliance-vmware.md) locales para la migración a [Azure VMware Solution (AVS)](../azure-vmware/introduction.md) con este tipo de valoración. [Más información](concepts-azure-vmware-solution-assessment-calculation.md)
 
 - Puede usar un grupo común con máquinas de VMware solo para ejecutar ambos tipos de valoraciones. Tenga en cuenta que si está ejecutando valoraciones de AVS en Azure Migrate por primera vez, es aconsejable crear un nuevo grupo de máquinas de VMware.
+ 
+
+## <a name="why-is-performance-data-missing-for-someall-vms-in-my-assessment-report"></a>¿Por qué faltan datos de rendimiento de algunas o todas las máquinas virtuales en el informe de evaluación?
+
+En el caso de la evaluación "en función del rendimiento", la exportación del informe de valoración indica "PercentageOfCoresUtilizedMissing" o "PercentageOfMemoryUtilizedMissing" cuando el dispositivo de Azure Migrate no puede recopilar datos de rendimiento de las máquinas virtuales locales pertinentes. Compruebe:
+
+- Si las máquinas virtuales están encendidas durante el tiempo que ha estado creando la evaluación
+- Si solo faltan contadores de memoria y está intentando evaluar las máquinas virtuales de Hyper-V, compruebe si tiene habilitada la memoria dinámica en estas máquinas virtuales. Existe un problema conocido debido a que el dispositivo de Azure Migrate no puede recopilar el uso de memoria de dichas máquinas virtuales.
+- Si faltan todos los contadores de rendimiento, asegúrese de que se permiten las conexiones de salida en los puertos 443 (HTTPS).
+
+Nota: Si falta alguno de los contadores de rendimiento, Azure Migrate: Server Assessment vuelve a la memoria y los núcleos locales asignados, y recomienda un tamaño de máquina virtual acorde.
+
+## <a name="why-is-the-confidence-rating-of-my-assessment-low"></a>¿Por qué la clasificación de confianza de mi valoración es baja?
+
+La clasificación de confianza se calcula para las evaluaciones "en función del rendimiento" en función del porcentaje de [puntos de datos disponibles](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#ratings) necesarios para calcular la evaluación. Estos son los motivos por los que una valoración puede obtener una clasificación de confianza baja:
+
+- No generó un perfil de su entorno durante el tiempo que está creando la evaluación. Por ejemplo, si está creando una evaluación con la duración de rendimiento establecida en una semana, debe esperar al menos una semana después de iniciar la detección para que se recopilen todos los puntos de datos. Si no puede esperar a la duración, cambie la duración del rendimiento a un período más pequeño y "recalcule" la evaluación.
+ 
+- La evaluación del servidor no puede recopilar los datos de rendimiento de algunas o de todas las máquinas virtuales en el período de evaluación. Compruebe si las máquinas virtuales se encendieron mientras dura la evaluación, se permiten las conexiones salientes en los puertos 443. En el caso de las máquinas virtuales Hyper-V, si la memoria dinámica está habilitada, los contadores de memoria no tendrán una clasificación de confianza baja. "Recalcule" la evaluación para reflejar los cambios más recientes en la clasificación de confianza. 
+
+- Algunas máquinas virtuales se crearon después de iniciar la detección en Server Assessment. Por ejemplo, si va a crear una valoración para el historial de rendimiento del último mes, pero algunas máquinas virtuales se crearon en el entorno hace solo una semana. En este caso, los datos de rendimiento de las nuevas máquinas virtuales no estarán disponibles en ningún momento y la clasificación de confianza sería baja.
+
+[Obtenga más información](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#confidence-ratings-performance-based) sobre la clasificación de confianza.
 
 ## <a name="i-cant-see-some-groups-when-i-am-creating-an-azure-vmware-solution-avs-assessment"></a>No puedo ver algunos grupos cuando creo una valoración de Azure VMware Solution (AVS).
 
 - La valoración de AVS se puede realizar en grupos que solo tienen máquinas de VMware. Quite cualquier máquina que no sea de VMware del grupo si pretende realizar una valoración de AVS.
 - Si está ejecutando valoraciones de AVS en Azure Migrate por primera vez, es aconsejable crear un nuevo grupo de máquinas de VMware.
-
-## <a name="how-do-i-select-ftt-raid-level-in-avs-assessment"></a>¿Cómo selecciono el nivel FTT-RAID en una valoración de AVS?
-
-El motor de almacenamiento usado en AVS es vSAN. Las directivas de almacenamiento vSAN definen los requisitos de almacenamiento de las máquinas virtuales. Estas directivas garantizan el nivel de servicio requerido para las máquinas virtuales, ya que determinan cómo se asigna el almacenamiento a la máquina virtual. Estas son las combinaciones FTT-RAID disponibles: 
-
-**Errores tolerables (FTT)** | **Configuración de RAID** | **Mínimo de hosts requeridos** | **Consideración de dimensionamiento**
---- | --- | --- | --- 
-1 | RAID-1 (creación de reflejo) | 3 | Una máquina virtual de 100 GB consumiría 200 GB.
-1 | RAID-5 (codificación de borrado) | 4 | Una máquina virtual de 100 GB consumiría 133,33 GB.
-2 | RAID-1 (creación de reflejo) | 5 | Una máquina virtual de 100 GB consumiría 300 GB.
-2 | RAID-6 (codificación de borrado) | 6 | Una máquina virtual de 100 GB consumiría 150 GB.
-3 | RAID-1 (creación de reflejo) | 7 | Una máquina virtual de 100 GB consumirá 400 GB.
 
 ## <a name="i-cant-see-some-vm-types-in-azure-government"></a>No puedo ver algunos tipos de VM en Azure Government
 
@@ -131,7 +142,7 @@ La diferencia entre la visualización sin agente y la visualización basada en a
 --- | --- | ---
 Soporte técnico | Esta opción se encuentra actualmente en versión preliminar y solo está disponible para máquinas virtuales de VMware. [Revise](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) los sistemas operativos compatibles. | En disponibilidad general (GA).
 Agente | No es necesario instalar agentes en las máquinas que quiere comprobar. | Agentes que debe instalar en las máquinas locales que quiere analizar: [Microsoft Monitoring Agent (MMA)](../azure-monitor/platform/agent-windows.md) y el [agente de dependencia](../azure-monitor/platform/agents-overview.md#dependency-agent). 
-Requisitos previos | [Revise](concepts-dependency-visualization.md#agentless-analysis) los requisitos previos y los requisitos de implementación. | [Revise](concepts-dependency-visualization.md#agent-based-analysis) los requisitos previos y los requisitos de implementación.
+Prerrequisitos | [Revise](concepts-dependency-visualization.md#agentless-analysis) los requisitos previos y los requisitos de implementación. | [Revise](concepts-dependency-visualization.md#agent-based-analysis) los requisitos previos y los requisitos de implementación.
 Log Analytics | No se requiere. | Azure Migrate utiliza la solución [Service Map](../azure-monitor/insights/service-map.md) de los [registros de Azure Monitor](../azure-monitor/log-query/log-query-overview.md) para la visualización de dependencias. [Más información](concepts-dependency-visualization.md#agent-based-analysis).
 Funcionamiento | Captura los datos de conexión TCP en las máquinas habilitadas para la visualización de dependencias. Después de la detección, recopila datos en intervalos de cinco minutos. | Los agentes de Service Map instalados en una máquina recopilan datos acerca de los procesos de TCP, así como de las conexiones de entrada o salida para cada proceso.
 data | Nombre de aplicación, proceso y nombre del servidor de la máquina de origen.<br/><br/> Puerto, nombre de aplicación, proceso y nombre del servidor de la máquina de destino. | Nombre de aplicación, proceso y nombre del servidor de la máquina de origen.<br/><br/> Puerto, nombre de aplicación, proceso y nombre del servidor de la máquina de destino.<br/><br/> Se recopila la información sobre el número de conexiones, la latencia y la transferencia de datos, y está disponible para las consultas de Log Analytics. 
@@ -170,13 +181,13 @@ No, no se puede exportar el informe de visualización de dependencias en la visu
 Para la visualización de dependencias basada en agente:
 
 - Use un [script para instalar el agente de dependencias](../azure-monitor/insights/vminsights-enable-hybrid.md#dependency-agent).
-- En el caso de MMA, [use la línea de comandos o la automatización](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration), o bien use un [script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
+- En el caso de MMA, [use la línea de comandos o la automatización](../azure-monitor/platform/log-analytics-agent.md#installation-options), o bien use un [script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
 - Además de los scripts, puede usar herramientas de implementación como Microsoft Endpoint Configuration Manager e [Intigua](https://www.intigua.com/intigua-for-azure-migration) para implementar los agentes.
 
 ## <a name="what-operating-systems-does-mma-support"></a>¿Qué sistemas operativos admite MMA?
 
-- Vea la lista de los [sistemas operativos Windows compatibles con MMA](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems).
-- Vea la lista de los [sistemas operativos Linux compatibles con MMA](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems).
+- Vea la lista de los [sistemas operativos Windows compatibles con MMA](../azure-monitor/platform/log-analytics-agent.md#installation-options).
+- Vea la lista de los [sistemas operativos Linux compatibles con MMA](../azure-monitor/platform/log-analytics-agent.md#installation-options).
 
 ## <a name="can-i-visualize-dependencies-for-more-than-one-hour"></a>¿Puedo visualizar las dependencias durante más de una hora?
 

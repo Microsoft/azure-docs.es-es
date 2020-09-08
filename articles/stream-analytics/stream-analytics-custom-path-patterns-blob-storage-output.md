@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: dc37cb985ae561ddbd06c2236ab77d6d20d9242c
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: b6d6838779d4f219a8ce10b2cf3ae6cd620762a3
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747632"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869820"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Particionamiento de la salida de blobs personalizada en Azure Stream Analytics
 
@@ -113,7 +113,7 @@ MSCK REPAIR TABLE while hive.exec.dynamic.partition true
 
 ### <a name="example"></a>Ejemplo
 
-Cree una cuenta de almacenamiento, un grupo de recursos, un trabajo de Stream Analytics y un origen de entrada de acuerdo con la guía de inicio rápido de [Azure Stream Analytics mediante Azure Portal ](stream-analytics-quick-create-portal.md). Use los mismos datos de muestra utilizados en la guía de inicio rápido, que también está disponible en [GitHub](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json).
+Cree una cuenta de almacenamiento, un grupo de recursos, un trabajo de Stream Analytics y un origen de entrada de acuerdo con la guía de inicio rápido de [Azure Stream Analytics mediante Azure Portal](stream-analytics-quick-create-portal.md). Use los mismos datos de muestra utilizados en la guía de inicio rápido, que también está disponible en [GitHub](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json).
 
 Cree un receptor de salida de blob con la siguiente configuración:
 

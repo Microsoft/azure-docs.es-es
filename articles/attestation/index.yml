@@ -1,0 +1,63 @@
+### YamlMime:Landing
+title: Microsoft Azure Attestation (versión preliminar)
+summary: Aprenda a usar Azure Attestation
+metadata:
+  title: Documentación de Azure Attestation
+  description: Aprenda a usar Azure Attestation para crear y mantener las claves que acceden y cifran recursos, aplicaciones y soluciones en la nube. Tutoriales, referencias de API y mucho más.
+  services: attestation
+  ms.service: attestation
+  ms.topic: landing-page
+  author: msmbaldwin
+  ms.author: mbaldwin
+  ms.date: 07/20/2020
+  ms.openlocfilehash: 218a957bfc351dd40f9b101f44d1c6e090e92027
+  ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 09/02/2020
+  ms.locfileid: "89398127"
+landingContent:
+- title: Acerca de Microsoft Azure Attestation
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Microsoft Azure Attestation?
+      url: overview.md
+- title: Primeros pasos
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Inicio rápido de PowerShell
+      url: quickstart-powershell.md
+    - text: Inicio rápido de la plantilla de Resource Manager
+      url: quickstart-template.md
+- title: Conceptos
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Conceptos básicos
+      url: basic-concepts.md
+    - text: Gramática de reglas de notificaciones
+      url: claim-rule-grammar.md
+    - text: Conjuntos de notificaciones
+      url: claim-sets.md
+    - text: Flujo de trabajo
+      url: workflow.md
+- title: Tutoriales
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Creación y firma una directiva de atestación
+      url: author-sign-policy.md
+    - text: Ejemplos de código de atestación de SGX
+      url: /samples/browse/?expanded=azure&terms=attestation
+- title: Referencias
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Preguntas más frecuentes
+      url: faq.md
+    - text: REST
+      url: /rest/api/attestation/
+    - text: Azure PowerShell
+      url: /powershell/module/az.attestation/?view=azps-4.3.0#attestation

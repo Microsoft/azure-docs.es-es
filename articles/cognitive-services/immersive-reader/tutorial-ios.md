@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.author: dylankil
-ms.openlocfilehash: d9bb3a5fb41215f2e839efc7989ea7854f254f16
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ce9d3af8f7517e2acae5264197b842d47085279c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537942"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88516374"
 ---
 # <a name="tutorial-start-the-immersive-reader-using-the-swift-ios-code-sample"></a>Tutorial: Inicio del Lector inmersivo con el ejemplo de código de iOS de Swift
 
@@ -26,7 +26,7 @@ En la [introducción](./overview.md), se indica lo que es el Lector inmersivo y 
 > * Obtener un token de acceso.
 > * Iniciar el Lector inmersivo con contenido de ejemplo.
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

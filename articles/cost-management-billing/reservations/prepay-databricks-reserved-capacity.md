@@ -4,15 +4,16 @@ description: Obtenga información sobre cómo puede pagar por adelantado los car
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: dd5654b31f8d1bebe44902d1db5c35fc6dd9a866
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 699b3d9c9799b9d3a4ec148cbf395b212715f536
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287603"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88686095"
 ---
 # <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>Optimización de los costes de Azure Databricks con una compra anticipada
 

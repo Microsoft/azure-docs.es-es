@@ -1,14 +1,14 @@
 ---
 title: Ciclo de vida de un plano técnico
 description: Aprenda sobre el ciclo de vida de la definición de un plano técnico y detalles sobre cada fase, incluida la actualización y eliminación de asignaciones de planos técnicos.
-ms.date: 05/06/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: dc024c0e6643420d26bdc92e47fabe647c55ae7b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1de2cf869362154b112c3eef74ed1fb0db3a993
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82864035"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049713"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Ciclo de vida de una instancia de Azure Blueprint
 
@@ -81,14 +81,14 @@ Elimine un plano técnico con [Azure Portal](../create-blueprint-portal.md#delet
 
 Hay varios puntos durante el ciclo de vida en los que un plano técnico se puede asignar a una suscripción. Una versión del plano técnico se puede asignar a una suscripción siempre y cuando su estado sea **publicado**. Este ciclo de vida permite que las versiones de un plano técnico se puedan usar y asignar activamente mientras se desarrolla una versión más reciente.
 
-A medida que se asignan las versiones de los planos técnicos, es importante comprender dónde se asignan y con qué parámetros se realiza la asignación. Los parámetros pueden ser estáticos o dinámicos. Para más información, consulte [parámetros estáticos y dinámicos](parameters.md).
+A medida que se asignan las versiones de los planos técnicos, es importante comprender dónde se asignan y con qué parámetros se realiza la asignación. Los parámetros pueden ser estáticos o dinámicos. Para más información, consulte [parámetros estáticos y dinámicos](./parameters.md).
 
 ### <a name="updating-assignments"></a>Actualización de asignaciones
 
 Cuando se asigna un plano técnico, se puede actualizar la asignación. Hay varias razones para actualizar una asignación, entre las que se incluyen:
 
-- Agregar o quitar un [bloqueo de recursos](resource-locking.md)
-- Cambiar el valor de [parámetros dinámicos](parameters.md#dynamic-parameters)
+- Agregar o quitar un [bloqueo de recursos](./resource-locking.md)
+- Cambiar el valor de [parámetros dinámicos](./parameters.md#dynamic-parameters)
 - Actualizar la asignación por una versión **publicada** más reciente del plano técnico
 
 Para más información, consulte [actualización de las asignaciones existentes](../how-to/update-existing-assignments.md).
@@ -97,7 +97,7 @@ Para más información, consulte [actualización de las asignaciones existentes]
 
 Si el plano técnico ya no es necesario, se puede desasignar del grupo de administración o de la suscripción. Durante la desasignación del plano técnico, ocurre lo siguiente:
 
-- Eliminación del [bloqueo de recursos del plano técnico](resource-locking.md)
+- Eliminación del [bloqueo de recursos del plano técnico](./resource-locking.md)
 - Eliminación del objeto de asignación del plano técnico
 - (Condicional) Si se usó **una identidad administrada asignada por el sistema**, también se elimina.
 
@@ -106,8 +106,8 @@ Si el plano técnico ya no es necesario, se puede desasignar del grupo de admini
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Descubra cómo utilizar [parámetros estáticos y dinámicos](parameters.md).
-- Aprenda a personalizar el [orden de secuenciación de planos técnicos](sequencing-order.md).
-- Averigüe cómo usar el [bloqueo de recursos de planos técnicos](resource-locking.md).
+- Descubra cómo utilizar [parámetros estáticos y dinámicos](./parameters.md).
+- Aprenda a personalizar el [orden de secuenciación de planos técnicos](./sequencing-order.md).
+- Averigüe cómo usar el [bloqueo de recursos de planos técnicos](./resource-locking.md).
 - Aprenda a [actualizar las asignaciones existentes](../how-to/update-existing-assignments.md).
 - Puede consultar la información de [solución de problemas generales](../troubleshoot/general.md) para resolver los problemas durante la asignación de un plano técnico.

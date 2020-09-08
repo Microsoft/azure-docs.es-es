@@ -1,14 +1,14 @@
 ---
-title: Administración del agente de Azure Arc para servidores (versión preliminar)
+title: Agente de administración de servidores habilitados para Azure Arc
 description: En este artículo se describen las diferentes tareas de administración que normalmente realizará durante el ciclo de vida del agente de Connected Machine de Azure Arc para servidores.
 ms.date: 07/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: b7fcaca2188ef0e1e3c8c65226f8b383576082ba
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 6066226cea224b1e13262763b626c8c646a397d7
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121296"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213127"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Administración y mantenimiento del agente de Connected Machine
 

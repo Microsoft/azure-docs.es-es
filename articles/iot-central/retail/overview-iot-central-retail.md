@@ -8,23 +8,20 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 9427b007bc047e2f01db2dad02e06bf0ab0f5dea
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 3cae2902385eb82f65243c631745df5ca48825f3
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "81001384"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719241"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Creación de soluciones de comercio minorista con Azure IoT Central
-
-
 
 Azure IoT Central es una plataforma de aplicaciones de IoT que reduce la carga y el costo asociado con el desarrollo, la administración y el mantenimiento de soluciones de IoT de nivel empresarial. La elección de compilar con Azure IoT Central ofrece la oportunidad de centrar su tiempo, dinero y energía en transformar su negocio con datos de IoT, en lugar de simplemente mantener y actualizar una infraestructura de IoT compleja y continuamente en constante evolución.
 
 En este artículo, se describen varias plantillas de aplicación de IoT Central específicas para el comercio minorista. Como creador de soluciones, puede usar estas plantillas para crear soluciones de IoT que optimizan la cadena de suministro, mejoran la experiencia de los clientes en el almacén y realizan un seguimiento del inventario de forma más eficaz.
 
-> [!div class="mx-imgBorder"]
-> ![Introducción a Azure IoT para el comercio minorista](./media/overview-iot-central-retail/retail-app-templates.png)
+:::image type="content" source="media/overview-iot-central-retail/retail-app-templates.png" alt-text="Introducción a Azure IoT para el comercio minorista":::
 
 En las secciones siguientes se describen las funcionalidades de estas plantillas de aplicación:
 
@@ -44,19 +41,17 @@ Entre las ventajas de la solución de logística conectada se incluyen:
 
 Las siguientes capturas de pantallas muestran el panel integrado en la plantilla de aplicación. El panel es totalmente personalizable para satisfacer los requisitos específicos de la solución:
 
-> [!div class="mx-imgBorder"]
-> ![Panel de Connected Logistics](./media/overview-iot-central-retail/connected-logistics-dashboard1.png)
+:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard1.png" alt-text="Panel de Connected Logistics":::
 
-> [!div class="mx-imgBorder"]
-> ![Panel de Connected Logistics](./media/overview-iot-central-retail/connected-logistics-dashboard2.png)
+:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard2.png" alt-text="Panel de Connected Logistics":::
 
 Para más información, consulte el tutorial para [implementar y recorrer la plantilla de aplicación de logística conectada](./tutorial-iot-central-connected-logistics.md).
 
 ## <a name="digital-distribution-center"></a>Centro de distribución digital
 
-A medida que los fabricantes y minoristas establecen su presencia en todo el mundo, sus cadenas de suministro se diversifican y se vuelven más complejas. Ahora, los consumidores esperan que haya grandes selecciones de productos disponibles y que las mercancías lleguen uno o dos días después de haberlas comprado. Los centros de distribución deben adaptarse a estas tendencias y, al mismo tiempo, superar las ineficiencias existentes. 
+A medida que los fabricantes y minoristas establecen su presencia en todo el mundo, sus cadenas de suministro se diversifican y se vuelven más complejas. Ahora, los consumidores esperan que haya grandes selecciones de productos disponibles y que las mercancías lleguen uno o dos días después de haberlas comprado. Los centros de distribución deben adaptarse a estas tendencias y, al mismo tiempo, superar las ineficiencias existentes.
 
-En la actualidad, una dependencia del trabajo manual implica que la selección y el empaquetado supone entre el 55 y el 65 % de los costos del centro de distribución. La selección y el empaquetado manual también son más lentos que los sistemas automatizados y las necesidades de personal que fluctúa rápidamente hacen aún más difícil cumplir con los volúmenes de envío. Esta fluctuación estacional da como resultado una gran rotación del personal y aumenta la probabilidad de que se produzcan errores costosos.
+En la actualidad, una dependencia del trabajo manual implica que la selección y el empaquetado supone entre el 55 y el 65 % de los costos de un centro de distribución. La selección y el empaquetado manual también son más lentos que los sistemas automatizados y las necesidades de personal que fluctúa rápidamente hacen aún más difícil cumplir con los volúmenes de envío. Esta fluctuación estacional da como resultado una gran rotación del personal y aumenta la probabilidad de que se produzcan errores costosos.
 
 Las soluciones basadas en cámaras habilitadas para IoT pueden ofrecer ventajas transformacionales, ya que habilitan un bucle de comentarios digitales. Los datos de todo el centro de distribución genera conocimientos prácticos que, a su vez, dan como resultado mejores datos.
 
@@ -69,8 +64,7 @@ Entre las ventajas de un centro de distribución digital se incluyen las siguien
 
 En la captura de pantalla siguiente se muestra el panel integrado en la plantilla de aplicación. El panel es totalmente personalizable para satisfacer los requisitos específicos de la solución: 
 
-> [!div class="mx-imgBorder"]
-> ![Panel Digital Distribution Center](./media/overview-iot-central-retail/digital-distribution-center-dashboard.png)
+:::image type="content" source="media/overview-iot-central-retail/digital-distribution-center-dashboard.png" alt-text="Panel Digital Distribution Center":::
 
 Para más información, consulte el tutorial para [implementar y recorrer la plantilla de aplicación del centro de distribución digital](./tutorial-iot-central-digital-distribution-center.md).
 
@@ -82,8 +76,8 @@ Como creador de soluciones, puede usar la plantilla de aplicación de supervisi�
 
 Utilice la plantilla de aplicación para:
 
-* Conectar varios sensores de IoT a una instancia de la aplicación IoT Central.
-* Supervisar y administrar el estado de la red de sensores, así como los dispositivos de puerta de enlace del entorno.
+* Conectar diferentes tipos de sensores de IoT a una instancia de la aplicación de IoT Central.
+* Supervisar y administrar el estado de la red de sensores, y los dispositivos de puerta de enlace del entorno.
 * Crear reglas personalizadas basadas en las condiciones del entorno de un almacén para desencadenar las alertas para los administradores del almacén.
 * Transformar las condiciones del entorno del almacén en información que el equipo del almacén del comercio minorista pueda usar para mejorar la experiencia del cliente.
 * Exportar la información agregada a aplicaciones empresariales nuevas o existentes que dan al personal del comercio minorista información útil u oportuna.
@@ -92,8 +86,7 @@ La plantilla de aplicación incluye un conjunto de plantillas de dispositivo y u
 
 En la captura de pantalla siguiente se muestra el panel integrado en la plantilla de aplicación. El panel es totalmente personalizable para satisfacer los requisitos específicos de la solución: 
 
-> [!div class="mx-imgBorder"]
-> ![In-Store Analytics Condition Monitoring](./media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png)
+:::image type="content" source="media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png" alt-text="In-Store Analytics Condition Monitoring":::
 
 Para más información, consulte el tutorial para [crear una aplicación de análisis en el almacén en Azure IoT Central](./tutorial-in-store-analytics-create-app.md).
 
@@ -105,8 +98,8 @@ Como creador de soluciones, puede usar la plantilla de aplicación de finalizaci
 
 Utilice la plantilla de aplicación para:
 
-* Conectar varios sensores de IoT a una instancia de la aplicación IoT Central.
-* Supervisar y administrar el estado de la red de sensores, así como los dispositivos de puerta de enlace del entorno.
+* Conectar diferentes tipos de sensores de IoT a una instancia de la aplicación de IoT Central.
+* Supervisar y administrar el estado de la red de sensores, y los dispositivos de puerta de enlace del entorno.
 * Crear reglas personalizadas basadas en el estado de la finalización de la compra en un almacén para desencadenar las alertas para el personal de ventas minorista.
 * Transformar el estado de la finalización de la compra en el almacén en información que pueda usar el equipo del almacén minorista para mejorar la experiencia del cliente.
 * Exportar la información agregada a aplicaciones empresariales nuevas o existentes que dan al personal del comercio minorista información útil u oportuna.
@@ -115,8 +108,7 @@ La plantilla de aplicación incluye un conjunto de plantillas de dispositivo y u
 
 En la captura de pantalla siguiente se muestra el panel integrado en la plantilla de aplicación. El panel es totalmente personalizable para satisfacer los requisitos específicos de la solución: 
 
-> [!div class="mx-imgBorder"]
-> ![In-Store Analytics Checkout](./media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png)
+:::image type="content" source="media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png" alt-text="In-Store Analytics Checkout":::
 
 Para más información, consulte el tutorial para [crear una aplicación de análisis en el almacén en Azure IoT Central](./tutorial-in-store-analytics-create-app.md).
 
@@ -136,8 +128,7 @@ Esta plantilla de aplicación se centra en la conectividad de dispositivos y en 
 
 En la captura de pantalla siguiente se muestra el panel integrado en la plantilla de aplicación. El panel es totalmente personalizable para satisfacer los requisitos específicos de la solución:
 
-> [!div class="mx-imgBorder"]
-> ![Panel de Smart Inventory Management](./media/overview-iot-central-retail/smart-inventory-management-dashboard.png)
+:::image type="content" source="media/overview-iot-central-retail/smart-inventory-management-dashboard.png" alt-text="Panel de Smart Inventory Management":::
 
 Para más información, consulte el tutorial para [implementar y recorrer la plantilla de aplicación de administración inteligente](./tutorial-iot-central-smart-inventory-management.md).
 
@@ -157,10 +148,32 @@ La plantilla de aplicación le permite:
 
 En la captura de pantalla siguiente se muestra el panel integrado en la plantilla de aplicación. El panel es totalmente personalizable para satisfacer los requisitos específicos de la solución:
 
-> [!div class="mx-imgBorder"]
-> ![Centro de micrologística](./media/overview-iot-central-retail/MFC-Dashboard.png)
+:::image type="content" source="media/overview-iot-central-retail/MFC-Dashboard.png" alt-text="Centro de micrologística":::
 
 Para más información, consulte el tutorial para [implementar y recorrer la plantilla de aplicación del centro de micrologística](./tutorial-micro-fulfillment-center.md).
+
+## <a name="video-analytics---object-and-motion-detection"></a>Análisis de vídeo: detección de objetos y movimiento
+
+La plantilla de la aplicación de *análisis de vídeo de IoT Central: detección de objetos y movimiento* le permite experimentar rápidamente cómo implementar, administrar y supervisar una solución que usa cámaras de inteligencia perimetral para detectar objetos y movimiento.
+
+La aplicación de análisis de vídeo usa un módulo de [Live Video Analytics (LVA)](#live-video-analytics) que se ejecuta en IoT Edge. El módulo de LVA le proporciona una plataforma para crear aplicaciones de vídeo inteligentes que abarcan el perímetro y la nube. Puede usar la plataforma para mejorar las soluciones de IoT, como la aplicación de análisis de vídeo con detección de objetos y movimiento.
+
+La plantilla de la aplicación incluye cuatro paneles de la aplicación:
+
+* **Introducción** proporciona vínculos a recursos que le ayudarán a empezar a usar la plantilla de aplicación.
+* En el **Panel de demostración** se proporciona una ilustración de los tipos de información que se pueden mostrar desde las cámaras conectadas.
+* **Administración de cámaras reales (ejemplo)** usa cámaras simuladas para mostrar cómo se pueden administrar las cámaras desde la aplicación.
+* **Supervisión de cámaras reales (ejemplo)** usa cámaras simuladas para mostrar cómo se pueden supervisar las cámaras desde la aplicación.
+
+:::image type="content" source="media/overview-iot-central-retail/live-video-analytics.png" alt-text="Análisis de vídeo: detección de objetos y movimiento":::
+
+Para más información sobre la arquitectura de la solución, consulte [arquitectura de la aplicación de análisis de vídeo](architecture-video-analytics.md).
+
+Para aprender a implementar la solución, consulte el tutorial [Creación de una aplicación de análisis de vídeo en Azure IoT Central](tutorial-video-analytics-deploy.md).
+
+### <a name="live-video-analytics"></a>Live Video Analytics
+
+[Live Video Analytics](https://github.com/Azure/live-video-analytics) proporciona una plataforma que le permite crear aplicaciones de vídeo inteligentes que abarcan el perímetro y la nube. La plataforma ofrece la funcionalidad de capturar, grabar, analizar vídeo en directo y publicar los resultados, que podrían ser análisis de vídeo o vídeo, en los servicios de Azure. Los servicios de Azure podrían ejecutarse en la nube o en el perímetro. Puede usar la plataforma para mejorar las soluciones de IoT con análisis de vídeo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -171,4 +184,5 @@ Para empezar a crear una solución para el comercio minorista:
 * [Implementación y recorrido por la plantilla de aplicación del centro de distribución digital](./tutorial-iot-central-digital-distribution-center.md)
 * [Implementación y recorrido de la plantilla de aplicación de administración de inventario inteligente](./tutorial-iot-central-smart-inventory-management.md)
 * [Implementación y recorrido de la plantilla de aplicación del centro de micrologística](./tutorial-micro-fulfillment-center.md)
+* [Implementación y recorrido por la plantilla de aplicación de análisis de vídeo](./tutorial-video-analytics-deploy.md).
 * Para más información sobre IoT Central, consulte [Introducción a IoT Central](../preview/overview-iot-central.md).

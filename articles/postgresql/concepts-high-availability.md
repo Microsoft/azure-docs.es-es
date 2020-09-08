@@ -1,17 +1,17 @@
 ---
 title: 'Alta disponibilidad en Azure Database for PostgreSQL: servidor único'
 description: 'En este artículo se proporciona información sobre alta disponibilidad al usar Azure Database for PostgreSQL: servidor único'
-author: sr-pg20
-ms.author: srranga
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/15/2020
-ms.openlocfilehash: 564aa030c442331fbcd965c87da3bfbc03d00d79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16ce5b42e35ff3d650ba18aa95ab80b83fdbfdad
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85105875"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547688"
 ---
 # <a name="high-availability-in-azure-database-for-postgresql--single-server"></a>Alta disponibilidad en Azure Database for PostgreSQL: servidor único
 El servicio de Azure Database for PostgreSQL: servidor único proporciona un alto nivel de disponibilidad garantizada gracias al acuerdo de nivel de servicio (SLA) respaldado financieramente con un tiempo de actividad del [99,99 %](https://azure.microsoft.com/support/legal/sla/postgresql). Azure Database for PostgreSQL proporciona una alta disponibilidad durante los eventos planeados, como la operación de proceso de escalado iniciada por el usuario, y también cuando se producen eventos no planeados, como los errores subyacentes de hardware, software o red. Azure Database for PostgreSQL puede recuperarse rápidamente de las circunstancias más críticas, lo que garantiza que las aplicaciones prácticamente no tengan tiempo de inactividad al usar este servicio.
@@ -31,6 +31,9 @@ Azure Database for PostgreSQL está diseñado para proporcionar alta disponibili
 
 ![vista del escalado elástico en Azure PostgreSQL](./media/concepts-high-availability/azure-postgresql-elastic-scaling.png)
 
+1. Escalado y reducción vertical de servidores de bases de datos PostgreSQL en segundos.
+2. Puerta de enlace que actúa como proxy para enrutar las conexiones de cliente al servidor de bases de datos adecuado.
+3. El escalado vertical del almacenamiento se puede realizar sin tiempo de inactividad. El almacenamiento remoto permite desasociar o volver a asociar rápidamente después de la conmutación por error.
 Estos son algunos escenarios de mantenimiento planeado:
 
 | **Escenario** | **Descripción**|
@@ -48,12 +51,17 @@ Se puede producir un tiempo de inactividad no planeado como resultado de errores
 
 ![vista de alta disponibilidad en Azure PostgreSQL](./media/concepts-high-availability/azure-postgresql-built-in-high-availability.png)
 
+1. Servidores de Azure PostgreSQL con funcionalidades de escalado rápido.
+2. Puerta de enlace que actúa como proxy para enrutar las conexiones de cliente al servidor de bases de datos adecuado.
+3. Azure Storage con tres copias para obtener confiabilidad, disponibilidad y redundancia.
+4. El almacenamiento remoto también permite desasociar o volver a asociar rápidamente después de la conmutación por error del servidor.
+   
 ### <a name="unplanned-downtime-failure-scenarios-and-service-recovery"></a>Tiempo de inactividad no planeado: escenarios de error y recuperación de servicio
 Estos son algunos escenarios de error y cómo Azure Database for PostgreSQL se recupera automáticamente:
 
 | **Escenario** | **Recuperación automática** |
 | ---------- | ---------- |
-| <B>Error de servidor de bases de datos | Si el servidor de base de datos está inactivo debido a un error de hardware subyacente, se quitan las conexiones activas y se anulan las transacciones inactivas. Se implementa automáticamente un nuevo servidor de base de datos y el almacenamiento de datos remotos se adjunta al nuevo servidor de base de datos. Una vez completada la recuperación de la base de datos, los clientes pueden conectarse al nuevo servidor de base de datos a través de la puerta de enlace. <br /> <br /> Las aplicaciones que usan bases de datos de PostgreSQL se deben crear de forma que detecten y reintenten conexiones eliminadas y transacciones erróneas.  Cuando la aplicación vuelve a intentarlo, la puerta de enlace redirige de forma transparente la conexión al servidor de base de datos recién creado. |
+| <B>Error de servidor de bases de datos | Si el servidor de base de datos está inactivo debido a un error de hardware subyacente, se quitan las conexiones activas y se anulan las transacciones inactivas. Se implementa automáticamente un nuevo servidor de base de datos y el almacenamiento de datos remotos se adjunta al nuevo servidor de base de datos. Una vez completada la recuperación de la base de datos, los clientes pueden conectarse al nuevo servidor de base de datos a través de la puerta de enlace. <br /> <br /> El tiempo de recuperación (RTO) depende de varios factores, por ejemplo, la actividad en el momento del error, como una transacción de gran tamaño y la cantidad de recuperación que se va a realizar durante el proceso de inicio del servidor de bases de datos. <br /> <br /> Las aplicaciones que usan bases de datos de PostgreSQL se deben crear de forma que detecten y reintenten conexiones eliminadas y transacciones erróneas.  Cuando la aplicación vuelve a intentarlo, la puerta de enlace redirige de forma transparente la conexión al servidor de base de datos recién creado. |
 | <B>Error de almacenamiento | Las aplicaciones no verán ningún impacto por los problemas relacionados con el almacenamiento, como un error de disco o un daño de bloque físico. A medida que los datos se almacenan en tres copias, el almacenamiento sobreviviente proporciona la copia de los datos. Los daños en bloques se corrigen automáticamente. Si se pierde una copia de los datos, se crea automáticamente una nueva. |
 
 Estos son algunos escenarios de error que requieren de la acciones del usuario para recuperarse:

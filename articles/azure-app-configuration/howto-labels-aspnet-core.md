@@ -5,14 +5,15 @@ description: Uso de etiquetas para proporcionar valores de configuración para c
 ms.service: azure-app-configuration
 author: lisaguthrie
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 3/12/2020
 ms.author: lcozzens
-ms.openlocfilehash: 465ae86c5732c9dd54ade1b7096fa8415dfca513
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 689fdbd444aa4b20f5bef225faa259788c47cf9d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83118547"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206658"
 ---
 # <a name="use-labels-to-enable-configurations-for-different-environments"></a>Uso de etiquetas para habilitar configuraciones en distintos entornos
 

@@ -1,5 +1,5 @@
 ---
-title: Exploración de los conceptos básicos con una aplicación cliente de ejemplo
+title: 'Tutorial: Exploración de los conceptos básicos con una aplicación cliente de ejemplo'
 titleSuffix: Azure Digital Twins
 description: Tutorial para explorar los SDK de Digital Twins mediante una aplicación de línea de comandos de ejemplo
 author: baanders
@@ -7,23 +7,24 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: d02766d82690d2f546fdcbad76efcda043f54471
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: a1dc42815167da308fd87b541c0f21d02b47329b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986279"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022520"
 ---
-# <a name="explore-azure-digital-twins-with-a-sample-client-app"></a>Exploración de Azure Digital Twins con una aplicación cliente de ejemplo
+# <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Tutorial: Exploración de Azure Digital Twins con una aplicación cliente de ejemplo
 
 En este tutorial se presenta una aplicación de ejemplo que implementa una aplicación cliente de línea de comandos, para interactuar con una instancia de Azure Digital Twins. La aplicación cliente es similar a la escrita en el [*Tutorial: Programación de una aplicación cliente*](tutorial-code.md).
 
 Puede usar este ejemplo para realizar acciones básicas de Azure Digital Twins, como cargar modelos, crear y modificar gemelos y crear relaciones. No obstante, si lo prefiere, también puede examinar el código del ejemplo para aprender sobre las API de Azure Digital Twins, y practicar la implementación de sus propios comandos mediante la modificación del proyecto de ejemplo.
 
 En este tutorial, aprenderá lo siguiente:
-1. Configuración de una instancia de Azure Digital Twins
-2. Configuración de la aplicación de línea de comandos de ejemplo para interactuar con la instancia
-3. Uso de la aplicación de línea de comandos para explorar Azure Digital Twins, por ejemplo, los **modelos**, los **gemelos digitales**, las **relaciones** y las **consultas**
+> [!div class="checklist"]
+> * Configuración de una instancia de Azure Digital Twins
+> * Configuración de la aplicación de línea de comandos de ejemplo para interactuar con la instancia
+> * Uso de la aplicación de línea de comandos para explorar Azure Digital Twins, por ejemplo, los **modelos**, los **gemelos digitales**, las **relaciones** y las **consultas**
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
@@ -288,24 +289,7 @@ Una de las principales características de Azure Digital Twins es la posibilidad
 El proyecto de este tutorial constituye la base del próximo tutorial, [*Tutorial: Conexión de una solución de un extremo a otro*](tutorial-end-to-end.md). Si tiene previsto continuar con el siguiente tutorial, puede mantener los recursos configurados aquí para seguir usando esta instancia de Azure Digital Twins y la aplicación de ejemplo configurada.
 * En este caso, puede usar los comandos `DeleteAllTwins` y `DeleteAllModels` de la aplicación de ejemplo para borrar los gemelos y los modelos de la instancia, respectivamente. De esta forma, tendrá una pizarra en blanco para el siguiente tutorial.
 
-Cuando ya no necesite los recursos creados en este tutorial, siga estos pasos para eliminarlos.
-
-Con [Azure Cloud Shell](https://shell.azure.com), puede eliminar todos los recursos de Azure de un grupo mediante el comando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). Esta acción quita el grupo de recursos y la instancia de Azure Digital Twins.
-
-> [!IMPORTANT]
-> La eliminación de un grupo de recursos es irreversible. El grupo de recursos y todos los recursos contenidos en él se eliminan permanentemente. Asegúrese de no eliminar por accidente el grupo de recursos o los recursos equivocados. 
-
-Abra una instancia de Azure Cloud Shell y ejecute el siguiente comando para eliminar el grupo de recursos y todo lo que contiene.
-
-```azurecli-interactive
-az group delete --name <your-resource-group>
-```
-
-A continuación, use este comando para eliminar el registro de aplicación de Azure Active Directory que creó para la aplicación cliente:
-
-```azurecli
-az ad app delete --id <your-application-ID>
-```
+[!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
 Por último, elimine la carpeta de ejemplo del proyecto que descargó en la máquina local.
 
@@ -314,12 +298,5 @@ Por último, elimine la carpeta de ejemplo del proyecto que descargó en la máq
 En este tutorial, ha empezado a trabajar con Azure Digital Twins, para lo cual ha configurado una instancia y una aplicación cliente a fin de interactuar con la instancia. Ha usado la aplicación cliente para explorar Azure Digital Twins y crear modelos, gemelos digitales y relaciones. También ha ejecutado algunas consultas de la solución para hacerse una idea de los tipos de preguntas que Azure Digital Twins puede responder sobre un entorno.
 
 Continúe con el siguiente tutorial para usar la aplicación de línea de comandos de ejemplo en combinación con otros servicios de Azure a fin de completar un escenario de un extremo a otro basado en datos:
-
 > [!div class="nextstepaction"]
 > [*Tutorial: Conexión de una solución de un extremo a otro*](tutorial-end-to-end.md).
-
-O bien, empiece por examinar la documentación de conceptos para más información sobre los elementos con los que ha trabajado en el tutorial:
-* [*Conceptos: Modelos personalizados*](concepts-models.md)
-
-También puede comenzar por los artículos de procedimientos para profundizar en los procesos de este tutorial:
-* [*Procedimiento: Uso de la CLI de Azure Digital Twins*](how-to-use-cli.md).

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 34cfafadabd9a6328cbe85a5444211828df9db6d
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 1b02b089fea7e883bdc6c58c7a2845af12b50a37
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133717"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824535"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Configuración de la recuperación ante desastres para SQL Server
 
@@ -47,6 +47,8 @@ SQL Server en una máquina virtual IaaS de Azure o en un entorno local.| Replica
 > * Puede usar Site Recovery para cualquier implementación en Azure, Hyper-V, VMware o infraestructura física. Siga la guía al final de este artículo sobre [cómo proteger un clúster de SQL Server](#how-to-help-protect-a-sql-server-cluster) con Site Recovery.
 > * Asegúrese de que la frecuencia de cambio de datos observada en la máquina está dentro de los [límites de Site Recovery](vmware-physical-azure-support-matrix.md#churn-limits). La tasa de cambio se mide en bytes de escritura por segundo. En el caso de las máquinas que ejecutan Windows, puede ver esta tasa de cambio seleccionando la pestaña **Rendimiento** del administrador de tareas. Observe la velocidad de escritura de cada disco.
 > * Site Recovery admite la replicación de las instancias de clúster de conmutación por error en Espacios de almacenamiento directo. Para más información, consulte [cómo habilitar la replicación de Espacios de almacenamiento directo](azure-to-azure-how-to-enable-replication-s2d-vms.md).
+> 
+> Si se migra una carga de trabajo de SQL a Azure, se recomienda aplicar las [directrices de rendimiento de SQL Server en Azure Virtual Machines](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md).
 
 ## <a name="disaster-recovery-of-an-application"></a>Recuperación ante desastres de una aplicación
 

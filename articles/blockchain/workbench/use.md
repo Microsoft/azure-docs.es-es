@@ -5,10 +5,10 @@ ms.date: 10/14/2019
 ms.topic: tutorial
 ms.reviewer: brendal
 ms.openlocfilehash: 5761bf1294691c2d50e0e389fe69ec286df4a06c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "74324044"
 ---
 # <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>Tutorial: Uso de aplicaciones en Azure Blockchain Workbench
@@ -23,7 +23,7 @@ Aprenderá a:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una implementación de Blockchain Workbench. Para más información sobre la implementación, consulte [Implementación de Azure Blockchain Workbench](deploy.md).
 * Una aplicación de cadena de bloques implementada en Blockchain Workbench. Consulte [Creación de una aplicación de cadena de bloques en Azure Blockchain Workbench](create-app.md)
@@ -63,7 +63,7 @@ Según el estado que tenga el contrato, los miembros pueden realizar acciones pa
 
     | Sección  | Descripción  |
     |---------|---------|
-    | Status | Muestra el progreso actual dentro de las fases de contrato |
+    | Estado | Muestra el progreso actual dentro de las fases de contrato |
     | Detalles | Valores actuales del contrato |
     | Acción | Detalles sobre la última acción |
     | Actividad | Historial de transacciones del contrato |

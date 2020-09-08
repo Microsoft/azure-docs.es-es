@@ -8,12 +8,12 @@ ms.author: victliu
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 65e483fd772e20daa73b465ea17dfa6ecde42233
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a1304ad05e05285aa75167ec21519ec90d157662
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76964896"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922895"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-managed-instance"></a>Configuración de una conexión desde un indexador de Búsqueda cognitiva de Azure a Instancia administrada de SQL
 
@@ -38,7 +38,7 @@ Compruebe que el grupo de seguridad de red tiene las **reglas de seguridad de en
 > Los indexadores siguen necesitando que la instancia administrada de SQL Database se configure con un punto de conexión público para leer los datos.
 > Sin embargo, puede elegir restringir el acceso de entrada a ese punto de conexión público reemplazando la regla actual (`public_endpoint_inbound`) por las dos reglas siguientes:
 >
-> * Permitir el acceso de entrada desde la [etiqueta de servicio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) `AzureCognitiveSearch` ("SOURCE" = `AzureCognitiveSearch`, "NAME" = `cognitive_search_inbound`).
+> * Permitir el acceso de entrada desde la [etiqueta de servicio](../virtual-network/service-tags-overview.md#available-service-tags) `AzureCognitiveSearch` ("SOURCE" = `AzureCognitiveSearch`, "NAME" = `cognitive_search_inbound`).
 >
 > * Permitir el acceso de entrada desde la dirección IP del servicio de búsqueda, que se puede obtener mediante un pin al nombre de dominio completo (por ejemplo, `<your-search-service-name>.search.windows.net`). ("SOURCE" = `IP address`, "NAME" = `search_service_inbound`)
 >

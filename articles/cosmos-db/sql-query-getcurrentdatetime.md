@@ -4,15 +4,15 @@ description: Obtenga información sobre la función del sistema SQL GetCurrentDa
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 08/18/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 4db2ec7bbd05d982af57c05fd46ef7da7c682e15
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ec0b8ccaceed4abe3dd2784463f507f3bc76d890
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258805"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606958"
 ---
 # <a name="getcurrentdatetime-azure-cosmos-db"></a>GetCurrentDateTime (Azure Cosmos DB)
 
@@ -44,15 +44,13 @@ GetCurrentDateTime ()
 
 ## <a name="remarks"></a>Observaciones
 
-  GetCurrentDateTime() es una función no determinista.
-  
-  El resultado devuelto es UTC.
+GetCurrentDateTime() es una función no determinista. El resultado devuelto es UTC. La precisión es de siete dígitos, con una precisión de 100 nanosegundos.
 
-  La precisión es de siete dígitos, con una precisión de 100 nanosegundos.
+Esta función del sistema no usará el índice.
 
 ## <a name="examples"></a>Ejemplos
   
-  El ejemplo siguiente muestra cómo obtener la fecha y hora UTC actuales mediante la función integrada GetCurrentDateTime().
+El ejemplo siguiente muestra cómo obtener la fecha y hora UTC actuales mediante la función integrada GetCurrentDateTime().
   
 ```sql
 SELECT GetCurrentDateTime() AS currentUtcDateTime

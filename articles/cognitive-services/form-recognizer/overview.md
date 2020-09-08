@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: a087faee45b8725bc596a5faa92536741d8cd569
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0df61c2ee42d468562efd67a2a66a90a5e4fda53
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836911"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723575"
 ---
 # <a name="what-is-form-recognizer"></a>¿Qué es Form Recognizer?
 
@@ -24,7 +24,7 @@ Azure Form Recognizer es un servicio cognitivo que utiliza tecnología de aprend
 
 Form Recognizer se compone de los siguientes servicios:
 * **Modelos personalizados**: extraen los pares clave-valor y los datos de tablas de los formularios. Puede entrenar estos modelos con sus propios datos para que se adapten a sus formularios.
-* **Modelo de recibo pregenerado**: extrae datos de los recibos de compras de EE. UU. con un modelo pregenerado.
+* **Modelos creados previamente**: extrae datos de tipos de formulario únicos mediante modelos pregenerados. Actualmente, hay modelos pregenerados para las confirmaciones de ventas y las tarjetas de presentación en inglés.
 * **API de diseño**: extrae estructuras de texto y tabla, junto con sus coordenadas de los cuadros de límite, desde los documentos.
 
 <!-- add diagram -->
@@ -45,9 +45,18 @@ Al entrenar con datos etiquetados, el modelo realiza un aprendizaje supervisado 
 
 Form Recognizer usa la [API de diseño](#layout-api) para aprender los tamaños y posiciones esperados de los elementos de texto impresos y manuscritos. A continuación, usa etiquetas especificadas por el usuario para aprender las asociaciones clave-valor de los documentos. Se recomienda usar cinco formularios etiquetados manualmente del mismo tipo para empezar a entrenar un nuevo modelo y agregar más datos etiquetados según sea necesario para mejorar la precisión del modelo.
 
-## <a name="prebuilt-receipt-model"></a>Modelo de recibo pregenerado
+## <a name="prebuilt-models"></a>Modelos creados previamente
 
-Form Recognizer también incluye un modelo para leer los recibos de compras en inglés procedentes de Estados Unidos, el tipo de recibos que se usa en restaurantes, gasolineras, minoristas, etc. ([ejemplo de recibo](./media/contoso-receipt-small.png)). Este modelo extrae información clave como la hora y fecha de la transacción, información del comerciante, cantidades de impuestos, totales y mucho más. Además, el modelo de recibo pregenerado se entrena para reconocer y devolver todo el texto en un recibo.
+Form Recognizer también incluye modelos pregenerados para tipos de formulario únicos.
+### <a name="prebuilt-receipt-model"></a>Modelo de recibo pregenerado
+El modelo de recibo pregenerado se usa para leer los recibos de ventas en Inglés de Australia, Canadá, Gran Bretaña, India y Estados Unidos (el tipo que usan los restaurantes, las estaciones de gas, minoristas, etc). Este modelo extrae información clave como la hora y la fecha de la transacción, información del comerciante, importe de los impuestos, totales y mucho más. Además, el modelo de recibo pregenerado se entrena para reconocer y devolver todo el texto en un recibo. 
+
+![recibo de ejemplo](./media/contoso-receipt-small.png)
+
+### <a name="prebuilt-business-cards-model"></a>Modelo de tarjetas de presentación pregenerado
+El modelo de tarjetas de presentación le permite extraer información como el nombre de la persona, el puesto de trabajo, la dirección, el correo electrónico, la empresa y los números de teléfono de las tarjetas de presentación en inglés. 
+
+![tarjeta de presentación de ejemplo](./media/business-card-english.jpg)
 
 ## <a name="layout-api"></a>API de diseño
 
@@ -90,7 +99,7 @@ Explore la [documentación de referencia de API REST](https://westus2.dev.cognit
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
 
-### <a name="prebuilt-receipt-model"></a>Modelo de recibo pregenerado
+### <a name="prebuilt"></a>Creada previamente
 
 Los requisitos de entrada para el modelo de recibo son ligeramente diferentes.
 

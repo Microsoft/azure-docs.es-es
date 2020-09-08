@@ -1,7 +1,7 @@
 ---
 title: Registro de aplicaciones móviles que llaman a las API web | Azure
 titleSuffix: Microsoft identity platform
-description: Obtenga información sobre cómo compilar una aplicación móvil que llama a las API web (configuración del código de la aplicación)
+description: Aprenda a compilar una aplicación móvil que llame a las API web (registro de aplicaciones)
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: f24b3c9256f759b87c705aae9b93c2d6bc74d30c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93dcfad34e5881cda52a69ceb99d52d9a905befb
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82652643"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047680"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Registro de aplicaciones móviles que llaman a las API web
 
@@ -40,7 +40,7 @@ También puede iniciar la sesión de los usuarios mediante identidades sociales 
 
 Para obtener más información, consulte [Escenarios y flujos de autenticación compatibles](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows) y [Escenarios, plataformas y lenguajes compatibles](authentication-flows-app-scenarios.md#scenarios-and-supported-platforms-and-languages).
 
-## <a name="platform-configuration-and-redirect-uris"></a>Configuración de la plataforma e identificadores URI de redirección  
+## <a name="platform-configuration-and-redirect-uris"></a>Configuración de la plataforma e identificadores URI de redirección
 
 ### <a name="interactive-authentication"></a>Autenticación interactiva
 
@@ -72,20 +72,20 @@ Al completar los pasos, el URI de redirección se calcula automáticamente, como
 
 Si prefiere configurar manualmente el URI de redirección, puede hacerlo mediante el manifiesto de aplicación. Este es el formato recomendado para el manifiesto:
 
-- **iOS**: `msauth.<BUNDLE_ID>://auth` 
+- **iOS**: `msauth.<BUNDLE_ID>://auth`
   - Por ejemplo, escriba `msauth.com.yourcompany.appName://auth`
 - **Android**: `msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
   - Puede generar el hash de firma de Android utilizando la tecla de liberación o la tecla de depuración a través del comando KeyTool.
 
 ### <a name="username-password-authentication"></a>Autenticación con nombre de usuario y contraseña
 
-Si la aplicación solo utiliza la autenticación con nombre de usuario y contraseña, no es necesario que registre ningún URI de redirección para la aplicación. Este flujo realiza un recorrido de ida y vuelta al punto de conexión de la Plataforma de identidad de Microsoft versión 2.0. No se volverá a llamar a la aplicación en ningún URI específico. 
+Si la aplicación solo utiliza la autenticación con nombre de usuario y contraseña, no es necesario que registre ningún URI de redirección para la aplicación. Este flujo realiza un recorrido de ida y vuelta al punto de conexión de la Plataforma de identidad de Microsoft versión 2.0. No se volverá a llamar a la aplicación en ningún URI específico.
 
 Sin embargo, tiene que expresar la aplicación como una aplicación cliente pública. Para ello, empiece en la sección **Autenticación** de la aplicación. En la subsección **Configuración avanzada**, en el párrafo **Tipo de cliente predeterminado**, en **Treat application as a public client** (Tratar la aplicación como cliente público), seleccione **Sí**.
 
 ## <a name="api-permissions"></a>Permisos de API
 
-Las aplicaciones móviles llaman a las API en nombre del usuario con sesión iniciada. La aplicación debe solicitar permisos delegados. Estos permisos también se denominan ámbitos. En función de la experiencia que desee, puede solicitar los permisos delegados de forma estática a través de Azure Portal. O bien, puede solicitarlos dinámicamente en tiempo de ejecución. 
+Las aplicaciones móviles llaman a las API en nombre del usuario con sesión iniciada. La aplicación debe solicitar permisos delegados. Estos permisos también se denominan ámbitos. En función de la experiencia que desee, puede solicitar los permisos delegados de forma estática a través de Azure Portal. O bien, puede solicitarlos dinámicamente en tiempo de ejecución.
 
 El registro estático de permisos permite a los administradores aprobar fácilmente su aplicación. Se recomienda el registro estático.
 

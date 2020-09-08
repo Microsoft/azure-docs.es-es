@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: jlian
-ms.openlocfilehash: 7776345ee4e02baa2d2a6ae7bc08389aa94bd09b
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 3c097260812e72dfaa3678a4aade556a337e6a6c
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534488"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272907"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Compatibilidad de IoT Hub con redes virtuales mediante Private Link e identidad administrada
 
@@ -182,7 +182,7 @@ IoT Hub puede enrutar mensajes a una cuenta de almacenamiento propiedad del clie
 
 5. Vaya a la sección **Puntos de conexión personalizados** y haga clic en **Agregar**. Seleccione **Almacenamiento** como el tipo de punto de conexión.
 
-6. En la página que aparece, proporcione un nombre para el punto de conexión, seleccione el contenedor que quiere usar en Blob Storage, y proporcione la codificación y el formato de nombre de archivo. Seleccione **Asignado por el sistema** como **Tipo de autenticación** para su punto de conexión de almacenamiento. Haga clic en el botón **Crear**.
+6. En la página que aparece, proporcione un nombre para el punto de conexión, seleccione el contenedor que quiere usar en Blob Storage, y proporcione la codificación y el formato de nombre de archivo. Seleccione **Basado en la identidad** como **Tipo de autenticación** para su punto de conexión de almacenamiento. Haga clic en el botón **Crear**.
 
 Ahora el punto de conexión de almacenamiento personalizado está configurado para usar la identidad asignada por el sistema del concentrador y tiene permiso para acceder al recurso de almacenamiento a pesar de las restricciones de firewall. Ahora puede usar este punto de conexión para configurar una regla de enrutamiento.
 
@@ -234,7 +234,7 @@ La característica de carga de archivos de IoT Hub permite a los dispositivos ca
 
 4. En la página de recursos de IoT Hub, vaya a la pestaña **Carga de archivos**.
 
-5. En la página que se muestra, seleccione el contenedor que quiere usar en Blob Storage, y establezca los valores que desee en **Configuración de notificación de archivos**, **TTL de SAS**, **TTL predeterminado** y **Número máximo de entregas**. Seleccione **Asignado por el sistema** como **Tipo de autenticación** para su punto de conexión de almacenamiento. Haga clic en el botón **Crear**.
+5. En la página que se muestra, seleccione el contenedor que quiere usar en Blob Storage, y establezca los valores que desee en **Configuración de notificación de archivos**, **TTL de SAS**, **TTL predeterminado** y **Número máximo de entregas**. Seleccione **Basado en la identidad** como **Tipo de autenticación** para su punto de conexión de almacenamiento. Haga clic en el botón **Crear**.
 
 Ahora el punto de conexión de almacenamiento para la carga de archivos está configurado para usar la identidad asignada por el sistema del concentrador y tiene permiso para acceder al recurso de almacenamiento a pesar de las restricciones de firewall.
 

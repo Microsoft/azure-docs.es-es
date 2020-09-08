@@ -1,19 +1,19 @@
 ---
 title: 'ExpressRoute: Conexión de una red virtual con un circuito: Portal de Azure'
-description: Conecte una red virtual a un circuito de Azure ExpressRoute. Procedimientos
+description: Aprenda a crear una conexión para vincular una red virtual con un circuito de Azure ExpressRoute mediante Azure Portal.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 09/17/2019
-ms.author: cherylmc
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: a4ed99d69d1c2389e73c215bccfd6112895e791d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 56508503c199b1f822ce8f181689a236f3a0af18
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737077"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89395832"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Conexión de una red virtual con un circuito de ExpressRoute mediante el portal
 > [!div class="op_single_selector"]
@@ -124,7 +124,7 @@ El usuario del circuito necesita el identificador del recurso y una clave de aut
 5. En la página **Configuración**, seleccione una opción en **Puerta de enlace de red virtual** y active la casilla **Canjear autorización**.
 6. Escriba un valor en **Clave de autorización** y en **Peer circuit URI** (Emparejar URI de circuito) y asigne un nombre a la conexión. Haga clic en **OK**. El **URI de circuito del mismo nivel** es el identificador de recurso del circuito ExpressRoute (que puede encontrar en el panel de configuración de las propiedades del circuito ExpressRoute).
 
-   ![Página Configuración](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
+   ![Página de configuración](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
 7. Revise la información de la página **Resumen** y haga clic en **Aceptar**.
 
 **Liberación de una autorización de conexión**

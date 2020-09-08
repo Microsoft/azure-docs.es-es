@@ -1,14 +1,14 @@
 ---
 title: Descripción del lenguaje de consultas
 description: Describe las tablas de Resource Graph y los tipos de datos, los operadores y las funciones de Kusto disponibles que se pueden usar con Azure Resource Graph.
-ms.date: 08/03/2020
+ms.date: 08/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: b59811ecd877b9b2e22a43c00329ed7d02dfb97d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 4d7ca949e9eef075adb130bb84b2617749950bec
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541828"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798557"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Información del lenguaje de consulta de Azure Resource Graph
 
@@ -64,6 +64,25 @@ Resources
 > [!NOTE]
 > Al limitar los resultados de `join` con `project`, la propiedad utilizada por `join` para relacionar las dos tablas, _subscriptionId_ en el ejemplo anterior, debe incluirse en `project`.
 
+## <a name="extended-properties-preview"></a><a name="extended-properties"></a>Propiedades extendidas (versión preliminar)
+
+Como característica _en vista previa_, algunos de los tipos de recursos de Resource Graph tienen propiedades adicionales relacionadas con el tipo que se pueden consultar de manera adicional a las propiedades proporcionadas por Azure Resource Manager. Este conjunto de valores, conocido como _propiedades extendidas_, existe en un tipo de recurso compatible con `properties.extended`. Para ver qué tipos de recursos tienen _propiedades extendidas_, use la siguiente consulta:
+
+```kusto
+Resources
+| where isnotnull(properties.extended)
+| distinct type
+| order by type asc
+```
+
+Ejemplo: Obtenga el recuento de máquinas virtuales mediante `instanceView.powerState.code`:
+
+```kusto
+Resources
+| where type == 'microsoft.compute/virtualmachines'
+| summarize count() by tostring(properties.extended.instanceView.powerState.code)
+```
+
 ## <a name="resource-graph-custom-language-elements"></a>Elementos del lenguaje personalizado de Resource Graph
 
 ### <a name="shared-query-syntax-preview"></a><a name="shared-query-syntax"></a>Sintaxis de consulta compartida (versión preliminar)
@@ -93,7 +112,7 @@ En primer lugar, esta consulta usa la consulta compartida y, a continuación, us
 
 ## <a name="supported-kql-language-elements"></a>Elementos del lenguaje KQL admitidos
 
-Resource Graph admite todos los [tipos de datos](/azure/kusto/query/scalar-data-types/), [funciones escalares](/azure/kusto/query/scalarfunctions), [operadores escalares](/azure/kusto/query/binoperators) y [funciones de agregado](/azure/kusto/query/any-aggfunction) de KQL. Resource Graph admite [operadores tabulares](/azure/kusto/query/queries) específicos, algunos de los cuales tienen comportamientos distintos.
+Resource Graph admite un subconjunto de todos los [tipos de datos](/azure/kusto/query/scalar-data-types/), [funciones escalares](/azure/kusto/query/scalarfunctions), [operadores escalares](/azure/kusto/query/binoperators) y [funciones de agregado](/azure/kusto/query/any-aggfunction) de KQL. Resource Graph admite [operadores tabulares](/azure/kusto/query/queries) específicos, algunos de los cuales tienen comportamientos distintos.
 
 ### <a name="supported-tabulartop-level-operators"></a>Operadores de nivel superior o tabulares compatibles
 
@@ -123,8 +142,7 @@ Esta es la lista de operadores tabulares de KQL admitidos por Resource Graph con
 El ámbito de las suscripciones desde las que una consulta devuelve los recursos depende del método de acceso a Resource Graph. La CLI de Azure y Azure PowerShell rellenan la lista de suscripciones que se van a incluir en la solicitud, en función del contexto del usuario autorizado. Cada lista de suscripciones se puede definir manualmente con las **suscripciones** y los parámetros de **suscripción**, respectivamente.
 En la API de REST y en todos los demás SDK, la lista de suscripciones en las que se incluyen los recursos debe definirse explícitamente como parte de la solicitud.
 
-Como **versión preliminar**, la versión de API de REST `2020-04-01-preview` agrega una propiedad para limitar el ámbito de la consulta a un [grupo de administración](../../management-groups/overview.md). Esta API de versión preliminar también hace que la propiedad de suscripción sea opcional. Si no se define el grupo de administración o la lista de suscripciones, el ámbito de la consulta comprende todos los recursos a los que puede tener acceso el usuario autenticado. La nueva propiedad `managementGroupId` toma el id. del grupo de administración, que es diferente del nombre del grupo de administración.
-Cuando se especifica `managementGroupId`, se incluyen los recursos de las primeras 5000 suscripciones de la jerarquía de grupos de administración especificada. `managementGroupId` no se puede usar al mismo tiempo que `subscriptions`.
+Como **versión preliminar**, la versión de API de REST `2020-04-01-preview` agrega una propiedad para limitar el ámbito de la consulta a un [grupo de administración](../../management-groups/overview.md). Esta API de versión preliminar también hace que la propiedad de suscripción sea opcional. Si no se define un grupo de administración o una lista de suscripciones, el ámbito de la consulta comprenderá todos los recursos a los que puede tener acceso el usuario autenticado. La nueva propiedad `managementGroupId` toma el id. del grupo de administración, que es diferente del nombre del grupo de administración. Cuando se especifica `managementGroupId`, se incluyen los recursos de las primeras 5000 suscripciones de la jerarquía de grupos de administración especificada. `managementGroupId` no se puede usar al mismo tiempo que `subscriptions`.
 
 Ejemplo: Consulte todos los recursos de la jerarquía del grupo de administración denominado "Mi grupo de administración" que cuenta con el id. "myMG".
 

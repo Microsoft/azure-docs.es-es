@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: d6fbfc7dced59580e91c3beceb6054f223a0a17d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 1c041d594b29c6e93b73eb1b0c623b3e566ceef5
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319055"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935507"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Enriquecimiento con IA en Azure Cognitive Search
 
@@ -29,7 +29,7 @@ Las aptitudes integradas se encuadran en estas categorías:
 
 ![Diagrama de una canalización de enriquecimiento](./media/cognitive-search-intro/cogsearch-architecture.png "introducción a la canalización de enriquecimiento")
 
-Las aptitudes integradas de Azure Cognitive Search se basan en los modelos de aprendizaje automático previamente entrenados de Cognitive Services APIs: [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) y [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview). Puede adjuntar un recurso de Cognitive Services si desea aprovechar estos recursos durante el procesamiento de contenido.
+Las aptitudes integradas de Azure Cognitive Search se basan en los modelos de aprendizaje automático previamente entrenados de Cognitive Services APIs: [Computer Vision](../cognitive-services/computer-vision/index.yml) y [Text Analytics](../cognitive-services/text-analytics/overview.md). Puede adjuntar un recurso de Cognitive Services si desea aprovechar estos recursos durante el procesamiento de contenido.
 
 Tanto el lenguaje natural como el procesamiento de imágenes se aplican durante la fase de ingesta de datos, con resultados que forman parte de la composición de un documento en un índice en el que se pueden realizar búsquedas en Azure Cognitive Search. Los datos se obtienen como un conjunto de datos de Azure y luego se insertan a través de una canalización de indexación mediante las [aptitudes integradas](cognitive-search-predefined-skills.md) que necesite.  
 
@@ -57,7 +57,7 @@ Los [conjuntos de aptitudes](cognitive-search-defining-skillset.md) que se ensam
 
 ### <a name="more-about-custom-skills"></a>Más información sobre las aptitudes personalizadas
 
-Las aptitudes personalizadas pueden admitir escenarios más complejos, como el reconocimiento de formularios o la detección de entidades personalizadas mediante un modelo que se proporciona y se encapsula en la [interfaz web de aptitudes personalizadas](cognitive-search-custom-skill-interface.md). Entre los ejemplos de aptitudes personalizadas se incluyen [Form Recognizer](/azure/cognitive-services/form-recognizer/overview), la integración de [Bing Entity Search API](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example) y el [reconocimiento de entidades personalizadas](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
+Las aptitudes personalizadas pueden admitir escenarios más complejos, como el reconocimiento de formularios o la detección de entidades personalizadas mediante un modelo que se proporciona y se encapsula en la [interfaz web de aptitudes personalizadas](cognitive-search-custom-skill-interface.md). Entre los ejemplos de aptitudes personalizadas se incluyen [Form Recognizer](../cognitive-services/form-recognizer/overview.md), la integración de [Bing Entity Search API](./cognitive-search-create-custom-skill-example.md) y el [reconocimiento de entidades personalizadas](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
 
 ## <a name="steps-in-an-enrichment-pipeline"></a>Pasos en una canalización de enriquecimiento <a name="enrichment-steps"></a>
 
@@ -83,7 +83,7 @@ Internamente, la canalización genera una colección de documentos enriquecidos.
 
 #### <a name="add-a-knowledgestore-element-to-save-enrichments"></a>Adición de un elemento knowledgeStore para guardar enriquecimientos
 
-El elemento [api-version=2020-06-30 de REST de Search](https://docs.microsoft.com/rest/api/searchservice/) extiende los conjuntos de aptitudes con una definición de `knowledgeStore` que proporciona una conexión al almacenamiento de Azure y proyecciones que describen cómo se almacenan los enriquecimientos. Esto se suma al índice. En una canalización estándar de inteligencia artificial, los documentos enriquecidos son transitorios, solo se usan durante la indexación y después se descartan. Los documentos enriquecidos se conservan mediante el almacén de conocimiento. Para obtener más información, consulte [Almacén de conocimiento](knowledge-store-concept-intro.md).
+El elemento [api-version=2020-06-30 de REST de Search](/rest/api/searchservice/) extiende los conjuntos de aptitudes con una definición de `knowledgeStore` que proporciona una conexión al almacenamiento de Azure y proyecciones que describen cómo se almacenan los enriquecimientos. Esto se suma al índice. En una canalización estándar de inteligencia artificial, los documentos enriquecidos son transitorios, solo se usan durante la indexación y después se descartan. Los documentos enriquecidos se conservan mediante el almacén de conocimiento. Para obtener más información, consulte [Almacén de conocimiento](knowledge-store-concept-intro.md).
 
 ### <a name="step-3-search-index-and-query-based-access"></a>Paso 3: Índice de búsqueda y acceso basado en consulta
 
@@ -99,13 +99,13 @@ Los índices se generan a partir de un esquema de índice que define los campos,
 
 1. Subdivida los datos de origen de Azure en un ejemplo representativo. La indexación toma tiempo, por lo que empiece con un conjunto de datos representativo y pequeño para ir compilando el índice de manera incremental a medida que la solución madura.
 
-1. Cree en Azure Cognitive Search un [objeto de origen de datos](https://docs.microsoft.com/rest/api/searchservice/create-data-source) que proporcione una cadena de conexión para la recuperación de datos.
+1. Cree en Azure Cognitive Search un [objeto de origen de datos](/rest/api/searchservice/create-data-source) que proporcione una cadena de conexión para la recuperación de datos.
 
-1. Cree un [conjunto de aptitudes](https://docs.microsoft.com/rest/api/searchservice/create-skillset) con pasos de enriquecimiento.
+1. Cree un [conjunto de aptitudes](/rest/api/searchservice/create-skillset) con pasos de enriquecimiento.
 
-1. Defina el [esquema de índice](https://docs.microsoft.com/rest/api/searchservice/create-index). La colección *Fields* (Campos) incluye campos de los datos de origen. También debe simular campos adicionales para contener valores generados para el contenido creado durante el enriquecimiento.
+1. Defina el [esquema de índice](/rest/api/searchservice/create-index). La colección *Fields* (Campos) incluye campos de los datos de origen. También debe simular campos adicionales para contener valores generados para el contenido creado durante el enriquecimiento.
 
-1. Defina el [indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer) que hace referencia al origen de datos, conjunto de aptitudes e índice.
+1. Defina el [indexador](/rest/api/searchservice/create-indexer) que hace referencia al origen de datos, conjunto de aptitudes e índice.
 
 1. Dentro del indexador, agregue *outputFieldMappings*. En esta sección, la salida se asigna desde el conjunto de aptitudes (en el paso 3) a los campos de entrada del esquema de índice (en el paso 4).
 

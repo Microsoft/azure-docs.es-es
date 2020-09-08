@@ -3,7 +3,7 @@ title: Administración de puntos de conexión de streaming con Azure Media Servi
 description: En este artículo se muestra cómo administrar los puntos de conexión de streaming mediante Azure Media Services v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 writer: juliako
 manager: femila
 editor: ''
@@ -11,18 +11,20 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/11/2020
-ms.author: juliako
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6c88a1f36d4e3405b44f36864262b2ab97517933
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.topic: how-to
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.custom: devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: 8d3835d78ec55f120f6b9439aea9c29434e6bd47
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500562"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89289484"
 ---
 # <a name="manage-streaming-endpoints-with--media-services-v3"></a>Administración de puntos de conexión de streaming con Media Services v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Cuando se crea la cuenta de Media Services, se agrega un [punto de conexión de streaming](streaming-endpoint-concept.md) **predeterminado** a la cuenta con estado **Stopped** (Detenido). Para iniciar la transmisión del contenido y aprovechar el [empaquetado dinámico](dynamic-packaging-overview.md) y el [cifrado dinámico](content-protection-overview.md), el punto de conexión de streaming desde el que va a transmitir el contenido tiene que estar en estado **Ejecutando**.
 

@@ -4,13 +4,13 @@ description: Obtenga información acerca de cómo usar Azure Application Insight
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.custom: fasttrack-edit
-ms.openlocfilehash: a1e72fba4ece24afffba573d954c7627af46a6cd
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-csharp, fasttrack-edit
+ms.openlocfilehash: 239d1da028a06d4272ed9b22b624413394aa142f
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87273386"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212993"
 ---
 # <a name="monitor-azure-functions"></a>Monitor Azure Functions
 

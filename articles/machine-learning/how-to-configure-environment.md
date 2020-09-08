@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 09d82c4834e50e0dff74edb5ccd14287736b937e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 1753373b360a78918682b5f6102dcc896e2d90c3
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844480"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652648"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar un entorno de desarrollo para Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -215,7 +215,7 @@ Para habilitar estos componentes en el entorno de Jupyter Notebook:
     conda activate myenv
     ```
 
-1. Clone [el repositorio de GitHub](https://aka.ms/aml-notebooks) para un conjunto de cuadernos de ejemplo.
+1. Clone [el repositorio de GitHub](https://github.com/Azure/MachineLearningNotebooks) para un conjunto de cuadernos de ejemplo.
 
     ```bash
     git clone https://github.com/Azure/MachineLearningNotebooks.git

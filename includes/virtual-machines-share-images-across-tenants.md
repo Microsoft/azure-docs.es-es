@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: f74d4cbc17e49345534a37e9e6612a36e19be295
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73903700"
 ---
 Pero si quiere compartir las imágenes fuera de su inquilino de Azure, a escala, debe crear un registro de aplicación para facilitar el uso compartido.  Usar un registro de aplicación puede habilitar escenarios de uso compartidos más complejos, como por ejemplo: 
@@ -46,7 +46,7 @@ Conceda permiso al registro de aplicación para usar la Galería de imágenes co
 
 ## <a name="give-tenant-2-access"></a>Conceder acceso a Inquilino 2
 
-Conceda acceso a Inquilino 2 a la aplicación solicitando un inicio de sesión mediante un explorador. Reemplace *\<Tenant2 ID>* con el id. del inquilino con el que le gustaría compartir la galería de imágenes. Reemplace *\<Application (client) ID>* con el identificador de la aplicación del registro de aplicación que creó. Cuando haya terminado de realizar los reemplazos, pegue la dirección URL en un explorador y siga las instrucciones de inicio de sesión para iniciar sesión en Inquilino 2.
+Conceda acceso a Inquilino 2 a la aplicación solicitando un inicio de sesión mediante un explorador. Reemplace *\<Tenant2 ID>* con el identificador del inquilino con el que le gustaría compartir la galería de imágenes. Reemplace *\<Application (client) ID>* por el identificador de la aplicación del registro de aplicación que ha creado. Cuando haya terminado de realizar los reemplazos, pegue la dirección URL en un explorador y siga las instrucciones de inicio de sesión para iniciar sesión en Inquilino 2.
 
 ```
 https://login.microsoftonline.com/<Tenant 2 ID>/oauth2/authorize?client_id=<Application (client) ID>&response_type=code&redirect_uri=https%3A%2F%2Fwww.microsoft.com%2F 

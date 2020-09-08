@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97d651a1a6ce8ef412c148f16d0aa4412df94cb0
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 529c0ffa6b629dee124236e334c862c049f472ad
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799555"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318546"
 ---
 # <a name="identity-data-storage-for-australian-and-new-zealand-customers-in-azure-active-directory"></a>Almacenamiento de datos de identidad para clientes australianos y neozelandeses en Azure Active Directory
 
@@ -34,8 +34,8 @@ Todos los demás servicios de Azure AD almacenan los datos del cliente en centro
 
 ## <a name="microsoft-azure-multi-factor-authentication-mfa"></a>Microsoft Azure Multi-Factor Authentication (MFA)
 
-MFA almacena datos de identidad del cliente en centros de datos globales. Para más información sobre los datos del usuario que Azure MFA basado en la nube recopila y almacena, consulte [Recopilación de datos de usuario de Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-data-residency).
+MFA almacena datos de identidad del cliente en centros de datos globales. Para más información sobre los datos del usuario que Azure MFA basado en la nube recopila y almacena, consulte [Recopilación de datos de usuario de Azure Multi-Factor Authentication](../authentication/concept-mfa-data-residency.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre cualquiera de las características y funcionalidades que se han descrito anteriormente, consulte estos artículos:
-- [¿Qué es Multi-Factor Authentication?](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication)
+- [¿Qué es Multi-Factor Authentication?](../authentication/concept-mfa-howitworks.md)

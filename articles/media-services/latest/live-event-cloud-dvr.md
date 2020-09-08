@@ -4,24 +4,26 @@ titleSuffix: Azure Media Services
 description: En este artículo se describe cómo usar el cambio de tiempo y las salidas activas para grabar streaming en vivo y crear una reproducción a petición.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
-ms.date: 05/07/2020
-ms.author: juliako
-ms.openlocfilehash: 8c5afe45ce864ba76d5d637df3534d426d39167a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 11485ebac449cbde0a4f31e2a099a153476577b6
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000999"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89289518"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>Uso de cambio de tiempo y salidas activas para crear la reproducción de vídeo a petición
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 En Azure Media Services, un objeto [Live Output](/rest/api/media/liveoutputs) es como una grabadora de vídeo digital que capta y graba el streaming en vivo en un recurso de su cuenta de Media Services. El contenido grabado se conserva en el contenedor definido por el recurso [Asset](/rest/api/media/assets) (el contenedor está en la cuenta de Azure Storage asociada a su cuenta). La salida activa también le permite controlar algunas propiedades del streaming en vivo saliente, como la cantidad de la transmisión que se conserva en la grabación del archivo (por ejemplo, la capacidad de la DVR en la nube) o cuándo los espectadores pueden empezar a ver el streaming en vivo. El archivo en disco es una "ventana" circular de archivo que solo incluye la cantidad de contenido que se especifica en la propiedad **archiveWindowLength** de la salida activa. El contenido que está fuera de esta ventana se descarta automáticamente del contenedor de almacenamiento y no se puede recuperar. El valor archiveWindowLength representa una duración de intervalo de tiempo de ISO-8601 (por ejemplo, PTHH:MM:SS), que especifica la capacidad de la DVR. Este valor se puede establecer en 1 minuto como mínimo y 25 horas como máximo.
 

@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido: Creación de un cuaderno de Apache Spark para Azure Synapse Analytics'
-description: En este inicio rápido se muestra cómo usar las herramientas web para crear un grupo de Apache Spark (versión preliminar) en Azure Synapse Analytics y ejecutar una consulta SQL de Spark.
+title: 'Inicio rápido: Creación de un grupo de Apache Spark en Azure Synapse Analytics mediante herramientas web'
+description: En este inicio rápido se muestra cómo usar las herramientas web para crear un grupo de Apache Spark en Azure Synapse Analytics y ejecutar una consulta SQL de Spark.
 services: synapse-analytics
 author: euangMS
 ms.author: euang
@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
 ms.date: 04/15/2020
-ms.openlocfilehash: d89033a8d26c5ee71d505b85a4ebbe91b86d3e50
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4ca718db8d2d2d57c73e8e492e2edbee221cb3ec
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496254"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049815"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Inicio rápido: Creación de un grupo de Apache Spark en Azure Synapse Analytics mediante herramientas web
 

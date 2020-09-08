@@ -4,11 +4,6 @@
   items:
     - name: ¿Qué es Resource Manager?
       href: overview.md
-- name: Ejemplos
-  items:
-    - name: Elementos integrados de Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceptos
   items:
     - name: Límites del servicio y la suscripción
@@ -17,8 +12,6 @@
       href: resource-name-rules.md
     - name: Implementación de Resource Manager y clásica
       href: deployment-models.md
-    - name: Atributos comunes de seguridad de Azure
-      href: azure-resource-manager-security-controls.md
     - name: Proveedores de recursos por servicio
       href: azure-services-resource-providers.md
     - name: Tipos de recursos de extensión
@@ -30,6 +23,8 @@
         - name: Controles de seguridad de Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
+        - name: Atributos comunes de seguridad de Azure
+          href: azure-resource-manager-security-controls.md
 - name: Procedimientos
   items:
     - name: Traslado (grupos de recursos y suscripciones)
@@ -80,12 +75,14 @@
               href: ../../event-hubs/move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Azure IoT Hub
               href: ../../iot-hub/iot-hub-how-to-clone.md?toc=/azure/azure-resource-manager/management/toc.json
-            - name: Máquinas virtuales de Azure
-              href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=/azure/azure-resource-manager/management/toc.json
+            - name: Azure Resource Manager
+              href: microsoft-resources-move-regions.md
             - name: Azure Storage
               href: ../../storage/common/storage-account-move.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Azure SQL
               href: ../../azure-sql/database/move-resources-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
+            - name: Máquinas virtuales de Azure
+              href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Aplicaciones lógicas
               href: ../../logic-apps/move-logic-app-resources.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Configuración de control de mantenimiento
@@ -116,10 +113,10 @@
           href: tag-support.md
     - name: Administración de grupos de recursos
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
           href: manage-resource-groups-portal.md
-        - name: CLI de Azure
+        - name: Azure CLI
           displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
           href: manage-resource-groups-cli.md
         - name: Azure PowerShell
@@ -127,10 +124,10 @@
           href: manage-resource-groups-powershell.md
     - name: Administrar recursos
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           displayName: 'open,delete,deploy,move,lock,tag,monitor'
           href: manage-resources-portal.md
-        - name: CLI de Azure
+        - name: Azure CLI
           displayName: 'open,delete,deploy,move,lock,tag'
           href: manage-resources-cli.md
         - name: Azure PowerShell
@@ -139,9 +136,9 @@
     - name: Suscripciones de EA
       items:
         - name: Crear
-          href: programmatically-create-subscription.md
+          href: ../../cost-management-billing/manage/programmatically-create-subscription.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Concesión de acceso para la creación
-          href: grant-access-to-create-subscription.md
+          href: ../../cost-management-billing/manage/grant-access-to-create-subscription.md?toc=/azure/azure-resource-manager/management/toc.json
     - name: Tipos y proveedores de recursos
       href: resource-providers-and-types.md
     - name: Eliminación de recursos y grupos de recursos
@@ -170,6 +167,9 @@
       href: /java/api/com.microsoft.azure.management.resources
     - name: Python
       href: /python/api/overview/azure/resources?view=azure-python
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Azure Roadmap

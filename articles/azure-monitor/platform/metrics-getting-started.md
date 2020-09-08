@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 14f21b1c0bff5f4d5f77b1547c09ddd6c370ece0
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 3e5514c4a54083bcc6ef8187f2cd97515d2dd680
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276437"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590190"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Introducción al Explorador de métricas de Azure
 
@@ -41,16 +41,19 @@ Para crear un gráfico de métricas, abra la pestaña **Métricas** desde el rec
 
 4. Si lo desea, puede [cambiar la agregación de la métrica](metrics-charts.md#changing-aggregation). Por ejemplo, puede que quiera que el gráfico muestre los valores mínimos, máximos o promedio de la métrica.
 
-> [!NOTE]
+> [!TIP]
 > Use el botón **Agregar métrica** y repita estos pasos si quiere ver varias métricas trazadas en el mismo gráfico. Para ver varios gráficos en una vista, seleccione el botón **Agregar gráfico** en la parte superior.
 
 ## <a name="select-a-time-range"></a>Selección de un intervalo de tiempo
+
+> [!WARNING]
+> [La mayoría de las métricas en Azure se almacenan durante 93 días](data-platform-metrics.md#retention-of-metrics). Sin embargo, no puede consultar datos de más de 30 días en un gráfico individual. Esta limitación no se aplica a las [métricas basadas en registros](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics).
 
 El gráfico muestra las últimas 24 horas de los datos de métricas de forma predeterminada. Use el panel del **selector de hora** para cambiar el intervalo de tiempo o acercar o alejar el gráfico. 
 
 ![Panel para cambiar el intervalo de tiempo](./media/metrics-getting-started/time-picker.png)
 
-> [!NOTE]
+> [!TIP]
 > Use la herramienta del **pincel de tiempo** para investigar un área interesante del gráfico (un repunte o una caída). Coloque el puntero al principio del área, haga clic y mantenga presionado el botón principal, arrastre al otro lado del área y entonces suelte el botón. El gráfico acercará el intervalo de tiempo. 
 
 ## <a name="apply-dimension-filters-and-splitting"></a>Aplicar filtros de dimensión y divisiones

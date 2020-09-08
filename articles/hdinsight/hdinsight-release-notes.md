@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 07/31/2020
-ms.openlocfilehash: 339926fbd3c96f6f6c279d29676950b9915b4256
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 08/25/2020
+ms.openlocfilehash: 0587a179b98a410cdba46b7817d86567f275f25d
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87484166"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826827"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notas de la versión de Azure HDInsight
 
@@ -23,9 +23,9 @@ Este artículo proporciona información sobre las **últimas** actualizaciones d
 
 Azure HDInsight es uno de los servicios más populares entre los clientes de empresa para el análisis de código abierto en Azure.
 
-## <a name="release-date-07302020"></a>Fecha de lanzamiento: 30/07/2020
+## <a name="release-date-08092020"></a>Fecha de lanzamiento: 09/08/2020
 
-Esta versión se aplica a HDInsight 3.6 y 4.0. La versión de HDInsight se pone a disposición de todas las regiones durante varios días. Esta fecha de lanzamiento indica la fecha de lanzamiento de la primera región. Si no ve los cambios siguientes, espere unos días a que la versión se active en su región.
+Esta versión se aplica solo a HDInsight 4.0. La versión de HDInsight se pone a disposición de todas las regiones durante varios días. Esta fecha de lanzamiento indica la fecha de lanzamiento de la primera región. Si no ve los cambios siguientes, espere unos días a que la versión se active en su región.
 
 ## <a name="new-features"></a>Nuevas características
 ### <a name="support-for-sparkcruise"></a>Soporte técnico de SparkCruise
@@ -65,5 +65,14 @@ Las instancias de JIRA siguientes se trasladan a Hive:
 * [HIVE-22136](https://issues.apache.org/jira/browse/HIVE-22136)
 * [HIVE-18786](https://issues.apache.org/jira/browse/HIVE-18786)
 
+Las siguientes instancias de JIRA se llevan a HBase:
+* [HBASE-21458](https://issues.apache.org/jira/browse/HBASE-21458)
+* [HBASE-24208](https://issues.apache.org/jira/browse/HBASE-24208)
+* [HBASE-24205](https://issues.apache.org/jira/browse/HBASE-24205)
+
 ## <a name="component-version-change"></a>Cambio de versión de componentes
 No hay cambio de versión de componentes para esta versión. En [este documento](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions) puede encontrar las versiones actuales de los componentes para HDInsight 4.0 y HDInsight 3.6.
+
+## <a name="known-issues"></a>Problemas conocidos
+
+Se ha corregido un problema de Azure Portal, en el que los usuarios experimentaban un error cuando creaban un clúster de Azure HDInsight mediante un tipo de autenticación de SSH de la clave pública. Cuando los usuarios hacían clic en **Revisar y crear**, recibían el error "No debe contener tres caracteres consecutivos del nombre de usuario de SSH". Este problema se ha corregido, pero es posible que deba actualizar la memoria caché del explorador; para ello, presione Ctrl + F5 para cargar la vista corregida. La solución a este problema consistió en crear un clúster con una plantilla de Resource Manager. 

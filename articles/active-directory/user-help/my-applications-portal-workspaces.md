@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 02/06/2020
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: 29a202b3833bbc6ee550df89b240d95ecb38ef83
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1059bae047774864868fbe90df50a877f9a3869
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83742052"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798064"
 ---
 # <a name="use-collections-in-the-my-apps-portal"></a>Uso de colecciones en el portal Aplicaciones
 
@@ -26,7 +26,7 @@ Las colecciones son diferentes vistas de las aplicaciones que se muestran en el 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
 >[!Important]
->Este contenido está diseñado para los usuarios de **Aplicaciones**. Si es administrador, puede encontrar más información acerca de cómo configurar y administrar aplicaciones basadas en la nube en la [Documentación sobre la administración de aplicaciones](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-workspaces).
+>Este contenido está diseñado para los usuarios de **Aplicaciones**. Si es administrador, puede encontrar más información acerca de cómo configurar y administrar aplicaciones basadas en la nube en la [Documentación sobre la administración de aplicaciones](../manage-apps/access-panel-collections.md).
 
 ## <a name="access-apps-using-collections"></a>Acceso a las aplicaciones mediante las colecciones
 

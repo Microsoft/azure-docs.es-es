@@ -1,17 +1,17 @@
 ---
 title: Cómo obtener soporte técnico para Avere vFXT para Azure
-description: Explicación para abrir incidencias de soporte técnico sobre Avere vFXT para Azure
+description: Obtenga información sobre cómo solucionar los problemas que pueden surgir durante la implementación o el uso de Avere vFXT for Azure mediante la creación de una incidencia de soporte técnico en Azure Portal.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: b3c604003f78a150067875fb2064ab5eca0600db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 522d29505d7d10f5f6d97136f270f07a63053d19
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847347"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271114"
 ---
 # <a name="get-help-with-your-system"></a>Obtenga ayuda con el sistema
 

@@ -1,6 +1,6 @@
 ---
 title: Soporte de localización | Microsoft Azure Maps
-description: En este artículo, obtendrá información sobre los idiomas admitidos en Microsoft Azure Maps.
+description: Vea qué regiones admite Azure Maps con servicios como los de mapas, búsqueda, enrutamiento, meteorología e incidentes de tráfico. Obtenga información sobre cómo configurar el parámetro View.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 11/20/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 0d3adc4bc49379a9ec3408ab76b913a096840dbb
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: a6664b5a2c0c6b4de2435ee5c8bb29f63560c342
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127900"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037701"
 ---
 # <a name="localization-support-in-azure-maps"></a>Soporte de localización en Azure Maps
 
@@ -110,37 +110,37 @@ Los servicios de Azure Maps se han localizado en una variedad de idiomas. En la 
 > Después del 1 de agosto de 2019, el parámetro **Vista** definirá el contenido del mapa devuelto para las nuevas regiones o países enumerados anteriormente. El parámetro **Vista** de Azure Maps (también denominado "parámetro de región de usuario") es un código de país ISO-3166 de dos letras que mostrará los mapas correctos para ese país o región, especificando qué conjunto de contenido con conflictos geopolíticos se devuelve a través de los servicios de Azure Maps, incluidas las fronteras y las etiquetas que se muestran en el mapa. 
 
 Asegúrese de configurar el parámetro **Vista** según lo necesario para las API de REST y los SDK que sus servicios usan.
->  
->
->  **API de REST:**
->  
->  Asegúrese de haber configurado el parámetro Vista tal como se ha especificado. El parámetro Vista especifica qué conjunto de contenido con conflictos geopolíticos se devuelve a través de los servicios de Azure Maps. 
->
->  Servicios REST de Azure Maps afectados:
->    
->    * Obtener icono del mapa
->    * Obtener imagen de mapa 
->    * Obtener búsqueda aproximada
->    * Obtener búsqueda de POI
->    * Obtener búsqueda de POI por categoría
->    * Obtener búsqueda cercana
->    * Obtener dirección de búsqueda
->    * Obtener la dirección de búsqueda estructurada
->    * Obtener la dirección de búsqueda inversa
->    * Obtener la dirección de búsqueda inversa entre calles
->    * Búsqueda de POST dentro de geometría
->    * Búsqueda de POST de la vista previa del lote de direcciones
->    * Búsqueda de POST de la vista previa del lote de direcciones inversas
->    * Búsqueda de POST a lo largo de la ruta
->    * Búsqueda de POST aproximada de la vista previa del lote
->
->    
->  **SDK**:
->
->  Asegúrese de haber configurado el parámetro **Vista** según sea necesario y de tener la última versión de los SDK web y de Android. SDK afectados:
->
->    * SDK web de Azure Maps
->    * Android SDK para Azure Maps
+  
+
+### <a name="rest-apis"></a>API Rest
+  
+Asegúrese de haber configurado el parámetro Vista tal como se ha especificado. El parámetro Vista especifica qué conjunto de contenido con conflictos geopolíticos se devuelve a través de los servicios de Azure Maps. 
+
+Servicios REST de Azure Maps afectados:
+    
+ * Obtener icono del mapa
+ * Obtener imagen de mapa 
+ * Obtener búsqueda aproximada
+ * Obtener búsqueda de POI
+ * Obtener búsqueda de POI por categoría
+ * Obtener búsqueda cercana
+ * Obtener dirección de búsqueda
+ * Obtener la dirección de búsqueda estructurada
+ * Obtener la dirección de búsqueda inversa
+ * Obtener la dirección de búsqueda inversa entre calles
+ * Búsqueda de POST dentro de geometría
+ * Búsqueda de POST de la vista previa del lote de direcciones
+ * Búsqueda de POST de la vista previa del lote de direcciones inversas
+ * Búsqueda de POST a lo largo de la ruta
+ * Búsqueda de POST aproximada de la vista previa del lote
+
+ 
+### <a name="sdks"></a>SDK
+
+Asegúrese de haber configurado el parámetro **Vista** según sea necesario y de tener la última versión de los SDK web y de Android. SDK afectados:
+
+ * SDK web de Azure Maps
+ * Android SDK para Azure Maps
 
 De manera predeterminada, el parámetro Vista está establecido en **Unificado**, aunque no lo haya definido en la solicitud. Determine la ubicación de los usuarios. A continuación, establezca el parámetro **Vista** correctamente para esa ubicación. También tiene la opción de establecer "View=Auto", lo que devolverá los datos del mapa según la dirección IP de la solicitud.  El parámetro **Vista** de Azure Maps se debe usar de conformidad con las leyes aplicables, incluidas aquellas relacionadas con la asignación del país o región donde están disponibles los mapas, las imágenes y otros datos y contenido de terceros a los que está autorizado a acceder a través de Azure Maps.
 

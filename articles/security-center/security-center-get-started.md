@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: f16df87ca72b66003d8870dcd9d778616ea840d4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 550c9ff57b9c558f2f175165c7f06ead45991be9
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038552"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226026"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Inicio rápido: Incorporación de una suscripción de Azure a Security Center Standard
 Azure Security Center proporciona administración unificada de la seguridad y protección contra amenazas para cargas de trabajo en la nube híbrida. Mientras el nivel Gratis solo ofrece seguridad limitada para los recursos de Azure, el nivel Estándar amplía estas funcionalidades tanto en un entorno local como en otras nubes. El nivel Estándar de Security Center le ayuda a encontrar y corregir vulnerabilidades de seguridad, aplicar controles de acceso y de aplicación para bloquear actividades malintencionadas, detectar amenazas mediante análisis e inteligencia y responder rápidamente en caso de ataque. Dicho plan se puede probar de forma gratuita. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/).
@@ -34,7 +34,8 @@ Para actualizar una suscripción al nivel Estándar, debe tener asignado los rol
 ## <a name="enable-your-azure-subscription"></a>Habilitación de la suscripción a Azure
 
 1. Inicie sesión en el [Portal de Azure](https://azure.microsoft.com/features/azure-portal/).
-2. En el menú de **Microsoft Azure**, seleccione **Security Center**. Se abre **Security Center: Información general**.
+
+1. En el menú de **Microsoft Azure**, seleccione **Security Center**. Se abre **Security Center: Información general**.
 
    ![Introducción a Security Center][2]
 
@@ -49,21 +50,25 @@ A los pocos minutos de iniciar Security Center la primera vez, puede ver:
 
 Para aprovechar al máximo Security Center, debe completar los pasos siguientes para realizar la actualización al nivel Estándar e instalar el agente de Log Analytics.
 
-## <a name="upgrade-to-the-standard-pricing-tier"></a>Actualización del plan de tarifa Estándar
-Para seguir los inicios rápidos y tutoriales de Security Center, debe realizar la actualización al nivel Estándar. Hay una evaluación gratuita de Security Center Estándar. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/). 
 
-1. En el menú principal de Security Center, seleccione **Introducción**.
+## <a name="upgrade-to-the-standard-tier"></a>Actualización al nivel Estándar
+
+Para conseguir las guías de inicio rápido y los tutoriales de Security Center, debe actualizar al nivel Estándar. Hay una evaluación gratuita de Security Center Estándar. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/). 
+
+1. En la barra lateral de Security Center, seleccione **Introducción**.
  
-   ![Introducción][4]
+   ![Introducción](./media/security-center-get-started/get-started-upgrade-tab.png)
 
-2. En **Actualizar**, Security Center muestra las suscripciones y áreas de trabajo aptas para la incorporación. 
-   - Puede hacer clic en el expandible **Apply your trial** (Aplicar prueba) para ver una lista de todas las suscripciones y áreas de trabajo con el estado de elegibilidad de prueba.
-   -    Puede actualizar las suscripciones y áreas de trabajo que no sean aptas para la versión de prueba.
-   -    Puede seleccionar las áreas de trabajo y las suscripciones aptas para iniciar la versión de prueba.
-3. Haga clic en **Iniciar período de prueba** para iniciar la evaluación de las suscripciones seleccionadas.
+    La pestaña **Actualizar** muestra las suscripciones y áreas de trabajo aptas para la incorporación.
+
+1. En la lista **Seleccione las áreas de trabajo en las que quiera habilitar el nivel Estándar**, seleccione las áreas de trabajo que desea actualizar.
 
 
-  ![Alertas de seguridad][9]
+    > [!TIP]
+    > Si selecciona un área de trabajo apta para una evaluación gratuita, el siguiente paso comenzará una evaluación gratuita. Si el áreas de trabajo no es apta para una evaluación gratuita, se actualizarán y comenzarán los cargos.
+
+1. Seleccione **Actualizar** para actualizar las áreas de trabajo seleccionadas al nivel estándar.
+
 
 ## <a name="automate-data-collection"></a>Recopilación automática de datos
 Security Center recopila datos de VM de Azure y de los equipos que no son de Azure para supervisar las amenazas y vulnerabilidades de seguridad. Los datos se recopilan con el agente de Log Analytics, que lee distintas configuraciones relacionadas con la seguridad y distintos registros de eventos de la máquina y copia los datos en el área de trabajo para analizarlos. De forma predeterminada, Azure Security Center creará automáticamente una nueva área de trabajo.
@@ -73,9 +78,9 @@ Si el aprovisionamiento automático está habilitado, Security Center instala el
 Para habilitar el aprovisionamiento automático del agente de Log Analytics:
 
 1. En el menú principal de Security Center, seleccione **Precios y configuración**.
-2. En la fila de la suscripción, haga clic en la suscripción en la que desea cambiar la configuración.
-3. En la pestaña **Recopilación de datos**, establezca **Aprovisionamiento automático** en **Activado**.
-4. Seleccione **Guardar**.
+1. En la fila de la suscripción, haga clic en la suscripción en la que desea cambiar la configuración.
+1. En la pestaña **Recopilación de datos**, establezca **Aprovisionamiento automático** en **Activado**.
+1. Seleccione **Guardar**.
 ---
   ![Habilitar el aprovisionamiento automático][6]
 

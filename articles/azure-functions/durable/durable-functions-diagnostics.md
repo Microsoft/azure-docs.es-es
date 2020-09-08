@@ -3,14 +3,14 @@ title: 'Diagnóstico con Durable Functions: Azure'
 description: Aprenda a diagnosticar problemas con la extensión Durable Functions para Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 11/02/2019
+ms.date: 08/20/2020
 ms.author: azfuncdf
-ms.openlocfilehash: fcd92f1f134b79d23da6848cbb04894b242fcec0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ae721d2a8df981ecf9ab8e8b04d0e0d287d523cd
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081821"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750716"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnóstico con Durable Functions en Azure
 
@@ -28,7 +28,7 @@ Cada evento de ciclo de vida de una instancia de orquestación provoca uno de se
 
 * **hubName**: nombre de la central de tareas donde se ejecutan las orquestaciones.
 * **appName**: Nombre de la aplicación de función. Este campo resulta útil cuando se tienen varias aplicaciones de función que comparten la misma instancia de Application Insights.
-* **slotName**: la [ranura de implementación](../functions-deployment-slots.md) donde se ejecuta la aplicación de función actual. Este campo resulta útil cuando se aprovechan las ranuras de implementación para modificar las orquestaciones.
+* **slotName**: la [ranura de implementación](../functions-deployment-slots.md) donde se ejecuta la aplicación de función actual. Este campo resulta útil cuando se utilizan las ranuras de implementación para modificar las orquestaciones.
 * **functionName**: nombre de la función de actividad o de orquestador.
 * **functionType**: tipo de función, como **Orquestador** o **Actividad**.
 * **instanceId**: identificador único de la instancia de orquestación.
@@ -88,7 +88,7 @@ Para habilitar la emisión de los eventos de reproducción de orquestación deta
 
 #### <a name="functions-20"></a>Functions 2.0
 
-```javascript
+```json
 {
     "extensions": {
         "durableTask": {
@@ -103,9 +103,9 @@ Para habilitar la emisión de los eventos de reproducción de orquestación deta
 
 ### <a name="single-instance-query"></a>Consultas en una sola instancia
 
-La consulta siguiente muestra datos históricos de seguimiento de una única instancia de la función de orquestación [Hello Sequence](durable-functions-sequence.md). Se escribe con el [lenguaje de consulta de Application Insights](https://aka.ms/LogAnalyticsLanguageReference). Filtra la ejecución de la reproducción de manera que se muestra solo la ruta de ejecución *lógica*. Los eventos se pueden ordenar por `timestamp` y `sequenceNumber`, tal y como se muestra en la siguiente consulta:
+La consulta siguiente muestra datos históricos de seguimiento de una única instancia de la función de orquestación [Hello Sequence](durable-functions-sequence.md). Se escribe con el [lenguaje de consulta de Kusto](/azure/data-explorer/kusto/query/). Filtra la ejecución de la reproducción de manera que se muestra solo la ruta de ejecución *lógica*. Los eventos se pueden ordenar por `timestamp` y `sequenceNumber`, tal y como se muestra en la siguiente consulta:
 
-```AIQL
+```kusto
 let targetInstanceId = "ddd1aaa685034059b545eb004b15d4eb";
 let start = datetime(2018-03-25T09:20:00);
 traces
@@ -124,13 +124,13 @@ traces
 
 El resultado es una lista de eventos de seguimiento que muestran la ruta de ejecución de la orquestación, funciones de actividad incluidas, ordenadas por hora de ejecución en orden ascendente.
 
-![Consultas en Application Insights](./media/durable-functions-diagnostics/app-insights-single-instance-ordered-query.png)
+![Consulta ordenada de instancias únicas de Application Insights](./media/durable-functions-diagnostics/app-insights-single-instance-ordered-query.png)
 
 ### <a name="instance-summary-query"></a>Consultas de resumen de instancias
 
 La consulta siguiente muestra el estado de todas las instancias de orquestación que se ejecutaron en un intervalo de tiempo especificado.
 
-```AIQL
+```kusto
 let start = datetime(2017-09-30T04:30:00);
 traces
 | where timestamp > start and timestamp < start + 1h
@@ -148,13 +148,61 @@ traces
 
 El resultado es una lista de identificadores de instancia y su estado actual en tiempo de ejecución.
 
-![Consultas en Application Insights](./media/durable-functions-diagnostics/app-insights-single-summary-query.png)
+![Consulta de instancias únicas de Application Insights](./media/durable-functions-diagnostics/app-insights-single-summary-query.png)
 
-## <a name="logging"></a>Registro
+## <a name="durable-task-framework-logging"></a>Registros de Durable Task Framework
+
+Los registros de extensión de Durable son útiles para comprender el comportamiento de la lógica de la orquestación. Sin embargo, estos registros no siempre contienen suficiente información para depurar problemas de confiabilidad y rendimiento a nivel del marco. A partir de la versión **2.3.0** de la extensión de Durable, los registros emitidos por el marco Durable Task Framework (DTFx) subyacente también están disponibles para la recopilación.
+
+Cuando se examinan los registros emitidos por DTFx, es importante comprender que el motor de DTFx consta de dos componentes: el motor de distribución principal (`DurableTask.Core`) y uno de los muchos proveedores de almacenamiento admitidos (Durable Functions usa `DurableTask.AzureStorage` de forma predeterminada).
+
+* **DurableTask.Core**: contiene información sobre la ejecución de la orquestación y la programación de bajo nivel.
+* **DurableTask.AzureStorage**: contiene información relativa a las interacciones con los artefactos de Azure Storage, incluidas las colas internas, los blobs y las tablas de almacenamiento que se usan para almacenar y capturar el estado interno de la orquestación.
+
+Puede habilitar estos registros actualizando la sección `logging/logLevel` del archivo **host.json** de la aplicación de funciones. En el ejemplo siguiente, se muestra cómo habilitar los registros de advertencia y de error de `DurableTask.Core` y `DurableTask.AzureStorage`:
+
+```json
+{
+  "version": "2.0",
+  "logging": {
+    "logLevel": {
+      "DurableTask.AzureStorage": "Warning",
+      "DurableTask.Core": "Warning"
+    }
+  }
+}
+```
+
+Si ha habilitado Application Insights, estos registros se agregarán automáticamente a la colección `trace`. Puede buscarlos de la misma manera que busca otros registros `trace` mediante consultas de Kusto.
+
+> [!NOTE]
+> En el caso de las aplicaciones de producción, se recomienda habilitar los registros `DurableTask.Core` y `DurableTask.AzureStorage` mediante el filtro `"Warning"`. Los filtros con mayor nivel de detalle, como `"Information"`, son muy útiles para depurar problemas de rendimiento. Sin embargo, estos eventos de registro son de gran volumen y pueden aumentar significativamente los costos de almacenamiento de datos de Application Insights.
+
+La siguiente consulta de Kusto muestra cómo consultar los registros de DTFx. La parte más importante de la consulta es `where customerDimensions.Category startswith "DurableTask"`, ya que filtra los resultados por registros en las categorías `DurableTask.Core` y `DurableTask.AzureStorage`.
+
+```kusto
+traces
+| where customDimensions.Category startswith "DurableTask"
+| project
+    timestamp,
+    severityLevel,
+    Category = customDimensions.Category,
+    EventId = customDimensions.EventId,
+    message,
+    customDimensions
+| order by timestamp asc 
+```
+El resultado es un conjunto de registros escritos por los proveedores de registro de Durable Task Framework.
+
+![Resultados de consultas de DTFx en Application Insights](./media/durable-functions-diagnostics/app-insights-dtfx.png)
+
+Para más información sobre los eventos de registro que están disponibles, vea la [documentación sobre los registros estructurados de Durable Task Framework en GitHub](https://github.com/Azure/durabletask/tree/master/src/DurableTask.Core/Logging#durabletaskcore-logging).
+
+## <a name="app-logging"></a>Registro de aplicaciones
 
 Es importante tener en cuenta el comportamiento de reproducción del orquestador al escribir registros directamente desde una función de orquestador. Por ejemplo, considere la función de orquestador siguiente:
 
-### <a name="precompiled-c"></a>C# precompilado
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("FunctionChain")]
@@ -172,24 +220,7 @@ public static async Task Run(
 }
 ```
 
-### <a name="c-script"></a>Script de C#
-
-```csharp
-public static async Task Run(
-    IDurableOrchestrationContext context,
-    ILogger log)
-{
-    log.LogInformation("Calling F1.");
-    await context.CallActivityAsync("F1");
-    log.LogInformation("Calling F2.");
-    await context.CallActivityAsync("F2");
-    log.LogInformation("Calling F3");
-    await context.CallActivityAsync("F3");
-    log.LogInformation("Done!");
-}
-```
-
-### <a name="javascript-functions-20-only"></a>JavaScript (solo Functions 2.0)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -204,6 +235,26 @@ module.exports = df.orchestrator(function*(context){
     context.log("Done!");
 });
 ```
+
+# <a name="python"></a>[Python](#tab/python)
+```python
+import logging
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    logging.info("Calling F1.")
+    yield context.call_activity("F1")
+    logging.info("Calling F2.")
+    yield context.call_activity("F2")
+    logging.info("Calling F3.")
+    yield context.call_activity("F3")
+    return None
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
+---
 
 Los datos de registro resultantes se parecen a la siguiente salida de ejemplo:
 
@@ -223,9 +274,9 @@ Done!
 > [!NOTE]
 > Recuerde que, aunque los registros notifiquen una llamada a F1, F2 y F3, a estas funciones solo se las llama *realmente* la primera vez que se encuentran. Las llamadas posteriores que se producen durante la reproducción se omiten y las salidas se reproducen en la lógica del orquestador.
 
-Si desea registrar únicamente en la ejecución sin reproducción, puede escribir una expresión condicional para que registre solo si `IsReplaying` es `false`. Considere el ejemplo anterior, pero esta vez con comprobaciones de reproducción.
+Si desea escribir únicamente registros en ejecuciones sin reproducción, puede escribir una expresión condicional para que registre solo si la marca "is replaying" es `false`. Considere el ejemplo anterior, pero esta vez con comprobaciones de reproducción.
 
-#### <a name="precompiled-c"></a>C# precompilado
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("FunctionChain")]
@@ -243,40 +294,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="c"></a>C#
-
-```cs
-public static async Task Run(
-    IDurableOrchestrationContext context,
-    ILogger log)
-{
-    if (!context.IsReplaying) log.LogInformation("Calling F1.");
-    await context.CallActivityAsync("F1");
-    if (!context.IsReplaying) log.LogInformation("Calling F2.");
-    await context.CallActivityAsync("F2");
-    if (!context.IsReplaying) log.LogInformation("Calling F3");
-    await context.CallActivityAsync("F3");
-    log.LogInformation("Done!");
-}
-```
-
-#### <a name="javascript-functions-20-only"></a>JavaScript (solo Functions 2.0)
-
-```javascript
-const df = require("durable-functions");
-
-module.exports = df.orchestrator(function*(context){
-    if (!context.df.isReplaying) context.log("Calling F1.");
-    yield context.df.callActivity("F1");
-    if (!context.df.isReplaying) context.log("Calling F2.");
-    yield context.df.callActivity("F2");
-    if (!context.df.isReplaying) context.log("Calling F3.");
-    yield context.df.callActivity("F3");
-    context.log("Done!");
-});
-```
-
-A partir de Durable Functions 2.0, las funciones de orquestador de .NET también tienen la opción de crear un elemento `ILogger` que filtra automáticamente las instrucciones de registro durante la reproducción. Este filtrado automático se realiza mediante la API `IDurableOrchestrationContext.CreateReplaySafeLogger(ILogger)`.
+A partir de Durable Functions 2.0, las funciones de orquestador de .NET también tienen la opción de crear un elemento `ILogger` que filtra automáticamente las instrucciones de registro durante la reproducción. Este filtrado automático se realiza mediante la API [IDurableOrchestrationContext.CreateReplaySafeLogger(ILogger)](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.durablecontextextensions.createreplaysafelogger).
 
 ```csharp
 [FunctionName("FunctionChain")]
@@ -295,6 +313,49 @@ public static async Task Run(
 }
 ```
 
+> [!NOTE]
+> Los ejemplos de C# anteriores corresponden a Durable Functions 2.x. En el caso de Durable Functions 1.x, debe usar `DurableOrchestrationContext` en lugar de `IDurableOrchestrationContext`. Para obtener más información sobre las diferencias entre versiones, vea el artículo [Versiones de Durable Functions](durable-functions-versions.md).
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context){
+    if (!context.df.isReplaying) context.log("Calling F1.");
+    yield context.df.callActivity("F1");
+    if (!context.df.isReplaying) context.log("Calling F2.");
+    yield context.df.callActivity("F2");
+    if (!context.df.isReplaying) context.log("Calling F3.");
+    yield context.df.callActivity("F3");
+    context.log("Done!");
+});
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import logging
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    if not context.is_replaying:
+        logging.info("Calling F1.")
+    yield context.call_activity("F1")
+    if not context.is_replaying:
+        logging.info("Calling F2.")
+    yield context.call_activity("F2")
+    if not context.is_replaying:
+        logging.info("Calling F3.")
+    yield context.call_activity("F3")
+    return None
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
+---
+
 Con los cambios mencionados anteriormente, la salida del registro es la siguiente:
 
 ```txt
@@ -304,14 +365,11 @@ Calling F3.
 Done!
 ```
 
-> [!NOTE]
-> Los ejemplos de C# anteriores corresponden a Durable Functions 2.x. En el caso de Durable Functions 1.x, debe usar `DurableOrchestrationContext` en lugar de `IDurableOrchestrationContext`. Para obtener más información sobre las diferencias entre versiones, vea el artículo [Versiones de Durable Functions](durable-functions-versions.md).
-
 ## <a name="custom-status"></a>Estado personalizado
 
-El estado de orquestación personalizada le permite establecer un valor de estado personalizado para la función del orquestador. Este estado se proporciona a través de la API de consulta de estado HTTP o de la API `IDurableOrchestrationClient.GetStatusAsync`. El estado de orquestación personalizada habilita una supervisión más completa para las funciones del orquestador. Por ejemplo, el código de la función del orquestador pueden incluir llamadas `IDurableOrchestrationContext.SetCustomStatus` para actualizar el progreso de una operación de ejecución prolongada. Un cliente, como una página web u otro sistema externo, puede entonces consultar periódicamente las API de consulta de estado HTTP para obtener una información más completa del progreso. A continuación se proporciona un ejemplo en el que se usa `IDurableOrchestrationContext.SetCustomStatus`:
+El estado de orquestación personalizada le permite establecer un valor de estado personalizado para la función del orquestador. Este estado personalizado pueden verlo los clientes externos a través de la [API de consulta de estado HTTP](durable-functions-http-api.md#get-instance-status) o de llamadas API específicas del lenguaje. El estado de orquestación personalizada habilita una supervisión más completa para las funciones del orquestador. Por ejemplo, el código de la función del orquestador pueden invocar la API "set custom status" para actualizar el progreso de una operación de ejecución prolongada. Un cliente, como una página web u otro sistema externo, puede entonces consultar periódicamente las API de consulta de estado HTTP para obtener una información más completa del progreso. A continuación, se proporciona código de ejemplo para establecer un valor de estado personalizado en una función de orquestador:
 
-### <a name="precompiled-c"></a>C# precompilado
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("SetStatusTest")]
@@ -330,7 +388,7 @@ public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrat
 > [!NOTE]
 > El ejemplo de C# anterior corresponde a Durable Functions 2.x. En el caso de Durable Functions 1.x, debe usar `DurableOrchestrationContext` en lugar de `IDurableOrchestrationContext`. Para obtener más información sobre las diferencias entre versiones, vea el artículo [Versiones de Durable Functions](durable-functions-versions.md).
 
-### <a name="javascript-functions-20-only"></a>JavaScript (solo Functions 2.0)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -346,10 +404,32 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import logging
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    # ...do work...
+
+    # update the status of the orchestration with some arbitrary data
+    custom_status = {'completionPercentage': 90.0, 'status': 'Updating database records'}
+    context.set_custom_status(custom_status)
+    # ...do more work...
+
+    return None
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
+---
+
 Mientras se ejecuta la orquestación, los clientes externos pueden capturar este estado personalizado:
 
 ```http
-GET /admin/extensions/DurableTaskExtension/instances/instance123
+GET /runtime/webhooks/durabletask/instances/instance123?code=XYZ
 
 ```
 
@@ -379,7 +459,7 @@ Azure Functions admite la depuración directa de código de función y esa misma
 * **Detención e inicio**: los mensajes de Durable Functions se conservan entre las sesiones de depuración. Si detiene la depuración y termina el proceso de host local mientras se está ejecutando una función de Durable Functions, dicha función se puede volver a ejecutar automáticamente en una sesión de depuración futura. Este comportamiento puede resultar confuso cuando no se espera. Borrar todos los mensajes de las [colas de almacenamiento internas](durable-functions-perf-and-scale.md#internal-queue-triggers) entre las sesiones de depuración es una técnica para evitar este comportamiento.
 
 > [!TIP]
-> Al establecer puntos de interrupción en las funciones de orquestador, si desea interrumpir solo la ejecución sin reproducción, puede establecer un punto de interrupción condicional que solo se active si `IsReplaying` es `false`.
+> Al establecer puntos de interrupción en las funciones de orquestador, si desea interrumpir solo la ejecución sin reproducción, puede establecer un punto de interrupción condicional que solo se interrumpa si el valor de "is replaying" es `false`.
 
 ## <a name="storage"></a>Storage
 

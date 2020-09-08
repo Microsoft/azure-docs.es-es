@@ -11,13 +11,13 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 03/19/2020
 ms.author: aahi
-ms.custom: devx-track-python, devx-track-javascript
-ms.openlocfilehash: 57cbc2e12b06082b6449a6718bc43d46a2e8269d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: f45436b71191a7f447cfa4c5bd94900c8fb4e3b0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852096"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929282"
 ---
 # <a name="quickstart-use-the-bing-video-search-client-library"></a>Inicio rápido: Uso de la biblioteca cliente de Bing Video Search
 

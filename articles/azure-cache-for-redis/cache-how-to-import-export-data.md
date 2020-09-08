@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/31/2017
 ms.author: yegu
-ms.openlocfilehash: 84abbe8d9958bf41768f3706a700ae0ecad6b44f
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: a89acb73ea5c78c9f82758e0a322fb9001698c24
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856995"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004333"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Importación y exportación de datos en Azure Cache for Redis
 Import/Export es una operación de administración de datos de Azure Cache for Redis que permite importar datos en Azure Cache for Redis o exporta datos de Azure Cache for Redis mediante la importación y exportación de una instantánea de base de datos de Azure Cache for Redis (RDB) desde una memoria caché prémium a un blob en una cuenta de Azure Storage.
@@ -24,7 +24,7 @@ Import/Export permite migrar entre diferentes instancias de Azure Cache for Redi
 En este artículo se proporciona una guía para importar y exportar datos con Azure Cache for Redis y se responden las preguntas más frecuentes.
 
 > [!IMPORTANT]
-> Import/Export solo está disponible para las memorias caché de [nivel premium](cache-premium-tier-intro.md) .
+> La importación y exportación solo está disponible para las memorias caché del [nivel Premium](cache-overview.md#service-tiers).
 >
 >
 
@@ -152,6 +152,6 @@ Para solucionarlo, inicie la operación de importación o exportación antes de 
 La exportación solo funciona con archivos RDB almacenados como blobs en páginas. No se admiten otros tipos de blob en este momento, incluidas las cuentas de Blob Storage con niveles de acceso frecuente y esporádico. Para más información, vea [Introducción a las cuentas de Azure Storage](../storage/common/storage-account-overview.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Obtenga información acerca de cómo usar más características de la memoria caché del nivel Premium.
+Más información sobre las características de Azure Cache for Redis.
 
-* [Introducción al nivel Prémium de Azure Cache for Redis](cache-premium-tier-intro.md)
+* [Niveles de servicio de Azure Cache for Redis](cache-overview.md#service-tiers)

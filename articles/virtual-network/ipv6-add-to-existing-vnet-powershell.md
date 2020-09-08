@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 82c8b71c154336cf59610d8f0b99e70eccee266f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2ff81c1f1989e28fa48e4307a13433a7b98e915
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84688592"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051056"
 ---
 # <a name="upgrade-an-ipv4-application-to-ipv6-in-azure-virtual-network---powershell"></a>Actualización de una aplicación IPv4 a IPv6 en Azure Virtual Network: PowerShell
 
@@ -36,7 +36,7 @@ Si decide instalar y usar PowerShell de forma local, la versión del módulo de 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-En este artículo se da por supuesto que implementó una instancia de Standard Load Balancer como se describe en [Inicio rápido: Creación de una instancia de Standard Load Balancer mediante Azure PowerShell](../load-balancer/quickstart-create-standard-load-balancer-powershell.md).
+En este artículo se da por supuesto que implementó una instancia de Standard Load Balancer como se describe en [Inicio rápido: Creación de una instancia de Standard Load Balancer mediante Azure PowerShell](../load-balancer/quickstart-load-balancer-standard-public-powershell.md).
 
 ## <a name="retrieve-the-resource-group"></a>Recuperación del grupo de recursos
 

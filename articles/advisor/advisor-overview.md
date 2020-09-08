@@ -3,12 +3,12 @@ title: Introducción a Azure Advisor
 description: Utilice Azure Advisor para optimizar las implementaciones de Azure.
 ms.topic: article
 ms.date: 02/01/2019
-ms.openlocfilehash: 17b68e220b7011dee2cc8fca440d58d980c28e6d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 27e49fa28e7b02b873ca145d514920784689b407
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057685"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654028"
 ---
 # <a name="introduction-to-azure-advisor"></a>Introducción a Azure Advisor
 
@@ -55,7 +55,7 @@ Puede acceder a las recomendaciones de Advisor como *Propietario*, *Colaborador*
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>¿Para qué recursos Advisor ofrece recomendaciones?
 
-Advisor proporciona recomendaciones sobre Application Gateway, App Services, conjuntos de disponibilidad, Azure Cache, Azure Data Factory, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database for MariaDB, Azure ExpressRoute, Azure Cosmos DB, direcciones IP públicas de Azure, SQL Data Warehouse, servidores SQL Server, cuentas de almacenamiento, perfiles de Traffic Manager y máquinas virtuales.
+Advisor proporciona recomendaciones sobre Application Gateway, App Services, conjuntos de disponibilidad, Azure Cache, Azure Data Factory, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database for MariaDB, Azure ExpressRoute, Azure Cosmos DB, direcciones IP públicas de Azure, Azure Synapse Analytics, servidores SQL Server, cuentas de almacenamiento, perfiles de Traffic Manager y máquinas virtuales.
 
 Azure Advisor también incluye recomendaciones procedentes de [Azure Security Center](../security-center/security-center-recommendations.md), que pueden abarcar recomendaciones de tipos de recursos adicionales.
 

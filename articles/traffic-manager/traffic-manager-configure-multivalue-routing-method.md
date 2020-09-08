@@ -3,20 +3,20 @@ title: 'Configuración del enrutamiento de tráfico de varios valores: Azure Tra
 description: En este artículo se explica cómo configurar Traffic Manager para enrutar el tráfico a puntos de conexión A/AAAA.
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: rohink
-ms.openlocfilehash: 3ac6d20acf32be9678818483e5929dee225501b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 85e088dda767a6f6c80ac0a9f6eed84e8802e5ee
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706824"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401051"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Configuración del método de enrutamiento de varios valores en Traffic Manager
 

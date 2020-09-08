@@ -1,5 +1,5 @@
 ---
-title: Seguridad de Azure Key Vault | Microsoft Docs
+title: Seguridad de Azure Key Vault
 description: Administración de los permisos de acceso para Azure Key Vault, claves y secretos. Trata sobre el modelo de autenticación y autorización de Key Vault y cómo proteger un almacén de claves.
 services: key-vault
 author: msmbaldwin
@@ -10,17 +10,16 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mbaldwin
-Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
-ms.openlocfilehash: 3170b51b8e580a625b2dbb4d83229c59bafa900e
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 4c0430f96934c16a26ca3ab908da6aa017810ad0
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534811"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377580"
 ---
 # <a name="azure-key-vault-security"></a>Seguridad de Azure Key Vault
 
-Necesita proteger las claves de cifrado y los secretos, como certificados, cadenas de conexión y contraseñas en la nube para usar Azure Key Vault. Ya que almacena datos confidenciales y críticos para la empresa, debe tomar medidas para maximizar la seguridad de los almacenes y de los datos almacenados en ellos. En este artículo se tratan algunos de los conceptos que se deben considerar al diseñar la seguridad de Azure Key Vault.
+Puede usar Azure Key Vault para proteger las claves de cifrado y los secretos, como certificados, cadenas de conexión y contraseñas en la nube. Cuando almacena datos confidenciales y críticos para la empresa, debe tomar medidas para maximizar la seguridad de los almacenes y de los datos almacenados en estos.
 
 ## <a name="identity-and-access-management"></a>Administración de identidades y acceso
 
@@ -65,7 +64,7 @@ Las directivas de acceso de Key Vault conceden permisos independientes a las cla
 > [!IMPORTANT]
 > Las directivas de acceso de Key Vault no admiten permisos de nivel de objeto pormenorizados, como una clave, un secreto o un certificado específicos. Cuando se concede a un usuario permiso para crear y eliminar claves, este puede realizar dichas operaciones en todas las claves de dicho almacén de claves.
 
-Para establecer directivas de acceso de un almacén de claves, use [Azure Portal](https://portal.azure.com/), la [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azure/) o las [API de REST de administración de Key Vault](/rest/api/keyvault/).
+Puede establecer directivas de acceso de un almacén de claves mediante [Azure Portal](assign-access-policy-portal.md), la [CLI de Azure](assign-access-policy-cli.md), [Azure PowerShell](assign-access-policy-powershell.md) o las [API de REST de administración de Key Vault](/rest/api/keyvault/).
 
 Puede restringir el acceso al plano de datos mediante el uso de [puntos de conexión de servicio de red virtual para Azure Key Vault](overview-vnet-service-endpoints.md). Puede configurar [firewall y reglas de red virtual](network-security.md) para una capa adicional de seguridad.
 
@@ -93,10 +92,10 @@ Puede acceder a la información de registro 10 minutos después de la operació
 - Utilice los métodos de control de acceso de Azure estándar para proteger los registros mediante la restricción de quién puede tener acceso a ellos.
 - Elimine los registros que ya no desee mantener en la cuenta de almacenamiento.
 
-Para obtener recomendaciones sobre la administración segura de las cuentas de almacenamiento, revise la [guía de seguridad de Azure Storage](../../storage/blobs/security-recommendations.md)
+Para obtener recomendaciones sobre la administración segura de las cuentas de almacenamiento, revise la [guía de seguridad de Azure Storage](../../storage/blobs/security-recommendations.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Puntos de conexión de servicio de red virtual para Azure Key Vault](overview-vnet-service-endpoints.md)
 - [RBAC: roles integrados](../../role-based-access-control/built-in-roles.md)
-- [Puntos de conexión de servicio de red virtual para Azure Key Vault](overview-vnet-service-endpoints.md)
+

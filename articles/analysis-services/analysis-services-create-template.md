@@ -6,14 +6,14 @@ ms.author: owend
 tags: azure-resource-manager
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/31/2020
 ms.custom: subject-armqs, references_regions
-ms.openlocfilehash: 249c678fb6d55f01a9f06e4e1db5f41fa85a700f
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 3e776bf41420d38a1b208ce11a6a34e97fa92a15
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553077"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230796"
 ---
 # <a name="quickstart-create-a-server---arm-template"></a>Inicio rápido: Creación de un servidor: plantilla de ARM
 
@@ -34,7 +34,7 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-analysis-services-create/).
 
-:::code language="json" source="~/quickstart-templates/101-analysis-services-create/azuredeploy.json" range="1-79" highlight="63-78":::
+:::code language="json" source="~/quickstart-templates/101-analysis-services-create/azuredeploy.json":::
 
 En la plantilla se define un único recurso [Microsoft.AnalysisServices/servers](/azure/templates/microsoft.analysisservices/servers) con una regla de Firewall.
 
@@ -105,6 +105,5 @@ Write-Host "Press [ENTER] to continue..."
 
 En este inicio rápido, ha usado una plantilla de ARM para crear un nuevo grupo de recursos y un recurso de servidor de Azure Analysis Services. Después de crear un recurso de servidor mediante la plantilla, tenga en cuenta lo siguiente:
 
-- [Inicio rápido: Creación de un servidor: PowerShell](analysis-services-create-powershell.md)
-- [Incorporación de un modelo de ejemplo desde el portal](analysis-services-create-sample-model.md)
-- [Configuración de los roles de administrador del servidor y de usuario](tutorials/analysis-services-tutorial-roles.md)
+> [!div class="nextstepaction"]
+> [Inicio rápido: Configuración del firewall del servidor: Portal](analysis-services-qs-firewall.md)   

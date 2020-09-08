@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 200a6b1bc2f960555fae1d910dfebde66628d13a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 1cd03814e1590abebb74db490a2692d492a9207d
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84031976"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064951"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Implementación de un servicio de división y combinación para mover datos entre bases de datos particionadas
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -173,6 +173,9 @@ Determine el extremo web de su servicio División y combinación. Para averiguar
 ### <a name="test-with-powershell-scripts"></a>Pruebas con scripts de PowerShell
 
 Puede probar la implementación y su entorno si ejecuta los scripts de PowerShell de ejemplo incluidos.
+
+> [!IMPORTANT]
+> Los scripts de ejemplo se ejecutan en PowerShell 5.1. No se ejecutan actualmente en PowerShell 6 o posterior.
 
 Los archivos de script incluidos son:
 

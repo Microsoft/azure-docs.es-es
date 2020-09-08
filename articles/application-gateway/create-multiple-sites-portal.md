@@ -6,14 +6,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 07/20/2020
+ms.date: 08/21/2020
 ms.author: victorh
-ms.openlocfilehash: 0c5302f35665b034bffa343ee90fd4fd609f56e5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6fb613578e520f50701c9a09169f2d78c0c08c4f
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290147"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88724003"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Tutorial: Creación y configuración de una puerta de enlace de aplicaciones que hospede varios sitios web mediante Azure Portal
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+## <a name="prerequisites"></a>Requisitos previos
 
 Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 
@@ -78,7 +78,7 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 
 2. Elija **Crear nuevo** para la **Dirección IP pública** y escriba *myAGPublicIPAddress* para el nombre de dirección IP pública y seleccione **Aceptar**. 
 
-     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png" alt-text="Creación de una red virtual":::
+     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png" alt-text="Creación de otra VNet":::
 
 3. Seleccione **Siguiente: Back-end**.
 
@@ -156,14 +156,14 @@ Para agregar destinos de back-end, puede:
 
     - **Grupo de recursos**: Seleccione **myResourceGroupAG** como nombre del grupo de recursos.
     - **Nombre de la máquina virtual**: Escriba *contosoVM* como nombre de la máquina virtual.
-    - **Nombre de usuario**: Escriba *azureuser* como nombre del usuario administrador.
-    - **Contraseña**: Escriba *Azure123456!* como la contraseña de administrador.
-4. Acepte los valores predeterminados y haga clic en **Siguiente: Discos**.  
-5. Acepte los valores predeterminados de la pestaña **Discos** y seleccione **Siguiente: Redes**.
-6. En la pestaña **Redes**, compruebe que **myVNet** está seleccionada como **red virtual** y que la **subred** es **myBackendSubnet**. Acepte los valores predeterminados y haga clic en **Siguiente: Administración**.<br>Application Gateway puede comunicarse con instancias fuera de la red virtual en la que se encuentra, pero hay que comprobar que haya conectividad IP.
-7. En la pestaña **Administración**, establezca **Diagnósticos de arranque** en **Desactivado**. Acepte los demás valores predeterminados y seleccione **Revisar y crear**.
-8. En la pestaña **Revisar y crear**, revise la configuración, corrija los errores de validación y, después, seleccione **Crear**.
-9. Espere a que se complete la creación de la máquina virtual antes de continuar.
+    - **Nombre de usuario**: Escriba un nombre de usuario para el administrador.
+    - **Contraseña**: Escriba una contraseña para el administrador.
+1. Acepte los valores predeterminados y haga clic en **Siguiente: Discos**.  
+2. Acepte los valores predeterminados de la pestaña **Discos** y seleccione **Siguiente: Redes**.
+3. En la pestaña **Redes**, compruebe que **myVNet** está seleccionada como **red virtual** y que la **subred** es **myBackendSubnet**. Acepte los valores predeterminados y haga clic en **Siguiente: Administración**.<br>Application Gateway puede comunicarse con instancias fuera de la red virtual en la que se encuentra, pero hay que comprobar que haya conectividad IP.
+4. En la pestaña **Administración**, establezca **Diagnósticos de arranque** en **Desactivado**. Acepte los demás valores predeterminados y seleccione **Revisar y crear**.
+5. En la pestaña **Revisar y crear**, revise la configuración, corrija los errores de validación y, después, seleccione **Crear**.
+6. Espere a que se complete la creación de la máquina virtual antes de continuar.
 
 ### <a name="install-iis-for-testing"></a>Instalación de IIS para pruebas
 
@@ -173,7 +173,7 @@ En este ejemplo se instala IIS en las máquinas virtuales con el fin de comproba
 
     ![Instalación de la extensión personalizada](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
-2. Ejecute el siguiente comando para instalar IIS en la máquina virtual: 
+2. Ejecute el siguiente comando para instalar IIS en la máquina virtual, sustituyendo la región del grupo de recursos por <ubicación\>: 
 
     ```azurepowershell-interactive
     Set-AzVMExtension `
@@ -184,7 +184,7 @@ En este ejemplo se instala IIS en las máquinas virtuales con el fin de comproba
       -ExtensionType CustomScriptExtension `
       -TypeHandlerVersion 1.4 `
       -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
-      -Location EastUS
+      -Location <location>
     ```
 
 3. Cree una segunda máquina virtual e instale IIS con los pasos que acaba de finalizar. Use *fabrikamVM* como nombre de la máquina virtual y como valor de **VMName** para el cmdlet **Set-AzVMExtension**.

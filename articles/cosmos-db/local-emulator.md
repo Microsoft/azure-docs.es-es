@@ -5,13 +5,14 @@ ms.service: cosmos-db
 ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
-ms.date: 01/31/2020
-ms.openlocfilehash: e06a2eac5387cd02e95d8252ae04edc356683ed9
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.date: 08/19/2020
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ece2fdf5c75decb9a2139b973ad4bbb3f0803a0b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86028246"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011184"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Uso del emulador de Azure Cosmos para desarrollo y pruebas locales
 
@@ -35,12 +36,13 @@ Dado que el emulador de Azure Cosmos proporciona un entorno emulado que se ejecu
 
 * En este momento, el explorador de datos del emulador admite los clientes de SQL API. La vista de explorador de datos y las operaciones de las API de Azure Cosmos DB, como MongoDB, Table, Graph y Cassandra no son totalmente compatibles.
 * El emulador de Azure Cosmos es compatible con una sola cuenta fija y una clave maestra reconocida. Las claves no se pueden regenerar en el emulador de Azure Cosmos; sin embargo, la clave predeterminada se puede cambiar con la opción de la línea de comandos.
+* El emulador de Azure Cosmos admite una cuenta de Azure Cosmos en modo de [rendimiento aprovisionado](set-throughput.md); actualmente no admite una cuenta de Azure Cosmos en modo [sin servidor](serverless.md).
 * El emulador de Azure Cosmos no es un servicio escalable y no será compatible con un gran número de contenedores.
 * El emulador de Azure Cosmos no ofrece diferentes [niveles de coherencia de Azure Cosmos DB](consistency-levels.md).
 * El emulador de Azure Cosmos no ofrece [replicación en varias regiones](distribute-data-globally.md).
 * Como la copia del emulador de Azure Cosmos puede no contener siempre los cambios más recientes del servicio Azure Cosmos DB, debe consultar la herramienta de [planeamiento de capacidad de Azure Cosmos DB](https://www.documentdb.com/capacityplanner) para calcular con precisión las necesidades de rendimiento de producción (RU) de la aplicación.
 * Cuando se usa el emulador de Azure Cosmos, de forma predeterminada se pueden crear hasta 25 contenedores de tamaño fijo (solo compatibles con los SDK de Azure Cosmos DB) o 5 contenedores ilimitados con el emulador de Azure Cosmos. Para más información acerca de cómo cambiar este valor, consulte la sección sobre la [configuración del valor de PartitionCount](#set-partitioncount).
-* El emulador admite el tamaño de propiedad Max ID de 254 caracteres.
+* El emulador admite el tamaño de la propiedad Max ID de 254 caracteres.
 
 ## <a name="system-requirements"></a>Requisitos del sistema
 
@@ -114,12 +116,13 @@ La primera vez que se habilita el acceso de red, el usuario debe apagar el emula
 
 ### <a name="sql-api"></a>API DE SQL
 
-Cuando tenga el emulador de Azure Cosmos funcionando en su escritorio, puede usar cualquier [SDK de Azure Cosmos DB](sql-api-sdk-dotnet.md) admitido o la [API REST de Azure Cosmos DB](/rest/api/cosmos-db/) para interactuar con el emulador. El emulador de Azure Cosmos también incluye un explorador de datos integrado que permite crear contenedores para SQL API o Cosmos DB para MongoDB API, así como ver y editar elementos sin escribir ningún código.
+Cuando tenga el emulador de Azure Cosmos funcionando en su escritorio, puede usar cualquier [SDK de Azure Cosmos DB](sql-api-sdk-dotnet-standard.md) admitido o la [API REST de Azure Cosmos DB](/rest/api/cosmos-db/) para interactuar con el emulador. El emulador de Azure Cosmos también incluye un explorador de datos integrado que permite crear contenedores para SQL API o Cosmos DB para MongoDB API, así como ver y editar elementos sin escribir ningún código.
 
 ```csharp
 // Connect to the Azure Cosmos Emulator running locally
-DocumentClient client = new DocumentClient(
-   new Uri("https://localhost:8081"), "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
+CosmosClient client = new CosmosClient(
+   "https://localhost:8081", 
+    "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
 
 ```
 
@@ -428,7 +431,7 @@ Si tiene una aplicación cliente de .NET que se ejecuta en un contenedor de Dock
 
 ## <a name="running-on-mac-or-linux"></a>Ejecución en Mac o Linux<a id="mac"></a>
 
-Actualmente, el emulador de Cosmos solo se puede ejecutar en Windows. Los usuarios con Mac o Linux pueden ejecutar el emulador en una máquina virtual Windows hospedada por un hipervisor como Parallels o VirtualBox. A continuación se muestran los pasos necesarios para habilitarlo.
+Actualmente, el emulador de Cosmos solo se puede ejecutar en Windows. Los usuarios con Mac o Linux pueden ejecutar el emulador en una máquina virtual Windows hospedada en un hipervisor, como Parallels o VirtualBox. A continuación se muestran los pasos necesarios para habilitarlo.
 
 En la máquina virtual Windows, ejecute el comando siguiente y tome nota de la dirección IPv4.
 
@@ -444,7 +447,36 @@ El paso siguiente, desde dentro de la máquina virtual Windows, inicie el emulad
 Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
 ```
 
-Por último, es necesario importar el certificado de entidad de certificación del emulador en el entorno Linux o Mac.
+Por último, es necesario resolver el proceso de confianza de certificados entre la aplicación que se ejecuta en el entorno Linux o Mac y el emulador. Tenemos dos opciones:
+
+1. Deshabilitar la validación SSL en la aplicación:
+
+# <a name="net-standard-21"></a>[.NET Standard 2.1+](#tab/ssl-netstd21)
+
+   Con cualquier aplicación que se ejecute en un marco compatible con .NET Standard 2.1 o posterior, se puede aprovechar `CosmosClientOptions.HttpClientFactory`:
+
+   [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/HttpClientFactory/Program.cs?name=DisableSSLNETStandard21)]
+
+# <a name="net-standard-20"></a>[.NET Standard 2.0](#tab/ssl-netstd20)
+
+   Con cualquier aplicación que se ejecute en un marco compatible con .NET Standard 2.0, se puede aprovechar `CosmosClientOptions.HttpClientFactory`:
+
+   [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/HttpClientFactory/Program.cs?name=DisableSSLNETStandard20)]
+
+# <a name="nodejs"></a>[Node.js](#tab/ssl-nodejs)
+
+   En el caso de las aplicaciones de Node.js, puede modificar el archivo `package.json` para establecer `NODE_TLS_REJECT_UNAUTHORIZED` al iniciar la aplicación:
+
+   ```json
+   "start": NODE_TLS_REJECT_UNAUTHORIZED=0 node app.js
+   ```
+
+--- 
+
+> [!NOTE]
+> Solo se recomienda deshabilitar la validación SSL con fines de desarrollo, y no debe realizarse cuando se ejecuta en un entorno de producción.
+
+2. Importar el certificado de la entidad de certificación del emulador en el entorno Linux o Mac:
 
 ### <a name="linux"></a>Linux
 
@@ -507,6 +539,8 @@ Use las siguientes sugerencias para solucionar los problemas que podrían surgir
 - Si se produce un problema de conectividad, [recopile los archivos de seguimiento](#trace-files), comprímalos y abra una incidencia de soporte técnico en [Azure Portal](https://portal.azure.com).
 
 - Si recibe un mensaje de **Servicio no disponible**, es posible que el emulador no pueda inicializar la pila de red. Compruebe si tiene instalado el cliente de Pulse Secure o el cliente de Juniper Networks, ya que sus controladores de filtro de red podrían ser la causa del problema. Normalmente el problema se corrige al desinstalar los controladores del filtro de red de otros fabricantes. Como alternativa, puede iniciar el emulador con /DisableRIO, lo cual cambiará la comunicación de red del emulador a una Winsock normal. 
+
+- Si encuentra problemas de conectividad **"Forbidden","message":"Request is being made with a forbidden encryption in transit protocol or cipher. Check account SSL/TLS minimum allowed protocol setting..."** ("Prohibido","mensaje":"La solicitud se realiza con un cifrado prohibido en el protocolo de tránsito o cifrado. Compruebe la configuración del protocolo SSL/TLS mínimo permitido de la cuenta...), esto puede deberse a cambios globales en el sistema operativo (por ejemplo, Insider Preview, compilación 20170) o a la configuración del explorador que habilita TLS 1.3 como valor predeterminado. Podría producirse un error similar al usar el SDK para ejecutar una solicitud en el emulador de Cosmos, como **Microsoft.Azure.Documents.DocumentClientException: Request is being made with a forbidden encryption in transit protocol or cipher. Check account SSL/TLS minimum allowed protocol setting** (La solicitud se realiza con un cifrado prohibido en el protocolo de tránsito o cifrado. Compruebe la configuración del protocolo SSL/TLS mínimo permitido de la cuenta). Esto es esperable en este momento, ya que el emulador de Cosmos solo acepta y funciona con el protocolo TLS 1.2. La solución recomendada es cambiar la configuración y usar de forma predeterminada TLS 1.2; por ejemplo, en el administrador de IIS, vaya a "Sitios"-> "Sitios web predeterminados" y busque "Enlaces de sitios" para el puerto 8081 y edítelo para deshabilitar TLS 1.3. Se puede realizar una operación similar para el explorador web a través de las opciones de "Configuración".
 
 - Mientras se ejecuta el emulador, si el equipo entra en modo de suspensión o se ejecuta alguna actualización del sistema operativo, es posible que aparezca un mensaje del tipo **el servicio no está disponible en estos momentos**. Restablezca el emulador; para ello, haga clic con el botón derecho en el icono que aparece en la bandeja de notificaciones de Windows y seleccione **Reset Data** (Restablecer datos).
 

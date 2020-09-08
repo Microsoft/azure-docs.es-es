@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 223514e8e873d36f8551e18956aafc0a54243990
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cd0ad1553f04a781349a4664fbb408108015632
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85119382"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510290"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Fuente de cambios en Azure Cosmos DB
 
@@ -56,7 +56,7 @@ Si la propiedad TTL (período de vida) se establece en -1 en un elemento, la fue
 
 ### <a name="change-feed-and-_etag-_lsn-or-_ts"></a>Fuente de cambios y _etag, _lsn o _ts
 
-El formato _etag es interno y no debe depender de él, porque puede cambiar en cualquier momento. _ts es una modificación o una marca de tiempo de creación. Puede usar _ts para la comparación cronológica. _lsn es un identificador de lote que se agrega solo para la fuente de cambios y representa el identificador de transacción. Muchos elementos pueden tener el mismo _lsn. ETag en FeedResponse es diferente del formato _etag que se ve en un elemento. _etag es un identificador interno que se usa para el control de simultaneidad e indica la versión del elemento, mientras que ETag se usa para secuenciar la fuente.
+El formato _etag es interno y no debe depender de él, porque puede cambiar en cualquier momento. _ts es una modificación o una marca de tiempo de creación. Puede usar _ts para la comparación cronológica. _lsn es un identificador de lote que se agrega solo para la fuente de cambios y representa el identificador de transacción. Muchos elementos pueden tener el mismo _lsn. ETag en FeedResponse es diferente del formato _etag que se ve en un elemento. _etag es un identificador interno que se usa para el control de simultaneidad. La propiedad _etag informa de la versión del elemento, mientras que la propiedad ETag se usa para secuenciar la fuente.
 
 ## <a name="working-with-change-feed"></a>Trabajo con la fuente de cambios
 

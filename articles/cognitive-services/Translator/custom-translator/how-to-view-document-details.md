@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 05/26/2020
+ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 22c982babbed1322e97127379be75e7b070ed81f
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 87b999069ef9088a731a4e972c5d548cac0b917c
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83994249"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509587"
 ---
 # <a name="view-document-details"></a>Ver detalles del documento
 
@@ -22,7 +22,7 @@ En la página de la lista de documentos se muestran los 10 primeros documentos e
 
 Haga clic en un documento individual para ver la página de detalles del documento. La página de detalles del documento muestra la lista de las oraciones extraídas del documento.
 
-- De forma predeterminada, está seleccionado el idioma de "origen" en el campo con el menú desplegable, pero puede cambiar la selección para ver las oraciones en el idioma de destino.
+- De forma predeterminada, la visualización de los idiomas de origen y destino "en paralelo" se selecciona en el campo desplegable, pero puede cambiar la selección para ver las oraciones en el idioma de origen o destino.
 - Se muestran 20 oraciones por página de forma predeterminada. Puede usar el control de paginación para desplazarse entre las páginas.
 
 ![detalles del documento](media/how-to/how-to-view-document-details.png)
@@ -32,11 +32,11 @@ Haga clic en un documento individual para ver la página de detalles del documen
 El usuario debe ser propietario del área de trabajo para eliminar un documento. Además, si un modelo está usando el documento, ya sea durante el proceso de entrenamiento o durante el proceso de implementación, dicho documento no podrá eliminarse.
 
 1. Vaya a la página del documento
-2.  Mantenga el mouse sobre cualquier registro de documento y haga clic en el icono de papelera.
+2. Mantenga el mouse sobre cualquier registro de documento y haga clic en el icono de papelera.
 
     ![Eliminación de un documento](media/how-to/how-to-delete-document-1.png)
 
-3.  Confirme la eliminación.
+3. Confirme la eliminación.
 
     ![Confirmación de la eliminación](media/how-to/how-to-delete-document-confirm.png)
 

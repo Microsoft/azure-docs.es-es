@@ -6,17 +6,17 @@ manager: barbkess
 ms.topic: troubleshooting
 ms.date: 07/24/2020
 ms.author: ramakoni
-ms.custom: security-recommendations
-ms.openlocfilehash: 5e1f2108c5607917c77330f362952f960e57e03a
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.custom: security-recommendations,fasttrack-edit
+ms.openlocfilehash: 467f7b3525883e16e57a06ff97cf4fd386279d22
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447907"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958242"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Solución de errores intermitentes en la conexión de salida en Azure App Service
 
-Este artículo le ayuda a solucionar errores de conexión intermitentes y problemas de rendimiento relacionados en [Azure App Service](https://docs.microsoft.com/azure/app-service/overview). En este tema se proporciona más información sobre las metodologías y la solución de problemas de agotamiento de los puertos de traducción de red de direcciones (SNAT) de origen. Si necesita más ayuda con cualquier aspecto de este artículo, póngase en contacto con los expertos de Azure en los [foros de MSDN Azure y Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione **Soporte técnico**.
+Este artículo le ayuda a solucionar errores de conexión intermitentes y problemas de rendimiento relacionados en [Azure App Service](./overview.md). En este tema se proporciona más información sobre las metodologías y la solución de problemas de agotamiento de los puertos de traducción de red de direcciones (SNAT) de origen. Si necesita más ayuda con cualquier aspecto de este artículo, póngase en contacto con los expertos de Azure en los [foros de MSDN Azure y Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione **Soporte técnico**.
 
 ## <a name="symptoms"></a>Síntomas
 
@@ -32,23 +32,23 @@ Las aplicaciones y las funciones que se hospedan en Azure App Service pueden pre
 Una causa principal de estos síntomas es que la instancia de la aplicación no puede abrir una conexión nueva con el punto de conexión externo porque ha alcanzado uno de los límites siguientes:
 
 * Conexiones TCP: existe un límite en cuanto al número de conexiones salientes que se pueden realizar. Esto se asocia con el tamaño del trabajo que se usa.
-* Puertos SNAT: como se describe en [Conexiones salientes en Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections), Azure usa la traducción de direcciones de red de origen (SNAT) y el equilibrador de carga (no expuesto a los clientes) para comunicarse con los puntos de conexión externos a Azure en el espacio de direcciones IP públicas. A cada instancia de Azure App Service se le asigna inicialmente un número predefinido de **128** puertos SNAT. Ese límite afecta a la apertura de conexiones a la misma combinación de host y puerto. Si la aplicación crea conexiones a una mezcla de combinaciones de direcciones y puertos, no se usarán los puertos SNAT. Los puertos SNAT se usan cuando hay llamadas repetidas a la misma combinación de dirección y puerto. Una vez que se ha liberado un puerto, está disponible para reutilizarse según sea necesario. El equilibrador de carga de red de Azure solo reclama el puerto SNAT de las conexiones cerradas después de esperar 4 minutos.
+* Puertos SNAT: como se describe en [Conexiones salientes en Azure](../load-balancer/load-balancer-outbound-connections.md), Azure usa la traducción de direcciones de red de origen (SNAT) y el equilibrador de carga (no expuesto a los clientes) para comunicarse con los puntos de conexión externos a Azure en el espacio de direcciones IP públicas. A cada instancia de Azure App Service se le asigna inicialmente un número predefinido de **128** puertos SNAT. Ese límite afecta a la apertura de conexiones a la misma combinación de host y puerto. Si la aplicación crea conexiones a una mezcla de combinaciones de direcciones y puertos, no se usarán los puertos SNAT. Los puertos SNAT se usan cuando hay llamadas repetidas a la misma combinación de dirección y puerto. Una vez que se ha liberado un puerto, está disponible para reutilizarse según sea necesario. El equilibrador de carga de red de Azure solo reclama el puerto SNAT de las conexiones cerradas después de esperar 4 minutos.
 
 Si las aplicaciones o las funciones abren rápidamente una conexión nueva, pueden agotar con rapidez la cuota preasignada de 128 puertos. Después, se bloquean hasta que un nuevo puerto SNAT esté disponible, ya sea a través de la asignación dinámica de puertos SNAT adicionales o mediante la reutilización de un puerto SNAT reclamado. Las aplicaciones o funciones que estén bloqueadas debido a esta imposibilidad de crear conexiones comenzarán a experimentar uno o varios de los problemas descritos en la sección **Síntomas** de este artículo.
 
 ## <a name="avoiding-the-problem"></a>Cómo evitar el problema
 
-Si el destino es un servicio de Azure que admite puntos de conexión de servicio, podrá evitar los problemas de agotamiento de puertos SNAT utilizando la [integración con red virtual regional](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) junto con puntos de conexión privados o de servicio. Cuando se usa la integración con red virtual regional y se colocan puntos de conexión de servicio en la subred de integración, el tráfico que sale de la aplicación hacia esos servicios no tiene restricciones sobre los puertos SNAT de salida. Del mismo modo, si usa la integración con red virtual regional junto con puntos de conexión privados, no tendrá ningún problema con los puertos SNAT de salida en ese destino. 
+Si el destino es un servicio de Azure que admite puntos de conexión de servicio, podrá evitar los problemas de agotamiento de puertos SNAT utilizando la [integración con red virtual regional](./web-sites-integrate-with-vnet.md) junto con puntos de conexión privados o de servicio. Cuando se usa la integración con red virtual regional y se colocan puntos de conexión de servicio en la subred de integración, el tráfico que sale de la aplicación hacia esos servicios no tiene restricciones sobre los puertos SNAT de salida. Del mismo modo, si usa la integración con red virtual regional junto con puntos de conexión privados, no tendrá ningún problema con los puertos SNAT de salida en ese destino. 
 
 Evitar el problema del puerto SNAT se traduce en evitar la creación de conexiones repetidas a los mismos host y puerto.
 
-Las estrategias generales para la mitigación del agotamiento de puertos SNAT se describen en la sección [Solución de problemas](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#problemsolving) de la documentación **Conexiones salientes de Azure**. De estas estrategias, las siguientes se aplican a las funciones y aplicaciones hospedadas en el servicio Azure App Service.
+Las estrategias generales para la mitigación del agotamiento de puertos SNAT se describen en la sección [Solución de problemas](../load-balancer/load-balancer-outbound-connections.md) de la documentación **Conexiones salientes de Azure**. De estas estrategias, las siguientes se aplican a las funciones y aplicaciones hospedadas en el servicio Azure App Service.
 
 ### <a name="modify-the-application-to-use-connection-pooling"></a>Modificación de la aplicación para usar la agrupación de conexiones
 
-* Para agrupar las conexiones HTTP, revise [Agrupación de conexiones HTTP con HttpClientFactory](https://docs.microsoft.com/aspnet/core/performance/performance-best-practices#pool-http-connections-with-httpclientfactory).
-* Para obtener información sobre la agrupación de conexiones de SQL Server, consulte [Agrupación de conexiones de SQL Server (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling).
-* Para implementar la agrupación con aplicaciones de Entity Framework, revise [Agrupación de DbContext](https://docs.microsoft.com/ef/core/what-is-new/ef-core-2.0#dbcontext-pooling).
+* Para agrupar las conexiones HTTP, revise [Agrupación de conexiones HTTP con HttpClientFactory](/aspnet/core/performance/performance-best-practices#pool-http-connections-with-httpclientfactory).
+* Para obtener información sobre la agrupación de conexiones de SQL Server, consulte [Agrupación de conexiones de SQL Server (ADO.NET)](/dotnet/framework/data/adonet/sql-server-connection-pooling).
+* Para implementar la agrupación con aplicaciones de Entity Framework, revise [Agrupación de DbContext](/ef/core/what-is-new/ef-core-2.0#dbcontext-pooling).
 
 Esta es una colección de vínculos para implementar la agrupación de conexiones por otra pila de soluciones.
 
@@ -105,22 +105,22 @@ En el caso de otros entornos, revise la documentación específica del proveedor
 
 ### <a name="modify-the-application-to-reuse-connections"></a>Modificación de la aplicación para reutilizar las conexiones
 
-*  Para obtener más punteros y ejemplos sobre la administración de conexiones en funciones de Azure, revise [Administración de conexiones en Azure Functions](https://docs.microsoft.com/azure/azure-functions/manage-connections).
+*  Para obtener más punteros y ejemplos sobre la administración de conexiones en funciones de Azure, revise [Administración de conexiones en Azure Functions](../azure-functions/manage-connections.md).
 
 ### <a name="modify-the-application-to-use-less-aggressive-retry-logic"></a>Modificación de la aplicación para usar lógica de reintento menos agresiva
 
-* Para obtener instrucciones y ejemplos adicionales, revise [Patrón de reintento](https://docs.microsoft.com/azure/architecture/patterns/retry).
+* Para obtener instrucciones y ejemplos adicionales, revise [Patrón de reintento](/azure/architecture/patterns/retry).
 
 ### <a name="use-keepalives-to-reset-the-outbound-idle-timeout"></a>Uso de conexiones persistentes para restablecer el tiempo de expiración de inactividad saliente
 
-* Para implementar conexiones persistentes para aplicaciones de Node.js, revise [Mi aplicación Node realiza demasiadas llamadas salientes](https://docs.microsoft.com/azure/app-service/app-service-web-nodejs-best-practices-and-troubleshoot-guide#my-node-application-is-making-excessive-outbound-calls).
+* Para implementar conexiones persistentes para aplicaciones de Node.js, revise [Mi aplicación Node realiza demasiadas llamadas salientes](./app-service-web-nodejs-best-practices-and-troubleshoot-guide.md#my-node-application-is-making-excessive-outbound-calls).
 
 ### <a name="additional-guidance-specific-to-app-service"></a>Instrucciones adicionales específicas para App Service:
 
-* Una [prueba de carga](https://docs.microsoft.com/azure/devops/test/load-test/app-service-web-app-performance-test) debe simular datos reales a una velocidad de alimentación estable. La prueba de las aplicaciones y funciones sometidas a esfuerzo real permite identificar y resolver los problemas de agotamiento de puertos SNAT con anterioridad.
-* Asegúrese de que los servicios back-end puedan devolver respuestas con rapidez. Para solucionar problemas de rendimiento de base de datos de Azure SQL Database, revise [Solución de problemas de rendimiento de Azure SQL Database con Intelligent Insights](https://docs.microsoft.com/azure/sql-database/sql-database-intelligent-insights-troubleshoot-performance#recommended-troubleshooting-flow).
-* Escale horizontalmente el plan de App Service a más instancias. Para obtener más información sobre el escalado, consulte [Escalado de una aplicación en Azure App Service](https://docs.microsoft.com/azure/app-service/manage-scale-up). A cada instancia de trabajo de un plan de App Service se le asigna un número de puertos SNAT. Si distribuye el uso entre más instancias, es posible que consiga reducir el uso de puertos SNAT por instancia por debajo del límite recomendado de 100 conexiones salientes, por punto de conexión remoto único.
-* Considere la posibilidad de cambiar a [App Service Environment (ASE)](https://docs.microsoft.com/azure/app-service/environment/using-an-ase), donde se le asigna una sola dirección IP de salida, y los límites de conexiones y puertos SNAT son mucho mayores.
+* Una [prueba de carga](/azure/devops/test/load-test/app-service-web-app-performance-test) debe simular datos reales a una velocidad de alimentación estable. La prueba de las aplicaciones y funciones sometidas a esfuerzo real permite identificar y resolver los problemas de agotamiento de puertos SNAT con anterioridad.
+* Asegúrese de que los servicios back-end puedan devolver respuestas con rapidez. Para solucionar problemas de rendimiento de base de datos de Azure SQL Database, revise [Solución de problemas de rendimiento de Azure SQL Database con Intelligent Insights](../azure-sql/database/intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow).
+* Escale horizontalmente el plan de App Service a más instancias. Para obtener más información sobre el escalado, consulte [Escalado de una aplicación en Azure App Service](./manage-scale-up.md). A cada instancia de trabajo de un plan de App Service se le asigna un número de puertos SNAT. Si distribuye el uso entre más instancias, es posible que consiga reducir el uso de puertos SNAT por instancia por debajo del límite recomendado de 100 conexiones salientes, por punto de conexión remoto único.
+* Considere la posibilidad de cambiar a [App Service Environment (ASE)](./environment/using-an-ase.md), donde se le asigna una sola dirección IP de salida, y los límites de conexiones y puertos SNAT son mucho mayores. En un ASE, el número de puertos SNAT por instancia se basa en la [tabla de asignación previa del equilibrador de carga de Azure](../load-balancer/load-balancer-outbound-connections.md#snatporttable): por ejemplo, un ASE con 1 a 50 instancias de trabajo tiene 1024 puertos preasignados por instancia, mientras que un ASE con 51 a 100 instancias de trabajo tiene 512 puertos preasignados por instancia.
 
 Evitar los límites de TCP salientes es algo más fácil de resolver, ya que los límites se establecen en función del tamaño del trabajo. Puede ver los límites en [Límites numéricos de máquina virtual entre espacios aislados: conexiones TCP](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits).
 
@@ -138,7 +138,7 @@ Si no tiene suficiente información sobre el comportamiento de la aplicación pa
 
 ### <a name="find-snat-port-allocation-information"></a>Búsqueda de información de asignación de puertos SNAT
 
-Puede usar [Diagnósticos de App Service](https://docs.microsoft.com/azure/app-service/overview-diagnostics) para buscar información sobre la asignación de puertos SNAT y observar la métrica de asignación de puertos SNAT de un sitio de App Service. Para buscar información sobre la asignación de puertos SNAT, siga estos pasos:
+Puede usar [Diagnósticos de App Service](./overview-diagnostics.md) para buscar información sobre la asignación de puertos SNAT y observar la métrica de asignación de puertos SNAT de un sitio de App Service. Para buscar información sobre la asignación de puertos SNAT, siga estos pasos:
 
 1. Para acceder al diagnóstico de App Service, vaya a la aplicación web de App Service o a App Service Environment en [Azure Portal](https://portal.azure.com/). En el panel de navegación de la izquierda, seleccione **Diagnosticar y solucionar problemas**.
 2. Seleccione la categoría Disponibilidad y rendimiento.
@@ -168,11 +168,11 @@ Si se agotan los puertos SNAT y los trabajos web no se pueden conectar a SQL Dat
 
 No se puede cambiar la configuración de Azure para liberar los puertos SNAT usados antes, ya que todos los puertos SNAT se liberarán según las condiciones siguientes y el comportamiento es por diseño.
  
-* Si el servidor o el cliente envía FINACK, el [puerto SNAT se liberará](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#tcp-snat-port-release) después de 240 segundos.
+* Si el servidor o el cliente envía FINACK, el [puerto SNAT se liberará](../load-balancer/load-balancer-outbound-connections.md) después de 240 segundos.
 * Si se ve un RST, el puerto SNAT se liberará después de 15 segundos.
 * Si se ha alcanzado del tiempo de expiración, el puerto se libera.
  
 ## <a name="additional-information"></a>Información adicional
 
 * [SNAT con App Service](https://4lowtherabbit.github.io/blogs/2019/10/SNAT/)
-* [Solución de problemas de rendimiento reducido de aplicaciones web en Azure App Service](https://docs.microsoft.com/azure/app-service/troubleshoot-performance-degradation)
+* [Solución de problemas de rendimiento reducido de aplicaciones web en Azure App Service](./troubleshoot-performance-degradation.md)

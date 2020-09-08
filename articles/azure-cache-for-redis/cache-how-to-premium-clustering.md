@@ -6,17 +6,15 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 06/13/2018
-ms.openlocfilehash: 4f200457bd327a6f2ce74794bb28dd16c38e6fdd
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: d37aa275a07586738bf7416cee6611bdc8284df3
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856316"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004773"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>Configuración de la agrupación en clústeres de Redis para una instancia de Azure Cache for Redis de nivel Prémium
 Azure Cache for Redis cuenta con diferentes opciones de caché, lo que proporciona flexibilidad en la elección del tamaño y las características de la memoria caché, incluidas algunas características del nivel Prémium, como la agrupación en clústeres, la persistencia y la compatibilidad con las redes virtuales. En este artículo se describe cómo configurar la agrupación en clústeres en una instancia de Azure Cache for Redis de nivel Prémium.
-
-Para información sobre otras características del nivel Prémium de las cachés, consulte [Introducción al nivel Prémium de Azure Cache for Redis](cache-premium-tier-intro.md).
 
 ## <a name="what-is-redis-cluster"></a>¿Qué es Clúster Redis?
 Azure Cache for Redis ofrece clúster de Redis como [implementado en Redis](https://redis.io/topics/cluster-tutorial). Con el Clúster de Redis, obtendrá las siguientes ventajas: 
@@ -26,7 +24,7 @@ Azure Cache for Redis ofrece clúster de Redis como [implementado en Redis](http
 * Mayor rendimiento: el rendimiento aumenta de manera lineal a medida que aumenta el número de particiones. 
 * Más tamaño de memoria: aumenta de manera lineal a medida que aumenta el número de particiones.  
 
-La agrupación en clústeres no aumenta el número de conexiones disponibles para una caché en clúster. Para más información sobre el tamaño, el rendimiento y el ancho de banda con memorias caché prémium, vea [What Azure Cache for Redis offering and size should I use?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use) (¿Qué oferta y tamaño de Azure Cache for Redis debo utilizar?).
+La agrupación en clústeres no aumenta el número de conexiones disponibles para una caché en clúster. Para obtener más información acerca del tamaño, la transferencia y el ancho de banda de las memorias caché de nivel Premium, consulte [Elección del nivel correcto](cache-overview.md#choosing-the-right-tier).
 
 En Azure, el clúster de Redis se ofrece como un modelo de principal/réplica donde cada partición tiene un par de principal/réplica con la replicación donde la replicación se administra mediante el servicio Azure Cache for Redis. 
 
@@ -91,7 +89,7 @@ La lista siguiente contiene respuestas a las preguntas frecuentes sobre la agrup
   Para obtener más información, consulte [Redis Cluster Specification - Implemented subset](https://redis.io/topics/cluster-spec#implemented-subset)(Especificación de clúster en Redis: subconjunto implementado).
 * Si usa [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/), debe usar la versión 1.0.481 o posterior. Se conecta a la memoria caché con los mismos [puntos de conexión, puertos y claves](cache-configure.md#properties) que usa al conectarse a una memoria caché que no tenga la agrupación en clústeres habilitada. La única diferencia es que se deben realizar todas las lecturas y escrituras en la base de datos 0.
   
-  * Otros clientes pueden tener requisitos diferentes. Vea [¿Todos los clientes de Redis admiten la agrupación en clústeres?](#do-all-redis-clients-support-clustering)
+  Otros clientes pueden tener requisitos diferentes. Vea [¿Todos los clientes de Redis admiten la agrupación en clústeres?](#do-all-redis-clients-support-clustering)
 * Si la aplicación usa varias operaciones de claves por lotes en un solo comando, todas las claves deben estar ubicadas en la misma partición. Para ubicar claves en la misma partición, vea [¿Cómo se distribuyen las claves en un clúster?](#how-are-keys-distributed-in-a-cluster)
 * Si está usando el proveedor de estado de sesión de ASP.NET de Redis, debe usar 2.0.1 o posterior. Consulte [¿Puedo usar la agrupación en clústeres con los proveedores de estado de sesión y de almacenamiento en caché de salida de ASP.NET de Redis?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
 
@@ -156,9 +154,9 @@ La agrupación en clústeres solo está disponible para las memorias cachés pre
 Si utiliza StackExchange.Redis y recibe `MOVE` excepciones al emplear agrupaciones en clústeres, asegúrese de que está utilizando la versión [1.1.603 de StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) o posterior. Para obtener instrucciones sobre cómo configurar las aplicaciones .NET para usar StackExchange.Redis, consulte [Configuración de los clientes de caché](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Obtenga información acerca de cómo usar más características de la memoria caché del nivel Premium.
+Más información sobre las características de Azure Cache for Redis.
 
-* [Introducción al nivel Prémium de Azure Cache for Redis](cache-premium-tier-intro.md)
+* [Niveles de servicio de Azure Cache for Redis Premium](cache-overview.md#service-tiers)
 
 <!-- IMAGES -->
 

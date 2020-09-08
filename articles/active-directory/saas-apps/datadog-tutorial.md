@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Datadog | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Datadog.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: b7845bdd-7bcd-4888-84fd-2551345054ee
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 03/12/2020
+ms.date: 08/13/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7329c042618623806f28aacf5282e1ab6c718c5f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d3bb0ad5305ccba412a403352405711be8f183a2
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79472290"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88555948"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-datadog"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Datadog
 
@@ -59,7 +55,7 @@ Para configurar la integración de Datadog en Azure AD, deberá agregar Datadog
 1. Seleccione **Datadog** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-datadog"></a>Configuración y prueba del inicio de sesión único de Azure AD para Datadog
+## <a name="configure-and-test-azure-ad-sso-for-datadog"></a>Configuración y prueba del inicio de sesión único de Azure AD para Datadog
 
 Configure y pruebe el inicio de sesión único de Azure AD con Datadog mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Datadog.
 
@@ -89,7 +85,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://app.datadoghq.com/account/login/id/<CUSTOM_IDENTIFIER>`
 
     > [!NOTE]
-    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico para clientes de Datadog](mailto:xuefwu@microsoft.com) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico para clientes de Datadog](mailto:support@datadoghq.com) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 1. Haga clic en **Save**(Guardar).
 
@@ -134,11 +130,11 @@ En esta sección, va a permitir que B.Simon acceda a Datadog mediante el inicio 
 
 ## <a name="configure-datadog-sso"></a>Configuración del inicio de sesión único de Datadog
 
-Para configurar el inicio de sesión único en **Datadog**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Datadog](mailto:xuefwu@microsoft.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Datadog**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Datadog](mailto:support@datadoghq.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-datadog-test-user"></a>Creación de un usuario de prueba de Datadog
 
-En esta sección creará un usuario llamado B.Simon en Datadog. Trabaje con el [equipo de soporte técnico de Datadog](mailto:xuefwu@microsoft.com) para agregar los usuarios a la plataforma de Datadog.
+En esta sección creará un usuario llamado B.Simon en Datadog. Trabaje con el [equipo de soporte técnico de Datadog](mailto:support@datadoghq.com) para agregar los usuarios a la plataforma de Datadog.
 
 ## <a name="test-sso"></a>Prueba de SSO 
 

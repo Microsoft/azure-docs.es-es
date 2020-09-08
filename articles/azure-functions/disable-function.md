@@ -3,13 +3,13 @@ title: Deshabilitamiento de funciones en Azure Functions
 description: Aprenda a deshabilitar y a habilitar las funciones de Azure Functions.
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 47fbd446937ea0cfd981cef2d5cdd4759f2583d4
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 761a78f050aa25a62075dd7a53836afb48f89cd7
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497705"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213155"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Deshabilitamiento de funciones en Azure Functions
 
@@ -46,6 +46,21 @@ También puede usar los botones **Habilitar** y **Deshabilitar** de la página d
 
 > [!NOTE]  
 > La funcionalidad de pruebas integrada en el portal omite el valor `Disabled`. Esto significa que una función deshabilitada todavía se ejecuta cuando se inicia desde la ventana **Prueba** en el portal. 
+
+## <a name="localsettingsjson"></a>local.settings.json
+
+Las funciones se pueden deshabilitar de la misma manera cuando se ejecutan localmente. Para deshabilitar una función denominada `HttpExample`, agregue una entrada a la colección de valores del archivo local.settings.json, como se indica a continuación:
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true", 
+    "AzureWebJobs.HttpExample.Disabled": "true"
+  }
+}
+``` 
 
 ## <a name="other-methods"></a>Otros métodos
 

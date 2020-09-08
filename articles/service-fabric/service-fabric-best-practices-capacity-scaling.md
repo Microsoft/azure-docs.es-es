@@ -5,12 +5,13 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 09c56646ffa9bcadcec821bcd83411077d6a55ae
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e6b6cebfd146ffe23bdc21751f86c71d14ea875e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87824603"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002256"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Escalado y planeamiento de capacidad de Azure Service Fabric
 

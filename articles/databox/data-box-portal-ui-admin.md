@@ -1,6 +1,6 @@
 ---
 title: Guía de administración del portal de Azure Data Box Disk | Microsoft Docs
-description: Describe cómo usar Azure Portal para administrar Azure Data Box.
+description: Obtenga información sobre cómo administrar Data Box Disk mediante Azure Portal. Administre pedidos, administre discos y realice un seguimiento del estado de un pedido durante su progreso.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 01e3ed9f94b575aae4ce0ed12eb63e3cf40d99ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a4ac56a4d588071f599f62e6de94d9ec7367a1ae
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707742"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924760"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Uso de Azure Portal para administrar Data Box Disk
 

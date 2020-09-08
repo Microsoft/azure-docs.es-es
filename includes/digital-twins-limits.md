@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: 3035bd71a91f7cad6fb951d74081b77d8445a81f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 22b00b41c7fce0af57fd9f92b0f42bbd9412afda
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133908"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87771037"
 ---
 ### <a name="functional-limits"></a>Límites funcionales
 
@@ -20,6 +20,8 @@ En la tabla siguiente se enumeran los límites funcionales de Azure Digital Twin
 | --- | --- | --- | --- |
 | Recurso de Azure | Número de instancias de Azure Digital Twins en una región por suscripción | 10 | Sí |
 | Gemelos digitales | Número de gemelos de una instancia de Azure Digital Twins | 200 000 | Sí |
+| Gemelos digitales | Número de relaciones entrantes en un solo gemelo | 5\.000 | No |
+| Gemelos digitales | Número de relaciones de salida de un solo gemelo | 5\.000 | No |
 | Enrutamiento | Número de puntos de conexión de una instancia de Azure Digital Twins | 6 | No |
 | Enrutamiento | Número de rutas de una instancia de Azure Digital Twins | 6 | Sí |
 | Modelos | Número de modelos de una instancia de Azure Digital Twins | 10 000 | Sí |
@@ -29,7 +31,7 @@ En la tabla siguiente se enumeran los límites funcionales de Azure Digital Twin
 | Consultar | Número de expresiones `AND` / `OR` de una consulta | 50 | Sí |
 | Consultar | Número de elementos de matriz de una cláusula `IN` / `NOT IN` | 50 | Sí |
 | Consultar | Número de caracteres de una consulta | 8,000 | Sí |
-| Consultar | Número de `JOINS` de una consulta | 1 | Sí |
+| Consultar | Número de `JOINS` de una consulta | 5 | Sí |
 
 ### <a name="rate-limits"></a>Límites de frecuencia
 

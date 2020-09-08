@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/12/2020
-ms.openlocfilehash: 0fd391bfb7ed8944866b80acb31d76ea43c77912
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 329d3208037548bd1cb5a5564a4a393747ed48f0
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986395"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017284"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Solucione con Intelligent Insights los problemas de rendimiento de Azure SQL Database e Instancia administrada de Azure SQL.
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -168,7 +168,7 @@ Dado que Pagelatch es un mecanismo de control interno, se determina automáticam
 
 Un método para controlar la contención de bloqueos temporales es reemplazar una clave de índice secuencial por una clave no secuencial a fin de distribuir uniformemente las inserciones en un intervalo de índices. Normalmente, una columna inicial en el índice distribuye la carga de trabajo de manera proporcional. Otro método que se debe tener en cuenta es la creación de particiones de tablas. La creación de un esquema de creación de particiones por hash con una columna calculada en una tabla con particiones es un enfoque común para mitigar la contención de bloqueos temporales excesivos. En el caso de la contención de E/S de PAGELATCH, la introducción de índices ayuda a mitigar este problema de rendimiento.
 
-Para más información, consulte [Diagnosing and Resolving Latch Contention on SQL Server](https://download.microsoft.com/download/B/9/E/B9EDF2CD-1DBF-4954-B81E-82522880A2DC/SQLServerLatchContention.pdf) (Diagnóstico y resolución de la contención de bloqueo temporal en SQL Server) (descarga de PDF).
+Para más información, consulte [Diagnosing and Resolving Latch Contention on SQL Server](http://databaser.net/moniwiki/pds/PerformanceTuning/SQLServerLatchContention.pdf) (Diagnóstico y resolución de la contención de bloqueo temporal en SQL Server) (descarga de PDF).
 
 ## <a name="missing-index"></a>Carencia de un índice
 

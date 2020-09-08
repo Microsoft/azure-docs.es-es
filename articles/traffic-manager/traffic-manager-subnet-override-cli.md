@@ -3,17 +3,17 @@ title: Invalidación de la subred de Azure Traffic Manager mediante la CLI de 
 description: Este artículo lo ayudará a entender cómo la invalidación de la subred de Traffic Manager se puede usar para reemplazar el método de enrutamiento de un perfil de Traffic Manager para dirigir el tráfico a un punto de conexión en función de la dirección IP del usuario final a través de un intervalo IP predefinido a las asignaciones de punto de conexión.
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 ms.topic: how-to
 ms.service: traffic-manager
 ms.date: 09/18/2019
-ms.author: rohink
-ms.openlocfilehash: 33fdc2875d8d766f212301ddfecf9dbb734b876a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: b66f1f0061f697349afae21f5f9c63a4089c2794
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689731"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401714"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-cli"></a>Invalidación de la subred de Traffic Manager mediante la CLI de Azure
 

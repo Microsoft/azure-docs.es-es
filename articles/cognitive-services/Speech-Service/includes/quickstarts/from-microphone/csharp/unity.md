@@ -6,15 +6,16 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
+ms.custom: devx-track-csharp
 ms.topic: include
 ms.date: 04/02/2020
 ms.author: erhopf
-ms.openlocfilehash: 951ae2c48bcdd92f640a37ddbb6430ca62a3b816
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 8307cfee90fdf65d119bbc1e55eabb0533a4a6ad
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81274879"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926468"
 ---
 > [!NOTE]
 > El SDK de Voz para Unity es compatible con Windows Desktop (x86 y x64) o con la Plataforma universal de Windows (x86, x64, ARM o ARM64), Android (x86, ARM32/64) e iOS (simulador de x64, ARM32 y ARM64)
@@ -89,7 +90,7 @@ Para agregar el código de script de muestra para el proyecto de Unity, siga est
 
 1. Busque la cadena `YourSubscriptionKey` y reemplácela por su clave de suscripción del servicio de voz.
 
-1. Busque y reemplace la cadena `YourServiceRegion` por el **identificador de región** de la [región](https://aka.ms/speech/sdkregion) asociada a su suscripción. Por ejemplo, si usa la evaluación gratuita, la región es `westus`.
+1. Busque y reemplace la cadena `YourServiceRegion` por el **identificador de región** de la [región](https://aka.ms/speech/sdkregion) asociada a su suscripción.
 
 1. Guarde los cambios en el script.
 

@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bf19123888dd26073016131c93047b0cd0afaf4
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 216cff03ac6ce64dee9aae1e9daa4a86385eeb0e
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145769"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783338"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Solución de problemas de la administración de derechos de Azure AD
 
@@ -45,9 +45,9 @@ En este artículo se describen algunos elementos que debe comprobar que le ayuda
 
 * Si hay usuarios que ya se han asignado a un recurso que desee administrar con un paquete de acceso, asegúrese de que los usuarios están asignados al paquete de acceso con una directiva adecuada. Por ejemplo, puede incluir un grupo en un paquete de acceso que ya tenga usuarios en el grupo. Si esos usuarios del grupo requieren acceso continuado, deben tener una directiva adecuada para los paquetes de acceso, de manera que no se queden sin acceso de grupo. Para asignar el paquete de acceso, puede pedir a los usuarios que soliciten el paquete de acceso que contiene el recurso o asignárselo directamente. Para más información, consulte [Modificación de la configuración de solicitudes y aprobación de un paquete de acceso](entitlement-management-access-package-request-policy.md).
 
-* Cuando se quita un miembro de un equipo, también se quita del grupo de Microsoft 365. Puede pasar algún tiempo hasta que se elimine la funcionalidad de chat del equipo. Para más información, consulte [Pertenencia a grupos](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership).
+* Cuando se quita un miembro de un equipo, también se quita del grupo de Microsoft 365. Puede pasar algún tiempo hasta que se elimine la funcionalidad de chat del equipo. Para más información, consulte [Pertenencia a grupos](/microsoftteams/office-365-groups#group-membership).
 
-* Asegúrese de que el directorio no esté configurado para ubicaciones multigeográficas. La administración de derechos no admite actualmente ubicaciones multigeográficas en SharePoint Online. Los sitios de SharePoint Online deben estar en la ubicación geográfica predeterminada para regirse por la administración de derechos. Para más información, consulte [Capacidades multigeográficas de OneDrive y SharePoint Online](https://docs.microsoft.com/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
+* Asegúrese de que el directorio no esté configurado para ubicaciones multigeográficas. La administración de derechos no admite actualmente ubicaciones multigeográficas en SharePoint Online. Los sitios de SharePoint Online deben estar en la ubicación geográfica predeterminada para regirse por la administración de derechos. Para más información, consulte [Capacidades multigeográficas de OneDrive y SharePoint Online](/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
 
 ## <a name="access-packages"></a>Paquetes de acceso
 
@@ -69,7 +69,7 @@ En este artículo se describen algunos elementos que debe comprobar que le ayuda
 
 * Cuando un usuario que aún no está en el directorio inicia sesión en el portal Mi acceso para solicitar un paquete de acceso, asegúrese de que se autentique con su cuenta profesional. La cuenta profesional puede ser una cuenta del directorio de recursos o de un directorio incluido en una de las directivas del paquete de acceso. Si la cuenta de usuario no es una cuenta profesional o si el directorio donde se autentica no está incluido en la directiva, el usuario no verá el paquete de acceso. Para más información, consulte [Solicitud de acceso a un paquete acceso](entitlement-management-request-access.md).
 
-* Si un usuario tiene un bloqueo de inicio de sesión al directorio de recursos, no podrá acceder a la solicitud de acceso del portal Mi acceso. Para que pueda solicitar el acceso, debe eliminar el bloqueo de inicio de sesión de su perfil. Para quitar el bloqueo de inicio de sesión en Azure Portal, haga clic en **Azure Active Directory**, en **Usuarios**, en el usuario y, finalmente, en **Perfil**. Edite la sección **Configuración** y cambie **Bloquear inicio de sesión** a **No**. Para más información, consulte [Incorporación o actualización de la información de perfil de un usuario mediante Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md).  También puede comprobar si el usuario se bloqueó debido a una [directiva de protección de identidad](../identity-protection/howto-unblock-user.md).
+* Si un usuario tiene un bloqueo de inicio de sesión al directorio de recursos, no podrá acceder a la solicitud de acceso del portal Mi acceso. Para que pueda solicitar el acceso, debe eliminar el bloqueo de inicio de sesión de su perfil. Para quitar el bloqueo de inicio de sesión en Azure Portal, haga clic en **Azure Active Directory**, en **Usuarios**, en el usuario y, finalmente, en **Perfil**. Edite la sección **Configuración** y cambie **Bloquear inicio de sesión** a **No**. Para más información, consulte [Incorporación o actualización de la información de perfil de un usuario mediante Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md).  También puede comprobar si el usuario se bloqueó debido a una [directiva de protección de identidad](../identity-protection/howto-identity-protection-remediate-unblock.md).
 
 * En el portal Mi acceso, si un usuario es tanto solicitante como aprobador, no verá su solicitud para un paquete de acceso en la página **Aprobaciones**. Este comportamiento es deliberado: un usuario no puede aprobar sus propias solicitudes. Asegúrese de que el paquete de acceso que solicita tiene otros aprobadores configurados en la directiva. Para más información, consulte [Modificación de la configuración de solicitudes y aprobación de un paquete de acceso](entitlement-management-access-package-request-policy.md).
 

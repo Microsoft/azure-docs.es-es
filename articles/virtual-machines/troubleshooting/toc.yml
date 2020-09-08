@@ -99,10 +99,16 @@
           href: troubleshoot-guide-windows-boot-manager-menu.md
         - name: La máquina virtual no responde debido a una actualización
           href: unresponsive-vm-apply-windows-update.md
+        - name: La máquina virtual no responde durante la aplicación de la directiva de configuración de auditorías
+          href: vm-unresponsive-applying-audit-configuration-policy.md
         - name: La máquina virtual no responde al aplicar una directiva de grupo
           href: unresponsive-vm-apply-group-policy.md
         - name: La máquina virtual no responde al aplicar una directiva de seguridad
           href: unresponsive-vm-apply-security-policy.md
+        - name: 'Error del administrador de arranque de Windows: hash de imagen en estado no válido'
+          href: windows-boot-error-invalid-image-hash.md
+        - name: 'Error de detención de Windows: la información de configuración del sistema no es correcta'
+          href: windows-stop-error-bad-system-config-info.md
         - name: 'Error de detención de Windows: estado, Sin memoria'
           href: troubleshoot-windows-stop-error.md
 - name: No puedo conectarme a mi máquina virtual.
@@ -180,22 +186,22 @@
           items:
             - name: PowerShell
               href: troubleshoot-recovery-disks-windows.md
-            - name: Azure portal
+            - name: Azure Portal
               href: troubleshoot-recovery-disks-portal-windows.md
         - name: Linux
           items:
             - name: CLI
               href: troubleshoot-recovery-disks-linux.md
-            - name: Azure portal
+            - name: Azure Portal
               href: troubleshoot-recovery-disks-portal-linux.md
         - name: Se cambian los nombres de dispositivos
           href: troubleshoot-device-names-problems.md
 - name: Problemas de administración de discos virtuales
   items:
     - name: Información general
-      href: ../windows/managed-disks-overview.md
+      href: ../managed-disks-overview.md
     - name: Preguntas más frecuentes
-      href: ../windows/faq-for-disks.md
+      href: ../faq-for-disks.md
     - name: Errores al eliminar los recursos de almacenamiento
       href: storage-resource-deletion-errors.md
     - name: Errores al eliminar recursos de almacenamiento clásicos
@@ -232,6 +238,8 @@
       href: ../extensions/troubleshoot.md
     - name: Instalación del agente de máquina virtual Windows sin conexión
       href: install-vm-agent-offline.md
+    - name: Solución de problemas del agente de máquina virtual de Windows
+      href: windows-azure-guest-agent.md
 - name: Copia de seguridad y restauración
   items:
     - name: Solución de errores de copia de seguridad en máquinas virtuales de Azure

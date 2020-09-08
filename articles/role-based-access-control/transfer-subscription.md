@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/01/2020
+ms.date: 08/31/2020
 ms.author: rolyon
-ms.openlocfilehash: 664687d096a3a9c6ce9a6c7de0025604e046b0a1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ab004c11b46428c5fad28177b0d94edc04b95654
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029984"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400551"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Transferencia de una suscripción de Azure a otro directorio de Azure AD (versión preliminar)
 
@@ -28,18 +28,21 @@ Las organizaciones pueden tener varias suscripciones de Azure. Cada suscripción
 
 En este artículo se describen los pasos básicos que puede seguir para transferir una suscripción a otro directorio de Azure AD diferente y volver a crear algunos recursos después de la transferencia.
 
+> [!NOTE]
+> En el caso de las suscripciones de proveedores de servicios en la nube (CSP) de Azure, no se admite el cambio del directorio de Azure AD de la suscripción.
+
 ## <a name="overview"></a>Información general
 
 La transferencia de una suscripción de Azure a otro directorio de Azure AD es un proceso complejo que debe planearse y ejecutarse atentamente. Muchos servicios de Azure requieren entidades de seguridad (identidades) para funcionar con normalidad o incluso administrar otros recursos de Azure. En este artículo se intenta abarcar la mayoría de los servicios de Azure que dependen en gran medida de las entidades de seguridad, pero no es completo.
 
 > [!IMPORTANT]
-> La transferencia de una suscripción requiere un tiempo de inactividad para completar el proceso.
+> En algunos escenarios, la transferencia de una suscripción puede requerir tiempo de inactividad para completar el proceso. Se requiere una planeación cuidadosa para evaluar si se requerirá tiempo de inactividad para la transferencia.
 
 En el diagrama siguiente se muestran los pasos básicos que debe seguir al transferir una suscripción a otro directorio.
 
 1. Preparación de la transferencia
 
-1. Transferencia de la propiedad de facturación de una suscripción de Azure a otra cuenta
+1. Transferencia de una suscripción de Azure a un directorio diferente
 
 1. Nueva creación de recursos en el directorio de destino, como asignaciones de roles, roles personalizados e identidades administradas
 
@@ -70,10 +73,10 @@ Varios recursos de Azure tienen una dependencia de una suscripción o un directo
 | Roles personalizados | Sí | Sí | [Lista de roles personalizados](#save-custom-roles) | Todos los roles personalizados se eliminan de forma permanente. Debe volver a crear los roles personalizados y las asignaciones de roles. |
 | Identidades administradas asignadas por el sistema | Sí | Sí | [Lista de identidades administradas](#list-role-assignments-for-managed-identities) | Debe deshabilitar y volver a habilitar las identidades administradas. Debe volver a crear asignaciones de roles. |
 | Identidades administradas asignadas por el usuario | Sí | Sí | [Lista de identidades administradas](#list-role-assignments-for-managed-identities) | Debe eliminar, volver a crear y adjuntar las identidades administradas al recurso adecuado. Debe volver a crear asignaciones de roles. |
-| Azure Key Vault | Sí | Sí | [Lista de directivas de acceso de Key Vault](#list-other-known-resources) | Debe actualizar el identificador de inquilino asociado con los almacenes de claves. Debe quitar y agregar nuevas directivas de acceso. |
-| Instancias de Azure SQL Database con autenticación de Azure AD | Sí | No | [Consulta de instancias de Azure SQL Database con autenticación de Azure AD](#list-other-known-resources) |  |  |
+| Azure Key Vault | Sí | Sí | [Lista de directivas de acceso de Key Vault](#list-key-vaults) | Debe actualizar el identificador de inquilino asociado con los almacenes de claves. Debe quitar y agregar nuevas directivas de acceso. |
+| Instancias de Azure SQL Database con integración de la autenticación de Azure AD habilitada | Sí | No | [Consulta de instancias de Azure SQL Database con autenticación de Azure AD](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
 | Azure Storage y Azure Data Lake Storage Gen2 | Sí | Sí |  | Debe volver a crear las ACL. |
-| Azure Data Lake Storage Gen1 | Sí |  |  | Debe volver a crear las ACL. |
+| Azure Data Lake Storage Gen1 | Sí | Sí |  | Debe volver a crear las ACL. |
 | Azure Files | Sí | Sí |  | Debe volver a crear las ACL. |
 | Azure File Sync | Sí | Sí |  |  |
 | Azure Managed Disks | Sí | N/D |  |  |
@@ -81,7 +84,8 @@ Varios recursos de Azure tienen una dependencia de una suscripción o un directo
 | Azure Active Directory Domain Services | Sí | No |  |  |
 | Registros de aplicaciones | Sí | Sí |  |  |
 
-Si usa el cifrado en reposo para un recurso, como una cuenta de almacenamiento o una base de datos SQL, que tiene una dependencia de un almacén de claves que NO está en la misma suscripción que se transfiere, puede provocar un escenario irrecuperable. Si tiene esta situación, debe seguir los pasos necesarios para usar un almacén de claves diferente o deshabilitar temporalmente las claves administradas por el cliente para evitar este escenario irrecuperable.
+> [!WARNING]
+> Si usa el cifrado en reposo para un recurso, como una cuenta de almacenamiento o una base de datos SQL, que tiene una dependencia de un almacén de claves que **no** está en la misma suscripción que se transfiere, puede provocar un escenario irrecuperable. Si tiene esta situación, debe seguir los pasos necesarios para usar un almacén de claves diferente o deshabilitar temporalmente las claves administradas por el cliente para evitar este escenario irrecuperable.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -218,9 +222,9 @@ Las identidades administradas no se actualizan cuando una suscripción se transf
 Cuando se crea un almacén de claves, se asocia automáticamente a un identificador de inquilino de Azure Active Directory para la suscripción en la que ha sido creado. Las entradas de la directiva de acceso también se asocian con este identificador de inquilino. Para obtener más información, consulte [Traslado de Azure Key Vault a otra suscripción](../key-vault/general/move-subscription.md).
 
 > [!WARNING]
-> Si usa el cifrado en reposo para un recurso, como una cuenta de almacenamiento o una base de datos SQL, que tiene una dependencia de un almacén de claves que NO está en la misma suscripción que se transfiere, puede provocar un escenario irrecuperable. Si tiene esta situación, debe seguir los pasos necesarios para usar un almacén de claves diferente o deshabilitar temporalmente las claves administradas por el cliente para evitar este escenario irrecuperable.
+> Si usa el cifrado en reposo para un recurso, como una cuenta de almacenamiento o una base de datos SQL, que tiene una dependencia de un almacén de claves que **no** está en la misma suscripción que se transfiere, puede provocar un escenario irrecuperable. Si tiene esta situación, debe seguir los pasos necesarios para usar un almacén de claves diferente o deshabilitar temporalmente las claves administradas por el cliente para evitar este escenario irrecuperable.
 
-- Si tiene un almacén de claves, use [az keyvault show](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-show) para mostrar las directivas de acceso. Para más información, consulte [Autenticación en Key Vault con una directiva de control de acceso](../key-vault/key-vault-group-permissions-for-apps.md).
+- Si tiene un almacén de claves, use [az keyvault show](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-show) para mostrar las directivas de acceso. Para más información, consulte [Asignación de una directiva de acceso de Key Vault](../key-vault/general/assign-access-policy-cli.md).
 
     ```azurecli
     az keyvault show --name MyKeyVault
@@ -228,7 +232,7 @@ Cuando se crea un almacén de claves, se asocia automáticamente a un identifica
 
 ### <a name="list-azure-sql-databases-with-azure-ad-authentication"></a>Lista de instancias de Azure SQL Database con autenticación de Azure AD
 
-- Use [az sql server ad-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) y la extensión [az graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) para ver si está usando instancias de Azure SQL Database con autenticación de Azure AD. Para obtener más información, consulte [Configuración y administración de la autenticación de Azure Active Directory con SQL](../sql-database/sql-database-aad-authentication-configure.md).
+- Use [az sql server ad-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) y la extensión [az graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) para ver si está usando instancias de Azure SQL Database con integración de la autenticación de Azure AD habilitada. Para obtener más información, consulte [Configuración y administración de la autenticación de Azure Active Directory con SQL](../azure-sql/database/authentication-aad-configure.md).
 
     ```azurecli
     az sql server ad-admin list --ids $(az graph query -q 'resources | where type == "microsoft.sql/servers" | project id' -o tsv | cut -f1)
@@ -258,16 +262,21 @@ Cuando se crea un almacén de claves, se asocia automáticamente a un identifica
     --subscriptions $subscriptionId --output table
     ```
 
-## <a name="step-2-transfer-billing-ownership"></a>Paso 2: Transferencia de la propiedad de facturación
+## <a name="step-2-transfer-the-subscription"></a>Paso 2: Transferencia de la suscripción
 
-En este paso, transferirá la propiedad de facturación de la suscripción del directorio de origen al de destino.
+En este paso, transferirá la suscripción del directorio de origen al de destino. Los pasos serán diferentes en función de si desea transferir también la propiedad de la facturación.
 
 > [!WARNING]
-> Al transferir la propiedad de facturación de la suscripción, todas las asignaciones de roles del directorio de origen se eliminan **permanentemente** y no se pueden restaurar. No puede volver atrás una vez transferida la propiedad de facturación de la suscripción. Asegúrese de completar los pasos anteriores antes de realizar este paso.
+> Al transferir la suscripción, todas las asignaciones de roles del directorio de origen se eliminan **permanentemente** y no se pueden restaurar. No puede volver atrás una vez transferida la suscripción. Asegúrese de completar los pasos anteriores antes de realizar este paso.
 
-1. Siga los pasos del artículo [Transferencia de la propiedad de facturación de una suscripción de Azure a otra cuenta](../cost-management-billing/manage/billing-subscription-transfer.md). Para transferir la suscripción a otro directorio de Azure AD, debe activar la casilla **Inquilino de la suscripción de Azure AD**.
+1. Determine si desea transferir también la propiedad de facturación a otra cuenta.
 
-1. Una vez que haya finalizado la transferencia de la propiedad, vuelva a este artículo para volver a crear los recursos en el directorio de destino.
+1. Transfiera la suscripción a un directorio diferente.
+
+    - Si quiere mantener la propiedad de facturación actual, siga los pasos de [Asociación o incorporación de una suscripción de Azure al inquilino de Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+    - Si también quiere transferir la propiedad de facturación, siga los pasos de [Transferencia de la propiedad de facturación de una suscripción de Azure a otra cuenta](../cost-management-billing/manage/billing-subscription-transfer.md). Para transferir la suscripción a otro directorio, debe activar la casilla **Inquilino de la suscripción de Azure AD**.
+
+1. Una vez que haya finalizado la transferencia de la suscripción, regrese a este artículo para volver a crear los recursos en el directorio de destino.
 
 ## <a name="step-3-re-create-resources"></a>Paso 3: Volver a crear los recursos
 

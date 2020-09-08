@@ -1,18 +1,18 @@
 ---
 title: 'Azure VPN Gateway: opciones de configuración'
-description: Obtenga información sobre la configuración de VPN Gateway para las puertas de enlace de red virtual de Azure.
+description: Obtenga información sobre los recursos de VPN Gateway y sobre la configuración de una red virtual creada en el modelo de implementación de Resource Manager.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: d7a2040748d170b4e536df59947ea811f149d931
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f801b94a16ae6fcee6896dd70510469c5e20098
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708151"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036919"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Acerca de la configuración de VPN Gateway
 

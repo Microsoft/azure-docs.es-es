@@ -4,25 +4,27 @@ titleSuffix: Azure Media Services
 description: Obtenga información sobre la protección de contenido con cifrado dinámico, protocolos de streaming y tipos de cifrado en Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/17/2020
-ms.author: juliako
-ms.custom: seodec18
-ms.openlocfilehash: 0be481d90562ca611b021e2f05d9109eb51958c8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: d0f040961bfb72082f8c5accb86999d489a93de5
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023269"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401391"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Protección del contenido mediante el cifrado dinámico de Media Services
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Use Azure Media Services para proteger su contenido multimedia desde el momento en que este deja el equipo hasta el almacenamiento, el procesamiento y la entrega. Con Media Services puede entregar el contenido cifrado de forma dinámica en vivo y a petición con el Estándar de cifrado avanzado (AES-128) o cualquiera de los tres sistemas de administración de derechos digitales (DRM) principales: Microsoft PlayReady, Google Widevine y Apple FairPlay. Media Services también proporciona un servicio para entregar claves AES y licencias de DMR (PlayReady, Widevine y FairPlay) a los clientes autorizados. Si el contenido está cifrado con una clave sin cifrado AES y se envía a través de HTTPS, no será claro hasta que llegue al cliente. 
 
@@ -154,6 +156,10 @@ El protocolo Smooth Streaming admite los siguientes formatos de contenedor y esq
 |---|---|---|
 |fMP4|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=cbc)`|
 |fMP4 | CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=cenc)`|
+|fMP4 | PIFF 1.1 (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=piff)`|
+
+> [!NOTE]
+> La compatibilidad con PIFF 1.1 se proporciona como una solución compatible con versiones anteriores de televisores inteligentes (Samsung y LG) que implementó la versión "Silverlight" anterior de Common Encryption. Se recomienda usar solo el formato PIFF cuando sea necesario para la compatibilidad con los televisores inteligentes Samsung o LG heredados vendidos entre 2009 y 2015 compatibles con la versión PIFF 1.1 del cifrado de PlayReady. 
 
 ### <a name="browsers"></a>Exploradores
 
@@ -197,7 +203,7 @@ La característica de *prevención de reproducción de tokens* permite a los cli
 
 ## <a name="using-a-custom-sts"></a>Uso de un STS personalizado
 
-Un cliente puede optar por usar un servicio de token de seguridad personalizado para proporcionar tokens. Los motivos incluyen los siguientes:
+Un cliente puede optar por usar un servicio de token de seguridad personalizado para proporcionar tokens. Entre los motivos se incluyen:
 
 * El proveedor de identidades (IDP) utilizado por el cliente no admite STS. En este caso, un servicio de token de seguridad personalizado podría ser una opción.
 * El cliente puede necesitar un control más flexible o más estricto para integrar el servicio de token de seguridad con el sistema de facturación de los suscriptores del cliente.

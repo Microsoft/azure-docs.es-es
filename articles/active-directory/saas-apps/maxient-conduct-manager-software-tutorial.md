@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Maxient Conduct Manager Software | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Maxient Conduct Manager Software.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 85e71b76-cac3-4ce6-a35f-796d2cb7bdb5
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/18/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09399f59e61ded49fef5a2388900b7b478111119
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: dd6872fd8dca3f29b61c6f1dffb5f219abac5cb8
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847232"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88518905"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-maxient-conduct-manager-software"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Maxient Conduct Manager Software
 
@@ -113,7 +108,7 @@ En esta sección, proporcionará acceso para que todas las cuentas se autentique
 
 ## <a name="test-with-maxient"></a>Prueba con Maxient 
 
-Si aún no se ha abierto una incidencia de soporte técnico con un representante de soporte técnico o implementación de Maxient, envíe un correo electrónico a [support@maxient.com](mailto:support@maxient.com) con el asunto "Campus Based Authentication/Azure Setup - \<\<nombre de la escuela\>\>". En el cuerpo del correo electrónico, proporcione la **dirección URL de metadatos de federación de aplicación**. El personal de Maxient responderá con un vínculo de prueba para comprobar que se están lanzando los atributos adecuados.  
+Si aún no se ha abierto una incidencia de soporte técnico con un representante de soporte técnico o implementación de Maxient, envíe un correo electrónico a [support@maxient.com](mailto:support@maxient.com) con el asunto "Campus Based Authentication/Azure Setup - \<\<School Name\>\>". En el cuerpo del correo electrónico, proporcione la **dirección URL de metadatos de federación de aplicación**. El personal de Maxient responderá con un vínculo de prueba para comprobar que se están lanzando los atributos adecuados.  
     
 ## <a name="additional-resources"></a>Recursos adicionales
 

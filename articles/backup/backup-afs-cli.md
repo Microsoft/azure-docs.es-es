@@ -1,22 +1,22 @@
 ---
 title: Copia de seguridad de recursos compartidos de archivos de Azure con la CLI de Azure
-description: Aprenda a usar la CLI de Azure para realizar copias de seguridad de recursos compartidos de archivos de Azure en el almacén de Recovery Services
+description: Aprenda a utilizar la CLI de Azure para hacer copias de seguridad de recursos compartidos de archivos de Azure en el almacén de Recovery Services.
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: 273c8fadc25ed60ba9fb57ec69bda0b59f155f87
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9afd1e866c85770a8797493c3f89e531e2ef72fc
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514448"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763267"
 ---
 # <a name="back-up-azure-file-shares-with-cli"></a>Copia de seguridad de recursos compartidos de archivos de Azure con la CLI
 
 La interfaz de la línea de comandos (CLI) de Azure ofrece una experiencia de línea de comandos para administrar los recursos de Azure. Es una herramienta excelente para personalizar la automatización del uso de los recursos de Azure. En este artículo se detalla cómo realizar una copia de seguridad de los recursos compartidos de archivos de Azure con la CLI de Azure. Estos pasos también se pueden llevar a cabo con [Azure PowerShell](./backup-azure-afs-automation.md) o en [Azure Portal](backup-afs.md).
 
-Al acabar este tutorial, habrá aprendido cómo realizar las siguientes operaciones con la CLI de Azure:
+Al final de este tutorial, habrá aprendido a realizar las siguientes operaciones mediante la CLI de Azure:
 
-* Creación de un almacén de Servicios de recuperación
+* Creación de un almacén de Recovery Services
 * Habilitación de la copia de seguridad de los recursos compartidos de archivos de Azure
 * Desencadenamiento de una copia de seguridad a petición para recursos compartidos de archivos
 
@@ -26,9 +26,9 @@ Para instalar y usar la CLI localmente, debe ejecutar la versión 2.0.18 de la C
 
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
 
-Un almacén de Recovery Services es una entidad que proporciona una funcionalidad de administración y vista consolidada en todos los elementos de copia de seguridad. Cuando se ejecuta el trabajo de copia de seguridad para un recurso protegido, crea un punto de recuperación en el almacén de Recovery Services. Posteriormente, se puede usar uno de estos puntos de recuperación para restaurar los datos a un momento dado en el tiempo.
+Un almacén de Recovery Services es una entidad que proporciona funcionalidad de administración y una vista consolidada de todos los elementos de copia de seguridad. Cuando se ejecuta el trabajo de copia de seguridad para un recurso protegido, crea un punto de recuperación en el almacén de Recovery Services. Posteriormente, se puede usar uno de estos puntos de recuperación para restaurar los datos a un momento dado en el tiempo.
 
-Siga estos pasos para crear un almacén de Recovery Services.
+Siga estos pasos para crear un almacén de Recovery Services:
 
 1. Un almacén se coloca en un grupo de recursos. Si no tiene un grupo de recursos, cree uno con [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create). En este tutorial, se creará el nuevo grupo de recursos *azurefiles* en la región Este de EE. UU.
 
@@ -44,7 +44,7 @@ Siga estos pasos para crear un almacén de Recovery Services.
 
 1. Use el cmdlet [az backup vault create](/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-create) para crear el almacén. Especifique para el almacén la misma ubicación del grupo de recursos.
 
-    En el ejemplo siguiente se crea un almacén de Recovery Services denominado *azurefilesvault* en la región Este de EE. UU.
+    En el ejemplo siguiente se crea un almacén de Recovery Services denominado *azurefilesvault* en la región del este de EE. UU.
 
     ```azurecli-interactive
     az backup vault create --resource-group azurefiles --name azurefilesvault --location eastus --output table

@@ -4,18 +4,18 @@ description: Obtenga información sobre cómo funcionan los planes de App Servic
 keywords: app service, azure app service, escala, escalable, escalabilidad, plan de app service, costo de app service
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 93f823a623145f8dd8bf5118de973dfbc095bfb4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f30221de81b6bef199c0a25e770558c4db8c4006
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068196"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958519"
 ---
 # <a name="azure-app-service-plan-overview"></a>Introducción a los planes de Azure App Service
 
-En App Service, cada aplicación se ejecuta en un _plan de App Service_. Un plan de App Service define un conjunto de recursos de proceso para que una aplicación web se ejecute. Estos recursos de proceso son análogos a la [_granja de servidores_](https://wikipedia.org/wiki/Server_farm) de un hospedaje web convencional. Pueden configurarse una o varias aplicaciones para que se ejecuten en los mismos recursos informáticos (o en el mismo plan de App Service).
+En App Service (Web Apps, API Apps o Mobile Apps), una aplicación siempre se ejecuta en un _plan de App Service_. Además, [Azure Functions](../azure-functions/functions-scale.md#app-service-plan) se puede ejecutar en un _plan de App Service_. Un plan de App Service define un conjunto de recursos de proceso para que una aplicación web se ejecute. Estos recursos de proceso son análogos a la [_granja de servidores_](https://wikipedia.org/wiki/Server_farm) de un hospedaje web convencional. Pueden configurarse una o varias aplicaciones para que se ejecuten en los mismos recursos informáticos (o en el mismo plan de App Service).
 
 Cuando se crea un plan de App Service en una región determinada (por ejemplo, Oeste de Europa), se crea un conjunto de recursos de proceso para ese plan en dicha región. Todas las aplicaciones que coloque en este plan de App Service se ejecutan en estos recursos de proceso según lo definido por el plan de App Service. Cada plan de App Service define:
 
@@ -57,7 +57,7 @@ Cuando crea una aplicación en App Service, se coloca en un plan de App Service.
 
 De esta manera, el plan de App Service es la unidad de escalado de las aplicaciones de App Service. Si el plan está configurado para ejecutar cinco instancias de VM, todas las aplicaciones del plan se ejecutan en las cinco instancias. Si el plan está configurado para el escalado automático, todas las aplicaciones del plan se escalan horizontalmente juntas según la configuración de escalado automático.
 
-Para obtener información sobre el escalado horizontal de una aplicación, consulte [Escalado del recuento de instancias de forma manual o automática](../monitoring-and-diagnostics/insights-how-to-scale.md).
+Para obtener información sobre el escalado horizontal de una aplicación, consulte [Escalado del recuento de instancias de forma manual o automática](../azure-monitor/platform/autoscale-get-started.md).
 
 <a name="cost"></a>
 
@@ -65,11 +65,11 @@ Para obtener información sobre el escalado horizontal de una aplicación, consu
 
 En esta sección se describe cómo se facturan las aplicaciones de App Service. Para obtener información detallada sobre precios para regiones específicas, consulte [Precios de App Service](https://azure.microsoft.com/pricing/details/app-service/).
 
-Excepto para el plan **Gratis**, un plan de App Service conlleva un cargo por hora por los recursos de proceso que utiliza.
+Salvo en el caso del nivel **Gratis**, un plan de App Service conlleva un cargo asociado a los recursos de proceso que se utilicen.
 
-- En el plan **Compartido**, cada aplicación recibe una cuota de minutos de la CPU, por lo que _cada aplicación_ paga por hora por la cuota de CPU.
-- En los niveles de proceso dedicados (**Básico**, **Estándar**, **Premium** y **PremiumV2**), el plan de App Service define el número de instancias de VM al que se escalan las aplicaciones, por lo que _cada instancia de VM_ del plan de App Service tiene un cargo por hora. Estas instancias de VM se cobran igual, independientemente de cuántas aplicaciones se ejecuten en ellas. Para evitar cargos inesperados, consulte [Clean up an App Service plan](app-service-plan-manage.md#delete) (Eliminar un plan de App Service).
-- En el plan **Aislado**, el entorno de App Service define el número de trabajos aislados que ejecutan las aplicaciones, y _cada trabajo_ se cobra por hora. Además, hay una cuota de base por hora para ejecutar el propio entorno de App Service.
+- En el nivel **Compartido**, cada aplicación recibe una cuota de minutos de CPU, por lo que _cada aplicación_ tiene un cargo asociado a la cuota de CPU.
+- En los niveles de proceso dedicados (**Básico**, **Estándar**, **Premium** y **PremiumV2**), el plan de App Service define el número de instancias de máquina virtual al que se escalan las aplicaciones, de manera que se apliquen cargos a _cada instancia de máquina virtual_ del plan de App Service. Estas instancias de VM se cobran igual, independientemente de cuántas aplicaciones se ejecuten en ellas. Para evitar cargos inesperados, consulte [Clean up an App Service plan](app-service-plan-manage.md#delete) (Eliminar un plan de App Service).
+- En el nivel **Aislado**, el entorno de App Service define el número de trabajos aislados que ejecutan las aplicaciones, y se aplican cargos a _cada trabajo_. Además, hay una tarifa plana para el stamp por la ejecución de App Service Environment.
 
 No se le cobra por usar las características de App Service que tiene a su disposición (configurar dominios personalizados, certificados TLS/SSL, ranuras de implementación, copias de seguridad, etc.). Las excepciones son estas:
 

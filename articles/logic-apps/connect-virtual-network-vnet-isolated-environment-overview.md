@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/05/2020
-ms.openlocfilehash: 85f4cc9f9e6e762a85571010840cc697bc6c9888
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: f152283b1280cde2a26569b8acf10738e883e39e
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963672"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816035"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acceso a recursos de Azure Virtual Network desde Azure Logic Apps mediante entornos de servicio de integración (ISE)
 
@@ -117,7 +117,14 @@ Al crear el ISE, puede optar por usar puntos de conexión de acceso internos o e
 > [!IMPORTANT]
 > Puede seleccionar el punto de conexión de acceso solo durante la creación del ISE y no puede cambiar esta opción más adelante.
 
-* **Internas**: Los puntos de conexión privados permiten las llamadas a aplicaciones lógicas del ISE, donde puede ver las entradas y salidas del historial de ejecuciones de las aplicaciones lógicas, así como acceder a dichas entradas y salidas, *solo desde dentro de la red virtual*. Asegúrese de tener conectividad de red entre los puntos de conexión privados y el equipo desde el que desea acceder al historial de ejecuciones. Por ejemplo, el equipo cliente puede existir dentro de la red virtual del ISE o en una red virtual que esté conectada a la red virtual del ISE, por ejemplo, a través de emparejamiento o de una red privada virtual.
+* **Internas**: Los puntos de conexión privados permiten las llamadas a aplicaciones lógicas del ISE, donde puede ver las entradas y salidas del historial de ejecuciones de las aplicaciones lógicas, así como acceder a dichas entradas y salidas, *solo desde dentro de la red virtual*.
+
+  > [!IMPORTANT]
+  > Asegúrese de tener conectividad de red entre los puntos de conexión privados y el equipo desde el que desea acceder al historial de ejecuciones. De lo contrario, cuando intente ver el historial de ejecución de la aplicación lógica, recibirá un error que indica "Error inesperado. No se pudo capturar".
+  >
+  > ![Error de acción de Azure Storage debido a la imposibilidad de enviar tráfico a través del firewall](./media/connect-virtual-network-vnet-isolated-environment-overview/integration-service-environment-error.png)
+  >
+  > Por ejemplo, el equipo cliente puede existir dentro de la red virtual del ISE o en una red virtual que esté conectada a la red virtual del ISE, mediante emparejamiento o una red privada virtual. 
 
 * **Externas**: Los puntos de conexión públicos permiten las llamadas a aplicaciones lógicas del ISE, donde puede ver las entradas y salidas del historial de ejecuciones de las aplicaciones lógicas, así como acceder a dichas entradas y salidas, *desde fuera de la red virtual*. Si usa grupos de seguridad de red (NSG), asegúrese de que están configurados con reglas de entrada para permitir el acceso a las entradas y salidas del historial de ejecución. Para más información, consulte [Habilitar el acceso para el ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
 

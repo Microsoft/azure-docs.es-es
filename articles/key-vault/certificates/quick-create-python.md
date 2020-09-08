@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: 86ce2b95cce82bd6d6877f83c3bc0b0496804c83
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: d0d1ed2b082abe5930f358a2551a967dd158aa41
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875343"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376594"
 ---
 # <a name="quickstart-azure-key-vault-certificates-client-library-for-python"></a>Inicio rápido: Biblioteca cliente de certificados de Azure Key Vault para Python
 
@@ -68,7 +68,7 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 ### <a name="create-a-service-principal"></a>Creación de una entidad de servicio
 
-La manera más sencilla de autenticar una aplicación .NET basada en la nube es con una identidad administrada. Consulte [Uso de identidades administradas de App Service para acceder a Azure Key Vault](../general/managed-identity.md) para más información.
+La forma más sencilla de autenticar una aplicación basada en la nube es con una identidad administrada; para más información, consulte [Autenticación en Key Vault](../general/authentication.md).
 
 Sin embargo, en aras de la simplicidad, en este inicio rápido se crea una aplicación de escritorio, que requiere el uso de una entidad de servicio y una directiva de control de acceso. La entidad de servicio requiere un nombre único con el formato "http://&lt;my-unique-service-principal-name&gt;".
 
@@ -237,8 +237,8 @@ print(" done.")
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha creado un almacén de claves, ha almacenado un certificado y lo ha recuperado. Para más información sobre Key Vault y cómo integrarlo con las aplicaciones, continúe con los artículos siguientes.
+En este inicio rápido, ha creado un almacén de claves, ha almacenado un certificado y, posteriormente, lo ha recuperado. Para más información sobre Key Vault y cómo integrarlo con las aplicaciones, continúe con los artículos siguientes.
 
-- Lea una [introducción a Azure Key Vault](../general/overview.md).
-- Consulte la [guía del desarrollador de Azure Key Vault](../general/developers-guide.md).
-- Consulte los [procedimientos recomendados de Azure Key Vault](../general/best-practices.md).
+- [Información general de Azure Key Vault](../general/overview.md)
+- [Guía del desarrollador de Azure Key Vault](../general/developers-guide.md)
+- [Procedimientos recomendados de Azure Key Vault](../general/best-practices.md)

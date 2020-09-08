@@ -3,12 +3,12 @@ title: Establezca el ámbito para la detección de máquinas virtuales de VMware
 description: Describe cómo establecer el ámbito de detección para la evaluación y la migración de máquinas virtuales de VMware con Azure Migrate.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: e53eb0d01df2152aeced2901335f75879885fd22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfc9c12edd93fc720ef716fd43b04e0c193d5803
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770397"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919733"
 ---
 # <a name="set-discovery-scope-for-vmware-vms"></a>Establecimiento del ámbito de detección para las máquinas virtuales de VMware
 
@@ -60,4 +60,4 @@ El control de acceso basado en rol configurado garantiza que la cuenta de usuari
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Configuración del dispositivo](how-to-set-up-appliance-vmware.md) e [inicio de la detección continua](how-to-set-up-appliance-vmware.md#start-continuous-discovery-by-providing-vcenter-server-and-vm-credential).
+[Configuración del dispositivo](how-to-set-up-appliance-vmware.md)

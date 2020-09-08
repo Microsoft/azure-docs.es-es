@@ -13,21 +13,21 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/06/2015
 ms.author: lauraa
-ms.openlocfilehash: 7a241d3144b6220d0084b61de2dde7c36a68c257
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 590aa7773c099aaa537e1fb9aaf658843b040674
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335130"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88204009"
 ---
 Los límites siguientes se aplican a Azure Site Recovery.
 
 | Identificador de límites | Límite |
 | --- | --- |
 | Número de almacenes por suscripción |500 |     
-| Número de servidores por almacén de Azure |250 |
-| Número de grupos de protección por almacén de Azure |Sin límite |
-| Número de planes de recuperación por almacén de Azure |Sin límite |
+| Número de servidores por almacén de Recovery Services |250 |
+| Número de grupos de protección por almacén de Recovery Services |Sin límite |
+| Número de planes de recuperación por almacén de Recovery Services |Sin límite |
 | Número de servidores por grupo de protección |Sin límite |
-| Número de servidores por el plan de recuperación |50 |
+| Número de servidores por el plan de recuperación |100 |
 

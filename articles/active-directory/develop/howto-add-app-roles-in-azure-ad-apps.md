@@ -13,12 +13,12 @@ ms.date: 07/15/2020
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0ec314e6b5abde60102dacfc81c9303cef16e887
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5a2acb08971bc0878c943047c42c9dc2a9525794
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058633"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141438"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Procedimientos: Agregar roles de aplicación en la aplicación y recibirlos en el token
 
@@ -30,7 +30,7 @@ Otro enfoque consiste en usar grupos de Azure AD y notificaciones de grupo, como
 
 ## <a name="declare-roles-for-an-application"></a>Declaración de roles para una aplicación
 
-Estos roles de aplicación se definen en [Azure Portal](https://portal.azure.com) en el manifiesto de registro de la aplicación.  Cuando un usuario inicia sesión en la aplicación, Azure AD emite una notificación `roles` por cada rol que se ha concedido al usuario individualmente y por su pertenencia a grupos.  La asignación de usuarios y grupos a los roles se puede realizar mediante la interfaz de usuario del portal o mediante programación con [Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/azuread-identity-access-management-concept-overview).
+Estos roles de aplicación se definen en [Azure Portal](https://portal.azure.com) en el manifiesto de registro de la aplicación.  Cuando un usuario inicia sesión en la aplicación, Azure AD emite una notificación `roles` por cada rol que se ha concedido al usuario individualmente y por su pertenencia a grupos.  La asignación de usuarios y grupos a los roles se puede realizar mediante la interfaz de usuario del portal o mediante programación con [Microsoft Graph](/graph/azuread-identity-access-management-concept-overview).
 
 ### <a name="declare-app-roles-using-azure-portal"></a>Declaración de roles de aplicación mediante Azure Portal
 
@@ -74,7 +74,7 @@ El ejemplo siguiente muestra los distintos `appRoles` que se pueden asignar a `u
 ```
 
 > [!NOTE]
->`displayName` no puede contener espacios.
+>El elemento `displayName` puede contener espacios.
 
 Puede definir roles de aplicación para `users`, `applications` o ambos. Cuando esté disponible para `applications`, los roles de aplicación aparecen como permisos de aplicación en la sección **Administrar** > **Permisos de API > Agregar un permiso > Mis API > Elegir una API > Permisos de la aplicación**. El ejemplo siguiente muestra un rol de aplicación dirigido a un elemento `Application`.
 
@@ -95,7 +95,7 @@ Puede definir roles de aplicación para `users`, `applications` o ambos. Cuando 
 "availableToOtherTenants": false,
 ```
 
-El número de roles definidos afecta a los límites que tiene el manifiesto de aplicación. Se describen detalladamente en la página de [límites del manifiesto](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-limits).
+El número de roles definidos afecta a los límites que tiene el manifiesto de aplicación. Se describen detalladamente en la página de [límites del manifiesto](./reference-app-manifest.md#manifest-limits).
 
 ### <a name="assign-users-and-groups-to-roles"></a>Asignación de usuarios y grupos a roles
 
@@ -128,6 +128,6 @@ Cuando los usuarios asignados a los distintos roles de aplicación inicien sesi�
 - [Incorporación de autorización mediante roles de aplicación y notificaciones de roles a una aplicación web de ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
 - [Implementación de la autorización en las aplicaciones con la plataforma de identidad de Microsoft (vídeo)](https://www.youtube.com/watch?v=LRoc-na27l0)
 - [Azure Active Directory, ahora con notificaciones de grupo y roles de aplicación](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
-- [Manifiesto de la aplicación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
+- [Manifiesto de la aplicación de Azure Active Directory](./reference-app-manifest.md)
 - [Tokens de acceso de AAD](access-tokens.md)
 - [`id_tokens` de AAD](id-tokens.md)

@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 9640800bb53fe2fd5b27cb6e232e09c72158f8da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: 7a15e5135cd89d7360a1357e3518b1253e80ee65
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261416"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019528"
 ---
 # <a name="migrate-from-the-change-feed-processor-library-to-the-azure-cosmos-db-net-v3-sdk"></a>Migración desde la biblioteca de procesadores de fuente de cambios al SDK de Azure Cosmos DB para .NET V3
 
@@ -46,10 +47,6 @@ De manera similar a la biblioteca de procesadores de fuente de cambios, la carac
 El procesador de fuente de cambios del SDK V3 detectará cualquier estado de la biblioteca anterior y lo migrará al esquema nuevo de manera automática en la primera ejecución del código de aplicación migrada. 
 
 Puede detener la aplicación de manera segura con el código anterior, migrar el código a la versión nueva, iniciar la aplicación migrada y todos los cambios que se hayan producido mientras se detuvo la aplicación se recogerán y procesarán con la versión nueva.
-
-> [!NOTE]
-> Las migraciones desde aplicaciones que usan la biblioteca al SDK de .NET V3 son unidireccionales, ya que el estado (concesiones) se migrará al esquema nuevo. La migración no es compatible con versiones anteriores.
-
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

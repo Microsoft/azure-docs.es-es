@@ -9,18 +9,17 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 48b94b8cd047f62ea13bf4e062254088ea11840e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d303de23a04d183d0ca280c3b3591299d883adf7
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663603"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936595"
 ---
 # <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity-preview"></a>Configuración de una conexión de indexador a un origen de datos mediante una identidad administrada (versión preliminar)
 
 > [!IMPORTANT] 
-> El soporte técnico para la configuración de una conexión a un origen de datos mediante una identidad administrada se encuentra actualmente en versión preliminar pública controlada. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción.
-> Para solicitar acceso a las versión preliminar, puede rellenar [este formulario](https://aka.ms/azure-cognitive-search/mi-preview-request).
+> La compatibilidad para configurar una conexión a un origen de datos utilizando una identidad administrada se encuentra actualmente en versión preliminar pública. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción.
 
 Un [indexador](search-indexer-overview.md) de Azure Cognitive Search es un rastreador que proporciona una manera de extraer datos del origen de datos en Azure Cognitive Search. Un indexador obtiene una conexión de origen de datos de un objeto de origen de datos creado por usted. El objeto de origen de datos normalmente incluye las credenciales del origen de datos de destino. Por ejemplo, el objeto de origen de datos podría incluir una clave de cuenta de Azure Storage si desea indexar datos de un contenedor de Blob Storage.
 
@@ -32,7 +31,7 @@ Estos problemas pueden resolverse mediante la configuración de la conexión con
 
 ## <a name="using-managed-identities"></a>Uso de identidades administradas
 
-Las [identidades administradas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) proporcionan a los servicios de Azure una identidad administrada automáticamente en Azure Active Directory (Azure AD). Puede usar esta característica en Azure Cognitive Search para crear un objeto de origen de datos con una cadena de conexión que no incluya ninguna credencial. En su lugar, se concederá al servicio de búsqueda acceso al origen de datos mediante el control de acceso basado en rol (RBAC).
+Las [identidades administradas](../active-directory/managed-identities-azure-resources/overview.md) proporcionan a los servicios de Azure una identidad administrada automáticamente en Azure Active Directory (Azure AD). Puede usar esta característica en Azure Cognitive Search para crear un objeto de origen de datos con una cadena de conexión que no incluya ninguna credencial. En su lugar, se concederá al servicio de búsqueda acceso al origen de datos mediante el control de acceso basado en rol (RBAC).
 
 Al configurar un origen de datos mediante una identidad administrada, puede cambiar las credenciales del origen de datos y los indexadores seguirán pudiendo conectarse al origen de datos. También puede crear objetos de origen de datos en el código sin tener que incluir una clave de cuenta ni usar Key Vault para recuperar una clave de cuenta.
 

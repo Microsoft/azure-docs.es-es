@@ -1,19 +1,19 @@
 ---
 title: Diseño de Azure Table Storage para la modificación de datos | Microsoft Docs
-description: Diseñe tablas para la modificación de datos en Azure Table Storage.
+description: Diseñe tablas para la modificación de datos en Azure Table Storage. Optimice las operaciones de inserción, actualización y eliminación. Asegúrese la coherencia de las entidades que ha almacenado.
 services: storage
-author: MarkMcGeeAtAquent
 ms.service: storage
+author: tamram
+ms.author: tamram
 ms.topic: article
 ms.date: 04/23/2018
-ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: c95be7afae5c0a84c06b691c8225f32f2aa68260
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 25785bc4b945f469e67f2a71eb6676940e091d56
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75771553"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236767"
 ---
 # <a name="design-for-data-modification"></a>Diseño para la modificación de datos
 Este artículo se centra en las consideraciones de diseño para optimizar las inserciones, actualizaciones y eliminaciones. En algunos casos, deberá evaluar el equilibrio entre los diseños que se optimizan para realizar una consulta en diseños que optimizan la modificación de datos como lo hace usted en los diseños de bases de datos relacionales (aunque las técnicas para administrar las ventajas y desventajas de diseño son diferentes en una base de datos relacional). En la sección Patrones de diseño de tablas se describen algunos modelos de diseño detallados para Table service y se destacan algunas de estas ventajas e inconvenientes. En la práctica, encontrará que muchos diseños optimizados para consultar entidades también funcionan bien para la modificación de entidades.  
@@ -34,7 +34,7 @@ El otro factor clave que afecta a su elección de claves para optimizar las modi
 Los siguientes patrones del artículo [Patrones de diseño de tablas](table-storage-design-patterns.md) abordan la coherencia en la administración:  
 
 * [Patrón de índice secundario dentro de la partición](table-storage-design-patterns.md#intra-partition-secondary-index-pattern): almacenar varias copias de cada entidad con diferentes valores **RowKey** (en la misma partición) para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores **RowKey**.  
-* [Patrón de índice secundario entre particiones](table-storage-design-patterns.md#inter-partition-secondary-index-pattern): almacenar varias copias de cada entidad con diferentes valores RowKey en particiones o en tablas independientes para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores **RowKey** .  
+* [Patrón de índice secundario entre particiones](table-storage-design-patterns.md#inter-partition-secondary-index-pattern): almacenar varias copias de cada entidad con diferentes valores RowKey en particiones o en tablas independientes para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores **RowKey**.  
 * [Patrón final coherente de transacciones](table-storage-design-patterns.md#eventually-consistent-transactions-pattern) : habilitar el comportamiento final coherente a través de límites de partición o los límites del sistema de almacenamiento mediante el uso de las colas de Azure.
 * [Patrón de entidades de índice](table-storage-design-patterns.md#index-entities-pattern): mantener las entidades de índice para permitir búsquedas eficaces que devuelvan listas de entidades.  
 * [Patrón de desnormalización](table-storage-design-patterns.md#denormalization-pattern): combinar datos relacionados entre sí en una sola entidad para recuperar todos los datos que necesita con una consulta de punto único.  

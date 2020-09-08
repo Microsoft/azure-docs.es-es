@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con JOSA | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y JOSA.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 9db3a1f4-a3aa-4b35-9120-fbc3ac37e45b
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/08/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e51adefe29f71c9e1a4886f0892af7b93fb48070
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 067dccdd420f9ff293c74378b2d3c0eaa8ace550
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76266077"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546991"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-josa"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con JOSA
 

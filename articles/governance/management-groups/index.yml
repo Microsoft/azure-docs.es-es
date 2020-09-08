@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 06/29/2020
-  ms.openlocfilehash: d27bb0be6698a6b92c459143604ad2ebeb00b728
-  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+  ms.date: 08/31/2020
+  ms.openlocfilehash: a2d736b2706b3b0958bb544c6d0e4434c78e6791
+  ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/30/2020
-  ms.locfileid: "85551886"
+  ms.lasthandoff: 09/01/2020
+  ms.locfileid: "89231340"
 landingContent:
 - title: Acerca de Gobernanza de Azure
   linkLists:
@@ -29,14 +29,26 @@ landingContent:
     links:
     - text: Grupos de administración de Azure
       url: ./overview.md
-- title: Organización de los recursos
+- title: Introducción
   linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Creación de un grupo de administración (Azure Portal)
+      url: ./create-management-group-portal.md
+    - text: Creación de un grupo de administración (CLI de Azure)
+      url: ./create-management-group-azure-cli.md
+    - text: Creación de un grupo de administración (Azure PowerShell)
+      url: ./create-management-group-powershell.md
+    - text: Creación de un grupo de administración (REST)
+      url: ./create-management-group-rest-api.md
+    - text: Implementación de recursos en el grupo de administración (plantillas de Resource Manager)
+      url: ../../azure-resource-manager/templates/deploy-to-management-group.md
   - linkListType: how-to-guide
     links:
-    - text: Creación de grupos de administración
-      url: ./create.md
-    - text: Administración de los recursos
+    - text: Administración de la jerarquía de recursos
       url: ./manage.md
+    - text: Protección de la jerarquía de recursos
+      url: ./how-to/protect-resource-hierarchy.md
 - title: Referencia
   linkLists:
   - linkListType: reference

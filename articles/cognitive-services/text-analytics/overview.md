@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 03/04/2020
+ms.date: 08/27/2020
 ms.author: aahi
-ms.openlocfilehash: 1e9928359f314ed57004df0264ac843871083eba
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: a3c538f3a9e7a2d8d71fff38fb927dbcdf725732
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141864"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000964"
 ---
 # <a name="what-is-the-text-analytics-api"></a>¿Qué es Text Analytics API?
 
@@ -82,26 +82,7 @@ Esta sección se ha movido a otro artículo para facilitar su detección. Para v
 
 ## <a name="data-limits"></a>Límites de datos
 
-Todos los puntos de conexión de Text Analytics API aceptan datos de texto sin formato. El límite actual es de 5120 caracteres para cada documento; si necesita analizar documentos mayores, puede dividirlos en fragmentos más pequeños.
-
-| Límite | Value |
-|------------------------|---------------|
-| Tamaño máximo de un documento individual | 5120 caracteres, medidos por [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
-| Tamaño máximo de la solicitud completa | 1 MB |
-| Número máximo de documentos de una solicitud | Hasta 1000 documentos ([varía para cada característica](concepts/data-limits.md)) |
-
-El límite de velocidad variará en función del plan de tarifa.
-
-| Nivel          | Solicitudes por segundo | Solicitudes por minuto |
-|---------------|---------------------|---------------------|
-| S / Varios servicios | 1000                | 1000                |
-| S0 / F0         | 100                 | 300                 |
-| S1            | 200                 | 300                 |
-| S2            | 300                 | 300                 |
-| S3            | 500                 | 500                 |
-| S4            | 1000                | 1000                |
-
-Las solicitudes se miden por separado para cada característica de Text Analytics. Por ejemplo, puede enviar el número máximo de solicitudes correspondiente al plan de tarifa a cada característica, al mismo tiempo.      
+Todos los puntos de conexión de Text Analytics API aceptan datos de texto sin formato. Para más información, consulte el artículo acerca de los [límites de datos](concepts/data-limits.md).
 
 ## <a name="unicode-encoding"></a>Codificación Unicode
 

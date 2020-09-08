@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 3b6f115e27b5cf956a524bd1a610797c689b5d6c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 464d945708fba83877fe6cef9ec1b64ec444bd95
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319497"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650424"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Desencadenar aplicaciones, procesos o flujos de trabajo de CI/CD basados en eventos de Azure Machine Learning (versión preliminar)
 
@@ -199,7 +199,7 @@ En este ejemplo se muestra cómo usar Event Grid con una aplicación lógica de 
 
 Antes de empezar, realice las acciones siguientes:
 
-* Configure un monitor de conjunto de datos para [detectar el desfase de datos]( https://aka.ms/datadrift) en un área de trabajo
+* Configure un monitor de conjunto de datos para [detectar el desfase de datos](how-to-monitor-datasets.md) en un área de trabajo
 * Cree una [canalización de Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) publicada.
 
 En este ejemplo, se usa una canalización de Data Factory simple para copiar archivos en un almacén de blobs y ejecutar una canalización de Machine Learning publicada. Para más información sobre este escenario, vea cómo configurar un [paso de Machine Learning en Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-machine-learning-service)

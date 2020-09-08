@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 91a060e8a5fe1bdaf3e6ea08811814297c355108
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 29bd7490ea9a03118f134ba11923ede2075e6fd5
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86222979"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88722592"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Problemas conocidos: Alertas comunes y resolución en Azure Active Directory Domain Services
 
@@ -106,7 +106,7 @@ Azure AD DS requiere una suscripción activa y no se puede pasar a otra suscri
 
 Azure AD DS requiere una suscripción activa. Si la suscripción de Azure a la que está asociado el dominio administrado no está activa, debe renovarla para reactivar la suscripción.
 
-1. [Renueve su suscripción de Azure](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable).
+1. [Renueve su suscripción de Azure](../cost-management-billing/manage/subscription-disabled.md).
 2. Una vez que se renueva la suscripción, una notificación de Azure AD DS le permite volver a habilitar el dominio administrado.
 
 Cuando el dominio administrado se habilita de nuevo, el estado del dominio administrado se actualiza automáticamente en dos horas y elimina la alerta.
@@ -162,7 +162,7 @@ Este error es irrecuperable. Para resolver la alerta, [elimine el dominio admini
 
 Algunas entidades de servicio generadas automáticamente se utilizan para administrar y crear recursos para un dominio administrado. Si se modifican los permisos de acceso para una de estas entidades de servicio, el dominio no podrá administrar correctamente los recursos. En los pasos siguientes se muestra cómo comprender los permisos de acceso a una entidad de servicio para poder concederlos:
 
-1. Lea sobre el [control de acceso basado en rol y cómo conceder acceso a las aplicaciones en Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+1. Lea sobre el [control de acceso basado en rol y cómo conceder acceso a las aplicaciones en Azure Portal](../role-based-access-control/role-assignments-portal.md).
 2. Revise el acceso que la entidad de servicio con identificador *abba844e-bc0e-44b0-947a-dc74e5d09022* tiene y conceda el acceso que se ha denegado en una fecha anterior.
 
 ## <a name="aadds112-not-enough-ip-address-in-the-managed-domain"></a>AADDS112: No hay suficientes direcciones IP en el dominio administrado
@@ -276,7 +276,7 @@ Los siguientes motivos comunes provocan que la sincronización se detenga en un 
 
 Azure AD DS requiere una suscripción activa. Si la suscripción de Azure a la que está asociado el dominio administrado no está activa, debe renovarla para reactivar la suscripción.
 
-1. [Renueve su suscripción de Azure](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable).
+1. [Renueve su suscripción de Azure](../cost-management-billing/manage/subscription-disabled.md).
 2. Una vez que se renueva la suscripción, una notificación de Azure AD DS le permite volver a habilitar el dominio administrado.
 
 Cuando el dominio administrado se habilita de nuevo, el estado del dominio administrado se actualiza automáticamente en dos horas y elimina la alerta.

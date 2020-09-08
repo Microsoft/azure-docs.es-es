@@ -3,12 +3,12 @@ title: Matriz de compatibilidad de MABS y System Center DPM
 description: En este artículo se resume la compatibilidad de Azure Backup al usar Microsoft Azure Backup Server (MABS) o System Center DPM para realizar copias de seguridad de recursos locales y de VM de Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: a97c37accd1275fa99437862a8d939df31360e87
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 26d9e3012749298a781cd611866bc6d0a6596979
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810435"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825229"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matriz de compatibilidad para copia de seguridad con Microsoft Azure Backup Server o System Center DPM
 
@@ -94,7 +94,7 @@ Puede implementar MABS en una máquina virtual de Azure Stack para poder adminis
 
 **Componente** | **Detalles**
 --- | ---
-**MABS en máquinas virtuales de Azure Stack** | Tamaño mínimo de A2. Se recomienda que empiece con una imagen de Windows Server 2012 R2 o Windows Server 2016 de Azure Marketplace.<br/><br/> No instale ningún otro elemento en la máquina virtual de MABS.
+**MABS en máquinas virtuales de Azure Stack** | Tamaño mínimo de A2. Se recomienda que empiece con una imagen de Windows Server 2012 R2 o Windows Server 2016 de Azure Marketplace.<br/><br/> No instale ningún otro elemento en la máquina virtual de MABS.
 **Almacenamiento de MABS** | Use una cuenta de almacenamiento independiente para la máquina virtual de MABS. El agente de MARS en MABS necesita almacenamiento temporal para una ubicación de caché, así como para hospedar los datos restaurados desde la nube.
 **Grupo de almacenamiento de MABS** | El tamaño del grupo de almacenamiento de MABS lo determinan el número y tamaño de los discos que están conectados a la máquina virtual de MABS. Cada tamaño de máquina virtual de Azure Stack tiene un número máximo de discos. Por ejemplo, A2 son cuatro discos.
 **Retención de MABS** | No conserve los datos de copia de seguridad de los discos locales de MABS durante más de cinco días.

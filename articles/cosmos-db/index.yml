@@ -11,12 +11,12 @@ metadata:
   author: SnehaGunda
   ms.author: sngun
   ms.date: 09/10/2019
-  ms.openlocfilehash: b99ded362ea366222a656d9c127defc63ff6b37b
-  ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+  ms.openlocfilehash: b96e1dcc29afdfa7ed6ead8a77a43e7ac4ab617a
+  ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/03/2020
-  ms.locfileid: "84309805"
+  ms.lasthandoff: 08/25/2020
+  ms.locfileid: "88854811"
 landingContent:
 - title: Información acerca de Azure Cosmos DB
   linkLists:
@@ -306,17 +306,17 @@ landingContent:
       url: cassandra-migrate-cosmos-db-blitzz.md
     - text: Migración de 100 TB de datos
       url: migrate-cosmosdb-data.md
-- title: Análisis integrado con Apache Spark
+- title: Análisis con Azure Synapse Link
   linkLists:
   - linkListType: concept
     links:
-    - text: Casos de uso de Analytics
-      url: analytics-usecases.md
-    - text: Arquitectura lambda
-      url: lambda-architecture.md
+    - text: Synapse Link para Azure Cosmos DB
+      url: synapse-link.md
+    - text: Almacén analítico de Azure Cosmos DB
+      url: analytical-store-introduction.md
+    - text: Casos de uso de Synapse Link
+      url: synapse-link-use-cases.md
   - linkListType: how-to-guide
     links:
-    - text: Uso de Cosmos DB en el conector de Spark
-      url: spark-connector.md
-    - text: Uso de Cosmos DB con Apache Kafka
-      url: /azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb
+    - text: Configuración de Azure Synapse Link
+      url: configure-synapse-link.md

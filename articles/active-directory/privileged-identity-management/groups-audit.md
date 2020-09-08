@@ -14,12 +14,12 @@ ms.date: 07/27/2020
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9bbc90776ca007b84d5f67c50f8550ee9c881c7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 94dd5c2579eb7ce96dea70c6354df8ec84125bd9
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87505636"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141676"
 ---
 # <a name="audit-activity-history-for-privileged-access-group-assignments-preview-in-privileged-identity-management"></a>Historial de actividades de auditoría para las asignaciones de grupos de acceso con privilegios (versión preliminar) en Privileged Identity Management
 
@@ -36,7 +36,9 @@ La **auditoría de recursos** proporciona una vista de todas las actividades aso
 
 1. Abra **Azure AD Privileged Identity Management**.
 
-1. Seleccione **Acceso con privilegios (versión preliminar)** .
+1. Seleccione **Grupos de acceso con privilegios (versión preliminar)** .
+
+1. Seleccione el grupo de acceso con privilegios para el que desea ver el historial de auditorías.
 
 1. En **Actividad**, seleccione **Auditoría de recursos**.
 
@@ -46,15 +48,15 @@ La **auditoría de recursos** proporciona una vista de todas las actividades aso
 
 ## <a name="view-my-audit"></a>Visualización de mi auditoría
 
-Mi auditoría permite ver la actividad del rol personal.
+**Mi auditoría** permite ver la actividad de rol personal para un grupo de acceso con privilegios.
 
 1. Abra **Azure AD Privileged Identity Management**.
 
-1. Seleccione **Acceso con privilegios (versión preliminar)** .
+1. Seleccione **Grupos de acceso con privilegios (versión preliminar)** .
 
-1. Seleccione el miembro o grupo del cual quiere ver el historial de auditorías.
+1. Seleccione el grupo de acceso con privilegios para el que desea ver el historial de auditorías.
 
-1. Seleccione **Mi auditoría**.
+1. En **Actividad**, seleccione **Mi auditoría**.
 
 1. Filtre el historial con una fecha predefinida o un intervalo personalizado.
 

@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4756ced858210f86bb8e979705db99a563441490
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 89d6379f3fa41036836288ed5c75fbdaad0031da
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078184"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783830"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Archivado de registros e informes sobre la administración de derechos de Azure AD en Azure Monitor
 
@@ -59,7 +59,7 @@ El archivado de los registros de auditoría de Azure AD requiere tener Azure Mo
 
 ## <a name="view-events-for-an-access-package"></a>Ver los eventos de un paquete de acceso  
 
-Para ver los eventos de un paquete de acceso, debe tener acceso al área de trabajo subyacente de Azure Monitor (consulte [Administración del acceso a los datos de registro y las áreas de trabajo en Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) para obtener información) y en uno de los roles siguientes: 
+Para ver los eventos de un paquete de acceso, debe tener acceso al área de trabajo subyacente de Azure Monitor (consulte [Administración del acceso a los datos de registro y las áreas de trabajo en Azure Monitor](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) para obtener información) y en uno de los roles siguientes: 
 
 - Administrador global  
 - Administrador de seguridad  
@@ -170,7 +170,7 @@ $wks | ft CustomerId, Name
 
 ### <a name="send-the-query-to-the-log-analytics-workspace"></a>Envío de la consulta al área de trabajo de Log Analytics
 Por último, una vez que tenga identificada un área de trabajo, puede usar [Invoke-AzOperationalInsightsQuery](/powershell/module/az.operationalinsights/Invoke-AzOperationalInsightsQuery?view=azps-3.3.0
-) para enviar una consulta de Kusto a esa área de trabajo. Estas consultas se escriben en [lenguaje de consulta Kusto](https://docs.microsoft.com/azure/kusto/query/).
+) para enviar una consulta de Kusto a esa área de trabajo. Estas consultas se escriben en [lenguaje de consulta Kusto](/azure/kusto/query/).
  
 Por ejemplo, puede recuperar el intervalo de fechas de los registros de eventos de auditoría en el área de trabajo de Log Analytics, con cmdlets de PowerShell para enviar una consulta como la siguiente:
  
@@ -189,5 +189,4 @@ $bResponse.Results |ft
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes:
-- [Crear informes interactivos con libros de Azure Monitor](../../azure-monitor/platform/workbooks-overview.md) 
-
+- [Crear informes interactivos con libros de Azure Monitor](../../azure-monitor/platform/workbooks-overview.md)

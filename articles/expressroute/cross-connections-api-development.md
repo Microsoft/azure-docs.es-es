@@ -2,17 +2,17 @@
 title: Desarrollo e integración de la API CrossConnnections de Azure ExpressRoute
 description: En este artículo se proporciona información general detallada para los asociados de ExpressRoute sobre el tipo de recurso expressRouteCrossConnections.
 services: expressroute
-author: mialdrid
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/06/2020
-ms.author: mialdrid
-ms.openlocfilehash: b4a83013d2cbeb2871a3963ec0c95144c02f4d66
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: duau
+ms.openlocfilehash: 25c8288e1804e6a08ae2b5b128ab6fbc699563f9
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77187023"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397855"
 ---
 # <a name="expressroute-crossconnnections-api-development-and-integration"></a>Desarrollo e integración de la API CrossConnnections de ExpressRoute
 
@@ -30,7 +30,7 @@ Ventajas de mover al recurso expressRouteCrossConnections:
 
 * Las futuras mejoras de los asociados de ExpressRoute estarán disponibles en el recurso ExpressRouteCrossConnection.
 
-* Los asociados pueden aplicar el [control de acceso basado en roles](https://docs.microsoft.com/azure/role-based-access-control/overview) al recurso expressRouteCrossConnection. Estos controles pueden definir permisos para los que las cuentas de usuario pueden modificar el recurso expressRouteCrossConnection y agregar, actualizar o eliminar configuraciones de emparejamiento.
+* Los asociados pueden aplicar el [control de acceso basado en rol de Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) al recurso expressRouteCrossConnection. Estos controles pueden definir permisos para los que las cuentas de usuario pueden modificar el recurso expressRouteCrossConnection y agregar, actualizar o eliminar configuraciones de emparejamiento.
 
 * El recurso expressRouteCrossConnection expone las API que pueden ser útiles para solucionar problemas de conexiones de ExpressRoute. Esto incluye la tabla ARP, el resumen de la tabla de rutas BGP y los detalles de la tabla de rutas BGP. Esta capacidad no es compatible con las API de implementación clásica.
 

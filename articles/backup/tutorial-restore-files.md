@@ -4,12 +4,12 @@ description: Obtenga información acerca de cómo realizar la restauración en e
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: e74fd14c0f33c8633165029a18582b80810184a2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c8adb114685379112aee20ab600d37bc25ce700e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003515"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007662"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Restauración de archivos en una máquina virtual de Azure
 
@@ -23,7 +23,7 @@ Azure Backup crea puntos de recuperación que se almacenan en almacenes de recup
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure versión 2.0.18 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
+Si decide instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.18 u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -31,7 +31,7 @@ Para este tutorial se necesita una máquina virtual Linux protegida con Azure Ba
 
 ## <a name="backup-overview"></a>Introducción a Backup
 
-Cuando Azure inicia una copia de seguridad, la extensión de copia de seguridad en la máquina virtual toma una instantánea de un momento dado. La extensión de copia de seguridad se instala en la máquina virtual cuando se solicita la primera copia de seguridad. Azure Backup también puede tomar una instantánea del almacenamiento subyacente si la máquina virtual no se está ejecutando cuando se realiza la copia de seguridad.
+Cuando Azure inicia una copia de seguridad, la extensión de copia de seguridad en la máquina virtual toma una instantánea de un momento dado. La extensión de copia de seguridad se instala en la máquina virtual cuando se solicita la primera copia de seguridad. Azure Backup también puede tomar una instantánea del almacenamiento subyacente, si la máquina virtual no se está ejecutando cuando se realiza la copia de seguridad.
 
 De forma predeterminada, Azure Backup toma una copia de seguridad coherente del sistema de archivos. Después de que el servicio Azure Backup tome la instantánea, los datos se transfieren al almacén de Recovery Services. Para que el proceso resulte más eficaz, Azure Backup identifica y transfiere únicamente los bloques de datos que han cambiado desde la última copia de seguridad.
 

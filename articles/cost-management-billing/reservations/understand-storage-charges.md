@@ -3,15 +3,16 @@ title: Aplicación del descuento por reserva a Azure Storage | Microsoft Docs
 description: Obtenga información sobre cómo se aplica el descuento por la capacidad reservada de Azure Storage para los recursos de Azure Data Lake Storage Gen2 y blobs en bloques.
 author: tamram
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: tamram
-ms.openlocfilehash: b6360619b7666ab7836a751491e05e379df32d93
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: fc1110c124f5e4e6d30c27de0911f86c186b67c2
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199201"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88681641"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-storage"></a>Aplicación del descuento por reserva a Azure Storage
 

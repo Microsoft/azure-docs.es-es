@@ -5,12 +5,13 @@ author: spelluru
 ms.author: spelluru
 ms.date: 06/23/2020
 ms.topic: tutorial
-ms.openlocfilehash: 77a8ef9c96219d2deb08126dc68eafe08d5262d4
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 811777fff28cf56d7732461924b14e9e4b619c0c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85341704"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000182"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Tutorial: Actualización del inventario mediante Azure Portal y temas y suscripciones
 
@@ -409,7 +410,7 @@ Para más ejemplos de envío y recepción de mensajes, empiece a trabajar con lo
 Avance hasta el siguiente tutorial para aprender más acerca del uso de las funcionalidades de publicación y suscripción de Service Bus.
 
 > [!div class="nextstepaction"]
-> [Actualización del inventario mediante PowerShell y temas/suscripciones](service-bus-tutorial-topics-subscriptions-powershell.md)
+> [Respuesta a eventos mediante Event Grid](service-bus-to-event-grid-integration-example.md)
 
 [cuenta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

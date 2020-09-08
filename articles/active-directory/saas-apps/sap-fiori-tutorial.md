@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con SAP Fiori | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y SAP Fiori.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 77ad13bf-e56b-4063-97d0-c82a19da9d56
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 917ba9274276fec5d01a40bdf7219e8d4fee1395
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4d2f6766fa32beb9cebaa8f77c04f6865e15e14d
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78897761"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543401"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-fiori"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con SAP Fiori
 
@@ -126,7 +121,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 1. En el cuadro **Provider Name** (Nombre de proveedor), remplace **T01122** con **http:\//T01122** y después seleccione **Save** (Guardar).
 
     > [!NOTE]
-    > De forma predeterminada, el nombre del proveedor se encuentra en el formato \<sid >\<cliente >. Azure AD espera el nombre en el formato \<protocolo >://\<nombre >. Se recomienda mantener el nombre del proveedor como https\://\<sid >\<cliente > para poder configurar varios motores de ABAP de SAP Fiori en Azure AD.
+    > De forma predeterminada, el nombre del proveedor se encuentra en el formato \<sid>\<client>. Azure AD espera el nombre en el formato \<protocol>://\<name>. Se recomienda mantener el nombre del proveedor como https\://\<sid>\<client> para poder configurar varios motores de ABAP de SAP Fiori en Azure AD.
 
     ![El nombre del proveedor actualizado en la página de configuración SAML 2.0 de ABAP sistema T01/122 en SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-providername.png)
 

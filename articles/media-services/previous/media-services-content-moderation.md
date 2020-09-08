@@ -14,14 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: 70d824522e1ae71bd49050779ff37e821d560783
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 395d2239970e7efbf6973d6262df0e049306584b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954713"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266704"
 ---
-# <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Usar Azure Media Content Moderator para detectar contenido para adultos 
+# <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Usar Azure Media Content Moderator para detectar contenido para adultos
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Se va a retirar el procesador de multimedia de **Azure Media Content Moderator**. Para conocer la fecha de retirada, consulte el tema sobre los [componentes heredados](legacy-components.md).

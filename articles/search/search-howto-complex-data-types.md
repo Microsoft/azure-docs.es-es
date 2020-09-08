@@ -9,12 +9,12 @@ tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: 0fd7ba1723da77313407725ec676e69b0ef3bca1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2b26a317f7338b3e87623b8312d9f7efd10dbed1
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496679"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88917863"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Modelado de tipos de datos complejos en Azure Cognitive Search
 
@@ -62,7 +62,7 @@ El siguiente documento JSON se compone de campos simples y complejos. Los campos
 
 ## <a name="creating-complex-fields"></a>Creación de campos complejos
 
-Al igual que con cualquier definición de índice, puede usar el portal, la [API REST](https://docs.microsoft.com/rest/api/searchservice/create-index) o el [SDK de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) para crear un esquema que incluya tipos complejos. 
+Al igual que con cualquier definición de índice, puede usar el portal, la [API REST](/rest/api/searchservice/create-index) o el [SDK de .NET](/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) para crear un esquema que incluya tipos complejos. 
 
 En el ejemplo siguiente se muestra un esquema de índice JSON con campos simples, colecciones y tipos complejos. Tenga en cuenta que, en un tipo complejo, cada campo secundario tiene un tipo y puede tener atributos, igual que sucede con los campos de nivel superior. El esquema se corresponde con los datos de ejemplo anteriores. `Address` es un campo complejo que no es una colección (un hotel tiene una dirección). `Rooms` es un campo de colección complejo (un hotel tiene varias salas).
 

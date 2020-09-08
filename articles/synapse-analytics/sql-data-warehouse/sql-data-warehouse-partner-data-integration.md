@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c8ab5bc5072612edd3eaabbd13468567a92f42e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 354e51d529c504bd04ed40f64b3db14a06384c98
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85296396"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210577"
 ---
 # <a name="azure-synapse-analytics-data-integration-partners"></a>Asociados de integración de datos de Azure Synapse Analytics
 
@@ -43,7 +43,7 @@ Para crear la solución de almacenamiento de datos con la característica del gr
 | ![StreamSets](./media/sql-data-warehouse-partner-data-integration/streamsets_logo.png) |**StreamSets**<br>StreamSets proporciona una plataforma de integración de datos para DataOps. Pone en marcha todo el ciclo de vida de diseño, implementación y operación de la integración de datos en un almacenamiento de datos de Azure Synapse. Permite ingerir e integrar datos rápidamente hacia y desde el almacenamiento a través de métodos de entrega de datos de captura de datos modificados, lotes o streaming. Además, permite garantizar un funcionamiento continuo con canalizaciones de datos inteligentes que proporcionan visibilidad y resistencia del flujo de datos de un extremo a otro.|[Página de producto](https://streamsets.com/partners/microsoft)|
 | ![Talend](./media/sql-data-warehouse-partner-data-integration/talend_logo.png) |**Talend Cloud**<br>Talend Cloud es una plataforma de integración de datos empresariales para conectar, acceder y transformar cualquier información en la nube o en las instalaciones. Se trata de una plataforma como servicio de integración (iPaaS) que proporciona amplia conectividad, calidad de datos integrada y compatibilidad nativa con las tecnologías de nube y macrodatos más recientes. |[Página de producto](https://www.talend.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/talend.talendremoteengine?source=datamarket&tab=Overview) |
 | ![TimeXtender](./media/sql-data-warehouse-partner-data-integration/timextender-logo.png) |**TimeXtender**<br>El centro de detección de TimeXtender ayuda a las empresas a crear un patrimonio de datos moderno mediante la provisión de una plataforma de administración de datos integrada que acelera hasta diez veces el tiempo para obtener información de los datos. Va más allá de la extracción, transformación y carga de datos (ETL) o la extracción, carga y transformación (ELT) diarias al proporcionar automatización y capacidades para el acceso a datos, el modelado de datos y el cumplimiento en una única plataforma. El Centro de detección proporciona un tejido de datos coherente para el análisis de escala en la nube, lo que permite conectar e integrar varios silos de datos, catalogar, modelar, trasladar y documentar datos para análisis e inteligencia artificial. | [Página de producto](https://www.timextender.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=timextender&page=1) |
-| ![Trifacta](./media/sql-data-warehouse-partner-data-integration/trifacta_logo.png) |**Trifacta Wrangler**<br> Trifacta permite que los usuarios y las organizaciones a exploren y combinen datos diversos para el análisis. Trifacta Wrangler está diseñado para manejar cargas de trabajo de manipulación de datos que necesitan soportar datos a gran escala y un gran número de usuarios finales.|[Página de producto](https://www.trifacta.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/trifacta.tr01?source=datamarket&tab=Overview) |
+| ![Trifacta](./media/sql-data-warehouse-partner-data-integration/trifacta_logo.png) |**Trifacta Wrangler**<br> Trifacta permite que los usuarios y las organizaciones a exploren y combinen datos diversos para el análisis. Trifacta Wrangler está diseñado para manejar cargas de trabajo de manipulación de datos que necesitan soportar datos a gran escala y un gran número de usuarios finales.|[Página de producto](https://www.trifacta.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/trifactainc1587522950142.trifactaazure?tab=Overview) |
 | ![WhereScape](./media/sql-data-warehouse-partner-data-integration/wherescape_logo.png) |**Wherescape RED**<br> WhereScape RED es un entorno de desarrollo integrado que proporciona a los equipos herramientas de automatización para agilizar los flujos de trabajo de extracción, transformación y carga de datos. El entorno de desarrollo integrado proporciona procedimientos recomendados y código nativo optimizado para destinos de datos populares. Use WhereScape RED para reducir el tiempo para desarrollar, implementar y usar su infraestructura de datos.|[Página de producto](https://www.wherescape.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/wherescapesoftware.wherescape-red?source=datamarket&tab=Overview) |
 
 

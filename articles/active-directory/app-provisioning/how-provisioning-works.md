@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 7dae16140c376bc9288fec5b8744ac6cd14051e5
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 69ea1964449143a25f447375f2aae15d9feeff10
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445619"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235730"
 ---
 # <a name="how-provisioning-works"></a>Funcionamiento del aprovisionamiento
 
@@ -44,7 +44,7 @@ Para solicitar un conector de aprovisionamiento automático de Azure AD para una
 
 Se requieren credenciales para que Azure AD se conecte a la API de administración de usuarios de la aplicación. Cuando configure el aprovisionamiento automático de usuarios para una aplicación, deberá especificar credenciales válidas. Puede encontrar los tipos de credenciales y los requisitos para la aplicación consultando el tutorial de la aplicación. En Azure Portal, podrá probar las credenciales al hacer que Azure AD intente conectarse a la aplicación de aprovisionamiento de la aplicación con las credenciales proporcionadas.
 
-Si el inicio de sesión único basado en SAML también está configurado para la aplicación, el límite de almacenamiento interno por aplicación de Azure AD es de 1024 bytes. Este límite incluye todos los certificados, tokens secretos, credenciales y datos de configuración relacionados asociados a una sola instancia de una aplicación (también conocida como registro de entidades de servicio en Azure AD). Al configurarse el inicio de sesión único basado en SAML, el certificado usado para firmar los tokens SAML suele consumir más del 50 % del espacio. Los tokens elementos adicionales (secretos, URI, direcciones de correo electrónico de notificación, nombres de usuario y contraseñas) que se escriben durante la configuración del aprovisionamiento de usuarios podrían superar el límite de almacenamiento. Para más información de inicio de sesión, consulte [Problema al guardar las credenciales de administrador durante la configuración del aprovisionamiento de usuarios para una aplicación de la galería de Azure Active Directory](../manage-apps/application-provisioning-config-problem-storage-limit.md).
+Si el inicio de sesión único basado en SAML también está configurado para la aplicación, el límite de almacenamiento interno por aplicación de Azure AD es de 1024 bytes. Este límite incluye todos los certificados, tokens secretos, credenciales y datos de configuración relacionados asociados a una sola instancia de una aplicación (también conocida como registro de entidades de servicio en Azure AD). Al configurarse el inicio de sesión único basado en SAML, el certificado usado para firmar los tokens SAML suele consumir más del 50 % del espacio. Los tokens elementos adicionales (secretos, URI, direcciones de correo electrónico de notificación, nombres de usuario y contraseñas) que se escriben durante la configuración del aprovisionamiento de usuarios podrían superar el límite de almacenamiento. Para más información de inicio de sesión, consulte [Problema al guardar las credenciales de administrador durante la configuración del aprovisionamiento de usuarios para una aplicación de la galería de Azure Active Directory](./application-provisioning-config-problem-storage-limit.md).
 
 ## <a name="mapping-attributes"></a>Asignación de atributos
 
@@ -54,7 +54,7 @@ Hay un conjunto preconfigurado de atributos y asignaciones de atributos entre lo
 
 Al configurar el aprovisionamiento, es importante revisar y configurar las asignaciones de atributos y los flujos de trabajo que definen qué propiedades de usuario (o de grupo) fluyen de Azure AD a la aplicación. Revise y configure la propiedad de coincidencia (**Hacer coincidir objetos con este atributo** ) que se usa para identificar de forma exclusiva y emparejar a usuarios y grupos entre ambos sistemas.
 
-Puede personalizar las asignaciones de atributos predeterminadas según sus necesidades empresariales. Esto significa que puede cambiar o eliminar asignaciones de atributos existentes o crear nuevas asignaciones de atributos. Para detalles, consulte [Personalización de asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory](../manage-apps/customize-application-attributes.md).
+Puede personalizar las asignaciones de atributos predeterminadas según sus necesidades empresariales. Esto significa que puede cambiar o eliminar asignaciones de atributos existentes o crear nuevas asignaciones de atributos. Para detalles, consulte [Personalización de asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory](./customize-application-attributes.md).
 
 Al configurar el aprovisionamiento para una aplicación SaaS, uno de los tipos de asignaciones de atributos que puede especificar es una asignación de expresiones. Para estas asignaciones, debe escribir una expresión similar a un script que permite transformar los datos de los usuarios en formatos más aceptables para la aplicación SaaS. Para detalles, consulte [Escritura de expresiones para la asignación de atributos en Azure Active Directory](functions-for-customizing-application-data.md).
 
@@ -81,13 +81,13 @@ Puede usar filtros de ámbito para definir reglas basadas en atributos que deter
 
 ### <a name="b2b-guest-users"></a>Usuarios B2B (invitados)
 
-El servicio de aprovisionamiento de usuarios de Azure AD se puede usar para aprovisionar usuarios de B2B (o invitados) en Azure AD para aplicaciones SaaS. Sin embargo, para que los usuarios de B2B inicien sesión en la aplicación SaaS mediante Azure AD, esta debe tener su funcionalidad de inicio de sesión único basado en SAML configurada de una forma concreta. Para más información acerca de cómo configurar aplicaciones SaaS para admitir inicios de sesión de usuarios de B2B, consulte [Configuración de aplicaciones de SaaS para la colaboración B2B](../b2b/configure-saas-apps.md).
+El servicio de aprovisionamiento de usuarios de Azure AD se puede usar para aprovisionar usuarios de B2B (o invitados) en Azure AD para aplicaciones SaaS. Sin embargo, para que los usuarios de B2B inicien sesión en la aplicación SaaS mediante Azure AD, esta debe tener su funcionalidad de inicio de sesión único basado en SAML configurada de una forma concreta. Para más información acerca de cómo configurar aplicaciones SaaS para admitir inicios de sesión de usuarios de B2B, consulte [Configuración de aplicaciones de SaaS para la colaboración B2B](../external-identities/configure-saas-apps.md).
 
 Tenga en cuenta que el elemento userPrincipalName de un usuario invitado suele almacenarse como "alias#EXT#@domain.com". Si el elemento userPrincipalName se incluye en las asignaciones de atributos como atributo de origen, #EXT# se quita de dicho elemento. Si necesita que el elemento #EXT# esté presente, reemplace userPrincipalName por originalUserPrincipalName como atributo de origen. 
 
 ## <a name="provisioning-cycles-initial-and-incremental"></a>Ciclos de aprovisionamiento: inicial e incremental.
 
-Si Azure AD es el sistema de origen, el servicio de aprovisionamiento utiliza [Usar la consulta delta para realizar el seguimiento de los cambios en datos de Microsoft Graph](https://docs.microsoft.com/graph/delta-query-overview) para supervisar usuarios y grupos. El servicio de aprovisionamiento ejecuta un ciclo inicial en el sistema de origen y el sistema de destino, seguido de ciclos incrementales periódicos.
+Si Azure AD es el sistema de origen, el servicio de aprovisionamiento utiliza [Usar la consulta delta para realizar el seguimiento de los cambios en datos de Microsoft Graph](/graph/delta-query-overview) para supervisar usuarios y grupos. El servicio de aprovisionamiento ejecuta un ciclo inicial en el sistema de origen y el sistema de destino, seguido de ciclos incrementales periódicos.
 
 ### <a name="initial-cycle"></a>Ciclo inicial
 
@@ -154,11 +154,11 @@ Resuelva estos errores ajustando los valores de atributo del usuario afectado en
 
 ### <a name="quarantine"></a>Cuarentena
 
-Si todas o la mayoría de las llamadas realizadas al sistema de destino no tienen éxito sistemáticamente debido a un error (por ejemplo, en el caso de credenciales de administrador no válidas), el trabajo de aprovisionamiento entra en estado de "cuarentena". Este estado se indica en el [informe de resumen de aprovisionamiento](../manage-apps/check-status-user-account-provisioning.md) y por correo electrónico si se han configurado las notificaciones por correo electrónico en Azure Portal.
+Si todas o la mayoría de las llamadas realizadas al sistema de destino no tienen éxito sistemáticamente debido a un error (por ejemplo, en el caso de credenciales de administrador no válidas), el trabajo de aprovisionamiento entra en estado de "cuarentena". Este estado se indica en el [informe de resumen de aprovisionamiento](./check-status-user-account-provisioning.md) y por correo electrónico si se han configurado las notificaciones por correo electrónico en Azure Portal.
 
 En cuarentena, la frecuencia de los ciclos incrementales se reduce gradualmente a una vez al día.
 
-El trabajo de aprovisionamiento sale de la cuarentena después de que se hayan resuelto todos los errores causantes y se inicie el siguiente ciclo de sincronización. Si el trabajo de aprovisionamiento permanece en cuarentena durante más de cuatro semanas, se deshabilita. [Aquí](../manage-apps/application-provisioning-quarantine-status.md) encontrará más información sobre el estado de cuarentena.
+El trabajo de aprovisionamiento sale de la cuarentena después de que se hayan resuelto todos los errores causantes y se inicie el siguiente ciclo de sincronización. Si el trabajo de aprovisionamiento permanece en cuarentena durante más de cuatro semanas, se deshabilita. [Aquí](./application-provisioning-quarantine-status.md) encontrará más información sobre el estado de cuarentena.
 
 ### <a name="how-long-provisioning-takes"></a>¿Cuánto tiempo tarda el aprovisionamiento?
 
@@ -166,7 +166,7 @@ El rendimiento depende de si el trabajo de aprovisionamiento ejecuta un ciclo de
 
 ### <a name="how-to-tell-if-users-are-being-provisioned-properly"></a>¿Cómo sé si los usuarios se aprovisionan correctamente?
 
-Todas las operaciones que ejecute el servicio de aprovisionamiento de usuarios se registran en los [registros de aprovisionamiento (versión preliminar)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) de Azure AD. Los registros incluyen todas las operaciones de lectura y escritura realizadas en los sistemas de origen y de destino, así como los datos del usuario que se leyeron o escribieron durante cada operación. Para obtener información sobre cómo leer los registros de aprovisionamiento en Azure Portal, consulte la [guía de informes de aprovisionamiento](../manage-apps/check-status-user-account-provisioning.md).
+Todas las operaciones que ejecute el servicio de aprovisionamiento de usuarios se registran en los [registros de aprovisionamiento (versión preliminar)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) de Azure AD. Los registros incluyen todas las operaciones de lectura y escritura realizadas en los sistemas de origen y de destino, así como los datos del usuario que se leyeron o escribieron durante cada operación. Para obtener información sobre cómo leer los registros de aprovisionamiento en Azure Portal, consulte la [guía de informes de aprovisionamiento](./check-status-user-account-provisioning.md).
 
 ## <a name="de-provisioning"></a>Desaprovisionamiento
 
@@ -190,8 +190,8 @@ Si ve un atributo IsSoftDeleted en sus asignaciones de atributos, se utiliza par
 
 [Planeamiento de una implementación del aprovisionamiento automático de usuarios](../app-provisioning/plan-auto-user-provisioning.md)
 
-[Configuración del aprovisionamiento en una aplicación de la galería](../manage-apps/configure-automatic-user-provisioning-portal.md)
+[Configuración del aprovisionamiento en una aplicación de la galería](./configure-automatic-user-provisioning-portal.md)
 
 [Compilación de un punto de conexión de SCIM y configuración del aprovisionamiento cuando crea su propia aplicación](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 
-[Problema al configurar el aprovisionamiento de usuarios para una aplicación de la galería de Azure AD](../manage-apps/application-provisioning-config-problem.md).
+[Problema al configurar el aprovisionamiento de usuarios para una aplicación de la galería de Azure AD](./application-provisioning-config-problem.md).

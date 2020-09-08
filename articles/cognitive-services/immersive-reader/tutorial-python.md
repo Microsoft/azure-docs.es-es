@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: dylankil
 ms.custom: devx-track-python
-ms.openlocfilehash: 967e290af390ff4310de3e7d0fd844e340ac289d
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 5a6c68dbb7dd4171fad3b3a13e904a152618a55d
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876570"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88516392"
 ---
 # <a name="tutorial-start-the-immersive-reader-using-the-python-sample-project"></a>Tutorial: Inicio del Lector inmersivo con el proyecto de ejemplo de Python
 
@@ -27,7 +27,7 @@ En la [introducción](./overview.md), se indica lo que es el Lector inmersivo y 
 > * Obtener un token de acceso.
 > * Iniciar el Lector inmersivo con contenido de ejemplo.
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

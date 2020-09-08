@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebcb79088ebac761632e882e98e00f165cc4bd05
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a51d8c45f652173e5b2b0731d64a8e6f14ee46c7
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035238"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717360"
 ---
 # <a name="enable-azure-active-directory-self-service-password-reset-at-the-windows-sign-in-screen"></a>Habilitación del autoservicio de restablecimiento de contraseña de Azure Active Directory en la pantalla de inicio de sesión de Windows
 
@@ -35,7 +35,7 @@ Las siguientes limitaciones se aplican al uso de SSPR desde la pantalla de inici
 
 - El restablecimiento de contraseña no se admite actualmente desde Escritorio remoto ni sesiones mejoradas de Hyper-V.
 - Se sabe que algunos proveedores de credenciales externos provocan problemas con esta característica.
-- Se sabe que la deshabilitación de UAC mediante la modificación de la [clave del registro EnableLUA](https://docs.microsoft.com/openspecs/windows_protocols/ms-gpsb/958053ae-5397-4f96-977f-b7700ee461ec) provoca problemas.
+- Se sabe que la deshabilitación de UAC mediante la modificación de la [clave del registro EnableLUA](/openspecs/windows_protocols/ms-gpsb/958053ae-5397-4f96-977f-b7700ee461ec) provoca problemas.
 - Esta característica no funciona para las redes con la autenticación de red 802.1x implementada y la opción "Realizar inmediatamente antes de que el usuario inicie sesión". Para las redes con la autenticación de red 802.1X implementada se recomienda usar la autenticación del equipo para habilitar esta característica.
 - Los equipos unidos a Azure AD híbrido deben tener una línea de visión de conectividad de red a un controlador de dominio para usar las nuevas credenciales en caché de contraseña y actualización. Esto significa que los dispositivos deben estar en la red interna de la organización o en una VPN con acceso de red a un controlador de dominio local.
 - Si se usa una imagen, antes de ejecutar sysprep, asegúrese de que se borra la caché web para la cuenta predefinida de administrador antes de realizar el paso de CopyProfile. Puede encontrar más información sobre este paso en el artículo de soporte técnico [Rendimiento deficiente cuando se usa el perfil de usuario predeterminado personalizado](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).

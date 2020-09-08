@@ -1,18 +1,18 @@
 ---
 title: Restablecimiento de una instancia de Azure VPN Gateway para volver a establecer túneles IPsec
-description: Este artículo lo guiará por el restablecimiento de Azure VPN Gateway para restablecer túneles IPsec. El artículo se aplica a puertas de enlace VPN en y los modelos de implementación clásico y de Resource Manager.
+description: Restablezca la instancia de Azure VPN Gateway para restablecer los túneles IPsec de las puertas de enlace de VPN en los modelos de implementación clásica y de Resource Manager.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 90a01e4ee3ddf7b100ef51e55b9917c709a05864
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9f78b33a95001639abfeaecb381b597f5273c0fc
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982907"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88033060"
 ---
 # <a name="reset-a-vpn-gateway"></a>Restablecimiento de una instancia de VPN Gateway
 

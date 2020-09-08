@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Foko Retail | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Foko Retail.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: fafc00e0-e487-4573-8fb7-fe7c27d9cb07
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/18/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 648feb2d25bfa32470b3ca76722e933a913f7491
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0d91d4891033086426f557d71eac0dc2db579ac9
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74534682"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88554797"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-foko-retail"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Foko Retail
 

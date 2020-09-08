@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 6ba0be3a6fba35e413270dd6770f5d3f47586b5e
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 28b6a70297efb8d8237f085e1f5b08dbb6a09072
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873338"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88522613"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalización del conjunto de estándares en el panel de cumplimiento normativo
 
@@ -73,6 +73,8 @@ En los pasos siguientes se explica cómo agregar un paquete para supervisar el c
     - **Canada PBMM**
     
     ![Agregar paquetes normativos al panel de cumplimiento normativo de Azure Security Center](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
+
+1. Seleccione **Agregar** y escriba todos los detalles necesarios para la iniciativa específica, como el ámbito, los parámetros y la corrección.
 
 1. En la barra lateral de Security Center, vuelva a seleccionar **Cumplimiento normativo** para volver al panel de cumplimiento normativo.
     * El nuevo estándar aparece ahora en la lista de estándares normativos y del sector. 

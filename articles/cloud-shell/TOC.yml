@@ -13,9 +13,9 @@
     - name: Ansible
       items:
         - name: Ejecución del cuaderno de estrategias de Ansible
-          href: /azure/ansible/ansible-run-playbook-in-cloudshell?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json
+          href: /azure/developer/ansible/getting-started-cloud-shell?bc=%252fazure%252fbread%252ftoc.json&toc=%252fazure%252fcloud-shell%252ftoc.json
         - name: Administración de los inventarios dinámicos de Azure
-          href: /azure/ansible/ansible-manage-azure-dynamic-inventories?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json
+          href: /azure/developer/ansible/dynamic-inventory-configure?bc=%252fazure%252fbread%252ftoc.json&toc=%252fazure%252fcloud-shell%252ftoc.json
     - name: Terraform
       items:
         - name: Creación de un plan de ejecución
@@ -40,7 +40,7 @@
   href: troubleshooting.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure
     - name: Azure PowerShell
       href: /powershell/azure

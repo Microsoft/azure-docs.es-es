@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc10fb4f9894a355c9eed024ae9f87747214999b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7d3315a8d6bca9406461d0082ed85bbefc9459f4
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72886715"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950211"
 ---
 # <a name="user-experiences-with-azure-ad-identity-protection"></a>Experiencias de usuario con Azure AD Identity Protection
 
@@ -29,7 +29,7 @@ Todas las directivas de Identity Protection afectan a la experiencia de inicio d
 
 ## <a name="multi-factor-authentication-registration"></a>Registro de la autenticación multifactor
 
-Al habilitar la directiva de Identity Protection que requiere el registro de autenticación multifactor y se dirige a todos los usuarios, se asegurará de que estos tienen la capacidad de usar Azure MFA para solucionar sus problemas por sí mismos en el futuro. La configuración de esta directiva proporciona a los usuarios un período de 14 días para registrarse y, si no lo han hecho al finalizar este plazo, se les exigirá el registro. A continuación se describe la experiencia de los usuarios. Puede encontrar más información en la documentación del usuario final, en el artículo [Información general de la verificación en dos fases y la cuenta profesional o educativa](../user-help/user-help-two-step-verification-overview.md).
+Al habilitar la directiva de Identity Protection que requiere el registro de autenticación multifactor y se dirige a todos los usuarios, se asegurará de que estos tienen la capacidad de usar Azure MFA para solucionar sus problemas por sí mismos en el futuro. La configuración de esta directiva proporciona a los usuarios un período de 14 días para registrarse y, si no lo han hecho al finalizar este plazo, se les exigirá el registro. A continuación se describe la experiencia de los usuarios. Puede encontrar más información en la documentación del usuario final, en el artículo [Información general de la verificación en dos fases y la cuenta profesional o educativa](../user-help/multi-factor-authentication-end-user-first-time.md).
 
 ### <a name="registration-interrupt"></a>Interrupción de registro
 
@@ -84,4 +84,4 @@ El personal de TI puede seguir las instrucciones de la sección para [desbloquea
 
 - [Corregir riesgos y desbloquear usuarios](howto-identity-protection-remediate-unblock.md)
 
-- [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) 
+- [Azure Active Directory Identity Protection](./overview-identity-protection.md)

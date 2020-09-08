@@ -1,18 +1,21 @@
 ---
 title: Implementación de una directiva que se pueda corregir
 description: Para implementar directivas que usan una tarea de corrección a través de Azure Lighthouse, deberá crear una identidad administrada en el inquilino del cliente.
-ms.date: 07/07/2020
+ms.date: 08/12/2020
 ms.topic: how-to
-ms.openlocfilehash: fc13b6209826d4a59d82bca5db63d4ca5c39f9fb
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 998576d06d470c525a551463861f7a25d4ab9d8f
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105343"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163261"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Implementación de una directiva que se pueda corregir en una suscripción delegada
 
 [Azure Lighthouse](../overview.md) permite a los proveedores de servicios crear y editar definiciones de directivas en una suscripción delegada. Sin embargo, para implementar directivas que usen una [tarea de corrección](../../governance/policy/how-to/remediate-resources.md) (es decir, directivas con[deployIfNotExists ](../../governance/policy/concepts/effects.md#deployifnotexists) o el efecto [Modify](../../governance/policy/concepts/effects.md#modify)), deberá crear una [identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md) en el inquilino del cliente. Azure Policy puede usar esta identidad administrada para implementar la plantilla dentro de la directiva. Para habilitar este escenario hay varios pasos obligatorios, tanto al incorporar el cliente para la administración de recursos delegados de Azure como al implementar la propia directiva.
+
+> [!TIP]
+> Aunque en este tema hacemos referencia a los proveedores de servicios y clientes, las [empresas que administran varios inquilinos](../concepts/enterprise.md) pueden usar los mismos procesos.
 
 ## <a name="create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant"></a>Creación de un usuario que pueda asignar roles a una identidad administrada en el inquilino del cliente
 

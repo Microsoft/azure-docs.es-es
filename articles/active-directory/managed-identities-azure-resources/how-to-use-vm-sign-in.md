@@ -3,7 +3,7 @@ title: 'Uso de las identidades administradas en una máquina virtual de Azure pa
 description: Instrucciones paso a paso y ejemplos de uso de entidades administradas de una máquina virtual de Azure de una entidad de servicio de recursos de Azure para el acceso a los recursos y el inicio de sesión de cliente mediante un script.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 058058b975116fabcbc242f46afb09dff8df08b6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 08fe856fd43baad4189d81f7743396a71cd5de48
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87480448"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266330"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Uso de identidades administradas para recursos de Azure en una máquina virtual de Azure para el inicio de sesión 
 
@@ -34,7 +34,7 @@ En este artículo se proporcionan ejemplos de script de PowerShell y de la CLI p
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-Si tiene previsto usar los ejemplos de Azure PowerShell o de la CLI de Azure en este artículo, asegúrese de instalar la versión más reciente de [Azure PowerShell](/powershell/azure/install-az-ps) o de la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Si tiene previsto usar los ejemplos de Azure PowerShell o de la CLI de Azure en este artículo, asegúrese de instalar la versión más reciente de [Azure PowerShell](/powershell/azure/install-az-ps) o de la [CLI de Azure](/cli/azure/install-azure-cli). 
 
 > [!IMPORTANT]
 > - En todo el script de ejemplo de este artículo se da por supuesto que el cliente de la línea de comandos se ejecuta en una VM con identidades administradas para los recursos de Azure habilitados. Use la característica "Conectar" de la máquina virtual en Azure Portal para conectarse a la máquina virtual de forma remota. Para más información sobre la habilitación de identidades administradas de recursos de Azure en una VM, consulte [Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md) (Configuración de identidades administradas de recursos de Azure en una VM mediante Azure Portal) o uno de los artículos derivados (mediante PowerShell, la CLI, una plantilla o un SDK de Azure). 
@@ -100,9 +100,3 @@ Si alguna de las opciones no es correcta, puede que tenga que volver a implement
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para habilitar las identidades administradas para recursos de Azure en una VM de Azure, consulte [Configure managed identities for Azure resources on an Azure VM using PowerShell](qs-configure-powershell-windows-vm.md) (Configurar identidades administradas para recursos de Azure en una VM de Azure mediante PowerShell) o [Configure managed identities for Azure resources on an Azure VM using Azure CLI](qs-configure-cli-windows-vm.md) (Configurar identidades administradas para recursos de Azure en una VM de Azure mediante la CLI de Azure).
-
-
-
-
-
-

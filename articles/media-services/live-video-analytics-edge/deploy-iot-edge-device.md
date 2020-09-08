@@ -3,17 +3,16 @@ title: 'Implementación de Live Video Analytics en un dispositivo IoT Edge: Azur
 description: En este artículo se enumeran los pasos que ayudarán a implementar Live Video Analytics en el dispositivo IoT Edge. Hará esto, por ejemplo, si tiene acceso a una máquina Linux local o ha creado previamente una cuenta de Azure Media Services.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: ea7a1026f42cd3d8745559bc195a89b7fbcb69a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 774fdb440307d0df92e9735a8bdf055687f450a2
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074457"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684106"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Implementación de Live Video Analytics en un dispositivo IoT Edge
 
 En este artículo se enumeran los pasos que ayudarán a implementar Live Video Analytics en el dispositivo IoT Edge. Hará esto, por ejemplo, si tiene acceso a una máquina Linux local o ha creado previamente una cuenta de Azure Media Services.
-
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -23,6 +22,7 @@ En este artículo se enumeran los pasos que ayudarán a implementar Live Video A
 * [Registro de un dispositivo de IoT Edge](../../iot-edge/how-to-register-device.md).
 * [Instalación del entorno de ejecución de Azure IoT Edge en sistemas Linux basados en Debian](../../iot-edge/how-to-install-iot-edge-linux.md)
 * [Creación de una cuenta de Azure Media Services](../latest/create-account-howto.md)
+
     * Use una de estas regiones: Este de EE. UU. 2, Centro de EE. UU., Centro-norte de EE. UU., Japón Oriental, Oeste de EE. UU. 2, Centro-oeste de EE. UU., Este de Canadá, Sur de Reino Unido, Centro de Francia, Sur de Francia, Norte de Suiza, Oeste de Suiza y Japón Occidental.
     * Se recomienda usar cuentas de almacenamiento v2 de uso general (GPv2).
 
@@ -51,7 +51,7 @@ Se puede usar este comando para iniciar el punto de conexión de streaming:
 az ams streaming-endpoint start --resource-group $RESOURCE_GROUP --account-name $AMS_ACCOUNT -n default --no-wait
 ```
 
-Siga los pasos de este artículo para obtener las credenciales a fin de acceder a las API de Servicio multimedia: [acceso a las API de Servicio multimedia](../latest/access-api-howto.md#use-the-azure-portal).
+Siga los pasos del artículo [Acceso a las API de Media Services](../latest/access-api-howto.md?tabs=portal) para obtener las credenciales de acceso a las API de Media Services, y seleccione la pestaña Portal.
 
 ## <a name="create-and-use-local-user-account-for-deployment"></a>Creación y uso de una cuenta de usuario local para la implementación
 Para ejecutar el módulo Live Video Analytics en IoT Edge, cree una cuenta de usuario local que tenga el menor número de privilegios posible. Como ejemplo, ejecute los comandos siguientes en la máquina Linux:
@@ -86,8 +86,8 @@ Live Video Analytics en IoT Edge expone propiedades de módulos gemelos que se d
 
 ### <a name="deploy-using-the-azure-portal"></a>Implementación mediante Azure Portal
 
-Azure Portal le guía en la creación de un manifiesto de implementación y la inserción de la implementación en un dispositivo de IoT Edge.
-Selección del dispositivo
+Azure Portal le guía en la creación de un manifiesto de implementación y la inserción de la implementación en un dispositivo de IoT Edge.  
+#### <a name="select-your-device-and-set-modules"></a>Selección del dispositivo y establecimiento de módulos
 
 1. Inicie sesión en [Azure Portal](https://ms.portal.azure.com/) y vaya a IoT Hub.
 1. Seleccione **IoT Edge** en el menú.
@@ -112,23 +112,12 @@ Un manifiesto de implementación es un documento JSON que describe qué módulos
     > [!TIP]
     > No seleccione **Agregar** hasta que haya especificado los valores en las pestañas **Configuración del módulo**, **Opciones de creación del contenedor** y **Configuración de módulos gemelos**, tal como se describe en este procedimiento.
     
-    > [!IMPORTANT]
+    > [!WARNING]
     > Azure IoT Edge distingue mayúsculas de minúsculas al realizar llamadas a los módulos. Tome nota de la cadena exacta que utilice como nombre de módulo.
 
 1. Abra la pestaña **Variables de entorno**.
    
-   Copie y pegue el siguiente código JSON en el cuadro para proporcionar el id. de usuario y el id. de grupo que se usarán para guardar los datos de la aplicación y las salidas de vídeo.
-    ```   
-   {
-        "LOCAL_USER_ID": 
-        {
-            "value": "1010"
-        },
-        "LOCAL_GROUP_ID": {
-            "value": "1010"
-        }
-    }
-     ``` 
+   Agregue los siguientes valores en los cuadros de entrada que vea ![Variables de entorno](./media/deploy-iot-edge-device/environment-variables.png) 
 
 1. Abra la pestaña **Opciones de creación del contenedor**.
 
@@ -179,7 +168,7 @@ Un manifiesto de implementación es un documento JSON que describe qué módulos
     * {resourceGroupName}: grupo de recursos al que pertenece la cuenta de Servicio multimedia.
     * {AMS-account-name}: nombre de la cuenta de Media Services.
     
-    Para obtener el resto de valores, vea [Acceso a la API Azure Media Services](../latest/access-api-howto.md#use-the-azure-portal).  
+    Para obtener los demás valores, consulte [Acceso a la API de Azure Media Services](../latest/access-api-howto.md?tabs=portal) y seleccione la pestaña Portal.  
     * aadTenantId: id. del inquilino. Es el mismo que el de "AadTenantId" del vínculo anterior.
     * aadServicePrincipalAppId: id. de la aplicación de la entidad de servicio de la cuenta de Servicio multimedia. Es el mismo que el de "AadClientId" del vínculo anterior.
     * aadServicePrincipalSecret: contraseña de la entidad de servicio. Es el mismo que el de "AadSecret" del vínculo anterior.
@@ -201,8 +190,9 @@ Un manifiesto de implementación es un documento JSON que describe qué módulos
     "armEndpoint": "https://management.azure.com/",
     "allowUnsecuredEndpoints": true
     ```
-   [!Note]
-   La propiedad gemela **allowUnsecuredEndpoints** se establece como true para los tutoriales y las guías de inicio rápido.   
+
+   > [!Note]
+   > La propiedad gemela **allowUnsecuredEndpoints** se establece como true para los tutoriales y las guías de inicio rápido.   
    Se debe establecer esta propiedad en **false** cuando se ejecute en el entorno de producción. Esto garantizará que la aplicación bloqueará todos los puntos de conexión no seguros y, para poder ejecutar las topologías de gráfico, se necesitarán credenciales de conexión válidas.  
    
     Seleccione Agregar para incorporar las propiedades de módulos gemelos.
@@ -221,8 +211,8 @@ Revise la información de implementación y seleccione Crear.
 
 Después de crear la implementación, regresará a la página IoT Edge de IoT Hub.
 
-1.  Seleccione el dispositivo IoT Edge elegido como destino con la implementación para abrir sus detalles.
-2.  En los detalles del dispositivo, compruebe que el módulo de almacenamiento de blobs aparece como **Especificado en la implementación y Notificado por el dispositivo**.
+1. Seleccione el dispositivo IoT Edge elegido como destino con la implementación para abrir sus detalles.
+2. En los detalles del dispositivo, compruebe que el módulo de almacenamiento de blobs aparece como **Especificado en la implementación y Notificado por el dispositivo**.
 
 Puede tardar unos minutos para que el módulo se inicie en el dispositivo y, a continuación, notifique a IoT Hub. Actualice la página para ver el estado actualizado.
 Código de estado: 200: OK significa que [el entorno de ejecución de Azure IoT Edge](../../iot-edge/iot-edge-runtime.md) es correcto y funciona bien.
@@ -259,4 +249,7 @@ Después, vamos a probar el ejemplo con la invocación de un método directo. Le
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Inicio rápido: Introducción: Live Video Analytics on IoT Edge](get-started-detect-motion-emit-events-quickstart.md)
+Pruebe [Inicio rápido: Introducción: Live Video Analytics on IoT Edge](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
+
+> [!TIP]
+> En el comando, que ejecutará después, utilizará `device-id` en lugar de `lva-sample-device`predeterminado.

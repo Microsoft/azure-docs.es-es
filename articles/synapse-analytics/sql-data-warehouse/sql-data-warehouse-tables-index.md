@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 605c3320b0fcc7ac9663acc1578740e2cb3f3174
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ac32c41bd6b30c3edce68d67adc376e066d0bf5
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213965"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797605"
 ---
 # <a name="indexing-tables-in-synapse-sql-pool"></a>Indexación de tablas en el grupo de SQL de Synapse
 
@@ -142,6 +142,9 @@ GROUP BY
 ,       t.[name]
 ;
 ```
+
+>[!TIP]
+> Para mejorar el rendimiento de Synapse SQL, considere la posibilidad de usar **sys.pdw_permanent_table_mappings** en lugar de **sys.pdw_table_mappings** en tablas de usuario permanentes. Para más información, consulte **[sys.pdw_permanent_table_mappings &#40;Transact-SQL&#41;](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** .
 
 Ahora que ha creado la vista, ejecute esta consulta para identificar las tablas con grupos de filas con menos de 100 000 filas. Por supuesto, puede aumentar el umbral de 100 000 si desea obtener mayor calidad de los segmentos.
 

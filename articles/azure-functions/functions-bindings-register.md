@@ -3,51 +3,67 @@ title: Registro de las extensiones de enlace de Azure Functions
 description: Aprenda a registrar una extensión de enlace de Azure Functions basada en su entorno.
 author: craigshoemaker
 ms.topic: reference
-ms.date: 07/08/2019
+ms.date: 08/16/2020
 ms.author: cshoe
-ms.openlocfilehash: 2dde784e2f67266b2f6c6ccd7da20f01546bbda7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 942ca3229808b57894598c3477e9dc97e40e8c80
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506492"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88689578"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registro de las extensiones de enlace de Azure Functions
 
-En la versión de Azure Functions 2.x, los [enlaces](./functions-triggers-bindings.md) están disponibles como paquetes independientes de Functions Runtime. Aunque las funciones de .NET acceden a los enlaces a través de paquetes NuGet, los grupos de extensiones permiten a otras funciones acceder a todos los enlaces mediante una opción de configuración.
+A partir de Azure Functions versión 2.x, el entorno de ejecución de Functions solo incluye desencadenadores HTTP y de temporizador de forma predeterminada. Hay disponibles otros [desencadenadores y enlaces](./functions-triggers-bindings.md) como paquetes independientes.
 
-Tenga en cuenta los siguientes elementos relacionados con las extensiones de enlaces:
-
-- Las extensiones de enlaces no están registradas explícitamente en Functions 1.x, excepto cuando [se crea una biblioteca de clases en C# mediante Visual Studio](#local-csharp).
-
-- De forma predeterminada, se admiten los desencadenadores de HTTP y de temporizador y no requieren una extensión.
+Las aplicaciones de funciones de la biblioteca de clases .NET usan enlaces que se instalan en el proyecto como paquetes NuGet. Los conjuntos de extensiones permiten a las aplicaciones de funciones que no son .NET utilizar los mismos enlaces sin tener que tratar con la infraestructura de .NET.
 
 En la tabla siguiente se indica cuándo y cómo registrar los enlaces.
 
-| Entorno de desarrollo |Registro<br/> en Functions 1.x  |Registro<br/> en Functions 2.x  |
+| Entorno de desarrollo |Registro<br/> en Functions 1.x  |Registro<br/> en Functions 3.x/2.x  |
 |-------------------------|------------------------------------|------------------------------------|
-|Portal de Azure|Automático|Automático|
-|Desarrollo en lenguajes que no son .NET o en Azure Functions Core Tools local|Automático|[Uso de Azure Functions Core Tools y agrupaciones de extensiones](#extension-bundles)|
+|Portal de Azure|Automático|Automático<sup>*</sup>|
+|Lenguajes que no son .NET|Automático|Use [conjuntos de extensiones](#extension-bundles) (recomendado) o [instale las extensiones de forma explícita](#explicitly-install-extensions).|
 |Biblioteca de clases de C# con Visual Studio|[Uso de herramientas NuGet](#vs)|[Uso de herramientas NuGet](#vs)|
 |Biblioteca de clases de C# con Visual Studio Code|N/D|[Uso de la CLI de .NET Core](#vs-code)|
 
-## <a name="extension-bundles-for-local-development"></a><a name="extension-bundles"></a>Agrupaciones de extensiones para el desarrollo local
+<sup>*</sup> El portal usa conjuntos de extensiones.
 
-Las agrupaciones de extensiones son una tecnología de implementación que permite agregar un conjunto compatible de extensiones de enlace de Functions a la aplicación de función. Al compilar la aplicación, se agrega un conjunto predefinido de extensiones. Los paquetes de extensiones definidos en una agrupación son compatibles entre sí, lo cual le ayuda a evitar conflictos entre ellos. Las agrupaciones de extensiones se habilitan en el archivo host.json de la aplicación.  
+## <a name="access-extensions-in-non-net-languages"></a>Acceso a las extensiones en lenguajes que no son .NET
 
-Puede usar agrupaciones de extensiones con la versión 2.x y versiones posteriores del tiempo de ejecución de Functions. Cuando desarrolle localmente, asegúrese de que está utilizando la versión más reciente de [Azure Functions Core Tools](functions-run-local.md#v2).
+Para Java, JavaScript, PowerShell, Python y las aplicaciones de funciones con controlador personalizado, se recomienda usar conjuntos de extensiones para acceder a los enlaces. En los casos en los que no se pueden usar conjuntos de extensiones, puede instalar explícitamente las extensiones de enlaces.
 
-Use agrupaciones de extensiones para todo el desarrollo local con Azure Functions Core Tools o Visual Studio Code.
+### <a name="extension-bundles"></a><a name="extension-bundles"></a>Conjuntos de extensiones
 
-Si no usa agrupaciones de extensiones, deberá instalar el SDK de .NET Core 2.x en el equipo local antes de instalar las extensiones de enlaces. Las agrupaciones de extensiones permiten eliminar este requisito para el desarrollo local. 
+Los conjuntos de extensiones son una manera de agregar un conjunto compatible de extensiones de enlace a la aplicación de funciones. Los conjuntos de extensiones se habilitan en el archivo *host.json* de la aplicación.
 
-Para usar agrupaciones de extensiones, actualice el archivo *host.json* para que incluya la siguiente entrada para `extensionBundle`:
- 
+Puede usar agrupaciones de extensiones con la versión 2.x y versiones posteriores del tiempo de ejecución de Functions.
+
+Los conjuntos de extensiones tienen control de versiones. Cada versión contiene un conjunto específico de extensiones de enlace que se ha comprobado que funcionan juntas. Seleccione una versión del conjunto en función de las extensiones que necesite en la aplicación.
+
+Para agregar un conjunto de extensiones a la aplicación de funciones, agregue la sección `extensionBundle` al archivo *host.json*. En muchos casos, Visual Studio Code y Azure Functions Core Tools lo agregarán automáticamente.
+
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
-<a name="local-csharp"></a>
+En la tabla siguiente se enumeran las versiones disponibles actualmente del conjunto *Microsoft.Azure.Functions.ExtensionBundle* predeterminado y los vínculos a las extensiones que incluyen.
 
-## <a name="c-class-library-with-visual-studio"></a><a name="vs"></a> Biblioteca de clases de C\# con Visual Studio
+| Versión del conjunto | Versión en host.json | Extensiones incluidas |
+| --- | --- | --- |
+| 1.x | `[1.*, 2.0.0)` | Consulte el archivo [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v1.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) utilizado para generar el conjunto. |
+| 2.x | `[2.*, 3.0.0)` | Consulte el archivo [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v2.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) utilizado para generar el conjunto. |
+
+> [!NOTE]
+> Aunque puede especificar un intervalo de versiones personalizado en el archivo host.json, se recomienda usar un valor de versión de esta tabla.
+
+### <a name="explicitly-install-extensions"></a><a name="explicitly-install-extensions"></a>Instalación explícita de extensiones
+
+[!INCLUDE [functions-extension-register-core-tools](../../includes/functions-extension-register-core-tools.md)]
+
+## <a name="install-extensions-from-nuget-in-net-languages"></a><a name="local-csharp"></a>Instalación de las extensiones desde NuGet en los lenguajes .NET
+
+En un proyecto de funciones basados en la biblioteca de clases de C#, se deben instalar las extensiones directamente. Los conjuntos de extensiones se han diseñado específicamente para proyectos que no están basados en la biblioteca de clases de C#.
+
+### <a name="c-class-library-with-visual-studio"></a><a name="vs"></a> Biblioteca de clases de C\# con Visual Studio
 
 En **Visual Studio**, puede instalar paquetes desde la Consola del Administrador de paquetes mediante el comando [Install-Package](/nuget/tools/ps-ref-install-package), tal como se muestra en el ejemplo siguiente:
 
@@ -61,7 +77,7 @@ Reemplace `<TARGET_VERSION>` en el ejemplo con una versión específica del paqu
 
 Si usa `Install-Package` para hacer referencia a un enlace, no es necesario usar [agrupaciones de extensiones](#extension-bundles). Este enfoque es específico de las bibliotecas de clases compiladas en Visual Studio.
 
-## <a name="c-class-library-with-visual-studio-code"></a><a name="vs-code"></a> Biblioteca de clases de C# con Visual Studio Code
+### <a name="c-class-library-with-visual-studio-code"></a><a name="vs-code"></a> Biblioteca de clases de C# con Visual Studio Code
 
 En **Visual Studio Code**, instale paquetes para un proyecto de biblioteca de clases de C# desde el símbolo del sistema mediante el comando [dotnet add package](/dotnet/core/tools/dotnet-add-package) de la CLI de .NET Core. En el ejemplo siguiente se muestra cómo agregar un enlace:
 

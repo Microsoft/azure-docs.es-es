@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 479222cc9b67775d359182740dc78865da8cee38
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: c8f9bc283d88121ad4b6144b8ac9463510349212
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115917"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117233"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedimientos: Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos
 
@@ -178,7 +178,7 @@ Si decide no usar un certificado, puede crear un secreto de aplicación nuevo.
    ![Copie el valor del secreto porque no podrá recuperarlo más adelante](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="configure-access-policies-on-resources"></a>Configuración de directivas de acceso sobre los recursos
-Puede que tenga que configurar permisos adicionales para los recursos a los que la aplicación tiene que acceder. Por ejemplo, también debe [actualizar las directivas de acceso de un almacén de claves](/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) para proporcionar a la aplicación acceso a las claves, los secretos o los certificados.  
+Puede que tenga que configurar permisos adicionales para los recursos a los que la aplicación tiene que acceder. Por ejemplo, también debe [actualizar las directivas de acceso de un almacén de claves](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) para proporcionar a la aplicación acceso a las claves, los secretos o los certificados.  
 
 1. En [Azure Portal](https://portal.azure.com), vaya al almacén de claves y seleccione **Directivas de acceso**.  
 1. Seleccione **Agregar directiva de acceso** y, luego, seleccione la clave, el secreto y los permisos de certificado que quiere conceder a la aplicación.  Seleccione la entidad de servicio que creó anteriormente.
@@ -187,5 +187,5 @@ Puede que tenga que configurar permisos adicionales para los recursos a los que 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre el [Uso de Azure PowerShell para crear una entidad de servicio](howto-authenticate-service-principal-powershell.md).
-* Para obtener información sobre cómo especificar directivas de seguridad, consulte [Control de acceso basado en roles de Azure](../../role-based-access-control/role-assignments-portal.md).  
+* Para obtener información sobre cómo especificar directivas de seguridad, consulte [Control de acceso basado en roles de Azure (RBAC de Azure)](../../role-based-access-control/role-assignments-portal.md).  
 * Para obtener una lista de las acciones que puede conceder o denegar a los usuarios, consulte [Operaciones del proveedor de recursos de Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md).

@@ -1,6 +1,6 @@
 ---
 title: Supervisión de una cuenta de Azure Storage en Azure Portal | Microsoft Docs
-description: Aprenda a supervisar una cuenta de almacenamiento en Azure usando el Portal de Azure.
+description: Aprenda a supervisar una cuenta de almacenamiento en Azure usando Azure Portal y Azure Storage Analytics.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 46ff6fb26cf568474b24d941e4a174b425bf5207
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 4c78938e2f70342822a4009ed9195196ca486fe0
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87474366"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034675"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Supervisión de una cuenta de almacenamiento en el Portal de Azure
 

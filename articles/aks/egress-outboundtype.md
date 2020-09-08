@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: juluk
 ms.date: 06/29/2020
 author: jluk
-ms.openlocfilehash: 4c5d6bf83d9aa9c3717b0f8e08785b0fc897577d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5095931e28438beebf3250155ede1a8af0bb5c64
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244453"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796976"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>Personalización de la salida de un clúster con una ruta definida por el usuario
 
@@ -32,7 +32,7 @@ En este artículo se explica cómo personalizar la ruta de salida de un clúster
 
 ## <a name="overview-of-outbound-types-in-aks"></a>Introducción a los tipos de salida en AKS
 
-Un clúster de AKS se puede personalizar con un valor de `outboundType` único del tipo de equilibrador de carga o enrutamiento definido por el usuario.
+Un clúster de AKS se puede personalizar con un `outboundType` único de tipo `loadBalancer` o `userDefinedRouting`.
 
 > [!IMPORTANT]
 > El tipo de salida afecta solo al tráfico de salida del clúster. Para obtener más información, consulte cómo [configurar los controladores de entrada](ingress-basic.md).
@@ -60,9 +60,13 @@ A continuación se muestra una topología de red implementada en clústeres de A
 
 Si se establece `userDefinedRouting`, AKS no configurará automáticamente las rutas de salida. El usuario debe encargarse de la configuración de salida.
 
-El clúster de AKS debe implementarse en una red virtual existente con una subred que se haya configurado previamente porque, al usar la arquitectura de equilibrador de carga estándar (SLB), debe establecer una salida explícita. Como tal, esta arquitectura requiere el envío explícito del tráfico de salida a un dispositivo, como un firewall, una puerta de enlace o un proxy, o para permitir que la traducción de direcciones de red (NAT) se realice mediante una dirección IP pública asignada al equilibrador de carga estándar o dispositivo.
+El clúster de AKS debe implementarse en una red virtual existente con una subred que se haya configurado previamente porque, al no usar la arquitectura de equilibrador de carga estándar (SLB), debe establecer una salida explícita. Como tal, esta arquitectura requiere el envío explícito del tráfico de salida a un dispositivo, como un firewall, una puerta de enlace o un proxy, o para permitir que la traducción de direcciones de red (NAT) se realice mediante una dirección IP pública asignada al equilibrador de carga estándar o dispositivo.
 
-El proveedor de recursos de AKS implementará un equilibrador de carga estándar (SLB). El equilibrador de carga no está configurado con ninguna regla y [no incurre en ningún cargo hasta que se coloca una regla](https://azure.microsoft.com/pricing/details/load-balancer/). AKS **no** aprovisionará automáticamente una dirección IP pública para el front-end de SLB ni configurará automáticamente el grupo de back-end del equilibrador de carga.
+#### <a name="load-balancer-creation-with-userdefinedrouting"></a>Creación de un equilibrador de carga con userDefinedRouting
+
+Los clústeres de AKS con el tipo de salida UDR reciben un equilibrador de carga estándar (SLB) solo cuando se implementa el primer servicio Kubernetes del tipo "loadBalancer". El equilibrador de carga se configura con una dirección IP pública para las solicitudes *entrantes* y un grupo de back-end para las solicitudes *salientes*. Las reglas de entrada se configuran mediante el proveedor de la nube de Azure, pero, como resultado de tener un tipo de salida de UDR, no se configura **ninguna dirección IP pública saliente ni tampoco reglas de salida**. El UDR seguirá siendo el único origen para el tráfico de salida.
+
+Los equilibradores de carga de Azure [no incurren en ningún cargo hasta que se coloca una regla](https://azure.microsoft.com/pricing/details/load-balancer/).
 
 ## <a name="deploy-a-cluster-with-outbound-type-of-udr-and-azure-firewall"></a>Implementación de un clúster con el tipo de salida UDR y Azure Firewall
 
@@ -70,8 +74,7 @@ Para ilustrar la aplicación de un clúster con un tipo de salida que usa una ru
 
 > [!IMPORTANT]
 > El tipo de salida de UDR requiere que haya una ruta para 0.0.0.0/0 y un destino del próximo salto de NVA (aplicación virtual de red) en la tabla de rutas.
-> La tabla de enrutamiento ya tiene un valor predeterminado de 0.0.0.0/0 a Internet, sin una dirección IP pública para SNAT, simplemente agregar esta ruta no le proporcionará la salida. AKS validará que no cree una ruta 0.0.0.0/0 que apunte a Internet, sino a NVA o a la puerta de enlace, etc.
-
+> La tabla de enrutamiento ya tiene un valor predeterminado de 0.0.0.0/0 a Internet, sin una dirección IP pública para SNAT, simplemente agregar esta ruta no le proporcionará la salida. AKS validará que no cree una ruta 0.0.0.0/0 que apunte a Internet, sino a NVA o a la puerta de enlace, etc. Cuando se utiliza un tipo de salida de UDR, no se crea una dirección IP pública del equilibrador de carga para las **solicitudes entrantes** a menos que se configure un servicio de tipo *loadbalancer*. AKS nunca crea una dirección IP pública para las **solicitudes de salida** si se establece un tipo de salida de UDR.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

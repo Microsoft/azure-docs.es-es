@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3ed549e51b911452bca7d4d4a16c7ef45594a8f
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 4d9ca8b7e188a7ed438feb5e2b99c6db22ad12b3
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81451438"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717156"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planeamiento de una implementación de autenticación sin contraseña en Azure Active Directory
 
@@ -43,9 +43,9 @@ Con la autenticación sin contraseña, la contraseña se sustituye por algo que 
 ## <a name="passwordless-authentication-methods"></a>Métodos de autenticación sin contraseña
 Microsoft ofrece tres opciones de autenticación sin contraseña que abarcan muchos escenarios. Estos métodos se pueden utilizar conjuntamente:
 
-- [Windows Hello para empresas](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless) está más indicado para los usuarios que trabajan en sus equipos Windows dedicados.
-- El inicio de sesión con [claves de seguridad FIDO2](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless) es especialmente útil para los usuarios que inician sesión en máquinas compartidas, tales como quioscos, para situaciones en las que se restringe el uso de teléfonos y para identidades con privilegios elevados.
-- El inicio de sesión con teléfono con la aplicación [Microsoft Authenticator](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless) resulta útil para ofrecer una opción sin contraseña a los usuarios con dispositivos móviles. La aplicación Authenticator convierte cualquier teléfono iOS o Android en una credencial segura sin contraseña, ya que permite a los usuarios iniciar sesión en cualquier plataforma o explorador. Para iniciar sesión, los usuarios reciben una notificación en su teléfono, comprueban que el número mostrado en la pantalla coincide con el de su teléfono y, a continuación, usan datos biométricos o el PIN para confirmarlo.
+- [Windows Hello para empresas](./concept-authentication-passwordless.md) está más indicado para los usuarios que trabajan en sus equipos Windows dedicados.
+- El inicio de sesión con [claves de seguridad FIDO2](./concept-authentication-passwordless.md) es especialmente útil para los usuarios que inician sesión en máquinas compartidas, tales como quioscos, para situaciones en las que se restringe el uso de teléfonos y para identidades con privilegios elevados.
+- El inicio de sesión con teléfono con la aplicación [Microsoft Authenticator](./concept-authentication-passwordless.md) resulta útil para ofrecer una opción sin contraseña a los usuarios con dispositivos móviles. La aplicación Authenticator convierte cualquier teléfono iOS o Android en una credencial segura sin contraseña, ya que permite a los usuarios iniciar sesión en cualquier plataforma o explorador. Para iniciar sesión, los usuarios reciben una notificación en su teléfono, comprueban que el número mostrado en la pantalla coincide con el de su teléfono y, a continuación, usan datos biométricos o el PIN para confirmarlo.
 
 ### <a name="passwordless-authentication-scenarios"></a>Escenarios de autenticación sin contraseña
 
@@ -59,7 +59,7 @@ Los métodos de autenticación sin contraseña de Microsoft habilitan distintos 
 | **Inicio de sesión de la aplicación web**: <br> desde un dispositivo móvil o no Windows | **Sí** | **No** | **No** |
 | **Inicio de sesión en un equipo**: <br> equipo que no es Windows | **No** | **No** | **No** |
 
-Para más información sobre cómo seleccionar el mejor método para la organización, consulte la sección [Elección de un método sin contraseña](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#choose-a-passwordless-method).
+Para más información sobre cómo seleccionar el mejor método para la organización, consulte la sección [Elección de un método sin contraseña](./concept-authentication-passwordless.md#choose-a-passwordless-method).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -72,11 +72,11 @@ Las organizaciones deben cumplir los siguientes requisitos previos antes de come
 | [Los usuarios se han registrado para Azure Multi-Factor Authentication y SSPR](howto-registration-mfa-sspr-combined.md). | √ | √ |
 | [Los usuarios han registrado sus dispositivos móviles en Azure Active Directory](../devices/overview.md) | √ |   |
 | Windows 10 versión 1809 o superior con un explorador compatible, como Microsoft Edge o Mozilla Firefox <br> (versión 67 o posterior). <br> *Microsoft recomienda la versión 1903 o posteriores para tener compatibilidad nativa*. |   | √ |
-| Llaves de seguridad FIDO2 compatibles. Asegúrese de que está usando un dispositivo de seguridad FIDO2 [verificado y probado por Microsoft](howto-authentication-passwordless-enable.md) u otro dispositivo de seguridad FIDO2 compatible. |   | √ |
+| Llaves de seguridad FIDO2 compatibles. Asegúrese de que está usando un dispositivo de seguridad FIDO2 [verificado y probado por Microsoft](./concept-authentication-passwordless.md) u otro dispositivo de seguridad FIDO2 compatible. |   | √ |
 
 ### <a name="prerequisites-for-windows-hello-for-business"></a>Requisitos previos de Windows Hello para empresas
 
-Los requisitos previos de Windows Hello dependen en gran medida de si se está implementando en una configuración local, híbrida o solo en la nube. Para más información, consulte la [lista completa de requisitos previos de Windows Hello para empresas](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification).
+Los requisitos previos de Windows Hello dependen en gran medida de si se está implementando en una configuración local, híbrida o solo en la nube. Para más información, consulte la [lista completa de requisitos previos de Windows Hello para empresas](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
 ### <a name="azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication
 
@@ -132,7 +132,7 @@ Consulte [Procedimiento recomendado para una prueba piloto](https://aka.ms/deplo
 
 La aplicación Microsoft Authenticator es una descarga gratuita de Google Play o de la App Store de Apple. [Más información sobre la descarga de la aplicación Microsoft Authenticator](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6). Pida a los usuarios que descarguen la aplicación Microsoft Authenticator y que sigan las instrucciones para habilitar el inicio de sesión de teléfono. 
 
-Esta aplicación convierte cualquier teléfono Android o iOS en una credencial segura sin contraseña. Los usuarios inician sesión en cualquier plataforma o explorador con este proceso: reciben una notificación en su teléfono, comprueban que el número mostrado en la pantalla coincide con el de su teléfono y, a continuación, usan datos biométricos o el PIN para confirmarlo. [Consulte los detalles sobre cómo funciona la aplicación Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#microsoft-authenticator-app).
+Esta aplicación convierte cualquier teléfono Android o iOS en una credencial segura sin contraseña. Los usuarios inician sesión en cualquier plataforma o explorador con este proceso: reciben una notificación en su teléfono, comprueban que el número mostrado en la pantalla coincide con el de su teléfono y, a continuación, usan datos biométricos o el PIN para confirmarlo. [Consulte los detalles sobre cómo funciona la aplicación Microsoft Authenticator](./concept-authentication-passwordless.md#microsoft-authenticator-app).
 
 ![Inicio de sesión con la aplicación Authenticator](./media/howto-authentication-passwordless-deployment/passwordless-dp-sign-in.png)
 
@@ -150,7 +150,7 @@ Hay tres tipos de implementaciones de inicio de sesión sin contraseña disponib
 -    Aplicaciones web de Azure Active Directory en un explorador compatible
 -    Dispositivos de Windows 10 unidos a Azure Active Directory
 -    Dispositivos de Windows 10 unidos a Azure Active Directory híbrido (versión preliminar)
-     -    Proporciona acceso a los recursos locales y a los basados en la nube. Para más información sobre el acceso a los recursos locales, consulte [Habilitar el inicio de sesión con una clave de seguridad sin contraseña en recursos locales con Azure Active Directory (versión preliminar)](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key-on-premises).
+     -    Proporciona acceso a los recursos locales y a los basados en la nube. Para más información sobre el acceso a los recursos locales, consulte [Habilitar el inicio de sesión con una clave de seguridad sin contraseña en recursos locales con Azure Active Directory (versión preliminar)](./howto-authentication-passwordless-security-key-on-premises.md).
 
 Debe habilitar las **claves de seguridad de FIDO2 compatibles**. Microsoft anunció [importantes asociaciones con los proveedores de claves de FIDO2](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Microsoft-passwordless-partnership-leads-to-innovation-and-great/ba-p/566493).
 
@@ -164,7 +164,7 @@ Debe habilitar las **claves de seguridad de FIDO2 compatibles**. Microsoft anunc
 -    Servidores de dominio totalmente revisados que ejecutan Windows Server 2016 o 2019.
 -    Versión más reciente de Azure AD Connect
 
-Para consultar una lista completa de requisitos, consulte [Habilitar el inicio de sesión con una clave de seguridad sin contraseña en dispositivos Windows 10 con Azure Active Directory (versión preliminar)](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key-windows#requirements).
+Para consultar una lista completa de requisitos, consulte [Habilitar el inicio de sesión con una clave de seguridad sin contraseña en dispositivos Windows 10 con Azure Active Directory (versión preliminar)](./howto-authentication-passwordless-security-key-windows.md#requirements).
 
 
 ### <a name="security-key-life-cycle"></a>Ciclo de vida de la clave de seguridad
@@ -320,7 +320,7 @@ Siga los pasos descritos en el artículo [Habilitación del inicio de sesión si
 | --- | --- |
 | El usuario no puede realizar el registro combinado. | Asegúrese de que el [registro combinado](concept-registration-mfa-sspr-combined.md) está habilitado. |
 | El usuario no puede agregar una clave de seguridad a la [configuración de seguridad](https://aka.ms/mysecurityinfo). | Asegúrese de que las [llaves de seguridad](howto-authentication-passwordless-security-key.md) estén habilitadas. |
-| El usuario no puede agregar una clave de seguridad en las opciones de inicio de sesión de Windows 10. | [Asegúrese de que las llaves de seguridad para el inicio de sesión de Windows](howto-authentication-passwordless-enable.md) estén habilitadas. |
+| El usuario no puede agregar una clave de seguridad en las opciones de inicio de sesión de Windows 10. | [Asegúrese de que las llaves de seguridad para el inicio de sesión de Windows](./concept-authentication-passwordless.md) estén habilitadas. |
 | **Mensaje de error**: Hemos detectado que este sistema operativo o explorador no admite las claves de seguridad FIDO2. | Los dispositivos de seguridad FIDO2 sin contraseña solo se pueden registrar en exploradores compatibles (Microsoft Edge, Firefox versión 67) en Windows 10 versión 1809 o posteriores. |
 | **Mensaje de error**: La directiva de la empresa requiere que use otro método para iniciar sesión. | No está seguro de si las llaves de seguridad están habilitadas en el inquilino. |
 | El usuario no puede administrar mi llave de seguridad en la versión 1809 de Windows 10 | La versión 1809 requiere que use el software de administración de llaves de seguridad proporcionado por el proveedor de llaves FIDO2. Póngase en contacto con el proveedor para obtener soporte técnico. |
@@ -331,4 +331,3 @@ Siga los pasos descritos en el artículo [Habilitación del inicio de sesión si
 - [Habilitación del inicio de sesión sin contraseña con llaves de seguridad en Azure AD](howto-authentication-passwordless-security-key.md)
 - [Habilitación del inicio de sesión sin contraseña con la aplicación Microsoft Authenticator](howto-authentication-passwordless-phone.md)
 - [Más información sobre el uso de métodos de autenticación](howto-authentication-methods-usage-insights.md)
-

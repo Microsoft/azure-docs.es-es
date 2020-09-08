@@ -5,14 +5,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, devx-track-csharp
 ms.date: 01/27/2020
-ms.openlocfilehash: 837174b3ccc08a74583587cb9efd34f8f720aec5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 70ea5ec9ee91fdba8023b9c6af1ce65b691a17fb
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77589460"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006897"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Tutorial: Ejecución de Azure Functions desde trabajos de Azure Stream Analytics 
 
@@ -52,7 +52,7 @@ Siga el tutorial [Detección de fraudes en tiempo real](stream-analytics-real-ti
 
 1. Consulte la sección [Creación de una aplicación de función](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) de la documentación de Functions. En esta sección se explica cómo crear una aplicación de funciones y una [función desencadenada por HTTP en Azure Functions](../azure-functions/functions-create-first-azure-function.md#create-function) mediante el lenguaje CSharp.  
 
-2. Vaya a la función **run.csx**. Actualícela con el código siguiente. Reemplace **"\<su cadena de conexión de Azure Cache for Redis va aquí\>"** por la cadena de conexión principal de Azure Cache for Redis que recuperó en la sección anterior. 
+2. Vaya a la función **run.csx**. Actualícela con el código siguiente. Reemplace **"\<your Azure Cache for Redis connection string goes here\>"** por la cadena de conexión principal de Azure Cache for Redis que recuperó en la sección anterior. 
 
     ```csharp
     using System;

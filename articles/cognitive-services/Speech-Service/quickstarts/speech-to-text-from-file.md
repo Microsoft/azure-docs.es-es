@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: trbye
-ms.custom: devx-track-javascript
+ms.custom: devx-track-javascript, devx-track-csharp
 zone_pivot_groups: programming-languages-set-two-with-js-spx
-ms.openlocfilehash: b0ee2d18dda05f1e0409fdc91dcd54698c809975
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 8aa6b307a410da7db53a29a476546de751b7454c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406334"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926256"
 ---
 # <a name="quickstart-recognize-speech-from-an-audio-file"></a>Inicio rápido: Reconocimiento de voz de un archivo de audio
 

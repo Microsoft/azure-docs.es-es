@@ -5,12 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: 3569e5cc25491fd408f7aec57a51d11f56dbd1fe
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 9612c61945a41b30fb5d4768e1eb0909a07911d3
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145269"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229402"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Usar Azure Pipelines para compilar e implementar soluciones HPC
 
@@ -28,8 +28,8 @@ En este ejemplo, crearemos una canalización de compilación y versión para imp
 
 Para realizar los pasos descritos en este artículo, se necesita una organización de Azure DevOps y un proyecto de equipo.
 
-* [Crear una organización de Azure DevOps](/azure/devops/organizations/accounts/create-organization?view=azure-devops)
-* [Creación de un proyecto en Azure DevOps](/azure/devops/organizations/projects/create-project?view=azure-devops)
+* [Crear una organización de Azure DevOps](/azure/devops/organizations/accounts/create-organization)
+* [Creación de un proyecto en Azure DevOps](/azure/devops/organizations/projects/create-project)
 
 ### <a name="source-control-for-your-environment"></a>Control de código fuente del entorno
 
@@ -48,7 +48,7 @@ La estructura del código base utilizada en este ejemplo es parecida a la siguie
 
 En esta sección se supone que está familiarizado con el control de versiones y el diseño de plantillas de Resource Manager. Si no lo está, consulte las siguientes páginas para obtener más información.
 
-* [¿Qué es el control de código fuente?](/azure/devops/user-guide/source-control?view=azure-devops)
+* [¿Qué es el control de código fuente?](/azure/devops/user-guide/source-control)
 * [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
 
 #### <a name="azure-resource-manager-templates"></a>Plantillas del Administrador de recursos de Azure
@@ -309,7 +309,7 @@ Ahora que ya tenemos el código fuente configurado, podemos empezar la primera c
 
 ## <a name="continuous-integration"></a>Integración continua
 
-[Azure Pipelines](/azure/devops/pipelines/get-started/?view=azure-devops), que forma parte Azure DevOps Services, sirve para implementar una canalización de compilación, prueba e implementación para sus aplicaciones.
+[Azure Pipelines](/azure/devops/pipelines/get-started/), que forma parte Azure DevOps Services, sirve para implementar una canalización de compilación, prueba e implementación para sus aplicaciones.
 
 En esta fase de la canalización se suelen ejecutar pruebas para validar el código y compilar los fragmentos de software adecuados. La cantidad y los tipos de pruebas, así como cualquier otra tarea que ejecute, dependerán de la estrategia de compilación y versión más amplia que haya trazado.
 
@@ -323,9 +323,9 @@ En este ejemplo, nos centraremos en la carpeta **hpc-application**. La carpeta *
 
 1. Existen dos formas de crear una canalización de compilación:
 
-    a. [Mediante el diseñador visual](/azure/devops/pipelines/get-started-designer?view=azure-devops&tabs=new-nav). Para ello, haga clic en "Usar el diseñador visual" en la página **Nueva canalización**.
+    a. [Mediante el diseñador visual](/azure/devops/pipelines/get-started-designer). Para ello, haga clic en "Usar el diseñador visual" en la página **Nueva canalización**.
 
-    b. [Mediante compilaciones YAML](/azure/devops/pipelines/get-started-yaml?view=azure-devops). Para crear una canalización YAML, haga clic en la opción Azure Repos o en la opción GitHub en la página Nueva canalización. Si lo desea, puede almacenar el siguiente ejemplo en su control de código fuente y hacer referencia a un archivo YAML existente, haciendo clic para ello en el diseñador visual y, después, usando la plantilla YAML.
+    b. [Mediante compilaciones YAML](/azure/devops/pipelines/get-started-yaml). Para crear una canalización YAML, haga clic en la opción Azure Repos o en la opción GitHub en la página Nueva canalización. Si lo desea, puede almacenar el siguiente ejemplo en su control de código fuente y hacer referencia a un archivo YAML existente, haciendo clic para ello en el diseñador visual y, después, usando la plantilla YAML.
 
     ```yml
     # To publish an application into Azure Batch, we need to
@@ -357,7 +357,7 @@ En este ejemplo, nos centraremos en la carpeta **hpc-application**. La carpeta *
     ![Ver salidas directas de la compilación](media/batch-ci-cd/Build-1.jpg)
 
 > [!NOTE]
-> Si usa una aplicación cliente para ejecutar la aplicación HPC de Batch, deberá crear una definición de compilación aparte para esa aplicación. Encontrará varias guías de procedimientos en la documentación de [Azure Pipelines](/azure/devops/pipelines/get-started/index?view=azure-devops).
+> Si usa una aplicación cliente para ejecutar la aplicación HPC de Batch, deberá crear una definición de compilación aparte para esa aplicación. Encontrará varias guías de procedimientos en la documentación de [Azure Pipelines](/azure/devops/pipelines/get-started/index).
 
 ## <a name="continuous-deployment"></a>Implementación continua
 

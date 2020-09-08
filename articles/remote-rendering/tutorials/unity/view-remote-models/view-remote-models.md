@@ -5,12 +5,13 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: bd9e9b6754c8626a8d858b9832a8e3547b72352d
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 7509a17127f04220a8e8450a81627354b28bdacd
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231918"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006472"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Tutorial: Visualización de un modelo representado de forma remota
 
@@ -220,11 +221,28 @@ public class RemoteRenderingCoordinator : MonoBehaviour
 
     // AccountDomain must be '<region>.mixedreality.azure.com' - if no '<region>' is specified, connections will fail
     // For most people '<region>' is either 'westus2' or 'westeurope'
-    public string AccountDomain = "westus2.mixedreality.azure.com";
+    [SerializeField]
+    private string accountDomain = "westus2.mixedreality.azure.com";
+    public string AccountDomain
+    {
+        get => accountDomain.Trim();
+        set => accountDomain = value;
+    }
 
     [Header("Development Account Credentials")]
-    public string AccountId = "<enter your account id here>";
-    public string AccountKey = "<enter your account key here>";
+    [SerializeField]
+    private string accountId = "<enter your account id here>";
+    public string AccountId {
+        get => accountId.Trim();
+        set => accountId = value;
+    }
+
+    [SerializeField]
+    private string accountKey = "<enter your account key here>";
+    public string AccountKey {
+        get => accountKey.Trim();
+        set => accountKey = value;
+    }
 
     // These settings are important. All three should be set as low as possible, while maintaining a good user experience
     // See the documentation around session management and the technical differences in session VM size
@@ -237,7 +255,12 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     [Header("Other Configuration")]
 
     [Tooltip("If you have a known active SessionID, you can fill it in here before connecting")]
-    public string sessionIDOverride;
+    [SerializeField]
+    private string sessionIDOverride;
+    public string SessionIDOverride {
+        get => sessionIDOverride.Trim();
+        set => sessionIDOverride = value;
+    }
 
     // When Automatic Mode is true, the coordinator will attempt to automatically proceed through the process of connecting and loading a model
     public bool automaticMode = true;
@@ -313,8 +336,8 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     {
         get
         {
-            if (!string.IsNullOrEmpty(sessionIDOverride))
-                return sessionIDOverride;
+            if (!string.IsNullOrEmpty(SessionIDOverride))
+                return SessionIDOverride;
 
             if (PlayerPrefs.HasKey("LastUsedSessionID"))
                 return PlayerPrefs.GetString("LastUsedSessionID");
@@ -620,8 +643,8 @@ public async void JoinRemoteSession()
     {
         //The session should be ready or starting, if it's not, something went wrong
         await ARRSessionService.StopSession();
-        if(LastUsedSessionID == sessionIDOverride)
-            sessionIDOverride = "";
+        if(LastUsedSessionID == SessionIDOverride)
+            SessionIDOverride = "";
         CurrentCoordinatorState = RemoteRenderingState.NoSession;
     }
 }

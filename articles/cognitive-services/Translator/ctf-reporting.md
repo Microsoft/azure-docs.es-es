@@ -10,12 +10,13 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
-ms.openlocfilehash: 1bf6fefbe7d2ea3fccc393f4445fceec44ed4117
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 68b0de40940fa75dd4eb4e1572405f31ce1c22b8
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584678"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934385"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Cómo usar los informes de Collaborative Translation Framework (CTF)
 
@@ -113,7 +114,7 @@ El conjunto de resultados contiene la matriz de **UserTranslationCount**. Cada U
 > [!NOTE]
 > La cuota se ajustará para garantizar la equidad entre todos los usuarios del servicio.
 
-**Vea ejemplos de código en GitHib**
+**Vea ejemplos de código en GitHub**
 * [C#](https://github.com/MicrosoftTranslator/CustomTranslator-API-CSharp)
 * [PHP](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP)
 

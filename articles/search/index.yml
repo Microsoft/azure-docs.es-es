@@ -11,12 +11,12 @@ metadata:
   author: HeidiSteen
   ms.author: heidist
   ms.date: 02/25/2020
-  ms.openlocfilehash: f5acb693e758d3a574b799b2999e6d956aaf883c
-  ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+  ms.openlocfilehash: faf8b4813699d177eb18997778c1d2e3bf9f5858
+  ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/05/2020
-  ms.locfileid: "85954509"
+  ms.lasthandoff: 08/26/2020
+  ms.locfileid: "88924391"
 landingContent:
 - title: Acerca de Cognitive Search
   linkLists:
@@ -69,9 +69,9 @@ landingContent:
   - linkListType: reference
     links:
     - text: Creación de índice (REST)
-      url: https://docs.microsoft.com/rest/api/searchservice/create-index
+      url: /rest/api/searchservice/create-index
     - text: Creación de un indexador (REST)
-      url: https://docs.microsoft.com/rest/api/searchservice/create-indexer
+      url: /rest/api/searchservice/create-indexer
 - title: Enriquecimiento con IA
   linkLists:
   - linkListType: concept
@@ -115,7 +115,7 @@ landingContent:
     - text: Referencia al lenguaje OData
       url: query-odata-filter-orderby-syntax.md
     - text: Documentos de búsqueda (REST)
-      url: https://docs.microsoft.com/rest/api/searchservice/search-documents
+      url: /rest/api/searchservice/search-documents
 - title: Ayuda y comentarios
   linkLists:
   - linkListType: reference

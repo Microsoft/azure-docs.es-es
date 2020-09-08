@@ -1,6 +1,6 @@
 ---
 title: 'Ajustar rendimiento: Hive, HDInsight y Azure Data Lake Storage Gen2 | Microsoft Docs'
-description: Guía para la optimización del rendimiento de Hive en Azure Data Lake Storage Gen2
+description: Conozca las directrices de ajuste para consultas con uso intensivo de E/S mediante Hive, HDInsight y Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: f6a0b76a479575fdeb0cc507a7d0fb62b6b067a5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: fb908fe94f940073753ea8e1cde3da2b2a0c4b6b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285312"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034777"
 ---
 # <a name="tune-performance-hive-hdinsight--azure-data-lake-storage-gen2"></a>Ajustar rendimiento: Hive, HDInsight y Azure Data Lake Storage Gen2
 

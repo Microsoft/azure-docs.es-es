@@ -5,19 +5,19 @@ description: En este tutorial, aprenderá a crear un grupo de conmutación por e
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: high-availability
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sashan, carlrab
 ms.date: 08/27/2019
-ms.openlocfilehash: 47f33d8b1a7792487491cbe7f2ddb5c7f5b087af
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: a6f400db2a068953080e734148e024b575e3e1e9
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002993"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89070860"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Tutorial: Adición de SQL Managed Instance a un grupo de conmutación por error
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -52,7 +52,7 @@ Para completar el tutorial, asegúrese de que cuenta con los elementos siguiente
 ---
 
 
-## <a name="1---create-a-resource-group-and-primary-managed-instance"></a>1\. Creación de un grupo de recursos y una instancia administrada principal
+## <a name="create-a-resource-group-and-primary-managed-instance"></a>Creación de un grupo de recursos y una instancia administrada principal
 
 En este paso, creará el grupo de recursos y la instancia administrada principal del grupo de conmutación por error mediante Azure Portal o PowerShell. 
 
@@ -404,7 +404,7 @@ En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
 
 ---
 
-## <a name="2---create-secondary-virtual-network"></a>2\. Creación de una red virtual secundaria
+## <a name="create-secondary-virtual-network"></a>Creación de una red virtual secundaria
 
 Si usa Azure Portal para crear la instancia administrada, tendrá que crear la red virtual por separado, ya que hay un requisito de que la subred de la instancia administrada principal y secundaria no tenga intervalos superpuestos. Si usa PowerShell para configurar la instancia administrada, vaya al paso 3. 
 
@@ -444,7 +444,7 @@ Este paso es necesario solo si utiliza Azure Portal para implementar SQL Managed
 
 ---
 
-## <a name="3---create-a-secondary-managed-instance"></a>3\. Creación de una instancia administrada secundaria
+## <a name="create-a-secondary-managed-instance"></a>Creación de una instancia administrada secundaria
 En este paso, creará una instancia administrada secundaria en Azure Portal, que también configurará las redes entre las dos instancias administradas. 
 
 La segunda instancia administrada debe:
@@ -734,9 +734,9 @@ En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
 
 ---
 
-## <a name="4---create-a-primary-gateway"></a>4\. Creación de una puerta de enlace principal 
+## <a name="create-a-primary-gateway"></a>Creación de una puerta de enlace principal 
 
-Para que dos instancias administradas participen en un grupo de conmutación por error, debe haber una puerta de enlace o ExpressRoute configurados entre las redes virtuales de las dos instancias administradas para permitir la comunicación en red. Si decide configurar [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) en lugar de conectar dos puertas de enlace de VPN, vaya al [paso 7](#7---create-a-failover-group).  
+Para que dos instancias administradas participen en un grupo de conmutación por error, debe haber una puerta de enlace o ExpressRoute configurados entre las redes virtuales de las dos instancias administradas para permitir la comunicación en red. Si decide configurar [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) en lugar de conectar dos puertas de enlace de VPN, vaya al [paso 7](#create-a-failover-group).  
 
 En este artículo se proporcionan los pasos para crear las dos puertas de enlace de VPN y conectarlas, pero puede ir directamente a la creación del grupo de conmutación por error si ha configurado ExpressRoute en su lugar. 
 
@@ -767,7 +767,6 @@ Cree la puerta de enlace para la red virtual de la instancia administrada princi
     | **Tipo de puerta de enlace** | Seleccione **VPN**. |
     | **Tipo de VPN** | seleccione **Basada en rutas**. |
     | **SKU**| Deje el valor predeterminado de `VpnGw1`. |
-    | **Ubicación**| Ubicación donde se encuentran la instancia administrada principal y la red virtual principal.   |
     | **Red virtual**| Seleccione la red virtual que se creó en la sección 2, como `vnet-sql-mi-primary`. |
     | **Dirección IP pública**| Seleccione **Crear nuevo**. |
     | **Nombre de la dirección IP pública**| Escriba un nombre para la dirección IP, como `primary-gateway-IP`. |
@@ -831,7 +830,7 @@ En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
 ---
 
 
-## <a name="5---create-secondary-gateway"></a>5\. Creación de una puerta de enlace secundaria 
+## <a name="create-secondary-gateway"></a>Creación de una puerta de enlace secundaria 
 En este paso, va a crear la puerta de enlace para la red virtual de la instancia administrada secundaria mediante Azure Portal. 
 
 
@@ -849,8 +848,7 @@ Mediante Azure Portal, repita los pasos de la sección anterior para crear la su
    | **Tipo de puerta de enlace** | Seleccione **VPN**. |
    | **Tipo de VPN** | seleccione **Basada en rutas**. |
    | **SKU**| Deje el valor predeterminado de `VpnGw1`. |
-   | **Ubicación**| Ubicación donde se encuentran la instancia administrada secundaria y la red virtual secundaria.   |
-   | **Red virtual**| Seleccione la red virtual que se creó en la sección 2, como `vnet-sql-mi-secondary`. |
+   | **Red virtual**| Seleccione la red virtual para su instancia administrada secundaria, como `vnet-sql-mi-secondary`. |
    | **Dirección IP pública**| Seleccione **Crear nuevo**. |
    | **Nombre de la dirección IP pública**| Escriba un nombre para la dirección IP, como `secondary-gateway-IP`. |
    | &nbsp; | &nbsp; |
@@ -883,7 +881,7 @@ Cree la puerta de enlace para la red virtual de la instancia administrada secund
                      -VirtualNetwork $secondaryVirtualNetwork
    $drLocation = $secondaryVirtualNetwork.Location
    
-   Write-host "Creating primary gateway..."
+   Write-host "Creating secondary gateway..."
    Write-host "This will take some time."
    $secondaryGWPublicIP = New-AzPublicIpAddress -Name $secondaryGWPublicIPAddress -ResourceGroupName $resourceGroupName `
             -Location $drLocation -AllocationMethod Dynamic
@@ -911,7 +909,7 @@ En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
 ---
 
 
-## <a name="6---connect-the-gateways"></a>6\. Conexión de las puertas de enlace
+## <a name="connect-the-gateways"></a>Conexión de las puertas de enlace
 En este paso, cree una conexión bidireccional entre las dos puertas de enlace de las dos redes virtuales. 
 
 
@@ -923,21 +921,24 @@ Conecte las dos puertas de enlace mediante Azure Portal.
 1. Seleccione **Crear un recurso** en [Azure Portal](https://portal.azure.com).
 1. Escriba `connection` en el cuadro de búsqueda y, después, presione Entrar para buscar. Esto lo llevará al recurso **Conexión**, publicado por Microsoft.
 1. Seleccione **Crear** para crear su conexión. 
-1. En la pestaña **Aspectos básicos**, seleccione los siguientes valores y luego seleccione **Aceptar**. 
+1. En la página **Aspectos básicos**, seleccione los siguientes valores y luego seleccione **Aceptar**. 
     1. Seleccione `VNet-to-VNet` para el **tipo de conexión**. 
     1. Seleccione la suscripción en la lista desplegable. 
     1. Seleccione el grupo de recursos de la instancia de SQL Managed Instance en la lista desplegable. 
     1. Seleccione la ubicación de la instancia administrada principal en la lista desplegable. 
-1. En la pestaña **Configuración**, seleccione o escriba los valores siguientes y, después, seleccione **Aceptar**:
-    1. Elija la puerta de enlace de red principal para la **Primera puerta enlace de red virtual**, como `Primary-Gateway`.  
-    1. Elija la puerta de enlace de red secundaria para la **Segunda puerta enlace de red virtual**, como `Secondary-Gateway`. 
+1. En la página **Configuración**, seleccione o escriba los valores siguientes y, después, seleccione **Aceptar**:
+    1. Elija la puerta de enlace de red principal para la **Primera puerta enlace de red virtual**, como `primaryGateway`.  
+    1. Elija la puerta de enlace de red secundaria para la **Segunda puerta enlace de red virtual**, como `secondaryGateway`. 
     1. Active la casilla situada junto a **Establecer conectividad bidireccional**. 
     1. Deje el nombre de la conexión principal predeterminado o cambie su nombre por un valor de su elección. 
     1. Proporcione una **clave compartida (PSK)** para la conexión, como `mi1m2psk`. 
+    1. Seleccione **Aceptar** para guardar la configuración. 
 
-   ![Crear una conexión de la puerta de enlace](./media/failover-group-add-instance-tutorial/create-gateway-connection.png)
+    ![Crear una conexión de la puerta de enlace](./media/failover-group-add-instance-tutorial/create-gateway-connection.png)
 
-1. En la pestaña **Resumen**, revise la configuración de la conexión bidireccional y, después, seleccione **Aceptar** para crear la conexión. 
+    
+
+1. En la pestaña **Revisar y crear**, revise la configuración de la conexión bidireccional y, después, seleccione **Aceptar** para crear la conexión. 
 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -970,7 +971,7 @@ En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
 ---
 
 
-## <a name="7---create-a-failover-group"></a>7\. Creación de un grupo de conmutación por error
+## <a name="create-a-failover-group"></a>Creación de un grupo de conmutación por error
 En este paso, creará el grupo de conmutación por error y le agregará ambas instancias administradas. 
 
 
@@ -1013,7 +1014,7 @@ En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
 ---
 
 
-## <a name="8---test-failover"></a>8\. Prueba de la conmutación por error
+## <a name="test-failover"></a>Conmutación por error de prueba
 En este paso, se producirá un error en el grupo de conmutación por error en el servidor secundario y, a continuación, se realizará la conmutación por recuperación mediante Azure Portal. 
 
 

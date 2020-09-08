@@ -4,24 +4,26 @@ titleSuffix: Azure Media Services
 description: Aprenda a crear filtros con el empaquetador dinámico para filtrar y transmitir selectivamente los manifiestos.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
-ms.date: 07/11/2019
-ms.author: juliako
-ms.openlocfilehash: cb7a399258dcab679468d2b8f699487b1ec5406b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: acb30c1659c4c29e0af83da5594bdd9a7e3465d8
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84705209"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299038"
 ---
 # <a name="filter-your-manifests-using-dynamic-packager"></a>Filtrado de los manifiestos mediante el empaquetador dinámico
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Cuando entrega contenido de streaming con velocidad de bits adaptable, en ocasiones es necesario publicar varias versiones de un manifiesto para acomodarse a funcionalidades específicas del dispositivo o al ancho de banda de red disponible. El [empaquetador dinámico](dynamic-packaging-overview.md) permite especificar los filtros que pueden filtrar códecs específicos, resoluciones, velocidades de bits y combinaciones de pistas de audio sobre la marcha. Este filtrado elimina la necesidad de crear varias copias. Solo necesita publicar una nueva dirección URL con un conjunto específico de filtros configurados para los dispositivos de destino (iOS, Android, SmartTV o exploradores) y las funcionalidades de red (escenarios de ancho de banda alto o bajo o móviles). En este caso, los clientes pueden manipular el streaming de contenido mediante la cadena de consulta (mediante la especificación de los [filtros de recursos o de cuenta](filters-concept.md) disponibles) y usar filtros para el streaming de secciones específicas de una secuencia.
 

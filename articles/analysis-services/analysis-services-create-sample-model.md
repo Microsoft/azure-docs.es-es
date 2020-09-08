@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial: Adición de un modelo de ejemplo; Azure Analysis Services | Microsoft Docs'
-description: En este tutorial, aprenderá a agregar un modelo de ejemplo a Azure Analysis Services.
+description: En este tutorial, aprenderá a agregar un modelo de ejemplo en Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 05/19/2020
+ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 88ed58ea1eea80b4b890c31260fc65153377eaaa
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 5b84c2e50ae7f5038cf9cb8a96c0c51d6537c929
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697508"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230913"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>Tutorial: Adición de un modelo de ejemplo desde el portal
 
@@ -24,7 +24,7 @@ En este tutorial, agregará una base de datos modelo tabular de ejemplo, Adventu
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="before-you-begin"></a>Antes de empezar
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, necesita:
 
@@ -45,7 +45,7 @@ Inicie sesión en el [portal](https://portal.azure.com/).
 
 2. En **Nuevo modelo** > **Choose a datasource** (Elegir un origen de datos), compruebe que la opción **Datos de ejemplo** está seleccionada y, a continuación, haga clic en **Agregar**.
 
-    ![Seleccionar datos de ejemplo](./media/analysis-services-create-sample-model/aas-create-sample-data.png)
+    ![Selección de un nuevo modelo](./media/analysis-services-create-sample-model/aas-create-sample-data.png)
 
 3. En **Información general**, compruebe que se ha agregado el modelo de ejemplo `adventureworks`.
 

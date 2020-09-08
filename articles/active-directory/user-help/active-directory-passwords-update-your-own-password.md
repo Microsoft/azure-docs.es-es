@@ -11,21 +11,21 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 05/28/2020
 ms.author: curtand
-ms.openlocfilehash: 58ec2c00e75b12d6010b106ca7daed0da234bf1d
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: b83cdf0b069eac2e46cfdd54edc11a1aa5a41075
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266124"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799050"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Restablecimiento de la contraseña profesional o educativa con la información de seguridad
 
-Si alguna vez ha olvidado su contraseña en el trabajo o en el centro educativo, en su organización no ha tenido nunca contraseña o le han bloqueado la cuenta, puede usar la información de seguridad y el dispositivo móvil para restablecer su contraseña profesional o educativa. Para poder configurar sus datos y [restablecer su contraseña](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-reset-register), es preciso que el administrador active esta característica.
+Si alguna vez ha olvidado su contraseña en el trabajo o en el centro educativo, en su organización no ha tenido nunca contraseña o le han bloqueado la cuenta, puede usar la información de seguridad y el dispositivo móvil para restablecer su contraseña profesional o educativa. Para poder configurar sus datos y [restablecer su contraseña](./active-directory-passwords-reset-register.md), es preciso que el administrador active esta característica.
 
-Si conoce la contraseña, pero desea cambiarla, consulte las secciones [Para cambiar la contraseña](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) de este artículo.
+Si conoce la contraseña, pero desea cambiarla, consulte las secciones [Para cambiar la contraseña](#how-to-change-your-password) de este artículo.
 
 >[!Important]
->Este artículo está destinado a los usuarios que quieren usar el restablecimiento de contraseñas de cuentas profesionales o educativas olvidadas o desconocidas. Si es un administrador que desea obtener información acerca de cómo activar el autoservicio de restablecimiento de contraseña para los empleados u otros usuarios, consulte [Implementar el autoservicio de restablecimiento de contraseña de Azure AD y otros artículos](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
+>Este artículo está destinado a los usuarios que quieren usar el restablecimiento de contraseñas de cuentas profesionales o educativas olvidadas o desconocidas. Si es un administrador que desea obtener información acerca de cómo activar el autoservicio de restablecimiento de contraseña para los empleados u otros usuarios, consulte [Implementar el autoservicio de restablecimiento de contraseña de Azure AD y otros artículos](../authentication/howto-sspr-deployment.md).
 
 ## <a name="how-to-reset-or-unlock-your-password-for-a-work-or-school-account"></a>Restablecimiento o desbloqueo de la contraseña de una cuenta profesional o educativa
 
@@ -164,6 +164,6 @@ A continuación se presentan algunos casos de errores comunes y sus soluciones:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte los aspectos de la información de seguridad en el artículo [Introducción a la información de seguridad (versión preliminar)](user-help-security-info-overview.md).
+- Consulte los aspectos de la información de seguridad en el artículo [Introducción a la información de seguridad (versión preliminar)](./security-info-setup-signin.md).
 
 - Si quiere volver a una cuenta personal, como Xbox, hotmail.com o outlook.com, pruebe las sugerencias que se encuentran en el [artículo Cuando no consigues iniciar sesión en tu cuenta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

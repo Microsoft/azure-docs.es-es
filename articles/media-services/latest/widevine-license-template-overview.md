@@ -1,7 +1,7 @@
 ---
 title: Introducción a Azure Media Services v3 con plantilla de licencia de Widevine
 description: En este tema se proporciona información general sobre una plantilla de licencia de Widevine que se usó para configurar las licencias de Widevine.
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -10,15 +10,16 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2020
-ms.author: juliako
-ms.openlocfilehash: 35816c693589c5a45d51e5bd093d908b68f9c0d4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: inhenkel
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 8ea0eab6d420a4b74de93a1d35e178d6c57c2ad9
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043268"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89298936"
 ---
 # <a name="media-services-v3-with-widevine-license-template-overview"></a>Introducción a Media Services v3 con plantilla de licencia de Widevine
 

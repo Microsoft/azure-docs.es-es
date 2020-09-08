@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con TeamViewer | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y TeamViewer.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 121d5a65-db74-4c94-99e0-a00d3d252944
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/10/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28101c3bd7aaca88b0b474e6e6e6715b40c9cccb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 72786bbebdf51089927bd570f40bf9171018a6b7
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76157336"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88542078"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-teamviewer"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con TeamViewer
 

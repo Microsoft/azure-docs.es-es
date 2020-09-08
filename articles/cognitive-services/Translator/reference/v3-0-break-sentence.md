@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 01/21/2020
+ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: 01a5404100da6c669da4513ac9fd08c959df220e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 340b0ed02821fb98f271539ac39e0ccad8581082
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588639"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904010"
 ---
 # <a name="translator-30-breaksentence"></a>Traductor 3.0: BreakSentence
 
@@ -61,7 +61,7 @@ El cuerpo de la solicitud es una matriz JSON. Cada elemento de la matriz es un o
 Se aplican las siguientes limitaciones:
 
 * La matriz puede tener como máximo 100 elementos.
-* El valor de texto de un elemento de la matriz no puede superar los 10 000 caracteres, incluyendo los espacios.
+* El valor de texto de un elemento de la matriz no puede superar los 50 000 caracteres, incluidos los espacios.
 * El texto completo incluido en la solicitud no puede superar los 50 000 caracteres, incluidos los espacios.
 * Si se especifica el parámetro de consulta `language`, todos los elementos de la matriz deberán estar en el mismo idioma. De lo contrario, la autodetección de idioma se aplica a cada elemento de la matriz de forma independiente.
 

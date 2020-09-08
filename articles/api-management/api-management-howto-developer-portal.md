@@ -1,7 +1,7 @@
 ---
 title: Introducción al portal para desarrolladores de Azure API Management
 titleSuffix: Azure API Management
-description: Obtenga información sobre el portal para desarrolladores de API Management.
+description: Obtenga información sobre el portal para desarrolladores de API Management. El portal para desarrolladores es donde los consumidores pueden encontrar las API.
 services: api-management
 documentationcenter: API Management
 author: mikebudzynski
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/28/2020
 ms.author: apimpm
-ms.openlocfilehash: f5f4df58a4b147ccb73c7d69f5307a8328803442
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 6a8c4c3fa2bd73fa689458d6877d09900ea86938
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373154"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852164"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Introducción al portal para desarrolladores de Azure API Management
 

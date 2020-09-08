@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
-ms.custom: seodec18
-ms.openlocfilehash: b5e2dc56ad84504f0bf5ced09d865d7cb4e467fa
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: 05a469dbeb093c41b45be278aec42cc930223c72
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027804"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002183"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guía de diseño de tablas de Azure Table Storage: Tablas escalables y eficaces
 

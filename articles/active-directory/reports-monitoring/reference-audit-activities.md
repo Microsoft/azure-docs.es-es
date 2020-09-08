@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86a0e0b3c64554e00a5ba7734af28dc136df643f
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: 56f9976faf2a803e747bce8b851a3555e6d746b0
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80891516"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231153"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referencia sobre actividades de auditoría de Azure AD
 
@@ -35,8 +35,8 @@ La arquitectura de los informes de Azure AD consta de los siguientes componentes
     - Los [registros de auditoría](concept-audit-logs.md) proporcionan rastreabilidad mediante los registros de todos los cambios realizados por diversas características de Azure AD. 
     
 - **Informes de seguridad** 
-    - [Inicios de sesión peligrosos](concept-risky-sign-ins.md): un inicio de sesión peligroso es un indicador de un intento de inicio de sesión que puede haber realizado alguien que no es el propietario legítimo de una cuenta de usuario. 
-    - [Usuarios marcados en riesgo](concept-user-at-risk.md): un usuario en peligro es un indicador de una cuenta de usuario que puede haber estado en peligro. 
+    - [Inicios de sesión peligrosos](../identity-protection/overview-identity-protection.md): un inicio de sesión peligroso es un indicador de un intento de inicio de sesión que puede haber realizado alguien que no es el propietario legítimo de una cuenta de usuario. 
+    - [Usuarios marcados en riesgo](../identity-protection/overview-identity-protection.md): un usuario en peligro es un indicador de una cuenta de usuario que puede haber estado en peligro. 
 
 En este artículo se enumeran las actividades de auditoría que se pueden registrar en los registros de auditoría.
 

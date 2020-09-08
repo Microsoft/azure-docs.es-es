@@ -44,12 +44,18 @@
       href: vm-do-ten-things.md
     - name: Uso de una instancia de Data Science Virtual Machine para Linux
       href: linux-dsvm-walkthrough.md
-    - name: Creación de un grupo de Data Science Virtual Machine con escala automática
-      href: dsvm-pools.md
-    - name: Integrarse con Active Directory
-      href: dsvm-common-identity.md
-    - name: Protección de las credenciales de acceso a los recursos
-      href: dsvm-secure-access-keys.md
+    - name: Integración con Azure Machine Learning
+      items:
+        - name: Controlar experimentos
+          href: how-to-track-experiments.md
+    - name: Guía de Enterprise
+      items:
+        - name: Creación de un grupo de Data Science Virtual Machine con escala automática
+          href: dsvm-pools.md
+        - name: Integrarse con Active Directory
+          href: dsvm-common-identity.md
+        - name: Protección de las credenciales de acceso a los recursos
+          href: dsvm-secure-access-keys.md
 - name: Recursos
   items:
     - name: Página de preguntas y respuestas de Microsoft

@@ -11,12 +11,12 @@ author: ajetasin
 ms.author: ajetasi
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 90d3507a8867ad3556891f6001f0e15ebda8c4f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 945e9019d75f9597d89a63c9322cbd4a8d502f15
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84345366"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869871"
 ---
 # <a name="stream-data-into-azure-sql-database-using-azure-stream-analytics-integration-preview"></a>Transmisión de datos en Azure SQL Database mediante la integración de Azure Stream Analytics (versión preliminar)
 
@@ -31,7 +31,7 @@ Ahora los usuarios pueden ingerir, procesar, ver y analizar datos de transmisió
 - Facilidad de uso adicional con vista previa de los datos: obtenga una vista previa de los datos entrantes desde el origen de eventos (Event Hub o IoT Hub) en el contexto de la tabla seleccionada
 
 > [!IMPORTANT]
-> Un trabajo de Azure Stream Analytics puede generar Azure SQL Database, Azure SQL Managed Instance o Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse). Para más información, vea [Salidas](../../stream-analytics/stream-analytics-define-outputs.md#sql-database).
+> Un trabajo de Azure Stream Analytics puede generar Azure SQL Database, Azure SQL Managed Instance o Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse). Para más información, vea [Salidas](../../stream-analytics/sql-database-output.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -50,7 +50,7 @@ Para completar los pasos de este artículo, necesitará los siguientes recursos:
 
 3. Para empezar a ingerir los datos de transmisión en esta base de datos, seleccione **Crear**, asigne un nombre al trabajo de transmisión y, después, seleccione **Siguiente: Entrada**.
 
-    ![Creación del trabajo de Stream Analytics](./media/stream-data-stream-analytics-integration/create-job.png)
+    ![configuración de los aspectos básicos del trabajo de Stream Analytics](./media/stream-data-stream-analytics-integration/create-job.png)
 
 4. Escriba los detalles del origen del evento y, después, seleccione **Siguiente: Salida**.
 
@@ -64,7 +64,7 @@ Para completar los pasos de este artículo, necesitará los siguientes recursos:
 
       Se recomienda crear un grupo de consumidores y una directiva para cada trabajo de Azure Stream Analytics que cree desde aquí. Los grupos de consumidores solo permiten cinco lectores simultáneos, por lo que, si se proporciona un grupo de consumidores dedicado para cada trabajo, se evitarán los errores que podrían surgir en caso de que se superara ese límite. Las directivas dedicadas le permiten cambiar la clave o revocar permisos sin afectar a otros recursos.
 
-     ![Creación del trabajo de Stream Analytics](./media/stream-data-stream-analytics-integration/create-job-output.png)
+     ![configuración de la salida del trabajo de Stream Analytics](./media/stream-data-stream-analytics-integration/create-job-output.png)
 
 5. Seleccione la tabla en la que quiera ingerir los datos de transmisión. Cuando haya terminado, seleccione **Crear**.
 

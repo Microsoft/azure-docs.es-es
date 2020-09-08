@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: 9008b30fd89e9d57923f6c612b7a454aa1ba528e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 14846761535a77f28adbd0147d244817cb799d86
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084099"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935847"
 ---
 # <a name="how-to-index-csv-blobs-using-delimitedtext-parsing-mode-and-blob-indexers-in-azure-cognitive-search"></a>Indexación de blobs CSV mediante el modo de análisis delimitedText e indexadores de blobs en Azure Cognitive Search
 
@@ -32,7 +32,7 @@ En este artículo, aprenderá a analizar blobs CSV con un indizador de blobs de 
 > Siga las recomendaciones de configuración de indexadores de [Indexación de uno a varios](search-howto-index-one-to-many-blobs.md) para generar varios documentos de búsqueda a partir de un blob de Azure.
 
 ## <a name="setting-up-csv-indexing"></a>Configuración de la indexación de CSV
-Para indexar blobs de CSV, cree o actualice una definición de indizador con el modo de análisis `delimitedText` en una solicitud [Crear indizador](https://docs.microsoft.com/rest/api/searchservice/create-indexer):
+Para indexar blobs de CSV, cree o actualice una definición de indizador con el modo de análisis `delimitedText` en una solicitud [Crear indizador](/rest/api/searchservice/create-indexer):
 
 ```http
     {
@@ -98,4 +98,3 @@ Indexador:
 
 ## <a name="help-us-make-azure-cognitive-search-better"></a>Ayúdenos a mejorar Azure Cognitive Search
 Si tiene solicitudes o ideas para mejorar las características, comuníquelas en [UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
-

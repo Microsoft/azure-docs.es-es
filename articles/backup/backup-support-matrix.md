@@ -4,12 +4,12 @@ description: Proporciona un resumen de opciones de compatibilidad y limitaciones
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: d75e7053bfff14fbcb6deeae48c48f09e3e9ac0d
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 9b0698b16d3432c1bfefd3cf909cdfdf5529200e
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531887"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892191"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de compatibilidad para Azure Backup
 
@@ -32,7 +32,7 @@ En esta tabla se describen las características de los almacenes de Recovery Ser
 **Característica** | **Detalles**
 --- | ---
 **Vaults in subscription** (Almacenes en la suscripción) | Hasta 500 almacenes de Recovery Services en una suscripción única.
-**Machines in a vault** (Máquinas en un almacén) | Hasta 1000 máquinas virtuales de Azure en un solo almacén.<br/><br/> Se pueden registrar hasta 50 servidores MABS en un único almacén.
+**Machines in a vault** (Máquinas en un almacén) | Se pueden proteger hasta 2000 orígenes de datos en todas las cargas de trabajo (como máquinas virtuales de Azure, máquinas virtuales de SQL Server, servidores de MABS, etc.) en un solo almacén.<br><br>Hasta 1000 máquinas virtuales de Azure en un solo almacén.<br/><br/> Se pueden registrar hasta 50 servidores MABS en un único almacén.
 **Orígenes de datos** | El tamaño máximo de un [origen de datos](./backup-azure-backup-faq.md#how-is-the-data-source-size-determined) individual es de 54 400 KB. Este límite no se aplica a las copias de seguridad de máquinas virtuales de Azure. No se aplica ningún límite a la cantidad total de datos de los que se puede hacer copia de seguridad en el almacén.
 **Backups to vault** (Copias de seguridad en el almacén) | **Máquinas virtuales de Azure:** una vez al día.<br/><br/>**Máquinas protegidas por DPM/MABS:** dos veces al día.<br/><br/> **Máquinas con copia de seguridad realizada directamente con el agente de MARS:** tres veces al día.
 **Backups between vaults** (Copias de seguridad entre almacenes) | Las copias de seguridad se realizan dentro de una región.<br/><br/> Necesita un almacén en cada región de Azure que contenga máquinas virtuales de las que desee realizar copias de seguridad. No se pueden realizar copias de seguridad en una región diferente.
@@ -79,8 +79,8 @@ Esto es lo que se admite si quiere hacer copias de seguridad de máquinas Linux:
 --- | ---
 **Copia de seguridad directa de máquina local que ejecuta Linux** | No compatible. El agente de MARS solo puede instalarse en máquinas Windows.
 **Uso de la extensión del agente para realizar la copia de seguridad de una máquina virtual de Azure que ejecuta Linux** | Copia de seguridad coherente con la aplicación mediante [scripts personalizados](backup-azure-linux-app-consistent.md).<br/><br/> Recuperación de nivel de archivo.<br/><br/> Restauración mediante la creación de una máquina virtual desde un disco o un punto de recuperación.
-**Uso de DPM para realizar la copia de seguridad de máquinas locales que ejecutan Linux** | Copia de seguridad coherente con archivo de máquinas virtuales invitadas de Linux en Hyper-V y VMWare.<br/><br/> Restauración de máquinas virtuales invitadas de Linux en Hyper-V y VMWare.
-**Uso de MABS para realizar la copia de seguridad de máquinas locales que ejecutan Linux** | Copia de seguridad coherente con archivo de máquinas virtuales invitadas de Linux en Hyper-V y VMWare.<br/><br/> Restauración de máquinas virtuales invitadas de Linux en Hyper-V y VMWare.
+**Uso de DPM para realizar la copia de seguridad de máquinas locales que ejecutan Linux** | Copia de seguridad coherente con archivo de máquinas virtuales invitadas de Linux en Hyper-V y VMware.<br/><br/> Restauración de máquinas virtuales invitadas de Linux en Hyper-V y VMware.
+**Uso de MABS para realizar la copia de seguridad de máquinas locales que ejecutan Linux** | Copia de seguridad coherente con archivo de máquinas virtuales invitadas de Linux en Hyper-V y VMware.<br/><br/> Restauración de máquinas virtuales invitadas de Linux en Hyper-V y VMware.
 **Uso de MABS o DPM para realizar las copias de seguridad de máquinas virtuales Linux de Azure** | No compatible.
 
 ## <a name="daylight-saving-time-support"></a>Compatibilidad con horario de verano
@@ -136,7 +136,7 @@ Backup admite la compresión del tráfico de copia de seguridad, tal y como se r
 **Configuración** | **Límites**
 --- | ---
 **Número máximo de puntos de recuperación por instancia protegida (máquina o carga de trabajo)** | 9999
-**Tiempo máximo de expiración de un punto de recuperación** | Sin límite
+**Tiempo de expiración máximo de un punto de recuperación** | Sin límite
 **Frecuencia máxima de copia de seguridad en DPM/MABS** | Cada 15 minutos para SQL Server<br/><br/> Una vez cada hora para otras cargas de trabajo.
 **Frecuencia máxima de copia de seguridad en el almacén** | **Máquinas Windows locales o máquinas virtuales de Azure que ejecutan MARS:** tres al día.<br/><br/> **DPM/MABS:** Dos por día<br/><br/> **Copia de seguridad de la máquina virtual de Azure:** una al día.
 **Retención de punto de recuperación** | Diariamente, semanalmente, mensualmente y anualmente
@@ -145,7 +145,7 @@ Backup admite la compresión del tráfico de copia de seguridad, tal y como se r
 
 ## <a name="cross-region-restore"></a>Restauración entre regiones
 
-Azure Backup ha agregado la característica Restauración entre regiones para reforzar la disponibilidad de los datos y la capacidad de resistencia, lo que otorga a los clientes control total para restaurar los datos en una región secundaria. Para configurar esta característica, visite [el artículo Establecimiento de la restauración entre regiones](backup-create-rs-vault.md#set-cross-region-restore). Esta característica es compatible con los siguientes tipos de administración:
+Azure Backup ha agregado la característica Restauración entre regiones para reforzar la disponibilidad de los datos y la capacidad de resistencia, lo que le otorga control total para restaurar los datos en una región secundaria. Para configurar esta característica, visite [el artículo Establecimiento de la restauración entre regiones](backup-create-rs-vault.md#set-cross-region-restore). Esta característica es compatible con los siguientes tipos de administración:
 
 | Tipo de administración de copias de seguridad | Compatible                                                    | Regiones admitidas |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |

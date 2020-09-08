@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 27c1ad4907b0b16ce6830a6fe787b78f6129eadd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7670d00a2dd25961a51d18c50c102e0f92b30975
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322846"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566155"
 ---
 # <a name="collect-data-from-linux-based-sources-using-syslog"></a>Recopilación de datos de orígenes basados en Linux mediante Syslog
 
@@ -86,6 +86,8 @@ Para más información, consulte [Orígenes de datos de Syslog en Azure Monitor]
 1. Puede usar los parámetros de consulta que se describen en [Uso de funciones en consultas de registros de Azure Monitor](../azure-monitor/log-query/functions.md) para analizar los mensajes de Syslog. Después, puede guardar la consulta como una nueva función de Log Analytics y usarla como un nuevo tipo de datos.
 
 > [!NOTE]
+> **Uso del mismo equipo para reenviar Syslog sin formato *y* mensajes de CEF**
+>
 >
 > Puede usar la [máquina del reenviador de registros de CEF](connect-cef-agent.md) existente para recopilar y reenviar registros también desde orígenes de Syslog sin formato. Sin embargo, debe realizar los pasos siguientes para evitar el envío de eventos en ambos formatos a Azure Sentinel, ya que esto provocará la duplicación de eventos.
 >

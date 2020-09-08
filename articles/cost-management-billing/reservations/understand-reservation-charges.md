@@ -4,15 +4,16 @@ description: Aprenda cómo se aplica un descuento de reserva en las bases de dat
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: banders
-ms.openlocfilehash: 9398a68d384eb7acba15fb64e27d7a2672006bc6
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 1df60eedfb776164be7e78f2994027b8d111828b
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461296"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88681964"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-sql-database"></a>Aplicación de un descuento de reserva en Azure SQL Database
 

@@ -3,12 +3,13 @@ title: Administración de secretos en aplicaciones de Azure Service Fabric
 description: Aprenda a proteger los valores de secreto en una aplicación de Service Fabric (independiente de plataforma).
 ms.topic: conceptual
 ms.date: 01/04/2019
-ms.openlocfilehash: af82a55d41c48eebcbcbd1581ec5096a89c49bea
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a11869c3b606ed9e74ce4f598109139fa1bb4164
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248125"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012830"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Administración de secretos cifrados en aplicaciones de Service Fabric
 Esta guía le lleva por los pasos para administrar secretos en una aplicación de Service Fabric. Los secretos pueden ser cualquier información confidencial, como cadenas de conexión de almacenamiento, contraseñas u otros valores que no se deben administrar en texto sin formato.

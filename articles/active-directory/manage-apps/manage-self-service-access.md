@@ -15,22 +15,22 @@ ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2a59343d4eafaa0e11f56636daa7471e748abf2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa1016307cc6e838e2e1136f6bbacd82d2f8c82e
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763149"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640759"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Configuración de la asignación a la aplicación de autoservicio
 
-Para que los usuarios puedan detectar automáticamente aplicaciones en su panel de acceso Mis aplicaciones, debe habilitar **Autoservicio de acceso a las aplicaciones** en las aplicaciones que quiera que los usuarios detecten automáticamente y puedan solicitar acceso. Esta funcionalidad está disponible para las aplicaciones que se agregaron desde la [Galería de Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app), [Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) o se agregaron mediante el [consentimiento del usuario o administrador](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience). 
+Para que los usuarios puedan detectar automáticamente aplicaciones desde su página Aplicaciones, debe habilitar **Acceso de autoservicio a las aplicaciones** en las aplicaciones que quiera que los usuarios detecten automáticamente y puedan solicitar acceso. Esta funcionalidad está disponible para las aplicaciones que se agregaron desde la [Galería de Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app), [Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) o se agregaron mediante el [consentimiento del usuario o administrador](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience). 
 
 Esta característica es una excelente manera de ahorrar tiempo y dinero como grupo de TI y es muy recomendable como parte de una implementación de aplicaciones moderna con Azure Active Directory.
 
 Con esta característica, puede:
 
--   Permitir que los usuarios detecten automáticamente las aplicaciones desde el [panel de acceso Mis aplicaciones](https://myapps.microsoft.com/) sin molestar al grupo de TI.
+-   Permitir que los usuarios detecten automáticamente las aplicaciones desde la página [Aplicaciones](https://myapps.microsoft.com/) sin molestar al grupo de TI.
 
 -   Agregar esos usuarios a un grupo preconfigurado para que pueda ver quién ha solicitado acceso, quitar el acceso y administrar los roles que tienen asignados.
 
@@ -38,7 +38,7 @@ Con esta característica, puede:
 
 -   También puede configurar un máximo de 10 usuarios que pueden aprobar el acceso a esta aplicación.
 
--   Permitir que un aprobador de la empresa establezca las contraseñas que los usuarios pueden usar para iniciar sesión en la aplicación directamente desde el [panel de acceso a las aplicaciones](https://myapps.microsoft.com/) del aprobador.
+-   Permitir que un aprobador de la empresa establezca las contraseñas que los usuarios pueden usar para iniciar sesión en la aplicación directamente desde la página [Aplicaciones](https://myapps.microsoft.com/) del aprobador.
 
 -   Asignar automáticamente usuarios asignados de autoservicio directamente a un rol de aplicación.
 
@@ -79,7 +79,7 @@ Para habilitar el acceso de autoservicio a las aplicaciones, siga estos pasos:
 
 11. Haga clic en el botón **Guardar** de la parte superior del panel para terminar.
 
-Cuando se haya completado la configuración de la aplicación de autoservicio, los usuarios pueden navegar a sus [paneles de acceso Mis aplicaciones](https://myapps.microsoft.com/) y hacer clic en el botón **Add self-service apps** (Agregar aplicaciones de autoservicio) para buscar las aplicaciones habilitadas con acceso de autoservicio. Los aprobadores de la empresa pueden ver también una notificación en su [panel de acceso Mis aplicaciones](https://myapps.microsoft.com/). Puede habilitar un correo electrónico que les informa cuando un usuario ha solicitado el acceso a una aplicación que requiere su aprobación.
+Cuando se haya completado la configuración de las aplicaciones de autoservicio, los usuarios pueden ir a su página [Aplicaciones](https://myapps.microsoft.com/) y hacer clic en el botón **Add self-service apps** (Agregar aplicaciones de autoservicio) para buscar las aplicaciones con acceso de autoservicio. Los aprobadores de la empresa pueden ver también una notificación en su página [Aplicaciones](https://myapps.microsoft.com/). Puede habilitar un correo electrónico que les informa cuando un usuario ha solicitado el acceso a una aplicación que requiere su aprobación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Configuración de Azure Active Directory para la administración de grupos de autoservicio](../users-groups-roles/groups-self-service-management.md)

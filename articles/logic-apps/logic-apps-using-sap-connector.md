@@ -9,12 +9,12 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 07/21/2020
 tags: connectors
-ms.openlocfilehash: a8985f951b8ff37beb7a1f63e8200321fc706ce6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a0f6af706a81db537b9ed66dc49996282c4dbbaa
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086615"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833902"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Conexión a sistemas SAP desde Azure Logic Apps
 
@@ -128,7 +128,7 @@ Estos requisitos previos se aplican cuando las aplicaciones lógicas se ejecutan
 
 * De forma predeterminada, el instalador de SAP coloca los archivos de ensamblado en la carpeta de instalación predeterminada. Debe copiar estos archivos de ensamblado en otra ubicación, en función del escenario que se indica aquí:
 
-  En el caso de las aplicaciones lógicas que se ejecutan en un ISE, siga los pasos descritos en [Requisitos previos del Entorno del servicio de integración (ISE)](#sap-ise). En el caso de las aplicaciones lógicas que se ejecutan en instancias multiinquilino de Azure y usan la puerta de enlace de datos local, copie los archivos de ensamblado de la carpeta de instalación predeterminada en la carpeta de instalación de la puerta de enlace de datos. Si surgen problemas con la puerta de enlace de datos, revise estos problemas:
+  * En el caso de las aplicaciones lógicas que se ejecutan en un ISE, siga los pasos descritos en [Requisitos previos del Entorno del servicio de integración (ISE)](#sap-ise). En el caso de las aplicaciones lógicas que se ejecutan en instancias multiinquilino de Azure y usan la puerta de enlace de datos local, copie los archivos de ensamblado de la carpeta de instalación predeterminada en la carpeta de instalación de la puerta de enlace de datos. Si surgen problemas con la puerta de enlace de datos, revise estos problemas:
 
   * Debe instalar la versión de 64 bits para la biblioteca de cliente de SAP, ya que la puerta de enlace de datos solo se ejecuta en sistemas de 64 bits. De lo contrario, obtendrá un error de "imagen incorrecta" porque el servicio de host de la puerta de enlace de datos no es compatible con los ensamblados de 32 bits.
 
@@ -431,7 +431,7 @@ Al configurar el filtro de matriz, el desencadenador solo recibe mensajes de los
 
 Cualquier filtrado de acciones de SAP se produce en el nivel del adaptador de SAP para la puerta de enlace de datos local. Para obtener más información, vea [Envío de IDoc de prueba a Logic Apps desde SAP](#send-idocs-from-sap).
 
-Si no puede enviar paquetes de IDoc desde SAP al desencadenador de la aplicación lógica, consulte el mensaje de rechazo de llamada de RFC transaccional (tRFC) en el cuadro de diálogo tRFC de SAP (T-CODE SM58). En la interfaz de SAP, puede obtener los siguientes mensajes de error, que se recortan debido a los límites para subcadenas en el campo **Status Text** (Texto de estado).
+Si no puede enviar paquetes de IDoc desde SAP al desencadenador de la aplicación lógica, consulte el mensaje de rechazo de llamada de RFC transaccional (tRFC) en el cuadro de diálogo tRFC de SAP (T-CODE SM58). En la interfaz de SAP, puede recibir los siguientes mensajes de error, que se recortan debido a los límites de subcadena del campo **Status Text** (Texto de estado).
 
 * `The RequestContext on the IReplyChannel was closed without a reply being`: Se producen errores inesperados cuando el controlador comodín del canal finaliza el canal debido a un error y vuelve a generar el canal para procesar otros mensajes.
 
@@ -504,7 +504,7 @@ Para enviar IDoc desde SAP a la aplicación lógica, necesita la siguiente confi
 
 #### <a name="create-rfc-destination"></a>Creación de destino RFC
 
-1. Para abrir los parámetros **Configuration of RFC Connections** (Configuración de las conexiones RFC), en la interfaz de SAP, use el código de transacción (código T) **sm59** con el prefijo **/n**.
+1. Para abrir la opción **Configuration of RFC Connections** (Configuración de las conexiones RFC), en la interfaz de SAP, use el código de transacción (código T) **sm59** con el prefijo **/n**.
 
 1. Seleccione **TCP/IP Connections** > **Create** (Conexiones TCP/IP > Crear).
 
@@ -727,7 +727,10 @@ El ejemplo siguiente es una llamada de RFC con un parámetro de tabla que tiene 
 
 ```
 
-En el ejemplo siguiente se incluyen los prefijos de los espacios de nombres. Puede declarar todos los prefijos a la vez o puede declarar cualquier cantidad de prefijos como atributos de un nodo. El alias del espacio de nombres de RFC `ns0` se utiliza como la raíz y los parámetros para el tipo básico. Tenga en cuenta que los tipos complejos se declaran en otro espacio de nombres para los tipos de RFC con el alias `ns3` en lugar del espacio de nombres de RFC normal con el alias `ns0`.
+En el ejemplo siguiente se incluyen los prefijos de los espacios de nombres. Puede declarar todos los prefijos a la vez o puede declarar un número de ellos como atributos de un nodo. El alias del espacio de nombres de RFC `ns0` se utiliza como la raíz y los parámetros para el tipo básico.
+
+> [!NOTE]
+> Los tipos complejos se declaran en otro espacio de nombres para tipos de RFC con el alias `ns3` en lugar del espacio de nombres de RFC normal con el alias `ns0`.
 
 ```xml
 
@@ -883,7 +886,7 @@ El ejemplo siguiente es un registro de datos de ejemplo con segmentos sin format
 
 ```
 
-El ejemplo siguiente es un registro de datos con segmentos agrupados. Esto incluye un nodo primario de grupo (`E2EDKT1002GRP`) y varios nodos secundarios, `E2EDKT1002` y `E2EDKT2001` incluidos. 
+El ejemplo siguiente es un registro de datos con segmentos agrupados. El registro incluye un nodo primario de grupo (`E2EDKT1002GRP`) y varios nodos secundarios, como `E2EDKT1002` y `E2EDKT2001`. 
 
 ```xml
 
@@ -900,7 +903,7 @@ El ejemplo siguiente es un registro de datos con segmentos agrupados. Esto inclu
 
 ```
 
-El método recomendado es crear un identificador de IDoc para su uso con tRFC. Puede establecer este identificador de transacción (`tid`) mediante la [operación de envío de IDoc](https://docs.microsoft.com/connectors/sap/#send-idoc) en la API del conector de SAP.
+El método recomendado es crear un identificador de IDoc para su uso con tRFC. Puede establecer este identificador de transacción (`tid`) mediante la [operación de envío de IDoc](/connectors/sap/#send-idoc) en la API del conector de SAP.
 
 El ejemplo siguiente es un método alternativo para establecer el identificador de la transacción, o `tid`. En este ejemplo, el último nodo de segmento de registro de datos y el nodo de datos de IDoc están cerrados. A continuación, el GUID (`guid`) se usa como el identificador de tRFC para detectar duplicados. 
 
@@ -1120,7 +1123,7 @@ Cuando se conecta a SAP desde Logic Apps, el idioma predeterminado de la conexi�
 
 Por ejemplo, puede enviar una solicitud con el encabezado `Accept-Language` a la aplicación lógica mediante el desencadenador de la **solicitud HTTP**. Todas las acciones de la aplicación lógica reciben el encabezado. A continuación, SAP usa los idiomas especificados en sus mensajes del sistema, como los mensajes de error de BAPI.
 
-Los parámetros de conexión de SAP para una aplicación lógica no tienen una propiedad de idioma. Por lo tanto, si utiliza el encabezado `Accept-Language`, es posible que reciba el siguiente error: **Please check your account info and/or permissions and try again** (Compruebe la información de la cuenta o los permisos e inténtelo de nuevo). En este caso, compruebe los registros de errores del componente de SAP en su lugar. En realidad, el error se produce en el componente de SAP que usa el encabezado, por lo que podría obtener uno de estos mensajes de error:
+Los parámetros de conexión de SAP para una aplicación lógica no tienen una propiedad de idioma. Por lo tanto, si usa el encabezado `Accept-Language`, es posible que reciba el siguiente error: **Please check your account info and/or permissions and try again** (Compruebe la información de la cuenta o los permisos e inténtelo de nuevo). En este caso, compruebe los registros de errores del componente de SAP en su lugar. En realidad, el error se produce en el componente de SAP que usa el encabezado, por lo que podría obtener uno de estos mensajes de error:
 
 * `"SAP.Middleware.Connector.RfcLogonException: Select one of the installed languages"`
 * `"SAP.Middleware.Connector.RfcAbapMessageException: Select one of the installed languages"`

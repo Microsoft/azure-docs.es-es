@@ -3,12 +3,12 @@ title: Información general de las características de Azure Event Hubs | Micros
 description: En este artículo se proporcionan detalles acerca de las características y la terminología de Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 2de83be023c32df067712146937f880092025a44
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 9e004b3a8a9dd454eae5a20564a1ab74a26b66d5
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172110"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936238"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Características y terminología de Azure Event Hubs
 
@@ -37,7 +37,7 @@ Puede publicar un evento a través de AMQP 1.0, Kafka 1.0 y versiones posteriore
 
 La opción de usar AMQP o HTTPS es específica para el escenario de uso. AMQP requiere el establecimiento de un socket bidireccional persistente, además de la seguridad de nivel de transporte (TLS) o SSL/TLS. AMQP tiene un mayor costo de red al inicializar la sesión, sin embargo, HTTPS requiere una sobrecarga de TLS adicional para cada solicitud. AMQP tiene un mayor rendimiento para los publicadores frecuentes.
 
-![Event Hubs](./media/event-hubs-features/partition_keys.png)
+![Claves de partición](./media/event-hubs-features/partition_keys.png)
 
 Event Hubs garantiza que todos los eventos que comparten un valor de clave de partición se entregan por orden y en la misma partición. Si se usan claves de partición con directivas de publicador, la identidad del publicador y el valor de la clave de partición deben coincidir. De lo contrario, se produce un error.
 
@@ -86,13 +86,13 @@ A continuación se muestran ejemplos de la convención de URI del grupo de consu
 
 La siguiente ilustración muestra la arquitectura de procesamiento del flujo de Event Hubs:
 
-![Event Hubs](./media/event-hubs-features/event_hubs_architecture.png)
+![Arquitectura de Event Hubs](./media/event-hubs-features/event_hubs_architecture.png)
 
 ### <a name="stream-offsets"></a>Desplazamientos de los flujos
 
 Un *desplazamiento* es la posición de un evento dentro de una partición. Puede pensar en un desplazamiento como un cursor de lado cliente. El desplazamiento es una numeración de byte del evento. Este desplazamiento permite que un consumidor de eventos (lector) especifique un punto en el flujo de eventos desde el que quiere empezar a leer los eventos. Puede especificar el desplazamiento como una marca de tiempo o como un valor de desplazamiento. Los consumidores son responsables de almacenar sus propios valores de desplazamiento fuera del servicio de Event Hubs. Dentro de una partición, cada evento incluye un desplazamiento.
 
-![Event Hubs](./media/event-hubs-features/partition_offset.png)
+![Desplazamiento de partición](./media/event-hubs-features/partition_offset.png)
 
 ### <a name="checkpointing"></a>Puntos de control
 
@@ -138,10 +138,10 @@ Es su responsabilidad administrar el desplazamiento.
 Para obtener más información acerca de Event Hubs, visite los vínculos siguientes:
 
 - Introducción a Event Hubs
-    - [.NET](get-started-dotnet-standard-send-v2.md)
-    - [Java](get-started-java-send-v2.md)
-    - [Python](get-started-python-send-v2.md)
-    - [JavaScript](get-started-java-send-v2.md)
+    - [.NET](event-hubs-dotnet-standard-getstarted-send.md)
+    - [Java](event-hubs-java-get-started-send.md)
+    - [Python](event-hubs-python-get-started-send.md)
+    - [JavaScript](event-hubs-java-get-started-send.md)
 * [Guía de programación de Event Hubs](event-hubs-programming-guide.md)
 * [Disponibilidad y coherencia en Event Hubs](event-hubs-availability-and-consistency.md)
 * [Preguntas más frecuentes sobre Event Hubs](event-hubs-faq.md)

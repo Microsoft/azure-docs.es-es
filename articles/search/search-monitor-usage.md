@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 421fddb819d4d396d3ab8890789e58ccb935cbc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d47f6c20246e3210b58dbc9c802a11c866ae305e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85806818"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935014"
 ---
 # <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Supervisión de operaciones y actividades de Azure Cognitive Search
 
@@ -59,7 +59,7 @@ Puede usar las API siguientes para recuperar la misma información que se encuen
 
 ### <a name="activity-logs-and-service-health"></a>Registros de actividad y estado del servicio
 
-En la página [**Registro de actividad**](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) del portal se recopila información de Azure Resource Manager y se notifican los cambios en el estado del servicio. Puede supervisar si en el registro de actividad hay condiciones críticas, de error y de advertencia relacionadas con el estado del servicio.
+En la página [**Registro de actividad**](../azure-monitor/platform/activity-log.md#view-the-activity-log) del portal se recopila información de Azure Resource Manager y se notifican los cambios en el estado del servicio. Puede supervisar si en el registro de actividad hay condiciones críticas, de error y de advertencia relacionadas con el estado del servicio.
 
 Entre las entradas comunes se incluyen referencias a las claves de API: notificaciones de información genéricas como *Obtener la clave de administrador* y *Obtener claves de consulta*. Estas actividades indican las solicitudes realizadas con la clave de administración (creación o eliminación de objetos) o la clave de consulta, pero no muestran la propia solicitud. Para obtener información de este nivel de detalle, debe configurar el registro de diagnóstico.
 
@@ -75,13 +75,13 @@ La siguiente ilustración es del servicio gratuito, que está limitado a 3 objet
  "Estado de uso en relación con los límites del nivel")
 
 > [!NOTE]
-> Las alertas relacionadas con el almacenamiento no están disponibles actualmente; el consumo de almacenamiento no se agrega ni se registra en la tabla **AzureMetrics** de Azure Monitor. Para obtener alertas de almacenamiento, tendría que [compilar una solución personalizada](../azure-monitor/insights/solutions-creating.md) que emita notificaciones relacionadas con los recursos, en las que el código comprueba el tamaño del almacenamiento y controla la respuesta.
+> Las alertas relacionadas con el almacenamiento no están disponibles actualmente; el consumo de almacenamiento no se agrega ni se registra en la tabla **AzureMetrics** de Azure Monitor. Para obtener alertas de almacenamiento, tendría que [compilar una solución personalizada](../azure-monitor/insights/solutions.md) que emita notificaciones relacionadas con los recursos, en las que el código comprueba el tamaño del almacenamiento y controla la respuesta.
 
 <a name="add-azure-monitor"></a>
 
 ## <a name="add-on-monitoring-with-azure-monitor"></a>Supervisión complementaria con Azure Monitor
 
-Muchos servicios, entre los que se incluye Azure Cognitive Search, se integran con [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) para ofrecer alertas adicionales, métricas y datos de diagnóstico de registro. 
+Muchos servicios, entre los que se incluye Azure Cognitive Search, se integran con [Azure Monitor](../azure-monitor/index.yml) para ofrecer alertas adicionales, métricas y datos de diagnóstico de registro. 
 
 [Habilite el registro de diagnóstico](search-monitor-logs.md) para un servicio de búsqueda si quiere controlar la recopilación y el almacenamiento de los datos. Los eventos registrados capturados por Azure Monitor se almacenan en la tabla **AzureDiagnostics** y se componen de datos operativos relacionados con las consultas y la indexación.
 
@@ -107,4 +107,4 @@ No hay ninguna forma de registrar esta información por separado de la cadena de
 La fluidez con Azure Monitor es esencial para supervisar todos los servicios de Azure, lo que incluye recursos como Azure Cognitive Search. Si no conoce Azure Monitor, dedique un tiempo a leer los artículos relacionados con los recursos. Además de los tutoriales, el siguiente artículo es un buen punto de partida.
 
 > [!div class="nextstepaction"]
-> [Supervisión de recursos de Azure con Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource)
+> [Supervisión de recursos de Azure con Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md)

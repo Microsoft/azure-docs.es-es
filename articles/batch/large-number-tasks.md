@@ -3,13 +3,13 @@ title: Envío de un gran número de tareas
 description: Envío eficaz de un gran número de tareas en un único trabajo de Azure Batch
 ms.topic: how-to
 ms.date: 08/24/2018
-ms.custom: devx-track-python
-ms.openlocfilehash: 317cd3514bfa5641c163e82fb8ac17465cb02079
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-python, devx-track-csharp
+ms.openlocfilehash: 26230372a04d13a8b8f59d50aa5da1362126413b
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87848764"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144063"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Envío de un gran número de tareas a un trabajo de Batch
 
@@ -26,15 +26,15 @@ El tamaño máximo de la colección de tareas que se puede agregar en una sola l
 * Las siguientes API de Batch limitan la colección a **100 tareas**. El límite podría ser menor en función del tamaño de las tareas, por ejemplo, si tienen mayor número de archivos de recursos o variables de entorno.
 
     * [REST API](/rest/api/batchservice/task/addcollection)
-    * [API de Python](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python)
-    * [API de Node.js](/javascript/api/@azure/batch/task?view=azure-node-latest)
+    * [API de Python](/python/api/azure-batch/azure.batch.operations.TaskOperations)
+    * [API de Node.js](/javascript/api/@azure/batch/task)
 
   Al usar estas API, deberá proporcionar la lógica para dividir el número de tareas y que se cumpla el límite de la colección, y para controlar los errores y los reintentos en caso de error al incorporar tareas. Si la colección es demasiado grande para agregar tareas, la solicitud genera un error y será necesario intentarlo después de nuevo con menos tareas.
 
 * Las siguientes API admiten colecciones de tareas mucho mayores, se limitan únicamente por la disponibilidad de RAM en el cliente remitente. Estas API realizan un control transparente al dividir la colección de tareas en "fragmentos" para las API de menor nivel y vuelven a intentar la incorporación de la tarea en caso de error.
 
-    * [API de .NET](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync?view=azure-dotnet)
-    * [API de Java](/java/api/com.microsoft.azure.batch.protocol.tasks.addcollectionasync?view=azure-java-stable)
+    * [API de .NET](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync)
+    * [API de Java](/java/api/com.microsoft.azure.batch.protocol.tasks.addcollectionasync)
     * [Extensión de la CLI de Azure Batch](batch-cli-templates.md) con plantillas de la CLI de Batch
     * [Extensión del SDK de Python](https://pypi.org/project/azure-batch-extensions/)
 
@@ -44,7 +44,7 @@ Agregar una gran colección de tareas a un trabajo puede tardar, por ejemplo, ag
 
 * **Tamaño de la tarea**: las tareas de gran envergadura tardan más en agregarse que las pequeñas. Para reducir el tamaño de las tareas de una colección puede simplificar la línea de comandos de la tarea, reducir el número de variables de entorno o administrar más eficazmente los requisitos de ejecución de la tarea. Por ejemplo, en lugar de usar un gran número de archivos de recursos, instale las dependencias de las tareas mediante una [Tarea de inicio](jobs-and-tasks.md#start-task) en el grupo, un [paquete de aplicación](batch-application-packages.md) o un [contenedor de Docker](batch-docker-container-workloads.md).
 
-* **Número de operaciones paralelas**: en función de la API de Batch, aumente el rendimiento al aumentar el máximo de operaciones simultáneas por cliente de Batch. Configure esta opción mediante la propiedad [BatchClientParallelOptions.MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) de la API de .NET o el parámetro `threads` de métodos como [TaskOperations.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python) de la extensión del SDK de Python de Batch. (Esta propiedad no está disponible en el SDK de Python de Batch nativo). De forma predeterminada, esta propiedad está establecida en 1, pero puede elegir un valor mayor para mejorar el rendimiento de las operaciones. El aumento de rendimiento se compensa al consumirse ancho de banda de red y rendimiento de la CPU. El rendimiento de la tarea aumenta hasta 100 veces `MaxDegreeOfParallelism` o `threads`. En la práctica, debe establecer el número de operaciones simultáneas por debajo de 100. 
+* **Número de operaciones paralelas**: en función de la API de Batch, aumente el rendimiento al aumentar el máximo de operaciones simultáneas por cliente de Batch. Configure esta opción mediante la propiedad [BatchClientParallelOptions.MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) de la API de .NET o el parámetro `threads` de métodos como [TaskOperations.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations) de la extensión del SDK de Python de Batch. (Esta propiedad no está disponible en el SDK de Python de Batch nativo). De forma predeterminada, esta propiedad está establecida en 1, pero puede elegir un valor mayor para mejorar el rendimiento de las operaciones. El aumento de rendimiento se compensa al consumirse ancho de banda de red y rendimiento de la CPU. El rendimiento de la tarea aumenta hasta 100 veces `MaxDegreeOfParallelism` o `threads`. En la práctica, debe establecer el número de operaciones simultáneas por debajo de 100. 
  
   La extensión de la CLI de Azure Batch con plantillas de Batch aumenta el número de operaciones simultáneas automáticamente en función del número de núcleos disponibles, pero esta propiedad no se configura en la CLI. 
 
@@ -54,7 +54,7 @@ Agregar una gran colección de tareas a un trabajo puede tardar, por ejemplo, ag
 
 Los siguientes fragmentos de código de C# muestran opciones que deben configurarse al agregar un gran número de tareas mediante la API de .NET de Batch.
 
-Para aumentar el rendimiento de la tarea, aumente el valor de la propiedad [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) de [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet). Por ejemplo:
+Para aumentar el rendimiento de la tarea, aumente el valor de la propiedad [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) de [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient). Por ejemplo:
 
 ```csharp
 BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
@@ -63,7 +63,7 @@ BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
   };
 ...
 ```
-Agregue una colección de tareas al trabajo mediante la sobrecarga adecuada de los métodos [AddTaskAsync](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync?view=azure-dotnet) o [AddTask](/dotnet/api/microsoft.azure.batch.cloudjob.addtask?view=azure-dotnet
+Agregue una colección de tareas al trabajo mediante la sobrecarga adecuada de los métodos [AddTaskAsync](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync) o [AddTask](/dotnet/api/microsoft.azure.batch.cloudjob.addtask
 ). Por ejemplo:
 
 ```csharp
@@ -144,7 +144,7 @@ tasks = list()
 ...
 ```
 
-Agregue la colección de tareas mediante [task.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python). Establezca el parámetro `threads` para aumentar el número de operaciones simultáneas:
+Agregue la colección de tareas mediante [task.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations). Establezca el parámetro `threads` para aumentar el número de operaciones simultáneas:
 
 ```python
 try:

@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: bee22391664250888816dc2b4bbb93622cab7942
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: ec8d277de177942386d9f3becdf329cdff1ca812
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87335569"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797809"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referencia: Cuotas y limitación de IoT Hub
 
@@ -111,7 +111,8 @@ IoT Hub exige otros límites operativos:
 | Configuraciones automáticas de dispositivos y módulos<sup>1</sup> | 100 configuraciones por centro de SKU de pago. 20 configuraciones por centro de SKU gratis. |
 | Implementaciones automáticas de IoT Edge<sup>1</sup> | 50 módulos por implementación. 100 implementaciones (incluidas las implementaciones superpuestas) por centro de SKU de pago. 10 implementaciones por centro de SKU gratis. |
 | Gemelos<sup>1</sup> | Tamaño máximo de las secciones de propiedades deseadas y propiedades notificadas son de 32 KB cada una. El tamaño máximo de la sección de etiquetas es de 8 KB. |
-| Directivas de acceso compartido | El número máximo de directivas de acceso compartidas es 16 |
+| Directivas de acceso compartido | El número máximo de directivas de acceso compartido es 16. |
+| Certificados de entidad de certificación x509 | El número máximo de certificados de entidad de certificación x509 que se pueden registrar en una instancia de IoT Hub es 25. |
 
 <sup>1</sup>Esta característica no está disponible en el nivel básico de IoT Hub. Para más información, consulte [Elección de la instancia de IoT Hub correcta](iot-hub-scaling.md).
 

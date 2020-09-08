@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: victorh
-ms.openlocfilehash: 560d836f99f7a1be85007bb9d488f80a68d7999b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 60ab0bd6093149aee4c9ee22f8b517dfd2460c09
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067978"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400569"
 ---
 # <a name="azure-application-gateway-features"></a>Características de Azure Application Gateway
 
@@ -148,7 +148,7 @@ Para más información, consulte el artículo sobre la [Reescritura de encabezad
 
 ## <a name="sizing"></a>Ajuste de tamaño
 
-La versión Standard_v2 de Application Gateway se puede configurar para las implementaciones de tamaño fijo o de escalado automático. Esta SKU no ofrece tamaños de instancia diferentes. Para más información sobre el rendimiento y los precios de v2, consulte [SKU de escalado automático v2](application-gateway-autoscaling-zone-redundant.md#pricing).
+La versión Standard_v2 de Application Gateway se puede configurar para las implementaciones de tamaño fijo o de escalado automático. Esta SKU no ofrece tamaños de instancia diferentes. Para más información sobre el rendimiento y los precios de la versión 2, consulte [Escalabilidad automática v2](application-gateway-autoscaling-zone-redundant.md) y [Explicación de los precios](understanding-pricing.md).
 
 La versión Standard de Application Gateway se ofrece en tres tamaños: **pequeño**, **mediano** y **grande**. Tamaños pequeños de instancia están pensados para escenarios de desarrollo y pruebas.
 

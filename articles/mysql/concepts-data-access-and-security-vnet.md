@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 045b938e2612aa7e5b366f93c22669412f2d98e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 7/17/2020
+ms.openlocfilehash: 371099610da129025f6683630b1824b8466b5aff
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85100804"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833018"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Uso de reglas y puntos de conexión de servicio de red virtual para Azure Database for MySQL
 
@@ -24,6 +24,8 @@ Para crear una regla de red virtual, primero debe haber una [red virtual][vm-vir
 > [!NOTE]
 > Esta característica está disponible en todas las regiones de Azure donde se implementa Azure Database for MySQL para servidores de uso general y optimizados para memoria.
 > En el caso de emparejamiento de VNET, si el tráfico fluye a través de una instancia de VNet Gateway común con puntos de conexión de servicio y se supone que lo hace al elemento del mismo nivel, cree una regla de ACL o red virtual para permitir que Microsoft Azure Virtual Machines en la red virtual de puerta de enlace acceda al servidor de Azure Database for MySQL.
+
+También puede considerar la posibilidad de usar [Private Link](concepts-data-access-security-private-link.md) para las conexiones. Private Link proporciona una dirección IP privada en la red virtual para el servidor de Azure Database for MySQL.
 
 <a name="anch-terminology-and-description-82f"></a>
 
@@ -63,12 +65,6 @@ Para recuperar la opción de IP, puede obtener una dirección IP *estática* par
 
 Sin embargo, el enfoque de IP estática puede resultar difícil de administrar, y es costoso si se realiza a escala. Las reglas de red virtual son más sencillas de establecer y administrar.
 
-### <a name="c-cannot-yet-have-azure-database-for-mysql-on-a-subnet-without-defining-a-service-endpoint"></a>C. Todavía no se puede tener Azure Database for MySQL en una subred sin definir ningún punto de conexión de servicio
-
-Si su servidor de **Microsoft.Sql** fuera un nodo de una subred de la red virtual, todos los nodos de la red virtual podrían comunicarse con su servidor de Azure Database for MySQL. En este caso, las máquinas virtuales podrían comunicarse con Azure Database for MySQL sin necesitar ninguna regla IP ni regla de red virtual.
-
-No obstante, en agosto de 2018, el servicio de Azure Database for MySQL aún no se encuentra entre los servicios que se pueden asignar directamente a una subred.
-
 <a name="anch-details-about-vnet-rules-38q"></a>
 
 ## <a name="details-about-virtual-network-rules"></a>Detalles sobre las reglas de red virtual
@@ -96,7 +92,7 @@ Existe una separación de los roles de seguridad en la administración de puntos
 
 Los roles de administrador de red y de base de datos tienen más funcionalidades de las que se necesitan para administrar las reglas de red virtual. Solo se necesita un subconjunto de sus capacidades.
 
-Si quiere, puede optar por usar el [control de acceso basado en rol (RBAC)][rbac-what-is-813s] en Azure para crear un rol personalizado único que tenga solo el subconjunto necesario de funcionalidades. Se podría usar el rol personalizado en lugar del administrador de red o el administrador de la base de datos. El área expuesta de la exposición de seguridad es inferior si agrega un usuario a un rol personalizado, en lugar de agregar el usuario a los otros dos roles de administrador principales.
+Si quiere, puede optar por usar el [control de acceso basado en rol de Azure (RBAC de Azure)][rbac-what-is-813s] en Azure para crear un rol personalizado único que tenga solo el subconjunto necesario de funcionalidades. Se podría usar el rol personalizado en lugar del administrador de red o el administrador de la base de datos. El área expuesta de la exposición de seguridad es inferior si agrega un usuario a un rol personalizado, en lugar de agregar el usuario a los otros dos roles de administrador principales.
 
 > [!NOTE]
 > En algunos casos, Azure Database for MySQL y la subred de red virtual se encuentran en distintas suscripciones. En estos casos debe garantizar las siguientes configuraciones:
@@ -120,6 +116,8 @@ Para Azure Database for MySQL, la característica de las reglas de red virtual t
 
 - La compatibilidad con puntos de conexión de servicio de red virtual solo existe para servidores de uso general y optimizados para memoria.
 
+- Si **Microsoft.Sql** está habilitado en una subred, indica que solo desea usar reglas de red virtual para conectarse. Las [reglas de firewall que no sean de red virtual](concepts-firewall-rules.md) no funcionarán en esa subred.
+
 - En el firewall, los intervalos de direcciones IP se aplican a los siguientes elementos de red, pero no las reglas de red virtual:
     - [Red privada virtual (VPN) de sitio a sitio (S2S)][vpn-gateway-indexmd-608y]
     - Entorno local a través de [ExpressRoute][expressroute-indexmd-744v]
@@ -130,9 +128,9 @@ Si la red está conectada a la red de Azure mediante el uso de [ExpressRoute][ex
 
 Para permitir la comunicación desde el circuito a Azure Database for MySQL, debe crear reglas de red IP para direcciones IP públicas de los circuitos. Para encontrar las direcciones IP públicas del circuito de ExpressRoute, abra un vale de soporte con ExpressRoute mediante Azure Portal.
 
-## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Agregar una regla de firewall de VNET al servidor sin tener que activar los puntos de conexión de servicio
+## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Adición de una regla de firewall de red virtual al servidor sin activar los puntos de conexión de servicio de la red virtual
 
-Si solo establece una regla de firewall, no tendrá el servidor protegido en la red virtual. Por lo tanto, también debe **activar** los puntos de conexión de servicio de red virtual para que la seguridad surta efecto. Al **activar** los puntos de conexión de servicio, la subred de la red virtual experimenta cierto tiempo de inactividad hasta que estos puntos se **activan** **totalmente**. Esto sucede especialmente en redes virtuales de gran tamaño. Puede usar la marca **IgnoreMissingServiceEndpoint** para reducir o eliminar el tiempo de inactividad durante la activación.
+Si solo establece una regla de firewall de red virtual, no tendrá el servidor protegido en la red virtual. Por lo tanto, también debe **activar** los puntos de conexión de servicio de red virtual para que la seguridad surta efecto. Al **activar** los puntos de conexión de servicio, la subred de la red virtual experimenta cierto tiempo de inactividad hasta que estos puntos se **activan** **totalmente**. Esto sucede especialmente en redes virtuales de gran tamaño. Puede usar la marca **IgnoreMissingServiceEndpoint** para reducir o eliminar el tiempo de inactividad durante la activación.
 
 Puede establecer la marca **IgnoreMissingServiceEndpoint** mediante la CLI de Azure o el portal.
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24db7981557cf76f9108a1dca37ea4c4c9f51951
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3d67dbc0eedba8cc32c188636032d96b31f45adf
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283085"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717785"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Preguntas más frecuentes sobre protección con contraseña de Azure AD local
 
@@ -46,7 +46,7 @@ Un cambio de contraseña es cuando un usuario elige una nueva contraseña despu�
 
 Un establecimiento de contraseña (denominado a veces restablecimiento de contraseña) es cuando un administrador reemplaza la contraseña de una cuenta por una contraseña nueva; por ejemplo mediante la herramienta de administración de equipos y usuarios de Active Directory. Esta operación requiere un alto nivel de privilegios (normalmente, administrador del dominio) y la persona que realiza la operación normalmente no conoce la contraseña anterior. Los departamentos de soporte técnico suelen establecer contraseñas, por ejemplo cuando ayudan a un usuario que ha olvidado su contraseña. También verá eventos de establecimiento de contraseña cuando se crea por primera vez una nueva cuenta de usuario con contraseña.
 
-La directiva de validación de contraseña se comporta de la misma forma, independientemente de si se realiza un cambio o un establecimiento de contraseña. El servicio del agente de control de dominio para protección con contraseña de Azure AD registra eventos diferentes para informarle si se realizó una operación de cambio o establecimiento de contraseña.  Consulte [Supervisión y registro de la protección con contraseña de Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
+La directiva de validación de contraseña se comporta de la misma forma, independientemente de si se realiza un cambio o un establecimiento de contraseña. El servicio del agente de control de dominio para protección con contraseña de Azure AD registra eventos diferentes para informarle si se realizó una operación de cambio o establecimiento de contraseña.  Consulte [Supervisión y registro de la protección con contraseña de Azure AD](./howto-password-ban-bad-on-premises-monitor.md).
 
 **P: ¿Por qué se registran eventos de rechazo de contraseña duplicados al intentar establecer una contraseña no segura mediante el complemento de administración Usuarios y equipos de Active Directory?**
 
@@ -54,7 +54,7 @@ El complemento de administración Usuarios y equipos de Active Directory intenta
 
 **P: ¿Por qué los eventos de validación de contraseña de la protección con contraseña de Azure AD se registran con un nombre de usuario vacío?**
 
-Active Directory admite la capacidad de probar una contraseña para ver si supera los requisitos de complejidad de contraseña actuales del dominio, por ejemplo, con la API [NetValidatePasswordPolicy](https://docs.microsoft.com/windows/win32/api/lmaccess/nf-lmaccess-netvalidatepasswordpolicy). Cuando una contraseña se valida de esta manera, las pruebas también incluyen la validación por parte de los productos basados en el archivo dll de filtro de contraseñas, como la protección con contraseña de Azure AD, pero los nombres de usuario que se pasan a un archivo dll de filtro de contraseñas dado estarán vacíos. En este escenario, la protección con contraseña de Azure AD aún validará la contraseña con la directiva de contraseñas actualmente en vigor y emitirá un mensaje de registro de eventos para capturar el resultado; sin embargo, el mensaje del registro de eventos tendrá campos de nombre de usuario vacíos.
+Active Directory admite la capacidad de probar una contraseña para ver si supera los requisitos de complejidad de contraseña actuales del dominio, por ejemplo, con la API [NetValidatePasswordPolicy](/windows/win32/api/lmaccess/nf-lmaccess-netvalidatepasswordpolicy). Cuando una contraseña se valida de esta manera, las pruebas también incluyen la validación por parte de los productos basados en el archivo dll de filtro de contraseñas, como la protección con contraseña de Azure AD, pero los nombres de usuario que se pasan a un archivo dll de filtro de contraseñas dado estarán vacíos. En este escenario, la protección con contraseña de Azure AD aún validará la contraseña con la directiva de contraseñas actualmente en vigor y emitirá un mensaje de registro de eventos para capturar el resultado; sin embargo, el mensaje del registro de eventos tendrá campos de nombre de usuario vacíos.
 
 **P: ¿Es posible instalar la protección con contraseña de Azure AD junto con otros productos basados en filtros de contraseña?**
 
@@ -74,13 +74,13 @@ FRS (la tecnología predecesora a DFSR) tiene muchos problemas conocidos y es to
 
 Para obtener más información, consulte los artículos siguientes:
 
-[The Case for Migrating sysvol replication to DFSR](https://blogs.technet.microsoft.com/askds/2010/04/22/the-case-for-migrating-sysvol-to-dfsr) (El caso de migrar la replicación de SYSVOL a DFSR)
+[The Case for Migrating sysvol replication to DFSR](/archive/blogs/askds/the-case-for-migrating-sysvol-to-dfsr) (El caso de migrar la replicación de SYSVOL a DFSR)
 
 [The End is Nigh for FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs) (El final de FRS está cerca)
 
 Si el dominio no usa aún DFSR, DEBE migrarlo para que lo utilice antes de instalar la protección con contraseña de Azure AD. Para más información, consulte el vínculo siguiente:
 
-[Guía de migración de replicación de SYSVOL: Replicación de FRS a DFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
+[Guía de migración de replicación de SYSVOL: Replicación de FRS a DFS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
 
 > [!WARNING]
 > El software del agente de DC de Protección con contraseña de Azure AD se instala actualmente en los controladores de dominio de los dominios que usan aún FRS para la replicación de SYSVOL, pero NO funciona correctamente en este entorno. Otros efectos secundarios negativos incluyen archivos que no se pueden replicar y procedimientos de restauración de SYSVOL que aparentemente funcionan pero que en realidad no pueden replicar todos los archivos. Migre el dominio para usar DFSR lo antes posible, tanto por las ventajas inherentes de DFSR como también para desbloquear la implementación de Protección con contraseña de Azure AD. Las versiones futuras del software se deshabilitarán automáticamente cuando se ejecuten en un dominio que aún use FRS.
@@ -101,7 +101,7 @@ No. Puesto que el servidor proxy es sin estado, no es importante qué servidor p
 
 Sí. El servicio de proxy de Protección con contraseña de Azure AD y Azure AD Connect no deben nunca entrar en conflicto directamente entre sí.
 
-Desafortunadamente, se ha encontrado una incompatibilidad entre la versión del servicio de actualización del agente de Microsoft Azure AD Connect que se instala mediante el software del proxy de protección con contraseña de Azure AD y la versión del servicio que se instala mediante el software [Azure Active Directory Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy). Esta incompatibilidad puede dar lugar a que el servicio de actualización del agente no pueda ponerse en contacto con Azure para realizar las actualizaciones de software. No se recomienda instalar el proxy de protección con contraseña de Azure AD y Azure Active Directory Application Proxy en el mismo equipo.
+Desafortunadamente, se ha encontrado una incompatibilidad entre la versión del servicio de actualización del agente de Microsoft Azure AD Connect que se instala mediante el software del proxy de protección con contraseña de Azure AD y la versión del servicio que se instala mediante el software [Azure Active Directory Application Proxy](../manage-apps/application-proxy.md). Esta incompatibilidad puede dar lugar a que el servicio de actualización del agente no pueda ponerse en contacto con Azure para realizar las actualizaciones de software. No se recomienda instalar el proxy de protección con contraseña de Azure AD y Azure Active Directory Application Proxy en el mismo equipo.
 
 **P: ¿En qué orden se deben instalar y registrar los agentes del controlador de dominio y los servidores proxy?**
 

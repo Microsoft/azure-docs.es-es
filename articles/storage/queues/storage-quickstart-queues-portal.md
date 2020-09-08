@@ -3,17 +3,17 @@ title: 'Inicio rápido: Creación de colas de Azure Storage en el portal'
 description: Use Azure Portal para crear una cola. A continuación, use Azure Portal para agregar un mensaje, ver las propiedades del mensaje y quitar el mensaje de la cola.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 03/06/2019
+ms.date: 08/13/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: dineshm
-ms.openlocfilehash: af3f812c8018f059f26c29cd373714e4ab3c8a49
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 11c6cdff852a0695d4b2071f1d0a60c05dba2410
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84808969"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213478"
 ---
 # <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>Inicio rápido: Creación de una cola y agregación de un mensaje con Azure Portal
 
@@ -40,8 +40,8 @@ Para crear una cola en Azure Portal, siga estos pasos:
 Después, agregue un mensaje a la cola nueva. Un mensaje puede ser de hasta 64 KB de tamaño.
 
 1. Seleccione la nueva cola en la lista de colas de la cuenta de almacenamiento.
-1. Seleccione el botón **+ Agregar mensaje** para agregar un mensaje a la cola. Escriba un mensaje en el campo **Texto del mensaje**. 
-1. Especifique cuándo expira el mensaje. El tiempo máximo que un mensaje puede permanecer en la cola es de 7 días.
+1. Seleccione el botón **+ Agregar mensaje** para agregar un mensaje a la cola. Escriba un mensaje en el campo **Texto del mensaje**.
+1. Especifique cuándo expira el mensaje. Los valores válidos que se pueden especificar en el campo **Expira en** oscilan entre 1 segundo y 7 días. Seleccione **Message never expires** (El mensaje no expira) para indicar un mensaje que permanecerá en la cola hasta que se quite explícitamente.
 1. Indique si desea codificar el mensaje como Base64. Se recomienda la codificación de datos binarios.
 1. Seleccione el botón **Aceptar** para agregar el mensaje.
 
@@ -53,7 +53,7 @@ Después de agregar un mensaje, Azure Portal muestra una lista de todos los mens
 
 ![Captura de pantalla que muestra las propiedades del mensaje](media/storage-quickstart-queues-portal/view-message-properties.png)
 
-## <a name="dequeue-a-message"></a>Quitar de la cola un mensaje
+## <a name="dequeue-a-message"></a>Quitar un mensaje de la cola
 
 Puede quitar un mensaje de la parte delantera de la cola desde Azure Portal. Cuando se quita de la cola un mensaje, se elimina. 
 

@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d27018a19db85e8544029db4f1b638ef7cae448a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d0507f7751305af5e626cbd7dd6e0dfd1a63a74
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358147"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279489"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Autenticación de paso a través de Azure Active Directory: Actualización de la versión preliminar de los agentes de autenticación
 
@@ -60,7 +60,7 @@ Para comprobar las versiones de los agentes de autenticación, en cada servidor 
 
 Antes de actualizar, asegúrese de que existen los siguientes elementos:
 
-1. **Crear una cuenta de administrador global solo en la nube**: no actualice sin tener una cuenta de administrador global solo en la nube para usarla en situaciones de emergencia en las que los agentes de autenticación de paso a través no funcionen correctamente. Información acerca de la [incorporación de una cuenta de administrador global que está solo en la nube](../active-directory-users-create-azure-portal.md). Este paso es esencial y se asegura de no quedar bloqueado fuera de su inquilino.
+1. **Crear una cuenta de administrador global solo en la nube**: no actualice sin tener una cuenta de administrador global solo en la nube para usarla en situaciones de emergencia en las que los agentes de autenticación de paso a través no funcionen correctamente. Información acerca de la [incorporación de una cuenta de administrador global que está solo en la nube](../fundamentals/add-users-azure-active-directory.md). Este paso es esencial y se asegura de no quedar bloqueado fuera de su inquilino.
 2.  **Asegurar la alta disponibilidad**: si no lo ha hecho anteriormente, instale un segundo agente de autenticación independiente a fin de proporcionar alta disponibilidad para las solicitudes de inicio de sesión; para ello, siga estas [instrucciones](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
 
 ## <a name="upgrading-the-authentication-agent-on-your-azure-ad-connect-server"></a>Actualización del agente de autenticación en el servidor de Azure AD Connect

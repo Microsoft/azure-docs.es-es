@@ -178,3 +178,7 @@
               href: on-premises-connection.md
             - name: Conexión de red virtual de Azure con ExpressRoute
               href: azure-expressroute-connection.md
+    - name: Notas de la versión
+      items:
+        - name: "Actualización de septiembre de\_2020 de CloudSimple"
+          href: update-plan-sept-2020.md

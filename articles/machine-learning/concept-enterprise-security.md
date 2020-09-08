@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/19/2020
-ms.openlocfilehash: 723c30856593044c91220b4e3ab267ab140c5ffd
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: ed95cf0b98edd8a6775c980876a6092c00e3a68d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87366934"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918594"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Seguridad de empresa para Azure Machine Learning
 
@@ -119,19 +119,14 @@ También puede habilitar Azure Private Link para el área de trabajo. Private Li
 ### <a name="encryption-at-rest"></a>Cifrado en reposo
 
 > [!IMPORTANT]
-> Si su área de trabajo contiene datos confidenciales, se recomienda establecer el parámetro [hbi_workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) a la hora de crearla. 
+> Si su área de trabajo contiene datos confidenciales, se recomienda establecer el parámetro [hbi_workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) a la hora de crearla. La marca `hbi_workspace` solo se puede establecer cuando se crea un área de trabajo. No se puede cambiar en un área de trabajo existente.
 
-La marca `hbi_workspace` controla la cantidad de datos que Microsoft recopila para fines de diagnóstico y permite el cifrado adicional en entornos administrados por Microsoft. Además, permite las siguientes acciones:
+La marca `hbi_workspace` controla la cantidad de [datos que Microsoft recopila para fines de diagnóstico](#microsoft-collected-data) y permite el [cifrado adicional en entornos administrados por Microsoft](../security/fundamentals/encryption-atrest.md). Además, permite las siguientes acciones:
 
 * Inicia el cifrado del disco temporal local en el clúster de proceso de Azure Machine Learning, siempre que no haya creado ningún clúster anterior en esa suscripción. En caso contrario, debe generar una incidencia de soporte técnico para habilitar el cifrado del disco temporal de los clústeres de proceso. 
 * Limpia el disco temporal local entre ejecuciones.
 * Pasa de forma segura las credenciales de la cuenta de almacenamiento, el registro de contenedor y la cuenta SSH desde la capa de ejecución a los clústeres de proceso mediante el almacén de claves.
 * Habilita el filtrado de IP para asegurarse de que los servicios externos que no sean AzureMachineLearningService no puedan llamar a los grupos de lotes subyacentes.
-
-> [!WARNING]
-> La marca `hbi_workspace` solo se puede establecer cuando se crea un área de trabajo. No se puede cambiar en un área de trabajo existente.
-
-Para más información sobre cómo funciona el cifrado en reposo en Azure, consulte [Cifrado en reposo de datos de Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
 
 #### <a name="azure-blob-storage"></a>Azure Blob Storage
 
@@ -145,7 +140,7 @@ Si necesita __girar o revocar__ la clave, puede hacerlo en cualquier momento. Al
 
 Para más información sobre cómo regenerar una clave de acceso, vea el artículo [Regeneración de las claves de la cuenta de almacenamiento](how-to-change-storage-access-key.md).
 
-#### <a name="azure-cosmos-db"></a>Azure Cosmos DB
+#### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
 Azure Machine Learning almacena métricas y metadatos en una instancia de Azure Cosmos DB. Esta instancia está asociada a una suscripción de Microsoft administrada por Azure Machine Learning. Todos los datos almacenados en Azure Cosmos DB se cifran en reposo con claves administradas por Microsoft.
 

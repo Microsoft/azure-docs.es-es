@@ -9,12 +9,12 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 3aa45050286888dd8ae1d26d96c8ed02da197326
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 0cf2aa504fd7a36a55740b3a59eeb3759e67f469
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876740"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509916"
 ---
 # <a name="tutorial-use-personalizer-in-azure-notebook"></a>Tutorial: Uso de Personalizer en Azure Notebook
 
@@ -623,7 +623,7 @@ Coffee count 4
 
 ## <a name="validate-new-learning-policy"></a>Comprobación de la nueva directiva de aprendizaje
 
-Vuelva a Azure Notebook y continúe ejecutando el mismo bucle, pero solo durante 2000 iteraciones. Actualice el gráfico de métricas en Azure Portal periódicamente para ver el número total de llamadas al servicio. Cuando tenga en torno a 4000 llamadas y una llamada a Rank y Reward para cada iteración del bucle, las iteraciones habrán terminado.
+Vuelva al archivo Azure Notebooks y continúe ejecutando el mismo bucle, pero solo durante 2000 iteraciones. Actualice el gráfico de métricas en Azure Portal periódicamente para ver el número total de llamadas al servicio. Cuando tenga en torno a 4000 llamadas y una llamada a Rank y Reward para cada iteración del bucle, las iteraciones habrán terminado.
 
 ```python
 # max iterations

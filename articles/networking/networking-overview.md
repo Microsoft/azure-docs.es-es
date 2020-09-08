@@ -1,6 +1,6 @@
 ---
 title: Información general sobre los servicios de red de Azure
-description: Obtenga información sobre los servicios de red en Azure, incluidos los servicios de conectividad, servicios de protección de aplicaciones, servicios de entrega de aplicaciones y supervisión de red.
+description: Aprenda sobre los servicios de red de Azure, por ejemplo, los servicios de conectividad, protección de aplicaciones, entrega de aplicaciones y supervisión de la red.
 services: networking
 documentationcenter: na
 author: KumudD
@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/12/2020
 ms.author: kumud
-ms.openlocfilehash: 5b32f6b368af62bad13a505472a9ddd4709c032c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1110199a8c02b29d70f0c12e1ed1a6341c44e403
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282167"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037259"
 ---
 # <a name="azure-networking-services-overview"></a>Información general sobre los servicios de red de Azure
 

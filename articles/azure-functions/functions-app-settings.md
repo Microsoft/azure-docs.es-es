@@ -3,12 +3,12 @@ title: Referencia de configuración de aplicación para Azure Functions
 description: Documentación de referencia para la configuración de la aplicación de Azure Functions o de variables de entorno.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 2be13fbdbf8ce75a051448bfb46d2a41ad425be8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b17db828aeb19c3347c0db4babf0eee2b9d5f280
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242770"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589307"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referencia de configuración de aplicación para Azure Functions
 
@@ -234,8 +234,8 @@ Solo para los planes de consumo y Premium. Ruta de acceso del archivo para el c�
 
 Número máximo de instancias al que se puede escalar horizontalmente la aplicación de función. El valor predeterminado es sin límite.
 
-> [!NOTE]
-> Este ajuste es una característica en vista previa, que solo es confiable si se establece en un valor <= 5
+> [!IMPORTANT]
+> Esta opción está en versión preliminar.  Se ha agregado una [propiedad de aplicación para la escalabilidad horizontal máxima de la función](./functions-scale.md#limit-scale-out) y es la manera recomendada de limitar la escalabilidad horizontal.
 
 |Clave|Valor de ejemplo|
 |---|------------|

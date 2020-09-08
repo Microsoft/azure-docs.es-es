@@ -11,7 +11,7 @@
   items:
     - name: Creación de un trabajo
       items:
-        - name: Azure portal
+        - name: Azure Portal
           href: stream-analytics-quick-create-portal.md
         - name: Azure CLI
           href: quick-create-azure-cli.md
@@ -40,9 +40,6 @@
   items:
     - name: Ejemplos de código
       href: 'https://azure.microsoft.com/resources/samples/?service=stream-analytics'
-    - name: Elementos integrados de Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceptos
   items:
     - name: Elección de una tecnología de análisis de streaming
@@ -73,12 +70,34 @@
         - name: Introducción a las salidas
           href: stream-analytics-define-outputs.md
           displayName: 'adls, sql, blob, event hubs, power bi, table, service bus, cosmos, functions'
-        - name: Salida a Cosmos DB
-          href: stream-analytics-documentdb-output.md
-        - name: Salida a Azure SQL DB
+        - name: "Azure Data Lake Storage Gen\_1"
+          href: azure-data-lake-storage-gen1-output.md
+        - name: Azure SQL Database
+          href: sql-database-output.md
+        - name: rendimiento de SQL Database
           href: stream-analytics-sql-output-perf.md
+        - name: Azure Synapse Analytics
+          href: azure-synapse-analytics-output.md
+        - name: Blob Storage y Azure Data Lake Gen 2
+          href: blob-storage-azure-data-lake-gen2-output.md
         - name: Patrones personalizados de ruta de acceso a blobs
           href: stream-analytics-custom-path-patterns-blob-storage-output.md
+        - name: Event Hubs
+          href: event-hubs-output.md
+        - name: Power BI
+          href: power-bi-output.md
+        - name: Almacenamiento de tablas
+          href: table-storage-output.md
+        - name: Colas de Service Bus
+          href: service-bus-queues-output.md
+        - name: Temas de Service Bus
+          href: service-bus-topics-output.md
+        - name: Azure Cosmos DB
+          href: azure-cosmos-db-output.md
+        - name: "Optimización de Cosmos\_DB"
+          href: stream-analytics-documentdb-output.md
+        - name: "Azure\_Functions"
+          href: azure-functions-output.md
     - name: Extensión de consultas con funciones
       items:
         - name: Información general sobre funciones
@@ -164,6 +183,8 @@
               displayName: 'managed identity, identities, authenticate'
         - name: Cifrado de los datos
           href: data-protection.md
+        - name: Redundancia geográfica
+          href: geo-redundancy.md
     - name: Crear soluciones
       items:
         - name: Análisis de opinión de Twitter
@@ -172,6 +193,8 @@
           href: stream-analytics-real-time-fraud-detection.md
         - name: Ejecutar trabajos en IoT Edge
           href: stream-analytics-edge.md
+        - name: Ejecución de trabajos en Azure Stack
+          href: on-azure-stack.md
         - name: Análisis de datos del sensor de cabina de peaje
           href: stream-analytics-build-an-iot-solution-using-stream-analytics.md
         - name: Operaciones bursátiles de alta frecuencia
@@ -629,6 +652,9 @@
       href: /azure/templates/microsoft.streamanalytics/allversions
     - name: Azure CLI
       href: /cli/azure/ext/stream-analytics/stream-analytics
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Versiones preliminares de Stream Analytics

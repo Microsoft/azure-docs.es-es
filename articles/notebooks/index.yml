@@ -3,18 +3,18 @@ title: Documentación de Azure Notebooks Preview
 summary: El 9 de octubre de 2020, se retirará el sitio de la versión preliminar pública de Azure Notebooks y se reemplazará por los servicios integrados de Visual Studio, Azure y GitHub. Obtenga información sobre las opciones y el resto de experiencias con cuadernos de Microsoft en https://notebooks.azure.com/Content/alternatives.html.
 metadata:
   title: Documentación de Azure Notebooks Preview
-  description: Aprenda a crear, ejecutar y compartir cuadernos de Jupyter Notebook a través del servicio hospedado Azure Notebooks Preview.
+  description: Aprenda a crear, ejecutar y compartir cuadernos de Jupyter Notebook mediante el servicio hospedado Azure Notebooks Preview.
   ms.service: azure-notebooks
   ms.topic: landing-page
   author: JoshuaPartlow
   ms.author: joshuapa
   ms.date: 06/17/2020
-  ms.openlocfilehash: 0065b8b609ca9ef29365127333ad1a39f3327c1b
-  ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+  ms.openlocfilehash: cdc98d01a4fae5e4b09af001ec65dd7a29c34c0f
+  ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/09/2020
-  ms.locfileid: "86181427"
+  ms.lasthandoff: 08/20/2020
+  ms.locfileid: "88640283"
 landingContent:
 - title: Acerca de Azure Notebooks
   linkLists:
@@ -28,7 +28,7 @@ landingContent:
       url: azure-notebooks-samples.md
   - linkListType: get-started
     links:
-    - text: Acceso a Azure Notebooks
+    - text: Acceso a los archivos de Azure Notebooks
       url: https://notebooks.azure.com/
 - title: Introducción a Azure Notebooks
   linkLists:
@@ -38,7 +38,7 @@ landingContent:
       url: /learn/modules/analyze-climate-data-with-azure-notebooks/
   - linkListType: tutorial
     links:
-    - text: Creación y ejecución de un cuaderno de Jupyter Notebook con Python
+    - text: Creación y ejecución de cuadernos de Jupyter Notebook con Python
       url: tutorial-create-run-jupyter-notebook.md
   - linkListType: quickstart
     links:
@@ -64,7 +64,7 @@ landingContent:
       url: work-with-project-data-files.md
     - text: Creación y clonación de proyectos
       url: create-clone-jupyter-notebooks.md
-    - text: Acceso a los datos en la nube en un cuaderno
+    - text: Acceso a los datos de la nube en un cuaderno
       url: access-data-resources-jupyter-notebooks.md
     - text: Instalación de paquetes en un cuaderno
       url: install-packages-jupyter-notebook.md

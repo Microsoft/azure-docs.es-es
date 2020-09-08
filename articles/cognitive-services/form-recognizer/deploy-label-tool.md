@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 3bb8f0e809ae1acbec1479c20e24c90fd81905d4
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: c7c4e1cc854fdd2fbf03d2274992bbc4a3bb93af
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212452"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717904"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Implementación de la herramienta de etiquetado de ejemplo
 
@@ -70,6 +70,7 @@ Siga estos pasos para crear un recurso mediante Azure Portal:
 
 6. Ahora vamos a configurar el contenedor de Docker. Todos los campos son obligatorios a menos que se indique lo contrario:
 
+    # <a name="v20"></a>[v2.0](#tab/v2-0)  
    * Opciones: seleccione **Contenedor único**.
    * Origen de imagen: seleccione **Registro privado**. 
    * URL de servidor: establézcalo en `https://mcr.microsoft.com`.
@@ -79,8 +80,20 @@ Siga estos pasos para crear un recurso mediante Azure Portal:
    * Implementación continua: establezca esta opción en **Activado** si quiere recibir actualizaciones automáticas cuando el equipo de desarrollo realice cambios en la herramienta de etiquetado de ejemplo.
    * Comando de inicio: establézcalo en `./run.sh eula=accept`.
 
+    # <a name="v21-preview"></a>[versión preliminar v2.1](#tab/v2-1) 
+   * Opciones: seleccione **Contenedor único**.
+   * Origen de imagen: seleccione **Registro privado**. 
+   * URL de servidor: establézcalo en `https://mcr.microsoft.com`.
+   * Nombre de usuario (opcional): cree un nombre de usuario. 
+   * Contraseña (opcional): cree una contraseña segura que recuerde.
+   * Imagen y etiqueta: establézcalo en `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview`.
+   * Implementación continua: establezca esta opción en **Activado** si quiere recibir actualizaciones automáticas cuando el equipo de desarrollo realice cambios en la herramienta de etiquetado de ejemplo.
+   * Comando de inicio: establézcalo en `./run.sh eula=accept`.
+    
+    ---
+
    > [!div class="mx-imgBorder"]
-   > ![Configuración de Docker](./media/quickstarts/formre-configure-docker.png)
+   > ![Configurar Docker](./media/quickstarts/formre-configure-docker.png)
 
 7. Eso es todo. A continuación, seleccione **Revisar + crear** y, luego, **Crear** para implementar la aplicación web. Cuando haya finalizado, puede acceder a la aplicación web en la dirección URL proporcionada en la pestaña **Información general** del recurso.
 
@@ -100,6 +113,8 @@ Hay algunas cosas que necesita saber sobre este comando:
 
 En la CLI de Azure, ejecute este comando para crear un recurso de aplicación web para la herramienta de etiquetado de ejemplo: 
 
+
+# <a name="v20"></a>[v2.0](#tab/v2-0)   
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
 
@@ -113,7 +128,24 @@ az container create \
   --cpu 2 \
   --memory 8 \
   --command-line "./run.sh eula=accept"
+``` 
+# <a name="v21-preview"></a>[versión preliminar v2.1](#tab/v2-1)    
+```azurecli
+DNS_NAME_LABEL=aci-demo-$RANDOM
+
+az container create \
+  --resource-group <resource_group_name> \
+  --name <name> \
+  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview \
+  --ports 3000 \
+  --dns-name-label $DNS_NAME_LABEL \
+  --location <region name> \
+  --cpu 2 \
+  --memory 8 \
+  --command-line "./run.sh eula=accept"
 ```
+
+---
 
 ### <a name="connect-to-azure-ad-for-authorization"></a>Conexión a Azure AD para la autorización
 
@@ -121,7 +153,7 @@ Se recomienda conectar la aplicación web a Azure Active Directory. De esta fo
 
 ## <a name="open-source-on-github"></a>Código fuente en Docker
 
-OCR Form Labeling Tool también está disponible como proyecto de código abierto en GitHub. La herramienta es una aplicación web compilada mediante React + Redux y está escrita en TypeScript. Para más información o para realizar alguna contribución, consulte [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
+OCR Form Labeling Tool también está disponible como proyecto de código abierto en GitHub. La herramienta es una aplicación web compilada mediante React + Redux y está escrita en TypeScript. Para más información o para contribuir, consulte [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

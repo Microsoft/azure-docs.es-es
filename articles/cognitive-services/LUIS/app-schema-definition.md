@@ -2,13 +2,13 @@
 title: Definición de esquemas de la aplicación
 description: La aplicación de LUIS se representa en formato `.json` o `.lu` e incluye todas las intenciones, las entidades, las expresiones de ejemplo, las características y la configuración.
 ms.topic: reference
-ms.date: 05/05/2020
-ms.openlocfilehash: dbbeb4eacbe8e07cf080b3a1527ca39c2b9a5991
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 08/22/2020
+ms.openlocfilehash: 816a6c50129f37a55ab3dba72319358e832a6b8b
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684349"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756795"
 ---
 # <a name="app-schema-definition"></a>Definición del esquema de la aplicación
 
@@ -55,12 +55,30 @@ Cuando importe y exporte la aplicación, elija `.json` o `.lu`.
   "tokenizerVersion": "1.0.0",
   "patternAnyEntities": [],
   "regex_entities": [],
-  "phraselists": [],
+  "phraselists": [
+  ],
   "regex_features": [],
   "patterns": [],
   "settings": []
 }
 ```
+
+| elemento                  | Comentario                              |
+|--------------------------|--------------------------------------|
+| "hierarchicals": [],     | En desuso, use [entidades de aprendizaje automático](luis-concept-entity-types.md).   |
+| "composites": [],        | En desuso, use [entidades de aprendizaje automático](luis-concept-entity-types.md). Referencia de la [entidad compuesta](reference-entity-composite.md). |
+| "closedLists": [],       | Referencia de la [entidad de lista](reference-entity-list.md), que se usa principalmente como característica para las entidades.    |
+| "versionId": "0.1",      | Versión de una aplicación de LUIS.|
+| "name": "example-app",   | Nombre de la aplicación de LUIS. |
+| "desc": "",              | Descripción opcional de la aplicación de LUIS.  |
+| "culture": "en-us",      | El [lenguaje](luis-language-support.md) de la aplicación afecta a las características subyacentes, como las entidades creadas previamente, el aprendizaje automático y el tokenizador.  |
+| "tokenizerVersion": "1.0.0", | [Tokenizador](luis-language-support.md#tokenization)  |
+| "patternAnyEntities": [],   | [Entidad Pattern.any](reference-entity-pattern-any.md)    |
+| "regex_entities": [],    |  [Entidad de expresión regular](reference-entity-regular-expression.md)   |
+| "phraselists": [],       |  [Listas de frases (característica)](luis-concept-feature.md#create-a-phrase-list-for-a-concept)   |
+| "regex_features": [],    |  En desuso, use [entidades de aprendizaje automático](luis-concept-entity-types.md). |
+| "patterns": [],          |  Los [patrones mejoran la precisión de las predicciones](luis-concept-patterns.md) con la [sintaxis del patrón](reference-pattern-syntax.md).   |
+| "settings": []           | [Configuración de aplicación](luis-reference-application-settings.md)|
 
 ## <a name="version-6x"></a>Versión 6.x
 

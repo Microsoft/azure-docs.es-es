@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con IamIP Patent Platform | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y IamIP Patent Platform.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 8d5b4fc1-e8fd-4418-a369-189272fef80d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7d487aaf7ba4aaf666962cf91ca86d46115055b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1a2139b7a0f7d51b6c759a98c93c5250666f15a9
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78190745"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88525163"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-iamip-patent-platform"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con IamIP Patent Platform
 
@@ -121,7 +117,7 @@ En esta sección, creará un usuario de prueba llamado B.Simon en Azure Portal.
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 1. En las propiedades de **usuario**, realice estos pasos:
    1. En el cuadro **Nombre**, escriba **B.Simon**.  
-   1. En el cuadro de texto **Nombre de usuario**, escriba \<nombredeusuario>@\<dominiodeempresa>.\<extensión>. Por ejemplo, `B.Simon@contoso.com`.
+   1. En el cuadro **Nombre de usuario**, escriba \<username>@\<companydomain>.\<extension>. Por ejemplo, `B.Simon@contoso.com`.
    1. Seleccione **Mostrar contraseña** y, a continuación, anote el valor que se muestra en el cuadro **Contraseña**.
    1. Seleccione **Crear**.
 

@@ -5,19 +5,24 @@
   items:
     - name: ¿Qué es Azure Spring Cloud?
       href: spring-cloud-overview.md
-    - name: Java y sistema operativo base para aplicaciones de microservicios de Spring
-      href: spring-cloud-principles-microservice-apps.md
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: 'Inicio de una aplicación de Spring Cloud: Azure Portal'
-      href: spring-cloud-quickstart-launch-app-portal.md
-    - name: 'Inicio de una aplicación de Spring Cloud: CLI de Azure'
-      href: spring-cloud-quickstart-launch-app-cli.md
-    - name: 'Inicio de una aplicación de Spring Cloud: origen'
-      href: spring-cloud-launch-from-source.md
-    - name: 'Inicio de una aplicación de Spring Cloud: Maven'
-      href: spring-cloud-quickstart-launch-app-maven.md
+    - name: Inicio de la primera aplicación
+      href: spring-cloud-quickstart.md
+    - name: Compilación y ejecución de microservicios
+      expanded: true
+      items:
+        - name: Introducción a las aplicaciones de ejemplo
+          href: spring-cloud-quickstart-sample-app-introduction.md
+        - name: Aprovisionamiento del servicio Azure Spring Cloud
+          href: spring-cloud-quickstart-provision-service-instance.md
+        - name: Configuración de un servidor de configuración
+          href: spring-cloud-quickstart-setup-config-server.md
+        - name: Compilación e implementación de aplicaciones
+          href: spring-cloud-quickstart-deploy-apps.md
+        - name: 'Uso de registros, métricas y seguimiento'
+          href: spring-cloud-quickstart-logs-metrics-tracing.md
 - name: Tutoriales
   items:
     - name: Escalado manual de una aplicación
@@ -40,13 +45,12 @@
       href: /azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
     - name: Uso de una identidad administrada para conectar Key Vault a una aplicación de Azure Spring Cloud
       href: spring-cloud-tutorial-managed-identities-key-vault.md
-- name: Ejemplos
-  items:
-    - name: Elementos integrados de Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
+    - name: Implementación de Azure Spring Cloud en una red virtual
+      href: spring-cloud-tutorial-deploy-in-azure-virtual-network.md
 - name: Conceptos
   items:
+    - name: Descripción de la aplicación y su implementación
+      href: spring-cloud-concept-understand-app-and-deployment.md
     - name: Información sobre cuotas y límites
       href: spring-cloud-quotas.md
     - name: Información sobre las métricas
@@ -109,9 +113,14 @@
   items:
     - name: Complemento de la CLI de Azure
       href: 'https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud'
+    - name: Azure PowerShell
+      href: 'https://docs.microsoft.com/powershell/module/az.springcloud'
     - name: Recursos
       href: spring-cloud-resources.md
     - name: Preguntas más frecuentes
       href: spring-cloud-faq.md
     - name: Referencia de la API REST
       href: 'https://docs.microsoft.com/rest/api/azurespringclould/'
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md

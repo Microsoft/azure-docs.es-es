@@ -1,14 +1,14 @@
 ---
 title: Etapas de implementación de un plano técnico
 description: Conozca los pasos relacionados con la seguridad y los artefactos que recorren los servicios de Azure Blueprints al crear una asignación de plano técnico.
-ms.date: 05/06/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: d3ccba6645e1b14fffc543af2a6ad40e3634e2ed
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 73d5d67cf77d4ccc48517c895630b8299081e2e0
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970661"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049781"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>Etapas de implementación de un plano técnico
 
@@ -56,8 +56,8 @@ Una vez que se completan las implementaciones, Azure Blueprints revoca los derec
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Descubra cómo utilizar [parámetros estáticos y dinámicos](parameters.md).
-- Aprenda a personalizar el [orden de secuenciación de planos técnicos](sequencing-order.md).
-- Averigüe cómo usar el [bloqueo de recursos de planos técnicos](resource-locking.md).
+- Descubra cómo utilizar [parámetros estáticos y dinámicos](./parameters.md).
+- Aprenda a personalizar el [orden de secuenciación de planos técnicos](./sequencing-order.md).
+- Averigüe cómo usar el [bloqueo de recursos de planos técnicos](./resource-locking.md).
 - Aprenda a [actualizar las asignaciones existentes](../how-to/update-existing-assignments.md).
 - Puede consultar la información de [solución de problemas generales](../troubleshoot/general.md) para resolver los problemas durante la asignación de un plano técnico.

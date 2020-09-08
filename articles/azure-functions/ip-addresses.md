@@ -3,12 +3,12 @@ title: Direcciones IP en Azure Functions
 description: Aprenda a buscar las direcciones IP entrantes y salientes de aplicaciones de función y descubra qué es lo que hace que cambien.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: bfd2d573e0a1c78d0ef4c68be224f92e8f689f62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b99855d8cc28a41d9eb91bdcf691747910ed4a1
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80656783"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874085"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Direcciones IP en Azure Functions
 
@@ -49,12 +49,13 @@ Una forma alternativa de encontrar las direcciones IP de salida disponibles es m
 az webapp show --resource-group <group_name> --name <app_name> --query outboundIpAddresses --output tsv
 az webapp show --resource-group <group_name> --name <app_name> --query possibleOutboundIpAddresses --output tsv
 ```
+
 > [!NOTE]
-> Cuando se escala una aplicación de función que se ejecuta en el [Plan de consumo](functions-scale.md#consumption-plan), puede asignarse un nuevo intervalo de direcciones IP de salida. Cuando se ejecuta en el Plan de consumo, es posible que deba incluir en la lista blanca el centro de datos completo.
+> Cuando se escala una aplicación de función que se ejecuta en el [Plan de consumo](functions-scale.md#consumption-plan), puede asignarse un nuevo intervalo de direcciones IP de salida. Cuando se ejecuta en el plan de consumo, es posible que deba incluir en la lista blanca el centro de datos completo.
 
 ## <a name="data-center-outbound-ip-addresses"></a>Direcciones IP de salida del centro de datos
 
-Si necesita incluir en la lista blanca las direcciones IP de salida que utilizan sus aplicaciones de función, otra opción es incluir en la lista blanca el centro de datos de las aplicaciones de función (región de Azure). Puede [descargar un archivo JSON que contiene las direcciones IP de todos los centros de datos de Azure](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Luego, busque el fragmento JSON que se aplique a la región en la que se ejecuta la aplicación de función.
+Si tiene que agregar las direcciones IP salientes que usan las aplicaciones de funciones a una lista de permitidos, otra opción es agregar el centro de datos de las aplicaciones de funciones (región de Azure) a una lista de permitidos. Puede [descargar un archivo JSON que contiene las direcciones IP de todos los centros de datos de Azure](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Luego, busque el fragmento JSON que se aplique a la región en la que se ejecuta la aplicación de función.
 
 Por ejemplo, este sería el aspecto del fragmento JSON de Europa Occidental:
 

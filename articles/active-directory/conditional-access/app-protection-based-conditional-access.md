@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5326fd6adf12d53d836594c8e53bda14e0871e5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3626a29bb828c9fbc353b11858d42fecd4bb129d
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87009125"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641031"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Procedimientos: Uso obligatorio de directivas de protección de aplicaciones y una aplicación aprobada por el cliente para el acceso a aplicaciones en la nube con acceso condicional
 
@@ -55,9 +55,9 @@ Las organizaciones deben completar los pasos siguientes para requerir el uso de 
 1. En **Condiciones**, seleccione **Plataformas de dispositivo**.
    1. Establezca **Configurar** en **Sí**.
    1. Incluya **Android** e **iOS**.
-1. En **Condiciones**, seleccione **Aplicaciones cliente (versión preliminar)** .
+1. En **Condiciones**, seleccione **Aplicaciones cliente**.
    1. Establezca **Configurar** en **Sí**.
-   1. Seleccione **Aplicaciones móviles y clientes de escritorio** y **Clientes de autenticación moderna**.
+   1. Seleccione **Aplicaciones móviles y aplicaciones de escritorio** y anule la selección de todo lo demás.
 1. En **Controles de acceso** > **Conceder**, seleccione las opciones siguientes:
    - **Requerir aplicación cliente aprobada**
    - **Requerir directiva de protección de aplicaciones (versión preliminar)**
@@ -76,10 +76,9 @@ Para la directiva de acceso condicional descrita en este paso, configure los com
    1. En **Incluir**, seleccione **Todos los usuarios** o **Usuarios y grupos** específicos a los que desee aplicar esta directiva. 
    1. Seleccione **Listo**.
 1. En **Aplicaciones en la nube o acciones** > **Incluir**, seleccione **Office 365 Exchange Online**.
-1. En **Condiciones**:
-   1. **Aplicaciones cliente (versión preliminar)** :
-      1. Establezca **Configurar** en **Sí**.
-      1. Seleccione **Aplicaciones móviles y clientes de escritorio** y **Clientes de Exchange ActiveSync**.
+1. En **Condiciones**, seleccione **Aplicaciones cliente**:
+   1. Establezca **Configurar** en **Sí**.
+   1. Seleccione **Clientes de Exchange ActiveSync** y anule la selección de todo lo demás.
 1. En **Controles de acceso** > **Conceder**, seleccione **Conceder acceso**, **Requerir directiva de protección de aplicaciones** y **Seleccionar**.
 1. Confirme la configuración y establezca **Habilitar directiva** en **Activado**.
 1. Seleccione **Crear** para crear y habilitar la directiva.
@@ -107,9 +106,9 @@ Las organizaciones deben completar los pasos siguientes para requerir el uso de 
 1. En **Condiciones**, seleccione **Plataformas de dispositivo**.
    1. Establezca **Configurar** en **Sí**.
    1. Incluya **Android** e **iOS**.
-1. En **Condiciones**, seleccione **Aplicaciones cliente (versión preliminar)** .
+1. En **Condiciones**, seleccione **Aplicaciones cliente**.
    1. Establezca **Configurar** en **Sí**.
-   1. Seleccione **Explorador**.
+   1. Seleccione **Explorador** y anule la selección de todo lo demás.
 1. En **Controles de acceso** > **Conceder**, seleccione las opciones siguientes:
    - **Requerir aplicación cliente aprobada**
    - **Requerir directiva de protección de aplicaciones (versión preliminar)**
@@ -140,9 +139,9 @@ Las organizaciones deben completar los tres pasos siguientes para requerir el us
 1. En **Condiciones**, seleccione **Plataformas de dispositivo**.
    1. Establezca **Configurar** en **Sí**.
    1. Incluya **Android** e **iOS**.
-1. En **Condiciones**, seleccione **Aplicaciones cliente (versión preliminar)** .
+1. En **Condiciones**, seleccione **Aplicaciones cliente**.
    1. Establezca **Configurar** en **Sí**.
-   1. Seleccione **Aplicaciones móviles y clientes de escritorio** y **Clientes de autenticación moderna**.
+   1. Seleccione **Aplicaciones móviles y aplicaciones de escritorio** y anule la selección de todo lo demás.
 1. En **Controles de acceso** > **Conceder**, seleccione las opciones siguientes:
    - **Requerir aplicación cliente aprobada**
    - **Requerir directiva de protección de aplicaciones (versión preliminar)**
@@ -159,10 +158,9 @@ Las organizaciones deben completar los tres pasos siguientes para requerir el us
    1. En **Incluir**, seleccione **Todos los usuarios** o **Usuarios y grupos** específicos a los que desee aplicar esta directiva. 
    1. Seleccione **Listo**.
 1. En **Aplicaciones en la nube o acciones** > **Incluir**, seleccione **Office 365 Exchange Online**.
-1. En **Condiciones**:
-   1. **Aplicaciones cliente (versión preliminar)** :
-      1. Establezca **Configurar** en **Sí**.
-      1. Seleccione **Aplicaciones móviles y clientes de escritorio** y **Clientes de Exchange ActiveSync**.
+1. En **Condiciones**, seleccione **Aplicaciones cliente**:
+   1. Establezca **Configurar** en **Sí**.
+   1. Seleccione **Clientes de Exchange ActiveSync** y anule la selección de todo lo demás.
 1. En **Controles de acceso** > **Conceder**, seleccione **Conceder acceso**, **Requerir directiva de protección de aplicaciones** y **Seleccionar**.
 1. Confirme la configuración y establezca **Habilitar directiva** en **Activado**.
 1. Seleccione **Crear** para crear y habilitar la directiva.

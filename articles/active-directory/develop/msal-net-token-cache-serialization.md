@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 09/16/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: abc4836b5e8729eec45a0eb2cd8b5fa7be6b1ce4
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: 4edb0f356dd83ab1aa353e0791f619be497a9d91
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890573"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166032"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Serialización de la caché de tokens en MSAL.NET
 Después de [adquirir un token](msal-acquire-cache-tokens.md), Microsoft Authentication Library for .NET (MSAL) lo almacena en la caché.  El código de la aplicación debe intentar obtener un token de la caché antes de adquirirlo por otro método.  Este artículo describe la serialización predeterminada y personalizada de la caché de tokens en MSAL.NET.
@@ -271,12 +271,15 @@ namespace CommonCacheMsalV3
 
 ### <a name="token-cache-for-a-web-app-confidential-client-application"></a>Caché de tokens para una aplicación web (aplicación cliente confidencial)
 
-En las aplicaciones web o las API web la caché puede aprovechar la sesión, una caché en Redis o una base de datos.
+En las aplicaciones web o las API web, la caché puede aprovechar la sesión, una caché en Redis o una base de datos. Debe mantener una caché de tokens por cada cuenta en las aplicaciones web o API web. 
 
-En aplicaciones web o API web, mantenga una caché de tokens por cada cuenta.  En el caso de las aplicaciones web, la caché de tokens debe estar protegida con clave mediante el identificador de cuenta.  En el caso de las API web, la cuenta debe estar protegida con clave mediante el hash del token usado para llamar a la API. MSAL.NET proporciona serialización de caché de tokens personalizada en .NET Framework y las subplataformas .NET Core. Los eventos se desencadenan cuando se accede a la caché; las aplicaciones pueden elegir si serializar o deserializar la caché. En aplicaciones cliente confidenciales que controlan a los usuarios (aplicaciones web que inician la sesión de los usuarios y llaman a las API web, y API web que llaman a las API web de nivel inferior), puede haber muchos usuarios y los usuarios se procesan en paralelo. Por motivos de seguridad y rendimiento, se recomienda serializar una caché por cada usuario. Los eventos de serialización calculan una clave de caché según la identidad del usuario procesado y serializan o deserializan una caché de tokens para ese usuario.
+En el caso de las aplicaciones web, la caché de tokens debe estar protegida con clave mediante el identificador de cuenta.
+
+En el caso de las API web, la cuenta debe estar protegida con clave mediante el hash del token usado para llamar a la API.
+
+MSAL.NET proporciona serialización de caché de tokens personalizada en .NET Framework y las subplataformas .NET Core. Los eventos se desencadenan cuando se accede a la caché; las aplicaciones pueden elegir si serializar o deserializar la caché. En aplicaciones cliente confidenciales que controlan a los usuarios (aplicaciones web que inician la sesión de los usuarios y llaman a las API web, y API web que llaman a las API web de nivel inferior), puede haber muchos usuarios y los usuarios se procesan en paralelo. Por motivos de seguridad y rendimiento, se recomienda serializar una caché por cada usuario. Los eventos de serialización calculan una clave de caché según la identidad del usuario procesado y serializan o deserializan una caché de tokens para ese usuario.
 
 La biblioteca [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web) proporciona un paquete de versión preliminar de NuGet [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) que contiene la serialización de la caché de tokens:
-
 
 | Método de extensión | Subespacio de nombres Microsoft.Identity.Web | Descripción  |
 | ---------------- | --------- | ------------ |
@@ -284,7 +287,7 @@ La biblioteca [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-iden
 | `AddSessionTokenCaches` | `TokenCacheProviders.Session` | La caché de tokens está enlazada a la sesión de usuario. Esta opción no es conveniente si el token de identificador contiene muchas notificaciones, ya que la cookie se volvería demasiado grande.
 | `AddDistributedTokenCaches` | `TokenCacheProviders.Distributed` | La caché de tokens es un adaptador contra la implementación de `IDistributedCache` ASP.NET Core, lo que permite elegir entre una caché de memoria distribuida, una caché en Redis, una NCache distribuida o una caché de SQL Server. Para más información sobre las implementaciones de `IDistributedCache`, consulte https://docs.microsoft.com/aspnet/core/performance/caching/distributed#distributed-memory-cache.
 
-Caso simple con la caché en memoria:
+Este es un ejemplo del uso de la memoria caché en memoria en el método [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configureservices) de la clase [Startup](/aspnet/core/fundamentals/startup) en una aplicación de ASP.NET Core:
 
 ```C#
 // or use a distributed Token Cache by adding
@@ -292,7 +295,6 @@ Caso simple con la caché en memoria:
     services.AddWebAppCallsProtectedWebApi(Configuration, new string[] { scopesToRequest })
             .AddInMemoryTokenCaches();
 ```
-
 
 Ejemplos de posibles cachés distribuidas:
 
@@ -323,7 +325,7 @@ services.AddDistributedSqlServerCache(options =>
 });
 ```
 
-Su uso se incluye en el [tutorial de aplicaciones web de ASP.NET Core](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app/) en la fase de la [caché de tokens 2-2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache).
+Su uso se incluye en el [tutorial de aplicaciones web de ASP.NET Core](/aspnet/core/tutorials/first-mvc-app/) en la fase de la [caché de tokens 2-2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

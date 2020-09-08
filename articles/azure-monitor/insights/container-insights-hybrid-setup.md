@@ -3,12 +3,12 @@ title: Configuración de los clústeres híbridos de Kubernetes con Azure Monito
 description: En este artículo se describe cómo puede configurar Azure Monitor para contenedores con el fin de supervisar clústeres de Kubernetes hospedados en Azure Stack u otro entorno.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: d2ca977f572ee9f60c1ca72fc472f3a6ee6c6362
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 26846148f3212699cecd6db3318cd2da2d9aa783
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498906"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398388"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Configuración de los clústeres híbridos de Kubernetes con Azure Monitor para contenedores
 
@@ -71,9 +71,11 @@ Antes de empezar, asegúrese de que dispone de lo siguiente:
 
 La habilitación de Azure Monitor para contenedores para el clúster híbrido de Kubernetes consiste en realizar los pasos siguientes en orden.
 
-1. Configure el área de trabajo de Log Analytics con la solución de Container Insights.
+1. Configure el área de trabajo de Log Analytics con la solución de Container Insights.   
 
 2. Habilite el gráfico HELM de Azure Monitor para contenedores con el área de trabajo de Log Analytics.
+
+Para obtener más información sobre las soluciones de supervisión en Azure Monitor, diríjase [aquí](../../azure-monitor/insights/solutions.md).
 
 ### <a name="how-to-add-the-azure-monitor-containers-solution"></a>Cómo agregar la solución Azure Monitor para contenedores
 

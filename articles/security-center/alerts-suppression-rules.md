@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 05/04/2020
 ms.service: security-center
 ms.topic: conceptual
-ms.openlocfilehash: 2dce179365b2640ade3675f19dbacf6fc27b26c2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 341373c9a8429f335f3064db7a94973d34e0ca1c
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089947"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042507"
 ---
 # <a name="suppress-alerts-from-azure-security-centers-threat-protection"></a>Eliminación de alertas de la protección contra amenazas de Azure Security Center
 
@@ -21,9 +21,15 @@ En esta página se explica cómo puede usar reglas de eliminación de alertas pa
 
 ## <a name="availability"></a>Disponibilidad
 
-- Estado de la versión: **Versión preliminar**
-- Roles necesarios: Los roles de **Administrador de seguridad** y **Propietario** pueden crear o eliminar reglas. Los roles de **Lector de seguridad** y **Lector** pueden ver las reglas.
-- Nubes: ✔ Nubes comerciales ✔ Nubes nacionales o soberanas (Gov (US), China Gov y otros gobiernos)
+|Aspecto|Detalles|
+|----|:----|
+|Estado de la versión:|Versión preliminar|
+|Precios:|Nivel gratis<br>(La mayoría de las alertas de seguridad son solo para el nivel Estándar)|
+|Roles y permisos necesarios:|Los roles de **Administrador de seguridad** y **Propietario** pueden crear o eliminar reglas.<br>Los roles de **Lector de seguridad** y **Lector** pueden ver las reglas.|
+|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)|
+|||
+
+
 
 
 ## <a name="what-are-suppression-rules"></a>¿Qué son las reglas de supresión?
@@ -32,9 +38,9 @@ Los componentes de la protección contra amenazas de Azure Security Center detec
 
 Si una alerta no es interesante ni pertinente, puede descartarla manualmente. También puede usar la característica de reglas de eliminación para descartar de forma automática alertas similares en el futuro. Por lo general, se usaría una regla de eliminación para:
 
-- Eliminar las alertas identificadas como falsos positivos
+- Suprimir las alertas identificadas como falsos positivos
 
-- Eliminar las alertas que se desencadenan con demasiada frecuencia para ser útiles
+- Suprimir las alertas que se desencadenan con demasiada frecuencia para ser útiles
 
 Las reglas de eliminación definen los criterios que se deben seguir para saber qué alertas se deben descartar automáticamente.
 

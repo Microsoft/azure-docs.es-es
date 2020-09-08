@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 08/03/2020
 ms.author: curtand
-ms.openlocfilehash: 1816170da0fb6e5120f8cec6b6dda68d2ea1c678
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: d9023579b6627e9dab9feac8dfaccd94dc9f5c12
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543240"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798132"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-page"></a>Visualización y búsqueda de la actividad de inicio de sesión reciente desde la página Mis inicios de sesión
 
@@ -72,7 +72,7 @@ Los inicios de sesión marcados como actividad inusual se pueden confirmar en el
 
 Después de ver la actividad de inicio de sesión reciente, puede:
 
-- Ver o administrar la [información de seguridad](user-help-security-info-overview.md).
+- Ver o administrar la [información de seguridad](./security-info-setup-signin.md).
 
 - Ver o administrar los dispositivos [conectados](my-account-portal-devices-page.md).
 

@@ -9,21 +9,22 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: dapine
-ms.openlocfilehash: 8fcac761ab1f0805a3b2b75107e0119fbfb9db6e
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: 808d42c821272882bbf0e01a36e49f7f10b30efa
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148096"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505034"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configuración de redes virtuales de Azure Cognitive Services
 
-Azure Cognitive Services proporciona un modelo de seguridad por niveles. Este modelo le permite proteger las cuentas de Cognitive Services en un subconjunto específico de redes. Cuando se configuran las reglas de red, solo las aplicaciones que solicitan datos del conjunto especificado de redes pueden acceder a la cuenta. Puede limitar el acceso a sus recursos con el filtrado de solicitudes. Puede permitir solo las solicitudes procedentes de direcciones IP especificadas, intervalos de IP o una lista de subredes de instancias de [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Si está interesado en esta oferta, deberá [solicitar acceso a la versión preliminar](https://aka.ms/cog-svc-vnet-signup).
+Azure Cognitive Services proporciona un modelo de seguridad por niveles. Este modelo le permite proteger las cuentas de Cognitive Services en un subconjunto específico de redes. Cuando se configuran las reglas de red, solo las aplicaciones que solicitan datos del conjunto especificado de redes pueden acceder a la cuenta. Puede limitar el acceso a sus recursos con el filtrado de solicitudes. Puede permitir solo las solicitudes procedentes de direcciones IP especificadas, intervalos de IP o una lista de subredes de instancias de [Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 
 Una aplicación que accede a un recurso de Cognitive Services cuando las reglas de red están en vigor requiere autorización. La autorización es compatible con las credenciales de [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) o con una clave de API válida.
 
 > [!IMPORTANT]
 > Al activar las reglas de firewall para su cuenta de Cognitive Services, se bloquean las solicitudes de datos entrantes de forma predeterminada. Para permitir las solicitudes, se debe cumplir una de las siguientes condiciones:
+
 > * La solicitud debe originarse en un servicio que funcione en una instancia de Azure Virtual Network (VNet) en la lista de subredes permitidas de la cuenta de Cognitive Services de destino. El punto de conexión en las solicitudes originadas en la red virtual debe establecerse como el [subdominio personalizado](cognitive-services-custom-subdomains.md) de la cuenta de Cognitive Services.
 > * O bien, la solicitud debe originarse en una lista de direcciones IP permitidas.
 >
@@ -39,7 +40,7 @@ Se aplican reglas de red en todos los protocolos de red para Azure Cognitive Ser
 
 ## <a name="supported-regions-and-service-offerings"></a>Ofertas de servicio y regiones admitidas
 
-La compatibilidad de la red virtual con los servicios de Cognitive Services que se enumeran a continuación se limita a las siguientes regiones de Azure: *EUAP de centro de EE. UU.* , *Centro-sur de EE. UU.* , *Este de EE. UU.* , *Oeste de EE. UU. 2*, *Norte de Europa*, *Norte de Sudáfrica*, *Oeste de Europa*y *Centro de la India*, *Este de Australia*, *Oeste de EE. UU.* y *US Gov Virginia*. Si la oferta de servicio no aparece aquí, significa que no es compatible con redes virtuales.
+Se admiten redes virtuales en [regiones en las que Cognitive Services está disponible](https://azure.microsoft.com/global-infrastructure/services/). Si Cognitive Services no aparece en la lista, actualmente no admite redes virtuales.
 
 > [!div class="checklist"]
 > * [Anomaly Detector](./anomaly-detector/index.yml)
@@ -48,17 +49,17 @@ La compatibilidad de la red virtual con los servicios de Cognitive Services que 
 > * [Custom Vision](./custom-vision-service/index.yml)
 > * [Face](./face/index.yml)
 > * [Form Recognizer](./form-recognizer/index.yml)
-> * [LUIS](./luis/index.yml)
+> * [Language Understanding](./luis/index.yml)
 > * [Personalizer](./personalizer/index.yml)
 > * [Text Analytics](./text-analytics/index.yml)
 > * [QnA Maker](./qnamaker/index.yml)
-
-La compatibilidad de la red virtual con los servicios de Cognitive Services que se enumeran a continuación se limita a las siguientes regiones de Azure: *EUAP de centro de EE. UU.* , *Centro-sur de EE. UU.* , *Este de EE. UU.* , *Oeste de EE. UU. 2*, *Global* y *US Gov Virginia*.
-> [!div class="checklist"]
 > * [Translator Text](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#virtual-network-support)
+> * [Lector inmersivo](./immersive-reader/index.yml)
 
 ## <a name="service-tags"></a>Etiquetas de servicio
-Además de admitir los puntos de conexión de servicio de red virtual para los servicios anteriores, Cognitive Services también admite una etiqueta de servicio para la configuración de reglas de red de salida. Los servicios siguientes se incluyen en la etiqueta de servicio CognitiveServicesManagement.
+
+Cognitive Services admite etiquetas de servicio para la configuración de reglas de red. Los servicios de la lista siguiente se incluyen en la etiqueta de servicio **CognitiveServicesManagement**.
+
 > [!div class="checklist"]
 > * [Anomaly Detector](./anomaly-detector/index.yml)
 > * [Computer Vision](./computer-vision/index.yml)
@@ -66,12 +67,13 @@ Además de admitir los puntos de conexión de servicio de red virtual para los s
 > * [Custom Vision](./custom-vision-service/index.yml)
 > * [Face](./face/index.yml)
 > * [Form Recognizer](./form-recognizer/index.yml)
-> * [LUIS](./luis/index.yml)
+> * [Language Understanding (LUIS)](./luis/index.yml)
 > * [Personalizer](./personalizer/index.yml)
 > * [Text Analytics](./text-analytics/index.yml)
 > * [QnA Maker](./qnamaker/index.yml)
 > * [Traductor](./translator/index.yml)
 > * [Servicio Voz](./speech-service/index.yml)
+> * [Lector inmersivo](./immersive-reader/index.yml)
 
 ## <a name="change-the-default-network-access-rule"></a>Modificación de la regla de acceso de red predeterminada
 
@@ -330,6 +332,7 @@ Puede administrar las reglas de red virtual para los recursos de Cognitive Servi
         -g "myresourcegroup" -n "myaccount" \
         --subnet $subnetid
     ```
+
 ***
 
 > [!IMPORTANT]
@@ -491,13 +494,13 @@ Puede usar [puntos de conexión privados](../private-link/private-endpoint-overv
 
 Los puntos de conexión privados para recursos de Cognitive Services le permiten:
 
-- Proteger el recurso de Cognitive Services al configurar el firewall para bloquear todas las conexiones del punto de conexión público del servicio de Cognitive Services.
-- Aumentar la seguridad de la red virtual, ya que permite bloquear la filtración de datos de la red virtual.
-- Conectarse de forma segura a los recursos de Cognitive Services desde las redes locales que se conectan a la red virtual mediante [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) o [ExpressRoute](../expressroute/expressroute-locations.md) con emparejamiento privado.
+* Proteger el recurso de Cognitive Services al configurar el firewall para bloquear todas las conexiones del punto de conexión público del servicio de Cognitive Services.
+* Aumentar la seguridad de la red virtual, ya que permite bloquear la filtración de datos de la red virtual.
+* Conectarse de forma segura a los recursos de Cognitive Services desde las redes locales que se conectan a la red virtual mediante [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) o [ExpressRoute](../expressroute/expressroute-locations.md) con emparejamiento privado.
 
 ### <a name="conceptual-overview"></a>Información general conceptual
 
-Un punto de conexión privado es una interfaz de red especial para un servicio de Azure de la [red virtual](../virtual-network/virtual-networks-overview.md). Cuando se crea un punto de conexión privado para el recurso de Cognitive Services, este proporciona conectividad segura entre los clientes de la red virtual y el recurso. Al punto de conexión privado se le asigna una dirección IP del intervalo de direcciones IP de la red virtual. La conexión entre el punto de conexión privado y el servicio de Cognitive Services usa un vínculo privado seguro.
+Un punto de conexión privado es una interfaz de red especial para un recurso de Azure de la [red virtual](../virtual-network/virtual-networks-overview.md). Al crear un punto de conexión privado para el recurso de Cognitive Services, este proporciona conectividad segura entre los clientes de la red virtual y el recurso. Al punto de conexión privado se le asigna una dirección IP del intervalo de direcciones IP de la red virtual. La conexión entre el punto de conexión privado y el servicio de Cognitive Services usa un vínculo privado seguro.
 
 Las aplicaciones de la red virtual se pueden conectar al servicio a través del punto de conexión privado sin problemas, ya que se usan las mismas cadenas de conexión y mecanismos de autorización que se usarían en cualquier otro caso. La excepción es el servicio de Voz, que requiere un punto de conexión independiente. Consulte la sección [Puntos de conexión privados con el servicio de Voz](#private-endpoints-with-the-speech-service). Los puntos de conexión privados se pueden usar con todos los protocolos que admita el recurso de Cognitive Services, incluidos REST y SMB.
 
@@ -509,11 +512,11 @@ Los propietarios de recursos de Cognitive Services pueden administrar las solici
 
 ### <a name="private-endpoints"></a>Puntos de conexión privados
 
-Al crear el punto de conexión privado, debe especificar el recurso de Cognitive Services al que se conecta. Para obtener información más detallada sobre la creación de un punto de conexión privado, consulte los siguientes artículos:
+Al crear el punto de conexión privado, debe especificar el recurso de Cognitive Services al que se conecta. Para más información acerca de la creación de un punto de conexión privado, consulte:
 
-- [Creación de un punto de conexión privado mediante Private Link Center en Azure Portal](../private-link/create-private-endpoint-portal.md)
-- [Creación de un punto de conexión privado mediante la CLI de Azure](../private-link/create-private-endpoint-cli.md)
-- [Creación de un punto de conexión privado mediante Azure PowerShell](../private-link/create-private-endpoint-powershell.md)
+* [Creación de un punto de conexión privado mediante Private Link Center en Azure Portal](../private-link/create-private-endpoint-portal.md)
+* [Creación de un punto de conexión privado mediante la CLI de Azure](../private-link/create-private-endpoint-cli.md)
+* [Creación de un punto de conexión privado mediante Azure PowerShell](../private-link/create-private-endpoint-powershell.md)
 
 ### <a name="connecting-to-private-endpoints"></a>Conexión a puntos de conexión privados
 
@@ -523,7 +526,7 @@ De forma predeterminada, se crea una [zona DNS privada](../dns/private-dns-overv
 
 ### <a name="private-endpoints-with-the-speech-service"></a>Puntos de conexión privados con el servicio de voz
 
-Cuando use puntos de conexión privados con el servicio de voz, debe usar un punto de conexión personalizado para llamar a la API del servicio de voz. No se puede usar el punto de conexión global. Debe usar un punto de conexión con el formato {cuenta}.{stt|tts|voice|dls}.speech.microsoft.com.
+Cuando use puntos de conexión privados con el servicio de voz, debe usar un punto de conexión personalizado para llamar al servicio de voz. No se puede usar el punto de conexión global. El punto de conexión debe seguir este patrón: `{account}.{stt|tts|voice|dls}.speech.microsoft.com`.
 
 ### <a name="dns-changes-for-private-endpoints"></a>Cambios de DNS en puntos de conexión privados
 
@@ -533,15 +536,15 @@ Cuando se resuelve la dirección URL del punto de conexión desde fuera de la re
 
 Esta estrategia permite el acceso al recurso de Cognitive Services mediante la misma cadena de conexión para los clientes de la red virtual que hospeda los puntos de conexión privados y los clientes que están fuera de esta.
 
-Si va a usar un servidor DNS personalizado en la red, los clientes deben ser capaces de resolver el nombre de dominio completo (FQDN) del punto de conexión del recurso de Cognitive Services en la dirección IP del punto de conexión privado. Debe configurar el servidor DNS para delegar el subdominio del vínculo privado en la zona DNS privada de la red virtual.
+Si va a usar un servidor DNS personalizado en la red, los clientes deben ser capaces de resolver el nombre de dominio completo (FQDN) del punto de conexión del recurso de Cognitive Services en la dirección IP del punto de conexión privado. Configure el servidor DNS para delegar el subdominio del vínculo privado en la zona DNS privada de la red virtual.
 
 > [!TIP]
 > Cuando use un servidor DNS personalizado o local, debe configurarlo para resolver el nombre del recurso de Cognitive Services del subdominio "privatelink" en la dirección IP del punto de conexión privado. Para ello, puede delegar el subdominio "privatelink" en la zona DNS privada de la red virtual, o bien configurar la zona DNS en el servidor DNS y agregar los registros D de DNS.
 
 Para más información sobre cómo configurar su propio servidor DNS para que admita puntos de conexión privados, consulte los siguientes artículos:
 
-- [Resolución de nombres de recursos en redes virtuales de Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [Configuración de DNS para puntos de conexión privados](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
+* [Resolución de nombres de recursos en redes virtuales de Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
+* [Configuración de DNS para puntos de conexión privados](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
 
 ### <a name="pricing"></a>Precios
 

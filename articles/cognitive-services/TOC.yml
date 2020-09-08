@@ -4,7 +4,7 @@
   expanded: true
   items:
     - name: ¿Qué es Cognitive Services?
-      href: Welcome.md
+      href: what-are-cognitive-services.md
     - name: Novedades en la documentación de Cognitive Services
       href: whats-new-docs.md
     - name: Cognitive Services y Machine Learning
@@ -19,15 +19,13 @@
       href: cognitive-services-apis-create-account.md
     - name: Creación de un recurso mediante la CLI de Azure
       href: cognitive-services-apis-create-account-cli.md
+    - name: Creación de un recurso mediante la biblioteca cliente
+      href: cognitive-services-apis-create-account-client-library.md
     - name: Creación de un recurso mediante una plantilla de ARM
       displayName: Resource Manager
       href: resource-manager-template.md
     - name: Registro de diagnóstico
       href: diagnostic-logging.md
-- name: Ejemplos
-  items:
-    - name: Elementos integrados de Azure Policy
-      href: ./policy-samples.md
 - name: Seguridad
   items:
     - name: Seguridad de Cognitive Services
@@ -84,6 +82,11 @@
           href: ./big-data/recipes/anomaly-detection.md
         - name: 'Receta: Art Explorer'
           href: ./big-data/recipes/art-explorer.md
+- name: Referencia
+  items:
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Azure Roadmap

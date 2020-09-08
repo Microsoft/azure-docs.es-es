@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
-ms.openlocfilehash: 3a628a70d8ce62827f79c1f7e16d2826be8d80f5
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 1bd3cb1c18d1bac078ac1344f574914dba73d07b
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827255"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871571"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores para Azure Logic Apps
 
@@ -48,7 +48,7 @@ Los conectores están disponibles como desencadenadores y acciones integrados, o
 
   Los conectores se clasifican como estándar o empresariales. Los [conectores empresariales](#enterprise-connectors) proporcionan acceso a sistemas empresariales como SAP, IBM MQ e IBM 3270 por un costo adicional. Para determinar si un conector es Estándar o Empresarial, vea los detalles técnicos en la página de referencia de cada conector en [Introducción a los conectores](/connectors).
 
-  También puede identificar los conectores mediante estas categorías, aunque algunos pueden ocupar varias. Por ejemplo, SAP es un conector empresarial y un conector local:
+  También puede identificar los conectores mediante estas categorías, aunque algunos pueden existir en varias. Por ejemplo, SAP es un conector empresarial y un conector local:
 
   | Category | Descripción |
   |----------|-------------|
@@ -68,7 +68,7 @@ En el caso de las aplicaciones lógicas que necesitan acceso directo a los recur
 
 | Etiqueta | Ejemplo | Descripción |
 |-------|---------|-------------|
-| **CORE** | ![Ejemplo de conector de ISE](./media/apis-list/example-core-connector.png) | Los desencadenadores y acciones integrados con esta etiqueta se ejecutan en el mismo ISE que las aplicaciones lógicas. |
+| **CORE** | ![Conector de ejemplo CORE](./media/apis-list/example-core-connector.png) | Los desencadenadores y acciones integrados con esta etiqueta se ejecutan en el mismo ISE que las aplicaciones lógicas. |
 | **ISE** | ![Ejemplo de conector de ISE](./media/apis-list/example-ise-connector.png) | Los conectores administrados con esta etiqueta se ejecutan en el mismo ISE que las aplicaciones lógicas. Si tiene un sistema local que está conectado a una red virtual de Azure, un ISE permite a las aplicaciones lógicas obtener acceso directo a dicho sistema sin la [puerta de enlace de datos local](../logic-apps/logic-apps-gateway-connection.md). En su lugar, puede usar el conector de **ISE** si está disponible, una acción HTTP o un [conector personalizado](#custom). En el caso de los sistemas locales que no tienen conectores de **ISE**, use la puerta de enlace de datos local. Para revisar los conectores de ISE disponibles, consulte[conectores de ISE](#ise-connectors). |
 | Sin etiqueta | ![Ejemplo de conector multiinquilino](./media/apis-list/example-multi-tenant-connector.png) | Todos los demás conectores que no tienen la etiqueta **CORE** o **ISE**, que puede seguir usando, se ejecutan en el servicio de Logic Apps global multiinquilino. |
 |||
@@ -81,13 +81,13 @@ Logic Apps proporciona desencadenadores y acciones integrados para que pueda cre
 
 | Nombre | Descripción |
 |------|-------------|
-| [![Icono de API][schedule-icon]<br>**Programación**][schedule-doc] | - Ejecute una aplicación lógica con una periodicidad específica, usando programaciones básicas y complejas, con el desencadenador [**Periodicidad**][schedule-recurrence-doc]. <br>- Ejecute una aplicación lógica que necesite controlar los datos en fragmentos continuos con el desencadenador [**Ventana deslizante**][schedule-sliding-window-doc]. <br>- Pause la aplicación lógica durante un tiempo especificado con la acción [**Retraso**][schedule-delay-doc]. <br>- Pause la aplicación lógica hasta la fecha y hora especificadas con la acción [**Retraso hasta**][schedule-delay-until-doc]. |
-| [![Icono de la API][batch-icon]<br>**Batch**][batch-doc] | - Procese mensajes por lotes con el desencadenador **Mensajes del lote**. <br>- Llame a aplicaciones lógicas que tengan desencadenadores por lotes con la acción **Enviar mensajes al lote**. |
-| [![Icono de API][http-icon]<br>**HTTP**][http-doc] | Llame a puntos de conexión HTTP o HTTPS con los desencadenadores y acciones para HTTP. Otras acciones y desencadenadores integrados HTTP incluyen [HTTP + Swagger][http-swagger-doc] y [HTTP + Webhook][http-webhook-doc]. |
-| [![Icono de API][http-request-icon]<br>**Solicitud**][http-request-doc] | - Haga que su aplicación lógica se pueda llamar desde otras aplicaciones o servicios, desencadene ante eventos de recursos de Event Grid o desencadene ante respuestas a las alertas de Azure Security Center con el desencadenador **Solicitud**. <br>- Envíe respuestas a una aplicación o servicio con la acción **Respuesta**. |
-| [![Icono de API][azure-api-management-icon]<br>**Azure API <br>Management**][azure-api-management-doc] | Llame a los desencadenadores y las acciones definidos por las API que administre y publique con Azure API Management. |
-| [![Icono de API][azure-app-services-icon]<br>**Azure App <br>Services**][azure-app-services-doc] | Llame a las aplicaciones de API o las aplicaciones web de Azure hospedadas en Azure App Service. Los desencadenadores y las acciones definidos por estas aplicaciones aparecen como cualquier otro desencadenador y acción de primera clase cuando se incluye Swagger. |
-| [![Icono de API][azure-logic-apps-icon]<br>**Azure Logic <br>Apps**][nested-logic-app-doc] | Llame a otras aplicaciones lógicas que se inicien con el desencadenador **Solicitud**. |
+| [![Conector integrado de programación][schedule-icon]<br>**Programación**][schedule-doc] | - Ejecute una aplicación lógica con una periodicidad específica, usando programaciones básicas y complejas, con el desencadenador [**Periodicidad**][schedule-recurrence-doc]. <br>- Ejecute una aplicación lógica que necesite controlar los datos en fragmentos continuos con el desencadenador [**Ventana deslizante**][schedule-sliding-window-doc]. <br>- Pause la aplicación lógica durante un tiempo especificado con la acción [**Retraso**][schedule-delay-doc]. <br>- Pause la aplicación lógica hasta la fecha y hora especificadas con la acción [**Retraso hasta**][schedule-delay-until-doc]. |
+| [![Conector integrado por lotes][batch-icon]<br>**Lote**][batch-doc] | - Procese mensajes por lotes con el desencadenador **Mensajes del lote**. <br>- Llame a aplicaciones lógicas que tengan desencadenadores por lotes con la acción **Enviar mensajes al lote**. |
+| [![Conector integrado de HTTP][http-icon]<br>**HTTP**][http-doc] | Llame a puntos de conexión HTTP o HTTPS con los desencadenadores y acciones para HTTP. Otras acciones y desencadenadores integrados HTTP incluyen [Conector integrado HTTP + Swagger][http-swagger-doc] y [HTTP + Webhook][http-webhook-doc]. |
+| [![Conector integrado de solicitud][http-request-icon]<br>**Solicitud**][http-request-doc] | - Haga que su aplicación lógica se pueda llamar desde otras aplicaciones o servicios, desencadene ante eventos de recursos de Event Grid o desencadene ante respuestas a las alertas de Azure Security Center con el desencadenador **Solicitud**. <br>- Envíe respuestas a una aplicación o servicio con la acción **Respuesta**. |
+| [![Conector integrado de Azure API Management][azure-api-management-icon]<br>**Azure API <br>Management**][azure-api-management-doc] | Llame a los desencadenadores y las acciones definidos por las API que administre y publique con Azure API Management. |
+| [![Conector integrado deAzure App Services][azure-app-services-icon]<br>**Azure App <br>Services**][azure-app-services-doc] | Llame a las aplicaciones de API o las aplicaciones web de Azure hospedadas en Azure App Service. Los desencadenadores y las acciones definidos por estas aplicaciones aparecen como cualquier otro desencadenador y acción de primera clase cuando se incluye Swagger. |
+| [![Conector integrado de Azure Logic Apps][azure-logic-apps-icon]<br>**Azure Logic <br>Apps**][nested-logic-app-doc] | Llame a otras aplicaciones lógicas que se inicien con el desencadenador **Solicitud**. |
 |||
 
 ### <a name="run-code-from-logic-apps"></a>Ejecución de código de aplicaciones lógicas
@@ -96,8 +96,8 @@ Logic Apps proporciona acciones integradas para ejecutar código propio en el fl
 
 | Nombre | Descripción |
 |------|-------------|
-| [![Icono de API][azure-functions-icon]<br>**Azure Functions**][azure-functions-doc] | Llame a funciones de Azure que ejecuten fragmentos de código personalizados (C# o Node.js) desde las aplicaciones lógicas. |
-| [![Icono de API][inline-code-icon]<br>**Código en línea**][inline-code-doc] | Agregue y ejecute fragmentos de código JavaScript de las aplicaciones lógicas. |
+| [![Conector integrado de Azure Functions][azure-functions-icon]<br>**Azure Functions**][azure-functions-doc] | Llame a funciones de Azure que ejecuten fragmentos de código personalizados (C# o Node.js) desde las aplicaciones lógicas. |
+| [![Conector integrado de código en línea][inline-code-icon]<br>**Código en línea**][inline-code-doc] | Agregue y ejecute fragmentos de código JavaScript de las aplicaciones lógicas. |
 |||
 
 ### <a name="control-workflow"></a>Controlar el flujo de trabajo
@@ -106,12 +106,12 @@ Logic Apps proporciona acciones integradas para estructurar y controlar las acci
 
 | Nombre | Descripción |
 |------|-------------|
-| [![Icono integrado][condition-icon]<br>**Condición**][condition-doc] | Evalúa una condición y ejecuta acciones diferentes según si la condición es true o false. |
-| [![Icono integrado][for-each-icon]<br>**Para cada uno**][for-each-doc] | Realiza las mismas acciones en todos los elementos de una matriz. |
-| [![Icono integrado][scope-icon]<br>**Ámbito**][scope-doc] | Agrupa las acciones en *ámbitos*, que obtienen su propio estado después de que las acciones del ámbito terminen de ejecutarse. |
-| [![Icono integrado][switch-icon]<br>**Conmutador**][switch-doc] | Agrupa las acciones en *casos* a los que se asignan valores únicos, excepto el caso predeterminado. Ejecuta solo el caso cuyo valor asignado coincida con el resultado de una expresión, objeto o token. Si no hay coincidencias, ejecuta el caso predeterminado. |
-| [![Icono integrado][terminate-icon]<br>**Finalizar**][terminate-doc] | Detiene el flujo de trabajo que la aplicación lógica está ejecutando activamente. |
-| [![Icono integrado][until-icon]<br>**Hasta**][until-doc] | Repite las acciones hasta que la condición especificada sea true o cambie algún estado. |
+| [![Acción integrada de condición][condition-icon]<br>**Condición**][condition-doc] | Evalúa una condición y ejecuta acciones diferentes según si la condición es true o false. |
+| [![Acción integrada For each][for-each-icon]<br>**For each**][for-each-doc] | Realiza las mismas acciones en todos los elementos de una matriz. |
+| [![Acción integrada de ámbito][scope-icon]<br>**Ámbito**][scope-doc] | Agrupa las acciones en *ámbitos*, que obtienen su propio estado después de que las acciones del ámbito terminen de ejecutarse. |
+| [![Acción integrada de modificador][switch-icon]<br>**Modificador**][switch-doc] | Agrupa las acciones en *casos* a los que se asignan valores únicos, excepto el caso predeterminado. Ejecuta solo el caso cuyo valor asignado coincida con el resultado de una expresión, objeto o token. Si no hay coincidencias, ejecuta el caso predeterminado. |
+| [![Acción integrada de finalización][terminate-icon]<br>**Finalización**][terminate-doc] | Detiene el flujo de trabajo que la aplicación lógica está ejecutando activamente. |
+| [![Acción integrada hasta][until-icon]<br>**Hasta**][until-doc] | Repite las acciones hasta que la condición especificada sea true o cambie algún estado. |
 |||
 
 ### <a name="manage-or-manipulate-data"></a>Administrar o manipular datos
@@ -120,9 +120,9 @@ Logic Apps proporciona acciones integradas para trabajar con salidas de datos y 
 
 | Nombre | Descripción |
 |------|-------------|
-| [![Icono integrado][data-operations-icon]<br>**Operaciones de datos**][data-operations-doc] | Realiza operaciones con datos: <p>- **Redactar**: crea una única salida a partir de varias entradas con varios tipos. <br>- **Crear tabla CSV**: crea una tabla con valores separados por comas (CSV) a partir de una matriz con objetos JSON. <br>- **Crear tabla HTML**: crea una tabla HTML a partir de una matriz con objetos JSON. <br>- **Filtrar matriz**: crea una matriz a partir de elementos de otra matriz que cumplen los criterios. <br>- **Unirse**: crea una cadena a partir de todos los elementos de una matriz y los separa con el delimitador especificado. <br>- **Analizar JSON**: crea tokens sencillos a partir de propiedades y sus valores en contenido JSON para que pueda usar esas propiedades en el flujo de trabajo. <br>- **Seleccionar**: crea una matriz con objetos JSON mediante la transformación de elementos o valores de otra matriz, y la asignación de esos elementos a propiedades especificadas. |
-| ![Icono integrado][date-time-icon]<br>**Fecha y hora** | Realiza operaciones con marcas de tiempo: <p>- **Agregar a la hora**: agrega el número especificado de unidades a una marca de tiempo. <br>- **Convertir la zona horaria**: Convierte una marca de tiempo de la zona horaria de origen a la zona horaria de destino. <br>- **Hora actual**: Devuelve la marca de tiempo actual como una cadena. <br>- **Obtener la hora futura**: Devuelve la marca de tiempo actual más las unidades de tiempo especificadas. <br>- **Obtener la hora pasada**: Devuelve la marca de tiempo actual menos las unidades de tiempo especificadas. <br>- **Restar de la hora**: Resta un número de unidades de tiempo de una marca de tiempo. |
-| [![Icono integrado][variables-icon]<br>**Variables**][variables-doc] | Realiza operaciones con variables: <p>- **Anexar a la variable de matriz**: inserta un valor como el último elemento en una matriz almacenada por una variable. <br>- **Anexar a la variable de cadena**: inserta un valor como el último carácter en una cadena almacenada por una variable. <br>- **Reducir variable**: reduce una variable por un valor constante. <br>- **Incrementar variable**: incrementa una variable por un valor constante. <br>- **Inicializar variable**: crea una variable y declara su tipo de datos y el valor inicial. <br>- **Establecer variable**: asigna otro valor a una variable existente. |
+| [![Acción integrada operaciones de datos][data-operations-icon]<br>**Operaciones de datos**][data-operations-doc] | Realiza operaciones con datos: <p>- **Redactar**: crea una única salida a partir de varias entradas con varios tipos. <br>- **Crear tabla CSV**: crea una tabla con valores separados por comas (CSV) a partir de una matriz con objetos JSON. <br>- **Crear tabla HTML**: crea una tabla HTML a partir de una matriz con objetos JSON. <br>- **Filtrar matriz**: crea una matriz a partir de elementos de otra matriz que cumplen los criterios. <br>- **Unirse**: crea una cadena a partir de todos los elementos de una matriz y los separa con el delimitador especificado. <br>- **Analizar JSON**: crea tokens sencillos a partir de propiedades y sus valores en contenido JSON para que pueda usar esas propiedades en el flujo de trabajo. <br>- **Seleccionar**: crea una matriz con objetos JSON mediante la transformación de elementos o valores de otra matriz, y la asignación de esos elementos a propiedades especificadas. |
+| ![Acción integrada de fecha y hora][date-time-icon]<br>**Fecha y hora** | Realiza operaciones con marcas de tiempo: <p>- **Agregar a la hora**: agrega el número especificado de unidades a una marca de tiempo. <br>- **Convertir la zona horaria**: Convierte una marca de tiempo de la zona horaria de origen a la zona horaria de destino. <br>- **Hora actual**: Devuelve la marca de tiempo actual como una cadena. <br>- **Obtener la hora futura**: Devuelve la marca de tiempo actual más las unidades de tiempo especificadas. <br>- **Obtener la hora pasada**: Devuelve la marca de tiempo actual menos las unidades de tiempo especificadas. <br>- **Restar de la hora**: Resta un número de unidades de tiempo de una marca de tiempo. |
+| [![Acción integrada de variables][variables-icon]<br>**Variables**][variables-doc] | Realiza operaciones con variables: <p>- **Anexar a la variable de matriz**: inserta un valor como el último elemento en una matriz almacenada por una variable. <br>- **Anexar a la variable de cadena**: inserta un valor como el último carácter en una cadena almacenada por una variable. <br>- **Reducir variable**: reduce una variable por un valor constante. <br>- **Incrementar variable**: incrementa una variable por un valor constante. <br>- **Inicializar variable**: crea una variable y declara su tipo de datos y el valor inicial. <br>- **Establecer variable**: asigna otro valor a una variable existente. |
 |||
 
 <a name="managed-api-connectors"></a>
@@ -133,18 +133,18 @@ Logic Apps proporciona estos conocidos conectores estándar para automatizar tar
 
 | Nombre | Descripción |
 |------|-------------|
-| [![Icono de API][azure-service-bus-icon]<br>**Azure Service Bus**][azure-service-bus-doc] | Administre mensajes asincrónicos, sesiones y suscripciones a temas con el conector más usado en Logic Apps. |
-| [![Icono de API][sql-server-icon]<br>**SQL Server**][sql-server-doc] | Conéctese a SQL Server en el entorno local o a una base de datos de Azure SQL Database en la nube para poder administrar los registros, ejecutar procedimientos almacenados o realizar consultas. |
-| [![Icono de API][azure-blob-storage-icon]<br>**Azure Blob<br>Storage**][azure-blob-storage-doc] | Conéctese a su cuenta de almacenamiento para crear y administrar el contenido en blobs. |
-| [![Icono de API][office-365-outlook-icon]<br>**Office 365<br>Outlook**][office-365-outlook-doc] | Conéctese a su cuenta de correo electrónico de Office 365 para crear y administrar correos electrónicos, tareas, eventos de calendario y reuniones, contactos, solicitudes y más. |
-| [![Icono de API][sftp-ssh-icon]<br>**SFTP-SSH**][sftp-ssh-doc] | Conéctese a servidores SFTP accesibles desde internet mediante SSH para trabajar con archivos y carpetas. |
-| [![Icono de API][sharepoint-online-icon]<br>**SharePoint<br>Online**][sharepoint-online-doc] | Conéctese a SharePoint Online para administrar archivos, datos adjuntos, carpetas y mucho más. |
-| [![Icono de API][azure-queues-icon]<br>**Colas de <br>Azure**][azure-queues-doc] | Conéctese a su cuenta de Azure Storage para poder crear y administrar colas y mensajes. |
-| [![Icono de API][ftp-icon]<br>**FTP**][ftp-doc] | Conéctese a servidores FTP accesibles desde internet para trabajar con archivos y carpetas. |
-| [![Icono de API][file-system-icon]<br>**Sistema de <br>archivos**][file-system-doc] | Conéctese al recurso compartido de archivos local para crear y administrar archivos. |
-| [![Icono de API][azure-event-hubs-icon]<br>**Azure Event Hubs**][azure-event-hubs-doc] | Consuma y publique eventos en un centro de eventos. Por ejemplo, obtenga una salida de su aplicación lógica con Event Hubs y enviarla luego a un proveedor de análisis en tiempo real. |
-| [![Icono de API][azure-event-grid-icon]<br>**Azure Event**<br>**Grid**][azure-event-grid-doc] | Supervise los eventos publicados por Event Grid, por ejemplo, cuando cambian los recursos de Azure o los recursos de terceros. |
-| [![Icono de API][salesforce-icon]<br>**Salesforce**][salesforce-doc] | Conéctese a su cuenta de Salesforce para crear y administrar elementos tales como registros, trabajos, objetos y mucho más. |
+| [![Conector administrado de Azure Service Bus][azure-service-bus-icon]<br>**Azure Service Bus**][azure-service-bus-doc] | Administre mensajes asincrónicos, sesiones y suscripciones a temas con el conector más usado en Logic Apps. |
+| [![Conector administrado de SQL Server][sql-server-icon]<br>**SQL Server**][sql-server-doc] | Conéctese a SQL Server en el entorno local o a una base de datos de Azure SQL Database en la nube para poder administrar los registros, ejecutar procedimientos almacenados o realizar consultas. |
+| [![Conector administrado de Azure Blob Storage][azure-blob-storage-icon]<br>**Azure Blob<br>Storage**][azure-blob-storage-doc] | Conéctese a su cuenta de almacenamiento para crear y administrar el contenido en blobs. |
+| [![Conector administrado de Office 365 Outlook][office-365-outlook-icon]<br>**Office 365<br>Outlook**][office-365-outlook-doc] | Conéctese a su cuenta de correo electrónico de Office 365 para crear y administrar correos electrónicos, tareas, eventos de calendario y reuniones, contactos, solicitudes y más. |
+| [![Conector administrado SFTP-SSH][sftp-ssh-icon]<br>**SFTP-SSH**][sftp-ssh-doc] | Conéctese a servidores SFTP accesibles desde internet mediante SSH para trabajar con archivos y carpetas. |
+| [![Conector administrado de SharePoint Online][sharepoint-online-icon]<br>**SharePoint<br>Online**][sharepoint-online-doc] | Conéctese a SharePoint Online para administrar archivos, datos adjuntos, carpetas y mucho más. |
+| [![Conector administrado de colas de Azure][azure-queues-icon]<br>**Colas <br>de Azure**][azure-queues-doc] | Conéctese a su cuenta de Azure Storage para poder crear y administrar colas y mensajes. |
+| [![Conector administrado de FTP][ftp-icon]<br>**FTP**][ftp-doc] | Conéctese a servidores FTP accesibles desde internet para trabajar con archivos y carpetas. |
+| [![Conector administrado del sistema de archivos][file-system-icon]<br>**Sistema<br> de archivos**][file-system-doc] | Conéctese al recurso compartido de archivos local para crear y administrar archivos. |
+| [![Conector administrado de Azure Event Hubs][azure-event-hubs-icon]<br>**Azure Event Hubs**][azure-event-hubs-doc] | Consuma y publique eventos en un centro de eventos. Por ejemplo, obtenga una salida de su aplicación lógica con Event Hubs y enviarla luego a un proveedor de análisis en tiempo real. |
+| [![Conector administrado de Azure Event Grid][azure-event-grid-icon]<br>**Azure Event**<br>**Grid**][azure-event-grid-doc] | Supervise los eventos publicados por Event Grid, por ejemplo, cuando cambian los recursos de Azure o los recursos de terceros. |
+| [![Conector administrado de Salesforce][salesforce-icon]<br>**Salesforce**][salesforce-doc] | Conéctese a su cuenta de Salesforce para crear y administrar elementos tales como registros, trabajos, objetos y mucho más. |
 |||
 
 <a name="on-premises-connectors"></a>
@@ -155,38 +155,38 @@ Estos son algunos de los conectores estándar más usados que proporciona Logic 
 
 :::row:::
     :::column:::
-        [![Icono de API][biztalk-server-icon]<br>**BizTalk** <br>**Server**][biztalk-server-doc]
+        [![Conector de BizTalk Server][biztalk-server-icon]<br>**BizTalk** <br>**Server**][biztalk-server-doc]
     :::column-end:::
     :::column:::
-        [![Icono de API][file-system-icon]<br>**Sistema de <br>archivos**][file-system-doc]
+        [![Conector del sistema de archivos][file-system-icon]<br>**Sistema<br> de archivos**][file-system-doc]
     :::column-end:::
     :::column:::
-        [![Icono de API][ibm-db2-icon]<br>**IBM DB2**][ibm-db2-doc]
+        [![Conector DB2][ibm-db2-icon]<br>**IBM DB2**][ibm-db2-doc]
     :::column-end:::
     :::column:::
-        [![Icono de API][ibm-informix-icon]<br>**Informix de** <br>**IBM**][ibm-informix-doc]
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        [![Icono de API][mysql-icon]<br>**MySQL**][mysql-doc]
-    :::column-end:::
-    :::column:::
-        [![Icono de API][oracle-db-icon]<br>**Oracle DB**][oracle-db-doc]
-    :::column-end:::
-    :::column:::
-        [![Icono de API][postgre-sql-icon]<br>**PostgreSQL**][postgre-sql-doc]
-    :::column-end:::
-    :::column:::
-        [![Icono de API][sharepoint-server-icon]<br>**SharePoint <br>Server**][sharepoint-server-doc]
+        [![Conector de Informix][ibm-informix-icon]<br>**IBM** <br>**Informix**][ibm-informix-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        [![Icono de API][sql-server-icon]<br>**SQL <br>Server**][sql-server-doc]
+        [![Conector de MySQL][mysql-icon]<br>**MySQL**][mysql-doc]
     :::column-end:::
     :::column:::
-        [![Icono de API][teradata-icon]<br>**Teradata**][teradata-doc]
+        [![Conector de Oracle DB][oracle-db-icon]<br>**Oracle DB**][oracle-db-doc]
+    :::column-end:::
+    :::column:::
+        [![Conector de PostgreSQL][postgre-sql-icon]<br>**PostgreSQL**][postgre-sql-doc]
+    :::column-end:::
+    :::column:::
+        [![Conector de SharePoint Server][sharepoint-server-icon]<br>**SharePoint <br>Server**][sharepoint-server-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![Conector de SQL Server][sql-server-icon]<br>**SQL <br>Server**][sql-server-doc]
+    :::column-end:::
+    :::column:::
+        [![Conector de Teradata][teradata-icon]<br>**Teradata**][teradata-doc]
     :::column-end:::
     :::column:::
         
@@ -204,44 +204,44 @@ Logic Apps proporciona conectores estándar para crear soluciones de negocio a n
 
 :::row:::
     :::column:::
-        [![Icono de API][as2-icon]<br>**Descodificación de <br>AS2**][as2-doc]
+        [![Acción de descodificación de AS2][as2-icon]<br>**Descodificación<br> de AS2**][as2-doc]
     :::column-end:::
     :::column:::
-        [![Icono de API][as2-icon]<br>**Codificación de <br>AS2**][as2-doc]
+        [![Acción de codificación de AS2][as2-icon]<br>**Codificación<br> de AS2**][as2-doc]
     :::column-end:::
     :::column:::
-        [![Icono de API][edifact-icon]<br>**Descodificación de <br>EDIFACT**][edifact-decode-doc]
+        [![Acción de descodificación de EDIFACT][edifact-icon]<br>**Descodificación<br> de EDIFACT**][edifact-decode-doc]
     :::column-end:::
     :::column:::
-        [![Icono de API][edifact-icon]<br>**Codificación de <br>EDIFACT**][edifact-encode-doc]
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        [![Icono de API][flat-file-decode-icon]<br>**Descodificación de <br>archivos planos**][flat-file-decode-doc]
-    :::column-end:::
-    :::column:::
-        [![Icono de API][flat-file-encode-icon]<br>**Codificación de <br>archivos planos**][flat-file-encode-doc]
-    :::column-end:::
-    :::column:::
-        [![Icono de API][integration-account-icon]<br>**Cuenta de <br>integración**][integration-account-doc]
-    :::column-end:::
-    :::column:::
-        [![Icono de API][liquid-icon]<br>**Transformaciones de** <br>**Liquid**][json-liquid-transform-doc]
+        [![Acción de codificación de EDIFACT][edifact-icon]<br>**Codificación<br> de EDIFACT**][edifact-encode-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        [![Icono de API][x12-icon]<br>**Descodificación de <br>X12**][x12-decode-doc]
+        [![Acción de descodificación de archivos planos][flat-file-decode-icon]<br>**Descodificación<br> de archivos planos**][flat-file-decode-doc]
     :::column-end:::
     :::column:::
-        [![Icono de API][x12-icon]<br>**Codificación de <br>X12**][x12-encode-doc]
+        [![Acción de codificación de archivos planos][flat-file-encode-icon]<br>**Codificación<br> de archivos planos**][flat-file-encode-doc]
     :::column-end:::
     :::column:::
-        [![Icono de API][xml-transform-icon]<br>**Transformaciones de** <br>**XML**][xml-transform-doc]
+        [![Acción de la cuenta de integración][integration-account-icon]<br>**Acción <br> de integración**][integration-account-doc]
     :::column-end:::
     :::column:::
-        [![Icono de API][xml-validate-icon]<br>**Validación de <br>XML**][xml-validate-doc]
+        [![Acción de transformaciones líquidas][liquid-icon]<br>**Transformaciones** <br>**líquidas**][json-liquid-transform-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![Acción de descodificación de X12][x12-icon]<br>**Descodificación<br> de X12**][x12-decode-doc]
+    :::column-end:::
+    :::column:::
+        [![Acción de codificación de X12][x12-icon]<br>**Codificación<br> de X12**][x12-encode-doc]
+    :::column-end:::
+    :::column:::
+        [![Acción de transformaciones XML][xml-transform-icon]<br>**Transformaciones** <br> **XML**][xml-transform-doc]
+    :::column-end:::
+    :::column:::
+        [![Acción de validación de XML][xml-validate-icon]<br>**Validación <br>de XML**][xml-validate-doc]
     :::column-end:::
 :::row-end:::
 
@@ -253,13 +253,13 @@ Logic Apps proporciona estos conectores empresariales para acceder a sistemas em
 
 :::row:::
     :::column:::
-        [![Icono de API][ibm-3270-icon]<br>**IBM 3270**][ibm-3270-doc]
+        [![Conector de IBM 3270][ibm-3270-icon]<br>**IBM 3270**][ibm-3270-doc]
     :::column-end:::
     :::column:::
-        [![Icono de API][ibm-mq-icon]<br>**IBM MQ**][ibm-mq-doc]
+        [![Conector de MQ][ibm-mq-icon]<br>**IBM MQ**][ibm-mq-doc]
     :::column-end:::
     :::column:::
-        [![Icono de API][sap-icon]<br>**SAP**][sap-connector-doc]
+        [![Conector de SAP][sap-icon]<br>**SAP**][sap-connector-doc]
     :::column-end:::
     :::column:::
         
@@ -274,86 +274,86 @@ En el caso de las aplicaciones lógicas que se crean y ejecutan en un [entorno d
 
 :::row:::
     :::column:::
-        [![Icono de API][as2-icon]<br>**AS2**][as2-doc]
+        [![Conector de AS2 ISE][as2-icon]<br>**AS2**][as2-doc]
     :::column-end:::
     :::column:::
-        [![Icono de API][azure-automation-icon]<br>**Azure <br>Automation**][azure-automation-doc]
+        [![Conector de ISE de Azure Automation][azure-automation-icon]<br>**Azure <br>Automation**][azure-automation-doc]
     :::column-end:::
     :::column:::
-        [![Icono de API][azure-blob-storage-icon]<br>**Azure Blob<br>Storage**][azure-blob-storage-doc]
+        [![Conector de ISE de Azure Blob Storage][azure-blob-storage-icon]<br>**Azure Blob<br>Storage**][azure-blob-storage-doc]
     :::column-end:::
     :::column:::
-        [![Icono de API][azure-cosmos-db-icon]<br>**Azure Cosmos <br>DB**][azure-cosmos-db-doc]
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        [![Icono de API][azure-event-hubs-icon]<br>**Azure Event <br>Hubs**][azure-event-hubs-doc]
-    :::column-end:::
-    :::column:::
-        [![Icono de API][azure-event-grid-icon]<br>**Azure Event <br>Grid**][azure-event-grid-doc]
-    :::column-end:::
-    :::column:::
-        [![Icono de API][azure-file-storage-icon]<br>**Azure File<br>Storage**][azure-file-storage-doc]
-    :::column-end:::
-    :::column:::
-        [![Icono de API][azure-key-vault-icon]<br>**Azure Key <br>Vault**][azure-key-vault-doc]
+        [![Conector de ISE de Azure Cosmos DB][azure-cosmos-db-icon]<br>**Azure Cosmos <br> DB**][azure-cosmos-db-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        [![Icono de API][azure-monitor-logs-icon]<br>**Registros de Azure <br>Monitor**][azure-monitor-logs-doc]
+        [![Conector de ISE de Azure Event Hubs][azure-event-hubs-icon]<br>**Azure Event <br>Hubs**][azure-event-hubs-doc]
     :::column-end:::
     :::column:::
-        [![Icono de API][azure-service-bus-icon]<br>**Azure Service <br>Bus**][azure-service-bus-doc]
+        [![Conector de ISE de Azure Event Grid][azure-event-grid-icon]<br>**Azure Event <br>Grid**][azure-event-grid-doc]
     :::column-end:::
     :::column:::
-        [![Icono de API][azure-sql-data-warehouse-icon]<br>**Azure SQL Data <br>Warehouse**][azure-sql-data-warehouse-doc]
+        [![Conector de ISE de Azure File Storage][azure-file-storage-icon]<br>**Azure File<br>Storage**][azure-file-storage-doc]
     :::column-end:::
     :::column:::
-        [![Icono de API][azure-table-storage-icon]<br>**Almacenamiento de tablas <br>de Azure**][azure-table-storage-doc]
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        [![Icono de API][azure-queues-icon]<br>**Colas de <br>Azure**][azure-queues-doc]
-    :::column-end:::
-    :::column:::
-        [![Icono de API][edifact-icon]<br>**EDIFACT**][edifact-doc]
-    :::column-end:::
-    :::column:::
-        [![Icono de API][file-system-icon]<br>**Sistema de <br>archivos**][file-system-doc]
-    :::column-end:::
-    :::column:::
-        [![Icono de API][ftp-icon]<br>**FTP**][ftp-doc]
+        [![Conector de ISE de Azure Key Vault][azure-key-vault-icon]<br>**Azure Key <br>Vault**][azure-key-vault-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        [![Icono de API][ibm-3270-icon]<br>**IBM 3270**][ibm-3270-doc]
+        [![Conector de ISE de registros de Azure Monitor ][azure-monitor-logs-icon]<br>**Registros<br> de Azure Monitor**][azure-monitor-logs-doc]
     :::column-end:::
     :::column:::
-        [![Icono de API][ibm-db2-icon]<br>**IBM DB2**][ibm-db2-doc]
+        [![Conector de ISE de Azure Service Bus ISE][azure-service-bus-icon]<br>**Azure Service <br>Bus**][azure-service-bus-doc]
     :::column-end:::
     :::column:::
-        [![Icono de API][ibm-mq-icon]<br>**IBM MQ**][ibm-mq-doc]
+        [![Conector de ISE de Azure SQL Data Warehouse][azure-sql-data-warehouse-icon]<br>**Azure SQL Data <br>Warehouse**][azure-sql-data-warehouse-doc]
     :::column-end:::
     :::column:::
-        [![Icono de API][sap-icon]<br>**SAP**][sap-connector-doc]
+        [![Conector de ISE de Azure Table Storage][azure-table-storage-icon]<br>**Azure Table <br>Storage**][azure-table-storage-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        [![Icono de API][sftp-ssh-icon]<br>**SFTP-SSH**][sftp-ssh-doc]
+        [![Conector ISE de colas de Azure][azure-queues-icon]<br>**Colas<br> de Azure**][azure-queues-doc]
     :::column-end:::
     :::column:::
-        [![Icono de API][smtp-icon]<br>**SMTP**][smtp-doc]
+        [![Conector de ISE de EDIFACT][edifact-icon]<br>**EDIFACT**][edifact-doc]
     :::column-end:::
     :::column:::
-        [![Icono de API][sql-server-icon]<br>**SQL <br>Server**][sql-server-doc]
+        [![Conector de ISE del sistema de archivos][file-system-icon]<br>**Sistema<br> de archivos**][file-system-doc]
     :::column-end:::
     :::column:::
-        [![Icono de API][x12-icon]<br>**X12**][x12-doc]
+        [![Conector de ISE de FTP][ftp-icon]<br>**FTP**][ftp-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![Conector de ISE de IBM 3270][ibm-3270-icon]<br>**IBM 3270**][ibm-3270-doc]
+    :::column-end:::
+    :::column:::
+        [![Conector de ISE de DB2][ibm-db2-icon]<br>**IBM DB2**][ibm-db2-doc]
+    :::column-end:::
+    :::column:::
+        [![Conector de ISE de MQ][ibm-mq-icon]<br>**IBM MQ**][ibm-mq-doc]
+    :::column-end:::
+    :::column:::
+        [![Conector de ISE de SAP][sap-icon]<br>**SAP**][sap-connector-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![Conector de ISE de SFTP-SSH][sftp-ssh-icon]<br>**SFTP-SSH**][sftp-ssh-doc]
+    :::column-end:::
+    :::column:::
+        [![Conector de ISE de SMTP][smtp-icon]<br>**SMTP**][smtp-doc]
+    :::column-end:::
+    :::column:::
+        [![Conector de ISE de SQL Server][sql-server-icon]<br>**SQL <br>Server**][sql-server-doc]
+    :::column-end:::
+    :::column:::
+        [![Conector de ISE de X12][x12-icon]<br>**X12**][x12-doc]
     :::column-end:::
 :::row-end:::
 
@@ -407,6 +407,10 @@ Para llamar a las API que ejecutan código personalizado o que no están disponi
 ## <a name="block-creating-connections"></a>Bloquear la creación de conexiones
 
 Si su organización no permite la conexión a recursos específicos mediante el uso de sus conectores en Azure Logic Apps, puede [bloquear la capacidad para crear esas conexiones](../logic-apps/block-connections-connectors.md) para conectores específicos en flujos de trabajo de aplicaciones lógicas mediante el uso de [Azure Policy](../governance/policy/overview.md). Para obtener más información, consulte [Bloquear las conexiones creadas por conectores específicos en Azure Logic Apps](../logic-apps/block-connections-connectors.md).
+
+## <a name="get-ready-for-deployment"></a>Preparación para la implementación
+
+Aunque cree conexiones desde una aplicación lógica, estas son recursos de Azure independientes con sus propias definiciones de recursos. Para revisar estas definiciones de recursos de conexión, puede [descargar la aplicación lógica desde Azure en Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), que es la forma más sencilla de crear una plantilla válida de aplicación lógica con parámetros prácticamente lista para la implementación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

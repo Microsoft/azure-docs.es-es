@@ -5,15 +5,15 @@ author: laurenhughes
 ms.author: lahugh
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 07/13/2020
-ms.openlocfilehash: 040f4378e01c3696b9a74bfcc27230503828f19a
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.date: 08/17/2020
+ms.openlocfilehash: 744e62f8a2207cff400a96069fc6ea82866f6e2d
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562794"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055692"
 ---
-# <a name="preview---azure-kubernetes-service-aks-node-image-upgrades"></a>Versión preliminar: actualizaciones de imágenes de nodo de Azure Kubernetes Service (AKS)
+# <a name="azure-kubernetes-service-aks-node-image-upgrade"></a>Actualización de la imagen de nodos de Azure Kubernetes Service (AKS)
 
 AKS admite la actualización de las imágenes de un nodo para que esté actualizado con las actualizaciones más recientes del sistema operativo y en tiempo de ejecución. AKS proporciona una nueva imagen por semana con las actualizaciones más recientes, por lo que es beneficioso actualizar las imágenes del nodo con regularidad por las características más recientes, incluidas las revisiones de Linux o Windows. En este artículo se muestra cómo actualizar las imágenes de nodo de un clúster de AKS y cómo actualizar las imágenes de grupo de nodos sin actualizar la versión de Kubernetes.
 
@@ -21,23 +21,13 @@ Si está interesado en obtener información sobre las imágenes más recientes p
 
 Para obtener información sobre la actualización de la versión del clúster de Kubernetes, vea [Actualización de un clúster de AKS][upgrade-cluster].
 
-## <a name="register-the-node-image-upgrade-preview-feature"></a>Registro de la característica de versión preliminar de actualización de imágenes de nodo
+## <a name="limitations"></a>Limitaciones
 
-Para usar la característica de actualización de imágenes de nodo durante el período de versión preliminar, debe registrar la característica.
+* El clúster de AKS debe usar conjuntos de escalado de máquinas virtuales para los nodos.
 
-```azurecli
-# Register the preview feature
-az feature register --namespace "Microsoft.ContainerService" --name "NodeImageUpgradePreview"
-```
+## <a name="install-the-aks-cli-extension"></a>Instalación de la extensión de la CLI de AKS
 
-El registro tardará varios minutos en completarse. Use el siguiente comando para comprobar que la característica está registrada:
-
-```azurecli
-# Verify the feature is registered:
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/NodeImageUpgradePreview')].{Name:name,State:properties.state}"
-```
-
-Durante la versión preliminar, necesita la extensión *aks-preview* de la CLI para usar la actualización de imágenes de nodo. Use el comando [az extension add][az-extension-add] y, a continuación, busque las actualizaciones disponibles mediante el comando [az extension update][az-extension-update]:
+Antes de que se publique la siguiente versión de la CLI principal, necesita la extensión *aks-preview* de la CLI para usar la actualización de la imagen de nodos. Use el comando [az extension add][az-extension-add] y, a continuación, busque las actualizaciones disponibles mediante el comando [az extension update][az-extension-update]:
 
 ```azurecli
 # Install the aks-preview extension
@@ -46,12 +36,6 @@ az extension add --name aks-preview
 # Update the extension to make sure you have the latest version installed
 az extension update --name aks-preview
 ```
-
-Cuando el estado se muestre como Registrado, actualice el registro del proveedor de recursos `Microsoft.ContainerService` mediante el comando [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register):
-
-```azurecli
-az provider register --namespace Microsoft.ContainerService
-```  
 
 ## <a name="upgrade-all-nodes-in-all-node-pools"></a>Actualización de todos los nodos de todos los grupos de nodos
 

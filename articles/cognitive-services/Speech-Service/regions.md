@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 08/20/2020
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 27e26bb37b444b49797d46dd4e12b61f8fe11b16
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: b0574c41042e172af78365bb273c81729ce204ab
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84782541"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749318"
 ---
 # <a name="speech-service-supported-regions"></a>Regiones admitidas del servicio de voz
 
@@ -24,7 +24,11 @@ El servicio Voz permite que la aplicación convierta audio en texto, lleve a cab
 
 El portal de Voz para realizar configuraciones personalizadas a su experiencia de voz para todas las regiones está disponible aquí: https://speech.microsoft.com
 
-En el caso de las invocaciones del servicio de voz, asegúrese de que la llamada coincide con la región de la suscripción.
+Tenga en cuenta los siguientes puntos al considerar las regiones:
+
+* Si la aplicación usa un [SDK de voz](speech-sdk.md), proporcione el identificador de región, por ejemplo, `westus`, al crear una configuración de voz.
+* Si la aplicación usa una de las [API de REST](rest-apis.md) del servicio de voz, la región forma parte del URI del punto de conexión que se emplea al realizar solicitudes.
+* Las claves creadas para una región son válidas únicamente en esa región. Si intenta usarlas con otras regiones se producen errores de autenticación.
 
 ## <a name="speech-sdk"></a>SDK de voz
 

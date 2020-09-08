@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/12/2020
-ms.openlocfilehash: 43d5b787152c3c14ef11af513907fc5f41fe7cf0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/21/2020
+ms.openlocfilehash: 135993a39a3b06bdabfff4a219df92d41c736a51
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737770"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718261"
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Copia de datos con Azure File Storage como origen o destino mediante Azure Data Factory
 
@@ -33,7 +33,12 @@ Este conector de Azure File Storage es compatible con las actividades siguientes
 - [Actividad GetMetadata](control-flow-get-metadata-activity.md)
 - [Actividad de eliminación](delete-activity.md)
 
-Concretamente, este conector de Azure File Storage admite la copia de archivos tal cual, o el análisis o la generación de los mismos con los [códecs de compresión y los formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md).
+Puede copiar datos desde cualquier almacén de datos de origen compatible a Azure File Storage o desde Azure File Storage a cualquier almacén de datos receptor compatible. Para obtener una lista de almacenes de datos que la actividad de copia admite como orígenes y receptores, consulte [Almacenes de datos y formatos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).
+
+En concreto, este conector de Azure File Storage admite las siguientes operaciones:
+
+- Copia de archivos mediante autenticaciones de clave de cuenta o firma de acceso compartido de servicio (SAS).
+- Copiar los archivos tal cual, o bien analizarlos o generarlos, con los [códecs de compresión y los formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md).
 
 ## <a name="getting-started"></a>Introducción
 
@@ -43,7 +48,139 @@ En las secciones siguientes se proporciona información sobre las propiedades qu
 
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
 
-Las siguientes propiedades son compatibles con el servicio vinculado de Azure File Storage:
+El conector de Azure File Storage admite los siguientes tipos de autenticación. Consulte las secciones correspondientes para más información.
+
+- [Autenticación de clave de cuenta](#account-key-authentication)
+- [Autenticación con firma de acceso compartido](#shared-access-signature-authentication)
+
+>[!NOTE]
+> Si estuvo usando el servicio vinculado de Azure File Storage con el [modelo heredado](#legacy-model), en el que en la interfaz de usuario de creación de ADF se muestra como "Autenticación básica", todavía se admite tal cual; no obstante, se recomienda usar el nuevo modelo de ahora en adelante. El modelo heredado transfiere los datos desde y hacia el almacenamiento a través del bloque de mensajes del servidor (SMB), mientras que el nuevo modelo emplea el SDK de almacenamiento, que tiene un mejor rendimiento. Para actualizar el modelo, puede editar el servicio vinculado para cambiar el método de autenticación a "Clave de cuenta" o "URI de SAS"; no es necesario ningún cambio en la actividad de copia o el conjunto de datos.
+
+### <a name="account-key-authentication"></a>Autenticación de clave de cuenta
+
+Data Factory admite las siguientes propiedades para la autenticación de clave de cuenta de Azure File Storage:
+
+| Propiedad | Descripción | Obligatorio |
+|:--- |:--- |:--- |
+| type | La propiedad type debe establecerse en: **AzureFileStorage**. | Sí |
+| connectionString | Especifique la información necesaria para conectarse a Azure File Storage. <br/> También puede colocar la clave de cuenta en Azure Key Vault y extraer la configuración `accountKey` de la cadena de conexión. Para obtener más información, consulte los siguientes ejemplos y el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
+| fileShare | Especifique el nombre del recurso compartido de archivos. | Sí |
+| instantánea | Especifique la fecha de la [instantánea del recurso compartido de archivos](../storage/files/storage-snapshots-files.md) si quiere realizar la copia desde una instantánea. | No |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |No |
+
+**Ejemplo**:
+
+```json
+{
+    "name": "AzureFileStorageLinkedService",
+    "properties": {
+        "type": "AzureFileStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>;EndpointSuffix=core.windows.net;",
+            "fileShare": "<file share name>"
+        },
+        "connectVia": {
+          "referenceName": "<name of Integration Runtime>",
+          "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Ejemplo: Almacenamiento de la clave de cuenta en Azure Key Vault**
+
+```json
+{
+    "name": "AzureFileStorageLinkedService",
+    "properties": {
+        "type": "AzureFileStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;",
+            "fileShare": "<file share name>",
+            "accountKey": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }            
+    }
+}
+```
+
+### <a name="shared-access-signature-authentication"></a>Autenticación con firma de acceso compartido
+
+Una firma de acceso compartido ofrece acceso delegado a recursos en la cuenta de almacenamiento. Puede utilizar una firma de acceso compartido para conceder a un cliente permisos limitados a los objetos de su cuenta de almacenamiento durante un periodo de tiempo especificado. Para obtener más información sobre las firmas de acceso compartido, consulte [Uso de firmas de acceso compartido (SAS): Comprender el modelo de firma de acceso compartido](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+
+Data Factory admite las siguientes propiedades para usar la autenticación con firma de acceso compartido:
+
+| Propiedad | Descripción | Obligatorio |
+|:--- |:--- |:--- |
+| type | La propiedad type debe establecerse en: **AzureFileStorage**. | Sí |
+| sasUri | Especifique el URI de firma de acceso compartido a los recursos. <br/>Marque este campo como **SecureString** para almacenarlo de forma segura en Data Factory. También puede colocar el token de SAS en Azure Key Vault para usar la rotación automática y quitar la parte del token. Para obtener más información, consulte los siguientes ejemplos y el [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| fileShare | Especifique el nombre del recurso compartido de archivos. | Sí |
+| instantánea | Especifique la fecha de la [instantánea del recurso compartido de archivos](../storage/files/storage-snapshots-files.md) si quiere realizar la copia desde una instantánea. | No |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |No |
+
+**Ejemplo**:
+
+```json
+{
+    "name": "AzureFileStorageLinkedService",
+    "properties": {
+        "type": "AzureFileStorage",
+        "typeProperties": {
+            "sasUri": {
+                "type": "SecureString",
+                "value": "<SAS URI of the resource e.g. https://<accountname>.file.core.windows.net/?sv=<storage version>&st=<start time>&se=<expire time>&sr=<resource>&sp=<permissions>&sip=<ip range>&spr=<protocol>&sig=<signature>>"
+            },
+            "fileShare": "<file share name>",
+            "snapshot": "<snapshot version>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Ejemplo: Almacenamiento de la clave de cuenta en Azure Key Vault**
+
+```json
+{
+    "name": "AzureFileStorageLinkedService",
+    "properties": {
+        "type": "AzureFileStorage",
+        "typeProperties": {
+            "sasUri": {
+                "type": "SecureString",
+                "value": "<SAS URI of the Azure Storage resource without token e.g. https://<accountname>.file.core.windows.net/>"
+            },
+            "sasToken": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName with value of SAS token e.g. ?sv=<storage version>&st=<start time>&se=<expire time>&sr=<resource>&sp=<permissions>&sip=<ip range>&spr=<protocol>&sig=<signature>>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="legacy-model"></a>Modelo heredado
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
@@ -52,13 +189,6 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Fi
 | userid | Especifique el usuario para acceder a Azure File Storage como: <br/>-Si se usar la interfaz de usuario: especifique `AZURE\<storage name>`<br/>-Si se usa JSON: `"userid": "AZURE\\<storage name>"`. | Sí |
 | password | Especifique la clave de acceso de almacenamiento. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |No para el origen, sí para el receptor |
-
->[!IMPORTANT]
-> - Para copiar datos en Azure File Storage con Azure Integration Runtime, [cree una instancia de Azure IR](create-azure-integration-runtime.md#create-azure-ir) de forma explícita con la ubicación de File Storage y asóciela con el servicio vinculado como en el ejemplo siguiente.
-> - Para copiar datos con Azure File Storage como origen o destino mediante Integration Runtime autohospedado fuera de Azure, recuerde abrir el puerto TCP 445 saliente en la red local.
-
->[!TIP]
->Al usar la interfaz de usuario de ADF para la creación, puede encontrar la entrada específica de "Azure File Storage" para la creación de servicios vinculados, lo que por debajo genera el objeto de tipo `FileServer`.
 
 **Ejemplo**:
 
@@ -138,9 +268,10 @@ Las propiedades siguientes se admiten para Azure File Storage en la configuraci�
 | type                     | La propiedad type de `storeSettings` se debe establecer en **FileServerReadSettings**. | Sí                                           |
 | ***Buscar los archivos que se van a copiar:*** |  |  |
 | OPCIÓN 1: ruta de acceso estática<br> | Copia de la ruta de acceso de archivo o carpeta especificada en el conjunto de datos. Si quiere copiar todos los archivos de una carpeta, especifique también `wildcardFileName` como `*`. |  |
-| OPCIÓN 2: carácter comodín<br>- wildcardFolderPath | Ruta de acceso de carpeta con caracteres comodín para filtrar las carpetas de origen. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro. <br>Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | No                                            |
-| OPCIÓN 2: carácter comodín<br>- wildcardFileName | Nombre de archivo con caracteres comodín en la propiedad folderPath o wildcardFolderPath indicada para filtrar los archivos de origen. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro.  Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | Sí |
-| OPCIÓN 3: una lista de archivos<br>- fileListPath | Indica que se copie un conjunto de archivos determinado. Apunte a un archivo de texto que incluya una lista de archivos que quiera copiar, un archivo por línea que constituye la ruta de acceso relativa a la ruta de acceso configurada en el conjunto de datos.<br/>Al utilizar esta opción, no especifique el nombre de archivo en el conjunto de datos. Ver más ejemplos en [Ejemplos de lista de archivos](#file-list-examples). |No |
+| OPCIÓN 2: prefijo de archivo<br>- prefix | Prefijo del nombre de archivo en el recurso compartido de archivos especificado que se configuró en el conjunto de datos para filtrar archivos de origen. Se seleccionan los archivos cuyo nombre empieza por `fileshare_in_linked_service/this_prefix`. Usa el filtro del lado de servicio para Azure File Storage, que proporciona un mejor rendimiento que un filtro de caracteres comodín. Esta característica no se admite cuando se usa un [modelo de servicio vinculado heredado](#legacy-model). | No                                                          |
+| OPCIÓN 3: carácter comodín<br>- wildcardFolderPath | Ruta de acceso de carpeta con caracteres comodín para filtrar las carpetas de origen. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro. <br>Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | No                                            |
+| OPCIÓN 3: carácter comodín<br>- wildcardFileName | Nombre de archivo con caracteres comodín en la propiedad folderPath o wildcardFolderPath indicada para filtrar los archivos de origen. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro.  Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | Sí |
+| OPCIÓN 4: una lista de archivos<br>- fileListPath | Indica que se copie un conjunto de archivos determinado. Apunte a un archivo de texto que incluya una lista de los archivos que quiere copiar, con un archivo por línea, que sea la ruta de acceso relativa a la ruta de acceso configurada en el conjunto de datos.<br/>Al utilizar esta opción, no especifique el nombre de archivo en el conjunto de datos. Ver más ejemplos en [Ejemplos de lista de archivos](#file-list-examples). |No |
 | ***Configuración adicional:*** |  | |
 | recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Tenga en cuenta que cuando recursive se establece en true y el receptor es un almacén basado en archivos, no se crea una carpeta o una subcarpeta vacía en el receptor. <br>Los valores permitidos son: **True** (valor predeterminado) y **False**.<br>Esta propiedad no se aplica al configurar `fileListPath`. |No |
 | deleteFilesAfterCompletion | Indica si los archivos binarios se eliminarán del almacén de origen después de moverse correctamente al almacén de destino. Cada archivo se elimina individualmente, de modo que cuando se produzca un error en la actividad de copia, algunos archivos ya se habrán copiado al destino y se habrán eliminado del origen, mientras que otros seguirán aún en el almacén de origen. <br/>Esta propiedad solo es válida en el escenario de copia de archivos binarios, en el que los almacenes de origen de datos son Blob, ADLS Gen1, ADLS Gen2, S3, Google Cloud Storage, File, Azure File, SFTP o FTP. El valor predeterminado es false. |No |
@@ -191,7 +322,7 @@ Las propiedades siguientes se admiten para Azure File Storage en la configuraci�
 
 ### <a name="azure-file-storage-as-sink"></a>Azure File Storage como destino
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-sink-formats](../../includes/data-factory-v2-file-sink-formats.md)]
 
 Las propiedades siguientes se admiten para Azure File Storage en la configuración `storeSettings` del receptor de copia basado en formato:
 

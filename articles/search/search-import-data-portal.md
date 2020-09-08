@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8d786f1ebadc961ab367fdcc9b27c4d829a68400
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7cff009d5d1e187e8d0330fadca530b57b3e3d21
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85321388"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935218"
 ---
 # <a name="import-data-wizard-for-azure-cognitive-search"></a>Asistente para la importación de datos de Azure Cognitive Search
 
@@ -73,14 +73,14 @@ Debe crear esta tabla o vista única antes de ejecutar el asistente y debe inclu
 
 ## <a name="wizard-output"></a>Salida del asistente
 
-En segundo plano, el asistente crea, configura e invoca los siguientes objetos. Después de ejecutar el asistente, puede encontrar su salida en las páginas del portal. La página de información general de su servicio tiene listas de índices, indexadores, orígenes de datos y conjuntos de aptitudes. Las definiciones de índice se pueden ver en JSON completo en el portal. Para otras definiciones, puede usar la [API REST](https://docs.microsoft.com/rest/api/searchservice/) para OBTENER objetos específicos.
+En segundo plano, el asistente crea, configura e invoca los siguientes objetos. Después de ejecutar el asistente, puede encontrar su salida en las páginas del portal. La página de información general de su servicio tiene listas de índices, indexadores, orígenes de datos y conjuntos de aptitudes. Las definiciones de índice se pueden ver en JSON completo en el portal. Para otras definiciones, puede usar la [API REST](/rest/api/searchservice/) para OBTENER objetos específicos.
 
 | Object | Descripción | 
 |--------|-------------|
-| [Data Source](https://docs.microsoft.com/rest/api/searchservice/create-data-source) (Origen de datos)  | Conserva la información de conexión en los datos de origen, incluidas las credenciales. Un objeto de origen de datos se utiliza exclusivamente con indexadores. | 
-| [Index](https://docs.microsoft.com/rest/api/searchservice/create-index) | Estructura de datos física que se usa para la búsqueda de texto completo y otras consultas. | 
-| [Conjunto de aptitudes](https://docs.microsoft.com/rest/api/searchservice/create-skillset) | Un conjunto completo de instrucciones para manipular, transformar y dar forma al contenido que incluye el análisis y la extracción de información de archivos de imagen. Excepto en el caso de estructuras muy simples y limitadas, incluye una referencia a un recurso de Cognitive Services que proporciona enriquecimiento. Opcionalmente, también puede contener una definición de almacén de conocimiento.  | 
-| [Indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer)  | Un objeto de configuración que especifica un origen de datos, un índice de destino, un conjunto de aptitudes opcional, una programación opcional y valores de configuración opcionales para el control de errores y la codificación en base 64. |
+| [Data Source](/rest/api/searchservice/create-data-source) (Origen de datos)  | Conserva la información de conexión en los datos de origen, incluidas las credenciales. Un objeto de origen de datos se utiliza exclusivamente con indexadores. | 
+| [Index](/rest/api/searchservice/create-index) | Estructura de datos física que se usa para la búsqueda de texto completo y otras consultas. | 
+| [Conjunto de aptitudes](/rest/api/searchservice/create-skillset) | Un conjunto completo de instrucciones para manipular, transformar y dar forma al contenido que incluye el análisis y la extracción de información de archivos de imagen. Excepto en el caso de estructuras muy simples y limitadas, incluye una referencia a un recurso de Cognitive Services que proporciona enriquecimiento. Opcionalmente, también puede contener una definición de almacén de conocimiento.  | 
+| [Indexador](/rest/api/searchservice/create-indexer)  | Un objeto de configuración que especifica un origen de datos, un índice de destino, un conjunto de aptitudes opcional, una programación opcional y valores de configuración opcionales para el control de errores y la codificación en base 64. |
 
 
 ## <a name="how-to-start-the-wizard"></a>Inicio del asistente
@@ -103,7 +103,7 @@ El asistente genera un índice incompleto que se rellena con los documentos que 
 
 1. ¿Se ha completado la lista de campos? Agregue los nuevos campos que omitió el muestreo y quite aquellos que no aporten valor a una experiencia de búsqueda o que no se utilizarán en una [expresión de filtro](search-query-odata-filter.md) o [perfil de puntuación](index-add-scoring-profiles.md).
 
-1. ¿Es el tipo de datos adecuado para los datos entrantes? Azure Cognitive Search admite los [tipos de datos de Entity Data Model (EDM)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types). En el caso de datos SQL de Azure, hay un [gráfico de asignaciones](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#TypeMapping) que muestra valores equivalentes. Para más información, consulte [Transformaciones y asignaciones de campos](search-indexer-field-mappings.md).
+1. ¿Es el tipo de datos adecuado para los datos entrantes? Azure Cognitive Search admite los [tipos de datos de Entity Data Model (EDM)](/rest/api/searchservice/supported-data-types). En el caso de datos SQL de Azure, hay un [gráfico de asignaciones](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#TypeMapping) que muestra valores equivalentes. Para más información, consulte [Transformaciones y asignaciones de campos](search-indexer-field-mappings.md).
 
 1. ¿Tiene un campo que pueda actuar como *clave*? Este campo debe ser Edm.string y debe identificar de forma exclusiva un único documento. En el caso de los datos relacionales, se podría asignar a una clave principal. En el caso de los blobs, esta podría ser `metadata-storage-path`. Si los valores de campo incluyen espacios o guiones, debe establecer la opción **Claves de codificación Base 64** del paso **Crear un indexador** en **Opciones avanzadas**, a fin de suprimir la comprobación de validación para estos caracteres.
 

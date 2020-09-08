@@ -9,15 +9,15 @@ metadata:
   ms.subservice: 
   ms.topic: landing-page
   ms.collection: collection
-  author: Juliako
-  ms.author: juliako
+  author: IngridAtMicrosoft
+  ms.author: inhenkel
   ms.date: 21/16/2020
-  ms.openlocfilehash: 09035b2e0b8440c8ab56c1c3a585957557a35d51
-  ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+  ms.openlocfilehash: 8168dccb5a6eba0836b273cf7fbd9800c64925ec
+  ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/06/2020
-  ms.locfileid: "87826014"
+  ms.lasthandoff: 09/01/2020
+  ms.locfileid: "89269172"
 landingContent:
 - title: Acerca de Media Services
   linkLists:

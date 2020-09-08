@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con GitHub | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y GitHub.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: 8761f5ca-c57c-4a7e-bf14-ac0421bd3b5e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/17/2020
+ms.date: 08/07/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 718d51c94d05e8e18f2b254b5e81e346a67205a1
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 7153a1279785cfe79d23b2b5ba843ec9f5cd4965
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87170537"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550753"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con GitHub
 
@@ -45,7 +41,7 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 * GitHub admite el inicio de sesión único iniciado por **SP**
 
 * GitHub admite el [**aprovisionamiento de usuarios (invitaciones de la organización)** automático](github-provisioning-tutorial.md).
-* Una vez configurado GitHub, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
+* Una vez que haya configurado GitHub, puede aplicar el control de sesión, que protege su organización, en tiempo real, frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
 
 ## <a name="adding-github-from-the-gallery"></a>Adición de GitHub desde la galería
 
@@ -138,8 +134,14 @@ En esta sección va a permitir que B.Simon acceda a GitHub mediante el inicio de
     ![Vínculo de Agregar usuario](common/add-assign-user.png)
 
 1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccione un rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+
+    ![rol de usuario](./media/github-tutorial/user-role.png)
+
+    > [!NOTE]
+    > La opción **Seleccione un rol** se deshabilitará y el rol predeterminado es USUARIO para el usuario seleccionado.
+
+7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ## <a name="configure-github-sso"></a>Configuración del inicio de sesión único de GitHub
 
@@ -147,11 +149,11 @@ En esta sección va a permitir que B.Simon acceda a GitHub mediante el inicio de
 
 2. Vaya a **Configuración** y haga clic en **Seguridad**
 
-    ![Configuración](./media/github-tutorial/tutorial_github_config_github_03.png)
+    ![Configuración](./media/github-tutorial/security.png)
 
 3. Active la casilla **Habilitar autenticación SAML** para ver los campos de configuración del inicio de sesión único. Realice los siguientes pasos:
 
-    ![Configuración](./media/github-tutorial/tutorial_github_config_github_13.png)
+    ![Configuración](./media/github-tutorial/saml-sso.png)
 
     a. Copie el valor de **Single sign-on URL** (Dirección URL de inicio de sesión único) y pegue el valor en el cuadro de texto **URL de inicio de sesión** de la sección **Configuración básica de SAML** de Azure Portal.
     
@@ -159,7 +161,7 @@ En esta sección va a permitir que B.Simon acceda a GitHub mediante el inicio de
 
 4. Configure los campos siguientes:
 
-    ![Configuración](./media/github-tutorial/tutorial_github_config_github_051.png)
+    ![Configuración](./media/github-tutorial/configure.png)
 
     a. En el cuadro de texto **Sign-On URL** (Dirección URL de inicio de sesión), pegue el valor de la **URL de inicio de sesión** que ha copiado de Azure Portal.
 
@@ -175,7 +177,7 @@ En esta sección va a permitir que B.Simon acceda a GitHub mediante el inicio de
 
 5. Haga clic en **Test SAML configuration** (Probar configuración de SAML) para configura que no hay errores de validación durante el SSO.
 
-    ![Configuración](./media/github-tutorial/tutorial_github_config_github_06.png)
+    ![Configuración](./media/github-tutorial/test.png)
 
 6. Haga clic en **Guardar**
 
@@ -192,21 +194,21 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
 
 2. Haga clic en **Contactos**.
 
-    ![Contactos](./media/github-tutorial/tutorial_github_config_github_08.png "Personas")
+    ![Contactos](./media/github-tutorial/people.png "Personas")
 
 3. Haga clic en **Invitar a miembros**.
 
-    ![Invite Users (Invitar a usuarios)](./media/github-tutorial/tutorial_github_config_github_09.png "Invitar a usuarios")
+    ![Invite Users (Invitar a usuarios)](./media/github-tutorial/invite-member.png "Invitar a usuarios")
 
 4. En la página de diálogo **Invitar a miembros**, realice los siguientes pasos:
 
     a. En el cuadro de texto **Correo electrónico**, escriba la dirección de correo electrónico de la cuenta de Britta Simon.
 
-    ![Invite People (Invitar a personas)](./media/github-tutorial/tutorial_github_config_github_10.png "Invitar a contactos")
+    ![Invite People (Invitar a personas)](./media/github-tutorial/email-box.png "Invitar a contactos")
 
     b. Haga clic en **Enviar invitación**.
 
-    ![Invite People (Invitar a personas)](./media/github-tutorial/tutorial_github_config_github_11.png "Invitar a contactos")
+    ![Invite People (Invitar a personas)](./media/github-tutorial/send-invitation.png "Invitar a contactos")
 
     > [!NOTE]
     > El titular de la cuenta de Azure Active Directory recibirá un mensaje de correo y seguirá un vínculo para confirmar su cuenta antes de que se active.

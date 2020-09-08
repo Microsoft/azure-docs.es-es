@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: e01954e0f2f311a7229a69cb18f881e0491b80d3
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: c35647a46cd252ce045d10e8dfefcf78236ba74b
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88082847"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961727"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Peguntas más frecuentes sobre Azure App Service en Linux
 
@@ -122,7 +122,7 @@ Debe escribir la dirección URL completa del registro, incluidos `http://` o `ht
 
 **¿Cuál es el formato del nombre de la imagen en la opción del registro privado?**
 
-Agregue el nombre de la imagen completo, incluida la dirección URL de registro privado (por ejemplo, myacr.azurecr.io/dotnet:latest). Los nombres de imágenes que usan un puerto personalizado [no se pueden especificar a través del portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Para establecer `docker-custom-image-name`, use la [`az`herramienta de línea de comandos](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
+Agregue el nombre de la imagen completo, incluida la dirección URL de registro privado (por ejemplo, myacr.azurecr.io/dotnet:latest). Los nombres de imágenes que usan un puerto personalizado [no se pueden especificar a través del portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Para establecer `docker-custom-image-name`, use la [`az`herramienta de línea de comandos](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
 
 **¿Se puede exponer más de un puerto en mi imagen de contenedor personalizado?**
 
@@ -130,7 +130,7 @@ No se admite la exposición de más de un puerto.
 
 **¿Puedo traer mi propio almacenamiento?**
 
-Sí, la prestación [traiga su propio almacenamiento](https://docs.microsoft.com/azure/app-service/configure-connect-to-azure-storage) está en versión preliminar.
+Sí, la prestación [traiga su propio almacenamiento](./configure-connect-to-azure-storage.md) está en versión preliminar.
 
 **¿Por qué no puedo examinar el sistema de archivos de mi contenedor personalizado o ejecutar procesos desde el sitio de SCM?**
 

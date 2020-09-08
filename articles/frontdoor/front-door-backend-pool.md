@@ -3,20 +3,20 @@ title: Back-end y grupos de back-end en Azure Front Door | Microsoft Docs
 description: En este artículo se describe qué back-end y grupos de back-end se encuentran en la configuración de Front Door.
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: 18b165d83bfa154348842542bd8323a40330aa2a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: duau
+ms.openlocfilehash: 66767d4329a0a757de99308e1f586b56b327a515
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80293469"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399929"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door"></a>Back-end y grupos de back-end en Azure Front Door
 En este artículo se describen conceptos acerca de cómo asignar la implementación de aplicaciones con Azure Front Door. También se explican los distintos términos en la configuración de Front Door sobre back-end de aplicación.

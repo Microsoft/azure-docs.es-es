@@ -6,16 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/13/2020
+ms.date: 08/24/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: a3fdde755a5e024efead5c8861a1d5cd769b6d23
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 2beaae3fd6aaae719ac84ef86d7dd7877c94f757
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036835"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89076130"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-powershell"></a>Configuración de claves administradas por el cliente con Azure Key Vault mediante PowerShell
 
@@ -81,13 +82,16 @@ El cifrado de almacenamiento de Azure admite claves RSA y RSA-HSM de los tamaño
 
 De forma predeterminada, el cifrado de Azure Storage usa claves que administra Microsoft. En este paso, configure la cuenta de Azure Storage para usar las claves administradas por el cliente con Azure Key Vault, y especifique la clave para asociar a la cuenta de almacenamiento.
 
-Al configurar el cifrado con claves administradas por el cliente, puede optar por rotar automáticamente la clave que se usa para el cifrado cuando la versión cambie en el almacén de claves asociado. Como alternativa, puede especificar explícitamente una versión de clave que se usará para el cifrado hasta que la versión de la clave se actualice manualmente.
+Al configurar el cifrado con claves administradas por el cliente, puede optar por actualizar automáticamente la clave que se usa para el cifrado cuando la versión de clave cambie en el almacén de claves asociado. Como alternativa, puede especificar explícitamente una versión de clave que se usará para el cifrado hasta que la versión de la clave se actualice manualmente.
 
-### <a name="configure-encryption-for-automatic-rotation-of-customer-managed-keys"></a>Configuración del cifrado para la rotación automática de claves administradas por el cliente
+> [!NOTE]
+> Para rotar una clave, cree una nueva versión de la misma en Azure Key Vault. Azure Storage no controla la rotación de la clave en Azure Key Vault, por lo que deberá rotar la clave manualmente o crear una función para hacerlo según una programación.
 
-Para configurar el cifrado para la rotación automática de claves administradas por el cliente, instale el módulo [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage), versión 2.0.0 o posterior.
+### <a name="configure-encryption-to-automatically-update-the-key-version"></a>Configuración del cifrado para actualizar automáticamente la versión de la clave
 
-Para rotar automáticamente las claves administradas por el cliente, omita la versión de la clave al configurar las claves administradas por el cliente para la cuenta de almacenamiento. Llame a [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) para actualizar la configuración de cifrado de la cuenta de almacenamiento, como se muestra en el ejemplo siguiente, e incluya la opción **-KeyvaultEncryption** para habilitar las claves administradas por el cliente para la cuenta de almacenamiento. Recuerde reemplazar los valores de marcador de posición entre corchetes por sus propios valores y usar las variables definidas en los ejemplos anteriores.
+Para configurar el cifrado con claves administradas por el cliente para que se actualice automáticamente la versión de la clave, instale la versión 2.0.0 del módulo [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage), o cualquier versión posterior.
+
+Para actualizar automáticamente la versión de una clave administrada por el cliente, omita la versión de la clave al configurar el cifrado con las claves administradas por el cliente para la cuenta de almacenamiento. Llame a [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) para actualizar la configuración de cifrado de la cuenta de almacenamiento, como se muestra en el ejemplo siguiente, e incluya la opción **-KeyvaultEncryption** para habilitar las claves administradas por el cliente para la cuenta de almacenamiento. Recuerde reemplazar los valores de marcador de posición entre corchetes por sus propios valores y usar las variables definidas en los ejemplos anteriores.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
@@ -97,7 +101,7 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
     -KeyVaultUri $keyVault.VaultUri
 ```
 
-### <a name="configure-encryption-for-manual-rotation-of-key-versions"></a>Configuración del cifrado para la rotación manual de las versiones de clave
+### <a name="configure-encryption-for-manual-updating-of-key-versions"></a>Configuración del cifrado para la actualización manual de las versiones de la clave
 
 Para especificar de manera explícita una versión de la clave que se va a usar para el cifrado, indique la versión de la clave al configurar el cifrado con las claves administradas por el cliente para la cuenta de almacenamiento. Llame a [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) para actualizar la configuración de cifrado de la cuenta de almacenamiento, como se muestra en el ejemplo siguiente, e incluya la opción **-KeyvaultEncryption** para habilitar las claves administradas por el cliente para la cuenta de almacenamiento. Recuerde reemplazar los valores de marcador de posición entre corchetes por sus propios valores y usar las variables definidas en los ejemplos anteriores.
 
@@ -110,7 +114,7 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
     -KeyVaultUri $keyVault.VaultUri
 ```
 
-Al rotar manualmente la versión de la clave, deberá actualizar la configuración de cifrado de la cuenta de almacenamiento para usar la nueva versión. En primer lugar, llame a [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) para obtener la versión más reciente de la clave. A continuación, llame a [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) para actualizar la configuración de cifrado de la cuenta de almacenamiento y así poder usar la nueva versión de la clave, tal como se muestra en el ejemplo anterior.
+Al actualizar manualmente la versión de la clave, deberá actualizar la configuración de cifrado de la cuenta de almacenamiento para que use la nueva versión. En primer lugar, llame a [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) para obtener la versión más reciente de la clave. A continuación, llame a [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) para actualizar la configuración de cifrado de la cuenta de almacenamiento y así poder usar la nueva versión de la clave, tal como se muestra en el ejemplo anterior.
 
 ## <a name="use-a-different-key"></a>Uso de una clave distinta
 

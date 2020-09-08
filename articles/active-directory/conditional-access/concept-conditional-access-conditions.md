@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 08/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a74fe2bf6b326dac782ac75418a7f4960e66501a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f8dfeb8a38e07d94671691bb797d26a32973c910
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87275010"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042486"
 ---
 # <a name="conditional-access-conditions"></a>Acceso condicional: Condiciones
 
 Dentro de una directiva de acceso condicional, un administrador puede usar señales de condiciones como el riesgo, la plataforma del dispositivo o la ubicación para mejorar sus decisiones de directivas. 
 
-![Definición de una directiva de acceso condicional y especificación de condiciones](./media/concept-conditional-access-conditions/conditional-access-conditions.png)
+[ ![Definición de una directiva de acceso condicional y especificación de condiciones](./media/concept-conditional-access-conditions/conditional-access-conditions.png)](./media/concept-conditional-access-conditions/conditional-access-conditions.png#lightbox)
 
 Se pueden combinar varias condiciones para crear directivas de acceso condicional específicas y concretas.
 
@@ -60,21 +60,28 @@ Por ejemplo, algunas organizaciones pueden optar por no requerir la autenticaci�
 
 Para más información sobre las ubicaciones, consulte el artículo [¿Qué es la condición de ubicación del acceso condicional de Azure Active Directory?](location-condition.md)
 
-## <a name="client-apps-preview"></a>Aplicaciones cliente (versión preliminar)
+## <a name="client-apps"></a>Aplicaciones cliente
 
-De forma predeterminada, las directivas de acceso condicional se aplican a aplicaciones basadas en explorador y aplicaciones que usan protocolos de autenticación modernos. Además de estas aplicaciones, los administradores pueden elegir incluir clientes de Exchange ActiveSync y otros clientes que utilicen protocolos heredados.
+De manera predeterminada, todas las directivas de acceso condicional recién creadas se aplicarán a todos los tipos de aplicaciones cliente, incluso si la condición de las aplicaciones cliente no está configurada. 
 
 > [!NOTE]
-> La opción de alternancia Sí/No se ha quitado de la condición de aplicaciones cliente para que sea más fácil ver qué aplicaciones cliente están seleccionadas. Esto no afecta a las aplicaciones cliente a las que se aplica una directiva existente.
+> El comportamiento de la condición de las aplicaciones cliente se actualizó en agosto de 2020. Si ya tiene directivas de acceso condicional, estas permanecerán sin cambios. Sin embargo, si hace clic en una directiva existente, se habrá quitado el botón de alternancia de configuración, y estarán seleccionadas las aplicaciones cliente a las que se aplica la directiva.
 
-- Browser
-   - Estos incluyen aplicaciones basadas en web que usan protocolos como SAML, WS-Federation, OpenID Connect o servicios registrados como un cliente de OAuth Confidential.
-- Aplicaciones móviles y aplicaciones de escritorio
-   - Clientes de autenticación moderna
-      - Esta opción incluye aplicaciones como las aplicaciones de teléfono y escritorio de Office.
+> [!IMPORTANT]
+> Los inicios de sesión desde clientes de autenticación heredada no admiten MFA y no pasan la información del estado de los dispositivos a Azure AD, por lo que se bloquearán mediante controles de concesión de acceso condicional, como la exigencia de MFA o dispositivos compatibles. Si tiene cuentas que deben usar la autenticación heredada, debe excluir esas cuentas de la directiva, o bien configurar la directiva para que solo se aplique a los clientes de autenticación moderna.
+
+Cuando el botón de alternancia **Configurar** está establecido en **Sí**, se aplica a los elementos seleccionados; cuando está establecido en **No**, se aplica a todas las aplicaciones cliente, incluidos los clientes de autenticación moderna y heredada. Este botón de alternancia no aparece en las directivas creadas antes de agosto de 2020.
+
+- Clientes de autenticación moderna
+   - Browser
+      - Estos incluyen aplicaciones basadas en web que usan protocolos como SAML, WS-Federation, OpenID Connect o servicios registrados como un cliente de OAuth Confidential.
+   - Aplicaciones móviles y aplicaciones de escritorio
+      -  Esta opción incluye aplicaciones como las aplicaciones de teléfono y escritorio de Office.
+- Clientes de autenticación heredada
    - Clientes de Exchange ActiveSync
-      - De forma predeterminada, esto incluye cualquier uso del protocolo Exchange ActiveSync (EAS). Si se selecciona **Aplicar directiva solo en las plataformas compatibles**, se limitará a las plataformas compatibles, como iOS, Android y Windows.
+      - Esto incluye cualquier uso del protocolo Exchange ActiveSync (EAS).
       - Cuando la directiva bloquea el uso de Exchange ActiveSync, el usuario afectado recibirá un único mensaje de correo electrónico de cuarentena. Este mensaje de correo electrónico proporciona información sobre por qué está bloqueado e incluye instrucciones de corrección si es posible.
+      - Los administradores pueden aplicar directivas solo a las plataformas admitidas (como iOS, Android y Windows) a través de MS Graph API de acceso condicional.
    - Otros clientes
       - Esta opción incluye clientes que usan protocolos de autenticación básicos/heredados que no admiten la autenticación moderna.
          - SMTP autenticado: usado por clientes POP e IMAP para enviar mensajes de correo electrónico.
@@ -121,7 +128,7 @@ Para implementar automáticamente esta extensión en los exploradores de Chrome,
 
 - Ruta de acceso HKEY_LOCAL_MACHINE \Software\Policies\Google\Chrome\ExtensionInstallForcelist
 - Nombre 1
-- Tipo REG_SZ (Cadena)
+- Tipo REG_SZ (cadena)
 - Datos ppnbnpeolgkicgegkbkbjmhlideopiji;https\://clients2.google.com/service/update2/crx
 
 Para la compatibilidad con Chrome en **Windows 8.1 y 7**, cree la siguiente clave del Registro:

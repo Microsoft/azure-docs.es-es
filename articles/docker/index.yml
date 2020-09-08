@@ -10,12 +10,12 @@ metadata:
   author: georgewallace
   ms.author: gwallace
   ms.date: 03/08/2020
-  ms.openlocfilehash: 94d5dd74aad11e2271de52dd082cfb9287eb10c1
-  ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+  ms.openlocfilehash: 700c5b1e113de32b80b3d716db915836049128ec
+  ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/14/2020
-  ms.locfileid: "88224584"
+  ms.lasthandoff: 09/04/2020
+  ms.locfileid: "89470126"
 landingContent:
 - title: Implementación de Docker en Azure
   linkLists:
@@ -30,7 +30,7 @@ landingContent:
     - text: Ejecución de una aplicación web Python (Django) con PostgreSQL en Azure App Service
       url: ../app-service/tutorial-python-postgresql-app.md
     - text: Creación de una infraestructura de desarrollo en una máquina virtual Linux en Azure con Jenkins, GitHub y Docker
-      url: ../jenkins/tutorial-jenkins-github-docker-cicd.md
+      url: /azure/developer/jenkins/pipeline-with-github-and-docker
 - title: Recursos
   linkLists:
   - linkListType: reference

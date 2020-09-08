@@ -6,15 +6,16 @@ ms.author: banders
 ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: cloudyn
 ms.reviewer: vitavor
 ms.custom: seodec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: 892df9a6e0eb4d791f818eed0a78c96a829e25a0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 03d5e3959b85a2b0bd9ae30744051895ff026b77
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79464230"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691231"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Vista de las métricas clave de costos con paneles
 

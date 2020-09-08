@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3037dd2e03062ebab0c48438aa4345a766a22fc8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 725b3b712313c199382cebe32bed98f2115fc262
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608932"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231170"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Remedie los usuarios marcados como en riesgo en el portal de Azure Active Directory
 
@@ -40,7 +40,7 @@ Desde el informe de usuarios marcados en riesgo puede realizar cualquiera de las
 - Requerir al usuario que restablezca de forma segura su contraseña la próxima vez que inicie sesión.
 - Descartar el riesgo del usuario sin realizar ninguna acción de corrección.
 
-Para obtener más información, consulte [Reporte de seguridad de usuarios marcados en riesgo](concept-user-at-risk.md).
+Para obtener más información, consulte [Reporte de seguridad de usuarios marcados en riesgo](../identity-protection/overview-identity-protection.md).
 
 ### <a name="azure-ad-subscription-for-office-365-customers"></a>Suscripción a Azure AD para clientes de Office 365
 
@@ -91,5 +91,5 @@ Además, debe:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
-* [Usuarios marcados en riesgo](concept-user-at-risk.md)
+* [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md)
+* [Usuarios marcados en riesgo](../identity-protection/overview-identity-protection.md)

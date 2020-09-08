@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 05/26/2020
 ms.author: erhopf
-ms.custom: devx-track-python, devx-track-javascript
+ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 7a42ae39e35d181c9d354fc7c7d8ff125ade5acd
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: dfd9effa40ef494ec021595c816621338033a46f
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876757"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88921379"
 ---
 # <a name="quickstart-use-the-translator-to-get-a-list-of-supported-languages"></a>Inicio rápido: Uso de Traductor para obtener una lista de los idiomas admitidos
 

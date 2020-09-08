@@ -7,10 +7,10 @@ ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: cc1d6e04b19d36f0ca8c7ed4b2bb3d62f5e8e15a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "78252750"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Tutorial: Empaquetamiento e implementación de contenedores como aplicación de Service Fabric mediante Yeoman
@@ -60,7 +60,7 @@ Service Fabric proporciona herramientas de scaffolding para ayudarle a crear apl
     ```
 2. Escriba en "TestContainer" para asignar un nombre a la aplicación
 3. Escriba en "azurevotefront" para asignar un nombre al servicio de aplicación.
-4. Proporcione la ruta de acceso a la imagen de contenedor en ACR para el repositorio front-end: por ejemplo, "\<acrName>.azurecr.io/azure-vote-front:v1". El campo \<acrName> debe ser el mismo que el valor que se utilizó en el tutorial anterior.
+4. Proporcione la ruta de acceso a la imagen de contenedor en ACR para el repositorio de front-end: por ejemplo, "\<acrName>.azurecr.io/azure-vote-front:v1". El campo \<acrName> debe ser el mismo que el valor que se utilizó en el tutorial anterior.
 5. Presione Entrar para dejar la sección Comandos vacía.
 6. Especifique un número de instancias de "1".
 

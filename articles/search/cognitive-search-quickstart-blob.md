@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: db9e8f71787026abea74fbbfeed51a227a295601
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: 8fba7245475c9873a3e2d3abeda4806d1376e7ca
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488960"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300041"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Inicio rápido: Creación de un conjunto de aptitudes cognitivas de Azure Cognitive Search en Azure Portal
 
@@ -29,7 +29,7 @@ Antes de empezar, debe disponer de lo siguiente:
 
 + Un servicio de Azure Cognitive Search. [Cree un servicio](search-create-service-portal.md) o [busque uno existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este inicio rápido. 
 
-+ Una cuenta de Azure Storage con [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/).
++ Una cuenta de Azure Storage con [Blob Storage](../storage/blobs/index.yml).
 
 > [!NOTE]
 > En esta guía de inicio rápido también se usa [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) para la inteligencia artificial. Dado que la carga de trabajo es tan pequeña, Cognitive Services se aprovecha en segundo plano del procesamiento gratuito de hasta 20 transacciones. Esto significa que puede completar este ejercicio sin tener que crear un recurso de Cognitive Services adicional.
@@ -40,7 +40,7 @@ En los pasos siguientes, configure un contenedor de blobs en Azure Storage para 
 
 1. [Descargue los datos de ejemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) que están formados por un pequeño conjunto de archivos de diferentes tipos. Descomprima los archivos.
 
-1. [Cree una cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) o [busque una cuenta existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
+1. [Cree una cuenta de Azure Storage](../storage/common/storage-account-create.md?tabs=azure-portal) o [busque una cuenta existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
 
    + Elija la misma región de Azure Cognitive Search para evitar cargos de ancho de banda. 
 
@@ -76,7 +76,7 @@ Después, configure el enriquecimiento de inteligencia artificial para invocar a
 
 1. En este inicio rápido, se usará el recurso **Free** de Cognitive Services. Los datos de ejemplo se componen de 14 archivos, por lo que la cobertura gratuita de 20 transacciones de Cognitive Services es suficiente para este inicio rápido. 
 
-   ![Adjuntar Cognitive Services](media/cognitive-search-quickstart-blob/cog-search-attach.png)
+   ![Adjuntar un servicio base de Cognitive Services](media/cognitive-search-quickstart-blob/cog-search-attach.png)
 
 1. Expanda **Agregar enriquecimientos** y realice cuatro selecciones. 
 
@@ -86,7 +86,7 @@ Después, configure el enriquecimiento de inteligencia artificial para invocar a
 
    Elija el reconocimiento de entidades (personas, organizaciones o ubicaciones) y aptitudes de análisis de imágenes.
 
-   ![Adjuntar Cognitive Services](media/cognitive-search-quickstart-blob/skillset.png)
+   ![Adjuntar determinados servicios de Attach Cognitive Services para el conjunto de aptitudes](media/cognitive-search-quickstart-blob/skillset.png)
 
    Continúe en la siguiente página.
 
@@ -169,7 +169,7 @@ Otro concepto importante es que las aptitudes operan sobre los tipos de contenid
 
 La salida se dirige a un índice de búsqueda y hay una asignación entre los pares nombre y valor que se crearon durante la indexación y los campos individuales del índice. De forma interna, el portal establece las [anotaciones ](cognitive-search-concept-annotations-syntax.md) y define un [conjunto de aptitudes](cognitive-search-defining-skillset.md) que establece el orden de las operaciones y el flujo general. Estos pasos están ocultos en el portal, pero recuerde que estos conceptos serán importantes cuando comience a escribir el código.
 
-Por último, aprendió que se puede comprobar el contenido consultando el índice. Al final, lo que proporciona Azure Cognitive Search es un índice de búsqueda que puede consultar mediante la [sintaxis de consulta simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) o [totalmente extendida](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). Un índice que contenga campos enriquecidos es como cualquier otro. Si desea incorporar [analizadores personalizados](search-analyzers.md) o estándar, [perfiles de puntuación](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [sinónimos](search-synonyms.md), [filtros con facetas](search-filters-facets.md), búsquedas geográficas o cualquier otra característica de Azure Cognitive Search, puede hacerlo cuando quiera.
+Por último, aprendió que se puede comprobar el contenido consultando el índice. Al final, lo que proporciona Azure Cognitive Search es un índice de búsqueda que puede consultar mediante la [sintaxis de consulta simple](/rest/api/searchservice/simple-query-syntax-in-azure-search) o [totalmente extendida](/rest/api/searchservice/lucene-query-syntax-in-azure-search). Un índice que contenga campos enriquecidos es como cualquier otro. Si desea incorporar [analizadores personalizados](search-analyzers.md) o estándar, [perfiles de puntuación](/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [sinónimos](search-synonyms.md), [filtros con facetas](search-filters-facets.md), búsquedas geográficas o cualquier otra característica de Azure Cognitive Search, puede hacerlo cuando quiera.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

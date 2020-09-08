@@ -1,18 +1,18 @@
 ---
 title: Introducción a la seguridad de Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Descripción de cómo Azure Data Lake Storage Gen1 es un almacén de macrodatos más seguro
+description: Obtenga información sobre las capacidades de seguridad de Azure Data Lake Storage Gen1, incluida la autenticación, la autorización, el aislamiento de red, la protección de datos y la auditoría.
 services: data-lake-store
 author: twooley
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
-ms.openlocfilehash: a6a6b0b15b8d2dc08f1581cb2ea0ea4c7e8036ca
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: ec0e62297e6eee995fc571589d450176c81f8aac
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87529983"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192833"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Seguridad de Azure Data Lake Storage Gen1
 
@@ -39,7 +39,7 @@ Cada una de las suscripciones de Azure puede asociarse a una instancia de Azure 
 
 Una vez que un usuario se autentica mediante Azure Active Directory para acceder a Data Lake Storage Gen1, la autorización controla los permisos de acceso a Data Lake Storage Gen1. Data Lake Storage Gen1 separa la autorización para las actividades relacionadas con cuentas y datos de la siguiente manera:
 
-* [Control de acceso basado en rol](../role-based-access-control/overview.md) (RBAC) proporcionado por Azure para la administración de cuentas
+* [Control de acceso basado en rol de Azure (Azure RBAC)](../role-based-access-control/overview.md) para la administración de cuentas
 * ACL de POSIX para el acceso a datos en el almacén
 
 ### <a name="rbac-for-account-management"></a>RBAC para la administración de cuentas

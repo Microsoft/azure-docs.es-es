@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Wingspan eTMF | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Wingspan eTMF.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: ace320d3-521c-449c-992f-feabe7538de7
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 8943ff45d432768649ace28147c7c14f20f4ad44
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 420d7725638a78ac33ef93a85203ea8b088b82ee
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67087119"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88541704"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>Tutorial: Integración de Azure Active Directory con Wingspan eTMF
 

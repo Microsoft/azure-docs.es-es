@@ -3,12 +3,13 @@ title: Contadores de rendimiento en Application Insights | Microsoft Docs
 description: Supervise los contadores de rendimiento de .NET, tanto del sistema como personalizados, en Application Insights.
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.openlocfilehash: eb5e20403cc826619eb1f67de2fc4179e17b5aa4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4da8aef69b6a83c17fa8a20a80b2c485378e0aef
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322523"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918526"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contadores de rendimiento de sistema en Application Insights
 

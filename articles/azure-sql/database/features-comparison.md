@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 07/22/2020
-ms.openlocfilehash: e7f80c7db4af7c676881d92e8fe86d62a45e3310
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 30107c99f16b1b2f7c91ce8a662f44a041410d01
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049589"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119375"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Comparación de características: Azure SQL Database e Instancia administrada de Azure SQL
 
@@ -97,7 +97,7 @@ En la tabla siguiente se enumeran las características principales de SQL Server
 | [Service Broker](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker) | No | Sí, pero solo dentro de la instancia. Si usa rutas de Service Broker remotas, intente consolidar las bases de datos de varias instancias de SQL Server distribuidas en una Instancia administrada de SQL durante la migración y usar solo rutas locales. Consulte las [diferencias de Service Broker](../managed-instance/transact-sql-tsql-differences-sql-server.md#service-broker). |
 | [Valores de configuración del servidor](https://docs.microsoft.com/sql/database-engine/configure-windows/server-configuration-options-sql-server) | No | Sí; consulte el artículo sobre [diferencias de T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
 | [Instrucciones SET](https://docs.microsoft.com/sql/t-sql/statements/set-statements-transact-sql) | La mayoría; consulte el artículo sobre instrucciones. | Sí; consulte el artículo sobre [diferencias de T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md)|
-| [Agente SQL Server](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | No - Consulte [Trabajos elásticos](elastic-jobs-overview.md). | Sí; consulte el artículo sobre [diferencias de Agente SQL Server](../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent) |
+| [Agente SQL Server](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | No; consulte [Trabajos elásticos (versión preliminar)](elastic-jobs-overview.md) | Sí; consulte el artículo sobre [diferencias de Agente SQL Server](../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent) |
 | [Auditoría de SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | No; consulte el artículo sobre [auditoría de SQL Database](auditing-overview.md). | Sí; consulte el artículo sobre las [diferencias de auditoría](../managed-instance/transact-sql-tsql-differences-sql-server.md#auditing) |
 | [Funciones almacenadas del sistema](https://docs.microsoft.com/sql/relational-databases/system-functions/system-functions-for-transact-sql) | La mayoría; consulte las funciones. | S; consulte el artículo sobre las [diferencias de procedimientos almacenados, funciones y desencadenadores](../managed-instance/transact-sql-tsql-differences-sql-server.md#stored-procedures-functions-and-triggers) |
 | [Procedimientos almacenados del sistema](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/system-stored-procedures-transact-sql) | Algunas; consulte el artículo sobre procedimientos almacenados. | S; consulte el artículo sobre las [diferencias de procedimientos almacenados, funciones y desencadenadores](../managed-instance/transact-sql-tsql-differences-sql-server.md#stored-procedures-functions-and-triggers) |

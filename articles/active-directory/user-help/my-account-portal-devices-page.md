@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: e150143e726c75d96372b11fb3d451f0dc9956bc
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 784ee418c3713cce53d7e99e30fd445e75d144da
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422492"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798217"
 ---
 # <a name="manage-your-connected-devices-from-the-devices-page"></a>Administración de los dispositivos conectados desde la página Dispositivos
 
@@ -27,7 +27,7 @@ La página **Dispositivos** del portal **Mi cuenta** le ayuda a administrar los 
 - Deshabilitar los dispositivos que ya no posea, que haya perdido o que hayan sido robados.
 
 >[!Important]
->Este artículo está destinado a los usuarios que intentan actualizar la información del dispositivo conectada a una cuenta profesional o educativa. Si es un administrador que busca información acerca de la administración de dispositivos para los empleados y otros usuarios, consulte [Documentación sobre identidades del dispositivo de Azure AD](https://docs.microsoft.com/azure/active-directory/devices/index).
+>Este artículo está destinado a los usuarios que intentan actualizar la información del dispositivo conectada a una cuenta profesional o educativa. Si es un administrador que busca información acerca de la administración de dispositivos para los empleados y otros usuarios, consulte [Documentación sobre identidades del dispositivo de Azure AD](../devices/index.yml).
 
 ## <a name="view-your-connected-devices"></a>Visualización de los dispositivos conectados
 
@@ -68,7 +68,7 @@ Si está bloqueado en el dispositivo o sufre un error irrecuperable, puede ir a 
 
 Después de ver los dispositivos conectados, puede:
 
-- Elegir ver o administrar la [información de seguridad](user-help-security-info-overview.md).
+- Elegir ver o administrar la [información de seguridad](./security-info-setup-signin.md).
 
 - Ver y administrar las [organizaciones](my-account-portal-organizations-page.md).
 

@@ -3,13 +3,13 @@ title: Implementación de paquetes de aplicación en nodos de proceso
 description: Utilice la característica paquetes de aplicación de Azure Batch para administrar fácilmente varias aplicaciones y versiones para la instalación en nodos de proceso de Batch.
 ms.topic: how-to
 ms.date: 04/26/2019
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 328b08acbc6d13dd03956bb501b4d4a51310c9c0
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.custom: H1Hack27Feb2017, devx-track-csharp
+ms.openlocfilehash: d847dd926d157e455a6ef4e0c58c9dd204a1ecc7
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147223"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146477"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementación de aplicaciones en nodos de proceso con paquetes de aplicaciones de Batch
 
@@ -334,8 +334,8 @@ Con los paquetes de aplicación puede ayudar a los clientes a seleccionar las ap
 * La [API de REST de Batch][api_rest] también proporciona compatibilidad para trabajar con paquetes de aplicación. Por ejemplo, consulte el elemento [applicationPackageReferences][rest_add_pool_with_packages] de [Agregar un grupo a una cuenta][rest_add_pool] para especificar los paquetes que se instalan mediante la API REST. Para ver detalles sobre cómo obtener información de la aplicación mediante la API de REST de Batch, consulte [Aplicaciones][rest_applications].
 * Aprenda a [administrar mediante programación cuentas y cuotas de Azure Batch con Batch Management .NET](batch-management-dotnet.md). La biblioteca de [Batch Management .NET][api_net_mgmt] puede habilitar las características de creación y eliminación de cuentas de una aplicación o servicio de Batch.
 
-[api_net]: /dotnet/api/overview/azure/batch/client?view=azure-dotnet
-[api_net_mgmt]: /dotnet/api/overview/azure/batch/management?view=azure-dotnet
+[api_net]: /dotnet/api/overview/azure/batch/client
+[api_net_mgmt]: /dotnet/api/overview/azure/batch/management
 [api_rest]: /rest/api/batchservice/
 [batch_mgmt_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/
 [github_samples]: https://github.com/Azure/azure-batch-samples

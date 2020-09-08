@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Humanage | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Humanage.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 6494b947-58e5-4074-a1c6-63d5b7c76c61
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5340c5ccb97c8a8cedfb96e7c9e3157c6fe4000a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 253abdd8f1451c94ed28721b6cbc99ed3d384692
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83662150"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88525435"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-humanage"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Humanage
 

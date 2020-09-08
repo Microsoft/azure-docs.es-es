@@ -3,20 +3,20 @@ title: 'Tutorial: Configuración del enrutamiento del tráfico de subred con Azu
 description: En este tutorial se explica cómo configurar Traffic Manager para enrutar el tráfico de las subredes de los usuarios a puntos de conexión concretos.
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
-ms.author: rohink
-ms.openlocfilehash: 49e0bce6eea8fac32f49bb905c225e898e709af0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.author: duau
+ms.openlocfilehash: 5c6551e721a4bf197ea7091b8c0b71829693ba76
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77136281"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398297"
 ---
 # <a name="tutorial-direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Tutorial: Dirección del tráfico a puntos de conexión específicos en función de la subred de usuario mediante Traffic Manager
 

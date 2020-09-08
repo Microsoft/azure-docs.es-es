@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
-ms.custom: devx-track-python
-ms.openlocfilehash: 896ffb148ec781280d103b27a4dddddb1f9ef4b0
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.custom: devx-track-csharp, devx-track-python
+ms.openlocfilehash: 42932d712d6c4a94cad28aec924b88fbc126662b
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874663"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212787"
 ---
 # <a name="azure-cosmos-db-input-binding-for-azure-functions-2x-and-higher"></a>Enlace de entrada de Azure Cosmos DB para Azure Functions 2.x y versiones superiores
 

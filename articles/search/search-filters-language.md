@@ -8,12 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: 3bd0f01193b1e6579d60b581b43ad71ebb6001e3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 120c30803d1423dc8b1255c65703e84d5938f235
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084201"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002528"
 ---
 # <a name="how-to-filter-by-language-in-azure-cognitive-search"></a>Filtro por idioma en Azure Cognitive Search 
 
@@ -37,11 +38,11 @@ El ejemplo siguiente procede del [ejemplo de una inmobiliaria](search-get-starte
   ![Captura de pantalla que muestra la pantalla Campos del ejemplo de inmobiliaria real. Un grupo de campos se resalta para indicar cómo se corresponden las asignaciones del analizador de idioma con los idiomas de los campos resaltados.](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
-> Para ver ejemplos de código que muestran definiciones de campo con analizadores de idiomas, consulte [Definición de un índice (. NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet) y [Definición de un índice (REST)](search-create-index-rest-api.md).
+> Para ver ejemplos de código que muestran definiciones de campo con analizadores de idiomas, consulte [Definición de un índice (. NET)](./search-get-started-dotnet.md) y [Definición de un índice (REST)](./search-get-started-powershell.md).
 
 ## <a name="build-and-load-an-index"></a>Creación y carga de un índice
 
-Un paso intermedio (y, quizás, obvio) es que tiene que [crear y completar el índice](https://docs.microsoft.com/azure/search/search-create-index-dotnet) antes de formular una consulta. Hemos mencionado este paso aquí para mayor integridad. Una manera de determinar si el índice está disponible es comprobar la lista de índices en el [portal](https://portal.azure.com).
+Un paso intermedio (y, quizás, obvio) es que tiene que [crear y completar el índice](./search-get-started-dotnet.md) antes de formular una consulta. Hemos mencionado este paso aquí para mayor integridad. Una manera de determinar si el índice está disponible es comprobar la lista de índices en el [portal](https://portal.azure.com).
 
 ## <a name="constrain-the-query-and-trim-results"></a>Restricción de la consulta y recorte de los resultados
 
@@ -63,7 +64,6 @@ parameters =
 ## <a name="see-also"></a>Consulte también
 
 + [Filtros de Azure Cognitive Search](search-filters.md)
-+ [Analizadores de idiomas](https://docs.microsoft.com/rest/api/searchservice/language-support)
++ [Analizadores de idiomas](/rest/api/searchservice/language-support)
 + [Funcionamiento de la búsqueda de texto completo en Azure Cognitive Search](search-lucene-query-architecture.md)
-+ [API de REST de documentos de búsqueda](https://docs.microsoft.com/rest/api/searchservice/search-documents)
-
++ [API de REST de documentos de búsqueda](/rest/api/searchservice/search-documents)

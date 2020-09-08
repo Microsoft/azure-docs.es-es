@@ -3,20 +3,20 @@ title: 'Azure Front Door: almacenamiento en caché | Microsoft Docs'
 description: Este artículo le ayuda a comprender cómo Azure Front Door supervisa el estado de los servidores back-end.
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: d4fed878e2c0b1430e963f43743fd772493d3270
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 1cb24e4a959e7d32a3c3b5b69a39938df4efddfa
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79471751"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399878"
 ---
 # <a name="caching-with-azure-front-door"></a>Almacenamiento en caché con Azure Front Door
 En el documento siguiente se especifica el comportamiento de Front Door con reglas de enrutamiento que han habilitado el almacenamiento en caché. Front Door es una red Content Delivery Network (CDN) moderna, junto con la aceleración de sitios dinámicos y el equilibrio de carga; también admite comportamientos de almacenamiento en caché como cualquier otra red CDN.
@@ -111,6 +111,12 @@ Los encabezados de respuesta Cache-Control que indican que la respuesta no se al
 Los siguientes encabezados de solicitud no se reenviarán a un back-end cuando se use el almacenamiento en caché.
 - Content-Length
 - Transfer-Encoding
+
+## <a name="cache-duration"></a>Duración de la caché
+
+La duración de la caché se puede configurar tanto en el diseñador de Front Door como en el motor de reglas. La duración de la caché establecida en el diseñador de Front Door es la duración mínima de la caché. Esta invalidación no funcionará si el encabezado de control de la caché del origen tiene un valor de TTL mayor que el valor de invalidación. 
+
+La duración de la caché establecida mediante el motor de reglas es una invalidación de caché verdadera, lo que significa que usará el valor de invalidación con independencia del encabezado de respuesta de origen.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 07/13/2020
 ms.author: ccompy
 ms.custom: seodec18, references_regions
-ms.openlocfilehash: 9407e388a44ec78fa1e089542fc5ea3ef9387d60
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e79381c156247efafa55de51f7e2e0154dbc1b51
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073758"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962509"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Bloqueo de una instancia de App Service Environment
 
 App Service aislado tiene varias dependencias externas a las que requiere acceso para que funcionen correctamente. El plan de App Service aislado reside en la red de Azure Virtual Network (VNet) del cliente. Los clientes deben permitir el tráfico de dependencia de App Service aislado, que es un problema para aquellos que desean bloquear todo el tráfico de salida de su red virtual.
 
-Hay una serie de puntos de conexión de entrada que se usan para administrar una instancia de ASE. El tráfico entrante de administración no se puede enviar a través de un dispositivo de firewall. Las direcciones de origen de este tráfico se conocen y están publicadas en el documento [Direcciones de administración de App Service aislado](https://docs.microsoft.com/azure/app-service/environment/management-addresses). También hay una etiqueta de servicio denominada AppServiceManagement que se puede usar con grupos de seguridad de red (NSG) para proteger el tráfico entrante.
+Hay una serie de puntos de conexión de entrada que se usan para administrar una instancia de ASE. El tráfico entrante de administración no se puede enviar a través de un dispositivo de firewall. Las direcciones de origen de este tráfico se conocen y están publicadas en el documento [Direcciones de administración de App Service aislado](./management-addresses.md). También hay una etiqueta de servicio denominada AppServiceManagement que se puede usar con grupos de seguridad de red (NSG) para proteger el tráfico entrante.
 
 Las dependencias de salida de App Service aislado se definen casi por completo con los FQDN, que no tienen direcciones estáticas tras ellos. La falta de direcciones estáticas significa que no se pueden usar grupos de seguridad de red para bloquear el tráfico saliente de una instancia de ASE. Las direcciones cambian con tal frecuencia que no se pueden configurar reglas en función de la resolución actual ni usarlas para crear grupos de seguridad de red. 
 
@@ -55,13 +55,13 @@ A continuación, se indican los pasos para bloquear la salida de la instancia ex
 
    ![selección de puntos de conexión de servicio][2]
   
-1. Cree una subred denominada AzureFirewallSubnet en la red virtual donde exista su ASE. Siga las instrucciones de la [documentación de Azure Firewall](https://docs.microsoft.com/azure/firewall/) para crear su instancia de Azure Firewall.
+1. Cree una subred denominada AzureFirewallSubnet en la red virtual donde exista su ASE. Siga las instrucciones de la [documentación de Azure Firewall](../../firewall/index.yml) para crear su instancia de Azure Firewall.
 
 1. En la interfaz de usuario de Azure Firewall, vaya a Reglas > Recopilación de reglas de aplicación y seleccione Agregar una colección de reglas de aplicación. Proporcione un nombre y una prioridad y establezca Permitir. En la sección de etiquetas FQDN, proporcione un nombre, establezca las direcciones de origen en * y seleccione la etiqueta FQDN de App Service Environment y la actualización de Windows. 
    
    ![Adición de regla de aplicación][1]
    
-1. En la interfaz de usuario de Azure Firewall, vaya a Reglas > Recopilación de reglas de aplicación y seleccione Agregar una colección de reglas de aplicación. Proporcione un nombre y una prioridad y establezca Permitir. En la sección de reglas, en Direcciones IP, proporcione un nombre, seleccione un protocolo **Cualquiera**, establezca * como direcciones de origen y de destino y defina los puertos como 123. Esta regla permite que el sistema realice la sincronización del reloj mediante NTP. Cree otra regla de la misma manera para el puerto 12000 para ayudar a evaluar los problemas del sistema. 
+1. En la interfaz de usuario de Azure Firewall, vaya a Reglas > Recopilación de reglas de aplicación y seleccione Agregar una colección de reglas de aplicación. Proporcione un nombre y una prioridad y establezca Permitir. En la sección de reglas, en Direcciones IP, especifique un nombre, seleccione un protocolo **Cualquiera**, especifique * para las direcciones de origen y destino, y defina los puertos en 123. Esta regla permite que el sistema realice la sincronización del reloj mediante NTP. Cree otra regla de la misma manera para el puerto 12000 para ayudar a evaluar los problemas del sistema. 
 
    ![Adición de regla de red NTP][3]
    
@@ -69,7 +69,7 @@ A continuación, se indican los pasos para bloquear la salida de la instancia ex
 
    ![Adición de una regla de red de etiqueta de servicio NTP][6]
    
-1. Cree una tabla de rutas con las direcciones de administración de [Direcciones de administración de App Service aislado]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) con un próximo salto de Internet. Las entradas de la tabla de rutas son necesarias para evitar problemas de enrutamiento asimétrico. Agregue rutas a las dependencias de dirección IP que se indican a continuación en las dependencias de dirección IP con un próximo salto de Internet. Agregue una ruta de aplicación virtual a la tabla de rutas para 0.0.0.0/0 con el próximo salto como dirección IP privada de Azure Firewall. 
+1. Cree una tabla de rutas con las direcciones de administración de [Direcciones de administración de App Service aislado]( ./management-addresses.md) con un próximo salto de Internet. Las entradas de la tabla de rutas son necesarias para evitar problemas de enrutamiento asimétrico. Agregue rutas a las dependencias de dirección IP que se indican a continuación en las dependencias de dirección IP con un próximo salto de Internet. Agregue una ruta de aplicación virtual a la tabla de rutas para 0.0.0.0/0 con el próximo salto como dirección IP privada de Azure Firewall. 
 
    ![Creación de una tabla de rutas][4]
    
@@ -77,7 +77,7 @@ A continuación, se indican los pasos para bloquear la salida de la instancia ex
 
 #### <a name="deploying-your-ase-behind-a-firewall"></a>Implementación de ASE tras un firewall
 
-Los pasos para implementar su ASE tras un firewall son iguales que los pasos para configurar el ASE existente con una instancia de Azure Firewall, con la salvedad de que necesitará crear una subred de ASE y, a continuación, seguir los pasos anteriores. Para crear su ASE en una subred existente, deberá usar una plantilla de Resource Manager, como se describe en el documento sobre cómo [crear su ASE con una plantilla de Resource Manager](https://docs.microsoft.com/azure/app-service/environment/create-from-template).
+Los pasos para implementar su ASE tras un firewall son iguales que los pasos para configurar el ASE existente con una instancia de Azure Firewall, con la salvedad de que necesitará crear una subred de ASE y, a continuación, seguir los pasos anteriores. Para crear su ASE en una subred existente, deberá usar una plantilla de Resource Manager, como se describe en el documento sobre cómo [crear su ASE con una plantilla de Resource Manager](./create-from-template.md).
 
 ## <a name="application-traffic"></a>Tráfico de la aplicación 
 
@@ -88,7 +88,7 @@ Los pasos anteriores permitirán que la instancia de App Service aislado funcion
 
 Si las aplicaciones tienen dependencias, deben agregarse a Azure Firewall. Crear reglas de aplicación para permitir el tráfico HTTP/HTTPS y reglas de red para todo lo demás. 
 
-Si conoce el intervalo de direcciones del que provendrá el tráfico de la solicitud de la aplicación, puede agregarlo a la tabla de rutas asignada a la subred de App Service aislado. Si el intervalo de direcciones es grande o no se especifica, puede usar un dispositivo de red, como Application Gateway, para proporcionarle una dirección para agregar a la tabla de rutas. Para obtener más información sobre cómo configurar una instancia de Application Gateway con su instancia de App Service aislado con ILB, lea [Integración de App Service aislado con ILB con Azure Application Gateway](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway)
+Si conoce el intervalo de direcciones del que provendrá el tráfico de la solicitud de la aplicación, puede agregarlo a la tabla de rutas asignada a la subred de App Service aislado. Si el intervalo de direcciones es grande o no se especifica, puede usar un dispositivo de red, como Application Gateway, para proporcionarle una dirección para agregar a la tabla de rutas. Para obtener más información sobre cómo configurar una instancia de Application Gateway con su instancia de App Service aislado con ILB, lea [Integración de App Service aislado con ILB con Azure Application Gateway](./integrate-with-application-gateway.md)
 
 Este uso de Application Gateway es solo un ejemplo de cómo configurar el sistema. Si ha seguido este procedimiento, deberá agregar una ruta a la tabla de rutas de subred de ASE para que el tráfico de respuesta enviado a Application Gateway vaya allí directamente. 
 
@@ -100,7 +100,7 @@ Azure Firewall puede enviar registros a Azure Storage, Event Hub o a registros d
 AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 ```
 
-La integración de Azure Firewall con los registros de Azure Monitor resulta útil la primera vez que se pone una aplicación en funcionamiento, cuando aún no se conocen todas las dependencias de la aplicación. Puede obtener más información acerca de los registros de Azure Monitor en [Análisis de datos de registro en Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+La integración de Azure Firewall con los registros de Azure Monitor resulta útil la primera vez que se pone una aplicación en funcionamiento, cuando aún no se conocen todas las dependencias de la aplicación. Puede obtener más información acerca de los registros de Azure Monitor en [Análisis de datos de registro en Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
  
 ## <a name="dependencies"></a>Dependencias
 
@@ -269,7 +269,7 @@ Con una instancia de Azure Firewall, se configurará automáticamente todo lo si
 
 ## <a name="us-gov-dependencies"></a>Dependencias de US Gov
 
-En el caso de ASE de regiones Gov (US), siga las instrucciones de la sección [Configuración de Azure Firewall con el ASE](https://docs.microsoft.com/azure/app-service/environment/firewall-integration#configuring-azure-firewall-with-your-ase) de este documento para configurar una instancia de Azure Firewall con el ASE.
+En el caso de ASE de regiones Gov (US), siga las instrucciones de la sección [Configuración de Azure Firewall con el ASE](#configuring-azure-firewall-with-your-ase) de este documento para configurar una instancia de Azure Firewall con el ASE.
 
 Si desea usar un dispositivo que no sea Azure Firewall en Gov (US) 
 

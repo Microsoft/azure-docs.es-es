@@ -10,12 +10,12 @@ author: peterclu
 ms.author: peterlu
 ms.date: 03/29/2020
 ms.custom: designer
-ms.openlocfilehash: c1d927583ecf0ac5684c607b7d203c3224fe87b1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c4fa5a2554f10a720c0f2241e17514e798cf7f4c
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318834"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88812944"
 ---
 # <a name="example-pipelines--datasets-for-azure-machine-learning-designer-preview"></a>Conjuntos de datos y canalizaciones de ejemplo en el diseñador de Azure Machine Learning (versión preliminar)
 
@@ -55,9 +55,9 @@ Aquí se muestra cómo usar un ejemplo de diseñador:
 
 1. Una vez que finalice la ejecución de la canalización, puede consultarla y ver la salida de cada módulo, con el fin de obtener más información. Use los siguientes pasos para ver las salidas de los módulos:
 
-   1. Seleccione un módulo en el lienzo.
+   1. Haga clic con el botón derecho en el módulo del lienzo cuya salida quisiera ver.
+   1. Seleccione **Visualize** (Visualizar).
 
-   1. En el panel de detalles del módulo, situado a la derecha del lienzo, seleccione **Outputs + logs** (Salidas y registros). Seleccione el icono de gráfico ![visualizar icono](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para ver los resultados de cada módulo. 
 
    Use los ejemplos como puntos iniciales para algunos de los escenarios de aprendizaje automático más comunes.
 

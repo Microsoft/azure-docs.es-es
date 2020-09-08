@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 852a8c8eb7e6a87739c58967eefd6c18e996b225
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b354fda4d23d13b8defed4381335ab147bbece5d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367408"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835908"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Procedimientos recomendados para la administración de identidades y la seguridad del control de acceso en Azure
 
@@ -195,7 +195,7 @@ Las organizaciones que no agregan capas de protección de la identidad adicional
 
 ## <a name="use-role-based-access-control"></a>Uso del control de acceso basado en rol
 
-La administración de acceso de los recursos en la nube es importantísima en cualquier organización que use la nube. El [control de acceso basado en rol (RBAC)](/azure/role-based-access-control/overview) ayuda a administrar quién tiene acceso a los recursos de Azure, qué pueden hacer con esos recursos y a qué áreas puede acceder.
+La administración de acceso de los recursos en la nube es importantísima en cualquier organización que use la nube. El [control de acceso basado en rol (Azure RBAC)](/azure/role-based-access-control/overview) ayuda a administrar quién tiene acceso a los recursos de Azure, qué pueden hacer con esos recursos y a qué áreas puede acceder.
 
 Designar grupos o roles individuales responsables de funciones específicas de Azure ayuda a evitar la confusión que puede desembocar en errores humanos y de automatización que suponen riesgos de seguridad. En organizaciones que quieren aplicar directivas de seguridad para el acceso a los datos, es imperativo restringir el acceso en función de los principios de seguridad [necesidad de saber](https://en.wikipedia.org/wiki/Need_to_know) y [mínimo privilegio](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 

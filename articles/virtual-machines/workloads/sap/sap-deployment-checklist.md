@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/13/2020
+ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 47f412dae6b467518fb1b51518716625c1395717
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f195d4096baaa1d6a03b4b6c7c589ccef8fbd036
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035832"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651733"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Lista de comprobación de planeamiento e implementación de cargas de trabajo de SAP en Azure
 
@@ -44,7 +44,8 @@ Durante esta fase, se planea la migración de la carga de trabajo de SAP a la pl
     - Los principios de seguridad para la ejecución de datos empresariales de gran impacto en Azure. Para obtener información sobre la seguridad de los datos, comience consultando la [documentación de seguridad de Azure](../../../security/index.yml).
 2.  Documento de diseño técnico. Este documento debe contener:
     - Un diagrama de bloques de la solución.
-    - El cálculo de tamaño de los componentes de proceso, almacenamiento y redes en Azure. Para conocer el tamaño de las máquinas virtuales de Azure en SAP, consulte la [nota de soporte técnico de SAP 1928533](https://launchpad.support.sap.com/#/notes/1928533).
+    - El cálculo de tamaño de los componentes de proceso, almacenamiento y redes en Azure. Para conocer el tamaño de las máquinas virtuales de Azure en SAP, consulte la [nota 
+    -  de SAP 1928533](https://launchpad.support.sap.com/#/notes/1928533).
     - La arquitectura de continuidad empresarial y recuperación ante desastres.
     - Información detallada sobre las versiones del sistema operativo, la base de datos, el kernel y los paquetes de soporte de SAP. El hecho de que SAP NetWeaver o S/4HANA admitan una versión de sistema operativo determinada no implica necesariamente que también la admitan las máquinas virtuales de Azure. Lo mismo puede decirse de las versiones de DBMS. Compruebe los siguientes orígenes para alinear y, si es necesario, actualizar las versiones de SAP, DBMS y sistema operativo para garantizar el soporte técnico de SAP y Azure. Para obtener soporte técnico completo de SAP y Microsoft debe tener combinaciones de versiones compatibles con SAP y Azure. Si es necesario, deberá planear la actualización de algunos componentes de software. Aquí encontrará más detalles sobre el software compatible de SAP, sistema operativo y DBMS:
         - [Nota de soporte técnico de SAP 1928533](https://launchpad.support.sap.com/#/notes/1928533). En esta nota se definen las versiones mínimas del sistema operativo compatibles con las máquinas virtuales de Azure. También se definen las versiones mínimas de base de datos necesarias para la mayoría de las bases de datos que no son HANA. Por último, se proporciona el cálculo de tamaño de SAP para los tipos de máquina virtual de Azure compatibles con SAP.
@@ -56,16 +57,18 @@ Durante esta fase, se planea la migración de la carga de trabajo de SAP a la pl
         - [Nota de soporte técnico de SAP 2555629 - SAP HANA 2.0 Dynamic Tiering – Hypervisor and Cloud Support](https://launchpad.support.sap.com/#/notes/2555629) (SAP HANA 2.0 Dynamic Tiering: hipervisor y soporte en la nube)
         - [Nota de soporte técnico de SAP 1662610 - Support details for SIOS Protection Suite for Linux](https://launchpad.support.sap.com/#/notes/1662610) (Detalles de soporte técnico de SIOS Protection Suite para Linux)
         - Notas de SAP para otros productos específicos de SAP.     
-    - Se recomienda utilizar diseños estrictos de tres niveles para los sistemas de producción de SAP. No se recomienda combinar ASCS y/o DBMS y/o servidores de aplicaciones en una máquina virtual. Se admite el uso de configuraciones de clúster de varios SID para SAP Central Services en sistemas operativos invitados de Windows en Azure. Esta configuración, sin embargo, no se admite para SAP Central Services en sistemas operativos de Linux en Azure. Puede encontrar documentación sobre el escenario de sistema operativo invitado de Windows en estos artículos:
+    - Se admite el uso de configuraciones de clúster de varios SID para SAP Central Services en sistemas operativos invitados de Windows, SLES y RHEL en Azure. Tenga en cuenta que el radio de acción puede aumentar el número de ASCS/SCS que se coloca en un clúster de varios SID. Puede encontrar la documentación sobre el escenario de SO invitado correspondiente en estos artículos:
         - [Alta disponibilidad con varios identificadores de seguridad de instancia de ASCS/SCS de SAP para los clústeres de conmutación por error de Windows Server y el disco compartido en Azure](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
         - [Alta disponibilidad con varios identificadores de seguridad de instancia SAP ASCS/SCS para los clústeres de conmutación por error de Windows Server y los recursos compartidos de archivos en Azure](./sap-ascs-ha-multi-sid-wsfc-file-share.md)
+        - [Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server para SAP Applications: guía de varios SID](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
+        - [Alta disponibilidad para SAP NetWeaver en VM de Azure en Red Hat Enterprise Linux para SAP Applications: guía de varios SID](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
     - Arquitectura de alta disponibilidad y recuperación ante desastres.
         - Basándose en el RTO y el RPO, defina cómo debe ser la arquitectura de alta disponibilidad y recuperación ante desastres.
         - Para lograr alta disponibilidad en una zona, compruebe qué ofrece el DBMS deseado en Azure. La mayoría de los paquetes de DBMS ofrecen métodos sincrónicos de una espera activa sincrónica, nuestra recomendación para los sistemas de producción. Compruebe también la documentación relacionada con SAP para las diferentes bases de datos, empezando por [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](./dbms_guide_general.md) y documentos relacionados.
            No se admite el uso de clústeres de conmutación por error de Windows Server con configuración de disco compartido para el nivel de DBMS como, por ejemplo, se ha [descrito para SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-2017). En su lugar, use soluciones como:
-           - [Always On de SQL Server](/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups)
-           - [Oracle Data Guard](../oracle/configure-oracle-dataguard.md)
-           - [HANA System Replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
+           - [SQL Server Always On](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups)
+           - [Protección de datos de Oracle](../oracle/configure-oracle-dataguard.md)
+           - [Replicación del sistema de HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
         - Para la recuperación ante desastres en regiones de Azure, revise las soluciones que ofrecen los distintos proveedores de DBMS. La mayoría de ellos admiten replicación asincrónica o trasvase de registros.
         - Para el nivel de aplicación de SAP, determine si va a ejecutar sistemas de prueba de regresión empresarial, que en condiciones ideales son réplicas de las implementaciones de producción, en la misma región de Azure o en la región de recuperación ante desastres. En el segundo caso, puede utilizar ese sistema de regresión empresarial como destino de recuperación ante desastres para las implementaciones de producción.
         - Si decide que no desea incluir sistemas de no producción en el sitio de recuperación ante desastres, considere la posibilidad de usar Azure Site Recovery como método para replicar el nivel de aplicación de SAP en la región de recuperación ante desastres de Azure. Para más información, consulte [Configuración de la recuperación ante desastres para la implementación de una aplicación de SAP NetWeaver de niveles múltiples](../../../site-recovery/site-recovery-sap.md).
@@ -74,11 +77,11 @@ Durante esta fase, se planea la migración de la carga de trabajo de SAP a la pl
 4.  Diseño de servicios básicos. Este diseño debe incluir los siguientes elementos:
     - Diseño de Active Directory y DNS.
     - La topología de red dentro de Azure y la asignación de distintos sistemas SAP.
-    - La estructura del [acceso basado en rol](../../../role-based-access-control/overview.md) para los equipos que administran la infraestructura y las aplicaciones de SAP en Azure.
+    - La estructura del [acceso basado en rol de Azure (Azure RBAC)](../../../role-based-access-control/overview.md) para los equipos que administran la infraestructura y las aplicaciones de SAP en Azure.
     - La topología del grupo de recursos.
     - La [estrategia de etiquetado](../../../azure-resource-manager/management/tag-resources.md#tags-and-billing).
     - La convención de nomenclatura para las máquinas virtuales y otros componentes de la infraestructura o los nombres lógicos.
-5.  Contrato de soporte técnico Premier de Microsoft. Identifique a su responsable técnico de cuenta (TAM) de Microsoft. Para conocer los requisitos de soporte técnico de SAP, consulte la [nota de soporte técnico de SAP 2015553](https://launchpad.support.sap.com/#/notes/2015553).
+5.  Contrato de soporte técnico Premier y Profesional de Microsoft. Identifique a su responsable técnico de cuenta (TAM) de Microsoft si tiene un contrato de soporte técnico Premier con Microsoft. Para conocer los requisitos de soporte técnico de SAP, consulte la [nota de soporte técnico de SAP 2015553](https://launchpad.support.sap.com/#/notes/2015553).
 6.  El número de suscripciones de Azure y la cuota de núcleos para las suscripciones. [Abra solicitudes de soporte técnico para aumentar las cuotas de suscripciones de Azure](../../../azure-portal/supportability/resource-manager-core-quotas-request.md) según sea necesario.
 7.  Plan de reducción y migración de datos para migrar datos de SAP a Azure. SAP dispone de instrucciones para los sistemas SAP NetWeaver sobre cómo limitar el volumen de grandes cantidades de datos. Consulte [esta guía de SAP](https://wiki.scn.sap.com/wiki/download/attachments/247399467/DVM_%20Guide_7.2.pdf?version=1&modificationDate=1549365516000&api=v2) sobre la administración de datos en sistemas ERP de SAP. Parte del contenido también se aplica a los sistemas NetWeaver y S/4HANA en general.
 8.  Una estrategia de implementación automatizada. La automatización en las implementaciones de infraestructura en Azure tiene como objetivo implementar de manera determinista y obtener resultados deterministas. Muchos clientes usan scripts basados en PowerShell o en la CLI. Sin embargo, hay diversas tecnologías de código abierto que pueden usarse para implementar la infraestructura de Azure para SAP e incluso para instalar software de SAP. Puede encontrar ejemplos en GitHub:
@@ -103,14 +106,15 @@ Se recomienda configurar y validar una solución completa de alta disponibilidad
         - Revise los recursos en las notas de soporte técnico de SAP, en el directorio de hardware de SAP HANA y, de nuevo, en SAP PAM. Asegúrese de que no hay cambios en las máquinas virtuales compatibles con Azure, las versiones admitidas del sistema operativo para esos tipos de máquinas virtuales, y las versiones admitidas de SAP y DBMS.
         - Valide de nuevo el tamaño de la aplicación y la infraestructura que implementa en Azure. Si traslada aplicaciones existentes, a menudo puede derivar los valores de SAPS necesarios de la infraestructura que utiliza y de la [página web del banco de pruebas de SAP](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/sd), y compararlos con los números de SAPS que aparecen en la [nota de soporte técnico de SAP 1928533](https://launchpad.support.sap.com/#/notes/1928533). Tenga en cuenta también [este artículo sobre las puntuaciones SAPS](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/SAPS-ratings-on-Azure-VMs-8211-where-to-look-and-where-you-can/ba-p/368208).
         - Evalúe y pruebe el tamaño de las máquinas virtuales de Azure en relación con el rendimiento máximo de almacenamiento y el rendimiento de la red en los tipos de máquina virtual que eligió en la fase de planeamiento. Puede encontrar los datos aquí:
-           -  [Tamaños de las máquinas virtuales Windows en Azure](../../windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Es importante tener en cuenta el *rendimiento máximo de disco sin almacenamiento en caché* para ajustar el tamaño.
-           -  [Tamaños de las máquinas virtuales Linux en Azure](../../linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Es importante tener en cuenta el *rendimiento máximo de disco sin almacenamiento en caché* para ajustar el tamaño.
+           -  [Tamaños de las máquinas virtuales Windows en Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Es importante tener en cuenta el *rendimiento máximo de disco sin almacenamiento en caché* para ajustar el tamaño.
+           -  [Tamaños de las máquinas virtuales Linux en Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Es importante tener en cuenta el *rendimiento máximo de disco sin almacenamiento en caché* para ajustar el tamaño.
    2. Almacenamiento.
-        - Como mínimo, use el [almacenamiento SSD estándar de Azure](../../windows/disks-types.md#standard-ssd) para las máquinas virtuales que representan niveles de aplicación de SAP y para la implementación de los DBMS que no son sensibles al rendimiento.
-        - En general, no se recomienda el uso de [discos HDD estándar de Azure](../../windows/disks-types.md#standard-hdd).
-        - Use [Azure Premium Storage](../../windows/disks-types.md#premium-ssd) para todas las máquinas virtuales de DBMS que sean remotamente sensibles al rendimiento.
+        - Consulte el documento [Tipos de Azure Storage para una carga de trabajo de SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage)
+        - Como mínimo, use el [almacenamiento SSD estándar de Azure](../../disks-types.md#standard-ssd) para las máquinas virtuales que representan niveles de aplicación de SAP y para la implementación de los DBMS que no son sensibles al rendimiento.
+        - En general, no se recomienda el uso de [discos HDD estándar de Azure](../../disks-types.md#standard-hdd).
+        - Use [Azure Premium Storage](../../disks-types.md#premium-ssd) para todas las máquinas virtuales de DBMS que sean remotamente sensibles al rendimiento.
         - Utilice [discos administrados de Azure](https://azure.microsoft.com/services/managed-disks/).
-        - Utilice el Acelerador de escritura de Azure para las unidades de registro DBMS con la serie M. Tenga en cuenta el uso y los límites del Acelerador de escritura, tal y como se documenta en [Acelerador de escritura](../../linux/how-to-enable-write-accelerator.md).
+        - Utilice el Acelerador de escritura de Azure para las unidades de registro DBMS con la serie M. Tenga en cuenta el uso y los límites del Acelerador de escritura, tal y como se documenta en [Acelerador de escritura](../../how-to-enable-write-accelerator.md).
         - Para ver los distintos tipos de DBMS, consulte la [documentación genérica de DBMS relacionada con SAP](./dbms_guide_general.md) y las documentaciones específicas de DBMS a las que apunta el documento genérico.
         - Para más información sobre SAP HANA, consulte [Configuraciones y operaciones de infraestructura de SAP HANA en Azure](./hana-vm-operations.md).
         - No monte discos de datos de Azure en una máquina virtual Linux de Azure mediante el identificador de dispositivo. En su lugar, use el identificador único universal (UUID). Tenga cuidado al utilizar herramientas gráficas para montar discos de datos de Azure, por ejemplo. Compruebe las entradas de /etc/fstab para asegurarse de que se usa el UUID para montar los discos. Puede encontrar más información en [este artículo](../../linux/attach-disk-portal.md#connect-to-the-linux-vm-to-mount-the-new-disk).
@@ -125,7 +129,7 @@ Se recomienda configurar y validar una solución completa de alta disponibilidad
             -  No se admite la colocación del nivel de aplicación de SAP y del DBMS de SAP en diferentes redes virtuales de Azure que no están emparejadas.
             -  Puede usar [reglas de grupo de seguridad de aplicación y de grupo de seguridad de red](../../../virtual-network/security-overview.md) para definir rutas entre el nivel de aplicación de SAP y el nivel de DBMS de SAP.
         - Asegúrese de que se habilitan [redes aceleradas de Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) en las máquinas virtuales que se usan en el nivel de aplicación de SAP y en el nivel de DBMS de SAP. Tenga en cuenta que se necesitan distintos niveles de sistema operativo para admitir redes aceleradas en Azure:
-            - Windows Server 2012 R2 o posterior.
+            - Windows Server 2012 R2 o posterior.
             - SUSE Linux 12 SP3 o posterior.
             - RHEL 7.4 o posterior.
             - Oracle Linux 7.5. Si usa el kernel de RHCKL, se requiere la versión 3.10.0-862.13.1.el7. Si usa el kernel de Oracle UEK, se requiere la versión 5.
@@ -174,7 +178,7 @@ Se recomienda configurar y validar una solución completa de alta disponibilidad
    3. Pruebe la secuencia de copia de seguridad y restauración, y el tiempo que lleva; realice correcciones si es necesario. Asegúrese de que las horas de copia de seguridad son suficientes. También debe probar las actividades de restauración y los tiempos. Asegúrese de que los tiempos de restauración están dentro del objetivo de tiempo de recuperación del contrato de nivel de servicio en los casos en que este objetivo se basa en un proceso de restauración de base de datos o de máquina virtual.
    4. Pruebe la funcionalidad y la arquitectura de la recuperación ante desastres entre regiones.
 1. Comprobaciones de seguridad.
-   1. Pruebe la validez de la arquitectura de control de acceso basado en rol (RBAC) de Azure. El objetivo es separar y limitar el acceso y los permisos de los diferentes equipos. Por ejemplo, los miembros del equipo de SAP Basis deberían poder implementar máquinas virtuales y asignar discos de Azure Storage a una red virtual Azure determinada. Este equipo, sin embargo, no debería poder crear sus propias redes virtuales ni modificar la configuración de las redes virtuales existentes. Por otra parte, los miembros del equipo de red no deberían poder implementar máquinas virtuales en redes virtuales donde se ejecuten máquinas virtuales de DBMS y aplicaciones de SAP. Tampoco deberían poder cambiar los atributos de las máquinas virtuales ni eliminar máquinas virtuales o discos.  
+   1. Pruebe la validez de la arquitectura de control de acceso basado en rol de Azure (Azure RBAC). El objetivo es separar y limitar el acceso y los permisos de los diferentes equipos. Por ejemplo, los miembros del equipo de SAP Basis deberían poder implementar máquinas virtuales y asignar discos de Azure Storage a una red virtual Azure determinada. Este equipo, sin embargo, no debería poder crear sus propias redes virtuales ni modificar la configuración de las redes virtuales existentes. Por otra parte, los miembros del equipo de red no deberían poder implementar máquinas virtuales en redes virtuales donde se ejecuten máquinas virtuales de DBMS y aplicaciones de SAP. Tampoco deberían poder cambiar los atributos de las máquinas virtuales ni eliminar máquinas virtuales o discos.  
    1.  Compruebe que las reglas del [grupo de seguridad de red y de ASC](../../../virtual-network/security-overview.md) funcionan según lo previsto y blindan los recursos protegidos.
    1.  Asegúrese de que se cifren todos los recursos que deben cifrarse. Defina e implemente procesos para realizar copias de seguridad de los certificados, almacenarlos y acceder a ellos, y para restaurar las entidades cifradas.
    1.  Utilice [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) para los discos del sistema operativo siempre que sea posible desde el punto de vista de la compatibilidad con el sistema operativo.
@@ -207,8 +211,8 @@ En esta fase, normalmente se implementan sistemas de desarrollo, sistemas de pru
 11. Asegúrese de que las máquinas virtuales se implementan en el [grupo de selección de ubicación de proximidad de Azure](../../linux/co-location.md) correcto, tal como se describe en [Grupos de selección de ubicación de proximidad de Azure para una latencia de red óptima con aplicaciones SAP](sap-proximity-placement-scenarios.md).
 11. Antes de aplicar la carga de trabajo, realice las demás comprobaciones indicadas para la fase de prueba de concepto.
 12. A medida que se aplique la carga de trabajo, registre el consumo de recursos de los sistemas en Azure. Compare este consumo con los registros de la plataforma anterior. Si observa grandes diferencias, ajuste el tamaño de las máquinas virtuales de las futuras implementaciones. Tenga en cuenta que si reduce el tamaño, también se reducirán los anchos de banda de almacenamiento y red de las máquinas virtuales.
-    - [Tamaños de las máquinas virtuales Windows en Azure](../../windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-    - [Tamaños de las máquinas virtuales Linux en Azure](../../linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
+    - [Tamaños de las máquinas virtuales Windows en Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+    - [Tamaños de las máquinas virtuales Linux en Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
 13. Realice pruebas con la funcionalidad y los procesos de copia del sistema. El objetivo es facilitar la copia de un sistema de desarrollo o un sistema de pruebas, para que los equipos de proyecto puedan obtener rápidamente los nuevos sistemas. Considere la posibilidad de usar [SAP LaMa](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+Landscape+Management+%28SAP+LaMa%29+at+a+Glance) para estas tareas.
 14. Optimice y perfeccione los accesos basados en rol, los permisos y los procesos de Azure de su equipo para asegurarse de conseguir la separación de funciones. Al mismo tiempo, asegúrese de que todos los equipos pueden realizar sus tareas en la infraestructura de Azure.
 15. Practique, pruebe y documente los procedimientos de alta disponibilidad y recuperación ante desastres para permitir que su personal ejecute estas tareas. Identifique las deficiencias y adapte la nueva funcionalidad de Azure que va a integrar en las implementaciones.

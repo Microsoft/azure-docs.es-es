@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2777675d915d99b8c0e3c2a123b24ab60d41f672
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e85537e0791c8364442484582eee6da26c66581
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80653366"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919648"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Configuración del Servidor Azure Multi-Factor Authentication para trabajar con AD FS en Windows Server
 
@@ -25,7 +25,11 @@ Si usa los Servicios de federación de Active Directory (AD FS) y desea proteger
 En este artículo se describe el uso del Servidor Azure Multi-Factor Authentication con AD FS en Windows Server 2012 R2 y Windows Server 2016. Para más información, lea sobre la [protección de recursos en la nube y locales mediante Servidor Azure Multi-Factor Authentication con AD FS 2.0](howto-mfaserver-adfs-2.md).
 
 > [!IMPORTANT]
-> A partir del 1 de julio de 2019, Microsoft ya no ofrecerá el Servidor MFA para nuevas implementaciones. Los nuevos clientes que quieran exigir la autenticación multifactor a sus usuarios deberán usar Azure Multi-Factor Authentication basado en la nube. Los clientes existentes que hayan activado el Servidor MFA antes del 1 de julio podrán descargar la versión más reciente y las actualizaciones futuras, así como generar credenciales de activación como de costumbre.
+> A partir del 1 de julio de 2019, Microsoft ya no ofrecerá el servidor MFA para implementaciones nuevas. Los clientes nuevos que quieran exigir la autenticación multifactor (MFA) durante los eventos de inicio de sesión deben usar Azure Multi-Factor Authentication basado en la nube.
+>
+> Para empezar a trabajar con MFA basado en la nube, consulte [Tutorial: Protección de eventos de inicio de sesión de usuario con Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+>
+> Los clientes existentes que hayan activado el Servidor MFA antes del 1 de julio de 2019 podrán descargar la versión más reciente y las actualizaciones futuras, así como generar credenciales de activación como de costumbre.
 
 ## <a name="secure-windows-server-ad-fs-with-azure-multi-factor-authentication-server"></a>Protección de Windows Server AD FS con Servidor Azure Multi-Factor Authentication
 
@@ -98,7 +102,7 @@ Hay dos opciones para configurar el SDK del servicio Web. La primera es con un n
 
 Si no desea usar un nombre de usuario y una contraseña, siga estos pasos para configurar el SDK del servicio web con un certificado de cliente.
 
-1. Obtenga un certificado de cliente de una entidad de certificación para el servidor que ejecuta el SDK del servicio web. Aprenda a [obtener certificados de cliente](https://technet.microsoft.com/library/cc770328.aspx).  
+1. Obtenga un certificado de cliente de una entidad de certificación para el servidor que ejecuta el SDK del servicio web. Aprenda a [obtener certificados de cliente](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770328(v=ws.10)).  
 2. Importe el certificado de cliente en el almacén de certificados personales del equipo local en el servidor que ejecuta el SDK del servicio web. Asegúrese de que el certificado público de la entidad de certificación está en el almacén de certificados de certificados raíz de confianza.  
 3. Exporte las claves pública y privadas del certificado de cliente a un archivo .pfx.  
 4. Exporte la clave pública en formato Base64 a un archivo .cer.  

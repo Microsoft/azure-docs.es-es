@@ -3,12 +3,12 @@ title: 'Planificación de la aplicación: LUIS'
 description: Resuma las intenciones y entidades de aplicación relevantes y cree los planes de aplicación en Language Understanding Intelligent Services (LUIS).
 ms.topic: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 8141e2a47e2a550a5dba50bc22117649c0bd04e2
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 38d80a77303e248ab137f87f8063b5cbc358f51a
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340239"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892922"
 ---
 # <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Planeamiento del esquema de aplicación de LUIS con el dominio de sujeto y la extracción de datos
 
@@ -64,7 +64,7 @@ Tenga en cuenta las dos expresiones siguientes, que son muy parecidas, pero que 
 
 En lugar de tener dos intenciones independientes, cree una única intención con una entidad de aprendizaje automático `FlightAction`. La entidad de aprendizaje automático debe extraer los detalles de la acción para una programación y una solicitud de cancelación, así como una ubicación de origen o de destino.
 
-La entidad `FlightAction` se estructuraría en el siguiente esquema procesal de la entidad y las subentidades de aprendizaje automático:
+La entidad `FlightAction` se estructuraría en el siguiente seudoesquema de la entidad y las subentidades de aprendizaje automático:
 
 * FlightAction
     * Acción

@@ -5,15 +5,16 @@ author: bandersmsft
 ms.reviewer: adwise
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: common
 ms.topic: reference
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 9dd41949548daf5d62b5cdd10206eb7ccdbc3962
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5ee544a307be26c737a05e2147298a31a9ef7d1a
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79202937"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88689990"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Escenarios de automatización de administración de costos y facturación
 

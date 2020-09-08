@@ -4,14 +4,15 @@ description: Obtenga información sobre los aspectos internos de Azure SignalR S
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: f06b8f9a2d41fc5400aa0fa610a2be3f31e21f1c
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 3fc6971c66d06ae9f25584f5be28b051075bfa49
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169806"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88921977"
 ---
 # <a name="azure-signalr-service-internals"></a>Aspectos internos de Azure SignalR Service
 

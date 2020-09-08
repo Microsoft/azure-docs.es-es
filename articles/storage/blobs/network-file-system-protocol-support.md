@@ -9,19 +9,19 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 32eafc41451c42a9c929e94d30450b923e7eae83
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 41ad20de6b7a800ff1f97a7ff371c8e0012fed27
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760930"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166984"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Compatibilidad del protocolo Network File System (NFS) 3.0 en Azure Blob Storage (versión preliminar)
 
 Blob Storage ya es compatible con el protocolo Network File System (NFS) 3.0. Esta compatibilidad permite a los clientes de Windows o Linux montar un contenedor en Blob Storage desde una máquina virtual (VM) de Azure o un equipo que se ejecuta en el entorno local. 
 
 > [!NOTE]
-> La compatibilidad con el protocolo NFS 3.0 en Azure Blob Storage se encuentra en versión preliminar pública y está disponible en las siguientes regiones: Este de EE. UU., Centro de EE. UU. y Centro de Canadá.
+> La compatibilidad con el protocolo NFS 3.0 en Azure Blob Storage se encuentra en versión preliminar pública y está disponible en las siguientes regiones: Este de EE. UU., Centro de EE. UU., Centro-oeste de EE. UU., Sudeste de Australia, Europa del Norte, Oeste de Reino Unido, Centro de Corea, Sur de Corea y Centro de Canadá.
 
 ## <a name="general-workflow-mounting-a-storage-account-container"></a>Flujo de trabajo general: montaje de un contenedor de cuenta de almacenamiento
 

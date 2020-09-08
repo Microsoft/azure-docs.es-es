@@ -16,19 +16,19 @@ ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f480118aaabf24bd7c5ca472bf04b12ee1405010
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 99ebac32193f764059bea2a30b6ddbce879938a6
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446996"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89275930"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Solución de problemas de autenticación de paso a través de Azure Active Directory
 
 Este artículo sirve de ayuda para encontrar información acerca de cómo solucionar los problemas comunes relativos a la autenticación de paso a través de Azure AD.
 
 >[!IMPORTANT]
->Si se enfrenta a problemas de inicio de sesión de los usuarios con la autenticación de paso a través, no deshabilite la característica ni desinstale los agentes de autenticación de paso a través sin tener una cuenta de administrador global solo en la nube a la que retroceder. Información acerca de la [incorporación de una cuenta de administrador global que está solo en la nube](../active-directory-users-create-azure-portal.md). Este paso es esencial y se asegura de no quedar bloqueado fuera de su inquilino.
+>Si se enfrenta a problemas de inicio de sesión de los usuarios con la autenticación de paso a través, no deshabilite la característica ni desinstale los agentes de autenticación de paso a través sin tener una cuenta de administrador global solo en la nube a la que retroceder. Información acerca de la [incorporación de una cuenta de administrador global que está solo en la nube](../fundamentals/add-users-azure-active-directory.md). Este paso es esencial y se asegura de no quedar bloqueado fuera de su inquilino.
 
 ## <a name="general-issues"></a>Problemas generales
 
@@ -72,10 +72,10 @@ Para confirmar que este es el problema, primero compruebe que el agente de auten
  ``` 
 4. Cuando se le pida que escriba las credenciales, escriba el mismo nombre de usuario y contraseña que usa para iniciar sesión (https://login.microsoftonline.com).
 
-Si recibe el mismo error de nombre de usuario y contraseña, significa que el agente de autenticación de paso a través funciona correctamente y el problema puede ser que el UPN local no sea enrutable. Para saber más, consulte [Configuración del identificador de inicio de sesión alternativo]( https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More).
+Si recibe el mismo error de nombre de usuario y contraseña, significa que el agente de autenticación de paso a través funciona correctamente y el problema puede ser que el UPN local no sea enrutable. Para saber más, consulte [Configuración del identificador de inicio de sesión alternativo]( /windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More).
 
 > [!IMPORTANT]
-> Si el servidor de Azure AD Connect no está unido a un dominio, lo cual es un requisito mencionado en [Azure AD Connect: requisitos previos](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#installation-prerequisites), se produce el problema de nombre de usuario o contraseña no válidos.
+> Si el servidor de Azure AD Connect no está unido a un dominio, lo cual es un requisito mencionado en [Azure AD Connect: requisitos previos](./how-to-connect-install-prerequisites.md#installation-prerequisites), se produce el problema de nombre de usuario o contraseña no válidos.
 
 ### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Motivos del error de inicio de sesión en el centro de administración de Azure Active Directory (necesita una licencia Premium)
 
@@ -98,7 +98,7 @@ Vaya a **Azure Active Directory** -> **Inicios de sesión** en el [centro de adm
 | 80011 | El agente de autenticación no puede recuperar la clave de descifrado. | Si el problema se puede reproducir habitualmente, instale y registre un nuevo agente de autenticación. Después, desinstale el actual.
 
 >[!IMPORTANT]
->Para autenticar a los usuarios de Azure AD, los agentes de autenticación de paso a través validan sus nombres de usuario y contraseñas en Active Directory mediante la llamada a la [API LogonUser de Win32](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx). Como resultado, si ha establecido la configuración de inicio de sesión en Active Directory para limitar el acceso de inicio de sesión de la estación de trabajo, tendrá que agregar también los servidores que hospedan los agentes de autenticación de paso a través a la lista de servidores de inicio de sesión. Si no lo hace, los usuarios no podrán iniciar sesión en Azure AD.
+>Para autenticar a los usuarios de Azure AD, los agentes de autenticación de paso a través validan sus nombres de usuario y contraseñas en Active Directory mediante la llamada a la [API LogonUser de Win32](/windows/win32/api/winbase/nf-winbase-logonusera). Como resultado, si ha establecido la configuración de inicio de sesión en Active Directory para limitar el acceso de inicio de sesión de la estación de trabajo, tendrá que agregar también los servidores que hospedan los agentes de autenticación de paso a través a la lista de servidores de inicio de sesión. Si no lo hace, los usuarios no podrán iniciar sesión en Azure AD.
 
 ## <a name="authentication-agent-installation-issues"></a>Problemas de instalación del agente de autenticación
 

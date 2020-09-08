@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Kindling | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Kindling.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 71229751-74eb-4c2c-abb4-07caa95754c7
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: eda2886c21e64faf71391d4eff1c6c53ea1a7f17
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 00d03e689a71542c6496b8a052998d08a9c438c1
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73159793"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88535431"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kindling"></a>Tutorial: Integración de Azure Active Directory con Kindling
 

@@ -4,14 +4,21 @@ description: Uso de Java Message Service (JMS) con Azure Service Bus y Advanced 
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 95558f973041a086dc66d2bebb1ce54ee58c952a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: be6b5de7946fc54ab58087fccabed9f5ed09251d
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320789"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065784"
 ---
 # <a name="use-the-java-message-service-jms-with-azure-service-bus-and-amqp-10"></a>Uso de Java Message Service (JMS) con Service Bus y AMQP 1.0
+
+> [!WARNING]
+> En la siguiente guía se atiende al **soporte técnico limitado** para Java la API de Message Service (JMS) 1.1 API y solo existe para el nivel Estándar de Azure Service Bus.
+>
+> El soporte completo para la API de Java Message Service (JMS) 2.0 solo está disponible en el [nivel Premium de Azure Service Bus en versión preliminar](how-to-use-java-message-service-20.md), que se recomienda encarecidamente.
+>
+
 En este artículo se explica cómo utilizar las características de mensajería de Azure Service Bus (colas y temas de publicación y suscripción) desde aplicaciones de Java mediante el popular estándar de API Java Message Service (JMS). Hay un [artículo complementario](service-bus-amqp-dotnet.md) en el que se explica cómo hacer lo mismo mediante la API de Azure Service Bus para .NET. Puede utilizar estas dos guías conjuntamente para obtener información acerca de la mensajería entre diferentes plataformas mediante AMQP 1.0.
 
 Advanced Message Queuing Protocol (AMQP) 1.0 es un protocolo de mensajes a nivel de red, confiable y eficaz que se puede utilizar para crear aplicaciones de mensajería robustas y compatibles con varias plataformas.
@@ -22,14 +29,14 @@ La compatibilidad con AMQP 1.0 de Azure Service Bus implica que puede utilizar 
 En esta guía se da por hecho que ya dispone de un espacio de nombres de Service Bus con una cola denominada `basicqueue`. Si no es así, puede [crear el espacio de nombres y la cola](service-bus-create-namespace-portal.md) con [Azure Portal](https://portal.azure.com). Para obtener más información sobre cómo crear espacios de nombres y colas de Service Bus, vea [Introducción a las colas de Service Bus](service-bus-dotnet-get-started-with-queues.md).
 
 > [!NOTE]
-> Los temas y colas con particiones también admiten AMQP. Para más información, consulte [Temas y colas con particiones](service-bus-partitioning.md) y [Compatibilidad de AMQP 1.0 con los temas y las colas con particiones de Service Bus](service-bus-partitioned-queues-and-topics-amqp-overview.md).
+> Los temas y colas con particiones también admiten AMQP. Para más información, consulte [Temas y colas con particiones](service-bus-partitioning.md) y [Compatibilidad de AMQP 1.0 con los temas y las colas con particiones de Service Bus](./service-bus-amqp-protocol-guide.md).
 > 
 > 
 
 ## <a name="downloading-the-amqp-10-jms-client-library"></a>Descarga de la biblioteca de cliente AMQP 1.0 JMS
 Para obtener más información sobre dónde descargar la versión más reciente de la biblioteca cliente de Apache Qpid JMS AMQP 1.0, visite [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html).
 
-Debe agregar los cuatro archivos JAR siguientes del archivo de distribución de Apache Qpid JMS AMQP 1.0 al CLASSPATH de Java cuando vaya a crear y ejecutar aplicaciones JMS con Service Bus:
+Cuando vaya a crear y ejecutar aplicaciones JMS con Service Bus debe agregar los siguientes archivos JAR del archivo de distribución de Apache Qpid JMS AMQP 1.0 a la variable de entorno CLASSPATH de Java:
 
 * geronimo-jms\_1.1\_spec-1.0.jar
 * qpid-jms-client-[version].jar
@@ -373,8 +380,7 @@ También puede utilizar AMQP 1.0 de Service Bus desde otros lenguajes, como .NET
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Compatibilidad de AMQP 1.0 en Azure Service Bus](service-bus-amqp-overview.md)
-* [Uso de AMQP 1.0 con la API .NET de Service Bus](service-bus-dotnet-advanced-message-queuing.md)
+* [Uso de AMQP 1.0 con la API .NET de Service Bus](./service-bus-amqp-dotnet.md)
 * [Guía para desarrolladores sobre AMQP 1.0 de Service Bus](service-bus-amqp-dotnet.md)
 * [Introducción a las colas de Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Centro para desarrolladores de Java](https://azure.microsoft.com/develop/java/)
-

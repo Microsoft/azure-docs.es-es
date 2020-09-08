@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: rosouz
-ms.openlocfilehash: 9499fe2140f4a345d48bce6ef010989cfc22c58e
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 4c5f812bf1a5a60a6d1344d6a39fbd95898f55fc
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037089"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815579"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Configuración y uso de Azure Synapse Link para Azure Cosmos DB (versión preliminar)
 
@@ -19,7 +19,7 @@ Synapse Link para Azure Cosmos DB es una funcionalidad de procesamiento analíti
 
 
 > [!IMPORTANT]
-> Para usar Azure Synapse Link, asegúrese de que está aprovisionando su cuenta de Azure Cosmos y el área de trabajo de Azure Synapse Analytics en alguna de las regiones compatibles anteriores. Para ver la lista de regiones admitidas, consulte [Actualizaciones de Azure](https://azure.microsoft.com/updates/). 
+> Para usar Azure Synapse Link, asegúrese de que está aprovisionando su cuenta de Azure Cosmos y el área de trabajo de Azure Synapse Analytics en alguna de las regiones compatibles. Azure Synapse Link actualmente está disponible en las siguientes regiones de Azure: Centro-oeste de EE. UU., Este de EE. UU., Oeste de EE. UU. 2, Norte de Europa, Oeste de Europa, Centro-sur de EE. UU., Sudeste de Asia, Este de Australia, Este de EE. UU. 2, Sur de Reino Unido.
 
 Siga estos pasos para ejecutar consultas analíticas con Synapse Link para Azure Cosmos DB:
 
@@ -103,41 +103,60 @@ containerProperties.setAnalyticalStoreTimeToLiveInSeconds(-1);
 container = database.createContainerIfNotExists(containerProperties, 400).block().getContainer();
 ```
 
-### <a name="python-v3-sdk"></a>SDK de Python V3
+### <a name="python-v4-sdk"></a>SDK para Python v4
 
-En el código siguiente se crea un contenedor con un almacén analítico mediante el SDK de Python V3:
+El SDK para Python 2.7 y el SDK de Azure Cosmos DB 4.1.0 son las versiones mínimas necesarias, y el SDK solo es compatible con la API de SQL.
+
+El primer paso consiste en asegurarse de que está usando como mínimo la versión 4.1.0 del SDK de [Azure Cosmos DB para Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos):
 
 ```python
+import azure.cosmos as cosmos
+
+print (cosmos.__version__)
+```
+En el siguiente paso se crea un contenedor con un almacén analítico mediante el SDK de Azure Cosmos DB para Python:
+
+```python
+# Azure Cosmos DB Python SDK, for SQL API only.
+# Creating an analytical store enabled container.
+
 import azure.cosmos.cosmos_client as cosmos_client
-def create_collection_if_not_exists(cosmosEndpoint, cosmosKey, databaseName, collectionName):
-    client = cosmos_client.CosmosClient(url_connection=cosmosEndpoint, auth={'masterKey': cosmosKey})
+import azure.cosmos.exceptions as exceptions
+from azure.cosmos.partition_key import PartitionKey
 
-db = client.QueryDatabases("select * from c where c.id = '" + databaseName + "'").fetch_next_block()[0]
-options = {
-    'offerThroughput': 1000
-}
+HOST = 'your-cosmos-db-account-URI'
+KEY = 'your-cosmos-db-account-key'
+DATABASE = 'your-cosmos-db-database-name'
+CONTAINER = 'your-cosmos-db-container-name'
 
-container_definition = {
-    'id': collectionName,
-    "partitionKey": {  
-        "paths": [  
-        "/id"  
-        ],  
-        "kind": "Hash" 
-    },
-    "indexingPolicy": {  
-    "indexingMode": "consistent",  
-    "automatic": True,  
-    "includedPaths": [],  
-    "excludedPaths": [{
-        "path": "/*"
-    }]  
-    },
-    "defaultTtl": -1,
-    "analyticalStorageTtl": -1
-}
+client = cosmos_client.CosmosClient(HOST,  KEY )
+# setup database for this sample. 
+# If doesn't exist, creates a new one with the name informed above.
+try:
+    db = client.create_database(DATABASE)
 
-container = client.CreateContainer(db['_self'], container_definition, options)
+except exceptions.CosmosResourceExistsError:
+    db = client.get_database_client(DATABASE)
+
+# Creating the container with analytical store enabled, using the name informed above.
+# If a container with the same name exists, an error is returned.
+#
+# The 3 options for the analytical_storage_ttl parameter are:
+# 1) 0 or Null or not informed (Not enabled).
+# 2) -1 (The data will be stored in analytical store infinitely).
+# 3) Any other number is the actual ttl, in seconds.
+
+try:
+    container = db.create_container(
+        id=CONTAINER,
+        partition_key=PartitionKey(path='/id', kind='Hash'),analytical_storage_ttl=-1
+    )
+    properties = container.read()
+    print('Container with id \'{0}\' created'.format(container.id))
+    print('Partition Key - \'{0}\''.format(properties['partitionKey']))
+
+except exceptions.CosmosResourceExistsError:
+    print('A container with already exists')
 ```
 
 ### <a name="update-the-analytical-store-time-to-live"></a><a id="update-analytical-ttl"></a> Actualización del período de vida del almacén analítico

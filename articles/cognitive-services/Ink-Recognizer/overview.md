@@ -8,17 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: overview
-ms.date: 12/17/2019
+ms.date: 08/24/2020
 ms.author: aahi
-ms.openlocfilehash: 2d00a489af35f5960aaeb1dda7add5337d48d57d
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 6c1a720e7e9bd9c71f925f104ca7fc70a1a5ef59
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448149"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051073"
 ---
 # <a name="what-is-the-ink-recognizer-api"></a>¿Qué es la API Ink Recognizer?
 
+[!INCLUDE [ink-recognizer-deprecation](includes/deprecation-note.md)]
 
 Ink Recognizer Cognitive Service proporciona una API REST en la nube que analiza y reconoce entradas de lápiz digital. A diferencia de los servicios que utilizan el reconocimiento óptico de caracteres (OCR), la API requiere datos de los trazos de lápiz digital como entrada. Los trazos de lápiz digital son conjuntos de puntos 2D (coordenadas X e Y) ordenados por tiempo que representan el movimiento de las herramientas de entrada, como lápices digitales o los dedos. Luego, reconoce las formas y el contenido manuscrito en la entrada y devuelve una respuesta JSON que contiene todas las entidades reconocidas.
 
@@ -43,7 +45,7 @@ La API Ink Recognizer es un servicio web RESTful, lo que significa que es fácil
 
 Después del registro:
 
-1. Tome los datos de los trazos de lápiz y [asígneles un formato](concepts/send-ink-data.md#sending-ink-data) JSON válido.
+1. Tome los datos de los trazos de lápiz y [asígneles un formato](concepts/send-ink-data.md#sending-ink-data) JSON válido. La API acepta hasta 1500 trazos de entrada de lápiz por solicitud. 
 1. Envíe una solicitud a la API Ink Recognizer con los datos.
 1. Analice el mensaje JSON devuelto para procesar la respuesta de API.
 

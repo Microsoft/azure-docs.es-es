@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 5b516eb913bf9e7b8337a41483682e1201c58890
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: e859ac13c72ed07d3f57da6e61fd6d9f827f0fca
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87759043"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854894"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Conozca los aspectos básicos de la CLI de Voz.
 
@@ -25,7 +25,27 @@ En este artículo, conocerá los patrones de uso básicos de la CLI de Voz, una 
 
 ## <a name="basic-usage"></a>Uso básico
 
-En esta sección se muestran algunos comandos básicos de SPX que a menudo resultan útiles para la prueba y la experimentación iniciales. Para empezar, ejecute el siguiente comando para realizar reconocimiento de voz con el micrófono predeterminado.
+En esta sección se muestran algunos comandos básicos de SPX que a menudo resultan útiles para la prueba y la experimentación iniciales. Para empezar, vea la ayuda integrada en la herramienta, para lo que debe ejecutar el siguiente comando.
+
+```shell
+spx
+```
+
+Observe los temas de ayuda que **se muestran** a la derecha de los parámetros del comando. Puede escribir estos comandos para obtener ayuda detallada acerca de los subcomandos.
+
+Puede buscar temas de ayuda por palabra clave. Por ejemplo, escriba el siguiente comando para ver una lista de ejemplos de uso de la CLI de Voz:
+
+```shell
+spx help find --topics "examples"
+```
+
+Escriba el siguiente comando para ver las opciones del comando recognize:
+
+```shell
+spx help recognize
+```
+
+Ahora, use el servicio de voz para realizar un reconocimiento de la voz con el micrófono predeterminado, para lo que se debe ejecutar el siguiente comando.
 
 ```shell
 spx recognize --microphone

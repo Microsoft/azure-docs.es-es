@@ -5,12 +5,12 @@ ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: how-to
-ms.openlocfilehash: 3003f37789634c13c2213b708f7ae963c97da873
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: aa5a6395b537daa750a2e9b97bde4df320193c1e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342789"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268064"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-nodejs"></a>Inicio rápido: Obtención de respuestas a una pregunta desde una base de conocimiento con Node.js
 
@@ -37,31 +37,21 @@ Abra VSCode y cree un archivo llamado `get-answer.js`.
 
 Al principio del archivo `get-answer.js`, agregue las dependencias necesarias al proyecto:
 
-[!code-nodejs[Add the required dependencies](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/get-answer/get-answer.js?range=1-4 "Add the required dependencies")]
+:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/QnAMaker/rest/query-kb.js" id="dependencies":::
 
 ## <a name="add-the-required-constants"></a>Incorporación de las constantes necesarias
 
 Luego, agregue las constantes necesarias para acceder a QnA Maker. Estos valores se encuentran en la página **Publicar** después de publicar la base de conocimiento.
 
-[!code-nodejs[Add the required constants](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/get-answer/get-answer.js?range=6-22 "Add the required constants")]
+:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/QnAMaker/rest/query-kb.js" id="constants":::
 
 ## <a name="add-a-post-request-to-send-question-and-get-an-answer"></a>Incorporación de una solicitud POST para enviar una pregunta y recibir una respuesta
 
 El código siguiente realiza una solicitud HTTPS a QnA Maker API para enviar la pregunta a la base de conocimiento y recibe la respuesta:
 
-[!code-nodejs[Add a POST request to send question to knowledge base](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/get-answer/get-answer.js?range=24-49 "Add a POST request to send question to knowledge base")]
+:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/QnAMaker/rest/query-kb.js" id="query":::
 
-El valor del encabezado `Authorization` incluye la cadena `EndpointKey`.
-
-## <a name="install-the-dependencies"></a>Instalación de las dependencias
-
-Instale las dependencias desde la línea de comandos:
-
-```bash
-npm install request request-promise
-```
-
-## <a name="run-the-program"></a>Ejecución del programa
+## <a name="run-the-program"></a>Ejecutar el programa
 
 Ejecute el programa desde la línea de comandos. Este enviará automáticamente la solicitud a QnA Maker API y luego la imprimirá en la ventana de la consola.
 

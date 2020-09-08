@@ -3,22 +3,24 @@ title: Creación de una entrada de trabajo de Azure Media Services a partir de u
 description: En este tema se muestra cómo crear una entrada de trabajo de Azure Media Services a partir de una dirección URL HTTPS.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
-ms.date: 02/13/2019
-ms.author: juliako
-ms.openlocfilehash: 1ff2bc6d4bb4f7b983787b287fbb27e1c33cc179
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: how-to
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: e440e4393065d2bc1cad1a96b4f8c975624faa11
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87022997"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295519"
 ---
 # <a name="create-a-job-input-from-an-https-url"></a>Crear una entrada de trabajo desde una dirección URL de HTTPS
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 En Media Services v3, cuando se envían trabajos para procesar los vídeos, es necesario indicar a Media Services dónde encontrar el vídeo de entrada. Una de las opciones es especificar una dirección URL HTTP(s) como entrada de trabajo (como se muestra en este ejemplo). Tenga en cuenta que, actualmente, AMS v3 no admite la codificación de transferencia fragmentada a través de direcciones URL de HTTPS. Para un ejemplo completo, consulte este [ejemplo de GitHub](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).
 

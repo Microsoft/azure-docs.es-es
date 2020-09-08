@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9d4f293f3835e26def97aa2f52dd0c42d9137c7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a98ff68500593c644e6f0fa5eacb338ab90f5604
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421729"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795392"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Administración de cuentas de acceso de emergencia en Azure AD
 
@@ -44,7 +44,7 @@ Cree dos o más cuentas de acceso de emergencia. Estas deben ser cuentas que est
 Al configurarlas, deben cumplirse los siguientes requisitos:
 
 - Las cuentas de acceso de emergencia no se deberían asociar a ningún usuario individual de la organización. Asegúrese de que las cuentas no están conectadas a ningún teléfono móvil suministrado por un empleado, ni a tokens de hardware que viajen con empleados individuales ni con otras credenciales específicas de un empleado. Esta precaución debe incluir también los casos en los que un empleado individual pueda no estar disponible cuando se necesiten las credenciales. Es importante garantizar que todos los dispositivos registrados se almacenen en una ubicación conocida y segura que tenga varias formas de comunicarse con Azure AD.
-- El mecanismo de autenticación usado para una cuenta de acceso de emergencia debe ser distinto del que se utiliza para otras cuentas administrativas, incluidas otras cuentas de acceso de emergencia.  Por ejemplo, si el inicio de sesión de administrador normal es a través de una instancia de MFA local, Azure MFA sería un mecanismo diferente.  Sin embargo, si Azure MFA es la parte principal de la autenticación para las cuentas administrativas, considere un enfoque diferente para estas, como el uso de acceso condicional con un proveedor MFA de terceros a través de [Controles personalizado](https://docs.microsoft.com/azure/active-directory/conditional-access/controls).
+- El mecanismo de autenticación usado para una cuenta de acceso de emergencia debe ser distinto del que se utiliza para otras cuentas administrativas, incluidas otras cuentas de acceso de emergencia.  Por ejemplo, si el inicio de sesión de administrador normal es a través de una instancia de MFA local, Azure MFA sería un mecanismo diferente.  Sin embargo, si Azure MFA es la parte principal de la autenticación para las cuentas administrativas, considere un enfoque diferente para estas, como el uso de acceso condicional con un proveedor MFA de terceros a través de [Controles personalizado](../conditional-access/controls.md).
 - El dispositivo o la credencial no deben expirar ni estar en el ámbito de una limpieza automatizada debido a la falta de uso.  
 - Debe convertir la asignación del rol de Administrador global en permanente para las cuentas de acceso de emergencia. 
 
@@ -72,9 +72,9 @@ Si usa contraseñas, asegúrese de que las cuentas tengan contraseñas seguras y
 
 Las organizaciones deben supervisar la actividad de registro de auditoría e inicio de sesión de las cuentas de emergencia y desencadenar el envío de notificaciones a otros administradores. Al supervisar la actividad en las cuentas de emergencia, puede comprobar que estas cuentas solo se usen para pruebas o emergencias reales. Puede usar Azure Log Analytics para supervisar los registros de inicio de sesión y desencadenar alertas por SMS y correo electrónico a los administradores cuando las cuentas de emergencia inicien sesión.
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 
-1. [Envíe registros de inicio de sesión de Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) a Azure Monitor.
+1. [Envíe registros de inicio de sesión de Azure AD](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) a Azure Monitor.
 
 ### <a name="obtain-object-ids-of-the-break-glass-accounts"></a>Obtención de los Id. de objeto de las cuentas de emergencia
 
@@ -156,5 +156,5 @@ Estos pasos deben realizarse a intervalos regulares y para cambios de claves:
 - [Adición de usuarios con Azure AD](../fundamentals/add-users-azure-active-directory.md) y [Asignación de un nuevo usuario al rol de Administrador global](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 - [Suscripción a Azure AD Premium](../fundamentals/active-directory-get-started-premium.md), si no lo ha hecho anteriormente.
 - [Exigencia de verificación en dos pasos para un usuario](../authentication/howto-mfa-userstates.md).
-- [Configuración de otras protecciones adicionales para los administradores globales de Microsoft 365](https://docs.microsoft.com/office365/enterprise/protect-your-global-administrator-accounts), si lo usa.
+- [Configuración de otras protecciones adicionales para los administradores globales de Microsoft 365](/office365/enterprise/protect-your-global-administrator-accounts), si lo usa.
 - [Inicio de una revisión de acceso de los administradores globales](../privileged-identity-management/pim-how-to-start-security-review.md) y [cambio de los administradores globales existentes a roles de administrador más específicos](directory-assign-admin-roles.md).

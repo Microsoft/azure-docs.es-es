@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5022dfc5811f3db59774a46a7034ff14c4dcf4a8
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 6ed1c3628b33d3ed29c3af3b773f2b635e684a67
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428023"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717054"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Habilitar el inicio de sesión sin contraseña en Azure AD con la aplicación Microsoft Authenticator (versión preliminar)
 
@@ -62,7 +62,7 @@ Las características de registro de los métodos de autenticación sin contrase�
 1. En **Microsoft Authenticator**, seleccione **Habilitar inicio de sesión en el teléfono** en el menú desplegable de la cuenta.
 1. Siga las instrucciones de la aplicación para terminar de registrarse para el inicio de sesión en el teléfono sin contraseña. 
 
-Las organizaciones pueden dirigir a sus usuarios al artículo [Inicio de sesión con el teléfono, no con la contraseña](../user-help/microsoft-authenticator-app-phone-signin-faq.md) para obtener más ayuda para la configuración de la aplicación Microsoft Authenticator y habilitar el inicio de sesión en el teléfono. Para aplicar esta configuración, puede que tenga que cerrar sesión y volver a iniciarla en el inquilino. 
+Las organizaciones pueden dirigir a sus usuarios al artículo [Inicio de sesión con el teléfono, no con la contraseña](../user-help/user-help-auth-app-sign-in.md) para obtener más ayuda para la configuración de la aplicación Microsoft Authenticator y habilitar el inicio de sesión en el teléfono. Para aplicar esta configuración, puede que tenga que cerrar sesión y volver a iniciarla en el inquilino. 
 
 ## <a name="sign-in-with-passwordless-credential"></a>Iniciar sesión con credenciales sin contraseña
 

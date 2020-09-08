@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e27f61239c0631fb248217777a311b13ee48a3f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 03431d861ca6d469b894e45c36fe2a3d7904c3a2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74113870"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935541"
 ---
 # <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Referencia a las anotaciones en un conjunto de aptitudes de Azure Cognitive Search
 
@@ -123,5 +123,5 @@ Tenga en cuenta que la cardinalidad de `"/document/people/*/lastname"` es mayor 
 ## <a name="see-also"></a>Consulte también
 + [Cómo integrar una aptitud personalizada en una canalización de enriquecimiento](cognitive-search-custom-skill-interface.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
-+ [Crear un conjunto de aptitudes (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Crear un conjunto de aptitudes (REST)](/rest/api/searchservice/create-skillset)
 + [Asignar campos enriquecidos a un índice](cognitive-search-output-field-mapping.md)

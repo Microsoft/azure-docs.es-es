@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/05/2020
-ms.openlocfilehash: 14634fac5d4501572a54f80f01a37e440d69d09b
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: e279f0ba5186ae4e4ad4b403ad823a59ee085170
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075542"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997564"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Administración de registros de un clúster de HDInsight
 
@@ -67,7 +67,7 @@ Es importante entender los tipos de cargas de trabajo que se ejecutan en los cl�
 
 * Tenga en cuenta cómo puede recopilar registros del clúster, o de varios clústeres, e intercálelos para fines tales como la auditoría, la supervisión, el planeamiento y las alertas. Puede usar una solución personalizada para tener acceso a los archivos de registro, y descargarlos, de forma regular, y combinarlos y analizarlos para proporcionar una pantalla de panel. También puede agregar funcionalidades adicionales para las alertas de seguridad o detección de errores. Puede compilar estas utilidades mediante PowerShell, los SDK de HDInsight o el código que tiene acceso al modelo de implementación clásica de Azure.
 
-* Considere si una solución o un servicio de supervisión sería una ventaja útil. Microsoft System Center proporciona un [paquete de administración de HDInsight](https://www.microsoft.com/download/details.aspx?id=42521). También puede usar herramientas de terceros, como Apache Chukwa y Ganglia, para recopilar y centralizar los registros. Por ejemplo, muchas compañías ofrecen servicios para supervisar las soluciones de macrodatos basadas en Hadoop, por ejemplo: Centerity, Compuware APM, Sematext SPM y Zettaset Orchestrator.
+* Considere si una solución o un servicio de supervisión sería una ventaja útil. Microsoft System Center proporciona un [paquete de administración de HDInsight](https://systemcenter.wiki/?Get_ManagementPackBundle=Microsoft.HDInsight.mpb&FileMD5=10C7D975C6096FFAA22C84626D211259). También puede usar herramientas de terceros, como Apache Chukwa y Ganglia, para recopilar y centralizar los registros. Por ejemplo, muchas compañías ofrecen servicios para supervisar las soluciones de macrodatos basadas en Hadoop, por ejemplo: Centerity, Compuware APM, Sematext SPM y Zettaset Orchestrator.
 
 ## <a name="step-2-manage-cluster-service-versions-and-view-logs"></a>Paso 2: Administración de versiones de servicio del clúster y visualización de registros
 

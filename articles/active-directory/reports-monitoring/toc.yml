@@ -36,11 +36,11 @@
     - name: Uso e informes de Insights
       href: concept-usage-insights-report.md
     - name: Inicios de sesión no seguros
-      href: concept-risky-sign-ins.md
+      href: ../identity-protection/overview-identity-protection.md
     - name: Detecciones de riesgo
-      href: concept-risk-events.md
+      href: ../identity-protection/overview-identity-protection.md
     - name: Usuarios en riesgo
-      href: concept-user-at-risk.md
+      href: ../identity-protection/overview-identity-protection.md
     - name: Registros de aprovisionamiento
       href: concept-provisioning-logs.md
     - name: API de informes
@@ -94,9 +94,9 @@
     - name: Cmdlets de Azure AD PowerShell para informes
       href: reference-powershell-reporting.md
     - name: Referencia de la API de registros de auditoría
-      href: 'https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit'
+      href: /graph/api/resources/directoryaudit?view=graph-rest-beta
     - name: Referencia de la API de registros de inicio sesión
-      href: 'https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin'
+      href: /graph/api/resources/signin?view=graph-rest-beta
     - name: Auditoría de actividades
       href: reference-audit-activities.md
     - name: Directivas de retención de datos

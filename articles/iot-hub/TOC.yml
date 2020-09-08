@@ -53,6 +53,9 @@
           href: quickstart-device-streams-proxy-nodejs.md
         - name: C
           href: quickstart-device-streams-proxy-c.md
+    - name: Enrutamiento automático de mensajes mediante una plantilla de Resource Manager
+      displayName: Resource Manager
+      href: horizontal-arm-route-messages.md
 - name: Tutoriales
   items:
     - name: Enrutamiento de mensajes
@@ -81,11 +84,6 @@
       href: tutorial-firmware-update.md
     - name: Comprobación de la conectividad de dispositivos
       href: tutorial-connectivity.md
-- name: Ejemplos
-  items:
-    - name: Elementos integrados de Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceptos
   items:
     - name: Soporte técnico de TLS
@@ -175,6 +173,8 @@
           href: iot-hub-devguide-glossary.md
     - name: Seguridad
       items:
+        - name: Línea de base de seguridad
+          href: security-baseline.md
         - name: Recomendaciones
           href: /azure/iot-fundamentals/security-recommendations?context=azure/iot-hub/rc/rc
         - name: Seguridad total
@@ -185,6 +185,9 @@
           href: /azure/iot-fundamentals/iot-security-architecture?context=azure/iot-hub/rc/rc
         - name: Proteger su implementación de IoT
           href: /azure/iot-fundamentals/iot-security-deployment?context=azure/iot-hub/rc/rc
+        - name: Controles de seguridad de Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
     - name: Protección mediante certificados de entidad de certificación X.509
       items:
         - name: Introducción a la seguridad mediante certificados de entidad de certificación X.509
@@ -417,7 +420,7 @@
               href: iot-hub-troubleshoot-error-504101-gatewaytimeout.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/azure-cli-reference-for-IoT
     - name: Azure PowerShell
       href: /powershell/module/az.iothub#iothub
@@ -455,6 +458,9 @@
       href: 'https://docs.microsoft.com/rest/api/iothub/certificates'
     - name: Plantilla de Resource Manager
       href: /azure/templates/microsoft.devices/iothub-allversions
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
     - name: Características y retirada de API
       items:
         - name: Supervisión de operaciones

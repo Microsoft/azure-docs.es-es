@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 12/13/2019
 ms.author: mjbrown
-ms.custom: devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: fa03ae10239be4ec735a2d450343bf98fde00e70
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-javascript, devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: cf2bd616fc739d233826769baaa14298d0fcec2d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497042"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017131"
 ---
 # <a name="provision-standard-manual-throughput-on-an-azure-cosmos-container"></a>Aprovisionamiento del rendimiento estándar (manual) de un contenedor de Azure Cosmos
 

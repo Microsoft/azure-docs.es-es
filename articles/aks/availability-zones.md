@@ -4,13 +4,13 @@ description: Aprenda a crear un clúster que distribuya nodos a través de las z
 services: container-service
 ms.custom: fasttrack-edit, references_regions
 ms.topic: article
-ms.date: 02/27/2020
-ms.openlocfilehash: feea8c3cba170244be2ca3ec7a11c36a3c39f700
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 08/13/2020
+ms.openlocfilehash: f24351c5f77e6c00365497d5e6deeefea8271cb9
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281232"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871418"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Creación de un clúster de Azure Kubernetes Service (AKS) que use zonas de disponibilidad
 
@@ -28,6 +28,7 @@ Es preciso que esté instalada y configurada la versión 2.0.76 de la CLI de A
 
 Los clústeres de AKS se pueden crear actualmente mediante zonas de disponibilidad en las siguientes regiones:
 
+* Este de Australia
 * Centro de EE. UU.
 * Este de EE. UU. 2
 * Este de EE. UU.
@@ -35,7 +36,7 @@ Los clústeres de AKS se pueden crear actualmente mediante zonas de disponibilid
 * Japón Oriental
 * Norte de Europa
 * Sudeste de Asia
-* Sur de Reino Unido 2
+* Sur de Reino Unido
 * Oeste de Europa
 * Oeste de EE. UU. 2
 

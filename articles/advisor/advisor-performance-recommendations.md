@@ -3,12 +3,12 @@ title: Mejora del rendimiento de las aplicaciones de Azure con Advisor
 description: Use recomendaciones sobre rendimiento de Azure Advisor para mejorar la velocidad y la capacidad de respuesta de las aplicaciones empresariales críticas.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 7ecd6a45dc255f4748ed5074a3adb3d948f4122e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0112e94e7652026e020e99ca82ad757c236a0c53
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057565"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653314"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Mejora del rendimiento de las aplicaciones de Azure con Azure Advisor
 
@@ -20,7 +20,7 @@ Puede usar la [configuración del período de vida (TTL)](../traffic-manager/tra
 
 Azure Advisor identifica los perfiles de Traffic Manager con un TTL más largo configurado. Recomienda configurar el TTL en 20 o 60 segundos, dependiendo de si el perfil está configurado para [Fast Failover](https://azure.microsoft.com/roadmap/fast-failover-and-tcp-probing-in-azure-traffic-manager/).
 
-## <a name="improve-database-performance-by-using-sql-database-advisor"></a>Mejora del rendimiento de la base de datos mediante SQL Database Advisor
+## <a name="improve-database-performance-by-using-sql-database-advisor-temporarily-disabled"></a>Mejora del rendimiento de la base de datos mediante SQL Database Advisor (deshabilitado temporalmente)
 
 Azure Advisor proporciona una vista coherente y consolidada de recomendaciones para todos los recursos de Azure. Se integra con SQL Database Advisor para ofrecer recomendaciones y mejorar el rendimiento de las bases de datos. SQL Database Advisor evalúa el rendimiento de las bases de datos mediante el análisis del historial de utilización. Después, ofrece las recomendaciones más adecuadas para ejecutar la carga de trabajo habitual de la base de datos.
 
@@ -51,32 +51,32 @@ Advisor identifica las máquinas virtuales con discos estándar que tienen un gr
 
 Azure Premium Storage ofrece compatibilidad con discos de alto rendimiento y latencia baja para máquinas virtuales que ejecutan cargas de trabajo intensivas de E/S. Los discos de máquinas virtuales que usan cuentas de Premium Storage almacenan datos en unidades de estado sólido (SSD). Para lograr un rendimiento óptimo en la aplicación, se recomienda migrar todos los discos de máquinas virtuales que requieran E/S por segundo elevados a Premium Storage.
 
-## <a name="remove-data-skew-on-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Eliminación de la asimetría de datos en las tablas de SQL Data Warehouse para aumentar el rendimiento de las consultas
+## <a name="remove-data-skew-on-your-azure-synapse-analytics-tables-to-increase-query-performance"></a>Eliminación del sesgo de los datos en las tablas de Azure Synapse Analytics para aumentar el rendimiento de las consultas
 
 La asimetría de datos puede provocar movimientos de datos innecesarios o cuellos de botella en los recursos al ejecutar la carga de trabajo. Advisor detecta una asimetría de datos de distribución mayor del 15 %. Recomienda que redistribuya los datos y revise de las selecciones de clave de distribución de las tablas. Para más información sobre la identificación y eliminación de asimetrías, consulte [Solución de problemas de asimetría](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute.md#how-to-tell-if-your-distribution-column-is-a-good-choice).
 
-## <a name="create-or-update-outdated-table-statistics-in-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Creación o actualización de las estadísticas de tabla obsoletas en las tablas de SQL Data Warehouse para aumentar el rendimiento de las consultas
+## <a name="create-or-update-outdated-table-statistics-in-your-azure-synapse-analytics-tables-to-increase-query-performance"></a>Creación o actualización de las estadísticas de tabla obsoletas en las tablas de Azure Synapse Analytics para aumentar el rendimiento de las consultas
 
-Advisor identifica las tablas que no tienen [estadísticas de tabla](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-statistics.md) actualizadas y recomienda crear o actualizar las estadísticas de tabla. El optimizador de consultas de SQL Data Warehouse utiliza estas estadísticas actualizadas para estimar la cardinalidad o número de filas en el resultado de la consulta. Estas estimaciones permiten al optimizador de consultas crear un plan de consulta para proporcionar el rendimiento más rápido.
+Advisor identifica las tablas que no tienen [estadísticas de tabla](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-statistics.md) actualizadas y recomienda crear o actualizar las estadísticas de tabla. El optimizador de consultas de Azure Synapse Analytics utiliza estas estadísticas actualizadas para estimar la cardinalidad o el número de filas en los resultados de la consulta. Estas estimaciones permiten al optimizador de consultas crear un plan de consulta para proporcionar el rendimiento más rápido.
 
 ## <a name="improve-mysql-connection-management"></a>Mejora de la administración de conexiones de MySQL
 
 El análisis de Advisor puede indicar que la aplicación que se conecta al servidor de MySQL puede no administrar las conexiones de forma eficaz. Esta condición puede dar lugar a un consumo innecesario de recursos y a una mayor latencia de la aplicación. Para mejorar la administración de conexiones, se recomienda reducir el número de conexiones de corta duración y eliminar las conexiones innecesarias. Puede llevar a cabo estas mejoras mediante la configuración de un agrupador de conexiones del lado servidor, como ProxySQL.
 
 
-## <a name="scale-up-to-optimize-cache-utilization-on-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Escalado vertical para optimizar el uso de la memoria caché en las tablas de SQL Data Warehouse para mejorar el rendimiento de las consultas
+## <a name="scale-up-to-optimize-cache-utilization-on-your-azure-synapse-analytics-tables-to-increase-query-performance"></a>Escalado vertical para optimizar el uso de la memoria caché en las tablas de Azure Synapse Analytics para mejorar el rendimiento de las consultas
 
-Azure Advisor detecta si las tablas de SQL Data Warehouse tienen un elevado porcentaje de memoria caché utilizada y un reducido porcentaje de aciertos. Esta condición indica una elevada expulsión de la memoria caché, lo que puede afectar al rendimiento de la instancia de SQL Data Warehouse. Advisor le sugiere que escale verticalmente la instancia de SQL Data Warehouse para asegurarse de que asigna suficiente capacidad de memoria caché a la carga de trabajo.
+Azure Advisor detecta si las tablas de Azure Synapse Analytics tienen un elevado porcentaje de memoria caché utilizada y un reducido porcentaje de aciertos. Esta condición indica una elevada expulsión de la memoria caché, lo que puede afectar al rendimiento de la instancia de Azure Synapse Analytics. Advisor le sugiere que escale verticalmente la instancia de Azure Synapse Analytics para asegurarse de que asigna suficiente capacidad de memoria caché a la carga de trabajo.
 
-## <a name="convert-sql-data-warehouse-tables-to-replicated-tables-to-increase-query-performance"></a>Conversión de tablas de SQL Data Warehouse en tablas replicadas para aumentar el rendimiento de las consultas
+## <a name="convert-azure-synapse-analytics-tables-to-replicated-tables-to-increase-query-performance"></a>Conversión de las tablas de Azure Synapse Analytics en tablas replicadas para aumentar el rendimiento de las consultas
 
 Advisor identifica las tablas que no están replicadas, pero que se beneficiarían de la conversión. Recomienda que convierta estas tablas. Las recomendaciones se basan en:
 - El tamaño de la tabla replicada. 
 - El número de columnas. 
 - El tipo de distribución de la tabla. 
-- El número de particiones en la tabla de SQL Data Warehouse. 
+- El número de particiones en la tabla de Azure Synapse Analytics. 
 
-Se puede proporcionar heurística adicional en la recomendación para el contexto. Para obtener más información acerca de cómo se determina esta recomendación, vea [Recomendaciones de SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations.md#replicate-tables). 
+Se puede proporcionar heurística adicional en la recomendación para el contexto. Para más información acerca de cómo se determina esta recomendación, consulte [Recomendaciones de Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations.md#replicate-tables). 
 
 ## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-the-latest-azure-features"></a>Migración de la cuenta de almacenamiento a Azure Resource Manager para obtener las características más recientes de Azure
 
@@ -151,6 +151,22 @@ Advisor identifica los contenedores de Azure Cosmos DB que usan la directiva de 
 ## <a name="set-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Configuración del tamaño de página de consulta (MaxItemCount) de Azure Cosmos DB en -1 
 
 Azure Advisor identifica contenedores de Azure Cosmos DB que usan un tamaño de página de consulta de 100. Recomienda usar un tamaño de página de -1 para realizar análisis más rápidos. [Más información acerca de MaxItemCount.](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
+
+## <a name="consider-using-accelerated-writes-feature-in-your-hbase-cluster-to-improve-cluster-performance"></a>Consideración de la posibilidad de usar la característica de escrituras aceleradas del clúster de HBase para mejorar el rendimiento del clúster
+Azure Advisor analiza los registros del sistema de los últimos 7 días e identifica si el clúster ha encontrado los escenarios siguientes:
+1. Latencia de tiempo de sincronización de WAL alta 
+2. Número elevado de solicitudes de escritura (al menos tres en una hora de Windows de más de 1000 avg_write_requests/second/node)
+
+Estas condiciones indican que el clúster sufre latencias de escritura elevadas. Podría ser debido a una gran carga de trabajo realizada en el clúster. Para mejorar el rendimiento del clúster, es posible que quiera considerar la posibilidad de usar la característica de escrituras aceleradas proporcionada por Azure HDInsight HBase. La característica Escrituras aceleradas para clústeres de HDInsight Apache HBase adjunta discos SSD administrados a cada RegionServer (nodo de trabajo) en lugar de usar almacenamiento en la nube. Como resultado, los discos administrados ofrecen una baja latencia de escritura y una mejor resistencia para las aplicaciones. Para [obtener más información](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-accelerated-writes#how-to-enable-accelerated-writes-for-hbase-in-hdinsight) sobre esta característica
+
+## <a name="review-azure-data-explorer-table-cache-period-policy-for-better-performance-preview"></a>Revisión del período de caché (directiva) de la tabla de Azure Data Explorer para mejorar el rendimiento (versión preliminar)
+En esta recomendación se muestran las tablas de Azure Data Explorer que tienen un gran número de consultas que van más allá del período de caché (directiva) configurado (verá las 10 primeras tablas por porcentaje de consultas que acceden a datos fuera de la caché). La acción recomendada para mejorar el rendimiento del clúster: Limite las consultas de esta tabla al intervalo de tiempo mínimo necesario (dentro de la directiva definida). Como alternativa, si se requieren datos de todo el intervalo de tiempo, aumente el período de caché al valor recomendado.
+
+## <a name="improve-performance-by-optimizing-mysql-temporary-table-sizing"></a>Mejora del rendimiento mediante la optimización del tamaño de tabla temporal de MySQL
+El análisis de Advisor indica que el servidor MySQL puede estar incurriendo en una sobrecarga de E/S innecesaria debido a la baja configuración de parámetros de tabla temporal. Esto puede dar lugar a transacciones innecesarias basadas en disco y un rendimiento reducido. Se recomienda aumentar los valores de los parámetros "tmp_table_size" y "max_heap_table_size" para reducir el número de transacciones basadas en disco. [Más información](https://aka.ms/azure_mysql_tmp_table)
+
+## <a name="distribute-data-in-server-group-to-distribute-workload-among-nodes"></a>Distribución de los datos en el grupo de servidores para distribuir la carga de trabajo entre los nodos
+Advisor identifica los grupos de servidores donde los datos no se han distribuido, pero permanecen en el coordinador. En base a esto, Advisor recomienda que, para obtener las ventajas completas de Hiperescala (Citus), distribuya datos en los nodos de trabajo de grupos de servidores. Con ello se mejorará el rendimiento de las consultas mediante el uso de recursos de cada nodo en el grupo de servidores. [Más información](https://go.microsoft.com/fwlink/?linkid=2135201) 
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Obtención de acceso a las recomendaciones sobre rendimiento en Advisor
 

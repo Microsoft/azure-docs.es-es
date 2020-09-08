@@ -13,16 +13,16 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2180451a1d0c377af1e6c3e7377e64d9cb62ef8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 243bc48f7e84951c78ecab3e7f5ee47a85a538bf
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84732062"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798829"
 ---
 # <a name="assign-custom-roles-with-resource-scope-using-powershell-in-azure-active-directory"></a>Asignación de roles personalizados con ámbito de recurso mediante PowerShell en Azure Active Directory
 
-En este artículo se describe cómo crear una asignación de roles en un ámbito de toda la organización en Azure Active Directory (Azure AD). La asignación de un rol en un ámbito de toda la organización concede acceso a toda la organización de Azure AD. Para crear una asignación de roles con un ámbito de un solo recurso de Azure AD, consulte [cómo crear un rol personalizado y asignarlo en un ámbito de recurso](roles-create-custom.md).En este artículo se usa el módulo [Azure Active Directory PowerShell, versión 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles).
+En este artículo se describe cómo crear una asignación de roles en un ámbito de toda la organización en Azure Active Directory (Azure AD). La asignación de un rol en un ámbito de toda la organización concede acceso a toda la organización de Azure AD. Para crear una asignación de roles con un ámbito de un solo recurso de Azure AD, consulte [cómo crear un rol personalizado y asignarlo en un ámbito de recurso](roles-create-custom.md).En este artículo se usa el módulo [Azure Active Directory PowerShell, versión 2](/powershell/module/azuread/?view=azureadps-2.0#directory_roles).
 
 Para más información sobre los roles de administración de Azure AD, consulte  [Asignación de roles de administrador en Azure Active Directory](directory-assign-admin-roles.md).
 
@@ -69,7 +69,7 @@ $resourceScope = '/' + $appRegistration.objectId
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-Para asignar el rol a una entidad de servicio en lugar de a un usuario, use el [cmdlet Get-AzureADMSServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0).
+Para asignar el rol a una entidad de servicio en lugar de a un usuario, use el [cmdlet Get-AzureADMSServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0).
 
 ## <a name="operations-on-roledefinition"></a>Operaciones en RoleDefinition
 

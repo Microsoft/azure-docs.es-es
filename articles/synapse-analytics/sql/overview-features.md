@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: e1223a9cd5bd3a092bc35c9ba03f7352c6ac7eed
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ce7238aaa10b1e73f7fa3c061045f47cbc472e23
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87059403"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378702"
 ---
 # <a name="transact-sql-features-supported-in-azure-synapse-sql"></a>Características de Transact-SQL compatibles en Azure Synapse SQL
 
@@ -54,7 +54,7 @@ Los lenguajes de consulta que se usan en Synapse SQL pueden tener diferentes car
 | **Instrucción INSERT** | Sí | No |
 | **Instrucción UPDATE** | Sí | No |
 | **Instrucción DELETE** | Sí | No |
-| **Instrucción MERGE** | Sí | No |
+| **Instrucción MERGE** | No | No |
 | **[Transacciones](develop-transactions.md)** | Sí | No |
 | **[Etiquetas](develop-label.md)** | Sí | No |
 | **Carga de datos** | Sí. La utilidad preferida es la instrucción [COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), pero el sistema admite tanto la carga masiva (BCP) como el uso de [CETAS](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para la carga de datos. | No |

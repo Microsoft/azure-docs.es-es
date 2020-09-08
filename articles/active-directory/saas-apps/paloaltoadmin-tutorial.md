@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Palo Alto Networks - Admin UI | Microsoft Docs'
 description: 'Obtenga información sobre cómo configurar el inicio de sesión único entre Azure Active Directory y Palo Alto Networks: interfaz de usuario de administración.'
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: a826eaec-15af-4c85-8855-8a3374d1efb9
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 03/12/2020
+ms.date: 08/17/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbfa16223484928dda1004011d2e92295edd8b89
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: d8a4a4360265cabc179c8cd41d0a33a0575f55a6
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85297264"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855024"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Tutorial: Integración de Azure Active Directory con Palo Alto Networks - Admin UI
 
@@ -47,6 +43,7 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 
 * Palo Alto Networks - Admin UI admite el inicio de sesión único iniciado por **SP**.
 * Palo Alto Networks - Admin UI admite el aprovisionamiento de usuarios **Just-In-Time**.
+* Una vez configurado Palo Alto Networks - Admin UI, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-palo-alto-networks---admin-ui-from-the-gallery"></a>Agregación de Palo Alto Networks: interfaz de usuario de administración
 
@@ -59,8 +56,7 @@ Para configurar la integración de Palo Alto Networks: interfaz de usuario de ad
 1. En la sección **Agregar desde la galería**, escriba **Palo Alto Networks: Admin UI** en el cuadro de búsqueda.
 1. Seleccione **Palo Alto Networks: Admin UI** en el panel de resultados y, a continuación, agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
-
+## <a name="configure-and-test-azure-ad-sso"></a>Configuración y prueba del inicio de sesión único de Azure AD
 En esta sección, configurará y probará el inicio de sesión único de Azure AD con Palo Alto Networks: Admin UI con un usuario de prueba llamado **B.Simon**.
 Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Palo Alto Networks - Admin UI.
 
@@ -120,6 +116,9 @@ Para configurar el inicio de sesión único de Azure AD con Palo Alto Networks 
     | username | user.userprincipalname |
     | adminrole | customadmin |
     | | |
+
+    > [!NOTE]
+    > El valor _adminrole_ debe ser el mismo que el nombre de rol que se configuró en **Palo Alto Networks**, tal como se mencionó en el paso 9. 
 
     > [!NOTE]
     > Para más información sobre los atributos, consulte los siguientes artículos:
@@ -276,5 +275,3 @@ Al hacer clic en el icono de Palo Alto Networks - Admin UI en el panel de acceso
 - [Prueba de Palo Alto Networks: Admin UI con Azure AD](https://aad.portal.azure.com/)
 
 - [¿Qué es el control de sesiones en Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [Cómo proteger Palo Alto Networks: Admin UI con visibilidad y controles avanzados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

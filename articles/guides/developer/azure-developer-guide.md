@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: c4121482c37afcda0f580656bbe583128b7720fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ed6244d8f5ecf18e89994c0c62af16290fb68c5
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85829404"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120582"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guía de introducción para desarrolladores de Azure
 
@@ -35,7 +35,7 @@ Esta guía es una introducción a la plataforma Azure para desarrolladores de ap
 
 Con todos los servicios que Azure ofrece, averiguar qué servicios necesita para su arquitectura de soluciones puede resultar abrumador. En esta sección se resaltan los servicios de Azure que normalmente utilizan los desarrolladores. Para obtener una lista de todos los servicios de Azure, consulte la [documentación de Azure](../../index.yml).
 
-En primer lugar, debe decidir cómo hospedará su aplicación en Azure. ¿Necesita administrar toda la infraestructura como una máquina virtual (VM)? ¿Puede usar las funciones de administración de plataforma que proporciona Azure? ¿Tal vez necesite un entorno sin servidor para ejecutar código host únicamente?
+En primer lugar, debe decidir cómo hospedará su aplicación en Azure. ¿Necesita administrar toda la infraestructura como máquina virtual (VM)? ¿Puede usar las funciones de administración de plataforma que proporciona Azure? ¿Tal vez necesite un entorno sin servidor para ejecutar código host únicamente?
 
 Su aplicación necesita almacenamiento en la nube, para lo cual Azure ofrece varias opciones. Puede aprovechar las ventajas de la autenticación empresarial de Azure. También hay herramientas de desarrollo y supervisión basadas en la nube, y la mayoría de servicios de hospedaje ofrece integración con DevOps.
 
@@ -64,7 +64,7 @@ Puede migrar las aplicaciones existentes a App Service con la [herramienta de mi
 
 > **Cuándo se debe usar**: use App Service al migrar aplicaciones web existentes a Azure y cuando necesite una plataforma de hospedaje completamente administrada para sus aplicaciones web. También puede utilizar App Service cuando necesite admitir clientes móviles o exponer API de REST con su aplicación.
 >
-> **Introducción**: con App Service resulta muy sencillo crear e implementar su primera [aplicación web](../../app-service/app-service-web-get-started-dotnet.md), [aplicación móvil](../../app-service-mobile/app-service-mobile-ios-get-started.md) o [aplicación de API](../../app-service/app-service-web-tutorial-rest-api.md).
+> **Introducción**: con App Service resulta muy sencillo crear e implementar su primera [aplicación web](../../app-service/quickstart-dotnetcore.md), [aplicación móvil](../../app-service-mobile/app-service-mobile-ios-get-started.md) o [aplicación de API](../../app-service/app-service-web-tutorial-rest-api.md).
 >
 > **Pruébelo ya**: App Service le permite aprovisionar una aplicación de corta duración para probar la plataforma sin necesidad de registrarse para obtener una cuenta de Azure. Pruebe la plataforma y [cree una aplicación de Azure App Service](https://tryappservice.azure.com/).
 
@@ -76,7 +76,7 @@ El nivel de control que tiene con las máquinas virtuales le permite ejecutar un
 
 > **Cuándo se debe usar**: use Virtual Machines cuando desee un control total de la infraestructura de su aplicación o para migrar las cargas de trabajo de aplicaciones locales a Azure sin tener que hacer cambios.
 >
-> **Introducción**: cree una [máquina virtual Linux](../../virtual-machines/virtual-machines-linux-quick-create-portal.md) o una [máquina virtual Windows](../../virtual-machines/virtual-machines-windows-hero-tutorial.md) en Azure Portal.
+> **Introducción**: cree una [máquina virtual Linux](../../virtual-machines/linux/quick-create-portal.md) o una [máquina virtual Windows](../../virtual-machines/windows/quick-create-portal.md) en Azure Portal.
 
 #### <a name="azure-functions-serverless"></a>Azure Functions (sin servidor)
 
@@ -141,11 +141,6 @@ Los contenedores de Docker, una forma de virtualización del sistema operativo, 
 
 Azure proporciona varias maneras de utilizar contenedores en sus aplicaciones.
 
-- **Extensión de máquina virtual de Docker**: permite configurar una máquina virtual con herramientas de Docker para que actúe como un host de Docker.
-
-  > **Cuándo se debe usar**: cuando quiera generar implementaciones de contenedor coherentes para las aplicaciones en una máquina virtual, o cuando desee usar [Docker Compose](https://docs.docker.com/compose/overview/).
-  >
-  > **Introducción**: [Cree un entorno de Docker en Azure mediante la extensión de máquina virtual de Docker](../../virtual-machines/virtual-machines-linux-dockerextension.md).
 
 - **Azure Kubernetes Service**: permite crear, configurar y administrar un clúster de máquinas virtuales preconfiguradas para ejecutar aplicaciones en contenedor. Para obtener más información sobre Azure Kubernetes Service, consulte la [introducción a Azure Kubernetes Service](../../aks/intro-kubernetes.md).
 
@@ -290,7 +285,7 @@ Además de definir identidades de cuenta de Azure individuales, también llamada
 
 ### <a name="manage-your-subscriptions"></a>Administración de suscripciones
 
-Una suscripción es una agrupación lógica de servicios de Azure que está vinculada a una cuenta de Azure. Una única cuenta de Azure puede contener varias suscripciones. La facturación de los servicios de Azure se realiza por suscripción. Para obtener una lista de las ofertas de suscripción disponibles por tipo, consulte [Detalles de las ofertas de Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/). Las suscripciones de Azure tienen un administrador de cuenta que tiene el control total sobre la suscripción. También tienen un administrador de servicios que cuenta con el control sobre todos los servicios de la suscripción. Para saber más sobre los administradores de suscripción clásica, vea [Agregar o cambiar los administradores de la suscripción de Azure](../../cost-management-billing/manage/add-change-subscription-administrator.md). Se puede conceder un control detallado de los recursos de Azure con [control de acceso basado en rol (RBAC)](../../role-based-access-control/overview.md) a cuentas individuales.
+Una suscripción es una agrupación lógica de servicios de Azure que está vinculada a una cuenta de Azure. Una única cuenta de Azure puede contener varias suscripciones. La facturación de los servicios de Azure se realiza por suscripción. Para obtener una lista de las ofertas de suscripción disponibles por tipo, consulte [Detalles de las ofertas de Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/). Las suscripciones de Azure tienen un administrador de cuenta que tiene el control total sobre la suscripción. También tienen un administrador de servicios que cuenta con el control sobre todos los servicios de la suscripción. Para saber más sobre los administradores de suscripción clásica, vea [Agregar o cambiar los administradores de la suscripción de Azure](../../cost-management-billing/manage/add-change-subscription-administrator.md). Se puede conceder un control detallado de los recursos de Azure con [control de acceso basado en roles de Azure (RBAC de Azure)](../../role-based-access-control/overview.md) a cuentas individuales.
 
 #### <a name="resource-groups"></a>Grupos de recursos
 
@@ -302,7 +297,7 @@ El Explorador de recursos de Azure es una fantástica herramienta para visualiza
 
 Al permitir el acceso a los recursos de Azure, siempre es recomendable proporcionar a los usuarios los privilegios mínimos que se necesiten para realizar una tarea determinada.
 
-- **Control de acceso basado en rol (RBAC)** : en Azure, puede conceder acceso a cuentas de usuario (entidades de seguridad) en un ámbito especificado: suscripción, grupo de recursos o recurso individual. RBAC permite implementar un conjunto de recursos en un grupo de recursos y conceder permisos a un usuario específico o a un grupo. También permite limitar el acceso únicamente a los recursos que pertenecen al grupo de recursos de destino. También puede conceder acceso a un único recurso, por ejemplo, una máquina virtual o una red virtual. Para conceder acceso, asigne un rol al usuario, grupo de usuarios o entidad de servicio. Hay muchos roles predefinidos y puede definir también sus propios roles personalizados. Para obtener más información, vea [¿Qué es el control de acceso basado en rol (RBAC)?](../../role-based-access-control/overview.md)
+- **Control de acceso basado en rol (RBAC)** : en Azure, puede conceder acceso a cuentas de usuario (entidades de seguridad) en un ámbito especificado: suscripción, grupo de recursos o recurso individual. RBAC permite implementar un conjunto de recursos en un grupo de recursos y conceder permisos a un usuario específico o a un grupo. También permite limitar el acceso únicamente a los recursos que pertenecen al grupo de recursos de destino. También puede conceder acceso a un único recurso, por ejemplo, una máquina virtual o una red virtual. Para conceder acceso, asigne un rol al usuario, grupo de usuarios o entidad de servicio. Hay muchos roles predefinidos y puede definir también sus propios roles personalizados. Para más información, consulte [¿Qué es el control de acceso basado en rol de Azure (RBAC)?](../../role-based-access-control/overview.md).
 
   > **Cuándo se debe usar**: cuando se necesite administración de acceso detallada para usuarios y grupos o cuando sea necesario convertir a un usuario en propietario de una suscripción.
   >

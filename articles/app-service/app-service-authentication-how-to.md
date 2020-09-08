@@ -4,12 +4,12 @@ description: Aprenda a personalizar la característica de autenticación y autor
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: 747729b7cbb3dcce72eb36704b5965e8427b59e1
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2fa2e3463e057062ba743c2f6989aa571c85c983
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424263"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962475"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avanzado de la autenticación y autorización en Azure App Service
 
@@ -17,8 +17,7 @@ En este artículo se muestra cómo personalizar la [autenticación y autorizaci�
 
 Para comenzar inmediatamente, consulte uno de los siguientes tutoriales:
 
-* [Tutorial: Autenticación y autorización de usuarios de un extremo a otro en Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)
-* [Tutorial: Autenticación y autorización de usuarios de un extremo a otro en Azure App Service para Linux](containers/tutorial-auth-aad.md)
+* [Tutorial: Autenticación y autorización de usuarios de extremo a extremo en Azure App Service](tutorial-auth-aad.md)
 * [Configuración de la aplicación para usar el inicio de sesión de Azure Active Directory](configure-authentication-provider-aad.md)
 * [Configuración de la aplicación para usar el inicio de sesión de Facebook](configure-authentication-provider-facebook.md)
 * [Configuración de la aplicación para usar el inicio de sesión de Google](configure-authentication-provider-google.md)
@@ -147,7 +146,7 @@ App Service pasa las notificaciones de usuario a la aplicación mediante encabez
 
 El código escrito en cualquier lenguaje o plataforma puede obtener la información que necesita de estos encabezados. Para las aplicaciones de ASP.NET 4.6, **ClaimsPrincipal** se establece automáticamente con los valores adecuados. Sin embargo, ASP.NET Core no proporciona un middleware de autenticación que se integre con las notificaciones de usuario de App Service. Para obtener una solución alternativa, vea [MaximeRouiller.Azure.AppService.EasyAuth](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth).
 
-La aplicación también puede obtener detalles adicionales sobre el usuario autenticado mediante una llamada a `/.auth/me`. Los SDK del servidor de Mobile Apps proporcionan métodos de asistente para trabajar con estos datos. Para más información, consulte [Uso del SDK de Node.js de Azure Mobile Apps](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity) y [Trabajar con el SDK del servidor back-end de .NET para Azure Mobile Apps](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info).
+Si el [almacén de tokens](overview-authentication-authorization.md#token-store) está habilitado para la aplicación, también puede obtener detalles adicionales sobre el usuario autenticado mediante una llamada a `/.auth/me`. Los SDK del servidor de Mobile Apps proporcionan métodos de asistente para trabajar con estos datos. Para más información, consulte [Uso del SDK de Node.js de Azure Mobile Apps](/previous-versions/azure/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk#howto-tables-getidentity) y [Trabajar con el SDK del servidor back-end de .NET para Azure Mobile Apps](/previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk#user-info).
 
 ## <a name="retrieve-tokens-in-app-code"></a>Recuperación de los tokens en el código de aplicación
 
@@ -162,14 +161,14 @@ Desde el código de servidor, los tokens específicos del proveedor se inyectan 
 | Twitter | `X-MS-TOKEN-TWITTER-ACCESS-TOKEN` <br/> `X-MS-TOKEN-TWITTER-ACCESS-TOKEN-SECRET` |
 |||
 
-Desde el código de cliente (por ejemplo, una aplicación móvil o JavaScript en el explorador), envíe la solicitud `GET` HTTP a `/.auth/me`. El JSON devuelto tiene los tokens específicos del proveedor.
+Desde el código de cliente (por ejemplo, una aplicación móvil o JavaScript en el explorador), envíe la solicitud `GET` HTTP a `/.auth/me` (el [almacén de tokens](overview-authentication-authorization.md#token-store) debe estar habilitado). El JSON devuelto tiene los tokens específicos del proveedor.
 
 > [!NOTE]
 > Los tokens de acceso son para acceder a recursos de proveedor, por lo que solo están presentes si se configura el proveedor con un secreto de cliente. Para ver cómo obtener tokens de actualización, consulte Tokens de acceso de actualización.
 
 ## <a name="refresh-identity-provider-tokens"></a>Actualización de los tokens de proveedor de identidad
 
-Cuando el token de acceso de su proveedor (no el [token de sesión](#extend-session-token-expiration-grace-period)) expire, debe volver a autenticar al usuario antes de volver a usar ese token. Puede evitar la expiración del token mediante la realización de una llamada `GET` al punto de conexión `/.auth/refresh` de la aplicación. Cuando se llama, App Service actualiza automáticamente los tokens de acceso en el almacén de tokens para el usuario autenticado. Las solicitudes posteriores para los tokens por código de aplicación obtienen los tokens actualizados. Sin embargo, para que la actualización de token funcione, el almacén de tokens debe contener [tokens de actualización](https://auth0.com/learn/refresh-tokens/) para el proveedor. Cada proveedor documenta la manera de obtener tokens de actualización, pero en la lista siguiente se muestra un breve resumen:
+Cuando el token de acceso de su proveedor (no el [token de sesión](#extend-session-token-expiration-grace-period)) expire, debe volver a autenticar al usuario antes de volver a usar ese token. Puede evitar la expiración del token mediante la realización de una llamada `GET` al punto de conexión `/.auth/refresh` de la aplicación. Cuando se llama, App Service actualiza automáticamente los tokens de acceso en el [almacén de tokens](overview-authentication-authorization.md#token-store) para el usuario autenticado. Las solicitudes posteriores para los tokens por código de aplicación obtienen los tokens actualizados. Sin embargo, para que la actualización de token funcione, el almacén de tokens debe contener [tokens de actualización](https://auth0.com/learn/refresh-tokens/) para el proveedor. Cada proveedor documenta la manera de obtener tokens de actualización, pero en la lista siguiente se muestra un breve resumen:
 
 - **Google**: anexe un parámetro de cadena de consulta `access_type=offline` en su llamada API `/.auth/login/google`. Si usa el SDK de Mobile Apps, puede agregar el parámetro a una de las sobrecargas `LogicAsync` (vea [Google Refresh Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens) (Tokens de actualización de Google)).
 - **Facebook**: no proporciona tokens de actualización. Los tokens de larga duración expiran en 60 días (vea [Facebook Expiration and Extension of Access Tokens](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension) (Expiración y extensión de tokens de acceso de Facebook)).
@@ -298,6 +297,9 @@ La configuración de autenticación se puede configurar mediante un archivo que 
     1.  Establecer en `enabled` en "true"
     2.  Establecer en `isAuthFromFile` en "true"
     3.  Establecer `authFilePath` en el nombre del archivo (por ejemplo, "auth.json")
+
+> [!NOTE]
+> El formato de `authFilePath` varía entre las plataformas. En Windows, se admiten las rutas de acceso relativas y absolutas. Se recomienda la relativa. En el caso de Linux, actualmente solo se admiten rutas de acceso absolutas, por lo que el valor de configuración debe ser "/home/site/wwwroot/auth.json" o similar.
 
 Una vez que haya realizado esta actualización de la configuración, el contenido del archivo se usará para definir el comportamiento de autenticación o autorización de App Service para ese sitio. Si alguna vez quiere volver a la configuración de Azure Resource Manager, puede hacerlo volviendo a establecer el elemento `isAuthFromFile` en "false".
 
@@ -469,8 +471,68 @@ El código siguiente agota las posibles opciones de configuración del archivo:
 }
 ```
 
+## <a name="pin-your-app-to-a-specific-authentication-runtime-version"></a>Anclaje de la aplicación a una versión específica en tiempo de ejecución de autenticación
+
+Al habilitar la autenticación y la autorización, el middleware de la plataforma se inserta en la canalización de solicitudes HTTP, tal y como se describe en la [información general sobre las características](overview-authentication-authorization.md#how-it-works). Este middleware de la plataforma se actualiza periódicamente con nuevas características y mejoras, como parte de las actualizaciones habituales de la plataforma. La aplicación web o de funciones se ejecutará de forma predeterminada en la versión más reciente del middleware de la plataforma. Estas actualizaciones automáticas siempre son compatibles con las versiones anteriores. Sin embargo, en el caso excepcional de que la actualización automática provoque algún problema en tiempo de ejecución a la aplicación web o de funciones, se puede revertir temporalmente a la versión anterior del middleware. En este artículo se explica cómo anclar temporalmente una aplicación a una versión específica del middleware de autenticación.
+
+### <a name="automatic-and-manual-version-updates"></a>Actualizaciones de versiones automáticas y manuales 
+
+Para anclar la aplicación a una versión específica del middleware de la plataforma, establezca el valor `runtimeVersion` para la aplicación. La aplicación siempre se ejecuta en la versión más reciente, a menos que decida volver a anclarla explícitamente a una versión específica. El número de versiones admitidas a la vez es reducido. Si ancla la aplicación a una versión que ya no se admite, la aplicación usará la versión más reciente. Para ejecutar siempre la versión más reciente, establezca `runtimeVersion` en ~1. 
+
+### <a name="view-and-update-the-current-runtime-version"></a>Visualización y actualización de la versión actual del entorno de ejecución
+
+Puede cambiar la versión en tiempo de ejecución utilizada por la aplicación. La nueva versión en tiempo de ejecución surtirá efecto después de reiniciar la aplicación. 
+
+#### <a name="view-the-current-runtime-version"></a>Visualización de la versión actual del runtime
+
+Para ver la versión actual del middleware de autenticación de la plataforma, utilice la CLI de Azure o uno de los puntos de conexión HTTP de la versión built0 en la aplicación.
+
+##### <a name="from-the-azure-cli"></a>Desde la CLI de Azure
+
+En la CLI de Azure, consulte la versión actual del middleware mediante el comando [az webapp auth show](/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-show).
+
+```azurecli-interactive
+az webapp auth show --name <my_app_name> \
+--resource-group <my_resource_group>
+```
+
+En el código, reemplace `<my_app_name>` por el nombre de la aplicación. Reemplace también `<my_resource_group>` por el nombre del grupo de recursos para la aplicación.
+
+Verá el campo `runtimeVersion` en la salida de la CLI. Será similar al siguiente ejemplo de salida, que se ha abreviado para mayor claridad: 
+```output
+{
+  "additionalLoginParams": null,
+  "allowedAudiences": null,
+    ...
+  "runtimeVersion": "1.3.2",
+    ...
+}
+```
+
+##### <a name="from-the-version-endpoint"></a>En el punto de conexión de la versión
+
+También puede consultar el punto de conexión de /.auth/version en una aplicación para ver la versión actual del middleware en el que se ejecuta la aplicación. Será similar al siguiente ejemplo de salida:
+```output
+{
+"version": "1.3.2"
+}
+```
+
+#### <a name="update-the-current-runtime-version"></a>Actualización de la versión de tiempo de ejecución
+
+En la CLI de Azure, puede actualizar el valor de `runtimeVersion` en la aplicación mediante el comando [az webapp auth update](/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-update).
+
+```azurecli-interactive
+az webapp auth update --name <my_app_name> \
+--resource-group <my_resource_group> \
+--runtime-version <version>
+```
+
+Reemplace `<my_app_name>` por el nombre de la aplicación. Reemplace también `<my_resource_group>` por el nombre del grupo de recursos para la aplicación. Por último, reemplace `<version>` por una versión válida del tiempo de ejecución 1.x o `~1` en el caso de la versión más reciente. Encontrará las notas de la versión en las diferentes versiones en tiempo de ejecución [aquí] (https://github.com/Azure/app-service-announcements) ) para que pueda identificar la versión a la que debe anclar la aplicación.
+
+Este comando se puede ejecutar desde [Azure Cloud Shell](../cloud-shell/overview.md), para lo que es preciso hacer clic en **Pruébelo** en el código de ejemplo anterior. También puede usar la [CLI de Azure localmente](/cli/azure/install-azure-cli) para ejecutar este comando después de ejecutar [az login](/cli/azure/reference-index#az-login) para iniciar sesión.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Autenticación y autorización de usuarios de un extremo a otro (Windows)](app-service-web-tutorial-auth-aad.md)
-> [Tutorial: Autenticación y autorización de usuarios de un extremo a otro (Linux)](containers/tutorial-auth-aad.md)
+> [Tutorial: Autenticación y autorización de usuarios de un extremo a otro](tutorial-auth-aad.md)

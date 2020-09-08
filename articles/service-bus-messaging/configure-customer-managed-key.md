@@ -3,12 +3,12 @@ title: Configuración de su propia clave para cifrar datos en reposo de Azure Se
 description: En este artículo se proporciona información sobre cómo configurar su propia clave para cifrar datos en reposo de Azure Service Bus.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: ca1597f26ec1c7ccaa578d4e7dcd68e0ef54f60c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3da167fcdd3bac53de86dae07242cf8bccb621c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85475992"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400592"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configuración de claves administradas por el cliente para cifrar datos en reposo de Azure Service Bus mediante Azure Portal
 Azure Service Bus Premium proporciona cifrado de datos en reposo con Azure Storage Service Encryption (Azure SSE). Service Bus Premium se basa en Azure Storage para almacenar los datos y, de forma predeterminada, todos los datos que se almacenan con Azure Storage se cifran mediante claves administradas por Microsoft. 
@@ -21,7 +21,7 @@ La habilitación de la característica BYOK es un proceso que solo hay que confi
 > [!NOTE]
 > Hay algunas advertencias para la clave administrada por el cliente para el cifrado en el lado del servicio. 
 >   * Esta característica se admite en el nivel [Premium de Azure Service Bus](service-bus-premium-messaging.md). No se puede habilitar para los espacios de nombres estándar de Service Bus.
->   * El cifrado solo se puede habilitar para espacios de nombres nuevos o vacíos. Si el espacio de nombres contiene datos, se producirá un error en la operación de cifrado.
+>   * El cifrado solo se puede habilitar para espacios de nombres nuevos o vacíos. Si el espacio de nombres contiene colas o temas, se producirá un error en la operación de cifrado.
 
 Puede usar Azure Key Vault para administrar las claves y auditar su uso. Puede crear sus propias claves y almacenarlas en un almacén de claves, o puede usar las API de Azure Key Vault para generarlas. Para obtener más información sobre Azure Key Vault, consulte [¿Qué es Azure Key Vault?](../key-vault/general/overview.md)
 
@@ -44,7 +44,7 @@ Para habilitar claves administradas del cliente en Azure Portal, siga estos paso
 
 Después de habilitar las claves administradas por el cliente, debe asociar la clave administrada por el cliente con su espacio de nombres de Azure Service Bus. Service Bus solo admite Azure Key Vault. Si habilita la opción **Encryption with customer-managed key** (Cifrado con clave administrada por el cliente) en la sección anterior, debe importar la clave en Azure Key Vault. Recuerde que las claves deben tener habilitadas las opciones **Eliminación temporal** y **No purgar**. Estas opciones se pueden configurar mediante [PowerShell](../key-vault/general/soft-delete-powershell.md) o la [CLI](../key-vault/general/soft-delete-cli.md#enabling-purge-protection).
 
-1. Para crear un nuevo almacén de claves, siga el [inicio rápido](../key-vault/general/overview.md) de Azure Key Vault. Para más información sobre cómo importar claves existentes, consulte [Información acerca de claves, secretos y certificados](../key-vault/about-keys-secrets-and-certificates.md).
+1. Para crear un nuevo almacén de claves, siga el [inicio rápido](../key-vault/general/overview.md) de Azure Key Vault. Para más información sobre cómo importar claves existentes, consulte [Información acerca de claves, secretos y certificados](../key-vault/general/about-keys-secrets-certificates.md).
 1. Para activar la eliminación temporal y la protección de purgas al crear un almacén, use el comando [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create).
 
     ```azurecli-interactive
@@ -82,12 +82,12 @@ Después de habilitar las claves administradas por el cliente, debe asociar la c
     > 
     >   * Si la [recuperación ante desastres geográfica](service-bus-geo-dr.md) ya está habilitada para el espacio de nombres de Service Bus y desea habilitar la clave administrada por el cliente, siga estos pasos: 
     >     * Interrumpa el emparejamiento
-    >     * [Configure la directiva de acceso](../key-vault/general/managed-identity.md) para la identidad administrada de los espacios de nombres principal y secundario en el almacén de claves.
+    >     * [Configure la directiva de acceso](../key-vault/general/assign-access-policy-portal.md) para la identidad administrada de los espacios de nombres principal y secundario en el almacén de claves.
     >     * Configure el cifrado en el espacio de nombres principal.
     >     * Vuelva a emparejar los espacios de nombres principal y secundario.
     > 
     >   * Si desea habilitar la recuperación ante desastres geográfica en un espacio de nombres de Service Bus en el que la clave administrada por el cliente ya está configurada, haga lo siguiente:
-    >     * [Configure la directiva de acceso](../key-vault/general/managed-identity.md) para la identidad administrada del espacio de nombres secundario en el almacén de claves.
+    >     * [Configure la directiva de acceso](../key-vault/general/assign-access-policy-portal.md) para la identidad administrada del espacio de nombres secundario en el almacén de claves.
     >     * Empareje los espacios de nombres principal y secundario.
 
 
@@ -323,5 +323,3 @@ En este paso, actualizará el espacio de nombres de Service Bus con la informaci
 Vea los artículos siguientes:
 - [Información general de Service Bus](service-bus-messaging-overview.md)
 - [Introducción a Azure Key Vault](../key-vault/general/overview.md)
-
-

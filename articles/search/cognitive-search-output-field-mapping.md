@@ -8,23 +8,34 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c9b0b34202f35babcaa3dce37331d31edf641254
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58bb87d5af785d3cffd96f3bd02477f97ed967a9
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557262"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935371"
 ---
 # <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>Cómo asignar campos enriquecidos con IA a un índice de búsqueda
 
-En este artículo, aprenderá a asignar campos de entrada enriquecidos a campos de salida en un índice de búsqueda. Una vez que haya [definido un conjunto de aptitudes](cognitive-search-defining-skillset.md), debe asignar los campos de salida de cualquier aptitud que aporte directamente valores a un campo dado del índice de búsqueda. 
+![Fases del indexador](./media/cognitive-search-output-field-mapping/indexer-stages-output-field-mapping.png "fases del indexador")
 
-Las asignaciones de campos de salida son necesarias para mover contenido de documentos enriquecidos al índice.  El documento enriquecido es en realidad un árbol de información y, aunque hay compatibilidad con tipos complejos en el índice, a veces puede interesarle transformar la información del árbol enriquecido en un tipo más simple (por ejemplo, una matriz de cadenas). Las asignaciones de campos de salida permiten realizar transformaciones en la forma de los datos mediante la reducción de información.
+En este artículo, aprenderá a asignar campos de entrada enriquecidos a campos de salida en un índice de búsqueda. Una vez que haya [definido un conjunto de aptitudes](cognitive-search-defining-skillset.md), debe asignar los campos de salida de cualquier aptitud que aporte directamente valores a un campo dado del índice de búsqueda.
+
+Las asignaciones de campos de salida son necesarias para mover contenido de documentos enriquecidos al índice.  El documento enriquecido es en realidad un árbol de información y, aunque hay compatibilidad con tipos complejos en el índice, a veces puede interesarle transformar la información del árbol enriquecido en un tipo más simple (por ejemplo, una matriz de cadenas). Las asignaciones de campos de salida permiten realizar transformaciones en la forma de los datos mediante la reducción de información. Las asignaciones de campos de salida siempre se producen después de la ejecución del conjunto de aptitudes, aunque es posible que esta fase se ejecute aunque no se haya definido ninguno.
+
+Ejemplos de asignaciones de campos de salida:
+
+* Como parte de su habilidades, ha extraído los nombres de las organizaciones mencionadas en cada una de las páginas del documento. Ahora desea asignar cada uno de los nombres de la organización a un campo en el índice de tipo Edm.Collection(Edm.String).
+
+* Como parte de su conjunto de aptitudes, generó un nuevo nodo denominado "document/translated_text". Le gustaría asignar la información de este nodo a un campo específico del índice.
+
+* No tiene un conjunto de aptitudes pero está indizando un tipo complejo desde una base de datos Cosmos DB. Quiere obtener acceso a un nodo de ese tipo complejo y asignarlo a un campo en el índice.
 
 > [!NOTE]
-> Recientemente se ha habilitado la funcionalidad de asignación de funciones en las asignaciones de campos de salida. Para obtener más información sobre las funciones de asignación, consulte [Funciones de asignación de campos](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#field-mapping-functions)
+> Recientemente se ha habilitado la funcionalidad de asignación de funciones en las asignaciones de campos de salida. Para obtener más información sobre las funciones de asignación, consulte [Funciones de asignación de campos](./search-indexer-field-mappings.md#field-mapping-functions)
 
 ## <a name="use-outputfieldmappings"></a>Usar outputFieldMappings
+
 Para asignar los campos, agregue `outputFieldMappings` a la definición del indexador tal como se muestra a continuación:
 
 ```http

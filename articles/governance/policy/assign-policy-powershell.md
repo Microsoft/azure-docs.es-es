@@ -1,14 +1,14 @@
 ---
 title: 'Inicio rápido: Asignación de directivas nuevas con PowerShell'
 description: En este inicio rápido, se usa Azure PowerShell para crear una asignación de Azure Policy para identificar recursos no compatibles.
-ms.date: 05/20/2020
+ms.date: 08/17/2020
 ms.topic: quickstart
-ms.openlocfilehash: 1fe1c7ee50c1e93f94d387440a22b011d392ffca
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: e941b74101308af703f243197fb4043f8f32d233
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684513"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548419"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Inicio rápido: Creación de una asignación de directiva para identificar recursos no compatibles mediante Azure PowerShell
 

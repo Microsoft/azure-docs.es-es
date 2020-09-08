@@ -5,17 +5,17 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
-ms.date: 03/27/2020
-ms.openlocfilehash: 725d1cf38a0c7f6de02addc62577e397a935af94
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 08/07/2020
+ms.openlocfilehash: 1c649499fd9eaedac0ca4ff9c182e13a9da223ef
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041054"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053157"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Errores de datos de Azure Stream Analytics
 
-Los errores de datos son errores que se producen al procesar los datos.  Estos errores suelen producirse durante la deserialización de datos, la serialización y las operaciones de escritura.  Cuando se producen errores de datos, Stream Analytics escribe información detallada y eventos de ejemplo en sus registros de recursos.  En algunos casos, también se proporciona un resumen de esta información a través de las notificaciones del portal.
+Los errores de datos son errores que se producen al procesar los datos.  Estos errores suelen producirse durante la deserialización de datos, la serialización y las operaciones de escritura.  Cuando se producen errores de datos, Stream Analytics escribe información detallada y eventos de ejemplo en sus registros de recursos. Habilite los registros de diagnóstico en su trabajo para obtener estos detalles adicionales. En algunos casos, también se proporciona un resumen de esta información mediante las notificaciones del portal.
 
 En este artículo se describen los diferentes tipos de errores, las causas y los detalles de registro de recursos de errores de datos de entrada y salida.
 
@@ -167,7 +167,7 @@ Para ver el esquema de los registros de recursos, consulte [Solución de problem
 
 * Causa: La diferencia entre el tiempo de aplicación y la hora de llegada es mayor que la ventana de tolerancia de llegada tardía.
 * Notificación del portal proporcionada: No
-* Nivel de registro de recursos: Information
+* Nivel de registro de recursos: Información
 * Impacto:  Los eventos de entrada con retardo se controlan según la opción "Controlar otros eventos" de la sección Ordenación de eventos de la configuración del trabajo. Para más información, consulte [Directivas de control de tiempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Detalles del registro
    * Tiempo de aplicación y hora de llegada. 
@@ -183,7 +183,7 @@ Para ver el esquema de los registros de recursos, consulte [Solución de problem
 
 * Causa: La diferencia entre el tiempo de aplicación y la hora de llegada es mayor que 5 minutos.
 * Notificación del portal proporcionada: No
-* Nivel de registro de recursos: Information
+* Nivel de registro de recursos: Información
 * Impacto:  Los eventos de entrada tempranos se controlan según la opción "Controlar otros eventos" de la sección Ordenación de eventos de la configuración del trabajo. Para más información, consulte [Directivas de control de tiempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Detalles del registro
    * Tiempo de aplicación y hora de llegada. 
@@ -199,7 +199,7 @@ Para ver el esquema de los registros de recursos, consulte [Solución de problem
 
 * Causa: Se considera que el evento está desorganizado según la ventana de tolerancia de desorganización definida.
 * Notificación del portal proporcionada: No
-* Nivel de registro de recursos: Information
+* Nivel de registro de recursos: Información
 * Impacto:  Los eventos de entrada fuera de secuencia se controlan según la opción "Controlar otros eventos" de la sección Ordenación de eventos de la configuración del trabajo. Para más información, consulte [Directivas de control de tiempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Detalles del registro
    * Carga útil real hasta algunos kilobytes.
@@ -291,4 +291,4 @@ Para ver el esquema de los registros de recursos, consulte [Solución de problem
 
 * [Solución de problemas de Azure Stream Analytics mediante registros de diagnóstico](stream-analytics-job-diagnostic-logs.md)
 
-* [Descripción de la supervisión de trabajos de Stream Analytics y cómo supervisar consultas](stream-analytics-monitoring.md)
+* [Descripción de la supervisión del trabajo de Stream Analytics y cómo supervisar consultas](stream-analytics-monitoring.md)

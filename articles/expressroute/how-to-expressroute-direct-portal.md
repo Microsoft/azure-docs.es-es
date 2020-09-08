@@ -2,22 +2,29 @@
 title: 'Azure ExpressRoute: Configuración de ExpressRoute Direct: portal'
 description: Esta página le ayuda a configurar ExpressRoute Direct mediante el portal.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 06/12/2020
-ms.author: cherylmc
-ms.openlocfilehash: f22f81d69d746764af43d9167874aabedbd56f51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/06/2020
+ms.author: duau
+ms.openlocfilehash: 09d3723224f9c678e41a6cbc86b5f8f9655173c8
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84765328"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401476"
 ---
 # <a name="create-expressroute-direct-using-the-azure-portal"></a>Creación de un recurso de ExpressRoute Direct mediante Azure Portal
 
 En este artículo se muestra cómo crear un recurso de ExpressRoute Direct mediante Azure Portal.
 ExpressRoute Direct le permite conectarse directamente a la red global de Microsoft en ubicaciones de emparejamiento distribuidas estratégicamente por todo el mundo. Para obtener más información, consulte [Acerca de ExpressRoute Direct](expressroute-erdirect-about.md).
+
+## <a name="before-you-begin"></a><a name="before"></a>Antes de empezar
+
+Compruebe que el proveedor de recursos **Microsoft.Network** está registrado en su suscripción. Al registrar un proveedor de recursos se configura la suscripción para que funcione con este.
+
+1. Acceda a la configuración de la suscripción como se describe en [Proveedores y tipos de recursos de Azure](../azure-resource-manager/management/resource-providers-and-types.md).
+1. En la suscripción, en **Proveedores de recursos**, compruebe que el proveedor **Microsoft.Network** muestra un estado **Registrado**. Si el proveedor de recursos Microsoft.Network no está en la lista de proveedores registrados, agréguelo.
 
 ## <a name="1-create-expressroute-direct"></a><a name="create-erdir"></a>1. Creación de un recurso de ExpressRoute Direct
 

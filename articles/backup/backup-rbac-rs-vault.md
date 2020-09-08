@@ -4,19 +4,19 @@ description: Utilice el control de acceso basado en roles para administrar el ac
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: 408e25b865c6d244118e505121492ccf22d19b64
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: c24d075dcb9ac36ce741db746d69aa9e61fac39d
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533468"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376135"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Uso del control de acceso basado en roles para administrar puntos de recuperación de Azure Backup
 
 El control de acceso basado en rol de Azure (Azure RBAC) permite realizar una administración detallada del acceso para Azure. También podrá repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo.
 
 > [!IMPORTANT]
-> Los roles proporcionados por Azure Backup están limitados a las acciones que se pueden realizar en Azure Portal o a través de la API de REST o los cmdlets de PowerShell o la CLI para el almacén de Recovery Services. Las acciones realizadas en la IU del cliente del agente de Azure Backup, en la IU de System Center Data Protection Manager o en la IU del Azure Backup Server están fuera del control de estos roles.
+> Los roles proporcionados por Azure Backup están limitados a las acciones que se pueden realizar en Azure Portal o a través de la API de REST o los cmdlets de PowerShell o la CLI para el almacén de Recovery Services. Las acciones realizadas en la interfaz de usuario del cliente del agente de Azure Backup, la interfaz de usuario de System Center Data Protection Manager o la interfaz de usuario de Azure Backup Server están fuera del control de estos roles.
 
 Azure Backup proporciona tres roles integrados para controlar las operaciones de administración de copia de seguridad. Más información sobre los [roles integrados de Azure](../role-based-access-control/built-in-roles.md)
 
@@ -56,7 +56,7 @@ En la tabla siguiente se capturan acciones de administración de Backup y el rol
 | Eliminar Windows Server, cliente o SCDPM local registrado o Azure Backup Server | Colaborador de copias de seguridad | Almacén de Recovery Services |
 
 > [!IMPORTANT]
-> Si especifica Colaborador de máquina virtual en un ámbito de recursos de máquina virtual y hace clic en Copia de seguridad como parte de la configuración de máquina virtual, se abrirá la pantalla "Habilitar copia de seguridad" aunque ya se haya realizado una copia de seguridad de la máquina virtual, ya que la llamada para comprobar el estado de la copia de seguridad solo funciona en el nivel de suscripción. Para evitar este problema, vaya al almacén y abra la vista de elementos de copia de seguridad de la máquina virtual o especifique un rol de colaborador de máquina virtual en un nivel de suscripción.
+> Si especifica el rol de colaborador de VM en un ámbito de recursos de VM y hace clic en **Copia de seguridad** como parte de la configuración de VM, se abrirá la pantalla **Habilitar copia de seguridad** aunque ya se haya realizado una copia de seguridad de la VM. Esto se debe a que la llamada para comprobar el estado de copia de seguridad solo funciona en el nivel de suscripción. Para evitarlo, vaya al almacén y abra la vista de elementos de copia de seguridad de la VM o especifique un rol de colaborador de VM en un nivel de suscripción.
 
 ## <a name="minimum-role-requirements-for-the-azure-file-share-backup"></a>Requisitos de rol mínimos para la copia de seguridad de recursos compartidos de archivos de Azure
 

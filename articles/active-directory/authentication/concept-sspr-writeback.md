@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f76073a1ed98dcc51cf7e14219beca914b5b77a4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3959fc7df78a5c1f255f7551a018eec6b7279eb1
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027604"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717445"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>¿Cómo funciona la escritura diferida del autoservicio de restablecimiento de contraseña en Azure Active Directory?
 
@@ -47,7 +47,7 @@ La escritura diferida de contraseñas ofrece las siguientes características:
 Para empezar a trabajar con la escritura diferida de SSPR, realice el siguiente tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Habilitación de la escritura diferida del autoservicio de restablecimiento de contraseña (SSPR)](tutorial-enable-writeback.md).
+> [Tutorial: Habilitación de la escritura diferida del autoservicio de restablecimiento de contraseña (SSPR)](./tutorial-enable-sspr-writeback.md).
 
 ## <a name="how-password-writeback-works"></a>Funcionamiento de la escritura diferida de contraseñas
 
@@ -140,7 +140,7 @@ Las contraseñas se escriben en diferido en todas las situaciones siguientes:
    * Cualquier operación obligatoria de autoservicio de cambio de contraseña del administrador (por ejemplo, la expiración de la contraseña).
    * Cualquier operación de autoservicio de restablecimiento de contraseña del administrador que se origina en el [portal de restablecimiento de contraseñas](https://passwordreset.microsoftonline.com).
    * Cualquier operación de restablecimiento de contraseña del usuario final iniciada por el administrador desde [Azure Portal](https://portal.azure.com).
-   * Cualquier operación de restablecimiento de contraseña del usuario final que inicie el administrador desde la [versión beta de Microsoft Graph API](https://docs.microsoft.com/graph/api/passwordauthenticationmethod-resetpassword?view=graph-rest-beta&tabs=http).
+   * Cualquier operación de restablecimiento de contraseña del usuario final que inicie el administrador desde la [versión beta de Microsoft Graph API](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http&view=graph-rest-beta).
 
 ## <a name="unsupported-writeback-operations"></a>Operaciones de reescritura no admitidas
 
@@ -149,7 +149,7 @@ Las contraseñas no se vuelven a escribir en ninguna de las situaciones siguient
 * **Operaciones de usuario final no admitidas**
    * Cualquier usuario final que restablezca su propia contraseña mediante PowerShell versión 1, versión 2 o Microsoft Graph API.
 * **Operaciones de administrador no admitidas**
-   * Cualquier operación de restablecimiento de contraseña del usuario final que inicie el administrador desde PowerShell versión 1, versión 2 o Microsoft Graph API (se admite la [versión beta de Microsoft Graph API](https://docs.microsoft.com/graph/api/passwordauthenticationmethod-resetpassword?view=graph-rest-beta&tabs=http)).
+   * Cualquier operación de restablecimiento de contraseña del usuario final que inicie el administrador desde PowerShell versión 1, versión 2 o Microsoft Graph API (se admite la [versión beta de Microsoft Graph API](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http&view=graph-rest-beta)).
    * Cualquier operación de restablecimiento de contraseña del usuario final que inicie el administrador desde el [Centro de administración de Microsoft 365](https://admin.microsoft.com).
    * Ningún administrador puede usar la herramienta de restablecimiento de contraseña para restablecer su propia contraseña para la escritura diferida de contraseñas.
 
@@ -161,4 +161,4 @@ Las contraseñas no se vuelven a escribir en ninguna de las situaciones siguient
 Para empezar a trabajar con la escritura diferida de SSPR, realice el siguiente tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Habilitación de la escritura diferida del autoservicio de restablecimiento de contraseña (SSPR)](tutorial-enable-writeback.md).
+> [Tutorial: Habilitación de la escritura diferida del autoservicio de restablecimiento de contraseña (SSPR)](./tutorial-enable-sspr-writeback.md).

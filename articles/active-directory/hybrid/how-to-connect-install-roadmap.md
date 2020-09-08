@@ -13,12 +13,12 @@ ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bee5ba92f6795df6635dc98a19cabaeb9692a470
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd3361657406f2ece6a48b74d3ca6ee3d9ed68ca
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358742"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277364"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Guía de instalación de Azure AD Connect y Azure AD Connect Health
 
@@ -49,14 +49,14 @@ Puede encontrar la descarga de Azure AD Connect en el [Centro de descarga de Mic
 |Después de la instalación | [Comprobación de la instalación y asignación de licencias ](how-to-connect-post-installation.md)|
 
 ### <a name="learn-more-about-install-azure-ad-connect"></a>Más información sobre la instalación de Azure AD Connect
-También quiere prepararse para los problemas [operativos](how-to-connect-sync-operations.md) . Puede que desee tener un servidor en espera que le permita conmutar por error fácilmente en caso de [desastre](how-to-connect-sync-staging-server.md#disaster-recovery). Si planea realizar cambios frecuentes en la configuración, debe preparar un servidor en [modo provisional](how-to-connect-sync-staging-server.md) .
+También quiere prepararse para los problemas [operativos](./how-to-connect-sync-staging-server.md) . Puede que desee tener un servidor en espera que le permita conmutar por error fácilmente en caso de [desastre](how-to-connect-sync-staging-server.md#disaster-recovery). Si planea realizar cambios frecuentes en la configuración, debe preparar un servidor en [modo provisional](how-to-connect-sync-staging-server.md) .
 
 |Tema |Vínculo|  
 | --- | --- |
 |Topologías admitidas | [Topologías de Azure AD Connect](plan-connect-topologies.md)|
 |Conceptos de diseño | [Conceptos de diseño de Azure AD Connect](plan-connect-design-concepts.md)|
 |Cuentas usadas para la instalación | [Más información sobre las credenciales y los permisos de Azure AD Connect](reference-connect-accounts-permissions.md)|
-|Planeación operativa | [Sincronización de Azure AD Connect: tareas y consideraciones operativas](how-to-connect-sync-operations.md)|
+|Planeación operativa | [Sincronización de Azure AD Connect: tareas y consideraciones operativas](./how-to-connect-sync-staging-server.md)|
 |Opciones de inicio de sesión de usuario | [Opciones para el inicio de sesión de los usuarios en Azure AD Connect](plan-connect-user-signin.md)|
 
 ## <a name="configure-sync-features"></a>Configuración de características de sincronización
@@ -66,7 +66,7 @@ Azure AD Connect incluye varias características que puede activar de manera opc
 
 [Sincronización de hash de contraseñas](how-to-connect-password-hash-synchronization.md) sincroniza el hash de contraseña de Active Directory con Azure AD. El usuario final puede usar la misma contraseña de forma local y en la nube, pero solo puede administrarla en una ubicación. Como se usa su Active Directory local como autoridad, también podrá usar su propia directiva de contraseñas.
 
-[escritura diferida de contraseñas](../authentication/quickstart-sspr.md) permite a los usuarios cambiar y restablecer sus contraseñas en la nube y aplicar su directiva local de contraseñas.
+[escritura diferida de contraseñas](../authentication/tutorial-enable-sspr.md) permite a los usuarios cambiar y restablecer sus contraseñas en la nube y aplicar su directiva local de contraseñas.
 
 [Escritura diferida de dispositivo](how-to-connect-device-writeback.md) permite que un dispositivo registrado en Azure AD se reescriba en Active Directory local para que se pueda usar para el acceso condicional.
 
@@ -80,7 +80,7 @@ La característica para [evitar eliminaciones accidentales](how-to-connect-sync-
 |Configuración del filtrado | [Sincronización de Azure AD Connect: configuración del filtrado](how-to-connect-sync-configure-filtering.md)|
 |Sincronización de hash de contraseña | [Sincronización de hash de contraseñas](how-to-connect-password-hash-synchronization.md)|
 |Autenticación de paso a través | [Autenticación de paso a través](how-to-connect-pta.md)
-|escritura diferida de contraseñas | [Introducción a la administración de contraseñas](../authentication/quickstart-sspr.md)|
+|escritura diferida de contraseñas | [Introducción a la administración de contraseñas](../authentication/tutorial-enable-sspr.md)|
 |Escritura diferida de dispositivos | [Habilitación de escritura diferida de dispositivos en Azure AD Connect](how-to-connect-device-writeback.md)|
 |evitar eliminaciones accidentales | [Sincronización de Azure AD Connect: evitar eliminaciones involuntarias](how-to-connect-sync-feature-prevent-accidental-deletes.md)|
 |Actualización automática | [Azure AD Connect: actualización automática](how-to-connect-install-automatic-upgrade.md)|

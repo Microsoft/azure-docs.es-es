@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 75b71fe9a15b05679ab1b71b13bb0b1f51b7d1d1
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: 819fc27d3b50245975192622ad969b53605c1acd
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816155"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378481"
 ---
 # <a name="install-and-run-read-containers-preview"></a>Instalación y ejecución de los contenedores de Read (versión preliminar)
 
@@ -24,7 +24,7 @@ Los contenedores le permiten ejecutar las API de Computer Vision en su propio en
 
 Un único contenedor Docker, *Read* está disponible para Computer Vision: El contenedor *Read* le permite detectar y extraer *texto impreso* de imágenes que muestren diversos objetos con diferentes superficies y fondos, como recibos, pósteres y tarjetas de visita. Además, el contenedor *Read* también detecta *texto manuscrito* en las imágenes y admite los formatos PDF, TIFF y multipágina. Para obtener más información, consulte la documentación de la API [Read](concept-recognizing-text.md#read-api).
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -68,14 +68,14 @@ Hay imágenes de contenedor para Leer disponibles.
 
 | Contenedor | Container Registry/Repositorio/Nombre de imagen |
 |-----------|------------|
-| Lectura | `containerpreview.azurecr.io/microsoft/cognitive-services-read:latest` |
+| Lectura | `containerpreview.azurecr.io/microsoft/cognitive-services-read:2.0` |
 
 Use el comando [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) para descargar una imagen de contenedor.
 
 ### <a name="docker-pull-for-the-read-container"></a>Docker pull para el contenedor Leer
 
 ```bash
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:2.0
 ```
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
@@ -283,7 +283,7 @@ En este artículo, ha aprendido los conceptos y el flujo de trabajo para la desc
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Revise [Configure containers](computer-vision-resource-container-config.md) (Configuración de contenedores) para ver las opciones de configuración.
-* Revise [Introducción a Computer Vision](Home.md) para obtener más información sobre el reconocimiento de texto escrito a mano e impreso.
+* Revise [Introducción a Computer Vision](overview.md) para obtener más información sobre el reconocimiento de texto escrito a mano e impreso.
 * Consulte [Computer Vision API](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) para obtener más información acerca de los métodos que admite el contenedor.
 * Consulte [Preguntas más frecuentes (P+F)](FAQ.md) para resolver problemas relacionados con la funcionalidad de Computer Vision.
 * Uso de [Contenedores de Cognitive Services](../cognitive-services-container-support.md)

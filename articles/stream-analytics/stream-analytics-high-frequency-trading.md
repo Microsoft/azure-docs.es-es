@@ -7,13 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/07/2018
-ms.custom: seodec18
-ms.openlocfilehash: 2196fe825570c371f4590868e994780b16a9c552
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: e5d346a6f412b5764400a42e2bebbafec610009b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040952"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89015431"
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Simulación de operación bursátil de alta frecuencia con Stream Analytics
 La combinación del lenguaje SQL, las funciones definidas por el usuario (UDF) de JavaScript y los agregados definidos por el usuario (UDA) en Azure Stream Analytics permite a los usuarios realizar análisis avanzados. Los análisis avanzados pueden incluir el entrenamiento y la puntuación en línea del aprendizaje automático, así como la simulación de procesos con estado. En este artículo se describe cómo realizar una regresión lineal en un trabajo de Azure Stream Analytics que realiza un entrenamiento y una puntuación continuos en un escenario de operaciones bursátiles de alta frecuencia.

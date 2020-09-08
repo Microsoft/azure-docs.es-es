@@ -3,12 +3,12 @@ title: Acerca del proceso de restauración de máquinas virtuales de Azure
 description: Obtenga información sobre cómo el servicio Azure Backup restaura máquinas virtuales de Azure
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: a604e146dbe387675e9ed82030639921cfc03167
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fb3f6bf729047dc6fe1c13c5ead1191188e30e5c
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067459"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761396"
 ---
 # <a name="about-azure-vm-restore"></a>Acerca de la restauración de máquinas virtuales de Azure
 
@@ -46,12 +46,6 @@ En este artículo se describe cómo el [servicio Azure Backup](./backup-overview
 | [Restauración de archivos específicos de la VM](./backup-azure-restore-files-from-vm.md) | Elija punto de restauración, navegue, seleccione archivos y restáurelos en el mismo sistema operativo (o compatible) que la VM de la que se realizó la copia de seguridad. |  Si sabe qué archivos específicos desea restaurar, use esta opción en lugar de restaurar toda la máquina virtual. |
 | [Restauración de una máquina virtual cifrada](./backup-azure-vms-encryption.md) | En el portal, restaure los discos y, después, use PowerShell para crear la máquina virtual | <li> [Máquina virtual cifrada con Azure Active Directory (AAD)](../virtual-machines/windows/disk-encryption-windows-aad.md)  <li> [Máquina virtual cifrada sin AAD](../virtual-machines/windows/disk-encryption-windows.md) <li> [Máquina virtual cifrada *con  AAD* migrado a *sin AAD*](../virtual-machines/windows/disk-encryption-faq.md#can-i-migrate-vms-that-were-encrypted-with-an-azure-ad-app-to-encryption-without-an-azure-ad-app) |
 | [Restauración entre regiones](./backup-azure-arm-restore-vms.md#cross-region-restore) | Creación de una máquina virtual o restauración de discos en una región secundaria (región emparejada de Azure) | <li> **Interrupción completa**:  Con la característica de restauración entre regiones, no hay tiempo de espera para recuperar los datos de la región secundaria. Puede iniciar restauraciones en la región secundaria incluso antes de que Azure declare una interrupción. <li> **Interrupción parcial**: Puede producirse un tiempo de inactividad en los clústeres de almacenamiento específicos en los que Azure Backup almacene los datos de copia de seguridad o incluso en la red, la conexión de Azure Backup y los clústeres de almacenamiento asociados a los datos de los que se hace copia de seguridad. Con la restauración entre regiones, puede realizar una restauración en la región secundaria mediante una réplica de datos de copia de seguridad en la región secundaria. <li> **Sin interrupción**: Puede realizar simulacros de continuidad empresarial y recuperación ante desastres (BCDR) para auditorías o conseguir el cumplimiento con los datos de la región secundaria. Esto le permite realizar una restauración de los datos de copia de seguridad en la región secundaria aunque no haya una interrupción completa o parcial en la región primaria para los simulacros de continuidad empresarial y recuperación ante desastres.  |
-
-------
-
-
-
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 2cb143e08e3901b1d0ab7181df68f06887069012
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2c5b6ef0792e418d873d84341a0fffc356c799e
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563264"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509287"
 ---
 # <a name="troubleshoot"></a>Solución de problemas
 
@@ -105,7 +105,7 @@ Si estos dos pasos no ayudan, debe averiguar si el cliente recibe fotogramas de 
 
 **El modelo supera los límites de la VM seleccionada, específicamente el número máximo de polígonos:**
 
-Consulte los [límites específicos del tamaño de la máquina virtual](../reference/limits.md#overall-number-of-polygons).
+Vea los [límites de tamaño de servidor](../reference/limits.md#overall-number-of-polygons) específicos.
 
 **El modelo no está dentro del tronco de la cámara:**
 
@@ -148,7 +148,7 @@ Azure Remote Rendering se enlaza a la canalización de representación de Unit
 
 ## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>El patrón de tablero de damas se representa después de cargar el modelo
 
-Si la imagen representada tiene el siguiente aspecto: ![Tablero de damas](../reference/media/checkerboard.png), el representador alcanza los [límites del polígono para el tamaño de máquina virtual estándar](../reference/vm-sizes.md). Para mitigarlo, cambie al tamaño de **máquina virtual premium** o reduzca el número de polígonos visibles.
+Si la imagen representada tiene el siguiente aspecto: ![Tablero de damas](../reference/media/checkerboard.png) A continuación, el representador alcanza los [límites del polígono para el tamaño de configuración estándar](../reference/vm-sizes.md). Para mitigarlo, cambie al tamaño de configuración **prémium** o reduzca el número de polígonos visibles.
 
 ## <a name="the-rendered-image-in-unity-is-upside-down"></a>La imagen representada en Unity está al revés
 

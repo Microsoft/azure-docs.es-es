@@ -1,6 +1,6 @@
 ---
 title: Directivas de almacenamiento en caché de Azure API Management | Microsoft Docs
-description: Aprenda sobre las directivas de almacenamiento en caché disponibles para su uso en Azure API Management.
+description: Aprenda sobre las directivas de almacenamiento en caché disponibles para su uso en Azure API Management. Consulte ejemplos y examine los recursos adicionales disponibles.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: e58cd8f19ab98601d37df185656038dbd5679eb2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: f0aeef7bc67f5c59bb80d5ff24a97be737447a81
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255054"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510188"
 ---
 # <a name="api-management-caching-policies"></a>Directivas de almacenamiento en caché de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -114,8 +114,8 @@ Para obtener más información, consulte [Policy expressions](api-management-pol
 | caching-type               | Elija entre los siguientes valores del atributo:<br />- `internal` para usar la caché de API Management integrada,<br />- `external` para usar la caché externa tal como se describe en [Uso de una memoria caché de Redis externa en Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` para usar la caché externa si está configurada o, en caso contrario, la caché interna. | No       | `prefer-external` |
 | downstream-caching-type        | Este atributo debe establecerse en uno de los siguientes valores.<br /><br /> -   none: no se permite el almacenamiento en caché de bajada.<br />-   private: se permite el almacenamiento en caché de bajada privado.<br />-   public: se permite el almacenamiento en caché de bajada privado y compartido.                                                                                                          | No       | None              |
 | must-revalidate                | Cuando el almacenamiento en caché de bajada está habilitado, este atributo activa o desactiva la directiva de control de caché `must-revalidate` en las respuestas de puerta de enlace.                                                                                                                                                                                                                      | No       | true              |
-| vary-by-developer              | Se establece en `true` para almacenar en caché las respuestas por [clave de suscripción](./api-management-subscriptions.md).                                                                                                                                                                                                                                                                                                         | Sí      |         False          |
-| vary-by-developer-groups       | Se establece en `true` para almacenar en caché las respuestas por [grupo de usuarios](./api-management-howto-create-groups.md).                                                                                                                                                                                                                                                                                                             | Sí      |       False            |
+| vary-by-developer              | Establezca el valor en `true` para almacenar en caché las respuestas por cada cuenta de desarrollador que disponga de [clave de suscripción](./api-management-subscriptions.md) incluida en la solicitud.                                                                                                                                                                                                                                                                                                  | Sí      |         Falso          |
+| vary-by-developer-groups       | Se establece en `true` para almacenar en caché las respuestas por [grupo de usuarios](./api-management-howto-create-groups.md).                                                                                                                                                                                                                                                                                                             | Sí      |       Falso            |
 
 ### <a name="usage"></a>Uso
 Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.

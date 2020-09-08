@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: a9a5fe2eed0c0e6cf990183d321a71a7fabfbbee
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 9d8801037be55a262268afcd6e8f5751d158c76e
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118632"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548521"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Tutorial: Moderación de comandos y publicaciones de Facebook con Azure Content Moderator
 
@@ -28,7 +28,7 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 > * Crear funciones de Azure que escuchen los eventos HTTP de Content Moderator y Facebook.
 > * Vincule una página de Facebook a Content Moderator mediante una aplicación de Facebook.
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.
 
 En este diagrama se ilustra cada componente de este escenario:
 

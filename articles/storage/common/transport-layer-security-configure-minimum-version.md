@@ -10,12 +10,12 @@ ms.date: 07/29/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: e7bb996b3d42e2db2b4fa65d050ec1cb6a935bc6
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 2439bec08c16ce109b271844dc72b8fd2569aa07
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533383"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755915"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Aplicación de una versión mínima necesaria de Seguridad de la capa de transporte (TLS) para las solicitudes a una cuenta de almacenamiento
 
@@ -338,6 +338,10 @@ Después de crear la directiva con el efecto de denegación y asignarla a un ám
 En la siguiente imagen se muestra el error que se produce si se intenta crear una cuenta de almacenamiento con una versión mínima de TLS establecida en TLS 1.0 (la versión predeterminada para una nueva cuenta) cuando una directiva con un efecto de denegación requiere que la versión mínima de TLS se establezca en TLS 1.2.
 
 :::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="Captura de pantalla que muestra el error que se produce al crear una cuenta de almacenamiento que infringe la directiva":::
+
+## <a name="network-considerations"></a>Consideraciones sobre la red
+
+Cuando un cliente envía una solicitud a una cuenta de almacenamiento, debe establecer primero una conexión con el punto de conexión público de la cuenta de almacenamiento, antes de procesar las solicitudes. Una vez establecida la conexión, se comprueba la configuración de la versión de TLS mínima. Si la solicitud usa una versión de TLS anterior que la especificada en la configuración, la conexión continuará correctamente, pero la solicitud producirá un error después. Para obtener más información acerca de los puntos de conexión públicos para Azure Storage, consulte [Sintaxis del URI de recurso](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#resource-uri-syntax).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

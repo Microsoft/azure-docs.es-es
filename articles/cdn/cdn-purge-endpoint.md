@@ -1,6 +1,6 @@
 ---
 title: Purga de un punto de conexión de Azure CDN | Microsoft Docs
-description: Aprenda a purgar todo el contenido almacenado en caché en un punto de conexión de Azure CDN.
+description: Obtenga información sobre cómo purgar todo el contenido almacenado en caché desde un punto de conexión de Azure Content Delivery Network. Los nodos perimetrales almacenan en caché los recursos hasta que expire su período de vida.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: allensu
-ms.openlocfilehash: 1946da6a18956b420684f4c2ffe86f35d0084eaf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc09c35ba5499c6e911ebd7dd23482ef30f931da
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887292"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192535"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Purgar un punto de conexión de Azure CDN
 ## <a name="overview"></a>Información general

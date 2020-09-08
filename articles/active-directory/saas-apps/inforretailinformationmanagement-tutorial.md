@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Infor Retail – Information Management | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory e Infor Retail – Information Management.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 5ff49168-ef81-4169-8e5e-dc86e24dd5e5
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91c48772ae50fd34e822c947687c0366e1d179cc
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 8724bb332e48bb9e458550b312fb9c1d41da2477
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85798790"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550578"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-retail--information-management"></a>Tutorial: Integración de Azure Active Directory con Infor Retail – Information Management
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
-ms.openlocfilehash: 1081865a2e138af38ba171197719f08dedf6ffdb
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 07a8c26f7fc314680c51270ebafe03d4e3a84757
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81408931"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749862"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Identidades administradas en Azure HDInsight
 
@@ -25,7 +25,9 @@ Hay dos tipos de identidades administradas: asignadas por el sistema y asignadas
 
 ## <a name="hdinsight-managed-identity-implementation"></a>Implementación de la identidad administrada de HDInsight
 
-En Azure HDInsight, las identidades administradas se aprovisionan en cada nodo del clúster. Estos componentes de identidad, sin embargo, solo son utilizables por el servicio HDInsight. Actualmente, no hay ningún método admitido para generar tokens de acceso con las identidades administradas instaladas en los nodos de clúster de HDInsight. En algunos servicios de Azure, las identidades administradas se implementan con un punto de conexión que puede usar para adquirir tokens de acceso. Use los tokens para interactuar con otros servicios de Azure por su cuenta.
+En Azure HDInsight, las identidades administradas solo se pueden usar en el servicio HDInsight para los componentes internos. Actualmente, no hay ningún método admitido para generar tokens de acceso con las identidades administradas instaladas en los nodos de clúster de HDInsight para acceder a los servicios externos. En algunos servicios de Azure, como máquinas virtuales de proceso, las identidades administradas se implementan con un punto de conexión que puede usar para adquirir tokens de acceso. Actualmente, este punto de conexión no está disponible en los nodos de HDInsight.
+
+Si necesita arrancar las aplicaciones para evitar colocar secretos y contraseñas en los trabajos de análisis (por ejemplo, trabajos de SCALA), puede distribuir sus propios certificados a los nodos de clúster mediante acciones de script y, a continuación, usar ese certificado para adquirir un token de acceso (por ejemplo, para acceder a Azure KeyVault).
 
 ## <a name="create-a-managed-identity"></a>Creación de una entidad administrada
 

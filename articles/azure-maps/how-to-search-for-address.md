@@ -1,6 +1,6 @@
 ---
 title: Búsqueda de ubicaciones con los servicios Search de Azure Maps
-description: En este artículo, aprenderá a buscar una ubicación mediante las API de búsqueda de Microsoft Azure Maps para la geocodificación, la geocodificación inversa, la búsqueda aproximada y la búsqueda inversa de calles transversales.
+description: Obtenga información sobre el servicio Search de Azure Maps. Vea cómo usar este conjunto de API para la geocodificación, la geocodificación inversa, las búsquedas parciales y las búsquedas de calles transversales.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/21/2020
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 51ee2bb66adedc310f65b2d3b430023ae7767df6
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 48dd0168f878a16e2eabe47151d0b09993d9f5f9
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126652"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037786"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Búsqueda de ubicaciones con los servicios Search de Azure Maps
 

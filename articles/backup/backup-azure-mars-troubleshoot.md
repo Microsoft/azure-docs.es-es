@@ -3,12 +3,12 @@ title: Solución de problemas del agente de Azure Backup
 description: En este artículo se explica cómo solucionar problemas de instalación y registro del agente de Azure Backup.
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: 1afe437239ec7015bf3bbc195cf0b90e75698142
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 64996737a18add8ca1bee25e32929f1d602f9018
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87564119"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763514"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Solución de problemas del agente de Microsoft Azure Recovery Services (MARS)
 
@@ -238,7 +238,7 @@ Se podrían producir errores en las operaciones de copia de seguridad si no hay 
 
 - Compruebe el espacio de almacenamiento de instantáneas actual desde el símbolo del sistema con privilegios elevados:<br/>
   `vssadmin List ShadowStorage /For=[Volume letter]:`
-- Aumente el espacio de almacenamiento de instantáneas con el siguiente comando:<br/>
+- Aumente el espacio de almacenamiento de instantáneas mediante el siguiente comando:<br/>
   `vssadmin Resize ShadowStorage /On=[Volume letter]: /For=[Volume letter]: /Maxsize=[size]`
 
 ### <a name="another-process-or-antivirus-software-blocking-access-to-cache-folder"></a>Otro proceso o software antivirus bloquea el acceso a la carpeta de caché
@@ -258,25 +258,25 @@ En esta sección se tratan los errores que se suelen producir al usar el agente 
 
 Mensaje de error | Acción recomendada
 --|--
-El agente de Microsoft Azure Recovery Services no pudo acceder a la suma de comprobación de la copia de seguridad almacenada en la ubicación temporal | Para resolver este problema, realice los pasos siguientes y reinicie el servidor. <br/> - [Compruebe si hay un antivirus u otros procesos que bloqueen los archivos de ubicación temporal.](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Compruebe si la ubicación temporal es válida y accesible para el agente de MARS.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
+El agente de Microsoft Azure Recovery Services no pudo acceder a la suma de comprobación de la copia de seguridad almacenada en la ubicación temporal | Para resolver este problema, siga estos pasos y reinicie el servidor: <br/> - [Compruebe si hay un antivirus u otros procesos que bloqueen los archivos de ubicación temporal.](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Compruebe si la ubicación temporal es válida y accesible para el agente de MARS.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### <a name="salvhdinitializationerror"></a>SalVhdInitializationError
 
 Mensaje de error | Acción recomendada
 --|--
-El agente de Microsoft Azure Recovery Services no pudo acceder a la ubicación temporal para inicializar el VHD | Para resolver este problema, realice los pasos siguientes y reinicie el servidor. <br/> - [Compruebe si hay un antivirus u otros procesos que bloqueen los archivos de ubicación temporal.](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Compruebe si la ubicación temporal es válida y accesible para el agente de MARS.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
+El agente de Microsoft Azure Recovery Services no pudo acceder a la ubicación temporal para inicializar el VHD | Para resolver este problema, siga estos pasos y reinicie el servidor: <br/> - [Compruebe si hay un antivirus u otros procesos que bloqueen los archivos de ubicación temporal.](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Compruebe si la ubicación temporal es válida y accesible para el agente de MARS.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### <a name="sallowdiskspace"></a>SalLowDiskSpace
 
 Mensaje de error | Acción recomendada
 --|--
-No se pudo realizar la copia de seguridad debido a almacenamiento insuficiente en el volumen donde se encuentra la carpeta temporal | Para resolver este problema, compruebe lo siguiente y vuelva a intentar la operación:<br/>- [Asegúrese de que el agente de MARS es el más reciente.](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [Compruebe y resuelva los problemas de almacenamiento que afecten al espacio de almacenamiento temporal de las copias de seguridad.](#prerequisites)
+No se pudo realizar la copia de seguridad debido a almacenamiento insuficiente en el volumen donde se encuentra la carpeta temporal | Para resolver este problema, haga las siguientes comprobaciones y vuelva a intentar la operación:<br/>- [Asegúrese de que el agente de MARS es el más reciente.](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [Compruebe y resuelva los problemas de almacenamiento que afecten al espacio de almacenamiento temporal de las copias de seguridad.](#prerequisites)
 
 ### <a name="salbitmaperror"></a>SalBitmapError
 
 Mensaje de error | Acción recomendada
 --|--
-No se puede buscar cambios en un archivo. Esto podría deberse a diversos motivos. Vuelva a intentar la operación y, | Para resolver este problema, compruebe lo siguiente y vuelva a intentar la operación:<br/> - [Asegúrese de que el agente de MARS es el más reciente.](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Compruebe y resuelva los problemas de almacenamiento que afecten al espacio de almacenamiento temporal de las copias de seguridad.](#prerequisites)
+No se puede buscar cambios en un archivo. Esto podría deberse a diversos motivos. Vuelva a intentar la operación y, | Para resolver este problema, haga las siguientes comprobaciones y vuelva a intentar la operación:<br/> - [Asegúrese de que el agente de MARS es el más reciente.](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Compruebe y resuelva los problemas de almacenamiento que afecten al espacio de almacenamiento temporal de las copias de seguridad.](#prerequisites)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,6 +1,6 @@
 ---
 title: Introducción a Microsoft Azure StorSimple Data Manager | Microsoft Docs
-description: Ofrece información general sobre el servicio StorSimple Data Manager.
+description: Obtenga información sobre la solución StorSimple Data Manager y cómo puede usar este servicio para escribir aplicaciones que usan datos de StorSimple y otros servicios de Azure.
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: alkohli
-ms.openlocfilehash: 2ffe17bf7ef4f01c18d2c26f4a045add7302272d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d683f49cadb384ef59d3bae819156733691813cd
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67876100"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183503"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Introducción a la solución StorSimple Data Manager
 

@@ -1,6 +1,6 @@
 ---
 title: Configuración de redes virtuales y firewalls de Azure Storage | Microsoft Docs
-description: Configure la seguridad de red por niveles para la cuenta de almacenamiento.
+description: Configure la seguridad de red por capas para la cuenta de almacenamiento mediante los firewalls de Azure Storage y Azure Virtual Network.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,12 +9,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: a6f59fff351ecdae82ef7175d54e3b2ab1b7d30b
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 3ec4e6ee49052657210fffa8976b661c1a9e5948
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534114"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827467"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configuración de redes virtuales y firewalls de Azure Storage
 
@@ -396,7 +396,7 @@ El valor **Permitir servicios de Microsoft de confianza...** también permite qu
 | Azure IoT Hub                  | Microsoft.Devices/IotHubs              | Permite que los datos de un centro de IoT se escriban en almacenamiento de blobs. [Más información](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
 | Azure Logic Apps               | Microsoft.Logic/workflows              | Permite a las aplicaciones lógicas acceder a las cuentas de almacenamiento. [Más información](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity). |
 | Servicio Azure Machine Learning | Microsoft.MachineLearningServices      | Las áreas de trabajo autorizadas de Azure Machine Learning escriben los resultados del experimento, los modelos y los registros en Blob Storage y leen los datos. [Más información](/azure/machine-learning/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
-| Azure SQL Data Warehouse       | Microsoft.Sql                          | Permite importar y exportar los datos de instancias de SQL Database específicas mediante PolyBase. [Más información](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
+| Azure Synapse Analytics (anteriormente SQL Data Warehouse)       | Microsoft.Sql                          | Permite importar y exportar los datos de instancias de SQL Database específicas mediante la instrucción COPY o con PolyBase. [Más información](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
 | Azure SQL Database       | Microsoft.Sql                          | Permite [importar](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage) de datos de cuentas de almacenamiento y [escribir datos de auditoría de](https://docs.microsoft.com/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall) en cuentas de almacenamiento detrás del firewall. |
 | Azure Stream Analytics         | Microsoft.StreamAnalytics             | Permite que los datos de un trabajo de streaming se escriban en Blob Storage. Esta funcionalidad actualmente está en su versión preliminar. [Más información](/azure/stream-analytics/blob-output-managed-identity). |
 | Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Permite el acceso a los datos de Azure Storage desde Synapse Analytics. |

@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/29/2020
+ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 29dc03d663d590c13a1948411ed597388750c1d7
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 1cd2b7550d47ecc92f8ca7f5531fab923e13930c
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87427995"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853357"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedimientos: Personalizar las notificaciones emitidas en tokens para una determinada aplicación de un inquilino (versión preliminar)
 
@@ -143,7 +143,6 @@ Hay ciertos conjuntos de notificaciones que definen cómo y cuándo se usan en l
 | onprem_sid |
 | openid2_id |
 | password |
-| platf |
 | polids |
 | pop_jwk |
 | preferred_username |
@@ -248,11 +247,11 @@ Para controlar qué reclamaciones se emiten y de dónde provienen los datos, uti
 
 **Resumen:** Esta propiedad determina si el conjunto de notificaciones principales se incluye en los tokens afectados por esta directiva.
 
-- Si se establece en True, todas las notificaciones del conjunto de notificaciones básicas se emiten en los tokens afectados por esta directiva. 
+- Si se establece en True, todas las notificaciones del conjunto de notificaciones básicas se emiten en los tokens afectados por esta directiva.
 - Si se establece en False, las notificaciones del conjunto de notificaciones básicas no se incluyen en los tokens a menos que se agreguen individualmente a la propiedad de esquema de notificaciones de la misma directiva.
 
-> [!NOTE] 
-> Las notificaciones del conjunto de notificaciones principales están presentes en todos los tokens, independientemente del valor en que se establezca esta propiedad. 
+> [!NOTE]
+> Las notificaciones del conjunto de notificaciones principales están presentes en todos los tokens, independientemente del valor en que se establezca esta propiedad.
 
 ### <a name="claims-schema"></a>Esquema de notificaciones
 
@@ -261,18 +260,20 @@ Para controlar qué reclamaciones se emiten y de dónde provienen los datos, uti
 **Tipo de datos:** blob de JSON con una o varias entradas de esquema de notificación
 
 **Resumen:** en esta propiedad se definen las notificaciones que están presentes en los tokens afectados por la directiva, además del conjunto de notificaciones básicas y el conjunto de notificaciones principales.
-Para cada entrada de esquema de notificación definida en esta propiedad, se requiere cierta información. Especifique de dónde provienen los datos (**valor** o **par origen/identificador**) y qué notificación se usa para emitir los datos (**tipo de notificación**).
+Para cada entrada de esquema de notificación definida en esta propiedad, se requiere cierta información. Especifique de dónde provienen los datos (**valor**, **par origen/identificador** o **par origen/identificador de extensión**) y qué notificación se usa para emitir los datos (**tipo de notificación**).
 
 ### <a name="claim-schema-entry-elements"></a>Elementos de entrada de esquema de notificación
 
 **Valor:** el elemento Valor define un valor estático para los datos que se emiten en la notificación.
 
-**Par origen/Id.:** los elementos Origen e Id. definen en dónde se originan los datos de la notificación. 
+**Par origen/Id.:** los elementos Origen e Id. definen en dónde se originan los datos de la notificación.
 
-Establezca el elemento Source (Origen) en uno de los valores siguientes: 
+**Par origen/identificador de extensión:** los elementos Source y ExtensionID definen el atributo de extensión de esquema de directorio que son el origen de los datos de la notificación. Para más información, consulte [Uso de atributos de extensión de esquema de directorio en notificaciones](active-directory-schema-extensions.md).
 
-- "user": los datos de la notificación son una propiedad del objeto User. 
-- "application": los datos de la notificación son una propiedad en la entidad de servicio de la aplicación (cliente). 
+Establezca el elemento Source (Origen) en uno de los valores siguientes:
+
+- "user": los datos de la notificación son una propiedad del objeto User.
+- "application": los datos de la notificación son una propiedad en la entidad de servicio de la aplicación (cliente).
 - "resource": los datos de la notificación son una propiedad en la entidad de servicio del recurso.
 - "audience": los datos de la notificación son una propiedad en la entidad de servicio que es la audiencia del token (la entidad de servicio de recurso o cliente).
 - "company": los datos de la notificación son una propiedad en el objeto Company del inquilino del recurso.
@@ -327,7 +328,7 @@ El elemento ID identifica la propiedad en el origen que proporciona el valor de 
 | Usuario | facsimiletelephonenumber | Número de teléfono de fax |
 | Usuario | assignedroles | Lista de roles de aplicación asignados al usuario|
 | application, resource, audience | displayname | Display Name (Nombre para mostrar) |
-| application, resource, audience | objected | ObjectID |
+| application, resource, audience | objectid | ObjectID |
 | application, resource, audience | etiquetas | Etiqueta de entidad de servicio |
 | Compañía | tenantcountry | País o región del inquilino |
 
@@ -347,7 +348,7 @@ El elemento ID identifica la propiedad en el origen que proporciona el valor de 
 
 **Cadena:** ClaimsTransformation
 
-**Tipo de datos:** blob de JSON, con una o varias entradas de transformación 
+**Tipo de datos:** blob de JSON, con una o varias entradas de transformación
 
 **Resumen:** use esta propiedad para aplicar transformaciones comunes a datos de origen para generar los datos de salida de las notificaciones especificadas en el esquema de notificaciones.
 
@@ -366,7 +367,7 @@ En función del método elegido, se espera un conjunto de entradas y salidas. De
 
 **InputClaims:** use un elemento InputClaims para pasar los datos de una entrada de esquema de notificación a una transformación. Tiene dos atributos: **ClaimTypeReferenceId** y **TransformationClaimType**.
 
-- **ClaimTypeReferenceId** se combina con el elemento ID de la entrada de esquema de notificación para buscar la notificación de entrada adecuada. 
+- **ClaimTypeReferenceId** se combina con el elemento ID de la entrada de esquema de notificación para buscar la notificación de entrada adecuada.
 - **TransformationClaimType** se usa para asignar un nombre único a esta entrada. Este nombre debe coincidir con una de las entradas esperadas para el método de transformación.
 
 **InputParameters:** use un elemento InputParameters para pasar un valor constante a una transformación. Tiene dos atributos: **Valor** e **ID**.
@@ -416,9 +417,9 @@ En función del método elegido, se espera un conjunto de entradas y salidas. De
 
 ### <a name="custom-signing-key"></a>Clave de firma de personalizada
 
-Debe asignarse una clave de firma personalizada al objeto de entidad de servicio para que una directiva de asignación de notificaciones surta efecto. Esto garantiza que el creador de la directiva de asignación de notificaciones es el que ha modificado los tokens y protege a las aplicaciones frente a directivas de asignación de notificaciones creadas por actores malintencionados. Para agregar una clave de firma personalizada, puede usar el cmdlet `new-azureadapplicationkeycredential` de Azure PowerShell para crear una credencial de clave simétrica para el objeto de aplicación. Para obtener más información sobre este cmdlet de Azure PowerShell, consulte [New-AzureADApplicationKeyCredential](https://docs.microsoft.com/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
+Debe asignarse una clave de firma personalizada al objeto de entidad de servicio para que una directiva de asignación de notificaciones surta efecto. Esto garantiza que el creador de la directiva de asignación de notificaciones es el que ha modificado los tokens y protege a las aplicaciones frente a directivas de asignación de notificaciones creadas por actores malintencionados. Para agregar una clave de firma personalizada, puede usar el cmdlet `new-azureadapplicationkeycredential` de Azure PowerShell para crear una credencial de clave simétrica para el objeto de aplicación. Para obtener más información sobre este cmdlet de Azure PowerShell, consulte [New-AzureADApplicationKeyCredential](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
 
-Las aplicaciones que tienen habilitada la asignación de notificaciones deben validar sus claves de firma de tokens mediante la anexión de `appid={client_id}` a las [solicitudes de metadatos de OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). A continuación se muestra el formato del documento de metadatos de OpenID Connect que se debe usar: 
+Las aplicaciones que tienen habilitada la asignación de notificaciones deben validar sus claves de firma de tokens mediante la anexión de `appid={client_id}` a las [solicitudes de metadatos de OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). A continuación se muestra el formato del documento de metadatos de OpenID Connect que se debe usar:
 
 ```
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}
@@ -462,20 +463,20 @@ Para comenzar, realice uno de los pasos siguientes:
 En este ejemplo se crea una directiva que quita el conjunto de notificaciones básicas de los tokens emitidos para entidades de servicio vinculadas.
 
 1. Cree una directiva de asignación de notificaciones. Esta directiva, que se vincula a entidades de servicio concretas, quita el conjunto de notificaciones básicas de los tokens.
-   1. Ejecute este comando para crear la directiva: 
-    
+   1. Ejecute este comando para crear la directiva:
+
       ``` powershell
       New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"false"}}') -DisplayName "OmitBasicClaims" -Type "ClaimsMappingPolicy"
       ```
    2. Para ver la nueva directiva y obtener su ObjectID, ejecute el siguiente comando:
-    
+
       ``` powershell
       Get-AzureADPolicy
       ```
 1. Asigne la directiva a su entidad de servicio. También necesita obtener el valor de ObjectId de su entidad de servicio.
    1. Para ver todas las entidades de servicio de su organización, puede [consultar la Microsoft Graph API](/graph/traverse-the-graph). O bien, inicie sesión en su cuenta de Azure AD en el [Explorador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer).
-   2. Cuando tenga el valor de ObjectId de la entidad de servicio, ejecute el siguiente comando:  
-     
+   2. Cuando tenga el valor de ObjectId de la entidad de servicio, ejecute el siguiente comando:
+
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
@@ -485,21 +486,21 @@ En este ejemplo se crea una directiva que quita el conjunto de notificaciones b�
 En este ejemplo se crea una directiva que agrega EmployeeID y TenantCountry a los tokens emitidos para entidades de servicio vinculadas. EmployeeID se emite como tipo de notificación de nombre en los tokens SAML y JWT. TenantCountry se emite como tipo de notificación de país o región en los tokens SAML y JWT. En este ejemplo se sigue incluyendo el conjunto de notificaciones básicas en los tokens.
 
 1. Cree una directiva de asignación de notificaciones. Esta directiva, que se vincula a entidades de servicio concretas, agrega las notificaciones EmployeeID y TenantCountry a los tokens.
-   1. Ejecute el siguiente comando para crear la directiva:  
-     
+   1. Ejecute el siguiente comando para crear la directiva:
+
       ``` powershell
       New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/employeeid","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
       ```
-    
+
    2. Para ver la nueva directiva y obtener su ObjectID, ejecute el siguiente comando:
-     
-      ``` powershell  
+
+      ``` powershell
       Get-AzureADPolicy
       ```
-1. Asigne la directiva a su entidad de servicio. También necesita obtener el valor de ObjectId de su entidad de servicio. 
+1. Asigne la directiva a su entidad de servicio. También necesita obtener el valor de ObjectId de su entidad de servicio.
    1. Para ver todas las entidades de servicio de su organización, puede [consultar la Microsoft Graph API](/graph/traverse-the-graph). O bien, inicie sesión en su cuenta de Azure AD en el [Explorador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer).
-   2. Cuando tenga el valor de ObjectId de la entidad de servicio, ejecute el siguiente comando:  
-     
+   2. Cuando tenga el valor de ObjectId de la entidad de servicio, ejecute el siguiente comando:
+
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
@@ -510,20 +511,20 @@ En este ejemplo se crea una directiva que emite una notificación "JoinedData" p
 
 1. Cree una directiva de asignación de notificaciones. Esta directiva, que se vincula a entidades de servicio concretas, agrega las notificaciones EmployeeID y TenantCountry a los tokens.
    1. Ejecute el siguiente comando para crear la directiva:
-     
+
       ``` powershell
       New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy"
       ```
-    
-   2. Para ver la nueva directiva y obtener su ObjectID, ejecute el siguiente comando: 
-     
+
+   2. Para ver la nueva directiva y obtener su ObjectID, ejecute el siguiente comando:
+
       ``` powershell
       Get-AzureADPolicy
       ```
-1. Asigne la directiva a su entidad de servicio. También necesita obtener el valor de ObjectId de su entidad de servicio. 
+1. Asigne la directiva a su entidad de servicio. También necesita obtener el valor de ObjectId de su entidad de servicio.
    1. Para ver todas las entidades de servicio de su organización, puede [consultar la Microsoft Graph API](/graph/traverse-the-graph). O bien, inicie sesión en su cuenta de Azure AD en el [Explorador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer).
-   2. Cuando tenga el valor de ObjectId de la entidad de servicio, ejecute el siguiente comando: 
-     
+   2. Cuando tenga el valor de ObjectId de la entidad de servicio, ejecute el siguiente comando:
+
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```

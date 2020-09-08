@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 9/24/2019
 ms.author: rohink
-ms.openlocfilehash: 9d1854b459e799d5cbb401de9ac717dd7d0fde1d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9da94f80f9a9c1b3cba7b8e3ac4fef7e717918c9
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71963716"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042758"
 ---
 # <a name="what-is-the-autoregistration-feature-of-azure-dns-private-zones"></a>Qué es la característica de registro automático de zonas privadas de Azure DNS
 
@@ -29,6 +29,7 @@ Puede habilitar el registro automático si selecciona la opción "Habilitar el r
 
 * El registro automático solo funciona para las máquinas virtuales. En el caso de todos los demás recursos, como los equilibradores de carga internos, etc., puede crear registros DNS manualmente en la zona DNS privada vinculada a la red virtual.
 * Los registros DNS se crean automáticamente solo para la NIC de la máquina virtual principal. Si las máquinas virtuales tienen más de una NIC, puede crear manualmente los registros DNS para las demás interfaces de red.
+* Los registros DNS se crean automáticamente solo si la NIC de la máquina virtual principal usa DHCP. Si se configuran direcciones IP estáticas (por ejemplo, para usar [varias direcciones IP en Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-multiple-ip-addresses-portal#os-config)), el registro automático no crea registros para esa máquina virtual.
 * No se admite el registro automático para IPv6 (registros AAAA).
 
 ## <a name="next-steps"></a>Pasos siguientes

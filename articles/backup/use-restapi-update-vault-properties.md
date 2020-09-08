@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a actualizar la configuración del al
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: 1f0fee505443b15ba2ea97710efc220ef05df738
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3ee2d57b5589daa756020ebb787a5400ed244506
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513122"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890049"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Actualización de la configuración del almacén de Azure Recovery Services mediante la API REST
 
@@ -17,7 +17,7 @@ En este artículo se describe cómo actualizar las configuraciones relacionadas 
 
 ## <a name="soft-delete-state"></a>Estado de eliminación temporal
 
-La eliminación de las copias de seguridad de un elemento protegido es una operación importante que debe supervisarse. Para protegerse contra eliminaciones accidentales, el almacén de Azure Recovery Services tiene una funcionalidad de eliminación temporal. Esta funcionalidad permite a los clientes restaurar las copias de seguridad eliminadas, de ser necesario, dentro de un período de tiempo posterior a la eliminación.
+La eliminación de las copias de seguridad de un elemento protegido es una operación importante que debe supervisarse. Para protegerse contra eliminaciones accidentales, el almacén de Azure Recovery Services tiene una funcionalidad de eliminación temporal. Esta funcionalidad le permite restaurar las copias de seguridad eliminadas, de ser necesario, dentro de un período de tiempo posterior a la eliminación.
 
 Sin embargo, hay escenarios en los que esta funcionalidad no es necesaria. No es posible eliminar un almacén de Azure Recovery Services si contiene elementos de copia de seguridad, incluso si tienen el estado de eliminación temporal. Esto puede suponer un problema si el almacén debe eliminarse inmediatamente. Por ejemplo: las operaciones de implementación a menudo limpian los recursos creados en el mismo flujo de trabajo. Una implementación puede crear un almacén, configurar copias de seguridad para un elemento, realizar una restauración de prueba y, a continuación, eliminar los elementos de copia de seguridad y el almacén. Si se produce un error en la eliminación del almacén, se puede producir un error en toda la implementación. Deshabilitar la eliminación temporal es la única manera de garantizar la eliminación inmediata.
 
@@ -103,7 +103,7 @@ El ejemplo siguiente se usa para actualizar el estado de eliminación temporal a
 }
 ```
 
-#### <a name="responses"></a>Respuestas
+#### <a name="responses-for-the-patch-operation"></a>Respuestas para la operación PATCH
 
 A continuación se muestra la respuesta correcta para la operación "PATCH":
 
@@ -111,7 +111,7 @@ A continuación se muestra la respuesta correcta para la operación "PATCH":
 |---------|---------|---------|
 |200 OK     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | Aceptar        |
 
-##### <a name="example-response"></a>Respuesta de ejemplo
+##### <a name="example-response-for-the-patch-operation"></a>Respuesta de ejemplo para la operación PATCH
 
 Una vez que se emite la solicitud "PATCH", se devuelve una respuesta 200 (correcta).
 

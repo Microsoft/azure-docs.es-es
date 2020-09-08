@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Flock | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Flock.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 7b2c3ac5-17f1-49a0-8961-c541b258d4b1
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 1751cc5d5bcf47f8fa269853051eee4185d4e3aa
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c14d70f7489115b980479e7225cc3b47f80b3f2f
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73156352"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88554975"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flock"></a>Tutorial: Integración de Azure Active Directory con Flock
 

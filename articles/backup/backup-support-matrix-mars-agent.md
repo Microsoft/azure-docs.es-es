@@ -3,12 +3,12 @@ title: Matriz de compatibilidad para el agente de MARS
 description: En este artículo se resume la compatibilidad con Azure Backup al realizar copias de seguridad de máquinas que ejecutan el agente de Microsoft Azure Recovery Services (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5ff9510dfa31bb947d50b1a91fb7f73c2d767471
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2b719bd36c27336b3fe24cdb904715bf8194ed70
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538656"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87872419"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de compatibilidad para la copia de seguridad con el agente de Microsoft Azure Recovery Services (MARS)
 
@@ -54,7 +54,7 @@ Cambios de ubicación | Puede cambiar la ubicación de la caché al detener el m
 
 El agente de MARS necesita acceder a estas direcciones URL:
 
-- <http://www.msftncsi.com/ncsi.txt>
+- `http://www.msftncsi.com/ncsi.txt`
 - *.Microsoft.com
 - *.WindowsAzure.com
 - *.MicrosoftOnline.com
@@ -89,6 +89,16 @@ Para más información, consulte los [requisitos de enrutamiento de ExpressRoute
 
 >[!NOTE]
 >El emparejamiento público está en desuso para circuitos nuevos.
+
+### <a name="private-endpoint-support"></a>Compatibilidad con el punto de conexión privado
+
+Ahora puede usar puntos de conexión privados para realizar copias de seguridad de los datos de los servidores al almacén de Recovery Services. Como Azure Active Directory no es compatible actualmente con puntos de conexión privados, las direcciones IP y los FQDN necesarios para Azure Active Directory tendrán que permitir el acceso de salida por separado.
+
+Al usar el agente de MARS para realizar una copia de seguridad de los recursos locales, asegúrese de que la red local (que contiene los recursos de los que se va a realizar la copia de seguridad) está emparejada con la red virtual de Azure que contiene un punto de conexión privado para el almacén. Después, puede continuar con la instalación del agente de MARS y configurar la copia de seguridad. Sin embargo, debe asegurarse de que toda la comunicación para la copia de seguridad se produzca solo a través de la red emparejada.
+
+Si quita los puntos de conexión privados del almacén después de haber registrado un agente de MARS, deberá volver a registrar el contenedor con el almacén. No es necesario detener la protección de los mismos.
+
+Obtenga más información sobre los [puntos de conexión privados para Azure Backup](private-endpoints.md).
 
 ### <a name="throttling-support"></a>Limitaciones de compatibilidad
 

@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 05e9e627afecfc95e03eae39eed1183857df8b4b
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 8f68bc5e4604f35f9c4c45cd3e38ddaf8d24cd03
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87539941"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004466"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Marco de seguridad: Administración de excepciones: mitigaciones 
 | Producto o servicio | Artículo |

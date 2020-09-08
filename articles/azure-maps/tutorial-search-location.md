@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Búsqueda de ubicaciones cercanas en un mapa | Microsoft Azure Maps'
-description: En este tutorial aprenderá a buscar puntos de interés en un mapa mediante Microsoft Azure Maps.
+description: Obtenga información sobre cómo buscar puntos de interés en un mapa. Obtenga información sobre cómo usar el SDK web de Azure Maps para agregar funcionalidades de búsqueda y cuadros emergentes interactivos a un mapa.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 1/15/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 4e16c4e88d749f6dbc4f6271a7ceaf77661a208c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8dc430febb25283ab5bd32496bb2f71ba19c895b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281538"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035865"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Tutorial: Búsqueda de puntos cercanos de interés mediante Azure Maps
 
@@ -173,7 +173,7 @@ En esta sección se muestra cómo usar [Search API](https://docs.microsoft.com/r
 
 ### <a name="service-module"></a>Módulo de servicio
 
-1. En el controlador de eventos `ready` del mapa, construya la URL del servicio de búsqueda; para ello, agregue el siguiente código de Javascript.
+1. En el controlador de eventos `ready` del mapa, construya la dirección URL del servicio de búsqueda; para ello, agregue el siguiente código JavaScript.
 
     ```JavaScript
    // Use SubscriptionKeyCredential with a subscription key

@@ -16,15 +16,15 @@ ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d64bfe66f5fb871ff9f85a5d58d128ac44643846
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1b013c4edcaceeea585494bd8924ccea08aa1d37
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019768"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277058"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Sincronización de Azure AD Connect: Sincronización de Azure AD Connect: Extensiones de directorio
-Puede usar extensiones de directorio para ampliar el esquema de Azure Active Directory (Azure AD) con sus propios atributos desde Active Directory local. Esta característica le permite compilar aplicaciones de LOB mediante el consumo de atributos que sigue administrando de forma local. Estos atributos se pueden consumir mediante [extensiones](https://docs.microsoft.com/graph/extensibility-overview
+Puede usar extensiones de directorio para ampliar el esquema de Azure Active Directory (Azure AD) con sus propios atributos desde Active Directory local. Esta característica le permite compilar aplicaciones de LOB mediante el consumo de atributos que sigue administrando de forma local. Estos atributos se pueden consumir mediante [extensiones](/graph/extensibility-overview
 ). Puede ver los atributos disponibles mediante el [Explorador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer). También puede usar esta característica para crear grupos dinámicos en Azure AD.
 
 En la actualidad, ninguna carga de trabajo de Office 365 consume estos atributos.
@@ -69,7 +69,7 @@ Estos atributos ya están disponibles a través de Microsoft Graph API, mediante
 >[!NOTE]
 > En Microsoft Graph API, debe pedir que se devuelvan los atributos. Seleccione los atributos de forma explícita así: `https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division`.
 >
-> Para más información, consulte [Microsoft Graph: Usar parámetros de consulta](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
+> Para más información, consulte [Microsoft Graph: Usar parámetros de consulta](/graph/query-parameters#select-parameter).
 
 ## <a name="use-the-attributes-in-dynamic-groups"></a>Uso de los atributos en grupos dinámicos
 

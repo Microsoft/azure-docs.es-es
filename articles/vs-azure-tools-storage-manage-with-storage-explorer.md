@@ -1,6 +1,6 @@
 ---
 title: Introducción al Explorador de Storage | Microsoft Docs
-description: Administre recursos de Azure Storage con el Explorador de Storage.
+description: Comience a administrar recursos de Azure Storage con el Explorador de Storage. Descargue e instale el Explorador de Azure Storage, conéctese a una cuenta de almacenamiento o servicio, y mucho más.
 services: storage
 author: cawaMS
 ms.service: storage
@@ -8,12 +8,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
-ms.openlocfilehash: f588ed6d35f3f8882d546b78ff833d62f33ac0a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9922601d67393d103b95da7286d8db71d913434a
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84975272"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235252"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introducción al Explorador de Storage
 

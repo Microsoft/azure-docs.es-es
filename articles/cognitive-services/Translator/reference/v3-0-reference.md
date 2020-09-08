@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 4/17/2020
+ms.date: 8/11/2020
 ms.author: swmachan
-ms.openlocfilehash: 2ddc3921c77f8861761ea37b8783e220c1242b97
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6b211dd8ca735ea9ee4a5209aa6030398cca472e
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592277"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121024"
 ---
 # <a name="translator-v30"></a>Translator v3.0
 
@@ -147,11 +147,11 @@ Un token de autenticación tiene una validez de 10 minutos. El token debe volver
 
 ## <a name="virtual-network-support"></a>Compatibilidad con redes virtuales
 
-El servicio Traductor ahora está disponible con funcionalidades de red virtual en regiones limitadas (`WestUS2`, `EastUS`, `SouthCentralUS`, `WestUS`, `CentralUSEUAP`, `global`). Para habilitar la red virtual, consulte [Configuración de las redes virtuales de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
+El servicio Traductor ahora está disponible con las funcionalidades de Virtual Network (VNET) en todas las regiones de la nube pública de Azure. Para habilitar la red virtual, consulte [Configuración de las redes virtuales de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
 
 Una vez que se activa esta funcionalidad, se debe usar el punto de conexión personalizado para llamar a Translator. No se puede usar el punto de conexión de traductor global ("api.cognitive.microsofttranslator.com") y no se puede autenticar con un token de acceso.
 
-Puede encontrar el punto de conexión personalizado una vez que cree el [recurso de traductor](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation).
+Puede encontrar el punto de conexión personalizado después de crear un [recurso de Translator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) y permitir el acceso desde redes seleccionadas y puntos de conexión privados.
 
 |encabezados|Descripción|
 |:-----|:----|

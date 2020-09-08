@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 06/01/2020
 ms.author: cherylmc
-ms.openlocfilehash: d7b9077af50115e912415d784dc98ace081c0c88
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: d0bcd0608796545a4982f72f276399d5f692e765
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84302317"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852699"
 ---
 # <a name="vpn-gateway-design"></a>Diseño de VPN Gateway
 
@@ -26,6 +26,8 @@ Es importante saber que hay distintas configuraciones disponibles para las conex
 Una conexión de puerta de enlace de VPN de sitio a sitio (S2S) es una conexión a través de un túnel VPN IPsec/IKE (IKEv1 o IKEv2). Se pueden usar conexiones S2S para las configuraciones híbridas y entre locales. Una conexión S2S requiere un dispositivo VPN local que tenga una dirección IP pública asignada. Para más información acerca de cómo seleccionar un dispositivo VPN, consulte la sección de [preguntas frecuentes sobre VPN Gateway para dispositivos VPN](vpn-gateway-vpn-faq.md#s2s).
 
 ![Ejemplo de conexión de sitio a sitio de Azure VPN Gateway](./media/design/vpngateway-site-to-site-connection-diagram.png)
+
+VPN Gateway se puede configurar en modo activo-espera mediante una dirección IP pública o en modo activo-activo con dos direcciones IP públicas. En modo activo-espera, hay un túnel IPsec activo y el otro túnel está en espera. En esta configuración, el tráfico fluye a través del túnel activo y, si se produce algún problema con este túnel, el tráfico cambia al túnel en espera. Se *recomienda* la configuración de VPN Gateway en modo activo-activo, porque ambos túneles de IPsec están activos simultáneamente, con datos que fluyen a través de los dos al mismo tiempo. Una ventaja adicional del modo activo-activo es que los clientes experimentan un mayor rendimiento.
 
 ### <a name="multi-site"></a><a name="Multi"></a>Multisitio
 

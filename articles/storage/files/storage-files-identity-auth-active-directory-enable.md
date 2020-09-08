@@ -7,16 +7,16 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: rogarana
-ms.openlocfilehash: 1ea1bfdf2c3b2dcfd49f87a5a75597a464b07913
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3faa86fe67e3f0a208bf42dc3e49de8335b25c95
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86999588"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272338"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Introducción: autenticación de Active Directory Domain Services local en SMB para recursos compartidos de archivos de Azure
 
-[Azure Files](storage-files-introduction.md) admite la autenticación basada en la identidad a través del protocolo Bloque de mensajes del servidor (SMB) mediante dos tipos de servicios de dominio: Active Directory Domain Services local (AD DS) y Azure Active Directory Domain Services (Azure AD DS). Le recomendamos encarecidamente que revise la sección [Funcionamiento](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview#how-it-works) para seleccionar el servicio de dominio adecuado para la autenticación. La instalación es diferente en función del servicio de dominio que elija. Esta serie de artículos se centra en habilitar y configurar AD DS local para la autenticación con recursos compartidos de archivos de Azure.
+[Azure Files](storage-files-introduction.md) admite la autenticación basada en identidades a través del protocolo SMB (Bloque de mensajes del servidor) mediante dos tipos de servicios de dominio: Active Directory Domain Services (AD DS) local and Azure Active Directory Domain Services (Azure AD DS). Se recomienda encarecidamente consultar la sección [Funcionamiento](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview#how-it-works) para seleccionar el servicio de dominio adecuado para la autenticación. La instalación es diferente en función del servicio de dominio que se elija. Esta serie de artículos se centra en habilitar y configurar AD DS local para la autenticación con recursos compartidos de archivos de Azure.
 
 Si no está familiarizado con los recursos compartidos de archivos de Azure, se recomienda leer la [guía de plan](storage-files-planning.md) antes de leer la siguiente serie de artículos.
 
@@ -27,7 +27,7 @@ Si no está familiarizado con los recursos compartidos de archivos de Azure, se 
 - Admite la autenticación Kerberos con AD con cifrado RC4-HMAC. Todavía no se admite el cifrado de Kerberos con AES.
 - Admite la experiencia de inicio de sesión único.
 - Solo se admite en clientes que ejecutan versiones de SO posteriores a Windows 7 o Windows Server 2008 R2.
-- Solo se admite en el bosque de AD en el que está registrada la cuenta de almacenamiento. De forma predeterminada, solo se puede acceder a los recursos compartidos de archivos de Azure con las credenciales de AD DS desde un solo bosque. Si necesita acceso al recurso compartido de archivos de Azure desde otro bosque, asegúrese de tener configurada la confianza de bosque adecuada. Para más información, consulte las [preguntas más frecuentes](storage-files-faq.md#ad-ds--azure-ad-ds-authentication).
+- Solo se admite en el bosque de AD en el que está registrada la cuenta de almacenamiento. De forma predeterminada, solo se puede acceder a los recursos compartidos de archivos de Azure con las credenciales de AD DS desde un solo bosque. Si necesita acceso al recurso compartido de archivos de Azure desde otro bosque, asegúrese de tener configurada la confianza de bosque adecuada. Para más información, consulte las [preguntas más frecuentes](storage-files-faq.md#ad-ds--azure-ad-ds-authentication).
 - No admite la autenticación en cuentas de equipo creadas en AD DS. 
 
 Al habilitar AD DS para recursos compartidos de archivos de Azure en SMB, las máquinas unidas a AD DS pueden montar recursos compartidos de archivos de Azure con sus credenciales de AD DS existentes. Esta funcionalidad se puede habilitar con un entorno de AD DS hospedado en máquinas locales o en Azure.
@@ -47,6 +47,8 @@ Antes de habilitar la autenticación de AD DS para los recursos compartidos de 
 
 - Unir una máquina local o una máquina virtual de Azure por dominio a un AD DS local. Para información acerca de cómo unirse a un dominio, consulte [Unión de un equipo a un dominio](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain).
 
+    Si la máquina no está unida a un dominio en AD DS, es posible que pueda seguir aprovechando las credenciales de AD para la autenticación si la máquina tiene una línea de visión del controlador de dominio de AD.
+
 - Seleccione o cree una cuenta de almacenamiento de Azure.  Para conseguir un rendimiento óptimo, se recomienda implementar la cuenta de almacenamiento en la misma región que el cliente desde el que vaya a acceder al recurso compartido. A continuación, [monte el recurso compartido de archivos de Azure](storage-how-to-use-files-windows.md) con la clave de la cuenta de almacenamiento. Al montar con la clave de la cuenta de almacenamiento, se comprueba la conectividad.
 
     Asegúrese de que la cuenta de almacenamiento que contiene los recursos compartidos de archivos todavía no está configurada para la autenticación de Azure AD DS. Si la autenticación de Azure AD DS de Azure Files está habilitada en la cuenta de almacenamiento, se debe deshabilitar antes de cambiar al uso de una versión local de AD DS. Esto implica que las ACL existentes configuradas en el entorno de Azure AD DS se deberán volver a configurar para que se apliquen los permisos adecuados.
@@ -63,7 +65,7 @@ La autenticación de Azure Files con AD DS está disponible en [todas las regio
 
 Si planea habilitar configuraciones de red en el recurso compartido de archivos, se recomienda que lea el artículo sobre [consideraciones de redes](https://docs.microsoft.com/azure/storage/files/storage-files-networking-overview) y que complete la configuración relacionada antes de habilitar la autenticación de AD DS.
 
-Habilitar la autenticación de AD DS para los recursos compartidos de archivos de Azure le permite autenticarse en los recursos compartidos de archivos de Azure con las credenciales de AD DS local. Además, le permite administrar mejor los permisos para permitir el control de acceso granular. Para ello, se requiere la sincronización de identidades desde AD DS local a Azure AD con AD Connect. El usuario controla el acceso de nivel de recursos compartidos con identidades sincronizadas con Azure AD al administrar el acceso de nivel de archivos o recursos compartidos con credenciales de AD DS local.
+Habilitar la autenticación de AD DS para los recursos compartidos de archivos de Azure le permite autenticarse en los recursos compartidos de archivos de Azure con las credenciales de AD DS local. Además, le permite administrar mejor los permisos para permitir el control de acceso granular. Para ello, se requiere la sincronización de identidades desde AD DS local a Azure AD con AD Connect. El usuario controla el acceso de nivel de recursos compartidos con identidades sincronizadas con Azure AD al administrar el acceso de nivel de archivos o recursos compartidos con credenciales de AD DS local.
 
 A continuación, siga los pasos que se indican a continuación para configurar Azure Files para la autenticación de AD DS: 
 
@@ -81,7 +83,7 @@ En el diagrama siguiente se ilustra el flujo de trabajo de un extremo a otro par
 
 ![Diagrama de flujo de trabajo de AD de Files](media/storage-files-active-directory-domain-services-enable/diagram-files-ad.png)
 
-Las identidades que se usan para acceder a los recursos compartidos de archivos de Azure se deben sincronizar con Azure AD para aplicar los permisos de archivo de nivel de recurso compartido mediante el modelo de [control de acceso basado en rol (RBAC)](../../role-based-access-control/overview.md). Se conservarán y aplicarán las [DACL tipo Windows](https://docs.microsoft.com/previous-versions/technet-magazine/cc161041(v=msdn.10)?redirectedfrom=MSDN) en archivos o directorios transferidos desde servidores de archivos existentes. Esto ofrece una perfecta integración con el entorno de AD DS de la empresa. A medida que reemplaza los servidores de archivos locales por recursos compartidos de archivos de Azure, los usuarios existentes pueden acceder a estos desde sus clientes actuales con una experiencia de inicio de sesión único, sin ningún cambio en las credenciales en uso.  
+Las identidades que se usan para acceder a los recursos compartidos de archivos de Azure se deben sincronizar con Azure AD para aplicar los permisos de archivo de nivel de recurso compartido mediante el modelo de [control de acceso basado en roles de Azure (RBAC de Azure)](../../role-based-access-control/overview.md). Se conservarán y aplicarán las [DACL tipo Windows](https://docs.microsoft.com/previous-versions/technet-magazine/cc161041(v=msdn.10)?redirectedfrom=MSDN) en archivos o directorios transferidos desde servidores de archivos existentes. Esto ofrece una perfecta integración con el entorno de AD DS de la empresa. A medida que reemplaza los servidores de archivos locales por recursos compartidos de archivos de Azure, los usuarios existentes pueden acceder a estos desde sus clientes actuales con una experiencia de inicio de sesión único, sin ningún cambio en las credenciales en uso.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 

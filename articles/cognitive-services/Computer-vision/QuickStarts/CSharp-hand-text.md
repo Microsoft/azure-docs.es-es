@@ -1,26 +1,26 @@
 ---
-title: 'Inicio rápido: Extracción de texto impreso y manuscrito con Computer Vision 2.1 y 3.0 : REST, C#'
+title: 'Inicio rápido: Extracción de texto mediante la operación de lectura de la API REST de Computer Vision 3.0 y C#'
 titleSuffix: Azure Cognitive Services
-description: En este inicio rápido extraerá texto impreso y manuscrito de una imagen mediante la API Computer Vision con C#.
+description: En este inicio rápido, aplicará el OCR a una imagen mediante las operaciones de lectura de la API REST de Computer Vision 3.0 y C#.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 08/11/2020
 ms.author: pafarley
-ms.custom: seodec18
-ms.openlocfilehash: 52cba173f7d3fe4c4d65d538fac3ef850f0491e2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: 2f7678e2dd9f04f7aa930271c69c2d4ccf1e692b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835415"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928248"
 ---
-# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-30-rest-api-and-c"></a>Inicio rápido: Extracción de texto impreso y manuscrito mediante la API REST Computer Vision 3.0 y C#
+# <a name="quickstart-extract-text-using-the-computer-vision-30-rest-api-read-operation-and-c"></a>Inicio rápido: Extracción de texto mediante la operación de lectura de la API REST de Computer Vision 3.0 y C#
 
-En este inicio rápido, extraerá texto impreso y manuscrito de una imagen mediante la API REST de Computer Vision. Los métodos [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) y [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) permiten detectar texto de una imagen y extraer los caracteres reconocidos en una secuencia de caracteres legibles por máquina. 
+En este inicio rápido, extraerá texto impreso y manuscrito de una imagen mediante la nueva tecnología de OCR, que forma parte de la API REST de Computer Vision 3.0. Los nuevos métodos [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) y [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) permiten detectar texto de una imagen y extraer los caracteres reconocidos en una secuencia de caracteres legibles por máquina. 
 
 > [!IMPORTANT]
 > El método [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) se ejecuta de forma asincrónica. Este método no devuelve ninguna información en el cuerpo de una respuesta correcta. En su lugar, el método Batch Read devuelve un identificador URI en el valor del campo del encabezado de respuesta `Operation-Location`. A continuación, puede llamar a este identificador URI, que representa a la API [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750), para comprobar el estado y devolver los resultados de la llamada al método Read.
@@ -68,7 +68,7 @@ namespace CSHttpClientSample
         static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
 
         // the Batch Read method endpoint
-        static string uriBase = endpoint + "/vision/v3.0//read/analyze";
+        static string uriBase = endpoint + "/vision/v3.0/read/analyze";
 
         // Add a local image with text here (png or jpg is OK)
         static string imageFilePath = @"my-image.png";

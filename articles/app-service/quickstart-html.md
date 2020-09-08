@@ -7,16 +7,16 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: bd1e44aefed310826465dbf44dee1324f5a085b3
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: d624d332fa35bf458e9158e00aaf83ce495b9061
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88084347"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961353"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Creación de una aplicación web HTML estática en Azure
 
-[Azure App Service](overview.md) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático. En este inicio rápido se explica cómo implementar un sitio HTML+CSS básico en Azure App Service. Completará esta guía de inicio rápido en [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), pero también puede ejecutar estos comandos localmente con la [CLI de Azure](/cli/azure/install-azure-cli).
+[Azure App Service](overview.md) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático. En este inicio rápido se explica cómo implementar un sitio HTML+CSS básico en Azure App Service. Completará esta guía de inicio rápido en [Cloud Shell](../cloud-shell/overview.md), pero también puede ejecutar estos comandos localmente con la [CLI de Azure](/cli/azure/install-azure-cli).
 
 ![Página principal de la aplicación de ejemplo](media/quickstart-html/hello-world-in-browser-az.png)
 
@@ -58,7 +58,7 @@ El comando `az webapp up` realiza las acciones siguientes:
 
 - Crear una aplicación con el nombre especificado.
 
-- [Implementar con ZIP](https://docs.microsoft.com/azure/app-service/deploy-zip) archivos desde el directorio de trabajo actual a la aplicación web.
+- [Implementar con ZIP](./deploy-zip.md) archivos desde el directorio de trabajo actual a la aplicación web.
 
 Este comando puede tardar varios minutos en ejecutarse. Durante la ejecución, muestra información similar a la del ejemplo siguiente:
 

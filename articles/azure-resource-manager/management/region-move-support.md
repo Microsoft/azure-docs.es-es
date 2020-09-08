@@ -4,14 +4,14 @@ description: Enumera los tipos de recursos de Azure que se pueden transferir ent
 author: rayne-wiselman
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 07/21/2020
+ms.date: 08/25/2020
 ms.author: raynew
-ms.openlocfilehash: 70f981f2763dd36f0f417faec6c81e168e9856e7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8c18a4d2fa6e5bdb211b77d4d7bb28af7e5b1c1a
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040954"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948120"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>Compatibilidad con el movimiento de recursos de Azure entre regiones
 
@@ -121,6 +121,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
 > - [Microsoft.Relay](#microsoftrelay)
 > - [Microsoft.ResourceGraph](#microsoftresourcegraph)
+> - [Microsoft.Resources](#microsoftresources)
 > - [Microsoft.SaaS](#microsoftsaas)
 > - [Microsoft.Scheduler](#microsoftscheduler)
 > - [Microsoft.Search](#microsoftsearch)
@@ -1027,6 +1028,14 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Movimiento de región | 
 > | ------------- | ----------- |
 > | Consultas |  No |  
+
+## <a name="microsoftresources"></a>Microsoft.Resources
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Movimiento de región |
+> | ------------- | ----------- |
+> | deploymentScripts |  Sí<br/><br/>[Mover recursos de Microsoft.Resources a nueva región](microsoft-resources-move-regions.md) |
+> | templateSpecs |  Sí<br/><br/>[Mover recursos de Microsoft.Resources a nueva región](microsoft-resources-move-regions.md) |  
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 

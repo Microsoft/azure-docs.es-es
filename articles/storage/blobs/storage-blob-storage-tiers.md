@@ -1,6 +1,6 @@
 ---
 title: 'Niveles de acceso frecuente, esporádico y de archivo para blobs: Azure Storage'
-description: Niveles de acceso frecuente, esporádico y de archivo para cuentas de Azure Storage.
+description: Lea información sobre los niveles de acceso frecuente, esporádico y de archivo para Azure Blob Storage. Revise las cuentas de almacenamiento que admiten niveles. Compare opciones de almacenamiento de blob en bloques.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 03/23/2019
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: dc9e4e0a896677fd22baf33e7776e8158bd0bee6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a46597087a3eee03f7c5b8d1c9746f968ea1980d
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011352"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849733"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo
 

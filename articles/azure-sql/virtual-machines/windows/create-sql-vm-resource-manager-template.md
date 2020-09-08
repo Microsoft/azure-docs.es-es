@@ -7,12 +7,12 @@ ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: virtual-machines-sql
-ms.openlocfilehash: 1b6f54c823f59bb654ac86f041eefe80af3eb5ea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 21909a9c7a1edda5059b9e83cf8dda243862b966
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003872"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660214"
 ---
 # <a name="quickstart-create-sql-server-vm-using-an-arm-template"></a>Inicio rápido: Creación de una VM con SQL Server mediante una plantilla de ARM
 
@@ -37,7 +37,7 @@ La plantilla de Resource Manager de la VM con SQL Server requiere lo siguiente:
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-sql-vm-new-storage/).
 
-:::code language="json" source="~/quickstart-templates/101-sql-vm-new-storage/azuredeploy.json" highlight="169-310":::
+:::code language="json" source="~/quickstart-templates/101-sql-vm-new-storage/azuredeploy.json":::
 
 En la plantilla se definen cinco recursos de Azure: 
 

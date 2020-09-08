@@ -15,12 +15,12 @@ ms.date: 02/18/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ac09fb3faf55be6c07a1e0a88b6e2032c9ab8ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1fff90777c63820b54a1cb37156021c894de19c8
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78299336"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226937"
 ---
 # <a name="understand-the-azure-ad-schema"></a>Información sobre el esquema de Azure AD
 Un objeto de Azure Active Directory (Azure AD), al igual que cualquier directorio, es una construcción de datos general mediante programación que representa elementos como usuarios, grupos y contactos. Al crear un nuevo usuario o contacto en Azure AD, está creando una nueva instancia de ese objeto. Estas instancias se pueden diferenciar en función de sus propiedades.
@@ -51,7 +51,7 @@ Por ejemplo, si tuviera el atributo de correo electrónico "john.smith@contoso.c
 * **ENTRADA** (mail): "john.smith@contoso.com"
 * **SALIDA**: "john.smith"
 
-Para más información sobre la escritura de expresiones personalizadas y la sintaxis, consulte [Escritura de expresiones para la asignación de atributos en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data).
+Para más información sobre la escritura de expresiones personalizadas y la sintaxis, consulte [Escritura de expresiones para la asignación de atributos en Azure Active Directory](../app-provisioning/functions-for-customizing-application-data.md).
 
 En la tabla siguiente se enumeran algunos atributos comunes y se describe cómo se sincronizan con Azure AD.
 

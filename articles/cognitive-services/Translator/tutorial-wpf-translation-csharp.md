@@ -10,12 +10,13 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: f80d22adc432a81fcc88391e71ed7540399fa559
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ef5384abd63dcd9aeb4789dc4955f4b80068d330
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995741"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88921246"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Tutorial: Creación de una aplicación de traducción con WPF
 
@@ -40,7 +41,7 @@ En esta lista se incluyen los servicios Cognitive Services utilizados en este tu
 | Servicio | Característica | Descripción |
 |---------|---------|-------------|
 | Traductor | [Obtener idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages) | Recupera una lista completa de los idiomas admitidos para la traducción de texto. |
-| Traductor | [Traducir](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | Traduce texto en más de 60 idiomas. |
+| Traductor | [Traducir](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | Traduce texto en más de 70 idiomas. |
 | Traductor | [Detectar](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) | Detecta el idioma del texto de entrada. Incluye la puntuación de confianza para la detección. |
 | Bing Spell Check | [Corrector ortográfico](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Corrige los errores de ortografía para mejorar la precisión de la traducción. |
 
@@ -263,7 +264,7 @@ Por último, hemos agregado código a métodos de llamada para recuperar los idi
 
 ## <a name="get-supported-languages"></a>Obtener idiomas admitidos
 
-Traductor admite actualmente más de 60 idiomas. Dado que, con el tiempo, se agregará nueva compatibilidad de idiomas, recomendamos llamar al recurso de idiomas que expone Traductor en lugar de codificar la lista de idiomas de la aplicación.
+El Traductor admite actualmente más de 70 idiomas. Dado que, con el tiempo, se agregará nueva compatibilidad de idiomas, recomendamos llamar al recurso de idiomas que expone Traductor en lugar de codificar la lista de idiomas de la aplicación.
 
 En esta sección, se va a crear una solicitud `GET` al recurso de idiomas, especificando que queremos una lista de idiomas disponibles para traducir.
 

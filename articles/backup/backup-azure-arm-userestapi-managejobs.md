@@ -4,12 +4,12 @@ description: En este artículo obtendrá información sobre cómo realizar el se
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: c8dbd6fd7add58f8458c21fc65381a52ff3306d2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ced0e0020fe955734bf6cc767480fbadd6eaffc1
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079322"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890287"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Seguimiento de los trabajos de copia de seguridad y restauración mediante API REST
 
@@ -17,7 +17,7 @@ El servicio Azure Backup desencadena trabajos que se ejecutan en segundo plano e
 
 ## <a name="fetch-job-information-from-operations"></a>Captura de información sobre el trabajo de las operaciones
 
-Una operación como desencadenar la copia de seguridad siempre devolverá un valor de jobID. Por ejemplo: la respuesta final de una [operación para desencadenar una copia de seguridad en la API REST](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) es como sigue:
+Una operación como desencadenar la copia de seguridad siempre devolverá un valor de jobID. Por ejemplo: la respuesta final de una [operación para desencadenar una copia de seguridad en la API REST](backup-azure-arm-userestapi-backupazurevms.md#example-responses-for-on-demand-backup) es como sigue:
 
 ```http
 {
@@ -41,7 +41,7 @@ El trabajo de copia de seguridad de las máquinas virtuales de Azure se identifi
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2019-05-13
 ```
 
-El `{jobName}` es el "jobId" mencionado anteriormente. La respuesta es siempre 200 (OK) y el campo "status" indica el estado actual del trabajo. Una vez pasa a "Completed" o "CompletedWithWarnings", la sección "extendedInfo" revela más detalles sobre el trabajo.
+El `{jobName}` es el "jobId" mencionado anteriormente. La respuesta es siempre 200 (OK) y el campo "status" indica el estado actual del trabajo. Cuando el estado sea "Completed" o "CompletedWithWarnings", la sección "extendedInfo" ofrecerá más detalles sobre el trabajo.
 
 ### <a name="response"></a>Response
 

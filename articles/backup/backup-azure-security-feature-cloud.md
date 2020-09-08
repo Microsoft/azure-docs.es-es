@@ -3,12 +3,12 @@ title: Eliminación temporal de Azure Backup
 description: Aprenda a usar las características de seguridad de Azure Backup para que las copias de seguridad sean más seguras.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 79df345858d89d032b826a0fa8b677195a785df2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 921d04c530695ee8909fb17b216029849c4fc4a2
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538843"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892480"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Eliminación temporal de Azure Backup
 
@@ -29,7 +29,7 @@ En este diagrama de flujo se explican los diferentes pasos y estados de un eleme
 
 La eliminación temporal se habilita de forma predeterminada en los almacenes recién creados para proteger los datos de copia de seguridad de eliminaciones accidentales o malintencionadas.  No se recomienda deshabilitar esta característica. La única circunstancia en la que debe considerar la posibilidad de deshabilitar la eliminación temporal es si está planeando mover los elementos protegidos a un nuevo almacén y no puede esperar los 14 días necesarios para realizar la acción de eliminar y volver a proteger (por ejemplo, en un entorno de prueba). Solo el propietario del almacén puede deshabilitar esta característica. Si se deshabilita, todas las eliminaciones posteriores de elementos protegidos se convertirán en eliminaciones inmediatas, sin la posibilidad de restaurar. Los datos de copia de seguridad que se encuentren en estado de eliminación temporal antes de deshabilitar esta característica permanecerán en ese estado durante el período de 14 días. Si quiere eliminarlos permanentemente de inmediato, debe recuperarlos y eliminarlos de nuevo para eliminarlos de forma permanente.
 
- Es importante recordar que una vez deshabilitada la eliminación temporal, la característica se deshabilita para todos los tipos de cargas de trabajo, incluidas las cargas de trabajo de SQL Server y SAP HANA. Por ejemplo, una vez que la [versión preliminar de SQL Server / SAP HANA](./soft-delete-sql-saphana-in-azure-vm.md#steps-to-enroll-in-preview) esté habilitada en una suscripción, no es posible deshabilitar la eliminación temporal solo en servidores SQL Server o bases de SAP HANA si está habilitada al mismo tiempo en máquinas virtuales del mismo almacén. Puede crear almacenes independientes para llevar a cabo un control granular.
+ Es importante recordar que una vez deshabilitada la eliminación temporal, la característica se deshabilita para todos los tipos de cargas de trabajo, incluidas las cargas de trabajo de SQL Server y SAP HANA. Por ejemplo, una vez que la [versión preliminar de SQL Server / SAP HANA](./soft-delete-sql-saphana-in-azure-vm.md#steps-to-enroll-in-preview) esté habilitada en una suscripción, no es posible deshabilitar la eliminación temporal solo en servidores SQL Server o bases de SAP HANA si está habilitada al mismo tiempo en máquinas virtuales del mismo almacén. Puede crear almacenes independientes para llevar a cabo un control granular.
 
 ### <a name="disabling-soft-delete-using-azure-portal"></a>Deshabilitación de la eliminación temporal con Azure Portal
 
@@ -44,9 +44,9 @@ Para deshabilitar la eliminación temporal, siga estos pasos:
 ### <a name="disabling-soft-delete-using-azure-powershell"></a>Deshabilitación de la eliminación temporal con Azure PowerShell
 
 > [!IMPORTANT]
-> La versión de Az.RecoveryServices necesaria para usar la eliminación temporal con Azure PS es, como mínimo, la 2.2.0. Use ```Install-Module -Name Az.RecoveryServices -Force``` para obtener la versión más reciente.
+> La versión de Az.RecoveryServices necesaria para usar la eliminación temporal con Azure PowerShell es, como mínimo, la 2.2.0. Use ```Install-Module -Name Az.RecoveryServices -Force``` para obtener la versión más reciente.
 
-Para deshabilitar, use el cmdlet de PS [Set-AzRecoveryServicesVaultBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty).
+Para deshabilitar, use el cmdlet de PowerShell [Set-AzRecoveryServicesVaultBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty).
 
 ```powershell
 Set-AzRecoveryServicesVaultProperty -VaultId $myVaultID -SoftDeleteFeatureState Disable
@@ -136,7 +136,7 @@ AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM
 
 Si los elementos se eliminaron antes de que se deshabilitara la eliminación temporal, se encontrarán en un estado de eliminación temporal. Para eliminarlos de inmediato, la operación de eliminación debe invertirse y volver a ejecutarse.
 
-1. En primer lugar, deshaga las operaciones de eliminación con los pasos mencionados [aquí](backup-azure-arm-userestapi-backupazurevms.md#undo-the-stop-protection-and-delete-data).
+1. En primer lugar, deshaga las operaciones de eliminación con los pasos mencionados [aquí](backup-azure-arm-userestapi-backupazurevms.md#undo-the-deletion).
 2. Después, deshabilite la funcionalidad de eliminación temporal mediante la API REST siguiendo los pasos mencionados [aquí](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
 3. Después, elimine las copias de seguridad mediante la API REST, como se mencionó [aquí](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
 
@@ -144,7 +144,7 @@ Si los elementos se eliminaron antes de que se deshabilitara la eliminación tem
 
 ### <a name="do-i-need-to-enable-the-soft-delete-feature-on-every-vault"></a>¿Es necesario habilitar la característica de eliminación temporal en cada almacén?
 
-No, está integrada y se habilita de forma predeterminada para todos los almacenes de Recovery Services.
+No, está integrada y se habilita de manera predeterminada para todos los almacenes de Recovery Services.
 
 ### <a name="can-i-configure-the-number-of-days-for-which-my-data-will-be-retained-in-soft-deleted-state-after-the-delete-operation-is-complete"></a>¿Se puede configurar el número de días durante los que se conservarán los datos en estado de eliminación temporal tras completar la operación de eliminación?
 
@@ -176,7 +176,7 @@ No. No se puede forzar la eliminación de los elementos eliminados temporalmente
 
 ### <a name="can-soft-delete-operations-be-performed-in-powershell-or-cli"></a>¿Se pueden realizar operaciones de eliminación temporal en PowerShell o la CLI?
 
-Las operaciones de eliminación temporal se pueden realizar mediante PowerShell. Actualmente no se admite la CLI.
+Las operaciones de eliminación temporal se pueden realizar mediante PowerShell. Actualmente, no se admite la CLI.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

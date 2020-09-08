@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 8a5374bf15798fd7e53f0d93e69f2f40a2d57b94
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: e5862daa21f8bf0075bb1dee567cbe887ec32d72
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533825"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653280"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instancias de clúster de conmutación por error con SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -58,7 +58,7 @@ En el resto de esta sección se enumeran las ventajas y las limitaciones de cada
 
 ### <a name="azure-shared-disks"></a>Discos compartidos de Azure
 
-[Los discos compartidos de Azure](../../../virtual-machines/windows/disks-shared.md) son una característica de [Azure Managed Disks](../../../virtual-machines/windows/managed-disks-overview.md). Los clústeres de conmutación por error de Windows Server admiten el uso de discos compartidos de Azure con una instancia de clúster de conmutación por error. 
+[Los discos compartidos de Azure](../../../virtual-machines/windows/disks-shared.md) son una característica de [Azure Managed Disks](../../../virtual-machines/managed-disks-overview.md). Los clústeres de conmutación por error de Windows Server admiten el uso de discos compartidos de Azure con una instancia de clúster de conmutación por error. 
 
 **Sistema operativo compatible**: All   
 **Versión de SQL compatible**: All     

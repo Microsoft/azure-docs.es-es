@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 09/09/2018
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: a0c85226b5890fe0f5f2011110c1d7d20e3c2907
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2de6c07395a559085db237eb1bc7f885998860d0
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782014"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235084"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: Creación de informes sobre el aprovisionamiento automático de cuentas de usuario
 
-Azure Active Directory (Azure AD) incluye un [servicio de aprovisionamiento de cuentas de usuario](user-provisioning.md) que ayuda a automatizar el aprovisionamiento y el desaprovisionamiento de cuentas de usuario en aplicaciones SaaS y otros sistemas, para la administración del ciclo de vida de las identidades de un extremo a otro. Azure AD admite conectores de aprovisionamiento de usuarios integrados previamente para todas las aplicaciones y sistemas que cuentan con tutoriales de aprovisionamiento de usuarios incluidos [aquí](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list).
+Azure Active Directory (Azure AD) incluye un [servicio de aprovisionamiento de cuentas de usuario](user-provisioning.md) que ayuda a automatizar el aprovisionamiento y el desaprovisionamiento de cuentas de usuario en aplicaciones SaaS y otros sistemas, para la administración del ciclo de vida de las identidades de un extremo a otro. Azure AD admite conectores de aprovisionamiento de usuarios integrados previamente para todas las aplicaciones y sistemas que cuentan con tutoriales de aprovisionamiento de usuarios incluidos [aquí](../saas-apps/tutorial-list.md).
 
 En este artículo se describe cómo comprobar el estado de aprovisionamiento de trabajos una vez configurados y cómo solucionar el aprovisionamiento de usuarios individuales y grupos.
 

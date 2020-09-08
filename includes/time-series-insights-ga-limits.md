@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.custom: include file
-ms.openlocfilehash: 1e07f56bc2e820b325414e124c7825c1d356ca26
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1aff5780aa5f4cf21d862a5cee3b140179dac03c
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046404"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88703470"
 ---
 A continuación, se resumen los límites clave en Azure Time Series Insights Gen1.
 
@@ -60,4 +60,4 @@ Se admite un máximo de dos orígenes de evento por instancia.
 
 ### <a name="api-limits"></a>Límites de API
 
-Los límites de la API REST de Azure Time Series Insights Gen1 se especifican en la [documentación de referencia de la API REST](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#limits).
+Los límites de la API REST de Azure Time Series Insights Gen1 se especifican en la [documentación de referencia de la API REST](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability).

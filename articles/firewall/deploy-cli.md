@@ -7,12 +7,12 @@ ms.service: firewall
 ms.date: 08/29/2019
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 3087b01e849aaa4d1f3c2b6b4060cf202927f55f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7f00b57edb37cc5bb5c8340663d619e526c2eacb
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85602642"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89075433"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Implementación y configuración de Azure Firewall mediante la CLI de Azure
 
@@ -35,13 +35,12 @@ En este artículo, creará una red virtual única simplificada con tres subredes
 
 En este artículo aprenderá a:
 
-> [!div class="checklist"]
-> * Configurar un entorno de red de prueba
-> * Implementar un firewall
-> * Crear una ruta predeterminada
-> * Configurar una regla de aplicación para permitir el acceso a www.google.com
-> * Configuración de una regla de red para permitir el acceso a los servidores DNS externos
-> * Probar el firewall
+* Configurar un entorno de red de prueba
+* Implementar un firewall
+* Crear una ruta predeterminada
+* Configurar una regla de aplicación para permitir el acceso a www.google.com
+* Configuración de una regla de red para permitir el acceso a los servidores DNS externos
+* Probar el firewall
 
 Si lo prefiere, puede completar este procedimiento desde [Azure Portal](tutorial-firewall-deploy-portal.md) o [Azure PowerShell](deploy-ps.md).
 

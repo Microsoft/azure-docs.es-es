@@ -1,5 +1,5 @@
 ---
-title: Integración con Time Series Insights
+title: Integración con Azure Time Series Insights
 titleSuffix: Azure Digital Twins
 description: Vea cómo configurar rutas de eventos de Azure Digital Twins a Azure Time Series Insights.
 author: alexkarcher-msft
@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 7/14/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3d03588230cd0fb959807cd8f19930792d9846f0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: bda07d0e14ddc630bde4fdc9c869704154c1e6cc
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285601"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236359"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Integración de Azure Digital Twins con Azure Time Series Insights
 

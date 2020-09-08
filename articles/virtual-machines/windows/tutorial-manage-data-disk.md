@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 69d346d554ee6f30e4ef578bacf358aaba722b5b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 528fe5dea533faf9447e03dd901568d783891ce9
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825181"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718941"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>Tutorial: Administración de discos de Azure con Azure PowerShell
 
@@ -52,10 +52,11 @@ Azure proporciona dos tipos de discos.
 
 **Discos estándar**: respaldados por unidades de disco duro, ofrecen un almacenamiento rentable y buen rendimiento. Los discos estándar son ideales para cargas de trabajo de desarrollo y prueba rentables.
 
-**Discos Premium**: respaldados por un disco de latencia reducida y alto rendimiento basado en SSD. Es perfecto para máquinas virtuales que ejecutan cargas de trabajo de producción. Premium Storage es compatible con las máquinas virtuales de las series DS, DSv2, GS y FS. Los discos Premium incluyen cinco tipos (P10, P20, P30, P40 y P50); el tamaño del disco determina el tipo de disco. Al seleccionar el tamaño de un disco, el valor se redondea al siguiente tipo. Por ejemplo, si el tamaño es inferior a 128 GB, el tipo de disco es P10; si es de 129 a 512 GB, el disco es P20.
-
-### <a name="premium-disk-performance"></a>Rendimiento del disco Premium
+**Discos Premium**: respaldados por un disco de latencia reducida y alto rendimiento basado en SSD. Es perfecto para máquinas virtuales que ejecutan cargas de trabajo de producción. Los tamaños de máquina virtual con una letra **S** en el [nombre de tamaño](../vm-naming-conventions.md), normalmente admiten Premium Storage. Por ejemplo, las máquinas virtuales de las series DS, DSv2, GS y FS admiten Premium Storage. Al seleccionar el tamaño de un disco, el valor se redondea al alza al siguiente tipo. Por ejemplo, si el tamaño del disco es superior a 64 GB, pero inferior a 128 GB, el tipo de disco es P10. 
+<br>
 [!INCLUDE [disk-storage-premium-ssd-sizes](../../../includes/disk-storage-premium-ssd-sizes.md)]
+
+Cuando se aprovisiona un disco de Premium Storage, a diferencia de Standard Storage, se garantizan la capacidad, las E/S por segundo y el rendimiento del mismo. Por ejemplo, si crea un disco P50, Azure aprovisiona una capacidad de almacenamiento de 4095 GB, 7500 E/S por segundo y un rendimiento de 250 MB/s para él. La aplicación puede usar toda la capacidad y el rendimiento o parte de ellos. Los discos SSD Premium están diseñados para proporcionar bajas latencias inferiores a 10 milisegundos y un IOPS y rendimiento que se describen en la tabla anterior como del 99,9 % del tiempo.
 
 Aunque la tabla anterior identifica las IOPS máximas por disco, se puede obtener un mayor nivel de rendimiento dividiendo varios discos de datos. Por ejemplo, 64 discos de datos pueden conectarse a la máquina virtual Standard_GS5. Si cada uno de estos discos tiene un tamaño P30, se puede lograr un máximo de 80 000 IOPS. Para más información sobre el número máximo de IOPS por máquina virtual, vea los [tamaños y topos de máquinas virtuales](../sizes.md).
 

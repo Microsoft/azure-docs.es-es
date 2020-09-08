@@ -17,12 +17,12 @@ ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f84724285dee6dfff4913b067daa651837787d4e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1ccffe5e6e12d828acb4ced46bf3abf36113c588
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255785"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276497"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Cuentas y permisos
 
@@ -55,7 +55,7 @@ Además de estas tres cuentas usadas para ejecutar Azure AD Connect, también ne
 > [!NOTE]
 > Se admite la administración de las cuentas administrativas que se usan en Azure AD Connect desde un bosque administrativo ESAE (también conocido como "bosque rojo").
 > Los bosques administrativos dedicados permiten a las organizaciones hospedar cuentas administrativas, estaciones de trabajo y grupos en un entorno que tiene controles de seguridad más seguros que el entorno de producción.
-> Para más información acerca de los bosques administrativos dedicados, consulte [Enfoque de diseño de bosque administrativo ESAE](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach).
+> Para más información acerca de los bosques administrativos dedicados, consulte [Enfoque de diseño de bosque administrativo ESAE](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach).
 
 > [!NOTE]
 > El rol de administrador global no es necesario después de la configuración inicial y la única cuenta requerida será la cuenta de rol **Cuentas de sincronización de directorios** . Eso no significa necesariamente que solo desee eliminar la cuenta con el rol de Administrador global. Es mejor cambiar el rol a un rol menos poderoso, ya que la eliminación total de la cuenta puede presentar problemas si alguna vez necesita volver a ejecutar el asistente. Al reducir el privilegio del rol, siempre puede volver a elevar los privilegios si tiene que utilizar el asistente Azure AD Connect nuevamente. 
@@ -147,7 +147,7 @@ Los permisos que requiera dependen de las características opcionales que habili
 | Sincronización de hash de contraseñas |<li>Replicación de cambios de directorio</li>  <li>Replicación de todos los cambios de directorio |
 | Implementación híbrida de Exchange |Permisos de escritura en los atributos que se documentan en [Escritura diferida híbrida de Exchange](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) para usuarios, grupos y contactos. |
 | Carpeta pública de correo de Exchange |Permisos de lectura para los atributos que se documentan en [carpetas públicas de correo electrónico de Exchange](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) para las carpetas públicas. | 
-| escritura diferida de contraseñas |Permisos de escritura en los atributos que se documentan en [Introducción a la administración de contraseñas](../authentication/howto-sspr-writeback.md) para los usuarios. |
+| escritura diferida de contraseñas |Permisos de escritura en los atributos que se documentan en [Introducción a la administración de contraseñas](../authentication/tutorial-enable-sspr-writeback.md) para los usuarios. |
 | Escritura diferida de dispositivos |Los permisos concedidos con un script de PowerShell como se describe en [Escritura diferida de dispositivos](how-to-connect-device-writeback.md). |
 | Escritura diferida de grupos |Permite la escritura diferida de **grupos de Office 365** en un bosque con Exchange instalado.|
 
@@ -197,8 +197,8 @@ Leyenda:
 - Sin negrita: opción admitida
 - Cuenta local: cuenta de usuario local en el servidor
 - Cuenta de dominio: cuenta de usuario de dominio
-- sMSA: [cuenta de servicio administrada independiente](https://technet.microsoft.com/library/dd548356.aspx)
-- gMSA: [cuenta de servicio administrada de grupo](https://technet.microsoft.com/library/hh831782.aspx)
+- sMSA: [cuenta de servicio administrada independiente](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))
+- gMSA: [cuenta de servicio administrada de grupo](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11))
 
 | | LocalDB</br>Express | LocalDB/LocalSQL</br>Personalizado | SQL remoto</br>Personalizado |
 | --- | --- | --- | --- |
@@ -215,11 +215,11 @@ Una VSA está pensada para usarse en escenarios donde el motor de sincronizació
 Esta característica requiere Windows Server 2008 R2 o versiones posteriores. Si instala Azure AD Connect en Windows Server 2008, la instalación vuelve a utilizar una [cuenta de usuario](#user-account) en su lugar.
 
 #### <a name="group-managed-service-account"></a>Cuenta de servicio administrada de grupo
-Si usa un servidor SQL remoto, se recomienda utilizar una **cuenta de servicio administrada de grupo**. Para más información sobre cómo preparar Active Directory para la cuenta de servicio administrada de grupo, consulte [Información general de las cuentas de servicio administradas de grupo](https://technet.microsoft.com/library/hh831782.aspx).
+Si usa un servidor SQL remoto, se recomienda utilizar una **cuenta de servicio administrada de grupo**. Para más información sobre cómo preparar Active Directory para la cuenta de servicio administrada de grupo, consulte [Información general de las cuentas de servicio administradas de grupo](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)).
 
 Para usar esta opción, en la página [Instalar los componentes necesarios](how-to-connect-install-custom.md#install-required-components), seleccione **Usar una cuenta de servicio existente** y seleccione **Cuenta de servicio administrada**.  
 ![VSA](./media/reference-connect-accounts-permissions/serviceaccount.png)  
-También se puede usar una [cuenta de servicio administrada independiente](https://technet.microsoft.com/library/dd548356.aspx). Sin embargo, solo se pueden utilizar en el equipo local y no hay ningún beneficio al usarlas en lugar de la cuenta de servicio virtual predeterminada.
+También se puede usar una [cuenta de servicio administrada independiente](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10)). Sin embargo, solo se pueden utilizar en el equipo local y no hay ningún beneficio al usarlas en lugar de la cuenta de servicio virtual predeterminada.
 
 Esta característica requiere Windows Server 2012 o posterior. Si necesita usar un sistema operativo anterior y usar SQL remoto, debe usar una [cuenta de usuario](#user-account).
 
@@ -252,7 +252,7 @@ Hay un límite de 20 cuentas de servicio de sincronización en Azure AD. Para ob
 Para quitar las cuentas de servicio de Azure AD sin usar, ejecute el siguiente cmdlet de Azure AD PowerShell: `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 >[!NOTE]
->Para poder usar los comandos de PowerShell anteriores deberá instalar el [módulo Azure Active Directory PowerShell for Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module) y conectarse a la instancia de Azure AD mediante [Connect-AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0)
+>Para poder usar los comandos de PowerShell anteriores deberá instalar el [módulo Azure Active Directory PowerShell for Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module) y conectarse a la instancia de Azure AD mediante [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0)
 
 Para obtener más información sobre cómo administrar o restablecer la contraseña de la cuenta del conector de Azure AD, consulte [Administración de la cuenta de Azure AD Connect](how-to-connect-azureadaccount.md)
 

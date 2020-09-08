@@ -3,17 +3,18 @@ title: 'Inicio rápido: Exploración de los costos de Azure con el análisis de 
 description: Este guía de inicio rápido le ayudará a usar el análisis de costos para explorar y analizar sus costos de organización de Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/08/2020
+ms.date: 08/20/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
+ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 72c0b55e1ffc300b42181075247ed3efafe2793a
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 8ca9eaeeb8d484c9aeae6646e6f4814afbaed577
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560580"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718533"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Inicio rápido: Explore y analice los costos con Análisis de costos
 
@@ -161,6 +162,10 @@ Hay ocasiones en que es necesario descargar los datos para analizarlos en mayor 
 
 Si necesita el conjunto de datos completo sin agregar, descárguelo de la cuenta de facturación. A continuación, en la lista de servicios del panel de navegación izquierdo del portal, vaya a **Administración de costos + facturación**. Seleccione su cuenta de facturación, si procede. Vaya a **Uso y cargos** y, a continuación, seleccione el icono de **descarga** para el período de facturación deseado.
 
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+- Si ha anclado una vista personalizada para el análisis de costos, pero ya no la necesita, vaya al panel en el que la ancló y elimine la vista anclada.
+- Si ha descargado los archivos de datos de uso y ya no los necesita, asegúrese de eliminarlos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

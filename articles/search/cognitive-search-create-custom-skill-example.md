@@ -8,12 +8,13 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2994c55b39d30ff16a0ca135e93a116784feb201
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 5755e14e53d359fd8b322939bf1325d21536d593
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74113821"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020191"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Ejemplo: Creación de una aptitud personalizada con Bing Entity Search API
 
@@ -481,5 +482,5 @@ Felicidades. Acaba de crear su primera aptitud personalizada. Si quiere agregar 
 + [Aptitudes avanzadas: un repositorio de aptitudes personalizadas](https://github.com/Azure-Samples/azure-search-power-skills)
 + [Incorporación de una aptitud personalizada a una canalización de enriquecimiento de inteligencia artificial](cognitive-search-custom-skill-interface.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
-+ [Crear un conjunto de aptitudes (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Crear un conjunto de aptitudes (REST)](/rest/api/searchservice/create-skillset)
 + [Cómo asignar campos enriquecidos](cognitive-search-output-field-mapping.md)

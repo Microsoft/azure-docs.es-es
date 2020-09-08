@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: memildin
-ms.openlocfilehash: 953881b0c576ad6ce12a4dc44bb0980edd7bcd50
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: e5728b220f12c3305aa896e64010fc7e5828d6fb
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970559"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067229"
 ---
 # <a name="permissions-in-azure-security-center"></a>Permisos en Azure Security Center
 
-Azure Security Center usa el [control de acceso basado en roles (RBAC)](../role-based-access-control/role-assignments-portal.md), que proporciona [roles integrados](../role-based-access-control/built-in-roles.md) que se pueden asignar a usuarios, grupos y servicios de Azure.
+Azure Security Center usa el [control de acceso basado en rol de Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md), que proporciona [roles integrados](../role-based-access-control/built-in-roles.md) que se pueden asignar a usuarios, grupos y servicios en Azure.
 
 Security Center evalúa la configuración de los recursos para identificar problemas de seguridad y vulnerabilidades. En Security Center, solo se muestra información relacionada con un recurso cuando tiene asignado el rol de Propietario, Colaborador o Lector a la suscripción o grupo de recursos al que pertenece un recurso.
 
@@ -45,7 +45,7 @@ En la siguiente tabla se muestran los roles y las acciones permitidas en Securit
 |Editar directivas de seguridad|-|✔|-|-|✔|
 |Agregar o asignar iniciativas (incluidas las normas de cumplimiento normativo)|-|-|-|-|✔|
 |Cambiar plan de tarifa de suscripción|-|✔|-|-|✔|
-|Habilitar o deshabilitar el aprovisionamiento automático|-|✔|✔|-|✔|
+|Habilitar o deshabilitar el aprovisionamiento automático|-|✔|-|✔|✔|
 |Aplicar recomendaciones de seguridad en un recurso</br> (y utilizar la [corrección rápida](security-center-remediate-recommendations.md#quick-fix-remediation))|-|-|✔|✔|✔|
 |Descartar alertas|-|✔|-|✔|✔|
 |Ver alertas y recomendaciones|✔|✔|✔|✔|✔|

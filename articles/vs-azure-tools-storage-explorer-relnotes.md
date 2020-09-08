@@ -1,6 +1,6 @@
 ---
 title: Notas de la versión de Explorador de Microsoft Azure Storage
-description: Notas de la versión de Explorador de Microsoft Azure Storage
+description: Lea las notas de la versión más reciente del Explorador de Microsoft Azure Storage. También se muestran las notas de la versión anterior.
 services: storage
 documentationcenter: na
 author: cawaMS
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 986da8980a569583ef454833957ace85dd1bfbb6
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 91bc7adaf7829766c471056c50c1c3abd70dda63
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351072"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828785"
 ---
-# <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de la versión de Explorador de Microsoft Azure Storage
+# <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de la versión del Explorador de Microsoft Azure Storage
 
 En este artículo encontrará las últimas notas de la versión del Explorador de Azure Storage, así como las de versiones anteriores. 
 
@@ -126,7 +126,7 @@ Para descargar las versiones anteriores del Explorador de Storage, puede visit
 * [Versión 1.4.3](#version-143)
 * [Versión 1.4.2](#version-142)
 * [Versión 1.4.1](#version-141)
-* [Version 1.3.0](#version-130)
+* [Versión 1.3.0](#version-130)
 * [Versión 1.2.0](#version-120)
 * [Versión 1.1.0](#version-110)
 * [Versión 1.0.0](#version-100)
@@ -1313,7 +1313,7 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 
 ### <a name="fixes"></a>Correcciones
 * Mejoras de rendimiento del inicio.
-* Varias correcciones de errores.
+* Se corrigieron varios errores.
 
 ### <a name="known-issues"></a>Problemas conocidos
 * El Explorador de Storage no admite cuentas de AD FS.
@@ -1405,7 +1405,7 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 * Compatibilidad de versión preliminar para Azure Cosmos DB:
     * [Documentación en línea](./cosmos-db/storage-explorer.md)
     * Crear bases de datos y colecciones
-    * Manipular datos
+    * Manipulación de datos
     * Consultar, crear o eliminar documentos
     * Actualizar procedimientos almacenados, desencadenadores y funciones definidas por el usuario
     * Usar las cadenas de conexión para conectarse y administrar las bases de datos
@@ -1461,7 +1461,7 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 * Compatibilidad de versión preliminar para Azure Cosmos DB:
     * [Documentación en línea](./cosmos-db/storage-explorer.md)
     * Crear bases de datos y colecciones
-    * Manipular datos
+    * Manipulación de datos
     * Consultar, crear o eliminar documentos
     * Actualizar procedimientos almacenados, desencadenadores y funciones definidas por el usuario
     * Usar las cadenas de conexión para conectarse y administrar las bases de datos
@@ -1588,12 +1588,12 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 
 #### <a name="fixes"></a>Correcciones
 
-* Solucionado: había una alta probabilidad de que, al cargar un archivo, se produjese un error de memoria agotada.
-* Solucionado: ahora puede iniciar sesión con una tarjeta inteligente o un PIN.
+* Problema corregido: Había una alta probabilidad de que, al cargar un archivo, se produjese un error de memoria agotada.
+* Problema corregido: ahora puede iniciar sesión con una tarjeta inteligente o un PIN.
 * Solucionado: abrir en Portal ahora funciona con Azure China 21Vianet, Azure Alemania, Azure US Gov
-* Solucionado: al cargar una carpeta en un contenedor de blobs, a veces se produce un error de "operación ilegal".
-* Solucionado: seleccionar todo se deshabilita durante la administración de instantáneas.
-* Solucionado: los metadatos del blob base puede que se sobrescriban después de ver las propiedades de las instantáneas.
+* Problema corregido: Al cargar una carpeta en un contenedor de blobs, a veces se produce un error de “operación ilegal”.
+* Problema corregido: Seleccionar todo se deshabilita durante la administración de instantáneas.
+* Problema corregido: Los metadatos del blob base puede que se sobrescriban después de ver las propiedades de las instantáneas.
 
 #### <a name="known-issues"></a>Problemas conocidos
 
@@ -1702,13 +1702,13 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 
 #### <a name="fixes"></a>Correcciones
 
-* Solucionado: el Explorador de Storage es ahora una aplicación de confianza en Mac.
-* Solucionado: Ubuntu 14.04 se admite de nuevo.
-* Solucionado: en ocasiones, la interfaz de usuario para agregar una cuenta parpadea al cargar las suscripciones.
-* Solucionado: en ocasiones, no todos los recursos de almacenamiento se muestran en el panel de navegación izquierdo.
-* Solucionado: el panel de acciones a veces muestra acciones vacías.
-* Solucionado: ahora se conserva el tamaño de la ventana de la última sesión que se cerró.
-* Solucionado: se pueden abrir varias pestañas para el mismo recurso mediante el menú contextual.
+* Problema corregido: El Explorador de Storage es ahora una aplicación de confianza en Mac.
+* Problema corregido: Ubuntu 14.04 se admite de nuevo.
+* Problema corregido: En ocasiones, la interfaz de usuario para agregar una cuenta parpadea al cargar las suscripciones.
+* Problema corregido: En ocasiones, no todos los recursos de almacenamiento se muestran en el panel de navegación izquierdo.
+* Problema corregido: El panel de acciones a veces muestra acciones vacías.
+* Problema corregido: Ahora se conserva el tamaño de la ventana de la última sesión que se cerró.
+* Problema corregido: Se pueden abrir varias pestañas para el mismo recurso mediante el menú contextual.
 
 #### <a name="known-issues"></a>Problemas conocidos
 
@@ -1738,14 +1738,14 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 
 #### <a name="fixes"></a>Correcciones
 
-* Solucionado: problemas de inmovilización de pantalla
-* Solucionado: Mayor seguridad
-* Solucionado: a veces, podrían aparecer cuentas conectadas duplicadas.
-* Solucionado: un blob con un tipo de contenido sin definir podría generar una excepción.
-* Solucionado: no se podía abrir el Panel de consulta en una tabla vacía.
-* Solucionado: varios errores en la búsqueda.
-* Solucionado: aumento del número de recursos que se cargan de 50 a 100 al hacer clic en "Cargar más".
-* Solucionado: en la primera ejecución, si ha iniciado sesión con una cuenta, ahora se seleccionan todas las suscripciones para esa cuenta de manera predeterminada.
+* Problema corregido: Problemas de inmovilización de pantalla
+* Problema corregido: Mayor seguridad
+* Problema corregido: A veces, podrían aparecer cuentas conectadas duplicadas.
+* Problema corregido: Un blob con un tipo de contenido sin definir podría generar una excepción.
+* Problema corregido: No se podía abrir el Panel de consulta en una tabla vacía.
+* Problema corregido: Varios errores en la búsqueda.
+* Problema corregido: Aumento del número de recursos que se cargan de 50 a 100 al hacer clic en “Cargar más”.
+* Problema corregido: En la primera ejecución, si ha iniciado sesión con una cuenta, ahora se seleccionan todas las suscripciones para esa cuenta de manera predeterminada.
 
 #### <a name="known-issues"></a>Problemas conocidos
 
@@ -1756,7 +1756,7 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 * Si hay más de tres grupos de blobs o archivos cargándose al mismo tiempo, se pueden producir errores.
 * Identificadores de búsqueda que buscan en unos 50.000 nodos: después de esto, el rendimiento puede verse afectado o se pueden producir excepciones no controladas.
 
-03/10/2016
+10/03/2016
 ### <a name="version-085"></a>Versión 0.8.5
 
 #### <a name="new"></a>Nuevo
@@ -1766,8 +1766,8 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 #### <a name="fixes"></a>Correcciones
 
 * Problema corregido: A veces, la condición de carrera durante las búsquedas provocaba que los nodos no se pudiesen expandir.
-* Solucionado: "Usar HTTP" no funciona al conectarse a cuentas de almacenamiento con un nombre de cuenta y una clave.
-* Solucionado: las claves SAS (especialmente las generadas en el Portal) devuelven un error de "barra oblicua final".
+* Problema corregido: “Usar HTTP” no funciona al conectarse a cuentas de almacenamiento con un nombre de cuenta y una clave.
+* Problema corregido: Las claves SAS (especialmente las generadas en el Portal) devuelven un error de “barra oblicua final”.
 * Problema corregido: Problemas al importar tablas.
     * A veces se revertían la clave de fila y la clave de partición
     * No se puede leer las claves de partición “null”.
@@ -1813,7 +1813,7 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 
 #### <a name="fixes"></a>Correcciones
 
-* Solucionado: las cuentas de Microsoft requieren que vuelva a autenticarse en períodos de 8 a 12 horas.
+* Problema corregido: Las cuentas de Microsoft requieren que vuelva a autenticarse en períodos de 8 a 12 horas.
 
 #### <a name="known-issues"></a>Problemas conocidos
 
@@ -1869,7 +1869,7 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 
 * Problema corregido: Al cargar o descargar blobs grandes, se puede producir una carga o descarga incompleta.
 * Problema corregido: Al editar, agregar o importar una entidad con un valor de cadena numérico (“1”) se convertirá en doble.
-* Solucionado: no se puede expandir el nodo de tabla en el entorno de desarrollo local.
+* Problema corregido: No se puede expandir el nodo de tabla en el entorno de desarrollo local.
 
 #### <a name="known-issues"></a>Problemas conocidos
 
@@ -1889,7 +1889,7 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 
 #### <a name="known-issues"></a>Problemas conocidos
 
-* Tablas: al agregar, editar o importar una entidad con una propiedad con un valor numérico ambiguo, como “1” o “1.0” y cuando el usuario intenta enviarla como `Edm.String`, el valor volverá a través de la API del cliente como un Edm.Double.
+* Tablas: Al agregar, editar o importar una entidad con una propiedad con un valor numérico ambiguo, como “1” o “1.0” y cuando el usuario intenta enviarla como `Edm.String`, el valor volverá a través de la API del cliente como un Edm.Double.
 
 31/03/2016
 

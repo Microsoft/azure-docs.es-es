@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 0004b7689b6ede2200e3fe4cb06bba2bbc168d6d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 3fcbc386c60611493912fdfb17226490549cdc53
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259402"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89396818"
 ---
 # <a name="azure-security-baseline-for-azure-container-registry"></a>Base de referencia de Azure Security para Azure Container Registry
 
@@ -135,7 +135,7 @@ Permitir el acceso por etiqueta de servicio: https://docs.microsoft.com/azure/co
 
 **Guía**: Defina e implemente configuraciones de seguridad estándar para los recursos de red asociados a los registros de contenedor de Azure con Azure Policy. Use alias de Azure Policy en los espacios de nombres "Microsoft.ContainerRegistry" y "Microsoft.Network" para crear directivas personalizadas con el fin de auditar o aplicar la configuración de red de los registros de contenedor. 
 
-También puede usar Azure Blueprints para simplificar las implementaciones de Azure a gran escala mediante el empaquetado de artefactos de entorno clave, como plantillas de Azure Resource Manager, controles de RBAC y directivas, en una única definición de plano técnico. Puede aplicar el plano técnico a nuevas suscripciones y ajustar el control y la administración a través del control de versiones.
+También puede usar Azure Blueprints para simplificar las implementaciones de Azure a gran escala mediante el empaquetado de artefactos de entorno clave, como plantillas de Azure Resource Manager, controles de Azure RBAC y directivas, en una única definición de plano técnico. Puede aplicar el plano técnico a nuevas suscripciones y ajustar el control y la administración a través del control de versiones.
 
 Auditoría del cumplimiento de los registros de contenedor de Azure mediante Azure Policy: https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy
 
@@ -148,7 +148,7 @@ Creación de un plano técnico de Azure: https://docs.microsoft.com/azure/govern
 
 ### <a name="110-document-traffic-configuration-rules"></a>1.10: Documente las reglas de configuración de tráfico
 
-**Guía**: También puede usar Azure Blueprints para simplificar las implementaciones de Azure a gran escala mediante el empaquetado de artefactos de entorno clave, como plantillas de Azure Resource Manager, controles de RBAC y directivas, en una única definición de plano técnico. Puede aplicar el plano técnico a nuevas suscripciones y ajustar el control y la administración a través del control de versiones.
+**Guía**: También puede usar Azure Blueprints para simplificar las implementaciones de Azure a gran escala mediante el empaquetado de artefactos de entorno clave, como plantillas de Azure Resource Manager, controles de Azure RBAC y directivas, en una única definición de plano técnico. Puede aplicar el plano técnico a nuevas suscripciones y ajustar el control y la administración a través del control de versiones.
 
 Creación de un plano técnico de Azure: https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
@@ -231,7 +231,7 @@ Configuración de parámetros de retención de registros de áreas de trabajo de
 
 ### <a name="26-monitor-and-review-logs"></a>2.6: Supervisión y registros de revisión
 
-**Instrucciones**: Analice y supervise los registros de Azure Container Registry en busca de comportamientos anómalos y revise los resultados con regularidad. Use el área de trabajo de Log Analytics de Azure Monitor para revisar los registros y realizar consultas en los datos del registro.
+**Guía**: Analice y supervise los registros de Azure Container Registry en busca de comportamientos anómalos y revise los resultados con regularidad. Use el área de trabajo de Log Analytics de Azure Monitor para revisar los registros y realizar consultas en los datos del registro.
 
 Registros de Azure Container Registry para la evaluación y auditoría de diagnóstico: https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs
 
@@ -289,7 +289,7 @@ Alertas sobre datos de registro de Log Analytics: https://docs.microsoft.com/azu
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Mantenga un inventario de cuentas administrativas
 
-**Instrucciones**: Azure Active Directory (Azure AD) tiene roles integrados que se deben asignar explícitamente y son consultables. Use el módulo de PowerShell de Azure AD para realizar consultas ad hoc para detectar cuentas que son miembros de grupos administrativos.
+**Guía**: Azure Active Directory (Azure AD) tiene roles integrados que se deben asignar explícitamente y son consultables. Use el módulo de PowerShell de Azure AD para realizar consultas ad hoc para detectar cuentas que son miembros de grupos administrativos.
 
 Para cada registro de contenedor de Azure, realice un seguimiento para saber si la cuenta de administrador integrada está habilitada o deshabilitada. Deshabilite la cuenta cuando no esté en uso.
 
@@ -336,7 +336,7 @@ Cuenta de administrador de Azure Container Registry: https://docs.microsoft.com/
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4: Use el inicio de sesión único (SSO) con Azure Active Directory
 
-**Guía**: Siempre que sea posible, use el SSO de Azure Active Directory en lugar de configurar credenciales independientes individuales por servicio. Use las recomendaciones de administración de identidades y acceso de Azure Security Center.
+**Instrucciones**: Siempre que sea posible, use el SSO de Azure Active Directory en lugar de configurar credenciales independientes individuales por servicio. Use las recomendaciones de administración de identidades y acceso de Azure Security Center.
 
 Para obtener acceso individual al registro de contenedor, use el inicio de sesión individual integrado con Azure Active Directory.
 
@@ -351,7 +351,7 @@ Inicio de sesión individual en un registro de contenedor: https://docs.microsof
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5: Use la autenticación multifactor para todo el acceso basado en Azure Active Directory
 
-**Instrucciones**: Habilite la autenticación multifactor (MFA) de Azure Active Directory (Azure AD) y siga las recomendaciones de administración de identidades y acceso de Azure Security Center.
+**Guía**: Habilite la autenticación multifactor (MFA) de Azure Active Directory (Azure AD) y siga las recomendaciones de administración de identidades y acceso de Azure Security Center.
 
 Cómo habilitar la MFA en Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
@@ -377,7 +377,7 @@ Cómo habilitar la MFA en Azure: https://docs.microsoft.com/azure/active-directo
 
 ### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3.7: Registre y alerte de la actividad sospechosa desde cuentas administrativas
 
-**Instrucciones**: Use los informes de seguridad de Azure Active Directory (Azure AD) para la generación de registros y alertas cuando se produzcan actividades sospechosas o no seguras en el entorno. Use Azure Security Center para supervisar la actividad de identidad y acceso.
+**Guía**: Use los informes de seguridad de Azure Active Directory (Azure AD) para la generación de registros y alertas cuando se produzcan actividades sospechosas o no seguras en el entorno. Use Azure Security Center para supervisar la actividad de identidad y acceso.
 
 Procedimiento para identificar usuarios de Azure AD marcados por una actividad de riesgo: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk
 
@@ -412,7 +412,7 @@ Procedimiento para crear y configurar una instancia de Azure AD: https://docs.m
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: Revise y concilie regularmente el acceso de los usuarios
 
-**Guía**: Azure Active Directory (Azure AD) proporciona registros para ayudar a descubrir cuentas obsoletas. Además, use las revisiones de acceso de identidad de Azure para administrar de forma eficiente las pertenencias a grupos, el acceso a las aplicaciones empresariales y las asignaciones de roles. El acceso de los usuarios se puede revisar de forma periódica para asegurarse de que solo las personas adecuadas tengan acceso continuado.
+**Instrucciones**: Azure Active Directory (Azure AD) proporciona registros para ayudar a descubrir cuentas obsoletas. Además, use las revisiones de acceso de identidad de Azure para administrar de forma eficiente las pertenencias a grupos, el acceso a las aplicaciones empresariales y las asignaciones de roles. El acceso de los usuarios se puede revisar de forma periódica para asegurarse de que solo las personas adecuadas tengan acceso continuado.
 
 Descripción de los informes de Azure AD: https://docs.microsoft.com/azure/active-directory/reports-monitoring/
 
@@ -556,9 +556,9 @@ Descripción de la protección de datos de los clientes en Azure: https://docs.m
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Uso de RBAC de Azure para controlar el acceso a los recursos
 
-**Guía**: Use RBAC Azure Active Directory (Azure AD) para controlar el acceso a los datos y recursos de un registro de contenedor de Azure. 
+**Guía**: Use el control de acceso basado en rol de Azure (Azure RBAC) para controlar el acceso a los datos y recursos de un registro de contenedor de Azure. 
 
-Cómo configurar RBAC en Azure: https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
+Configuración de Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
 Roles y permisos de Azure Container Registry: https://docs.microsoft.com/azure/container-registry/container-registry-roles
 
@@ -919,7 +919,7 @@ Documentación de Azure Repos: https://docs.microsoft.com/azure/devops/repos/ind
 
 ### <a name="77-deploy-system-configuration-management-tools"></a>7.7: Implemente herramientas de administración de configuración del sistema
 
-**Guía**: Use Azure Policy para alertar, auditar y aplicar las configuraciones del sistema. Además, desarrolle un proceso y una canalización para administrar las excepciones de las directivas.
+**Instrucciones**: Use Azure Policy para alertar, auditar y aplicar las configuraciones del sistema. Además, desarrolle un proceso y una canalización para administrar las excepciones de las directivas.
 
 Auditoría del cumplimiento de los registros de contenedor de Azure mediante Azure Policy: https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy
 
@@ -970,9 +970,11 @@ Auditoría del cumplimiento de los registros de contenedor de Azure mediante Azu
 
 Cómo integrar las identidades administradas de Azure: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Cómo crear un Key Vault: https://docs.microsoft.com/azure/key-vault/quick-create-portal
+Cómo crear un almacén de claves: https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-Cómo proporcionar la autenticación de Key Vault con una identidad administrada: https://docs.microsoft.com/azure/key-vault/managed-identity
+Autenticación en Azure Key Vault: https://docs.microsoft.com/azure/key-vault/general/authentication
+
+Asignación de una directiva de acceso de Key Vault: https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 Uso de una identidad administrada con las tareas de Azure Container Registry: https://docs.microsoft.com/azure/container-registry/container-registry-tasks-authentication-managed-identity
 
@@ -983,7 +985,7 @@ Uso de una identidad administrada con las tareas de Azure Container Registry: 
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12: Administre las identidades de forma segura y automática
 
-**Guía**: Use las identidades administradas para proporcionar a los servicios de Azure una identidad administrada automáticamente en Azure AD. Las identidades administradas le permiten autenticarse en cualquier servicio que admita la autenticación de Azure AD, incluyendo Key Vault, sin necesidad de credenciales en el código.
+**Instrucciones**: Use las identidades administradas para proporcionar a los servicios de Azure una identidad administrada automáticamente en Azure AD. Las identidades administradas le permiten autenticarse en cualquier servicio que admita la autenticación de Azure AD, incluyendo Key Vault, sin necesidad de credenciales en el código.
 
 Cómo configurar las identidades administradas: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
 
@@ -1086,7 +1088,7 @@ Restauración las claves de Azure Key Vault en Azure: https://docs.microsoft.com
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Garantía de la protección de las copias de seguridad y las claves administradas del cliente
 
-**Instrucciones**: Habilite la eliminación temporal en Azure Key Vault para proteger las claves contra la eliminación accidental o malintencionada.
+**Guía**: Habilite la eliminación temporal en Azure Key Vault para proteger las claves contra la eliminación accidental o malintencionada.
 
 Habilitación de la eliminación temporal en Key Vault: https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
@@ -1119,7 +1121,7 @@ El cliente también puede utilizar la guía de control de incidentes de segurida
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2: Creación de un procedimiento de priorización y puntuación de incidentes
 
-**Guía**: Azure Security Center asigna una gravedad a cada alerta para ayudarle a priorizar aquellas que se deben investigar en primer lugar. La gravedad se basa en la confianza que tiene Security Center en la búsqueda o en el análisis utilizados para emitir la alerta, así como en el nivel de confianza de que ha habido un intento malintencionado detrás de la actividad que ha provocado la alerta.
+**Instrucciones**: Azure Security Center asigna una gravedad a cada alerta para ayudarle a priorizar aquellas que se deben investigar en primer lugar. La gravedad se basa en la confianza que tiene Security Center en la búsqueda o en el análisis utilizados para emitir la alerta, así como en el nivel de confianza de que ha habido un intento malintencionado detrás de la actividad que ha provocado la alerta.
 
 Además, marque claramente las suscripciones (por ejemplo, producción, no producción) y cree un sistema de nomenclatura para identificar y clasificar claramente los recursos de Azure.
 
@@ -1141,7 +1143,7 @@ Consulte la publicación de NIST: Guía para probar, entrenar y ejecutar program
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4: Provisión de detalles de contacto de incidentes de seguridad y configuración de notificaciones de alerta para incidentes de seguridad
 
-**Instrucciones**: La información de contacto del incidente de seguridad la utilizará Microsoft para ponerse en contacto con usted si Microsoft Security Response Center (MSRC) detecta que un tercero no autorizado o ilegal ha accedido a los datos del cliente.  Revise los incidentes después del hecho para asegurarse de que se resuelven los problemas.
+**Guía**: La información de contacto del incidente de seguridad la utilizará Microsoft para ponerse en contacto con usted si Microsoft Security Response Center (MSRC) detecta que un tercero no autorizado o ilegal ha accedido a los datos del cliente.  Revise los incidentes después del hecho para asegurarse de que se resuelven los problemas.
 
 Procedimiento para establecer el contacto de seguridad de Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
 

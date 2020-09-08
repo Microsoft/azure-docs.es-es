@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 1c5b008b9771e636201f95f3a56f81d4e75b7ea2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 44cecbd8d2cdc95e342d7aaf2b33f6cc0192e182
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831743"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89262042"
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Entrega de transmisión en directo con Azure Media Services
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 ## <a name="overview"></a>Información general
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 7/22/2020
 ms.author: mimckitt
 ms.custom: sttsinar
-ms.openlocfilehash: 2059c6f374e4cd5c2518e2fc0ac0da5858b99825
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 13894e534dc8d6dd89baf75ea2bd3b6500b718f7
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131725"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650968"
 ---
 # <a name="azure-virtual-machine-sizes-naming-conventions"></a>Convenciones de nomenclatura de los tamaños de las máquinas virtuales de Azure
 
@@ -25,11 +25,10 @@ En esta página se explican las convenciones de nomenclatura que se usan para la
 
 |Value | Explicación|
 |---|---|
-| Estándar, Básico o Experimental | "Estándar" es el valor predeterminado asignado para todos los tamaños de máquina virtual de disponibilidad general | 
 | Familia | Indica la serie de la familia de la máquina virtual| 
 | *Subfamilia | Se usa solo para diferenciaciones especializadas de máquinas virtuales|
 | N. º de vCPU| Indica el número de vCPU de la máquina virtual |
-| Características adicionales | Una o más letras minúsculas indican características adicionales, como: <br> a = procesador basado en AMD <br> d = disco (el disco temporal local está presente); esto es para las máquinas virtuales de Azure más recientes, vea [Series Ddv4 y Ddsv4](./ddv4-ddsv4-series.md) <br> h = compatible con hibernación <br> i = aislada <br> l = poca memoria <br> m = memoria intensiva <br> t = memoria minúscula <br> r = RDMA <br> s = compatible con Premium Storage, incluido el posible uso de [SSD Ultra](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk) (Nota: Algunos tamaños más recientes sin el atributo s son compatibles con Premium Storage, por ejemplo, M128, M64, etc.)<br> |
+| Características adicionales | Una o más letras minúsculas indican características adicionales, como: <br> a = procesador basado en AMD <br> d = disco (el disco temporal local está presente); esto es para las máquinas virtuales de Azure más recientes, vea [Series Ddv4 y Ddsv4](./ddv4-ddsv4-series.md) <br> h = compatible con hibernación <br> i = tamaño aislado <br> l = poca memoria; menor cantidad de memoria que el tamaño de memoria intensiva <br> m = memoria intensiva; la mayor cantidad de memoria en un tamaño determinado <br> t = memoria minúscula; la menor cantidad de memoria en un tamaño determinado <br> r = compatible con RDMA <br> s = compatible con Premium Storage, incluido el posible uso de [SSD Ultra](./disks-types.md#ultra-disk) (Nota: Algunos tamaños más recientes sin el atributo s son compatibles con Premium Storage, por ejemplo, M128, M64, etc.)<br> |
 | *Tipo de acelerador | Indica el tipo de acelerador de hardware de los SKU especializados o GPU. Solo los nuevos SKU especializados o GPU lanzados a partir del tercer trimestre de 2020 tienen el acelerador de hardware en el nombre. |
 | Versión | Indica la versión de la serie de la familia de máquinas virtuales |
 
@@ -69,4 +68,4 @@ En esta página se explican las convenciones de nomenclatura que se usan para la
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre los [Tamaños de máquina virtual](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) disponibles en Azure. 
+Obtenga más información sobre los [Tamaños de máquina virtual](./sizes.md) disponibles en Azure. 

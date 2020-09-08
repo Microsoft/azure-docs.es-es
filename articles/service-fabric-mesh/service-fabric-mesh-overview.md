@@ -5,12 +5,12 @@ author: dkkapur
 ms.author: dekapur
 ms.date: 10/1/2018
 ms.topic: overview
-ms.openlocfilehash: e64cc158a18e604cbd022be5c91350c95258272c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b7061a178a3f5a9d126afab3fc1f9aa77d5cc050
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86257805"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927035"
 ---
 # <a name="what-is-service-fabric-mesh"></a>¿Qué es Service Fabric Mesh?
 
@@ -42,7 +42,7 @@ Con Service Fabric Mesh, puede:
 
 - Implementar y administrar aplicaciones sin necesidad de aprovisionar y administrar la infraestructura de forma explícita.  Service Fabric Mesh aprovisiona, actualiza y mantiene la infraestructura subyacente, y le aplica las revisiones necesarias, sin necesidad de que intervenga el usuario.
 - Configurar la integración continua mediante las herramientas integradas para empaquetar e implementar fácilmente las aplicaciones.
-- Aproveche todas las características de los recursos de Azure Resource Manager. Ejemplos de estas características son el registro de auditoría y el [control de acceso basado en roles](../role-based-access-control/overview.md). Todos los recursos que se implementan en el servicio Service Fabric Mesh de Azure son recursos de Azure Resource Manager. Estos recursos incluyen aplicaciones, servicios, secretos, etc.
+- Aproveche todas las características de los recursos de Azure Resource Manager. Ejemplos de estas características son el registro de auditoría y el [control de acceso basado en roles de Azure (Azure RBAC)](../role-based-access-control/overview.md). Todos los recursos que se implementan en el servicio Service Fabric Mesh de Azure son recursos de Azure Resource Manager. Estos recursos incluyen aplicaciones, servicios, secretos, etc.
 - Implementar y administrar recursos mediante [Azure Portal](https://portal.azure.com), plantillas de Resource Manager o bibliotecas de la CLI de Azure o PowerShell.
 - Configurar la supervisión y alerta operativas con [Application Insights](/azure/application-insights/) (o la herramienta que prefiera) para capturar los seguimientos de diagnóstico y operativos desde la plataforma.
 - Acceder a la información de diagnóstico de las aplicaciones emitida desde el modelo de aplicación mediante [Application Insights](/azure/application-insights/) o la herramienta de su elección.

@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Dotcom-Monitor | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Dotcom-Monitor.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: a72a0b6c-e670-4f69-8e10-ae6ace6ba8a5
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 12/26/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6f8bd195043745d39327ae695abf00229aba8ec
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c2ed6a39853c1cdc89cd3edf75061b85c34c6845
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75648482"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88555846"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-dotcom-monitor"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Dotcom-Monitor
 

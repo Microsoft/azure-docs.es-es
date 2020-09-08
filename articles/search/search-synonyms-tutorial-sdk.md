@@ -8,12 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6232ba859c985929c9df0fb5020fb932611bbb40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 982aa4bdb37af53999e75b7e33db990adb057938
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85079439"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019766"
 ---
 # <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>Ejemplo: Adición de sinónimos para Azure Cognitive Search en C#
 
@@ -22,8 +23,8 @@ Los sinónimos amplían una consulta realizando coincidencias con términos que 
 En Azure Cognitive Search, los sinónimos se definen en un *mapa de sinónimos* a través de *reglas de asignación* que permiten asociar términos equivalentes. En este ejemplo se explican los pasos esenciales para agregar y usar sinónimos con un índice existente. Aprenderá a:
 
 > [!div class="checklist"]
-> * Cree un mapa de sinónimos mediante la clase [SynonymMap](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet). 
-> * Establezca la propiedad [SynonymMaps](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) en los campos que deben admitir la expansión de consultas a través de sinónimos.
+> * Cree un mapa de sinónimos mediante la clase [SynonymMap](/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet). 
+> * Establezca la propiedad [SynonymMaps](/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) en los campos que deben admitir la expansión de consultas a través de sinónimos.
 
 Puede consultar un campo habilitado para sinónimos como lo haría normalmente. No hay ninguna sintaxis de consulta adicional necesaria para acceder a los sinónimos.
 
@@ -38,8 +39,8 @@ Los requisitos del tutorial incluyen los siguientes:
 
 * [Visual Studio](https://www.visualstudio.com/downloads/)
 * [Servicio Azure Cognitive Search](search-create-service-portal.md)
-* [Biblioteca de Microsoft.Azure.Search .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search)
-* [Uso de Azure Cognitive Search desde una aplicación de .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
+* [Biblioteca de Microsoft.Azure.Search .NET](/dotnet/api/overview/azure/search)
+* [Uso de Azure Cognitive Search desde una aplicación de .NET](./search-howto-dotnet-sdk.md)
 
 ## <a name="overview"></a>Información general
 
@@ -77,7 +78,7 @@ Las consultas de antes y después del uso de sinónimos muestran el valor de los
       Console.ReadKey();
   }
 ```
-Se explican los pasos necesarios para crear y rellenar el índice de ejemplo en [Uso de Azure Cognitive Search desde una aplicación de .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
+Se explican los pasos necesarios para crear y rellenar el índice de ejemplo en [Uso de Azure Cognitive Search desde una aplicación de .NET](./search-howto-dotnet-sdk.md).
 
 ## <a name="before-queries"></a>Consultas "antes de"
 
@@ -173,7 +174,7 @@ La manera más rápida de borrar el contenido después de un ejemplo es eliminar
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este ejemplo se ha mostrado la característica de sinónimos en código C# para crear y publicar reglas de asignación y, después, llamar a la asignación de sinónimos en una consulta. Puede encontrar información adicional en la documentación de referencia de [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) y [API REST](https://docs.microsoft.com/rest/api/searchservice/).
+En este ejemplo se ha mostrado la característica de sinónimos en código C# para crear y publicar reglas de asignación y, después, llamar a la asignación de sinónimos en una consulta. Puede encontrar información adicional en la documentación de referencia de [.NET SDK](/dotnet/api/microsoft.azure.search) y [API REST](/rest/api/searchservice/).
 
 > [!div class="nextstepaction"]
 > [Uso de sinónimos en Azure Cognitive Search](search-synonyms.md)

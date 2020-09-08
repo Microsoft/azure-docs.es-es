@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 2657f1998e3ca908bc52166154ac3353e1e5a66b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: c0a64c0a9653bd274e9298401163ad7abc1af99f
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415039"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852300"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copia de datos desde un punto de conexión REST mediante Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -108,6 +108,7 @@ Establezca la propiedad **authenticationType** en **AadServicePrincipal**. Adem�
 | servicePrincipalKey | Especifique la clave de la aplicación de Azure Active Directory. Marque este campo como [SecureString](store-credentials-in-key-vault.md) para almacenarlo de forma segura en Data Factory, o bien **para hacer referencia a un secreto almacenado en Azure Key Vault**. | Sí |
 | tenant | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarla, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Sí |
 | aadResourceId | Especifique el recurso de AAD para el que solicita autorización, por ejemplo, `https://management.core.windows.net`.| Sí |
+| azureCloudType | Para la autenticación de la entidad de servicio, especifique el tipo de entorno de nube de Azure en el que está registrada la aplicación de AAD. <br/> Los valores permitidos son **AzurePublic**, **AzureChina**, **AzureUsGovernment** y **AzureGermany**. De forma predeterminada, se usa el entorno de nube de la factoría de datos. | No |
 
 **Ejemplo**
 
@@ -305,7 +306,7 @@ Este conector REST genérico admite los siguientes patrones de paginación:
 * Encabezado de la siguiente solicitud = valor de propiedad en el cuerpo de la respuesta actual
 * Encabezado de la siguiente solicitud = valor de encabezado en los encabezados de la respuesta actual
 
-**Las reglas de paginación** se definen como un diccionario en el conjunto de datos que contiene uno o más pares clave-valor que distinguen mayúsculas de minúsculas. La configuración se usará para generar la solicitud a partir de la segunda página. El conector detendrá la iteración cuando obtenga el código de estado HTTP 204 (sin contenido) o cualquiera de las expresiones JSONPath en "paginationRules" devuelva NULL.
+Las **reglas de paginación** se definen como un diccionario en el conjunto de datos que contiene uno o más pares clave-valor que distinguen mayúsculas de minúsculas. La configuración se usará para generar la solicitud a partir de la segunda página. El conector detendrá la iteración cuando obtenga el código de estado HTTP 204 (sin contenido) o cualquiera de las expresiones JSONPath en "paginationRules" devuelva NULL.
 
 **Claves admitidas** en las reglas de paginación:
 
@@ -409,7 +410,7 @@ La plantilla define dos parámetros:
 
     | Propiedad | Descripción |
     |:--- |:--- |:--- |
-    | URL |Especifique la dirección URL de la que se recuperará el token de portador OAuth. Por ejemplo, en este caso es https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
+    | URL |Especifique la dirección URL de la que se recuperará el token de portador OAuth. p. ej., en este ejemplo es https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
     | Método | Método HTTP. Los valores permitidos son **POST** y **GET**. | 
     | encabezados | El usuario define el encabezado, que hace referencia a un nombre de encabezado en la solicitud HTTP. | 
     | Body | Cuerpo de la solicitud HTTP. | 

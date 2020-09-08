@@ -1,6 +1,6 @@
 ---
 title: 'Ejemplo de script de Azure PowerShell: configuración de dominios personalizados | Microsoft Docs'
-description: 'Ejemplo de script de Azure PowerShell: configuración de dominios personalizados'
+description: Obtenga información sobre cómo configurar un dominio personalizado en puntos de conexión de portal o proxy del servicio API Management. Consulte los scripts de ejemplo y los recursos adicionales disponibles.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 12/14/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: fedeb9fd1b2dd3bd47f3d950d506e2b2854bfd82
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 16da7891b5321006708dc59ec8d482754beb7d9e
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008798"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853303"
 ---
 # <a name="set-up-custom-domain"></a>Configuración de dominios personalizados
 

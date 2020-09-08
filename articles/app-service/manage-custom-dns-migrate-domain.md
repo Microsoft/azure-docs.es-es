@@ -4,14 +4,14 @@ description: Obtenga información sobre cómo migrar un nombre de dominio DNS pe
 tags: top-support-issue
 ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.topic: article
-ms.date: 10/21/2019
+ms.date: 08/25/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5c1760c746aca439e19ab5727e5be02f6dbad3cb
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: c51745b7760573aa3c6ae067e9a6c1cc315f8e56
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535696"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871401"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migración de un nombre de DNS activo a Azure App Service
 
@@ -29,7 +29,7 @@ Para completar este procedimiento:
 
 ## <a name="bind-the-domain-name-preemptively"></a>Enlace del nombre de dominio de forma preventiva
 
-Al enlazar un dominio personalizado de forma preventiva, logrará lo siguiente antes de efectuar cualquier cambio en sus registros de DNS:
+Al enlazar un dominio personalizado de forma preventiva, logrará lo siguiente antes de efectuar cualquier cambio en sus registros de DNS existentes:
 
 - Comprobar la propiedad del dominio
 - Habilitar el nombre de dominio para la aplicación
@@ -38,54 +38,48 @@ Cuando finalmente migre el nombre DNS personalizado del sitio antiguo a la aplic
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
+### <a name="get-domain-verification-id"></a>Obtención del identificador de comprobación de dominio
+
+Para obtener el identificador de comprobación de dominio de la aplicación, siga los pasos descritos en [Obtención del identificador de comprobación de dominio](app-service-web-tutorial-custom-domain.md#get-domain-verification-id).
+
 ### <a name="create-domain-verification-record"></a>Creación de un registro de comprobación de dominio
 
-Para comprobar la propiedad de dominio, agregue un registro TXT. El registro TXT se asigna desde _awverify.&lt; subdominio >_ a _&lt;nombreaplic >. azurewebsites.net_. 
-
-El registro TXT que necesita depende en el registro DNS que desea migrar. Para obtener ejemplos, vea la tabla siguiente (`@` normalmente representa el dominio raíz):
+Para comprobar la propiedad del dominio, agregue un registro TXT para la comprobación del dominio. El nombre de host del registro TXT depende del tipo de registro de DNS que desee asignar. Vea la tabla siguiente (`@` normalmente representa el dominio raíz):
 
 | Ejemplo de registro DNS | Host TXT | Valor TXT |
 | - | - | - |
-| \@ (raíz) | _awverify_ | _&lt;nombreaplic&gt;.azurewebsites.net_ |
-| www (sub) | _awverify.www_ | _&lt;nombreaplic&gt;.azurewebsites.net_ |
-| \* (comodín) | _awverify.\*_ | _&lt;nombreaplic&gt;.azurewebsites.net_ |
+| \@ (raíz) | _asuid_ | [Identificador de comprobación de dominio para la aplicación](app-service-web-tutorial-custom-domain.md#get-domain-verification-id) |
+| www (sub) | _asuid.www_ | [Identificador de comprobación de dominio para la aplicación](app-service-web-tutorial-custom-domain.md#get-domain-verification-id) |
+| \* (comodín) | _asuid_ | [Identificador de comprobación de dominio para la aplicación](app-service-web-tutorial-custom-domain.md#get-domain-verification-id) |
 
 En la página de registros DNS, tenga en cuenta el tipo de registro del nombre DNS que desee migrar. App Service es compatible con las asignaciones de CNAME y registros A.
 
 > [!NOTE]
-> Para ciertos proveedores, como CloudFlare, `awverify.*` no es un registro válido. Use solo `*` en su lugar.
-
-> [!NOTE]
 > Los registros con el carácter comodín `*` no validarán los subdominios con un registro CNAME existente. Es posible que deba crear explícitamente un registro TXT para cada subdominio.
-
 
 ### <a name="enable-the-domain-for-your-app"></a>Habilitación del dominio para la aplicación
 
-En [Azure Portal](https://portal.azure.com), en la navegación izquierda de la página de aplicaciones, seleccione **Dominios personalizados**. 
+1. En [Azure Portal](https://portal.azure.com), en la navegación izquierda de la página de aplicaciones, seleccione **Dominios personalizados**. 
 
-![Menú Dominio personalizado](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+    ![Menú Dominio personalizado](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-En la página **Dominios personalizados**, seleccione el icono **+** junto a **Agregar nombre de host**.
+1. En la página **Dominios personalizados**, seleccione **Agregar un dominio personalizado**.
 
-![Agregar nombre de host](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
+    ![Agregar nombre de host](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Escriba el nombre de dominio completo para el que ha agregado un registro TXT, como `www.contoso.com`. Para un dominio con caracteres comodín (como \*. contoso.com), puede utilizar cualquier nombre DNS que coincida con el dominio con caracteres comodín. 
+1. Escriba el nombre de dominio completo que desea migrar, que corresponde al registro TXT que cree, como `contoso.com`, `www.contoso.com` o `*.contoso.com`. Seleccione **Validar**.
 
-Seleccione **Validar**.
+    El botón **Agregar dominio personalizado** está activado. 
 
-Se activa el botón **Agregar nombre de host**. 
+1. Asegúrese de que el **tipo de registro de nombre de host** se establece en el tipo de registro DNS que desea migrar. Seleccione **Agregar nombre de host**.
 
-Asegúrese de que el **tipo de registro de nombre de host** se establece en el tipo de registro DNS que desea migrar.
+    ![Agregar nombre DNS a la aplicación](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
 
-Seleccione **Agregar nombre de host**.
+    El nuevo nombre de host puede tardar un tiempo en reflejarse en la página **Dominios personalizados** de la aplicación. Intente actualizar el explorador para actualizar los datos.
 
-![Agregar nombre DNS a la aplicación](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
+    ![Registro CNAME agregado](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
-El nuevo nombre de host puede tardar un tiempo en reflejarse en la página **Dominios personalizados** de la aplicación. Intente actualizar el explorador para actualizar los datos.
-
-![Registro CNAME agregado](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
-
-El nombre DNS personalizado ya estará habilitado en la aplicación de Azure. 
+    El nombre DNS personalizado ya estará habilitado en la aplicación de Azure. 
 
 ## <a name="remap-the-active-dns-name"></a>Reasignación del nombre DNS activo
 
@@ -98,8 +92,6 @@ Lo único que queda por hacer es reasignar el registro DNS activo para que seña
 Si va a reasignar un registro CNAME, omita esta sección. 
 
 Para reasignar un registro A, necesita la dirección IP externa de la aplicación de App Service, que se muestra en la página **Dominios personalizados**.
-
-Cierre la página **Adición de nombre de host** seleccionando la **X** en la esquina superior derecha. 
 
 En la página **Dominios personalizados**, copie la dirección IP de la aplicación.
 
@@ -121,7 +113,7 @@ Guarde la configuración.
 
 Las consultas DNS deben comenzar resolviéndose en la aplicación de App Service de inmediato después de que se produzca la propagación de DNS.
 
-## <a name="active-domain-in-azure"></a>Dominio activo en Azure
+## <a name="migrate-domain-from-another-app"></a>Migración del dominio desde otra aplicación
 
 Puede migrar un dominio personalizado activo en Azure, ya sea entre suscripciones o dentro de la misma suscripción. Esta migración sin tiempo de inactividad, sin embargo, requiere que en un momento determinado se asigne el mismo dominio personalizado a la aplicación de origen y la aplicación de destino. Por lo tanto, debe asegurarse de que las dos aplicaciones no se han implementado en la misma unidad de implementación (lo que se conoce internamente como espacio web). Un nombre de dominio solo se puede asignar a una aplicación de cada unidad de implementación.
 

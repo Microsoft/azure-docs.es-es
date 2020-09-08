@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 05/26/2020
 ms.author: erhopf
-ms.custom: devx-track-python, devx-track-javascript
+ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: fbe24fedeba4e9d4791a716ce596de9f146a99da
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: d559b93926ea8ea5a772396b104ddffefee6945a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876179"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88921442"
 ---
 # <a name="quickstart-use-the-translator-to-translate-text"></a>Inicio rápido: Uso de Traductor para traducir texto
 

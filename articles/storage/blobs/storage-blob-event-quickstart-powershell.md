@@ -1,6 +1,6 @@
 ---
-title: 'Envío de eventos de Azure Blob Storage a un punto de conexión web: PowerShell | Microsoft Docs'
-description: Utilice Azure Event Grid para suscribirse a los eventos de Blob Storage.
+title: Envío de eventos de Azure Blob Storage a un punto de conexión web - PowerShell | Microsoft Docs
+description: Use Azure Event Grid para suscribirse a eventos de Blob Storage, desencadenar un evento y ver el resultado. Use Azure PowerShell para enrutar eventos de almacenamiento a un punto de conexión web.
 author: normesta
 ms.author: normesta
 ms.reviewer: dastanfo
@@ -8,12 +8,13 @@ ms.date: 08/23/2018
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: f0dae5ae79234ea29e6b17627fc07abcb3b5dfcb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 06be168ff9dfd55a56578b3afcdab8d984416756
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68847160"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078017"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>Inicio rápido: Enrutamiento de eventos de almacenamiento a un punto de conexión web con PowerShell
 

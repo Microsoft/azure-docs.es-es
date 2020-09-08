@@ -12,12 +12,12 @@ ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 3baa659d454a24a132eda914d50acddbd5df8a90
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2bf767bd87e0df791b0efff1294f15353234ba2c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020073"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88520216"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrar una aplicación SAML en Azure AD B2C
 
@@ -414,6 +414,10 @@ Los siguientes escenarios de usuario de confianza (RP) de SAML se admiten a trav
 * Varias direcciones URL de cierre de sesión o enlace POST para la dirección URL de cierre de sesión en el objeto de entidad de servicio o aplicación.
 * Especificación de la clave de firma para comprobar las solicitudes de RP en el objeto de entidad de servicio o aplicación.
 * Especificación de una clave de cifrado de tokens en el objeto de entidad de servicio o aplicación.
+* Inicio de sesión iniciado por el proveedor de identidades, donde el proveedor de identidades es Azure AD B2C.
+
+Los siguientes escenarios de usuario de confianza (RP) de SAML no se admiten actualmente:
+* Inicio de sesión iniciado por el proveedor de identidades, donde el proveedor de identidades es un proveedor de identidades externo como, por ejemplo, ADFS.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

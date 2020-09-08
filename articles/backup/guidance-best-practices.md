@@ -3,12 +3,12 @@ title: Guía y procedimientos recomendados
 description: Descubra los procedimientos recomendados y las instrucciones para realizar copias de seguridad en la nube de las cargas de trabajo locales y en la nube.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 2571fcc31a0ea6a548ec764d7a15d6d976ae4822
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 6daa3051a00093f74b8b5dac5c81befe006107a4
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808634"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825586"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Copia de seguridad en la nube de cargas de trabajo locales y en la nube
 
@@ -72,7 +72,7 @@ Puede usar un solo almacén o varios almacenes para organizar y administrar la c
 
 * Si las cargas de trabajo se distribuyen entre las suscripciones, puede crear varios almacenes, uno o varios por suscripción.
   * Para simplificar la supervisión de las actividades operativas en todos los almacenes, suscripciones e inquilinos, puede utilizar el Explorador de Backup e informes. [Consulte más información aquí](monitor-azure-backup-with-backup-explorer.md) para obtener una vista agregada.
-  * Si necesita una directiva coherente entre almacenes, puede usar Azure Policy para propagar la directiva de copia de seguridad en varios almacenes. Puede escribir una [definición de Azure Policy](../governance/policy/concepts/definition-structure.md) personalizada que use el efecto ["deployIfNotExists"](../governance/policy/concepts/effects.md#deployifnotexists) para propagar una directiva de copia de seguridad en varios almacenes. Después puede [asignar](../governance/policy/assign-policy-portal.md) esta definición de Azure Policy a un ámbito determinado (suscripción o grupo de recursos), para que implemente un recurso de "directiva de copia de seguridad" en todos los almacenes de Recovery Services incluidos en el ámbito de la asignación de Azure Policy. El usuario debe especificar la configuración de la directiva de copia de seguridad (como la frecuencia de copia de seguridad, la retención, etc.) como parámetros de la asignación de Azure Policy.
+  * Si necesita una directiva coherente entre almacenes, puede usar Azure Policy para propagar la directiva de copia de seguridad en varios almacenes. Puede escribir una [definición de Azure Policy](../governance/policy/concepts/definition-structure.md) personalizada que use el efecto ["deployIfNotExists"](../governance/policy/concepts/effects.md#deployifnotexists) para propagar una directiva de copia de seguridad en varios almacenes. Después puede [asignar](../governance/policy/assign-policy-portal.md) esta definición de Azure Policy a un ámbito determinado (suscripción o grupo de recursos), para que se implemente un recurso de "directiva de copia de seguridad" en todos los almacenes de Recovery Services incluidos en el ámbito de la asignación de Azure Policy. El usuario debe especificar la configuración de la directiva de copia de seguridad (como la frecuencia de copia de seguridad, la retención, etc.) como parámetros de la asignación de Azure Policy.
 
 * A medida que crezca la superficie de la organización, es posible que desee trasladar las cargas de trabajo entre las suscripciones por las siguientes razones: alinear por directiva de copia de seguridad, consolidar almacenes, aceptar una menor redundancia para ahorrar costos (pasar de GRS a LRS).  Azure Backup admite el traslado de un almacén de Recovery Services entre suscripciones de Azure o a otro grupo de recursos dentro de la misma suscripción. [Obtenga más información aquí](backup-azure-move-recovery-services-vault.md).
 
@@ -143,7 +143,7 @@ Con el fin de ayudarle a proteger los datos de copia de seguridad y satisfacer l
 
 * Azure Backup tiene varios controles de seguridad integrados en el servicio para evitar, detectar y responder a los puntos vulnerables de seguridad (obtenga más información).
 
-* Las cuentas de almacenamiento usadas por los almacenes de Recovery Services están aisladas y son inaccesibles para usuarios con fines malintencionados. Solo se permite el acceso mediante operaciones de administración de Azure Backup, como la restauración.
+* Las cuentas de almacenamiento empleadas por los almacenes de Recovery Services están aisladas, y los usuarios no pueden acceder a ellas con fines malintencionados. Solo se permite el acceso mediante operaciones de administración de Azure Backup, como la restauración.
 
 ### <a name="encryption-of-data-in-transit-and-at-rest"></a>Cifrado de datos en tránsito y en reposo
 
@@ -247,13 +247,13 @@ Como administrador o usuario de copias de seguridad, debe ser capaz de supervisa
 
 * Azure Backup ofrece un mecanismo integrado de notificación por correo electrónico de **alertas** en caso de errores, advertencias y operaciones críticas. Puede especificar direcciones de correo electrónico individuales o listas de distribución para recibir una notificación cuando se genere una alerta. También puede optar por recibir una notificación con cada alerta individual, o bien agruparlas en un resumen cada hora y, luego, recibir la notificación correspondiente.
   * Estas alertas las define el servicio y ofrecen asistencia en escenarios limitados: errores de copia de seguridad y restauración, detención de la protección con retención de datos o detención de la protección con eliminación de datos, etc. [Obtenga más información aquí](backup-azure-monitoring-built-in-monitor.md#alert-scenarios).
-  * Si se lleva a cabo una operación de destrucción, como la detención de la protección con eliminación de datos, se generará una alerta y se enviará un correo electrónico a los propietarios de la suscripción, los administradores y los coadministradores, aun cuando las notificaciones NO estén configuradas en el almacén de Recovery Services.
+  * Si se lleva a cabo una operación de destrucción, como la detención de la protección con eliminación de datos, se generará una alerta y se enviará un correo electrónico a los propietarios de la suscripción, los administradores y los coadministradores, aun cuando las notificaciones **no** estén configuradas en el almacén de Recovery Services.
   * Ciertas cargas de trabajo pueden generar una alta frecuencia de errores (por ejemplo, SQL Server cada 15 minutos). Para evitar la saturación que provocaría el envío excesivo de alertas generadas por cada aparición del error, las alertas se consolidan. [Obtenga más información aquí](backup-azure-monitoring-built-in-monitor.md#consolidated-alerts).
   * Las alertas integradas no se pueden personalizar y se restringen a los correos electrónicos definidos en Azure Portal.
 
 * Si necesita **crear alertas personalizadas** (por ejemplo, alertas de trabajos correctos), use Log Analytics. En Azure Monitor, puede crear sus propias alertas en un área de trabajo de Log Analytics. Las cargas de trabajo híbridas (DPM/MABS) también pueden enviar datos a Log Analytics y usar este servicio para proporcionar alertas comunes entre cargas de trabajo compatibles con Azure Backup.
 
-* Además, puede recibir notificaciones a través de los **registros de actividad** integrados del almacén de Recovery Services; sin embargo, solo admiten escenarios limitados y no son adecuados para operaciones como la copia de seguridad programada, que se alinea mejor con los registros de recursos que con los registros de actividad. Para obtener más información acerca de estas limitaciones y cómo puede usar el área de trabajo de Log Analytics para la supervisión y la generación de alertas a gran escala para todas las cargas de trabajo protegidas por Azure Backup, consulte este [artículo](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-to-monitor-at-scale).
+* También puede recibir notificaciones a través de los **registros de actividad** integrados del almacén de Recovery Services. Sin embargo, estos solo admiten escenarios limitados y no son adecuados para operaciones como la copia de seguridad programada, que se alinea mejor con los registros de recursos que con los registros de actividad. Para obtener más información acerca de estas limitaciones y cómo puede usar el área de trabajo de Log Analytics para la supervisión y la generación de alertas a gran escala para todas las cargas de trabajo protegidas por Azure Backup, consulte este [artículo](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-to-monitor-at-scale).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

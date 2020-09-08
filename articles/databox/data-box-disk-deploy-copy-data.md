@@ -1,6 +1,6 @@
 ---
 title: Tutorial sobre cómo copiar datos en Azure Data Box Disk| Microsoft Docs
-description: Use este tutorial para saber cómo copiar datos a Azure Data Box Disk
+description: En este tutorial, aprenderá a copiar datos de un equipo host a Azure Data Box Disk y, después, generar sumas de comprobación para comprobar su integridad.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: ff57a67d5e6d617d6d51c924161f586f90f92c3c
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: d33f53ef3d6ea0ef6a3040a82ec17b3089075949
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231546"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927120"
 ---
 ::: zone target="docs"
 

@@ -8,19 +8,19 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 27fbc669a81364bcb71160200504d61502169eae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 56e3c1e48df51cd24d70517ee23d47ef27d378d7
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609357"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935337"
 ---
 # <a name="ocr-cognitive-skill"></a>Aptitud cognitiva de OCR
 
-La aptitud de **reconocimiento óptico de caracteres (OCR)** reconoce texto impreso y manuscrito en archivos de imágenes. Esta aptitud utiliza los modelos de aprendizaje automático proporcionados por [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) en Cognitive Services. La aptitud de **reconocimiento óptico de caracteres** se asocia a la siguiente funcionalidad:
+La aptitud de **reconocimiento óptico de caracteres (OCR)** reconoce texto impreso y manuscrito en archivos de imágenes. Esta aptitud utiliza los modelos de aprendizaje automático proporcionados por [Computer Vision](../cognitive-services/computer-vision/home.md) API [v3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) de Cognitive Services. La aptitud de **reconocimiento óptico de caracteres** se asocia a la siguiente funcionalidad:
 
-+ La API ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-api) se usa para idiomas distintos del inglés. 
-+ En inglés, se usa la nueva API ["Read"](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api).
++ En inglés, español, alemán, francés, italiano, portugués y holandés, se usa ["Read"](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api) API.
++ En todos los demás idiomas se usa ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-api) API.
 
 La aptitud de **OCR** extrae texto de los archivos de imagen. Entre otros, estos son los formatos de archivos admitidos:
 
@@ -212,4 +212,4 @@ En el ejemplo del conjunto de aptitudes anterior, se asume que existe un campo d
 + [Aptitudes integradas](cognitive-search-predefined-skills.md)
 + [Aptitud TextMerger](cognitive-search-skill-textmerger.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
-+ [Create Indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [Create Indexer (REST)](/rest/api/searchservice/create-indexer)

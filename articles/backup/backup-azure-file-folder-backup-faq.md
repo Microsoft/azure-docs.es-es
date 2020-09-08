@@ -3,12 +3,12 @@ title: 'Agente de Microsoft Azure Recovery Services (MARS): Preguntas frecuente
 description: Responde las preguntas habituales acerca de la realización de copias de seguridad de archivos y carpetas con Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: fb6290124aa9ee0335083c5a505c005a387c0cd7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e50e424f1a9f044aa1ed8e95c1bce002d134bffe
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514074"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874629"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Preguntas más frecuentes: agente de Microsoft Azure Recovery Services (MARS)
 
@@ -20,9 +20,19 @@ En este artículo se da respuesta a preguntas habituales sobre la copia de segur
 
 La versión más reciente del agente de MARS que se usa al hacer copias de seguridad de equipos con Windows Server machines, del DPM de System Center y del servidor de Microsoft Azure Backup esta disponible para [descargarla](https://aka.ms/azurebackup_agent).
 
+### <a name="where-can-i-download-the-vault-credentials-file"></a>¿Dónde se puede descargar el archivo de credenciales del almacén?
+
+En Azure Portal, vaya a **propiedades** para el almacén. En **Credenciales de copia de seguridad**, active la casilla **Ya se usa el agente de Recovery Services más reciente**. Seleccione **Descargar**.
+
+![Descargar credenciales](./media/backup-azure-file-folder-backup-faq/download-credentials.png)
+
 ### <a name="how-long-are-vault-credentials-valid"></a>¿Cuál es el tiempo de validez de las credenciales de un almacén?
 
 Las credenciales del almacén expiran después de 10 días. Si el archivo de credenciales expira, vuelva a descargarlo de Azure Portal.
+
+### <a name="what-characters-are-allowed-for-the-passphrase"></a>¿Qué caracteres se permiten para la frase de contraseña?
+
+La frase de contraseña debe usar caracteres del juego de caracteres ASCII, con [valores ASCII menores o iguales que 127](https://docs.microsoft.com/office/vba/language/reference/user-interface-help/character-set-0127).
 
 ### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>¿De qué unidades se pueden hacer copias de seguridad de archivos y carpetas?
 

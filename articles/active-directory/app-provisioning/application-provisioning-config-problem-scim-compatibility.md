@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 08/05/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: c54478282cb1106ae95fe1c9e3fbb15e9c37bbf9
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 39a4cbd5ffd04aa3346b1ce4f3b73576b92c4d3b
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808582"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065495"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemas conocidos y soluciones con el cumplimiento de protocolo SCIM 2.0 del servicio de aprovisionamiento de usuarios de Azure AD
 
@@ -43,43 +43,109 @@ En la tabla siguiente, cualquier elemento marcado como Corregido significa que s
 | Los atributos de extensión utilizan la notación de punto "." antes de los nombres de atributo en lugar de la notación de dos puntos ":". |  Sí  | 18 de diciembre de 2018  | cambiar a una versión anterior: customappSSO |
 | Las solicitudes de revisión para los atributos multivalor tienen una sintaxis de filtro de ruta no válida. | Sí  |  18 de diciembre de 2018  | cambiar a una versión anterior: customappSSO |
 | Las solicitudes de creación de grupos contienen un URI de esquema no válido. | Sí  |  18 de diciembre de 2018  |  cambiar a una versión anterior: customappSSO |
-| Actualización del comportamiento de la revisión para garantizar el cumplimiento | No | TBD| usar marca en versión preliminar |
+| Actualización del comportamiento de las revisiones para garantizar el cumplimiento (por ejemplo, activo como booleano y eliminación de las pertenencia a grupos adecuadas) | No | TBD| usar marca en versión preliminar |
 
 ## <a name="flags-to-alter-the-scim-behavior"></a>Marcas para modificar el comportamiento de SCIM
 Utilice las marcas siguientes en la dirección URL del inquilino de la aplicación para cambiar el comportamiento predeterminado del cliente de SCIM.
 
 :::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="Marcas de SCIM para modificar el comportamiento.":::
 
-* Actualización del comportamiento de la revisión para garantizar el cumplimiento
+* Use la siguiente dirección URL para actualizar el comportamiento de las revisiones para garantizar el cumplimiento de SCIM (por ejemplo, activo como booleano y eliminación de las pertenencia a grupos adecuadas). Actualmente, este comportamiento solo está disponible cuando se usa la marca, pero se convertirá en el comportamiento predeterminado durante los próximos meses.
+  * **Dirección URL (compatible con SCIM):** AzureAdScimPatch062020
   * **Referencias de RFC de SCIM:** 
     * https://tools.ietf.org/html/rfc7644#section-3.5.2
-  * **Dirección URL (compatible con SCIM):** AzureAdScimPatch062020
   * **Comportamiento:**
-    * Eliminaciones de pertenencia a grupos compatibles:
   ```json
+   PATCH https://[...]/Groups/ac56b4e5-e079-46d0-810e-85ddbd223b09
    {
-     "schemas":
-      ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
-     "Operations":[{
-       "op":"remove",
-       "path":"members[value eq \"2819c223-7f76-...413861904646\"]"
-     }]
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "remove",
+            "path": "members[value eq \"16b083c0-f1e8-4544-b6ee-27a28dc98761\"]"
+        }
+    ]
    }
+
+    PATCH https://[...]/Groups/ac56b4e5-e079-46d0-810e-85ddbd223b09
+    {
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "add",
+            "path": "members",
+            "value": [
+                {
+                    "value": "10263a6910a84ef9a581dd9b8dcc0eae"
+                }
+            ]
+        }
+    ]
+    } 
+
+    PATCH https://[...]/Users/ac56b4e5-e079-46d0-810e-85ddbd223b09
+    {
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "replace",
+            "path": "emails[type eq \"work\"].value",
+            "value": "someone@contoso.com"
+        },
+        {
+            "op": "replace",
+            "path": "emails[type eq \"work\"].primary",
+            "value": true
+        },
+        {
+            "op": "replace",
+            "value": {
+                "active": false,
+                "userName": "someone"
+            }
+        }
+    ]
+    }
+
+    PATCH https://[...]/Users/ac56b4e5-e079-46d0-810e-85ddbd223b09
+    {
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "replace",
+            "path": "active",
+            "value": false
+        }
+    ]
+    }
+
+    PATCH https://[...]/Users/ac56b4e5-e079-46d0-810e-85ddbd223b09
+    {
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "add",
+            "path": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department",
+            "value": "Tech Infrastructure"
+        }
+    ]
+    }
+   
   ```
-  * **Dirección URL (no compatible con SCIM):** AzureAdScimPatch2017
-  * **Comportamiento:**
-    * Eliminaciones de pertenencia a grupos no compatibles:
-   ```json
-   {
-     "schemas":
-     ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
-     "Operations":[{
-       "op":"Remove",  
-       "path":"members",
-       "value":[{"value":"2819c223-7f76-...413861904646"}]
-     }]
-   }
-   ```
+
+  * **Cambio a una versión anterior de la dirección URL:** una vez que el nuevo comportamiento conforme a SCIM se convierte en el valor predeterminado de una aplicación que no es de la galería, puede usar la siguiente dirección URL para revertir al comportamiento anterior, que no es compatible con SCIM: AzureAdScimPatch2017
+  
+
 
 ## <a name="upgrading-from-the-older-customappsso-job-to-the-scim-job"></a>Actualización desde el trabajo customappsso anterior al trabajo de SCIM
 En los pasos siguientes se eliminará el trabajo customappsso existente y se creará un nuevo trabajo de SCIM. 
@@ -139,4 +205,3 @@ En los pasos siguientes se eliminará el trabajo customappsso existente y se cre
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Más información sobre aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS](user-provisioning.md)
-

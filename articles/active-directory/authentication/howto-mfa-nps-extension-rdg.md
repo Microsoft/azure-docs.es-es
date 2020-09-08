@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21b8748cf74a5061e9dfa154047f867df4cb5428
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 4a75b6be3796a21e3f765ad69eee0578d5f2e9d0
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848763"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717853"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integración de la infraestructura de la puerta de enlace de Escritorio remoto utilizando la extensión Servidor de directivas de redes (NPS) y Azure AD
 
 Este proporciona detalles para la integración de la infraestructura de la puerta de enlace de Escritorio remoto con Azure Multi-Factor Authentication (MFA) utilizando la extensión Servidor de directivas de redes (NPS) para Microsoft Azure.
 
-La extensión Servidor de directivas de redes (NPS) para Azure permite a los clientes proteger la autenticación de cliente del Servicio de autenticación remota telefónica de usuario (RADIUS) con la autenticación basada en la nube [Multi-Factor Authentication (MFA)](multi-factor-authentication.md) de Azure. Esta solución proporciona una verificación en dos pasos para agregar una segunda capa de seguridad a los inicios de sesión y transacciones de los usuarios.
+La extensión Servidor de directivas de redes (NPS) para Azure permite a los clientes proteger la autenticación de cliente del Servicio de autenticación remota telefónica de usuario (RADIUS) con la autenticación basada en la nube [Multi-Factor Authentication (MFA)](./concept-mfa-howitworks.md) de Azure. Esta solución proporciona una verificación en dos pasos para agregar una segunda capa de seguridad a los inicios de sesión y transacciones de los usuarios.
 
 Este artículo proporciona instrucciones paso a paso para la integración de la infraestructura NPS con Azure MFA con la extensión NPS para Azure. Esto habilita la comprobación de seguridad de los usuarios que intenten conectarse a una puerta de enlace de Escritorio remoto.
 
@@ -75,7 +75,7 @@ En esta sección se detallan los requisitos previos necesarios antes de integrar
 Debe tener una infraestructura de Servicios de Escritorio remoto (RDS) en funcionamiento. Si no dispone de ella, puede crear rápidamente esta infraestructura en Azure con la siguiente plantilla de inicio rápido: [Creación de una implementación de una colección de sesiones de Escritorio remoto](https://github.com/Azure/azure-quickstart-templates/tree/ad20c78b36d8e1246f96bb0e7a8741db481f957f/rds-deployment).
 
 Si desea crear manualmente una infraestructura local de RDS rápidamente con fines de prueba, siga los pasos para implementar una.
-**Para obtener más información**: [Implementación de RDS con la plantilla de inicio rápido de Azure](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-in-azure) e [Implementación de la infraestructura de RDS básica](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
+**Para obtener más información**: [Implementación de RDS con la plantilla de inicio rápido de Azure](/windows-server/remote/remote-desktop-services/rds-in-azure) e [Implementación de la infraestructura de RDS básica](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
 
 ### <a name="azure-mfa-license"></a>Licencia de Azure MFA
 
@@ -89,7 +89,7 @@ La extensión NPS requiere Windows Server 2008 R2 SP1 o posterior con el servici
 
 El servicio de rol NPS proporciona la funcionalidad de servidor y cliente RADIUS, así como el servicio de mantenimiento de Directiva de acceso de red. Este rol debe instalarse en al menos dos equipos de su infraestructura: La Puerta de enlace de Escritorio remoto y otro servidor miembro o controlador de dominio. De forma predeterminada, el rol ya está presente en el equipo configurado como puerta de enlace de Escritorio remoto.  También debe instalar el rol NPS al menos en otro equipo, como un servidor miembro o controlador de dominio.
 
-Para obtener información acerca de cómo instalar el servicio de rol NPS en Windows Server 2012 o anterior, consulte [Instalación de un servidor de directivas de mantenimiento de NAP](https://technet.microsoft.com/library/dd296890.aspx). Para obtener una descripción de las prácticas recomendadas para NPS, incluida la recomendación de instalar NPS en un controlador de dominio, consulte [Prácticas recomendadas para NPS](https://technet.microsoft.com/library/cc771746).
+Para obtener información acerca de cómo instalar el servicio de rol NPS en Windows Server 2012 o anterior, consulte [Instalación de un servidor de directivas de mantenimiento de NAP](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd296890(v=ws.10)). Para obtener una descripción de las prácticas recomendadas para NPS, incluida la recomendación de instalar NPS en un controlador de dominio, consulte [Prácticas recomendadas para NPS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771746(v=ws.10)).
 
 ### <a name="azure-active-directory-synched-with-on-premises-active-directory"></a>Azure Active Directory sincronizado con Active Directory local
 
@@ -109,7 +109,12 @@ Siga los pasos de [Introducción a Azure Multi-Factor Authentication en la nube]
 
 Una vez que una cuenta se ha habilitado para MFA, no puede iniciar sesión en los recursos controlados por la directiva MFA hasta que se haya configurado correctamente un dispositivo de confianza que se usará para el segundo factor de autenticación y haya realizado la autenticación mediante la verificación en dos pasos.
 
-Siga los pasos de [¿Qué significa Azure Multi-Factor Authentication para mí?](../user-help/multi-factor-authentication-end-user.md) para comprender y configurar correctamente los dispositivos para MFA con su cuenta de usuario.
+Siga los pasos de [¿Qué significa Azure Multi-Factor Authentication para mí?](../user-help/multi-factor-authentication-end-user-first-time.md) para comprender y configurar correctamente los dispositivos para MFA con su cuenta de usuario.
+
+> [!IMPORTANT]
+> El comportamiento de inicio de sesión de la puerta de enlace de Escritorio remoto no ofrece la opción de escribir un código de verificación con Azure Multi-Factor Authentication. Se debe configurar una cuenta de usuario para la comprobación telefónica o la aplicación Microsoft Authenticator con notificaciones push.
+>
+> Si uno de estos dos métodos de autenticación no se ha configurado para un usuario, no podrá completar el desafío de Azure Multi-Factor Authentication e iniciar sesión en la puerta de enlace de Escritorio remoto.
 
 ## <a name="install-and-configure-nps-extension"></a>Instalación y configuración de la extensión NPS
 
@@ -245,7 +250,7 @@ De forma predeterminada, al configurar la puerta de enlace de Escritorio remoto 
 1. Haga clic en **Cancelar**.
 
 >[!NOTE]
-> Para más información acerca de la creación de una directiva de solicitud de conexión, consulte la sección correspondiente en el artículo [Configuración de las directivas de solicitud de conexión](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-crp-configure#add-a-connection-request-policy). 
+> Para más información acerca de la creación de una directiva de solicitud de conexión, consulte la sección correspondiente en el artículo [Configuración de las directivas de solicitud de conexión](/windows-server/networking/technologies/nps/nps-crp-configure#add-a-connection-request-policy). 
 
 ## <a name="configure-nps-on-the-server-where-the-nps-extension-is-installed"></a>Configuración de NPS en el servidor donde está instalada la extensión NPS
 
@@ -373,13 +378,13 @@ A continuación, se muestra un evento relacionado de los registros de AzureMFA:
 
 Para realizar opciones avanzadas de solución de problemas, consulte los archivos de registro de formato de la base de datos de NPS donde está instalado el servicio NPS. Estos archivos de registro se crean en la carpeta _%SystemRoot%\System32\Logs_ como archivos de texto delimitado por comas.
 
-Para obtener una descripción de estos archivos de registro, consulte [Interpretación de los archivos de registro de formato de la base de datos de NPS](https://technet.microsoft.com/library/cc771748.aspx). Las entradas de estos archivos de registro pueden ser difíciles de interpretar sin importarlos en una hoja de cálculo o una base de datos. Puede encontrar varios analizadores de IAS en línea que le ayudarán a interpretar los archivos de registro.
+Para obtener una descripción de estos archivos de registro, consulte [Interpretación de los archivos de registro de formato de la base de datos de NPS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771748(v=ws.10)). Las entradas de estos archivos de registro pueden ser difíciles de interpretar sin importarlos en una hoja de cálculo o una base de datos. Puede encontrar varios analizadores de IAS en línea que le ayudarán a interpretar los archivos de registro.
 
 La imagen siguiente muestra la salida de una [aplicación shareware](https://www.deepsoftware.com/iasviewer) que se puede descargar.
 
 ![Ejemplo del analizador de IAS de la aplicación Shareware](./media/howto-mfa-nps-extension-rdg/image35.png)
 
-Por último, para más opciones de solución de problemas, puede utilizar un analizador de protocolos, como el [Analizador de mensajes de Microsoft](https://technet.microsoft.com/library/jj649776.aspx).
+Por último, para más opciones de solución de problemas, puede utilizar un analizador de protocolos, como el [Analizador de mensajes de Microsoft](/message-analyzer/microsoft-message-analyzer-operating-guide).
 
 La imagen siguiente del Analizador de mensajes de Microsoft muestra el tráfico de red que filtra el protocolo RADIUS y que contiene el nombre de usuario **Contoso\AliceC**.
 

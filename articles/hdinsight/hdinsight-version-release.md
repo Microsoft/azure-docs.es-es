@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/14/2020
-ms.openlocfilehash: b2e77049d121a11a45a096017f18f1345f6c6884
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/21/2020
+ms.openlocfilehash: 37f0a8d1f70fa96db505973d097febabe99ab7a8
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374855"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749168"
 ---
 # <a name="azure-hdinsight-40-overview"></a>Introducción a Azure HDInsight 4.0
 
@@ -92,7 +92,7 @@ No hay ninguna ruta de actualización a HDInsight 4.0 que se admita desde versi
 * HDInsight 4.0 no admite MapReduce para Apache Hive. En su lugar, use Apache Tez. Más información sobre [Apache Tez](https://tez.apache.org/).
 * HDInsight 4.0 no es compatible con Apache Storm.
 * HDInsight 4.0 no es compatible con el tipo de clúster de ML Services.
-* Hive View ya no está disponible en HDInsight 4.0.
+* La vista de Hive solo está disponible en clústeres de HDInsight 4.0 con un número de versión igual o superior a 4.1. Este número de versión está disponible en Ambari Admin -> Versions (Administración de Ambari > Versiones).
 * No se admite el intérprete de shell de Apache Zeppelin en clústeres de Spark e Interactive Query.
 * No puede *deshabilitar* LLAP en un clúster LLAP de Spark. Solo puede desactivarlo.
 * Azure Data Lake Storage Gen2 no puede guardar cuadernos de Jupyter en un clúster de Spark.

@@ -1,15 +1,15 @@
 ---
 title: Integración continua con Azure Pipelines
 description: Aprende a compilar, probar e implementar plantillas de Azure Resource Manager de manera continua.
-ms.date: 04/22/2020
+ms.date: 08/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b8163c357f184ac41ce72dc8c89fcc5030c3180d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: c793c8bcbc01cbef99de13ef6dd2f6ce61a50773
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118926"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892684"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutorial: Integración continua de plantillas de Azure Resource Manager en Azure Pipelines
 
@@ -175,8 +175,8 @@ Para crear una canalización con un paso para implementar una plantilla:
     * **Ubicación**: Seleccione una ubicación para el grupo de recursos como, por ejemplo, **Centro de EE. UU.** .
     * **Ubicación de la plantilla**: Si selecciona **Linked artifact**, la tarea busca el archivo de plantilla directamente en el repositorio conectado.
     * **Plantilla**: Escriba **CreateWebApp/azuredeploy.json**. Si cambió el nombre de la carpeta y el nombre de archivo, tendrá que cambiar este valor.
-    * **Parámetros de plantilla**: deje este campo en blanco. Especificará los valores de parámetro en **Reemplazar parámetros de plantilla.
-    * **overrideParameters**: Escriba **-projectName [EscribirUnNombreDeProyecto] -linkedTemplateUri [EscribirURLDePlantillaVinculada]** . Reemplace el nombre del proyecto y la dirección URL de la plantilla vinculada. La dirección URL de la plantilla vinculada es lo que escribió al final de [Creación de un repositorio de GitHub](#create-a-github-repository).
+    * **Parámetros de plantilla**: deje este campo en blanco. Deberá especificar los valores de parámetro en **Reemplazar parámetros de plantilla**.
+    * **Reemplazar parámetros de plantilla**: Escriba **-projectName [EscribirUnNombreDeProyecto] -linkedTemplateUri [EscribirURLDePlantillaVinculada]** . Reemplace el nombre del proyecto y la dirección URL de la plantilla vinculada. La dirección URL de la plantilla vinculada es lo que escribió al final de [Creación de un repositorio de GitHub](#create-a-github-repository). Comienza con **https://raw.githubusercontent.com** .
     * **Modo de implementación**: Seleccione **Incremental**.
     * **Nombre de implementación**: Escriba **DeployPipelineTemplate**. Seleccione **Avanzadas** para poder ver **Nombre de la implementación**.
 

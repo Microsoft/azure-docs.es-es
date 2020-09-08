@@ -2,13 +2,13 @@
 title: 'Tipos de entidades: LUIS'
 description: Una entidad extrae datos de una expresión de usuario en tiempo de ejecución de predicción. Un propósito _opcional_ y secundario es impulsar la predicción de la intención o de otras entidades usando la entidad como una característica.
 ms.topic: conceptual
-ms.date: 06/10/2020
-ms.openlocfilehash: ced4a3e23b8e532b54d0b3cf974dab233b81b375
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.date: 08/06/2020
+ms.openlocfilehash: 8751bdd52bb1c3738103dc074184a3cf72bfeb09
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337626"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207748"
 ---
 # <a name="extract-data-with-entities"></a>Extracción de datos con entidades
 
@@ -140,9 +140,16 @@ Una entidad Pattern.any solo está disponible en un [Patrón](luis-concept-patte
 
 Si necesita más que el [límite](luis-limits.md#model-limits), póngase en contacto con el soporte técnico. Para ello, recopile información detallada sobre el sistema, vaya al sitio web de [LUIS](luis-reference-regions.md#luis-website) y seleccione **Support** (Soporte). Si la suscripción a Azure incluye servicios de soporte técnico, póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/options/).
 
-## <a name="entity-prediction-status"></a>Estado de predicción de entidades
+## <a name="entity-prediction-status-and-errors"></a>Estado de predicción de entidad y errores
 
-En el portal de LUIS se muestra cuando la entidad tiene una predicción de entidad diferente a la que se ha seleccionado para una expresión de ejemplo. Esta puntuación diferente se basa en el modelo entrenado actual. Use esta información para solucionar los errores de entrenamiento mediante una o varias de las siguientes acciones:
+En el portal de LUIS se muestra cuando la entidad tiene una predicción de entidad diferente a la que se ha seleccionado para una expresión de ejemplo. Esta puntuación diferente se basa en el modelo entrenado actual. 
+
+:::image type="content" source="./media/luis-concept-entities/portal-entity-prediction-error.png" alt-text="En el portal de LUIS se muestra cuando la entidad tiene una predicción de entidad diferente a la que se ha seleccionado para una expresión de ejemplo.":::
+
+En la expresión de ejemplo, el texto de error está resaltado, y la línea de la expresión de ejemplo tiene un indicador de error a la derecha, que se muestra como un triángulo rojo. 
+
+Use esta información para solucionar errores de entidad con uno o varios de los siguientes:
+* El texto resaltado tiene una etiqueta incorrecta. Para solucionarlo, revise, corrija y vuelva a entrenar. 
 * Creación de una [característica](luis-concept-feature.md) para la entidad a fin de ayudar a identificar el concepto de la entidad
 * Adición de [expresiones de ejemplo](luis-concept-utterance.md) y etiquetado con la entidad
 * [Revisión de las sugerencias de aprendizaje activas](luis-concept-review-endpoint-utterances.md) para cualquier expresión recibida en el punto de conexión de predicción que pueda ayudar a identificar el concepto de la entidad.

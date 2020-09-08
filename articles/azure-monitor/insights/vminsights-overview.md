@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/22/2020
-ms.openlocfilehash: f9ad39b88ad2212ea2cdceb40e61fbc0a2d1a764
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5c3cb13d0b2da9370f402083d82397679f2c9343
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320500"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022503"
 ---
 # <a name="what-is-azure-monitor-for-vms"></a>¿Qué es Azure Monitor para máquinas virtuales?
 
@@ -26,10 +26,6 @@ Azure Monitor para VM admite sistemas operativos Windows y Linux en:
 - Máquinas virtuales hospedadas en otro entorno de nube
   
 
-
->[!NOTE]
->Recientemente [anunciamos cambios](https://azure.microsoft.com/updates/updates-to-azure-monitor-for-virtual-machines-preview-before-general-availability-release/
-) que estamos realizando en la característica de mantenimiento en función de los comentarios que hemos recibido de nuestros clientes de la versión preliminar pública. Dado el número de cambios que realizaremos, vamos a dejar de ofrecer esta característica a los nuevos clientes. Los clientes existentes pueden seguir usando la característica de mantenimiento. Para más información, consulte las [preguntas frecuentes sobre la disponibilidad general](vminsights-ga-release-faq.md).  
 
 
 Azure Monitor para VM almacena sus datos en registros de Azure Monitor, lo que le permite ofrecer una agregación y un filtrado eficaces, y el análisis de las tendencias de los datos a lo largo del tiempo. Puede ver estos datos directamente en una sola VM desde la máquina virtual, o puede usar a Azure Monitor para ofrecer una vista agregada de varias VM.

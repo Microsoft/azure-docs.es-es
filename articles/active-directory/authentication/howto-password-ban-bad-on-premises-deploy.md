@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7870b62dea01f680126f5b4aac3dc2328407cd61
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 759a5fa2be5a3df50160d2fd0ac4231c9f49329b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82143217"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718958"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planeación e implementación de la protección con contraseña de Azure Active Directory local
 
@@ -101,7 +101,7 @@ Los siguientes requisitos se aplican al agente de controlador de dominio de prot
     * El dominio o el bosque de Active Directory no tiene necesariamente que estar en el nivel funcional del dominio (DFL) o del bosque (FFL) de Windows Server 2012. Tal como se mencionó en [Principios de diseño](concept-password-ban-bad-on-premises.md#design-principles), no se necesita ningún DFL o FFL mínimo para la ejecución del agente de controlador de dominio o software de proxy.
 * Todas las maquinas que ejecutan el agente de controlador de dominio de protección con contraseña de Azure AD deben tener .NET 4.5 instalado.
 * Cualquier dominio de Active Directory que ejecute el servicio de agente de controlador de dominio de protección con contraseña de Azure AD debe usar la replicación del Sistema de archivos distribuido (DFSR) para la replicación de sysvol.
-   * Si el dominio no usa aún DFSR, debe migrarlo antes de instalar la protección con contraseña de Azure AD. Para más información, consulte la [guía de migración de la replicación de SYSVOL: Replicación de FRS a DFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
+   * Si el dominio no usa aún DFSR, debe migrarlo antes de instalar la protección con contraseña de Azure AD. Para más información, consulte la [guía de migración de la replicación de SYSVOL: Replicación de FRS a DFS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
 
     > [!WARNING]
     > El software del agente de controlador de dominio de protección con contraseña de Azure AD se instalará actualmente en los controladores de dominio de los dominios que usan aún FRS (la tecnología predecesora a DFSR) para la replicación de sysvol, pero NO funcionará correctamente en este entorno.
@@ -124,14 +124,14 @@ Los siguientes requisitos se aplican al servicio de proxy de protección con con
 * Todas las máquinas que hospedan el servicio de proxy de protección con contraseña de Azure AD deben estar configuradas para conceder a los controladores de dominio la posibilidad de iniciar sesión en el servicio de proxy. Esta capacidad se controla a través de la asignación del privilegio "Tener acceso a este equipo desde la red".
 * Todas las máquinas que hospedan el servicio de proxy de protección con contraseña de Azure AD deben estar configuradas para permitir el tráfico TLS 1.2 HTTP de salida.
 * Una cuenta de *administrador global* para registrar el servicio de proxy de protección con contraseña de Azure AD y el bosque con Azure AD.
-* El acceso a la red debe estar habilitado para el conjunto de puertos y direcciones URL especificados en los [procedimientos de configuración del entorno de proxy de aplicación](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment).
+* El acceso a la red debe estar habilitado para el conjunto de puertos y direcciones URL especificados en los [procedimientos de configuración del entorno de proxy de aplicación](../manage-apps/application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
 ### <a name="microsoft-azure-ad-connect-agent-updater-prerequisites"></a>Requisitos previos de Agent Updater de Microsoft Azure AD Connect
 
 El servicio de actualización de Agent Updater de Microsoft Azure AD Connect se instala junto con el servicio Proxy de protección de contraseña de Azure AD. Se requiere una configuración adicional para que el servicio de Agent Updater de Microsoft Azure AD Connect pueda funcionar:
 
-* Si su entorno utiliza un servidor proxy HTTP, debe seguir las pautas especificadas en [Trabajo con servidores proxy locales existentes](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers).
-* El servicio Agent Updater de Microsoft Azure AD Connect también requiere los pasos de TLS 1.2 especificados en [Requisitos de TLS](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#tls-requirements).
+* Si su entorno utiliza un servidor proxy HTTP, debe seguir las pautas especificadas en [Trabajo con servidores proxy locales existentes](../manage-apps/application-proxy-configure-connectors-with-proxy-servers.md).
+* El servicio Agent Updater de Microsoft Azure AD Connect también requiere los pasos de TLS 1.2 especificados en [Requisitos de TLS](../manage-apps/application-proxy-add-on-premises-application.md#tls-requirements).
 
 > [!WARNING]
 > El proxy de protección con contraseña de Azure AD y Azure AD Application Proxy instalan diferentes versiones del servicio de Agent Updater de Microsoft Azure AD Connect, por lo que las instrucciones se refieren al contenido de Application Proxy. Estas versiones diferentes son incompatibles cuando se instalan en paralelo y, si lo hace, impedirá que el servicio de actualización del agente se ponga en contacto con Azure para las actualizaciones de software, por lo que nunca debe instalar el servicio proxy de protección de contraseña de Azure AD y Application Proxy en el mismo equipo.

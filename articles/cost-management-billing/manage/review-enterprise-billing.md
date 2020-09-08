@@ -3,15 +3,16 @@ title: Revisión de los datos de facturación de inscripciones de empresa de Azu
 description: Aprenda cómo usar las API REST de Azure para revisar la información de facturación de inscripción de empresa.
 author: lleonard-msft
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.topic: article
-ms.date: 02/13/2020
+ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 4d42a9cfa15b532a98b632331f592d7e51bc09f0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 979ed8c759676911a11cc62d7a00ad53361e19e0
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79202869"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684773"
 ---
 # <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>Revisión de la facturación de inscripción de empresa mediante las API REST
 

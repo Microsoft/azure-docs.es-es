@@ -4,12 +4,13 @@ description: Un tutorial .NET que le ayuda a desarrollar una aplicación de vari
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 044d0698f1ea181e8f508f92ad2c30ec29b6490b
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 746257195220d26ad5d011a39022a3957e8cb1ae
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067841"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021789"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Aplicación de niveles múltiples .NET con colas de Azure Service Bus
 

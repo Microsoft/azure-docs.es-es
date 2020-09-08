@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 03/20/2020
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 51b6be8b4deffd81da6c0b714bc6afeff4b06ab2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fa30c6c2c3ecd9c9c119fee80b7ef90999e42d30
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073950"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962628"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Implementación continua en Azure App Service
 
@@ -23,7 +23,7 @@ Para obtener más información sobre los servicios de control de código fuente,
 
 ## <a name="authorize-azure-app-service"></a>Autorizar Azure App Service 
 
-Para usar Azure Repos, asegúrese de que su organización de Azure DevOps esté vinculada a su suscripción de Azure. Para obtener más información, consulte [Configurar una cuenta de Azure DevOps Services para que se pueda implementar en una aplicación web](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops).
+Para usar Azure Repos, asegúrese de que su organización de Azure DevOps esté vinculada a su suscripción de Azure. Para obtener más información, consulte [Configurar una cuenta de Azure DevOps Services para que se pueda implementar en una aplicación web](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops).
 
 En cuanto a Bitbucket o GitHub, autorice a Azure App Service a conectarse a su repositorio. Solo necesita realizar la autorización con un servicio de control de código fuente una vez. 
 
@@ -58,7 +58,7 @@ Puede usar el servidor de compilación de App Service para Kudu integrado para r
 1. Seleccione su proveedor de control de código fuente autorizado en la página del **centro de implementación** y seleccione **Continue** (Continuar). En cuanto a GitHub o Bitbucket, también puede seleccionar **Change account** (Cambiar cuenta) para cambiar la cuenta autorizada. 
    
    > [!NOTE]
-   > Para usar Azure Repos, asegúrese de que su organización de Azure DevOps Services esté vinculada a su suscripción de Azure. Para obtener más información, consulte [Configurar una cuenta de Azure DevOps Services para que se pueda implementar en una aplicación web](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops).
+   > Para usar Azure Repos, asegúrese de que su organización de Azure DevOps Services esté vinculada a su suscripción de Azure. Para obtener más información, consulte [Configurar una cuenta de Azure DevOps Services para que se pueda implementar en una aplicación web](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops).
    
 1. En cuanto a GitHub o Azure Repos, en la página para **compilar el proveedor**, seleccione **App Service build service** (Servicio de compilación de App Service) y, a continuación, **Continue** (Continuar). Bitbucket siempre usa el servicio de compilación de App Service.
    
@@ -76,7 +76,7 @@ Puede usar el servidor de compilación de App Service para Kudu integrado para r
    - Para Azure Repos, seleccione la **organización de Azure DevOps** , el **proyecto**, el **repositorio** y la **rama** que quiere implementar continuamente.
      
      > [!NOTE]
-     > Si su organización de Azure DevOps no figura en la lista, asegúrese de que esté vinculada a su suscripción de Azure. Para obtener más información, consulte [Configurar una cuenta de Azure DevOps Services para que se pueda implementar en una aplicación web](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops).
+     > Si su organización de Azure DevOps no figura en la lista, asegúrese de que esté vinculada a su suscripción de Azure. Para obtener más información, consulte [Configurar una cuenta de Azure DevOps Services para que se pueda implementar en una aplicación web](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops).
      
 1. Seleccione **Continuar**.
    

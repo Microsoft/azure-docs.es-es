@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: faf0db31b458ed6b8dd4961fffbf2a810990574d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1f9f1b51ce09577bf17fa4d92273348665987848
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084490"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266619"
 ---
-# <a name="publish-content-in-the-azure-portal"></a>Publicación de contenido en Azure Portal  
+# <a name="publish-content-in-the-azure-portal"></a>Publicación de contenido en Azure Portal
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-publish.md)
 > * [.NET](media-services-deliver-streaming-content.md)

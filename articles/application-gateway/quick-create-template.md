@@ -1,20 +1,20 @@
 ---
 title: 'Inicio rápido: Dirección del tráfico web mediante una plantilla de Resource Manager'
 titleSuffix: Azure Application Gateway
-description: Obtenga información sobre cómo utilizar una plantilla de Resource Manager para crear una instancia de Azure Application Gateway que dirija el tráfico web a las máquinas virtuales de un grupo de back-end.
+description: En esta guía de inicio rápido, obtendrá información sobre cómo utilizar una plantilla de Resource Manager para crear una instancia de Azure Application Gateway que dirija el tráfico web a las máquinas virtuales de un grupo de back-end.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 05/28/2020
+ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 963f728db55f587f7ae72aec702a099882cf401a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: f492521469281615d4182294feaefffff688bd21
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249383"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961693"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---arm-template"></a>Inicio rápido: Dirección del tráfico web con Azure Application Gateway: plantilla de ARM
 
@@ -40,7 +40,7 @@ Para simplificar, en esta plantilla se crea una configuración sencilla con una 
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/ag-docs-qs/).
 
-:::code language="json" source="~/quickstart-templates/ag-docs-qs/azuredeploy.json" range="001-343" highlight="197-297":::
+:::code language="json" source="~/quickstart-templates/ag-docs-qs/azuredeploy.json":::
 
 En la plantilla se definen varios recursos de Azure:
 
@@ -54,7 +54,7 @@ En la plantilla se definen varios recursos de Azure:
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
-Implementación de la plantilla de ARM en Azure:
+Implementación de la plantilla de Resource Manager en Azure:
 
 1. Seleccione **Implementar en Azure** para iniciar sesión en Azure y abrir la plantilla. La plantilla crea una puerta de enlace de aplicaciones, la infraestructura de red y dos máquinas virtuales en el grupo de back-end que ejecuta IIS.
 

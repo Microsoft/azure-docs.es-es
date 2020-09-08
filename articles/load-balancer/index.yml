@@ -11,12 +11,12 @@ metadata:
   author: asudbring
   ms.author: allensu
   ms.date: 05/07/2020
-  ms.openlocfilehash: 8049897cf7a08eeac79e4a217f4ecc3ec636eab9
-  ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+  ms.openlocfilehash: a6348b967e814a49c766388540a594987af2231e
+  ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/08/2020
-  ms.locfileid: "86143889"
+  ms.lasthandoff: 09/02/2020
+  ms.locfileid: "89296945"
 landingContent:
 - title: Acerca de Load Balancer
   linkLists:
@@ -29,15 +29,17 @@ landingContent:
     - text: Componentes de Load Balancer
       url: components.md
     - text: Novedades
-      url: whats-new.md
+      url: https://azure.microsoft.com/updates/?category=networking&query=load%20balancer
     - text: SKU de Load Balancer
       url: skus.md
 - title: Introducción
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Creación de una instancia de Load Balancer para equilibrar la carga de máquinas virtuales
+    - text: Creación de una instancia de Load Balancer pública para equilibrar la carga de máquinas virtuales
       url: quickstart-load-balancer-standard-public-portal.md
+    - text: Creación de una instancia de Load Balancer interna para equilibrar la carga de máquinas virtuales
+      url: quickstart-load-balancer-standard-internal-portal.md
   - linkListType: tutorial
     links:
     - text: Equilibrio de carga del tráfico de Internet a las máquinas virtuales

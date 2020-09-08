@@ -12,12 +12,12 @@ metadata:
   title: Documentación de Language Understanding (LUIS)
   titleSuffix: Azure Cognitive Services
   description: El servicio Language Understanding permite que las aplicaciones entiendan lo que una persona quiere en sus propias palabras. LUIS utiliza el aprendizaje automático para permitir a los desarrolladores crear aplicaciones que pueden recibir las aportaciones de los usuarios en lenguaje natural y extraer significado de las mismas.
-  ms.openlocfilehash: 561f6ee161d2a697b8c143ee49209515f679c77b
-  ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+  ms.openlocfilehash: 6e34c5e39118565e14a40765443583b0b9ed237b
+  ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/14/2020
-  ms.locfileid: "88236529"
+  ms.lasthandoff: 09/02/2020
+  ms.locfileid: "89322490"
 landingContent:
 - title: Acerca de Language Understanding (LUIS)
   linkLists:
@@ -60,9 +60,9 @@ landingContent:
     - text: 'Portal: Creación de una nueva aplicación de LUIS'
       url: get-started-portal-build-app.md
     - text: Uso del SDK de C#
-      url: quickstart-sdk.md?pivots=programming-language-csharp
+      url: azure-sdk-quickstart.md?pivots=programming-language-csharp
     - text: Uso del SDK de Python
-      url: quickstart-sdk.md?pivots=programming-language-python
+      url: azure-sdk-quickstart.md?pivots=programming-language-python
   - linkListType: how-to-guide
     links:
     - text: Creación de una nueva aplicación de LUIS
@@ -88,7 +88,7 @@ landingContent:
     - text: 'Portal: Implementación de una aplicación en el punto de conexión de predicción'
       url: get-started-portal-deploy-app.md
     - text: Uso de SDK
-      url: quickstart-sdk.md
+      url: azure-sdk-quickstart.md
   - linkListType: how-to-guide
     links:
     - text: Versión de la aplicación
@@ -106,7 +106,7 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Uso de SDK
-      url: quickstart-sdk.md
+      url: azure-sdk-quickstart.md
   - linkListType: quickstart
     links:
     - text: Con C# mediante REST

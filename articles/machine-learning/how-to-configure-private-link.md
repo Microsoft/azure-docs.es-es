@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/28/2020
-ms.openlocfilehash: 28fa3fdfdb8915d528d0765bd1fded8128621208
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: bdb7ba30d9fa2d0bd1eff9368d6e30e516b53895
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166525"
+ms.locfileid: "88192727"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Configuración de Azure Private Link para un área de trabajo de Azure Machine Learning (versión preliminar)
 
@@ -39,7 +39,7 @@ Azure Private Link le permite conectarse a su área de trabajo mediante un punto
 > [!IMPORTANT]
 > Actualmente, solo se admite la habilitación de un punto de conexión privado al crear una nueva área de trabajo de Azure Machine Learning.
 
-Puede usar la información que se encuentra en [https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced) para crear un área de trabajo con un punto de conexión privado.
+Puede usar la plantilla que se encuentra en [https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced) para crear un área de trabajo con un punto de conexión privado.
 
 Para información sobre el uso de esta plantilla, que incluye los puntos de conexión privados, consulte [Uso de una plantilla de Azure Resource Manager para crear un área de trabajo para Azure Machine Learning](how-to-create-workspace-template.md).
 

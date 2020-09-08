@@ -4,14 +4,14 @@ description: 'Tutorial: Obtenga información sobre cómo usar las herramientas d
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 11/05/2019
+ms.date: 08/31/2020
 ms.author: dech
-ms.openlocfilehash: 5c9eb2409b67d71882406c21728fbf2429eb16a9
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 9992d6f1f9f1d0aad6f451d6a974f4df9f655881
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118770"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255994"
 ---
 # <a name="tutorial-use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Tutorial: Use la herramienta de migración de datos para migrar los datos a Azure Cosmos DB
 
@@ -40,6 +40,9 @@ Antes de seguir las instrucciones de este artículo, asegúrese de realizar los 
 * **Aumento del rendimiento:** la duración de la migración de datos depende de la cantidad de rendimiento configurado para una sola colección o un conjunto de colecciones. Asegúrese de aumentar el rendimiento para migraciones de datos más grandes. Después de haber completado la migración, reduzca el rendimiento para ahorrar costos. Para más información acerca de cómo aumentar el rendimiento en Azure Portal, consulte [Niveles de rendimiento](performance-levels.md) y [planes de tarifa](https://azure.microsoft.com/pricing/details/cosmos-db/) de Azure Cosmos DB.
 
 * **Creación de recursos de Azure Cosmos DB:** antes de comenzar la migración de datos, cree previamente todas las colecciones desde Azure Portal. Para migrar a una cuenta de Azure Cosmos DB que tiene un rendimiento de nivel de base de datos, proporcione una clave de partición al crear los contenedores de Azure Cosmos DB.
+
+> [!IMPORTANT]
+> Para asegurarse de que la herramienta de migración de datos usa la Seguridad de la capa de transporte (TLS) 1.2 al conectarse a sus cuentas de Azure Cosmos, use .NET Framework versión 4.7 o siga las instrucciones que se encuentran en [este artículo](https://docs.microsoft.com/dotnet/framework/network-programming/tls).
 
 ## <a name="overview"></a><a id="Overviewl"></a>Información general
 

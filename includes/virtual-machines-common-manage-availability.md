@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: f1517fd577c5e6bd7341e5dde0204456524ba976
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 965da18c265fad1686473d5d6dcf8ba4a7a53b33
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87545203"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89326270"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Información sobre los reinicios de máquinas virtuales: mantenimiento frente a tiempo de inactividad
 Hay tres escenarios que pueden afectar a la máquina virtual de Azure: mantenimiento de hardware no planeado, tiempo de inactividad inesperado y mantenimiento planeado.
@@ -33,8 +33,8 @@ Para reducir el impacto del tiempo de parada debido a uno o más de estos evento
 * [Configure varias máquinas virtuales en un conjunto de disponibilidad para la redundancia]
 * [Uso de Managed Disks para las máquinas virtuales de un conjunto de disponibilidad]
 * [Uso de eventos programados para responder de manera proactiva a eventos que afectan a la máquina virtual](../articles/virtual-machines/linux/scheduled-events.md)
-* [Configuración de cada nivel de aplicación en conjuntos separados de disponibilidad]
-* [Combinación de un equilibrador de carga con conjuntos de disponibilidad]
+* [Configure cada nivel de aplicación en conjuntos separados de disponibilidad](../articles/virtual-machines/windows/tutorial-availability-sets.md)
+* [Combinación de un equilibrador de carga con conjuntos o zonas de disponibilidad]
 * [Uso de zonas de disponibilidad para protegerse frente a errores en el nivel de centro de datos]
 
 ## <a name="use-availability-zones-to-protect-from-datacenter-level-failures"></a>Uso de zonas de disponibilidad para protegerse frente a errores en el nivel de centro de datos
@@ -67,7 +67,7 @@ Los dominios de error definen un grupo de máquinas virtuales que comparten un o
 ## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>Uso de Managed Disks para las máquinas virtuales de un conjunto de disponibilidad
 Si actualmente está usando máquinas virtuales con discos no administrados, es muy recomendable [convertir las máquinas virtuales del conjunto de disponibilidad para que usen Managed Disks](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md).
 
-[Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md) proporciona una mayor confiabilidad para los conjuntos de disponibilidad, ya que garantiza que los discos de las máquinas virtuales de un conjunto de disponibilidad estén suficientemente aislados entre sí para evitar puntos únicos de error. Para ello, coloca automáticamente los discos en dominios de error de almacenamiento diferentes (clústeres de almacenamiento) y los alinea con el dominio de error de la máquina virtual. Si se produce un error en un dominio de error de almacenamiento debido a un error de hardware o software, solo presentará errores la instancia de máquina virtual que tenga discos en el dominio de error de almacenamiento.
+[Managed Disks](../articles/virtual-machines/managed-disks-overview.md) proporciona una mayor confiabilidad para los conjuntos de disponibilidad, ya que garantiza que los discos de las máquinas virtuales de un conjunto de disponibilidad estén suficientemente aislados entre sí para evitar puntos únicos de error. Para ello, coloca automáticamente los discos en dominios de error de almacenamiento diferentes (clústeres de almacenamiento) y los alinea con el dominio de error de la máquina virtual. Si se produce un error en un dominio de error de almacenamiento debido a un error de hardware o software, solo presentará errores la instancia de máquina virtual que tenga discos en el dominio de error de almacenamiento.
 ![FDS de discos administrados](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
 
 > [!IMPORTANT]
@@ -82,12 +82,12 @@ az vm list-skus --resource-type availabilitySets --query '[?name==`Aligned`].{Lo
 ```
 
 > [!NOTE]
-> En determinadas circunstancias, dos máquinas virtuales en el mismo conjunto de disponibilidad podrían compartir el mismo dominio de error. Para confirmarlo, vaya al conjunto de disponibilidad y compruebe la columna **Dominio de error**.
-> Esto puede deberse a la siguiente secuencia mientras se implementan las máquinas virtuales:
-> - Implementar la primera máquina virtual
-> - Detener o desasignar la primera máquina virtual
-> - Implementar la segunda máquina virtual en estas circunstancias, el disco del sistema operativo de la segunda máquina virtual puede crearse en el mismo dominio de error que la primera máquina virtual, por lo que la segunda máquina virtual también aterrizará en el mismo FaultDomain. 
-> Para evitar este problema, se recomienda no detener ni desasignar las máquinas virtuales entre implementaciones.
+> En determinadas circunstancias, dos máquinas virtuales del mismo conjunto de disponibilidad pueden compartir un dominio de error. Para confirmar un dominio de error compartido, vaya al conjunto de disponibilidad y compruebe la columna **Dominio de error**. Un dominio de error compartido podría deberse a la finalización de la siguiente secuencia al implementar las máquinas virtuales:
+> 1. Implemente la primera máquina virtual.
+> 1. Detenga o desasigne la primera máquina virtual.
+> 1. Implemente la segunda máquina virtual.
+>
+> En estas circunstancias, el disco del sistema operativo de la segunda máquina virtual puede crearse en el mismo dominio de error que la primera máquina virtual, por lo que las dos máquinas virtuales estarán en el mismo dominio de error. Para evitar este problema, se recomienda no detener ni desasignar las máquinas virtuales entre implementaciones.
 
 Si tiene previsto usar máquinas virtuales con discos no administrados, siga los procedimientos recomendados que aparecen a continuación para las cuentas de almacenamiento donde se almacenan los discos duros virtuales (VHD) de las máquinas virtuales como [blobs en páginas](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
 
@@ -110,7 +110,7 @@ Para obtener un tutorial sobre cómo equilibrar la carga entre las zonas de disp
 
 <!-- Link references -->
 [Configure varias máquinas virtuales en un conjunto de disponibilidad para la redundancia]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
-[Combinación de un equilibrador de carga con conjuntos de disponibilidad]: #combine-a-load-balancer-with-availability-zones-or-sets
+[Combinación de un equilibrador de carga con conjuntos o zonas de disponibilidad]: #combine-a-load-balancer-with-availability-zones-or-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Uso de Managed Disks para las máquinas virtuales de un conjunto de disponibilidad]: #use-managed-disks-for-vms-in-an-availability-set
 [Uso de zonas de disponibilidad para protegerse frente a errores en el nivel de centro de datos]: #use-availability-zones-to-protect-from-datacenter-level-failures

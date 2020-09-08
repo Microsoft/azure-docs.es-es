@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: mlearned
-ms.openlocfilehash: 69e60c3e4ac91a5d0ca9a0245dc61f090c625c60
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 35424c0a9e566a9dfa780c524e23945348335040
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499875"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225995"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Acceso al panel web de Kubernetes en Azure Kubernetes Service (AKS)
 
@@ -20,7 +20,7 @@ Kubernetes incluye un panel web que se puede usar para operaciones básicas de a
 Para más información sobre el panel de Kubernetes, consulte la información sobre el [panel de la interfaz de usuario web de Kubernetes][kubernetes-dashboard]. AKS usa la versión 2.0 y posterior del panel de código abierto.
 
 > [!WARNING]
-> **El complemento del panel de AKS está programado para quedar en desuso.** 
+> **El complemento del panel de AKS está programado para quedar en desuso. Use la [vista de recursos de Kubernetes en Azure Portal (versión preliminar)][kubernetes-portal] en su lugar.** 
 > * El panel de Kubernetes está habilitado de forma predeterminada para los clústeres que ejecutan una versión de Kubernetes inferior a la 1.18.
 > * El complemento de panel se deshabilitará de forma predeterminada para todos los nuevos clústeres creados en Kubernetes 1.18 o posterior. 
  > * A partir de Kubernetes 1.19 en versión preliminar, AKS ya no admitirá la instalación del complemento administrado kube-dashboard. 
@@ -209,3 +209,4 @@ Para más información sobre el panel de Kubernetes, consulte el [panel de la in
 [az-aks-browse]: /cli/azure/aks#az-aks-browse
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [install-azure-cli]: /cli/azure/install-azure-cli
+[kubernetes-portal]: ./kubernetes-portal.md

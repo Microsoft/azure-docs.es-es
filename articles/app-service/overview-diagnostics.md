@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/18/2019
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: df8f68e47776f46ae2d1331f85bd76d6cfe17b80
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: d58341979b0bbe0699a5ca293b20394c43cde1d1
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81869942"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962815"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Introducción a los diagnósticos de Azure App Service
 
@@ -20,7 +20,7 @@ Cuando ejecute una aplicación web, querrá estar preparado para los posibles pr
 
 Aunque esta experiencia es principalmente útil si tiene problemas con la aplicación en las últimas 24 horas, todos los gráficos de diagnóstico están siempre disponibles para su análisis.
 
-El diagnóstico de App Service funciona no solo para la aplicación en Windows, sino también para las aplicaciones en [Linux/contenedores](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro), el [entono de App Service](https://docs.microsoft.com/azure/app-service/environment/intro) y [Azure functions](https://docs.microsoft.com/azure/azure-functions/functions-overview).
+El diagnóstico de App Service funciona no solo para la aplicación en Windows, sino también para las aplicaciones en [Linux/contenedores](./overview.md#app-service-on-linux), el [entono de App Service](./environment/intro.md) y [Azure functions](../azure-functions/functions-overview.md).
 
 ## <a name="open-app-service-diagnostics"></a>Apertura de los diagnósticos de App Service
 
@@ -71,7 +71,7 @@ Hay cuatro gráficos diferentes en la comprobación de mantenimiento.
 
 ### <a name="investigate-application-code-issues-only-for-windows-app"></a>Investigación de los problemas de código de aplicación (solo para la aplicación de Windows)
 
-Dado que muchos problemas de la aplicación están relacionados con el código de esta, el diagnóstico de App Service se integra con [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) para resaltar las excepciones y los problemas de dependencia para ponerlos en correlación con el tiempo de inactividad seleccionado. Application Insights deben estar habilitado por separado.
+Dado que muchos problemas de la aplicación están relacionados con el código de esta, el diagnóstico de App Service se integra con [Application Insights](../azure-monitor/app/app-insights-overview.md) para resaltar las excepciones y los problemas de dependencia para ponerlos en correlación con el tiempo de inactividad seleccionado. Application Insights deben estar habilitado por separado.
 
 ![Application Insights](./media/app-service-diagnostics/application-insights-7.png)
 

@@ -8,16 +8,20 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: bdbe157198ad62578613d86f3b3a55b72ca0acf8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 39a7c92ca6c83684658cf767722698806ed994ec
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557455"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935456"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Creación de un conjunto de aptitudes en una canalización de enriquecimiento de inteligencia artificial en Azure Cognitive Search 
 
-El enriquecimiento de inteligencia artificial extrae y enriquece datos para que se puedan buscar en Azure Cognitive Search. A los pasos de extracción y enriquecimiento los denominamos *aptitudes cognitivas*, combinadas en un *conjunto de aptitudes* al que se hace referencia durante la indexación. Los conjuntos de aptitudes pueden utilizar [aptitudes predefinidas](cognitive-search-predefined-skills.md) o aptitudes personalizadas (consulte [Ejemplo: Creación de una aptitud personalizada en una canalización de enriquecimiento de inteligencia artificial](cognitive-search-create-custom-skill-example.md) para más información).
+![Fases del indexador](media/cognitive-search-defining-skillset/indexer-stages-skillset.png "fases del indexador")
+
+Un conjunto de aptitudes define las operaciones que extraen y enriquecen los datos para que se puedan buscar. Un conjunto de aptitudes se ejecuta después de extraer el contenido del texto y de la imagen de los documentos de origen, y después de que los campos del documento de origen se asignen (opcionalmente) a los campos de destino de un índice o almacén de conocimiento.
+
+Un conjunto de aptitudes contiene una o varias *aptitudes cognitivas* que representan una operación de enriquecimiento específica, como la traducción de texto, la extracción de frases clave o la realización de reconocimiento óptico de caracteres de un archivo de imagen. Para crear un conjunto de aptitudes, puede usar [conocimientos integrados](cognitive-search-predefined-skills.md) de Microsoft o conocimientos personalizados que contengan modelos o lógica de procesamiento que proporcione (vea [Ejemplo: Creación de una aptitud personalizada en una canalización de enriquecimiento de inteligencia artificial](cognitive-search-create-custom-skill-example.md) para más información).
 
 En este artículo aprenderá a crear una canalización de enriquecimiento para las aptitudes que desee utilizar. Hay un conjunto de aptitudes asociado a un [indexador](search-indexer-overview.md) de Azure Cognitive Search. Una parte del diseño de canalización, que se trata en este artículo, es la construcción del propio conjunto de aptitudes. 
 
@@ -45,14 +49,14 @@ El siguiente diagrama muestra una canalización de enriquecimiento hipotética:
 ![Una canalización de enriquecimiento hipotética](media/cognitive-search-defining-skillset/sample-skillset.png "Una canalización de enriquecimiento hipotética")
 
 
-Una vez que tenga una idea clara de lo que desea en la canalización, puede expresar el conjunto de aptitudes que proporciona estos pasos. Funcionalmente, el conjunto de aptitudes se expresa al cargar la definición de indexador en Azure Cognitive Search. Para más información sobre cómo cargar el indexador, consulte la [documentación del indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Una vez que tenga una idea clara de lo que desea en la canalización, puede expresar el conjunto de aptitudes que proporciona estos pasos. Funcionalmente, el conjunto de aptitudes se expresa al cargar la definición de indexador en Azure Cognitive Search. Para más información sobre cómo cargar el indexador, consulte la [documentación del indexador](/rest/api/searchservice/create-indexer).
 
 
 En el diagrama, el paso de *descifrado de documentos* se realiza automáticamente. Básicamente, Azure Cognitive Search sabe cómo abrir archivos conocidos y crea un campo *content* que contiene el texto extraído de cada documento. Los cuadros blancos son enriquecedores integrados y el cuadro "Entity Search de Bing" con puntos representa un enriquecedor personalizado que está creando. Como se muestra, el conjunto de aptitudes contiene tres aptitudes.
 
 ## <a name="skillset-definition-in-rest"></a>Definición del conjunto de aptitudes en REST
 
-Un conjunto de aptitudes se define como una matriz de aptitudes. Cada aptitud define el origen de sus entradas y el nombre de las salidas generadas. Mediante la [API REST de creación de conjuntos de aptitudes](https://docs.microsoft.com/rest/api/searchservice/create-skillset), puede definir un conjunto de aptitudes que se corresponde con el diagrama anterior: 
+Un conjunto de aptitudes se define como una matriz de aptitudes. Cada aptitud define el origen de sus entradas y el nombre de las salidas generadas. Mediante la [API REST de creación de conjuntos de aptitudes](/rest/api/searchservice/create-skillset), puede definir un conjunto de aptitudes que se corresponde con el diagrama anterior: 
 
 ```http
 PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
@@ -277,4 +281,4 @@ Puede optar por guardar los documentos enriquecidos como tablas con relaciones j
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que está familiarizado con la canalización de enriquecimiento y los conjuntos de aptitudes, continúe con [How to reference annotations in a skillset](cognitive-search-concept-annotations-syntax.md) (Referencia a las anotaciones en un conjunto de aptitudes) o [How to map outputs to fields in an index](cognitive-search-output-field-mapping.md) (Asignación de salidas a campos en un índice). 
+Ahora que está familiarizado con la canalización de enriquecimiento y los conjuntos de aptitudes, continúe con [How to reference annotations in a skillset](cognitive-search-concept-annotations-syntax.md) (Referencia a las anotaciones en un conjunto de aptitudes) o [How to map outputs to fields in an index](cognitive-search-output-field-mapping.md) (Asignación de salidas a campos en un índice).

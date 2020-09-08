@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: 43623e6841c3776e6e83453ad9cb47549fc16021
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: b48fc6ad448b829bb399c151d3f1507c804ad471
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170299"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605101"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expresiones de transformación de datos en Asignación de Data Flow
 
@@ -101,21 +101,13 @@ ___
 <code><b>byNames(<i>&lt;column names&gt;</i> : array, [<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
 Seleccione una matriz de columnas por nombre en la secuencia. Puede pasar un nombre de flujo opcional como segundo argumento. Si hay varias coincidencias, se devuelve la primera. Si no hay ninguna coincidencia para una columna, la salida completa es un valor NULL. El valor devuelto requiere una función de conversión de tipos (toDate, toString, etc.).  Los nombres de columna que se conocen en tiempo de diseño deben tratarse simplemente por su nombre. No se admiten entradas calculadas, pero se pueden usar sustituciones de parámetros.
 * ``toString(byNames(['parent', 'child']))``
-* ````
 * ``byNames(['parent']) ? string``
-* ````
 * ``toLong(byNames(['income']))``
-* ````
 * ``byNames(['income']) ? long``
-* ````
 * ``toBoolean(byNames(['foster']))``
-* ````
 * ``toLong(byNames($debtCols))``
-* ````
 * ``toString(byNames(['a Column']))``
-* ````
 * ``toString(byNames(['a Column'], 'DeriveStream'))``
-* ````
 * ``byNames(['orderItem']) ? (itemName as string, itemQty as integer)``
 ___
 ### <code>byPosition</code>

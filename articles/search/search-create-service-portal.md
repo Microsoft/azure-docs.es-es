@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 07/14/2020
-ms.openlocfilehash: b9507e500282afbdfba5cedd5420974aa8b3ade8
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 6813db0b7416695fb9433a701114f2684dd0e122
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554029"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927126"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Inicio rápido: Creación de un servicio Azure Cognitive Search en el portal
 
@@ -96,7 +96,7 @@ Azure Cognitive Search no está disponible en la mayoría de las regiones. Se pu
 
  Si usa el enriquecimiento con IA, cree el servicio de búsqueda en la misma región que Cognitive Services. *La coubicación de Azure Cognitive Search y Cognitive Services en la misma región es un requisito para el enriquecimiento con inteligencia artificial*.
 
- Los clientes con requisitos de continuidad empresarial y recuperación ante desastres (BCDR) deben crear sus servicios en [pares regionales](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#azure-regional-pairs). Por ejemplo, si está trabajando en Norteamérica, puede elegir Este de EE. UU. y Oeste de EE. UU., o Centro-norte de EE. UU. y Centro-sur de EE. UU., para cada servicio.
+ Los clientes con requisitos de continuidad empresarial y recuperación ante desastres (BCDR) deben crear sus servicios en [pares regionales](../best-practices-availability-paired-regions.md#azure-regional-pairs). Por ejemplo, si está trabajando en Norteamérica, puede elegir Este de EE. UU. y Oeste de EE. UU., o Centro-norte de EE. UU. y Centro-sur de EE. UU., para cada servicio.
 
 ### <a name="recommendations"></a>Recomendaciones
 
@@ -160,7 +160,7 @@ La mayoría de los clientes usan un solo servicio aprovisionado en un nivel que 
 
 Aunque la mayoría de los clientes usan un solo servicio, la redundancia de servicios puede ser necesaria si los requisitos operativos son los siguientes:
 
-+ [Continuidad empresarial y recuperación ante desastres (BCDR)](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Azure Cognitive Search no proporciona conmutación por error instantánea si se produce una interrupción del servicio.
++ [Continuidad empresarial y recuperación ante desastres (BCDR)](../best-practices-availability-paired-regions.md). Azure Cognitive Search no proporciona conmutación por error instantánea si se produce una interrupción del servicio.
 
 + [Las arquitecturas multiinquilino](search-modeling-multitenant-saas-applications.md) a veces llaman a dos o más servicios.
 

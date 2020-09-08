@@ -1,19 +1,17 @@
 ---
 title: 'Preguntas frecuentes acerca de Windows Virtual Desktop: Azure'
 description: Preguntas frecuentes y procedimientos recomendados para Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6867d24d84f6dfb51b2ca7b86ec882102b96552b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 058c5778c116a9e8368049bf30046aa6b7634163
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504422"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121126"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Preguntas frecuentes acerca de Windows Virtual Desktop
 
@@ -25,7 +23,7 @@ Si desea crear grupos de hosts y otros objetos, debe tener asignado el rol Colab
 
 Debe tener asignado el rol Administrador de acceso de usuarios en un grupo de aplicaciones para publicar grupos de aplicaciones para usuarios o grupos de usuarios.
 
-Para impedir que un administrador solo administre las sesiones de usuario, como el envío de mensajes a los usuarios, el cierre de la sesión de los usuarios, etc., puede crear roles personalizados. Por ejemplo: 
+Para impedir que un administrador solo administre las sesiones de usuario, como el envío de mensajes a los usuarios, el cierre de la sesión de los usuarios, etc., puede crear roles personalizados. Por ejemplo:
 
 ```powershell
 "actions": [
@@ -49,8 +47,6 @@ Para impedir que un administrador solo administre las sesiones de usuario, como 
 Cuando se asigna un usuario a un grupo de aplicaciones, el servicio realiza una simple asignación de roles de Azure. Como consecuencia, la instancia de Azure Active Directory (AD) del usuario y la instancia de Azure AD del grupo de aplicaciones deben estar en la misma ubicación. Todos los objetos de servicio, como los grupos de hosts, los grupos de aplicaciones y las áreas de trabajo, también deben estar en el mismo Azure AD que el usuario.
 
 Puede crear máquinas virtuales (VM) en otra instancia de Azure AD siempre que sincronice la instancia de Active Directory con la instancia de Azure AD del usuario en la misma red virtual (VNET).
-
-Azure Lighthouse no es totalmente compatible con la administración del entorno de Windows Virtual Desktop. Dado que Lighthouse actualmente no admite la administración de usuarios inquilinos entre instancias de Azure AD, los clientes de Lighthouse aún tienen que iniciar sesión en la instancia de Azure AD que los clientes usan para administrar usuarios.
 
 ## <a name="what-are-location-restrictions"></a>¿Cuáles son las restricciones de ubicación?
 
@@ -116,7 +112,7 @@ Una vez que se crea un grupo de hosts, no se puede cambiar el tipo. Sin embargo,
 
 Las limitaciones o cuotas de FSLogix dependen del tejido de almacenamiento usado para almacenar los archivos VHD(X) de perfil de usuario.
 
-En la tabla siguiente se muestra un ejemplo de los recursos que necesita un perfil de FSLogix para admitir cada usuario. Los requisitos pueden variar enormemente en función del usuario, las aplicaciones y la actividad de cada perfil. 
+En la tabla siguiente se muestra un ejemplo de los recursos que necesita un perfil de FSLogix para admitir cada usuario. Los requisitos pueden variar enormemente en función del usuario, las aplicaciones y la actividad de cada perfil.
 
 | Resource | Requisito |
 |---|---|
@@ -134,3 +130,11 @@ Los factores siguientes pueden afectar al límite de escala de los grupos de hos
 - Existen restricciones en cuanto a la cantidad de núcleos que se pueden crear por región y por suscripción. Por ejemplo, si tiene una suscripción de Contrato Enterprise, puede crear 350 núcleos. Tendrá que dividir 350 por el número predeterminado de núcleos por VM o por su propio límite de núcleos para conocer el número de VM que puede crear cada vez que ejecuta la plantilla. Más información sobre los [Límites de Virtual Machines: Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager).
 
 - El nombre del prefijo de la VM y el número de VM tiene menos de 15 caracteres. Para obtener más información, consulte [Reglas y restricciones de nomenclatura para los recursos de Azure](../azure-resource-manager/management/resource-name-rules.md#microsoftcompute).
+
+## <a name="can-i-manage-windows-virtual-desktop-environments-with-azure-lighthouse"></a>¿Puedo administrar entornos de Windows Virtual Desktop con Azure Lighthouse?
+
+Azure Lighthouse no es totalmente compatible con la administración de entornos de Windows Virtual Desktop. Dado que Lighthouse actualmente no admite la administración de usuarios inquilinos entre instancias de Azure AD, los clientes de Lighthouse aún tienen que iniciar sesión en la instancia de Azure AD que los clientes usan para administrar usuarios.
+
+Tampoco puede usar las suscripciones de espacio aislado de CSP con el servicio Windows Virtual Desktop. Para obtener más información, consulte [Cuenta de espacio aislado de integración](/partner-center/develop/set-up-api-access-in-partner-center#integration-sandbox-account).
+
+Por último, si ha habilitado el proveedor de recursos de la cuenta de propietario de CSP, las cuentas de cliente de CSP no podrán modificar el proveedor de recursos.

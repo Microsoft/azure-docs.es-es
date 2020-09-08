@@ -1,6 +1,6 @@
 ---
 title: Guía de inicio rápido para administrar recursos compartidos de archivos de Azure mediante la CLI de Azure
-description: Use esta guía de inicio rápido para aprender a usar la CLI de Azure para administrar Azure Files.
+description: Use este inicio rápido para aprender a usar la CLI de Azure para administrar Azure Files. Cree un grupo de recursos y una cuenta de almacenamiento y, a continuación, cree y use un recurso compartido de archivos de Azure.
 author: roygara
 ms.service: storage
 ms.topic: quickstart
@@ -8,12 +8,12 @@ ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0d9d0bad982a12e3b96bdbe4f680f2501b33ec67
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 149481f9cae535fa53f94a876e1f52e813b3838b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495782"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034590"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Guía de inicio rápido: Creación y administración de recursos compartidos de archivos de Azure mediante la CLI de Azure
 En esta guía se describen los conceptos básicos sobre cómo trabajar con [recursos compartidos de archivos de Azure](storage-files-introduction.md) mediante la CLI de Azure. Los recursos compartidos de archivos de Azure son iguales a otros recursos compartidos de archivos, pero se almacenan en la nube y están respaldados por la plataforma Azure. Los recursos compartidos de archivos de Azure admiten el protocolo SMB estándar del sector y permiten el uso compartido entre varias máquinas, aplicaciones e instancias. 

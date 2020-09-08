@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: 805be8d5c9ab4f6316251adbb9bce3e99f4fa01d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b9e33ba8d9610067cb9e844477ec273391fbdb0b
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086677"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751723"
 ---
 # <a name="configure-network-virtual-appliance-in-azure-hdinsight"></a>Configuración de una aplicación virtual de red en Azure HDInsight
 
@@ -47,7 +47,7 @@ Opcionalmente, puede habilitar uno o varios de los siguientes puntos de conexió
 ### <a name="fqdn-httphttps-dependencies"></a>Dependencias HTTP/HTTPS de FQDN
 
 > [!Important]
-> La lista siguiente proporciona solo algunos de los FQDN más importantes. Puede obtener la lista completa de FQDN (principalmente, Azure Storage y Azure Service Bus) para configurar NVA [en este archivo](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json). Estas dependencias las usan las operaciones del plano de control de HDInsight para crear un clúster correctamente.
+> La lista siguiente solo proporciona algunos FQDN que pueden ser necesarios para las actualizaciones de seguridad o las validaciones de certificados del sistema operativo después de crear el clúster y durante la vigencia de las operaciones del clúster. Puede obtener la lista de dependencias de FQDN (principalmente, Azure Storage y Azure Service Bus) para configurar NVA [en este archivo](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json). Estas dependencias las usa el proveedor de recursos (RP) de HDInsight para crear y supervisar o administrar clústeres de manera correcta. Estos incluyen registros de telemetría o diagnóstico, aprovisionamiento de metadatos, configuraciones relacionadas con el clúster, scripts, plantillas de Resource Manager, etc. La lista de dependencias de FQDN podría cambiar con la publicación de futuras actualizaciones de HDIngisht.
 
 | **Punto de conexión**                                                          |
 |---|

@@ -8,16 +8,16 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.openlocfilehash: 69618604c38d82567260e45d651df523055c5f7b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a4e686fe7adcc7e990a26484bc5850de977e862a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245337"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924595"
 ---
 # <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Tutorial: Creación e implementación de una aptitud personalizada con Azure Machine Learning 
 
-En este tutorial, usará el [conjunto de datos de reseñas de hoteles](https://www.kaggle.com/datafiniti/hotel-reviews) (que se distribuye con la licencia de Creative Commons [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) para crear una [aptitud personalizada](https://docs.microsoft.com/azure/search/cognitive-search-aml-skill) mediante Azure Machine Learning y extraer opiniones basadas en aspectos de las reseñas. De esta forma, se podrá atribuir correctamente la asignación de opiniones positivas y negativas dentro de la misma reseña a las entidades identificadas, como personal, habitación, vestíbulo o piscina.
+En este tutorial, usará el [conjunto de datos de reseñas de hoteles](https://www.kaggle.com/datafiniti/hotel-reviews) (que se distribuye con la licencia de Creative Commons [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) para crear una [aptitud personalizada](./cognitive-search-aml-skill.md) mediante Azure Machine Learning y extraer opiniones basadas en aspectos de las reseñas. De esta forma, se podrá atribuir correctamente la asignación de opiniones positivas y negativas dentro de la misma reseña a las entidades identificadas, como personal, habitación, vestíbulo o piscina.
 
 Para entrenar el modelo de opinión basada en aspectos de Azure Machine Learning, usará el [repositorio nlp-recipes](https://github.com/microsoft/nlp-recipes/tree/master/examples/sentiment_analysis/absa). A continuación, el modelo se implementará como un punto de conexión en un clúster de Azure Kubernetes. Una vez implementado, el punto de conexión se agrega a la canalización de enriquecimiento como una aptitud de Azure Machine Learning para su uso por parte del servicio Cognitive Search.
 
@@ -36,10 +36,10 @@ Se proporcionan dos conjuntos de datos. Si quiere entrenar el modelo por su cuen
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción de Azure: obtenga una [suscripción gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Servicio Cognitive Search](https://docs.microsoft.com/azure/search/search-get-started-arm)
-* [Recurso de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows)
-* [Cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal)
-* [área de trabajo de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
+* [Servicio Cognitive Search](./search-get-started-arm.md)
+* [Recurso de Cognitive Services](../cognitive-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows)
+* [Cuenta de Azure Storage](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [área de trabajo de Azure Machine Learning](../machine-learning/how-to-manage-workspace.md)
 
 ## <a name="setup"></a>Configurar
 
@@ -47,9 +47,9 @@ Se proporcionan dos conjuntos de datos. Si quiere entrenar el modelo por su cuen
 * Si la descarga es un archivo comprimido, extraiga el contenido. Asegúrese de que los archivos sean de lectura y escritura.
 * Al configurar las cuentas y los servicios de Azure, copie los nombres y las claves en un archivo de texto de acceso fácil. Los nombres y las claves se agregarán a la primera celda del cuaderno, donde se definen las variables para acceder a los servicios de Azure.
 * Si no está familiarizado con Azure Machine Learning y sus requisitos, revise estos documentos antes de empezar:
- * [Configuración de un entorno de desarrollo para Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-configure-environment)
- * [Creación y administración de áreas de trabajo de Azure Machine Learning en Azure Portal](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
- * Al configurar el entorno de desarrollo para Azure Machine Learning, considere la posibilidad de usar la [instancia de proceso basada en la nube](https://docs.microsoft.com/azure/machine-learning/how-to-configure-environment#compute-instance) para comenzar de manera más fácil y rápida.
+ * [Configuración de un entorno de desarrollo para Azure Machine Learning](../machine-learning/how-to-configure-environment.md)
+ * [Creación y administración de áreas de trabajo de Azure Machine Learning en Azure Portal](../machine-learning/how-to-manage-workspace.md)
+ * Al configurar el entorno de desarrollo para Azure Machine Learning, considere la posibilidad de usar la [instancia de proceso basada en la nube](../machine-learning/how-to-configure-environment.md#compute-instance) para comenzar de manera más fácil y rápida.
 * Cargue el archivo del conjunto de datos en un contenedor de la cuenta de almacenamiento. Si quiere realizar el paso de entrenamiento en el cuaderno, el archivo más grande es necesario. Si prefiere omitir el paso de entrenamiento, se recomienda el archivo más pequeño.
 
 ## <a name="open-notebook-and-connect-to-azure-services"></a>Apertura del cuaderno y conexión a los servicios de Azure
@@ -68,9 +68,9 @@ La sección 2 tiene seis celdas donde se descarga el archivo de inserciones GloV
 
 En la sección 3 del cuaderno se entrenarán los modelos creados en la sección 2, se registrarán esos modelos y se implementarán como un punto de conexión en un clúster de Azure Kubernetes. Si no está familiarizado con Azure Kubernetes, se recomienda encarecidamente que revise los artículos siguientes antes de intentar crear un clúster de inferencia:
 
-* [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes)
-* [Conceptos básicos de Kubernetes de Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads)
-* [Cuotas, restricciones de tamaño de máquinas virtuales y disponibilidad de regiones en Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/quotas-skus-regions)
+* [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md)
+* [Conceptos básicos de Kubernetes de Azure Kubernetes Service (AKS)](../aks/concepts-clusters-workloads.md)
+* [Cuotas, restricciones de tamaño de máquinas virtuales y disponibilidad de regiones en Azure Kubernetes Service (AKS)](../aks/quotas-skus-regions.md)
 
 La creación e implementación del clúster de inferencia puede tardar hasta 30 minutos. Se recomienda probar el servicio web antes de continuar con los pasos finales, de forma que se actualice el conjunto de aptitudes y se ejecute el indexador.
 
@@ -108,5 +108,5 @@ Si está usando un servicio gratuito, recuerde que está limitado a tres índice
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Revise la API web de aptitud personalizada](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-web-api)
-> [Más información sobre cómo agregar aptitudes personalizadas a la canalización de enriquecimiento](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface)
+> [Revise la API web de aptitud personalizada](./cognitive-search-custom-skill-web-api.md)
+> [Más información sobre cómo agregar aptitudes personalizadas a la canalización de enriquecimiento](./cognitive-search-custom-skill-interface.md)

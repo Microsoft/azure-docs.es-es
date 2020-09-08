@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e44edff9ac81588e4f861b7a1d1ae1a1628d5e04
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3589b4af06bc27a79c429bb0ccd743857651db97
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035645"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653552"
 ---
 # <a name="sap-hana-high-availability-for-azure-virtual-machines"></a>Alta disponibilidad de SAP HANA para máquinas virtuales de Azure
 
@@ -60,7 +60,7 @@ Azure tiene diferentes Acuerdos de Nivel de Servicio de disponibilidad para los 
 
 [Acuerdo de Nivel de Servicio para Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) describe tres Acuerdos de Nivel de Servicio diferentes, para tres configuraciones distintas:
 
-- Una sola máquina virtual que usa [discos SSD Premium de Azure ](../../windows/managed-disks-overview.md) para el disco del sistema operativo y todos los discos de datos. Esta opción proporciona un tiempo de actividad mensual del 99,9 %.
+- Una sola máquina virtual que usa [discos SSD Premium de Azure ](../../managed-disks-overview.md) para el disco del sistema operativo y todos los discos de datos. Esta opción proporciona un tiempo de actividad mensual del 99,9 %.
 - Varias máquinas virtuales (al menos dos) que se organizan en un [conjunto de disponibilidad de Azure](../../windows/tutorial-availability-sets.md). Esta opción proporciona un tiempo de actividad mensual del 99,95 %.
 - Varias máquinas virtuales (al menos dos) que se organizan en una [zona de disponibilidad](../../../availability-zones/az-overview.md). Esta opción proporcionaba un tiempo de actividad mensual del 99,99 %.
 

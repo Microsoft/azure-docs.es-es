@@ -27,20 +27,16 @@
       href: azure-portal-dashboards-create-programmatically.md
 - name: Guías paso a paso
   items:
-    - name: Configuración de las preferencias de Azure Portal
+    - name: Administración de las preferencias y la configuración de Azure Portal
       href: set-preferences.md
-    - name: Configuración de los valores de tiempo de espera de todos los usuarios
-      href: admin-timeout.md
-    - name: Activación del contraste alto o cambio de tema
-      href: azure-portal-change-theme-high-contrast.md
     - name: 'Adición, eliminación y ordenación de favoritos'
       href: azure-portal-add-remove-sort-favorites.md
-    - name: Creación y uso compartido de paneles de Azure
-      href: azure-portal-dashboards.md
-    - name: Uso de un icono de Markdown personalizado
-      href: azure-portal-markdown-tile.md
-    - name: Exportación o eliminación de la configuración de usuario
-      href: azure-portal-export-delete-settings.md
+    - name: Creación de paneles de Azure
+      items:
+        - name: Creación y uso compartido de paneles de Azure
+          href: azure-portal-dashboards.md
+        - name: Uso de un icono de Markdown personalizado
+          href: azure-portal-markdown-tile.md
     - name: Serie de vídeos sobre "procedimientos" de Azure Portal
       href: azure-portal-video-series.md
     - name: Creación y administración de solicitudes de soporte técnico

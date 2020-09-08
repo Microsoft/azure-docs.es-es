@@ -5,12 +5,12 @@ description: Obtenga más información acerca de los procedimientos recomendados
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 12c65f3b4241d3e732c51acb6ffa95ff314efb50
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: cdeecabf569e3c6f9b280e6b0179e5378f5b1c95
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077775"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003105"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para el aislamiento de clústeres en Azure Kubernetes Service (AKS)
 
@@ -42,7 +42,7 @@ Con el aislamiento lógico, un único clúster de AKS puede utilizarse para vari
 
 Normalmente, una separación lógica de los clústeres proporciona una mayor densidad de pods que los clústeres aislados físicamente. Hay menos exceso de capacidad del proceso que se encuentra inactiva en el clúster. Cuando se combina con el escalador automático de clúster de Kubernetes, puede escalar vertical u horizontalmente el número de nodos para satisfacer las necesidades. Este enfoque de procedimiento recomendado para el escalado automático le permite ejecutar solo el número de nodos necesario y minimiza los costos.
 
-Los entornos de Kubernetes, tanto en AKS como en cualquier otro lugar, no están completamente seguros ante el uso de varios inquilinos hostiles. En un entorno multiinquilino, varios inquilinos trabajan en una infraestructura compartida común. Como resultado, si no se puede confiar en todos los inquilinos, debe realizar una planeación adicional para evitar que un inquilino afecte a la seguridad y el servicio de otro. Utilizar otras características de seguridad adicionales, como la *directiva de seguridad de pod*, y controles de acceso basados en roles (RBAC) más específicos puede dificultar las vulnerabilidades de seguridad. Sin embargo, para que la seguridad resulte efectiva cuando se ejecutan cargas de trabajo multiinquilino hostiles, el hipervisor es el único nivel de seguridad en el que debe confiar. El dominio de seguridad de Kubernetes se convierte en todo el clúster, no en un nodo específico. En el caso de estos tipos de cargas de trabajo multiinquilino hostiles, debe usar clústeres que estén físicamente aislados.
+Los entornos de Kubernetes, tanto en AKS como en cualquier otro lugar, no están completamente seguros ante el uso de varios inquilinos hostiles. En un entorno multiinquilino, varios inquilinos trabajan en una infraestructura compartida común. Como resultado, si no se puede confiar en todos los inquilinos, debe realizar una planeación adicional para evitar que un inquilino afecte a la seguridad y el servicio de otro. El uso de características de seguridad adicionales, como la *directiva de seguridad de pod* y el control de acceso basado en rol (RBAC), más pormenorizado, en los nodos, hace que sea más difícil aprovechar las vulnerabilidades. Sin embargo, para que la seguridad resulte efectiva cuando se ejecutan cargas de trabajo multiinquilino hostiles, el hipervisor es el único nivel de seguridad en el que debe confiar. El dominio de seguridad de Kubernetes se convierte en todo el clúster, no en un nodo específico. En el caso de estos tipos de cargas de trabajo multiinquilino hostiles, debe usar clústeres que estén físicamente aislados.
 
 ## <a name="physically-isolate-clusters"></a>Aislamiento de clústeres de forma física
 

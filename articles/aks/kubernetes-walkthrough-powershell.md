@@ -3,14 +3,14 @@ title: 'Inicio rápido: Implementación de un clúster de AKS mediante PowerShel
 description: Aprenda a crear rápidamente un clúster de Kubernetes, implementar una aplicación y supervisar el rendimiento en Azure Kubernetes Service (AKS) mediante PowerShell.
 services: container-service
 ms.topic: quickstart
-ms.date: 05/26/2020
+ms.date: 08/18/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 219772fd81617dc3e69b452057e0122eedef69f9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4dde1dcd131a497b60a314513df44cc0443d28ed
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499864"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590020"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-powershell"></a>Inicio rápido: Implementación de un clúster de Azure Kubernetes Service mediante PowerShell
 
@@ -101,10 +101,6 @@ aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.15.10
 ## <a name="run-the-application"></a>Ejecución de la aplicación
 
 Un archivo de manifiesto de Kubernetes define un estado deseado del clúster, por ejemplo, qué imágenes de contenedor se van a ejecutar. En esta guía de inicio rápido, se usa un manifiesto para crear todos los objetos necesarios para ejecutar la aplicación Azure Vote. Este manifiesto incluye dos [implementaciones de Kubernetes][kubernetes-deployment], una para las aplicaciones Python de Azure Vote de ejemplo y otra para una instancia de Redis. También se crean dos servicios de Kubernetes, uno interno para la instancia de Redis y otro externo para acceder a la aplicación Azure Vote desde Internet.
-
-> [!TIP]
-> En esta guía de inicio rápido, se crean e implementan manualmente los manifiestos de aplicación en el clúster de AKS.
-> En escenarios más reales, puede usar [Azure Dev Spaces][azure-dev-spaces] para iterar rápidamente y depurar el código directamente en el clúster de AKS. Puede usar Dev Spaces entre plataformas de sistemas operativos y entornos de desarrollo, y trabajar junto con otras personas de su equipo.
 
 Cree un archivo denominado `azure-vote.yaml` y cópielo en la siguiente definición de código YAML. Si usa Azure Cloud Shell, este archivo se puede crear mediante `vi` o `nano` como si funcionara en un sistema físico o virtual:
 

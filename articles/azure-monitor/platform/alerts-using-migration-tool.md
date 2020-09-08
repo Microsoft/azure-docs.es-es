@@ -6,19 +6,16 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: ab5c16995a2d2bad6e44f0f9d1187ca3d66be1b6
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 5e811e487856ea38f96b669ccb12cabda655a8cd
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81114265"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852130"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Uso de la herramienta de migración voluntaria para migrar las reglas de alertas clásicas
 
-Tal como se [anunció anteriormente](monitoring-classic-retirement.md), las alertas clásicas de Azure Monitor se retirarán en septiembre de 2019 (la fecha original era julio de 2019). Hay disponible una herramienta de migración en Azure Portal para los clientes que usan reglas de alertas clásicas y que desean desencadenar la migración ellos mismos. En este artículo se explica cómo usar la herramienta de migración para migrar voluntariamente las reglas de alertas clásicas antes de que comience la migración automática en septiembre de 2019.
-
-> [!NOTE]
-> Debido a un retraso en la implementación de la herramienta de migración, la fecha de retirada para la migración de alertas clásicas se [extendió hasta el 31 de agosto de 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/), desde la fecha anunciada originalmente del 30 de junio de 2019.
+Como se [anunció anteriormente](monitoring-classic-retirement.md), se retiran las alertas clásicas en Azure Monitor, aunque se siguen usando de forma limitada para los recursos que aún no admiten las nuevas alertas. Había disponible una herramienta de migración en Azure Portal para los clientes que usaban reglas de alertas clásicas y que deseaban desencadenar la migración ellos mismos. En este artículo se explica cómo usar la herramienta de migración, que también se usará para las alertas restantes pendientes de más anuncios.
 
 ## <a name="benefits-of-new-alerts"></a>Ventajas de las nuevas alertas
 
@@ -37,7 +34,7 @@ El proceso de migración convierte las reglas de alertas clásicas a las reglas 
 
 - El formato de carga de notificación y las API para crear y administrar nuevas reglas de alertas son diferentes de las reglas de alerta clásicas porque admiten más características. [Obtenga información sobre cómo preparar la migración](alerts-prepare-migration.md).
 
-- No se pueden migrar algunas reglas de alertas clásicas mediante la herramienta. [Obtenga información sobre las reglas que no se pueden migrar y qué hacer con ellas](alerts-understand-migration.md#classic-alert-rules-that-will-not-be-migrated).
+- No se pueden migrar algunas reglas de alertas clásicas mediante la herramienta. [Obtenga información sobre las reglas que no se pueden migrar y qué hacer con ellas](alerts-understand-migration.md#manually-migrating-classic-alerts-to-newer-alerts).
 
     > [!NOTE]
     > El proceso de migración no afecta a la evaluación de las reglas de alertas clásicas. Seguirán ejecutándose y enviando alertas hasta que se hayan migrado y las nuevas reglas de alertas surtan efecto.

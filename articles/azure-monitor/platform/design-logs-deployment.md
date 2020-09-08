@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 3a6afd42c12a523523b45861b38b323fa680ecab
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b74fd1ad5c3783b2e456fa5f3c24fb8bc7875d4d
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317291"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551329"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Diseño de la implementación de registros de Azure Monitor
 
@@ -127,17 +127,25 @@ Para obtener información sobre cómo cambiar el modo de control de acceso en el
 
 ## <a name="ingestion-volume-rate-limit"></a>Límite de velocidad por volumen de ingesta
 
-Azure Monitor es un servicio de datos a gran escala que atiende a miles de clientes que envían terabytes de datos cada mes a un ritmo creciente. El umbral de velocidad de ingesta predeterminado se establece en **6 GB/min** por área de trabajo. Este es un valor aproximado, ya que el tamaño real puede variar entre los tipos de datos en función de la longitud del registro y su razón de compresión. Este límite no se aplica a los datos que se envían desde agentes o la [Data Collector API](data-collector-api.md).
+Azure Monitor es un servicio de datos a gran escala que atiende a miles de clientes que envían terabytes de datos cada mes a un ritmo creciente. Lo que se pretende con el límite de velocidad de volumen es evitar que los clientes de Azure Monitor tengan de picos de ingesta repentinos en entornos con varios inquilinos. En las áreas de trabajo se define un umbral de velocidad de volumen de ingesta de datos de 500 MB (comprimidos), lo que se traduce en, aproximadamente, **6 GB/min** sin comprimir (el tamaño real puede variar entre los tipos de datos en función de la longitud del registro y su relación de compresión). El límite de velocidad de volumen se aplica a todos los datos ingeridos, tanto si se envían desde recursos de Azure mediante la [Configuración de diagnóstico](diagnostic-settings.md), [Data Collector API](data-collector-api.md) o agentes.
 
-Si envía datos a una velocidad superior a una sola área de trabajo, se quitan algunos datos y se envía un evento a la tabla *Operación* del área de trabajo cada 6 horas mientras se siga superando el umbral. Si el volumen de ingesta sigue superando el límite de velocidad o prevé que pronto lo alcanzará, puede solicitar un aumento en el área de trabajo mediante el envío de un correo electrónico a LAIngestionRate@microsoft.com o mediante la apertura de una solicitud de soporte técnico.
- 
-Para recibir notificaciones de este tipo de evento en el área de trabajo, cree una [regla de alerta de registro](alerts-log.md) mediante la siguiente consulta con la base de la lógica de alerta en el número de resultados mayor que cero.
+Cuando se envían datos a un área de trabajo a una velocidad superior al 80 % del umbral configurado en el área de trabajo, se envía un evento a la tabla *Operación* del área de trabajo cada 6 horas mientras se siga superando el umbral. Cuando la velocidad de ingesta del volumen supera el umbral, se quitan algunos datos y se envía un evento a la tabla *Operación* del área de trabajo cada 6 horas mientras se siga superando el umbral. Si la velocidad de ingesta sigue superando el umbral o prevé que lo va a alcanzar pronto, puede abrir una solicitud de soporte técnico para solicitar su aumento. 
 
-``` Kusto
+Para recibir una notificación tanto si se acerca al límite de ingesta de datos del volumen del área de trabajo como si lo ha alcanzado, cree una [regla de alerta de registro](alerts-log.md) mediante la siguiente consulta cuya base lógica de alerta sea el número de resultados mayores que cero, un período de evaluación de 5 minutos y una frecuencia de 5 minutos.
+
+La velocidad de ingesta del volumen ha alcanzado el 80 % del umbral:
+```Kusto
 Operation
 |where OperationCategory == "Ingestion"
-|where Detail startswith "The rate of data crossed the threshold"
-``` 
+|where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"
+```
+
+La velocidad de ingesta del volumen ha alcanzado el umbral:
+```Kusto
+Operation
+|where OperationCategory == "Ingestion"
+|where Detail startswith "The data ingestion volume rate crossed the threshold"
+```
 
 
 ## <a name="recommendations"></a>Recomendaciones

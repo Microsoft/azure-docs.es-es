@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 08/17/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 185992284e353c3e58104bc46296c1741fbca7d9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b9882168cd063cb4448269cc6a4949778fe93fb1
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502178"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509865"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)
 
@@ -29,7 +29,7 @@ Azure Storage admite tres tipos de firmas de acceso compartido:
 
     Para más información sobre la SAS de delegación de usuarios, consulte [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas) (Creación de una SAS de delegación de usuarios [API REST]).
 
-- **SAS de servicio.** Una SAS de servicio está protegida con la clave de cuenta de almacenamiento. Una SAS de servicio administra el acceso a un recurso en solo uno de los servicios de Azure Storage: Blob Storage, Queue Storage, Table Storage o Azure Files. 
+- **SAS de servicio.** Una SAS de servicio está protegida con la clave de cuenta de almacenamiento. Una SAS de servicio administra el acceso a un recurso en solo uno de los servicios de Azure Storage: Blob Storage, Queue Storage, Table Storage o Azure Files.
 
     Para más información sobre la SAS de servicio, consulte [Create a service SAS (REST API)](/rest/api/storageservices/create-service-sas) (Creación de una SAS de servicio [API REST]).
 
@@ -38,7 +38,7 @@ Azure Storage admite tres tipos de firmas de acceso compartido:
     Para obtener más información sobre la SAS de cuenta, consulte [Create an account SAS (REST API)](/rest/api/storageservices/create-account-sas) (Creación de una SAS de cuenta [API REST]).
 
 > [!NOTE]
-> Microsoft recomienda usar credenciales de Azure AD cuando sea posible como procedimiento recomendado de seguridad, en lugar de usar la clave de cuenta, que se puede poner en peligro más fácilmente. Cuando el diseño de la aplicación requiera firmas de acceso compartido para el acceso a Blob Storage, utilice credenciales de Azure AD para crear una SAS de delegación de usuarios cuando sea posible para una seguridad superior.
+> Microsoft recomienda usar credenciales de Azure AD cuando sea posible como procedimiento recomendado de seguridad, en lugar de usar la clave de cuenta, que se puede poner en peligro más fácilmente. Cuando el diseño de la aplicación requiera firmas de acceso compartido para el acceso a Blob Storage, utilice credenciales de Azure AD para crear una SAS de delegación de usuarios cuando sea posible para una seguridad superior. Para más información, vea [Autenticación del acceso a blobs y colas con Azure Active Directory](storage-auth-aad.md).
 
 Una firma de acceso compartido puede presentar una de estas dos formas:
 
@@ -52,15 +52,27 @@ Una firma de acceso compartido puede presentar una de estas dos formas:
 
 Una firma de acceso compartido es un URI firmado que señala a uno o más recursos de almacenamiento e incluye un token que contiene un conjunto especial de parámetros de consulta. El token indica cómo puede el cliente tener acceso a los recursos. Uno de los parámetros de consulta, la firma, se construye a partir de parámetros SAS y se firma con la clave que se usó para crear la SAS. Azure Storage utiliza esta firma para autorizar el acceso al recurso de almacenamiento.
 
-### <a name="sas-signature"></a>Firma de SAS
+### <a name="sas-signature-and-authorization"></a>Firma y autorización de SAS
 
-Puede firmar una SAS de dos maneras:
+Puede firmar un token de SAS de dos maneras:
 
 - Con una *clave de delegación de usuarios* creada con las credenciales de Azure Active Directory (Azure AD). Una SAS de delegación de usuarios está firmada con la clave de delegación de usuarios.
 
     Para obtener la clave de delegación de usuarios y crear la SAS, a una entidad de seguridad de Azure AD se le debe asignar un rol de Azure que incluya la acción **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey**. Para obtener información detallada sobre los roles de Azure con permisos para obtener la clave de delegación de usuarios, consulte [Creación de una SAS de delegación de usuarios (API REST)](/rest/api/storageservices/create-user-delegation-sas).
 
-- Con la clave de la cuenta de almacenamiento. Tanto una SAS de servicio como una SAS de cuenta se firman con la clave de cuenta de almacenamiento. Para crear una SAS firmada con la clave de cuenta, una aplicación debe tener acceso a la clave de cuenta.
+- Con la clave de la cuenta de almacenamiento (clave compartida) Tanto una SAS de servicio como una SAS de cuenta se firman con la clave de cuenta de almacenamiento. Para crear una SAS firmada con la clave de cuenta, una aplicación debe tener acceso a la clave de cuenta.
+
+Cuando una solicitud incluye un token de SAS, esa solicitud se autoriza en función de cómo se firma el token de SAS. La clave de acceso o las credenciales que se usan para crear un token de SAS también se usan en Azure Storage para conceder acceso a un cliente que posea el token de SAS.
+
+En la tabla siguiente se resume el modo en que cada tipo de token de SAS está autorizado cuando se incluye en una solicitud a Azure Storage:
+
+| Tipo de SAS | Tipo de autorización |
+|-|-|
+| SAS de delegación de usuarios (solo para Blob Storage) | Azure AD |
+| SAS de servicio | Clave compartida |
+| SAS de cuenta | Clave compartida |
+
+Microsoft recomienda el uso de una SAS de delegación de usuario siempre que sea posible para mayor seguridad.
 
 ### <a name="sas-token"></a>Token de SAS
 

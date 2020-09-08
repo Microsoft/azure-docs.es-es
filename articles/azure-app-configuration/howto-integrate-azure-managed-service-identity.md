@@ -1,22 +1,23 @@
 ---
-title: Autenticación con identidades administradas de Azure
+title: Uso de identidades administradas para acceder a App Configuration
 titleSuffix: Azure App Configuration
-description: Autenticación en Azure App Configuration mediante identidades administradas de Azure
+description: Autenticación en Azure App Configuration mediante identidades administradas
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
+ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: bf97a1eae758778efc8d800666af4a5fcb574429
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0525f305e130247fd88ee2858c79cbfd0a15283e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80056836"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400847"
 ---
-# <a name="integrate-with-azure-managed-identities"></a>Integración con identidades administradas de Azure
+# <a name="use-managed-identities-to-access-app-configuration"></a>Uso de identidades administradas para acceder a App Configuration
 
-Las [identidades administradas](../active-directory/managed-identities-azure-resources/overview.md) de Azure Active Directory simplifican la administración de secretos de su aplicación de nube. Con una identidad administrada, el código puede usar la entidad de servicio creada para el servicio de Azure donde se ejecuta. Usar una identidad administrada en lugar de una credencial diferente que se almacenan en Azure Key Vault o una cadena de conexión local. 
+Las [identidades administradas](../active-directory/managed-identities-azure-resources/overview.md) de Azure Active Directory simplifican la administración de secretos de su aplicación de nube. Con una identidad administrada, el código puede usar la entidad de servicio creada para el servicio de Azure donde se ejecuta. Usar una identidad administrada en lugar de una credencial diferente que se almacenan en Azure Key Vault o una cadena de conexión local.
 
 Azure App Configuration y sus bibliotecas cliente .NET Core, .NET Framework y Java Spring incluyen compatibilidad integrada con la identidad administrada. Aunque su uso no es necesario, la identidad administrada elimina la necesidad de un token de acceso que contenga los secretos. El código solo puede acceder al almacén de App Configuration mediante el punto de conexión de servicio. Puede insertar esta dirección URL en el código directamente sin exponer ningún secreto.
 
@@ -72,7 +73,7 @@ Para configurar una identidad administrada en el portal, primero crea una aplica
 
     ![Agregar una identidad administrada](./media/add-managed-identity.png)
 
-1. Opcional: Si también desea conceder acceso a Key Vault, siga las instrucciones de [Autenticación de Key Vault con una identidad administrada](https://docs.microsoft.com/azure/key-vault/managed-identity).
+1. Opcional: Si también desea conceder acceso a Key Vault, siga las instrucciones de [Asignación de una directiva de acceso de Key Vault](/azure/key-vault/assign-access-policy-portal).
 
 ## <a name="use-a-managed-identity"></a>Uso de una identidad administrada
 
@@ -84,7 +85,7 @@ Para configurar una identidad administrada en el portal, primero crea una aplica
 
 1. Busque el punto de conexión en el almacén de App Configuration. Esta dirección URL aparece en la pestaña **Claves de acceso** para el almacén en la Azure Portal.
 
-1. Abra *appsettings.json*y agregue el siguiente script. Reemplace *\<service_endpoint>* , incluidos los corchetes, por la dirección URL del almacén de App Configuration. 
+1. Abra *appsettings.json*y agregue el siguiente script. Reemplace *\<service_endpoint>* , incluidos los corchetes, por la dirección URL del almacén de App Configuration.
 
     ```json
     "AppConfig": {
@@ -183,6 +184,9 @@ Para configurar una identidad administrada en el portal, primero crea una aplica
 
     Ya puede acceder a las referencias de Key Vault de igual forma que a cualquier otra clave de App Configuration. El proveedor de configuración usará el objeto `KeyVaultClient` que configuró para autenticarse en Key Vault y recuperará el valor.
 
+> [!NOTE]
+> `ManagedIdentityCredential` solo admite la autenticación de identidad administrada. No funciona en entornos locales. Si desea ejecutar el código en un entorno local, considere la posibilidad de usar `DefaultAzureCredential`, que también admite la autenticación de la entidad de servicio. Para obtener más información, consulte el [vínculo](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential).
+
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
 ## <a name="deploy-from-local-git"></a>Implementación desde Git local
@@ -242,7 +246,7 @@ http://<app_name>.azurewebsites.net
 
 ## <a name="use-managed-identity-in-other-languages"></a>Usar identidades administradas en otros idiomas
 
-Los proveedores de App Configuration para .NET Framework y Java Spring también incluyen compatibilidad integrada con identidades administradas. Puede usar el punto de conexión de dirección URL del almacén en lugar de su cadena de conexión completa al configurar uno de estos proveedores. 
+Los proveedores de App Configuration para .NET Framework y Java Spring también incluyen compatibilidad integrada con identidades administradas. Puede usar el punto de conexión de dirección URL del almacén en lugar de su cadena de conexión completa al configurar uno de estos proveedores.
 
 Por ejemplo, puede actualizar la aplicación de consola de .NET Framework que se creó en el inicio rápido para especificar la siguiente configuración en el archivo *App.config*:
 

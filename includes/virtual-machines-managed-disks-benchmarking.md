@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e5148ff9e92a2e550a3117356a4e77cbac8fc6f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: da5811abec889bcc47d08878a0950df7f0983663
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67673513"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010839"
 ---
 *Preparación de la memoria caché*  
 El disco con almacenamiento en caché de host ReadOnly puede proporcionar un valor de IOPS mayor que el límite del disco. Para obtener este máximo rendimiento de lectura de la caché de host, primero debe preparar la memoria caché de este disco. Así se garantiza que las operaciones de E/S de lectura en las qué la herramienta de pruebas comparativas manejará el volumen de CacheReads alcanzan realmente la memoria caché y no el disco directamente. Los aciertos de caché generan IOPS adicionales desde el único disco con la memoria caché habilitada.
@@ -153,7 +153,7 @@ sudo fio --runtime 30 fiowrite.ini
 ```
 
 Mientras se ejecuta la prueba, puede ver el número de IOPS de escritura que envían la máquina virtual y los discos Premium. Como se muestra en el ejemplo siguiente, la máquina virtual DS14 está ofreciendo su límite máximo de IOPS de escritura: 50.000 IOPS.  
-    ![El número de discos Premium y de VM de IOPS que se entregan](../articles/virtual-machines/linux/media/premium-storage-performance/image11.png)
+    ![El número de discos Premium y de VM de IOPS que se entregan.](../articles/virtual-machines/linux/media/premium-storage-performance/image11.png)
 
 #### <a name="maximum-read-iops"></a>Valor máximo de IOPS de lectura
 
@@ -194,11 +194,11 @@ sudo fio --runtime 30 fioread.ini
 ```
 
 Mientras se ejecuta la prueba, puede ver el número de IOPS de lectura que envían los discos Premium y de VM. Como se muestra en el ejemplo siguiente, la máquina virtual DS14 proporciona más de 64.000 IOPS de lectura. Se trata de una combinación del rendimiento de la caché y el disco.  
-    ![](../articles/virtual-machines/linux/media/premium-storage-performance/image12.png)
+    ![Captura de pantalla del número de discos Premium y de VM de IOPS que se entregan.](../articles/virtual-machines/linux/media/premium-storage-performance/image12.png)
 
 #### <a name="maximum-read-and-write-iops"></a>Valor máximo de IOPS de lectura y escritura
 
-Cree el archivo de trabajo con las especificaciones siguientes para obtener la IOPS de lectura y escritura combinadas máxima. Asígnele el nombre "fioreadwrite.ini".
+ Cree el archivo de trabajo con las especificaciones siguientes para obtener la IOPS de lectura y escritura combinadas máxima. Asígnele el nombre "fioreadwrite.ini".
 
 ```ini
 [global]
@@ -256,4 +256,4 @@ Mientras se ejecuta la prueba, puede ver el número de IOPS de lectura y escritu
 
 #### <a name="maximum-combined-throughput"></a>Rendimiento máximo combinado
 
-Para obtener el rendimiento de lectura y escritura combinado máximo, use un tamaño de bloque y la profundidad de la cola más grandes con varios subprocesos que realizan lecturas y escrituras. Puede usar un tamaño de bloque de 64 KB y una profundidad de la cola de 128.
+ Para obtener el rendimiento de lectura y escritura combinado máximo, use un tamaño de bloque y la profundidad de la cola más grandes con varios subprocesos que realizan lecturas y escrituras. Puede usar un tamaño de bloque de 64 KB y una profundidad de la cola de 128.

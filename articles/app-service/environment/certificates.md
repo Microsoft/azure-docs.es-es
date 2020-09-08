@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 73ee2165b8750b79bc33c76604ffed295fd1ea48
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 306445e26e5b236b49273b9ab8888ecc610bc075
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831886"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962050"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificados y App Service aislado 
 
-Una instancia de App Service aislado es una implementación de Azure App Service que se ejecuta en su instancia de Azure Virtual Network (VNet). Se puede implementar con un punto de conexión de la aplicación accesible a Internet o un punto de conexión de la aplicación que se encuentra en la red virtual. Si App Service aislado se implementa con un punto de conexión accesible a Internet, dicha implementación se denomina App Service aislado externo. Si App Service aislado se implementa con un punto de conexión en la red virtual, dicha implementación se denomina App Service aislado con ILB. Puede obtener más información sobre App Service aislado con ILB en el documento [Creación y uso de App Service aislado con ILB](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase).
+Una instancia de App Service aislado es una implementación de Azure App Service que se ejecuta en su instancia de Azure Virtual Network (VNet). Se puede implementar con un punto de conexión de la aplicación accesible a Internet o un punto de conexión de la aplicación que se encuentra en la red virtual. Si App Service aislado se implementa con un punto de conexión accesible a Internet, dicha implementación se denomina App Service aislado externo. Si App Service aislado se implementa con un punto de conexión en la red virtual, dicha implementación se denomina App Service aislado con ILB. Puede obtener más información sobre App Service aislado con ILB en el documento [Creación y uso de App Service aislado con ILB](./create-ilb-ase.md).
 
 App Service aislado es un sistema de inquilino único. Debido a esto, existen algunas características que solo están disponibles con App Service aislado que no está disponible en la instancia de App Service multiinquilino. 
 

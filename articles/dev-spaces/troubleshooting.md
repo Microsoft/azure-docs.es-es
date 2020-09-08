@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Obtenga información sobre cómo solucionar problemas y resolver problemas comunes al habilitar y usar Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s '
-ms.openlocfilehash: 7b97bab7182e382801a57bcf7dd6f325e665438b
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: e26f066294cb0a6a48c5a3299213206fe4226ad0
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232498"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210826"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Solución de problemas de Azure Dev Spaces
 
@@ -55,8 +55,6 @@ Si no tiene la CLI de Azure Dev Spaces instalada, puede instalarla mediante el c
 ```azurecli
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
-
-La recreación del controlador se puede realizar desde la CLI o desde Visual Studio. Consulte los inicios rápidos [Desarrollo en equipo](quickstart-team-development.md) o [Desarrollo con .NET Core](quickstart-netcore-visualstudio.md) para obtener ejemplos.
 
 ### <a name="controller-create-failing-because-of-controller-name-length"></a>Error al crear el controlador debido a la longitud del nombre del controlador
 
@@ -267,7 +265,7 @@ Este error se produce porque Azure Dev Spaces no admite actualmente compilacione
 
 ### <a name="network-traffic-is-not-forwarded-to-your-aks-cluster-when-connecting-your-development-machine"></a>El tráfico no se reenvía al clúster de AKS cuando se conecta la máquina de desarrollo.
 
-Al usar [Azure Dev Spaces para conectar el clúster de AKS a la máquina de desarrollo](how-to/local-process-kubernetes-vs-code.md), es posible que se produzca una incidencia que provoque que no se reenvíe el tráfico entre la máquina de desarrollo y el clúster de AKS.
+Al usar [Azure Dev Spaces para conectar el clúster de AKS a la máquina de desarrollo](https://code.visualstudio.com/docs/containers/local-process-kubernetes), es posible que se produzca una incidencia que provoque que no se reenvíe el tráfico entre la máquina de desarrollo y el clúster de AKS.
 
 Al conectar el equipo de desarrollo al clúster de AKS, Azure Dev Spaces reenvía el tráfico de red entre el clúster de AKS y el equipo de desarrollo modificando el archivo `hosts` de la máquina de desarrollo. Azure Dev Spaces crea una entrada en `hosts` con la dirección del servicio Kubernetes que se va a reemplazar como nombre de host. Esta entrada se usa con el reenvío de puertos para dirigir el tráfico entre la máquina de desarrollo y el clúster de AKS. Si un servicio de la máquina de desarrollo entra en conflicto con el puerto del servicio Kubernetes que se está reemplazando, Azure Dev Spaces no puede reenviar el tráfico para el servicio Kubernetes. Por ejemplo, el servicio *Windows BranchCache*  normalmente se enlaza a *0.0.0.0:80*, lo que provocará un conflicto en el puerto 80 de todas las direcciones IP locales.
 
@@ -284,7 +282,7 @@ Por ejemplo, para detener y deshabilitar el servicio *Windows BranchCache*, hag
 
 Al ejecutar un servicio con Azure Dev Spaces en un clúster de AKS con una [identidad administrada](../aks/use-managed-identity.md) e [identidades administradas del pod](../aks/developer-best-practices-pod-security.md#use-pod-managed-identities) instaladas, el proceso puede dejar de responder después del paso de *instalación del gráfico*. Si inspecciona el *azds-injector-webhook* en el espacio de nombres *azds*, es posible que vea este error.
 
-Los servicios que Azure Dev Spaces ejecuta en el clúster usan la identidad administrada del clúster para comunicarse con los servicios de back-end de Azure Dev Spaces fuera del clúster. Cuando se instala la identidad administrada del pod, las reglas de redes se configuran en los nodos del clúster a fin de redirigir todas las llamadas para las credenciales de identidad administrada a un [DaemonSet de Identidad administrada del nodo (NMI) en el clúster](https://github.com/Azure/aad-pod-identity#node-managed-identity). Este DaemonSet de NMI identifica el pod que realiza la llamada y garantiza que este se ha etiquetado correctamente para tener acceso a la identidad administrada solicitada. Azure Dev Spaces no puede detectar si un clúster tiene instalada la identidad administrada del pod y no puede realizar la configuración necesaria para permitir a los servicios Azure Dev Spaces obtener acceso a la identidad administrada del clúster. Dado que los servicios Azure Dev Spaces no se han configurado para tener acceso a la identidad administrada del clúster, el DaemonSet de NMI no les permitirá obtener un token de AAD para la identidad administrada y no podrá comunicarse con los servicios de back-end de Azure Dev Spaces.
+Los servicios que Azure Dev Spaces ejecuta en el clúster usan la identidad administrada del clúster para comunicarse con los servicios de back-end de Azure Dev Spaces fuera del clúster. Cuando se instala la identidad administrada del pod, las reglas de redes se configuran en los nodos del clúster a fin de redirigir todas las llamadas para las credenciales de identidad administrada a un [DaemonSet de Identidad administrada del nodo (NMI) en el clúster](https://github.com/Azure/aad-pod-identity#node-managed-identity). Este DaemonSet de NMI identifica el pod que realiza la llamada y garantiza que este se ha etiquetado correctamente para tener acceso a la identidad administrada solicitada. Azure Dev Spaces no puede detectar si un clúster tiene instalada la identidad administrada del pod y no puede realizar la configuración necesaria para permitir a los servicios Azure Dev Spaces obtener acceso a la identidad administrada del clúster. Dado que los servicios Azure Dev Spaces no se han configurado para tener acceso a la identidad administrada del clúster, el DaemonSet de NMI no les permitirá obtener un token de Azure AD para la identidad administrada y no podrá comunicarse con los servicios de back-end de Azure Dev Spaces.
 
 Para corregir este problema, aplique una [AzurePodIdentityException](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md) para el *azds-injector-webhook* y actualice los pods instrumentados por Azure Dev Spaces para tener acceso a la identidad administrada.
 
@@ -416,7 +414,7 @@ Para corregir este problema, instale la [extensión de VS Code para C#](https:/
 
 Es posible que vea este error al ejecutar el depurador de Visual Studio Code. Puede que no tenga la extensión de VS Code para Azure Dev Spaces instalada en la máquina de desarrollo.
 
-Para corregir este problema, instale la [extensión de VS Code para Azure Dev Spaces](get-started-netcore.md).
+Para corregir este problema, instale la extensión de VS Code para Azure Dev Spaces.
 
 ### <a name="error-invalid-cwd-value-src-the-system-cannot-find-the-file-specified-or-launch-program-srcpath-to-project-binary-does-not-exist"></a>Error "Valor 'cwd' no válido '/src'. El sistema no encuentra el archivo especificado." o "launch: program '/src/[ruta de acceso al archivo binario del proyecto]' no existe"
 
@@ -498,9 +496,9 @@ Una vez reinstalado el controlador, vuelva a implementar los pods.
 
 ### <a name="incorrect-rbac-permissions-for-calling-dev-spaces-controller-and-apis"></a>Permisos incorrectos de RBAC para llamar al controlador y las API de Dev Spaces
 
-El usuario que accede al controlador de Azure Dev Spaces debe tener acceso de lectura al archivo *kubeconfig* de administración en el clúster de AKS. Por ejemplo, este permiso está disponible en el [rol de administrador del clúster integrado de Azure Kubernetes Service](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). El usuario que accede al controlador de Azure Dev Spaces debe tener también los roles de RBAC *Colaborador* o *Propietario* del controlador. Encontrará más detalles sobre cómo actualizar los permisos de un usuario para un clúster de AKS [aquí](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group).
+El usuario que accede al controlador de Azure Dev Spaces debe tener acceso de lectura al archivo *kubeconfig* de administración en el clúster de AKS. Por ejemplo, este permiso está disponible en el [rol de administrador del clúster integrado de Azure Kubernetes Service](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). El usuario que accede al controlador de Azure Dev Spaces debe tener también el rol de Azure de *Colaborador* o *Propietario* del controlador. Encontrará más detalles sobre cómo actualizar los permisos de un usuario para un clúster de AKS [aquí](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group).
 
-Para actualizar el rol de RBAC del usuario para el controlador:
+Para actualizar el rol de Azure del usuario para el controlador:
 
 1. Inicie sesión en Azure Portal en https://portal.azure.com.
 1. Vaya al grupo de recursos que contiene el controlador, que suele ser el mismo que el del clúster de AKS.

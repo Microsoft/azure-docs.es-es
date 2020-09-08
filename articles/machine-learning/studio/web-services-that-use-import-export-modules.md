@@ -10,12 +10,13 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: how-to
 ms.date: 03/28/2017
-ms.openlocfilehash: d16fabbf08b95d16cf54926d7d0373596e7bcf13
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 7b1d8f939e403c795effeca14943791d1554742f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430110"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010739"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Implementación de servicios web de Azure Machine Learning Studio (clásico) que usan módulos de importación y exportación de datos
 

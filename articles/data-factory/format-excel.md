@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/08/2020
+ms.date: 08/21/2020
 ms.author: jingwang
-ms.openlocfilehash: a937548c9318d98e8832720706626b74167d32d9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dd5e116f0c6844abeffc27820da03462c6e1cbbc
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87044399"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718210"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Formato Excel en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -32,7 +32,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 | type             | La propiedad type del conjunto de datos debe establecerse en **Excel**.   | Sí      |
 | ubicación         | Configuración de ubicación de los archivos. Cada conector basado en archivos tiene su propio tipo de ubicación y propiedades compatibles en `location`. | Sí      |
 | sheetName        | Nombre de la hoja de cálculo de Excel para leer los datos.                       | Sí      |
-| range            | El rango de celdas de la hoja de cálculo especificada para buscar los datos selectivos, por ejemplo, `A3:H5` (una tabla de A3 a H5), `A3` (una tabla a partir de la celda A3), `A3:A3` (una sola celda). Si no se especifica, el ADF lee en toda la hoja de cálculo como una tabla. | No       |
+| range            | Intervalo de celdas de la hoja de cálculo especificada para localizar los datos selectivos, por ejemplo:<br>- Sin especificar: lee toda la hoja de cálculo como una tabla desde la primera fila y columna que no están vacías.<br>- `A3`: lee una tabla a partir de la celda dada y detecta dinámicamente todas las filas debajo y todas las columnas a la derecha.<br>- `A3:H5`: lee este intervalo fijo como una tabla.<br>- `A3:A3`: lee esta celda sola. | No       |
 | firstRowAsHeader | Especifica si se debe tratar la primera fila del rango o la hoja de cálculo determinados como una línea de encabezado con nombres de columnas.<br>Los valores permitidos son **true** y **false** (predeterminado). | No       |
 | nullValue        | Especifica la representación de cadena del valor null. <br>El valor predeterminado es una **cadena vacía**. | No       |
 | compression | Grupo de propiedades para configurar la compresión de archivo. Configure esta sección si desea realizar la compresión o descompresión durante la ejecución de la actividad. | No |

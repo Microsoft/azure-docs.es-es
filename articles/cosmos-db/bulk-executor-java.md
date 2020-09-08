@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 08/26/2020
 ms.author: ramkris
 ms.reviewer: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: a45a47b36ca0e9c426c84bb4b9f87ee5bdeccb84
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5adc15eb7beab4d54156456ee447a7e6039b6c6d
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87309161"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892616"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Uso de la biblioteca BulkExecutor en Java para realizar operaciones en masa con datos de Azure Cosmos DB
 
@@ -183,7 +183,8 @@ Puede actualizar los documentos existentes con el uso de la API BulkUpdateAsync.
    |int getNumberOfDocumentsUpdated()  |   El número total de documentos actualizados correctamente aparte de los documentos proporcionados a la llamada API de actualización en masa.      |
    |double getTotalRequestUnitsConsumed() |  Total de unidades de solicitud (RU) consumidas por la llamada API de actualización en masa.       |
    |Duration getTotalTimeTaken()  |   El tiempo total que tarda la llamada API de actualización en masa en completar la ejecución.      |
-   |List\<Exception> getErrors()   |       Obtiene la lista de errores si algunos documentos fuera del lote proporcionados a la llamada API de actualización en masa no se pudieron insertar.      |
+   |List\<Exception> getErrors()   |       Obtiene la lista de problemas operativos o de redes relacionados con la operación de actualización.      |
+   |List\<BulkUpdateFailure> getFailedUpdates()   |       Obtiene la lista de actualizaciones que no se pudieron completar junto con las excepciones específicas que provocan los errores.|
 
 3. Una vez que la aplicación de actualización masiva está lista, compile la herramienta de línea de comandos desde el origen con el comando "mvn clean package". Este comando genera un archivo jar en la carpeta de destino:  
 

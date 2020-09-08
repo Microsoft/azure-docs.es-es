@@ -16,6 +16,8 @@
       href: add-application-portal.md
     - name: Configuración de una aplicación
       href: add-application-portal-configure.md
+    - name: Asignación de usuarios a una aplicación
+      href: add-application-portal-assign-users.md
     - name: Configuración del inicio de sesión único
       href: add-application-portal-setup-sso.md
     - name: Eliminar una aplicación
@@ -37,13 +39,17 @@
       href: application-management-fundamentals.md
     - name: Escenarios comunes de administración de aplicaciones
       href: common-scenarios.md
+    - name: Visualización de aplicaciones en un inquilino
+      href: application-types.md
+    - name: Asignación de usuarios a aplicaciones
+      href: ways-users-get-assigned-to-applications.md
     - name: Planeamiento de una integración de aplicación en la nube
       items:
         - name: Introducción a la integración de aplicaciones
           href: plan-an-application-integration.md
         - name: Planeamiento de las aplicaciones que no se encuentran en la galería
           href: non-gallery-apps.md
-        - name: Planeación de una implementación del panel de acceso
+        - name: Planeamiento de una implementación de Aplicaciones
           href: access-panel-deployment-plan.md
         - name: Instrucciones para desarrolladores
           href: developer-guidance-for-integrating-applications.md
@@ -91,16 +97,6 @@
           href: application-proxy-high-availability-load-balancing.md
         - name: Comparación de soluciones de acceso remoto
           href: application-proxy-migration.md
-    - name: Comercialización de una aplicación
-      items:
-        - name: Habilitar el inicio de sesión único para la aplicación multiinquilino
-          href: isv-sso-content.md
-        - name: Creación de un inquilino de Azure para la aplicación multiinquilino
-          href: isv-tenant-multi-tenant-app.md
-        - name: Elección de la federación multiinquilino
-          href: isv-choose-multi-tenant-federation.md
-        - name: Creación de documentación para la aplicación multiinquilino
-          href: isv-create-sso-documentation.md
 - name: Guías paso a paso
   expanded: false
   items:
@@ -122,7 +118,7 @@
           href: grant-admin-consent.md
         - name: Configuración del flujo de trabajo de consentimiento del administrador (versión preliminar)
           href: configure-admin-consent-workflow.md
-        - name: Asignar un usuario o grupo a una aplicación
+        - name: Administración de la asignación de usuarios para una aplicación
           href: assign-user-or-group-access-portal.md
         - name: Revisión de los permisos concedidos a las aplicaciones
           href: manage-application-permissions.md
@@ -132,8 +128,6 @@
           href: access-panel-manage-self-service-access.md
         - name: Métodos para quitar el acceso de un usuario a una aplicación
           href: methods-for-removing-user-access.md
-        - name: Eliminación del acceso de usuario o grupo
-          href: remove-user-or-group-access-portal.md
         - name: Ocultamiento de una aplicación a un usuario
           href: hide-application-from-user-portal.md
         - name: Deshabilitar inicio de sesión del usuario
@@ -211,27 +205,21 @@
     - name: Solución de problemas
       items:
         - name: Solución de problemas de incorporación de aplicaciones
-          items:
-            - name: 'Problemas habituales: aplicaciones de la galería'
-              href: adding-gallery-app-common-problems.md
-            - name: 'Problemas habituales: aplicaciones que no son de la galería'
-              href: adding-non-gallery-app-common-problems.md
+          href: troubleshoot-adding-apps.md
+        - name: Solución de problemas de inicio de sesión único basado en contraseña
+          href: troubleshoot-password-based-sso.md
+        - name: Solución de problemas del inicio de sesión único basado en SAML
+          href: troubleshoot-saml-based-sso.md
         - name: Solución de problemas sobre inicio de sesión del usuario
           items:
             - name: Petición de consentimiento inesperada
               href: application-sign-in-unexpected-user-consent-prompt.md
             - name: Error de consentimiento del usuario
               href: application-sign-in-unexpected-user-consent-error.md
-            - name: Problemas al iniciar sesión desde el portal personalizado
-              href: application-sign-in-other-problem-deeplink.md
-            - name: Problemas al iniciar sesión desde el panel de acceso
+            - name: Problemas al iniciar sesión desde Aplicaciones
               href: application-sign-in-other-problem-access-panel.md
             - name: Error en la página de inicio de sesión de la aplicación
               href: application-sign-in-problem-application-error.md
-            - name: 'Problema con el inicio de sesión único con contraseña: aplicaciones que no son de la galería'
-              href: application-sign-in-problem-password-sso-non-gallery.md
-            - name: 'Problema con el inicio de sesión único con contraseña: aplicaciones de la galería'
-              href: application-sign-in-problem-password-sso-gallery.md
             - name: Problema al iniciar sesión en una aplicación de Microsoft
               href: application-sign-in-problem-first-party-microsoft.md
             - name: 'Problema con el inicio de sesión único federado: aplicaciones que no son de la galería'
@@ -240,36 +228,6 @@
               href: application-sign-in-problem-federated-sso-gallery.md
             - name: Problema con una aplicación desarrollada de forma personalizada
               href: application-sign-in-problem-custom-dev.md
-        - name: Solución de problemas de inicio de sesión único
-          items:
-            - name: 'Problemas habituales en la configuración federada: aplicaciones de la galería'
-              href: configure-federated-single-sign-on-gallery-applications-problems.md
-            - name: 'Problemas habituales en la configuración federada: aplicaciones que no son de la galería'
-              href: configure-federated-single-sign-on-non-gallery-applications-problems.md
-            - name: 'Problemas habituales en la configuración de contraseñas: aplicaciones de la galería'
-              href: configure-password-single-sign-on-gallery-applications-problems.md
-            - name: 'Problemas habituales en la configuración de contraseñas: aplicaciones que no son de la galería'
-              href: configure-password-single-sign-on-non-gallery-applications-problems.md
-        - name: Solución de problemas de enumeración y asignación de aplicaciones
-          items:
-            - name: Administración de la lista de aplicaciones del inquilino
-              href: application-types.md
-            - name: Se ha asignado un usuario inesperado
-              href: ways-users-get-assigned-to-applications.md
-        - name: Solución de problemas del panel de acceso
-          items:
-            - name: Administración de la extensión del explorador
-              href: manage-access-panel-browser-extension.md
-            - name: Aplicación que no aparece
-              href: access-panel-troubleshoot-application-not-appearing.md
-            - name: Aparece una aplicación inesperada
-              href: access-panel-troubleshoot-unexpected-application.md
-            - name: No se puede iniciar sesión
-              href: access-panel-troubleshoot-web-sign-in-problem.md
-            - name: Error al instalar la extensión del explorador
-              href: access-panel-extension-problem-installing.md
-            - name: Error al usar el acceso de autoservicio a las aplicaciones
-              href: access-panel-troubleshoot-self-service-access.md
         - name: Solución de problemas de aplicaciones locales
           items:
             - name: Solución de problemas del proxy de aplicación

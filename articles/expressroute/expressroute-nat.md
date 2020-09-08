@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: Requisitos de NAT para los circuitos'
 description: En esta página se proporcionan requisitos detallados para configurar y administrar NAT para circuitos ExpressRoute.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.author: cherylmc
-ms.openlocfilehash: 62effa04fd6130c35d3e2e64a401c124fe383200
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: duau
+ms.openlocfilehash: d85bd4c70af92d529104e9f739837111ee44b5af
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521928"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89395220"
 ---
 # <a name="expressroute-nat-requirements"></a>Requisitos de NAT ExpressRoute
 Para conectarse a los Servicios en la nube de Microsoft mediante ExpressRoute, necesitará configurar y administrar NAT. Algunos proveedores de conectividad ofrecen la configuración y administración de NAT como un servicio administrado. Consulte a su proveedor de conectividad para saber si ofrece tal servicio. Si no lo hace, debe cumplir los requisitos que se describen a continuación. 

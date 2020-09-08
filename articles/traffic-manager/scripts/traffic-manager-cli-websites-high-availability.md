@@ -3,7 +3,7 @@ title: 'Enrutamiento del tráfico para la alta disponibilidad de aplicaciones: C
 description: 'Ejemplo de script de la CLI de Azure: enrutamiento del tráfico para la alta disponibilidad de las aplicaciones'
 services: traffic-manager
 documentationcenter: traffic-manager
-author: rohinkoul
+author: duongau
 manager: twooley
 tags: azure-infrastructure
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 04/26/2018
-ms.author: rohink
-ms.openlocfilehash: e108fbe54ce67d4eb354319450259fc410462c53
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 86151efdc6d2b17c9eef722f2dc3c6306d5aa1b8
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81460620"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400235"
 ---
 # <a name="route-traffic-for-high-availability-of-applications-using-azure-cli"></a>Enrutamiento del tráfico para la alta disponibilidad de las aplicaciones con la CLI de Azure
 

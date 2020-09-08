@@ -3,12 +3,12 @@ title: Controles del ejemplo de plano técnico de servicios compartidos ISO 270
 description: Asignación de controles del ejemplo de plano técnico de servicios compartidos ISO 27001. Cada control se asigna a una o varias directivas de Azure que ayudan en la evaluación.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: a6d2d586efd15b258f65e8c28cd8e233f3d984a6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7655ae2828972a9b99479c7a94f02b02005a9284
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536823"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927137"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Asignación de control del ejemplo de plano técnico de servicios compartidos según la norma ISO 27001
 
@@ -34,7 +34,7 @@ El [servicio de evaluación de vulnerabilidad de SQL](../../../../azure-sql/data
 
 ## <a name="a912-access-to-networks-and-network-services"></a>A.9.1.2 Acceso a redes y servicios de red
 
-Azure implementa el [control de acceso basado en rol](../../../../role-based-access-control/overview.md) (RBAC) para administrar quién tiene acceso a los recursos de Azure. Este plano técnico ayuda a controlar el acceso a los recursos de Azure mediante la asignación de siete definiciones de [Azure Policy](../../../policy/overview.md). Estas directivas auditan el uso de los tipos de recursos y las configuraciones que pueden permitir un acceso más flexible a los recursos.
+Azure implementa el [control de acceso basado en rol (RBAC) de Azure](../../../../role-based-access-control/overview.md) para administrar quién tiene acceso a los recursos de Azure. Este plano técnico ayuda a controlar el acceso a los recursos de Azure mediante la asignación de siete definiciones de [Azure Policy](../../../policy/overview.md). Estas directivas auditan el uso de los tipos de recursos y las configuraciones que pueden permitir un acceso más flexible a los recursos.
 Conocer los recursos que infringen estas directivas ayuda a tomar medidas correctivas para garantizar que el acceso a los recursos de Azure se limita a los usuarios autorizados.
 
 - implementar los requisitos previos para realizar una auditoría de las máquinas virtuales Linux que tengan cuentas sin contraseña.
@@ -69,7 +69,7 @@ Este plano técnico asigna tres definiciones de [Azure Policy](../../../policy/o
 
 ## <a name="a925-review-of-user-access-rights"></a>A.9.2.5 Revisión de los derechos de acceso de los usuarios
 
-Azure implementa el [control de acceso basado en rol](../../../../role-based-access-control/overview.md) (RBAC) para permitirle administrar quién tiene acceso a los recursos de Azure. Mediante Azure Portal, puede revisar quién tiene acceso a los recursos de Azure y sus permisos. Este plano técnico asigna cuatro definiciones de [Azure Policy](../../../policy/overview.md) para auditar las cuentas que deberían priorizarse para la revisión, incluidas las cuentas en desuso y externas con permisos elevados.
+Azure implementa el [control de acceso basado en rol (Azure RBAC) de Azure](../../../../role-based-access-control/overview.md) para ayudarle a administrar quién tiene acceso a los recursos de Azure. Mediante Azure Portal, puede revisar quién tiene acceso a los recursos de Azure y sus permisos. Este plano técnico asigna cuatro definiciones de [Azure Policy](../../../policy/overview.md) para auditar las cuentas que deberían priorizarse para la revisión, incluidas las cuentas en desuso y externas con permisos elevados.
 
 - Las cuentas en desuso deben quitarse de la suscripción
 - Las cuentas en desuso con permisos de propietario deben quitarse de la suscripción
@@ -78,7 +78,7 @@ Azure implementa el [control de acceso basado en rol](../../../../role-based-acc
 
 ## <a name="a926-removal-or-adjustment-of-access-rights"></a>A.9.2.6 Eliminación o ajuste de los derechos de acceso
 
-Azure implementa el [control de acceso basado en rol](../../../../role-based-access-control/overview.md) (RBAC) para permitirle administrar quién tiene acceso a los recursos de Azure. Con [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) y RBAC puede actualizar los roles de usuario para reflejar los cambios en la organización. Cuando sea necesario, se puede bloquear el inicio de sesión de las cuentas (o eliminar estas), lo cual eliminaría inmediatamente los derechos de acceso a los recursos de Azure. Este plano técnico asigna dos definiciones de [Azure Policy](../../../policy/overview.md) para auditar las cuentas en desuso cuya eliminación debería considerarse.
+Azure implementa el [control de acceso basado en rol (Azure RBAC) de Azure](../../../../role-based-access-control/overview.md) para ayudarle a administrar quién tiene acceso a los recursos de Azure. Con [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) y RBAC puede actualizar los roles de usuario para reflejar los cambios en la organización. Cuando sea necesario, se puede bloquear el inicio de sesión de las cuentas (o eliminar estas), lo cual eliminaría inmediatamente los derechos de acceso a los recursos de Azure. Este plano técnico asigna dos definiciones de [Azure Policy](../../../policy/overview.md) para auditar las cuentas en desuso cuya eliminación debería considerarse.
 
 - Las cuentas en desuso deben quitarse de la suscripción
 - Las cuentas en desuso con permisos de propietario deben quitarse de la suscripción

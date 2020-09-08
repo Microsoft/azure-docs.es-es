@@ -7,12 +7,13 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7bfd261802fbf891b8f45079255783cb1e8ac7d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 9c141cd96877fd140b858d0aaed9197f2de80eca
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75551750"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005741"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Configuración y uso de la afinidad de servicio en Service Fabric
 La afinidad es un control que se proporciona principalmente para facilitar la transición de aplicaciones grandes y monolíticas al mundo de la nube y los microservicios. También se usa como optimización para mejorar el rendimiento de los servicios, aunque en este caso podrían producirse efectos secundarios.

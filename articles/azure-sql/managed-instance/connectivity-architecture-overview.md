@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 115cf589c6aa0786026f68eff839a7a2ad6aa9ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 059828336288eeadc0567fed060db07e323f885c
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706212"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761872"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Arquitectura de conectividad de Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -89,7 +89,12 @@ Para cumplir los requisitos de manejabilidad y seguridad de los clientes, SQL Ma
 
 Con la configuración de subred asistida por servicio, el usuario tiene control total sobre el tráfico de datos (TDS) a la vez que SQL Managed Instance asume la responsabilidad de garantizar el flujo ininterrumpido de tráfico de administración para cumplir el Acuerdo de Nivel de Servicio.
 
-La configuración de la subred asistida por servicio se basa en la característica de [delegación de subred](../../virtual-network/subnet-delegation-overview.md) de la red virtual para proporcionar administración automática de la configuración de red y habilitar puntos de conexión de servicio. Los puntos de conexión de servicio podrían usarse para configurar reglas de firewall de red virtual en cuentas de almacenamiento que conservan copias de seguridad y registros de auditoría.
+La configuración de la subred asistida por servicio se basa en la característica de [delegación de subred](../../virtual-network/subnet-delegation-overview.md) de la red virtual para proporcionar administración automática de la configuración de red y habilitar puntos de conexión de servicio. 
+
+Los puntos de conexión de servicio podrían usarse para configurar reglas de firewall de red virtual en cuentas de almacenamiento que conservan copias de seguridad y registros de auditoría. Incluso si tienen habilitados los puntos de conexión del servicio, se recomienda que los clientes utilicen el [vínculo privado](../../private-link/private-link-overview.md) que añade más seguridad a los puntos de conexión del servicio.
+
+> [!IMPORTANT]
+> Debido a las características de configuración del plano de control, la configuración de subred asistida por servicio no habilitaría los puntos de conexión del servicio en nubes nacionales. 
 
 ### <a name="network-requirements"></a>Requisitos de red
 

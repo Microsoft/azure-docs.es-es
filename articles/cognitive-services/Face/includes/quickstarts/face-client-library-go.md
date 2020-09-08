@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ''
 ms.topic: include
-ms.date: 01/27/2020
+ms.date: 08/17/2020
 ms.author: pafarley
-ms.openlocfilehash: 887b9fa62b89c500ef3b2b0164ba0281f911621e
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: bb8f80baac5ce49db612a7d3a599d727b824bffc
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85073309"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505898"
 ---
 Introducción a la biblioteca cliente de Face para Go. Siga estos pasos para instalar la biblioteca y probar los ejemplos para realizar tareas básicas. El servicio Face le proporciona acceso a algoritmos avanzados para detectar y reconocer rostros humanas en imágenes.
 

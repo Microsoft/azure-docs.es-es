@@ -5,12 +5,13 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 788c337a37ec66c5aa1521c5cd9f2816ed7a8bf9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e97fadb374fc45110f5071aab48da0a57eef4284
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75645640"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012796"
 ---
 # <a name="access-save-and-remove-reliable-actors-state"></a>Acceder al estado de Reliable Actors, guardarlo y quitarlo
 [Reliable Actors](service-fabric-reliable-actors-introduction.md) son objetos de subproceso único que encapsulan la lógica y el estado, y mantienen el estado de forma confiable. Cada instancia de actor tiene su propio [administrador de estado](service-fabric-reliable-actors-state-management.md): una estructura de datos similar a un diccionario que almacena de manera confiable los pares clave-valor. El administrador de estado es un contenedor alrededor de un proveedor de estado. Se puede utilizar para almacenar datos, con independencia de la [configuración de persistencia](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) que se utilice.

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.service: active-directory
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c748df10e432e3bebbce0dc8cb39dd2101d52e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e105d4909705622a931c51bcb7cf0a9db4179525
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81680035"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279608"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Rellenado de userPrincipalName de Azure AD
 
@@ -56,7 +56,7 @@ Para habilitar el identificador de inicio de sesión alternativo en Azure AD, no
 
 ![Dominios sin verificar](./media/plan-connect-userprincipalname/altloginid.png)  
 
-Para más información, consulte [Configurar un identificador de inicio de sesión alternativo](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) y [Configuración de inicio de sesión de Azure AD](how-to-connect-install-custom.md#azure-ad-sign-in-configuration).
+Para más información, consulte [Configurar un identificador de inicio de sesión alternativo](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) y [Configuración de inicio de sesión de Azure AD](how-to-connect-install-custom.md#azure-ad-sign-in-configuration).
 
 ## <a name="non-verified-upn-suffix"></a>Sufijo de UPN no verificado
 Si el sufijo del identificador de inicio de sesión alternativo o del atributo UserPrincipalName local no se verifica en el inquilino de Azure AD, el valor del atributo UserPrincipalName de Azure AD se establece en MOERA. Azure AD calcula la dirección MOERA del atributo MailNickName de Azure AD y el dominio inicial de Azure AD como &lt;MailNickName&gt;&#64;&lt;dominio inicial&gt;.

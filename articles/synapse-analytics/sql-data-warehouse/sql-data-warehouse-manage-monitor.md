@@ -11,12 +11,12 @@ ms.date: 03/24/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: synapse-analytics
-ms.openlocfilehash: 7678fedeb3df3b9d27fba603db8f66b692729506
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9eb1006bdba6c69136c972359bb13420a04f4180
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85211704"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048031"
 ---
 # <a name="monitor-your-azure-synapse-analytics-sql-pool-workload-using-dmvs"></a>Supervisión de la carga de trabajo de grupos de SQL de Azure Synapse Analytics mediante DMV
 
@@ -102,8 +102,8 @@ Si un plan DSQL tarda más de lo esperado, es posible que sea un plan complejo c
 
 Para investigar más detalles acerca de un solo paso, compruebe la columna *operation_type* del paso de consulta de larga ejecución y anote el valor de **Índice de pasos**:
 
-* Vaya al paso 3a para **operaciones SQL**: OnOperation, RemoteOperation, ReturnOperation.
-* Vaya al paso 3b para **operaciones de movimiento de datos**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
+* Vaya al paso 3 para **operaciones SQL**: OnOperation, RemoteOperation, ReturnOperation.
+* Vaya al paso 4 para **operaciones de movimiento de datos**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
 
 ### <a name="step-3-investigate-sql-on-the-distributed-databases"></a>PASO 3: Investigar SQL en las bases de datos distribuidas
 

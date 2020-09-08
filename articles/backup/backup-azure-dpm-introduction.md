@@ -3,12 +3,12 @@ title: Preparación del servidor DPM para realizar copias de seguridad de las ca
 description: En este artículo, aprenderá a preparar las copias de seguridad de System Center Data Protection Manager (DPM) en Azure con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 9891be5eded94c64a6cc256b99510a9c0c673daf
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4534b75018fb91cedda00b8c1167012858c5e562
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514176"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021041"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparación para realizar copias de seguridad de las cargas de trabajo en Azure con System Center DPM
 
@@ -26,8 +26,8 @@ El artículo ofrece:
 
 Datos de aplicación y archivo de copia de seguridad de [System Center DPM](/system-center/dpm/dpm-overview). DPM interactúa con Azure Backup de la manera siguiente:
 
-- **Si DPM se ejecuta en un servidor físico o en una máquina virtual local**: puede realizar una copia de seguridad de los datos en un almacén de Backup en Azure, además de una copia de seguridad en disco y en cinta.
-- **Si DPM se ejecuta en una máquina virtual de Azure**: desde System Center 2012 R2 con Update 3 o posterior, puede implementar DPM en una máquina virtual de Azure. Puede realizar una copia de seguridad de los datos en discos de Azure conectados a la máquina virtual, o bien usar Azure Backup para realizar una copia de seguridad de los datos en un almacén de Backup.
+- **Si DPM se ejecuta en un servidor físico o en una máquina virtual local**: puede realizar una copia de seguridad de los datos en un almacén de copia de seguridad en Azure, además de una copia de seguridad en disco y en cinta.
+- **Si DPM se ejecuta en una máquina virtual de Azure**: desde System Center 2012 R2 con Update 3 o posterior, puede implementar DPM en una máquina virtual de Azure. Puede realizar una copia de seguridad de los datos en discos de Azure conectados a la máquina virtual, o bien usar Azure Backup para realizar una copia de seguridad de los datos en un almacén de Backup.
 
 Las ventajas empresariales de realizar una copia de seguridad de servidores DPM en Azure son las siguientes:
 
@@ -44,9 +44,9 @@ DPM en una máquina virtual Hyper-V | System Center 2012 SP1 o posterior; System
 DPM en una máquina virtual de VMware | System Center 2012 R2 con el paquete acumulativo de actualizaciones 5 o posterior.
 Componentes | El servidor DPM debe tener instalado Windows PowerShell y .NET Framework 4.5.
 Aplicaciones admitidas | [Obtenga información](/system-center/dpm/dpm-protection-matrix) sobre los elementos de los que DPM puede realizar una copia de seguridad.
-Tipos de archivo admitidos | La copia de seguridad de estos tipos de archivos se puede realizar con Azure Backup: cifrada (solo copias de seguridad completas); comprimida (copias de seguridad incrementales admitidas); dispersa (copias de seguridad incrementales admitidas); comprimida y dispersa (tratada como dispersa).
-Tipo de archivo no admitidos | Servidores en sistemas de archivos que distinguen mayúsculas y minúsculas; vínculos físicos (omitidos); puntos de reanálisis (omitidos); cifrados y comprimidos (omitidos); cifrados y dispersos (omitidos); flujo comprimido; secuencia de análisis.
-Almacenamiento local | Cada máquina de la que quiera realizar una copia de seguridad debe tener espacio de almacenamiento local de al menos el 5 % del tamaño de los datos de los que se va a realizar la copia de seguridad. Por ejemplo, realizar una copia de seguridad de 100 GB de datos requiere un mínimo de 5 GB de espacio libre en la ubicación temporal.
+Tipos de archivo admitidos | La copia de seguridad de estos tipos de archivos se puede realizar con Azure Backup:<br> <li>Cifrados (solo copias de seguridad completas)<li> Comprimidos (copias de seguridad incrementales compatibles) <li> Dispersos (copias de seguridad incrementales compatibles)<li> Comprimidos y dispersos (tratados como dispersos)
+Tipo de archivo no admitidos | <li>Servidores en sistemas de archivos que distinguen mayúsculas de minúsculas<li> Vínculos físicos (omitidos)<li> Puntos de reanálisis (omitidos)<li> Cifrados y comprimidos (omitidos)<li> Cifrados y dispersos (omitidos)<li> Flujo comprimido<li> Secuencia de análisis
+Almacenamiento local | Cada máquina de la que quiera realizar una copia de seguridad debe tener almacenamiento libre local de al menos el 5 % del tamaño de los datos cuya copia se va a hacer. Por ejemplo, realizar una copia de seguridad de 100 GB de datos requiere un mínimo de 5 GB de espacio libre en la ubicación temporal.
 Almacenamiento de almacén | No hay ningún límite en la cantidad de datos de los que puede realizar una copia de seguridad en el almacén de Azure Backup; sin embargo, el tamaño de un origen de datos (por ejemplo, una máquina virtual o una base de datos) no debe superar los 54 400 GB.
 Azure ExpressRoute | Puede realizar una copia de seguridad de los datos mediante Azure ExpressRoute con emparejamiento público (disponible para circuitos antiguos) y emparejamiento de Microsoft. La copia de seguridad por emparejamiento privado no se admite.<br/><br/> **Con el emparejamiento público**: asegúrese de tener acceso a los siguientes dominios y direcciones:<br/><br/>- `http://www.msftncsi.com/ncsi.txt` <br/><br/>- `microsoft.com` <br/><br/>-`.WindowsAzure.com`<br/><br/>-`.microsoftonline.com`<br/><br/>-`.windows.net`<br/><br/> **Con el emparejamiento de Microsoft**, seleccione los siguientes servicios o regiones y los valores de comunidad correspondientes:<br/><br/>- Azure Active Directory (12076:5060)<br/><br/>- Región de Microsoft Azure (según la ubicación del almacén de Recovery Services)<br/><br/>- Azure Storage (según la ubicación del almacén de Recovery Services)<br/><br/>Para más información, consulte los [requisitos de enrutamiento de ExpressRoute](../expressroute/expressroute-routing.md).<br/><br/>**Nota**: El emparejamiento público está en desuso para circuitos nuevos.
 Agente de Azure Backup | Si DPM se ejecuta en System Center 2012 SP1, instale el paquete acumulativo de actualizaciones 2 o posterior para DPM SP1. Esto es necesario para la instalación del agente.<br/><br/> En este artículo se describe cómo implementar la última versión del agente de Azure Backup, también conocido como el agente de Microsoft Azure Recovery Service (MARS). Si tiene una versión anterior implementada, actualice a la última versión para asegurarse de que la copia de seguridad funciona según lo previsto.
@@ -68,7 +68,7 @@ Para editar la configuración de replicación de almacenamiento:
 
 1. Abra el panel del almacén.
 
-2. En **Administrar**, haga clic en **Infraestructura de Backup**.
+2. En **Administrar**, seleccione **Infraestructura de Backup**.
 
 3. En el menú **Configuración de copia de seguridad**, seleccione una opción de almacenamiento para el almacén.
 
@@ -91,32 +91,32 @@ Para obtener las credenciales, descargue el archivo de credenciales del almacén
 - Es su responsabilidad asegurarse de que el archivo de credenciales del almacén sea seguro y no se vea comprometido.
   - Si se pierde el control de las credenciales, se pueden usar las credenciales de almacén para registrar otras máquinas en el almacén.
   - Sin embargo, los datos de copia de seguridad se cifran mediante una frase de contraseña que pertenece al cliente, por lo que los datos de copia de seguridad existentes no pueden estar en peligro.
-- Asegúrese de que el archivo se guarda en una ubicación a la que se pueda acceder desde el servidor DPM. Si se almacenan en un recurso compartido/SMB de archivo, compruebe los permisos de acceso.
-- Las credenciales del almacén expiran después de 48 horas. Puede descargar las nuevas credenciales del almacén tantas veces como sea necesario. Sin embargo, se puede usar solo el último archivo de credenciales de almacén durante el flujo de trabajo de registro.
+- Asegúrese de que el archivo se guarda en una ubicación a la que se pueda acceder desde el servidor DPM. Si se almacenan en un recurso compartido o SMB de archivo, compruebe los permisos de acceso.
+- Las credenciales de almacén expiran a las 48 horas. Puede descargar las nuevas credenciales del almacén tantas veces como sea necesario. Sin embargo, se puede usar solo el último archivo de credenciales de almacén durante el flujo de trabajo de registro.
 - El servicio Azure Backup no conoce la clave privada del certificado, y la clave privada no está disponible en el portal ni en el servicio.
 
 Descargue el archivo de credenciales del almacén en una máquina local como se indica a continuación:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. Abra el almacén en el que desea registrar el servidor DPM.
-3. En **Configuración**, haga clic en **Propiedades**.
+3. En **Configuración**, seleccione **Propiedades**.
 
     ![Abrir el menú Almacén](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 
-4. En **Propiedades** > **Credenciales de Backup**, haga clic en **Descargar**. El portal genera el archivo de credenciales del almacén mediante una combinación de la fecha actual y el nombre del almacén y hace que esté disponible para su descarga.
+4. En **Propiedades** > **Credenciales de Backup**, seleccione **Descargar**. El portal genera el archivo de credenciales del almacén mediante una combinación de la fecha actual y el nombre del almacén y hace que esté disponible para su descarga.
 
-    ![Descargar](./media/backup-azure-dpm-introduction/vault-credentials.png)
+    ![Descargar credenciales](./media/backup-azure-dpm-introduction/vault-credentials.png)
 
-5. Haga clic en **Guardar** para descargar las credenciales del almacén en la carpeta o en **Guardar como** y especifique una ubicación. El archivo tarda un minuto en generarse.
+5. Seleccione **Guardar** para descargar las credenciales del almacén en la carpeta o en **Guardar como** y especifique una ubicación. El archivo tarda un minuto en generarse.
 
 ## <a name="install-the-backup-agent"></a>Instalación del agente de copia de seguridad
 
 Todas las máquinas cuya copia de seguridad se realiza con Azure Backup deben tener instalado el agente de copia de seguridad, también conocido como Microsoft Azure Recovery Service (agente MARS). Instale al agente en el servidor DPM como sigue:
 
 1. Abra el almacén en el que desea registrar el servidor DPM.
-2. En **Configuración**, haga clic en **Propiedades**.
+2. En **Configuración**, seleccione **Propiedades**.
 
-    ![Abrir el menú Almacén](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
+    ![Configuración para abrir el almacén](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 3. En la página **Propiedades**, descargue el agente de Azure Backup.
 
     ![Descargar](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
@@ -131,7 +131,7 @@ Todas las máquinas cuya copia de seguridad se realiza con Azure Backup deben te
 
 ## <a name="register-the-dpm-server-in-the-vault"></a>Registro del servidor DPM en el almacén
 
-1. En la consola del administrador de DPM > **Administración**, haga clic en **En línea**. Seleccione **Registrar**. Se abrirá al Asistente para registrar el servidor.
+1. En la consola del administrador de DPM > **Administración**, seleccione **En línea**. Seleccione **Registrar**. Se abrirá al Asistente para registrar el servidor.
 2. En **Configuración de proxy**, especifique la configuración de proxy según sea necesario.
 
     ![Configuración de proxy](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Proxy.png)
@@ -147,7 +147,7 @@ Todas las máquinas cuya copia de seguridad se realiza con Azure Backup deben te
 
     - Azure Backup utiliza esta ubicación como un área de almacenamiento temporal para los datos recuperados.
     - Una vez finalizada la recuperación de datos, Azure Backup limpiará los datos de esta área.
-    - La ubicación debe tener espacio suficiente para contener los elementos que prevé que se van a recuperar en paralelo.
+    - La ubicación debe tener espacio suficiente para contener los elementos que espera recuperar en paralelo.
 
     ![Recovery Folder Setting](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_RecoveryFolder.png)
 
@@ -161,9 +161,9 @@ Todas las máquinas cuya copia de seguridad se realiza con Azure Backup deben te
 
     > [!WARNING]
     > El usuario posee la frase de contraseña de cifrado y Microsoft no puede verla.
-    > Si la frase de contraseña se pierde u olvida; Microsoft no puede ayudar a recuperar los datos de copia de seguridad.
+    > Si la frase de contraseña se pierde u olvida, Microsoft no puede ayudar a recuperar los datos de copia de seguridad.
 
-7. Haga clic en **Registrar** para registrar el servidor DPM en el almacén.
+7. Seleccione **Registrar** para registrar el servidor DPM en el almacén.
 
 Una vez que el servidor se ha registrado correctamente en el almacén, ya está listo para iniciar la copia de seguridad en Microsoft Azure. Deberá configurar el grupo de protección en la consola de DPM para realizar copias de seguridad de las cargas de trabajo en Azure. [Obtenga información](/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019) sobre cómo implementar grupos de protección.
 
@@ -171,7 +171,7 @@ Una vez que el servidor se ha registrado correctamente en el almacén, ya está 
 
 ### <a name="expiration-error"></a>Error de expiración
 
-El archivo de almacén de credenciales solo es válido durante 48 horas (después de descargarlo desde el portal). Si encuentra algún error en esta pantalla (por ejemplo "El archivo de credenciales de almacén especificado expiró"), inicie sesión en el Portal de Azure y vuelva a descargar el archivo de credenciales de almacén.
+El archivo de almacén de credenciales solo es válido durante 48 horas (después de descargarlo desde el portal). Si encuentra algún error en esta pantalla (por ejemplo "El archivo de credenciales de almacén especificado expiró"), inicie sesión en Azure Portal y vuelva a descargar el archivo de credenciales de almacén.
 
 ### <a name="access-error"></a>Error de acceso
 
@@ -182,4 +182,4 @@ Asegúrese de que el archivo de credenciales del almacén está disponible en al
 Si se produce un error de credenciales de almacén no válidas (por ejemplo, "Las credenciales del almacén no son válidas"), el archivo está dañado o no tiene asociadas las credenciales más recientes con el servicio de recuperación.
 
 - Vuelva a intentar la operación después de descargar un nuevo archivo de credenciales de almacén desde el portal.
-- Este error suele aparecer si se hace clic en la opción **Descargar credenciales de almacén** en Azure Portal, dos veces en sucesión rápida. En este caso, solo es válido el segundo archivo de credenciales de almacén.
+- Este error suele aparecer si se selecciona la opción **Descargar credenciales de almacén** en Azure Portal, dos veces en sucesión rápida. En este caso, solo es válido el segundo archivo de credenciales de almacén.

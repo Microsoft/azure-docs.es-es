@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: fb8687c091e8c34ad1fbae2a50981327b3994b6e
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 6475fc61502a82844605ba267db5f8da984c8de6
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85051954"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948885"
 ---
 # <a name="what-is-conditional-access"></a>¿Qué es el acceso condicional?
 
@@ -38,7 +38,8 @@ Mediante el uso de directivas de acceso condicional puede aplicar los controles 
 
 ![Flujo del proceso de acceso condicional conceptual](./media/overview/conditional-access-overview-how-it-works.png)
 
-Las directivas de acceso condicional se aplican una vez que se completa la autenticación en una fase. El acceso condicional no está pensado como primera línea de defensa de una organización en escenarios como los ataques por denegación de servicio (DoS), pero puede usar señales de estos eventos para determinar el acceso.
+> [!IMPORTANT]
+> Las directivas de acceso condicional se aplican una vez que se completa la autenticación en una fase. El acceso condicional no pretende ser una primera línea de defensa de una organización en escenarios como los ataques por denegación de servicio (DoS), pero puede usar señales de estos eventos para determinar el acceso.
 
 ## <a name="common-signals"></a>Señales comunes
 
@@ -99,6 +100,6 @@ Los clientes con [licencias de Microsoft 365 Empresa Premium](/office365/servi
 
 - [Creación de una directiva de acceso condicional paso a paso](concept-conditional-access-policies.md)
 - [Planeamiento de la implementación del acceso condicional](plan-conditional-access.md)
-- [Información acerca de Identity Protection](../identity-protection/overview-v2.md)
+- [Información acerca de Identity Protection](../identity-protection/overview-identity-protection.md)
 - [Información acerca de Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)
 - [Información acerca de Microsoft Intune](/intune/index)

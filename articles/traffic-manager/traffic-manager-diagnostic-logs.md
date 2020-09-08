@@ -2,20 +2,20 @@
 title: Habilitación del registro de recursos en Azure Traffic Manager
 description: Aprenda a habilitar el registro de recursos para su perfil de Traffic Manager y acceda a los archivos de registro que se crean como resultado.
 services: traffic-manager
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
-ms.author: rohink
-ms.openlocfilehash: 09c04d727e42f88bb376a59d66a23688e16abb13
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: duau
+ms.openlocfilehash: 25c0b18da1690557f11e36dd11dda693ddddb838
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089065"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401323"
 ---
 # <a name="enable-resource-logging-in-azure-traffic-manager"></a>Habilitación del registro de recursos en Azure Traffic Manager
 

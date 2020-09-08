@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/02/2020
 ms.author: memildin
-ms.openlocfilehash: b66969b26a801e6bd9aacf999c1c1ef9179ef1bd
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 718f9a29b70dab34269c959ccd62452e56a32d72
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534675"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056608"
 ---
 # <a name="azure-container-registry-image-scanning-by-security-center"></a>Análisis de imágenes de Azure Container Registry por Security Center
 
@@ -27,17 +27,16 @@ Si está en el nivel estándar de Azure Security Center, puede agregar el paquet
 
 ## <a name="availability"></a>Disponibilidad
 
-- Estado de la versión: **Disponibilidad general**
-- Roles necesarios: **Rol de lector de seguridad** y [de lector Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
-- Registros e imágenes compatibles:
-    - ✔ Registros de ACR hospedados en Linux a los que se puede acceder desde la red pública de Internet y proporcionan acceso a shell.
-    - ✘ Registros de ACR hospedados en Windows.
-    - ✘ Registros "privados": Security Center requiere que se pueda acceder a los registros desde la red pública de Internet. En estos momentos, Security Center no puede conectarse a, ni examinar, registros con acceso limitado con un firewall, un punto de conexión de servicio o puntos de conexión privados, como Azure Private Link.
-    - ✘ Imágenes excesivamente minimalistas, como las imágenes [base de Docker](https://hub.docker.com/_/scratch/) o imágenes "sin distribución" que solo contienen una aplicación y sus dependencias en tiempo de ejecución sin un administrador de paquetes, shell o sistema operativo.
-- Nubes: 
-    - ✔ Nubes comerciales
-    - ✘ Nube de US Government
-    - ✘ Nube del gobierno de China, otras nubes gubernamentales
+|Aspecto|Detalles|
+|----|:----|
+|Estado de la versión:|Disponibilidad general|
+|Precios:|Nivel Standard|
+|Registros e imágenes compatibles:|![Sí](./media/icons/yes-icon.png) Registros de control de acceso hospedados en Linux a los que se puede acceder desde la red pública de Internet y proporcionan acceso a la shell.<br>![No](./media/icons/no-icon.png) Registros de control de acceso hospedados en Windows.<br>![No](./media/icons/no-icon.png) Registros "privados": Security Center requiere que se pueda acceder a los registros desde la red pública de Internet. En estos momentos, Security Center no puede conectarse a, ni examinar, registros con acceso limitado con un firewall, un punto de conexión de servicio o puntos de conexión privados, como Azure Private Link.<br>![No](./media/icons/no-icon.png) Imágenes excesivamente minimalistas, como las imágenes [base de Docker](https://hub.docker.com/_/scratch/) o imágenes "sin distribución" que solo contienen una aplicación y sus dependencias en tiempo de ejecución sin un administrador de paquetes, shell o sistema operativo.|
+|Roles y permisos necesarios:|**Rol de lector de seguridad** y [de lector Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-roles)|
+|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![No](./media/icons/no-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)|
+|||
+
+
 
 
 ## <a name="when-are-images-scanned"></a>¿Cuándo se examinan las imágenes?

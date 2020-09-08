@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 01/08/2020
+ms.date: 08/28/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 802df45e7434fd0cb425137964880a281f885ad8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a91d0e11c44657a2d4cdd267ffa6490ca89532a9
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611227"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069415"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Implementación y configuración de Azure Firewall en una red híbrida con Azure PowerShell
 
@@ -31,17 +31,16 @@ En este artículo se crearán tres redes virtuales:
 
 En este artículo aprenderá a:
 
-> [!div class="checklist"]
-> * Declaración de las variables
-> * Crear la red virtual del centro de firewall
-> * Crear la red virtual de tipo hub-and-spoke
-> * Crear la red virtual local
-> * Configuración e implementación del firewall
-> * Creación y conexión de las puertas de enlace de VPN
-> * Emparejar las redes virtuales de tipo hub-and-spoke
-> * Creación de las rutas
-> * Creación de las máquinas virtuales
-> * Probar el firewall
+* Declaración de las variables
+* Crear la red virtual del centro de firewall
+* Crear la red virtual de tipo hub-and-spoke
+* Crear la red virtual local
+* Configuración e implementación del firewall
+* Creación y conexión de las puertas de enlace de VPN
+* Emparejar las redes virtuales de tipo hub-and-spoke
+* Creación de las rutas
+* Creación de las máquinas virtuales
+* Probar el firewall
 
 Si desea usar Azure Portal en lugar de completar este tutorial, consulte [Tutorial: Implementación y configuración de Azure Firewall en una red híbrida con Azure Portal](tutorial-hybrid-portal.md).
 

@@ -356,6 +356,8 @@
               href: ./set-up-pyspark-interactive-environment.md
         - name: Desarrollar
           items:
+            - name: Optimización de consultas con SparkCruise
+              href: ./spark/spark-cruise.md
             - name: Uso de un shell de Apache Spark interactivo
               href: ./spark/apache-spark-shell.md
             - name: Trabajos remotos con Apache Livy
@@ -531,6 +533,8 @@
               items:
                 - name: Uso de nodos perimetrales vacíos
                   href: ./hdinsight-apps-use-edge-node.md
+                - name: Uso de nodos perimetrales para escalar HiveServer2
+                  href: ./hdinsight-apps-install-hiveserver2.md
         - name: Solución de problemas
           items:
             - name: Problemas comunes
@@ -945,6 +949,8 @@
           href: ./disk-encryption.md
         - name: Sincronización de LDAP en Ranger y Apache Ambari
           href: ./domain-joined/ldap-sync.md
+        - name: Cifrado doble en tránsito
+          href: ./domain-joined/encryption-in-transit.md
     - name: Guías paso a paso
       items:
         - name: Uso del agente de identidad para la administración de credenciales

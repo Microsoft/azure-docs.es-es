@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 00192ab3663944908f282f601396651cdd319df2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5511551f240fe4fdd2f2aa3bc8a3a2615505f35f
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987469"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936119"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Aptitud cognitiva de búsqueda de entidades personalizadas (versión preliminar)
 
@@ -22,7 +22,7 @@ ms.locfileid: "84987469"
 
 La aptitud de **búsqueda de entidades personalizadas** busca texto de una lista de palabras y frases personalizada definida por el usuario. Con esta lista, se etiquetan todos los documentos con entidades coincidentes. La aptitud también admite un grado de coincidencia aproximada que se puede aplicar para buscar coincidencias similares pero no exactas.  
 
-Esta aptitud no está enlazada a una API de Cognitive Services y se puede usar de forma gratuita durante el período de versión preliminar. No obstante, debe [asociar un recurso de Cognitive Services](https://docs.microsoft.com/azure/search/cognitive-search-attach-cognitive-services) para invalidar el límite de enriquecimiento diario. El límite diario se aplica al acceso gratuito a Cognitive Services cuando se accede a él mediante Azure Cognitive Search.
+Esta aptitud no está enlazada a una API de Cognitive Services y se puede usar de forma gratuita durante el período de versión preliminar. No obstante, debe [asociar un recurso de Cognitive Services](./cognitive-search-attach-cognitive-services.md) para invalidar el límite de enriquecimiento diario. El límite diario se aplica al acceso gratuito a Cognitive Services cuando se accede a él mediante Azure Cognitive Search.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.CustomEntityLookupSkill 

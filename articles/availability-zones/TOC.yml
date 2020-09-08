@@ -83,6 +83,10 @@
           items:
             - name: Creación de una puerta de enlace de red virtual con redundancia de zona
               href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md
+        - name: Application Gateway v2
+          items:
+            - name: Escalabilidad automática y Application Gateway con redundancia de zona v2
+              href: ../application-gateway/application-gateway-autoscaling-zone-redundant.md
         - name: Identidad
           items:
             - name: "Creación de una instancia de Azure\_Active\_Directory Domain Services"

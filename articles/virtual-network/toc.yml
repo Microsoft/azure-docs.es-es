@@ -37,9 +37,6 @@
       href: powershell-samples.md
     - name: Plantillas de Resource Manager
       href: template-samples.md
-    - name: Elementos integrados de Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceptos
   items:
     - name: Continuidad empresarial
@@ -50,7 +47,7 @@
           items:
             - name: Información general
               href: nat-overview.md
-            - name: Recurso
+            - name: Resource
               href: nat-gateway-resource.md
             - name: Métricas y alertas
               href: nat-metrics.md
@@ -97,7 +94,11 @@
     - name: Seguridad
       items:
         - name: Grupos de seguridad de red
-          href: security-overview.md
+          items:
+            - name: Información general
+              href: security-overview.md
+            - name: Funcionamiento
+              href: network-security-group-how-it-works.md
         - name: Grupos de seguridad de aplicaciones
           href: application-security-groups.md
         - name: Etiquetas de servicio
@@ -110,6 +111,9 @@
           href: ddos-protection-overview.md
         - name: TAP de red virtual
           href: virtual-network-tap-overview.md
+        - name: Controles de seguridad de Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
     - name: Subredes
       items:
         - name: Extensión de subred
@@ -222,6 +226,12 @@
               href: ipv6-reserve-public-ip-address-prefix.md
         - name: Direcciones IP
           items:
+            - name: 'Creación de direcciones IP públicas: Azure Portal'
+              href: create-public-ip-portal.md
+            - name: 'Creación de direcciones IP públicas: PowerShell'
+              href: create-public-ip-powershell.md
+            - name: 'Creación de direcciones IP públicas: CLI de Azure'
+              href: create-public-ip-cli.md
             - name: Administración de direcciones IP públicas
               href: virtual-network-public-ip-address.md
             - name: Administración de un prefijo de IP pública
@@ -250,7 +260,7 @@
       items:
         - name: Filtrado del tráfico de red
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: tutorial-filter-network-traffic.md
             - name: Azure PowerShell
               href: tutorial-filter-network-traffic-powershell.md
@@ -260,7 +270,7 @@
           items:
             - name: Uso de puntos de conexión privados
               items:
-                - name: Azure portal
+                - name: Portal de Azure
                   href: ../private-link/create-private-endpoint-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json
                 - name: Azure PowerShell
                   href: ../private-link/create-private-endpoint-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json
@@ -268,7 +278,7 @@
                   href: ../private-link/create-private-endpoint-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json
             - name: Uso de puntos de conexión de servicio
               items:
-                - name: Azure portal
+                - name: Portal de Azure
                   href: tutorial-restrict-network-access-to-resources.md
                 - name: Azure PowerShell
                   href: tutorial-restrict-network-access-to-resources-powershell.md
@@ -276,7 +286,7 @@
                   href: tutorial-restrict-network-access-to-resources-cli.md
             - name: Uso de directivas de punto de conexión de servicio
               items:
-                - name: Azure portal
+                - name: Portal de Azure
                   href: virtual-network-service-endpoint-policies-portal.md
                 - name: Azure PowerShell
                   href: virtual-network-service-endpoint-policies-powershell.md
@@ -298,7 +308,7 @@
       items:
         - name: 'Creación de una máquina virtual: IP pública estática'
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: virtual-network-deploy-static-pip-arm-portal.md
             - name: Azure PowerShell
               href: virtual-network-deploy-static-pip-arm-ps.md
@@ -310,7 +320,7 @@
               href: remove-public-ip-address-vm.md
         - name: 'Creación de una máquina virtual: IP privada estática'
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: virtual-networks-static-private-ip-arm-pportal.md
             - name: Azure PowerShell
               href: virtual-networks-static-private-ip-arm-ps.md
@@ -318,7 +328,7 @@
               href: virtual-networks-static-private-ip-arm-cli.md
         - name: 'Creación de máquina virtual: Dirección IP privada estática (clásica)'
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: virtual-networks-static-private-ip-classic-pportal.md
             - name: Azure PowerShell
               href: virtual-networks-static-private-ip-classic-ps.md
@@ -428,6 +438,9 @@
       href: /azure/templates/microsoft.network/allversions
     - name: Ejemplos de código
       href: 'https://azure.microsoft.com/resources/samples/?service=virtual-network'
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Desarrollo de aptitudes con Microsoft Learn

@@ -5,12 +5,12 @@ ms.date: 01/28/2020
 ms.topic: conceptual
 description: Encuentre respuestas a algunas de las preguntas comunes sobre Azure Dev Spaces.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s '
-ms.openlocfilehash: 27e834e71f9e5cfdf3d72fb3b221c24edecab4e8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 739cfdb4f930d384e180ffd0f3ce2311cd41c70a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258307"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207996"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Preguntas más frecuentes sobre Azure Dev Spaces
 
@@ -37,9 +37,6 @@ Al usar su propio gráfico de Dockerfile o Helm, existen las siguientes limitaci
 * El gráfico de Helm debe permitir pasar parte o toda la etiqueta de imagen como un valor desde *values.yaml*.
 * Si va a modificar un elemento con entrada, también puede actualizar el gráfico de Helm para usar la solución de entrada proporcionada por Azure Dev Spaces.
 * Si desea utilizar las [funcionalidades de enrutamiento que Azure Dev Spaces proporciona][dev-spaces-routing], todos los servicios de un proyecto individual deben caber dentro de un único espacio de nombres Kubernetes y deben implementarse con nombres simples, por ejemplo *servicio-a*. En los gráficos de Helm estándar, para llevar a cabo esta actualización de nombres se puede especificar un valor para la propiedad *fullnameOverride*.
-
-Si desea comparar su propio gráfico de Dockerfile o Helm con una versión existente que funcione con Azure Dev Spaces, revise los archivos generados en el [inicio rápido][quickstart-cli].
-
 
 ## <a name="can-i-modify-the-files-generated-by-azure-dev-spaces"></a>¿Puedo modificar los archivos generados por Azure Dev Spaces?
 
@@ -115,7 +112,6 @@ En este momento, no puede usar Azure Dev Spaces con una red de servicios como [I
 [ingress-https-traefik]: how-to/ingress-https-traefik.md#configure-the-traefik-ingress-controller-to-use-https
 [istio]: https://istio.io/
 [linkerd]: https://linkerd.io/
-[quickstart-cli]: quickstart-cli.md
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [vs-code-multi-root-workspaces]: https://code.visualstudio.com/docs/editor/multi-root-workspaces
 [windows-containers]: how-to/run-dev-spaces-windows-containers.md

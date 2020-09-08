@@ -3,20 +3,20 @@ title: Directivas de streaming en Azure Media Services | Microsoft Docs
 description: En este artículo se explica qué son las directivas de streaming y cómo las usa Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/28/2019
-ms.author: juliako
-ms.openlocfilehash: 30164e1af1948f86c68e102f4d348674ea931e7b
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.author: inhenkel
+ms.openlocfilehash: 9ecb4e0b8a74a163632967781c84d1a110ab3a9a
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87544020"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297219"
 ---
 # <a name="streaming-policies"></a>Directivas de streaming
 

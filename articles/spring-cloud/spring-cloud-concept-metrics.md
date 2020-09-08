@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 1fcec8b591192bba862bf91040e5d6ca1ef9bcd8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4a12658eada3d2660cde86b3eb80e332416ea7a3
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037736"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89046857"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Descripción de las métricas en Azure Spring Cloud
 
@@ -130,6 +130,8 @@ En las tablas siguientes se muestran las métricas y los detalles disponibles.
 >| tomcat.sessions.active.current | tomcat.sessions.active.current | Count | Recuento de sesiones activas de Tomcat |
 
 ## <a name="see-also"></a>Consulte también
+* [Inicio rápido: Supervisión de aplicaciones de Azure Spring Cloud con registros, métricas y seguimiento](spring-cloud-quickstart-logs-metrics-tracing.md)
+
 * [Introducción al Explorador de métricas de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)
 
 * [Análisis de registros y métricas con la configuración de diagnóstico](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)

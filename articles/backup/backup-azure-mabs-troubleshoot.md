@@ -4,12 +4,12 @@ description: Solucionar problemas de instalación, registro de Azure Backup Serv
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: a4882867f9bbe5123df275b8d1c69fe4e163f294
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cc62418ed1dec3cbcc944d9b66c691062ca552f8
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054831"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88893024"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Solución de problemas de Azure Backup Server
 
@@ -17,7 +17,7 @@ Use la información de las tablas siguientes para solucionar los errores detecta
 
 ## <a name="basic-troubleshooting"></a>Pasos básicos para solucionar problemas
 
-Antes de empezar a solucionar problemas de Microsoft Azure Backup Server (MABS), se recomienda realizar la validación siguiente:
+Antes de empezar a solucionar problemas relacionados con Microsoft Azure Backup Server (MABS), se recomienda realizar las siguientes comprobaciones:
 
 - [Asegúrese de que el agente de Microsoft Azure Recovery Services (MARS) esté actualizado](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409).
 - [Asegúrese de que haya conectividad de red entre el agente de MARS y Azure](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
@@ -27,6 +27,39 @@ Antes de empezar a solucionar problemas de Microsoft Azure Backup Server (MABS),
 - Si se produce un error de instalación automática, compruebe si el agente de DPM ya está presente. En caso afirmativo, desinstale al agente y vuelva a intentar la instalación.
 - [Asegúrese de que ningún otro proceso o software antivirus interfiera con Azure Backup](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup).<br>
 - Asegúrese de que el servicio del Agente SQL se esté ejecutando y esté establecido en el modo automático en el servidor MABS.<br>
+
+## <a name="configure-antivirus-for-mabs-server"></a>Configuración del antivirus para el servidor MABS
+
+MABS es compatible con la mayoría de los productos de software antivirus más utilizados. Se recomienda aplicar los pasos siguientes para evitar conflictos:
+
+1. **Deshabilitar la supervisión en tiempo real**: deshabilite la supervisión en tiempo real mediante el software antivirus para lo siguiente:
+    - `C:\Program Files<MABS Installation path>\XSD`
+    - `C:\Program Files<MABS Installation path>\Temp`
+    - Letra de unidad del volumen de Modern Backup Storage
+    - Registros de réplicas y de transferencias: Para ello, deshabilite la supervisión en tiempo real de **dpmra.exe**, que se encuentra en la carpeta `Program Files\Microsoft Azure Backup Server\DPM\DPM\bin`. La supervisión en tiempo real degrada el rendimiento porque el software antivirus examina todas las réplicas cada vez que MABS se sincroniza con el servidor protegido y examina todos los archivos afectados cada vez que MABS aplica cambios en las réplicas.
+    - Consola de administrador: Para evitar que afecte al rendimiento, deshabilite la supervisión en tiempo real del proceso **csc.exe**. El proceso **csc.exe** es el compilador C\#, y la supervisión en tiempo real puede degradar el rendimiento porque el software antivirus examina los archivos que el proceso **csc.exe** emite al generar mensajes XML. El proceso **csc.exe** se encuentra en las siguientes rutas de acceso:
+        - `\Windows\Microsoft.net\Framework\v2.0.50727\csc.exe`
+        - `\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe`
+    - Para el agente de MARS instalado en el servidor de MABS, se recomienda excluir los siguientes archivos y ubicaciones:
+        - `C:\Program Files\Microsoft Azure Backup Server\DPM\MARS\Microsoft Azure Recovery Services Agent\bin\cbengine.exe` como proceso
+        - `C:\Program Files\Microsoft Azure Backup Server\DPM\MARS\Microsoft Azure Recovery Services Agent\folder`
+        - Ubicación temporal (si no está usando la ubicación estándar)
+2. **Deshabilitar la supervisión en tiempo real en el servidor protegido**: Deshabilite la supervisión en tiempo real de **dpmra.exe**, que se encuentra en la carpeta `C:\Program Files\Microsoft Data Protection Manager\DPM\bin`, en el servidor protegido.
+3. **Configurar el software antivirus para eliminar los archivos infectados en los servidores protegidos y el servidor de MABS**: A fin de evitar daños en las réplicas y los puntos de recuperación, configure el software antivirus para que elimine los archivos infectados en lugar de eliminarlos o enviarlos a cuarentena automáticamente. La limpieza automática y la puesta en cuarentena pueden hacer que el software antivirus modifique los archivos y que realice cambios que MABS no pueda detectar.
+
+Debe ejecutar una sincronización manual con una regularidad. Compruebe el trabajo cada vez que el software antivirus elimine un archivo de la réplica, incluso si la réplica esté marcada como incoherente.
+
+### <a name="mabs-installation-folders"></a>Carpetas de instalación de MABS
+
+Las carpetas de instalación predeterminadas para DPM son las siguientes:
+
+- `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM`
+
+También puede ejecutar el siguiente comando para buscar la ruta de acceso de la carpeta de instalación:
+
+```cmd
+Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
+```
 
 ## <a name="invalid-vault-credentials-provided"></a>Se han proporcionado credenciales de almacén no válidas
 
@@ -38,7 +71,7 @@ Antes de empezar a solucionar problemas de Microsoft Azure Backup Server (MABS),
 
 | Operación | Detalles del error | Solución alternativa |
 | --- | --- | --- |
-| Copia de seguridad | La réplica es incoherente | Compruebe que está activada la opción para habilitar esa coherencia automática en el Asistente para nuevo grupo de protección. Para más información sobre las opciones de replicación y las comprobaciones de coherencia, consulte [este artículo](/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019).<br> <ol><li> En el caso de una copia de seguridad de BMR o estado del sistema, compruebe si Windows Server Backup está instalado en el servidor protegido.</li><li> Compruebe si hay problemas relacionados con el espacio en el grupo de almacenamiento de DPM en DPM o Microsoft Azure Backup Server, y asigne almacenamiento según sea necesario.</li><li> Compruebe el estado del Servicio de instantáneas de volumen en el servidor protegido. Si se encuentra en un estado deshabilitado, configúrelo para que se inicie manualmente. Inicie el servicio en el servidor. A continuación, vuelva a la consola de DPM o Microsoft Azure Backup Server y comience la sincronización con el trabajo de comprobación de coherencia.</li></ol>|
+| Copia de seguridad | La réplica es incoherente | Compruebe que está activada la opción para habilitar esa coherencia automática en el Asistente para nuevo grupo de protección. Para más información sobre las opciones de replicación y las comprobaciones de coherencia, consulte [este artículo](/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019).<br> <ol><li> En el caso de una copia de seguridad de BMR o estado del sistema, compruebe si Windows Server Backup está instalado en el servidor protegido.</li><li> Compruebe si hay problemas relacionados con el espacio en el grupo de almacenamiento de DPM en DPM o Microsoft Azure Backup Server, y asigne almacenamiento según sea necesario.</li><li> Compruebe el estado del Servicio de instantáneas de volumen en el servidor protegido. Si se encuentra en estado deshabilitado, configúrelo para que se inicie manualmente. Inicie el servicio en el servidor. A continuación, vuelva a la consola de DPM o Microsoft Azure Backup Server y comience la sincronización con el trabajo de comprobación de coherencia.</li></ol>|
 
 ## <a name="online-recovery-point-creation-failed"></a>No se pudo crear el punto de recuperación en línea
 
@@ -50,7 +83,7 @@ Antes de empezar a solucionar problemas de Microsoft Azure Backup Server (MABS),
 
 | Operación | Detalles del error | Solución alternativa |
 | --- | --- | --- |
-| Restauración | **Código de error**: CBPServerRegisteredVaultDontMatchWithCurrent/Error en las credenciales del almacén: 100110 <br/> <br/>**Mensaje de error**: Los servidores DPM originales y externos deben estar registrados en el mismo almacén | **Causa**: Este problema se produce cuando intenta restaurar archivos en un servidor alternativo desde el servidor original mediante la opción de recuperación del DPM externo y si el servidor que se va a recuperar y el servidor original desde donde se realiza la copia de seguridad de los datos no están asociados al mismo almacén de Recovery Services.<br/> <br/>**Solución alternativa**: para resolver este problema, asegúrese de que tanto el servidor original como el servidor alternativo están registrados en el mismo almacén.|
+| Restauración | **Código de error**: CBPServerRegisteredVaultDontMatchWithCurrent/Error en las credenciales del almacén: 100110 <br/> <br/>**Mensaje de error**: Los servidores DPM originales y externos deben estar registrados en el mismo almacén | **Causa**: Este problema se produce al intentar restaurar archivos en un servidor alternativo desde el servidor original mediante la opción de recuperación del DPM externo, y si el servidor que se va a recuperar y el servidor original desde donde se realiza la copia de seguridad de los datos no están asociados al mismo almacén de Recovery Services.<br/> <br/>**Solución alternativa**: para resolver este problema, asegúrese de que tanto el servidor original como el servidor alternativo están registrados en el mismo almacén.|
 
 ## <a name="online-recovery-point-creation-jobs-for-vmware-vm-fail"></a>Hubo un error en los trabajos de creación de puntos de recuperación en línea para la máquina virtual de VMware.
 
@@ -62,7 +95,7 @@ Antes de empezar a solucionar problemas de Microsoft Azure Backup Server (MABS),
 
 | Operación | Detalles del error | Solución alternativa |
 | --- | --- | --- |
-| Insertar agentes en servidores protegidos | Error en la operación del agente debido a un error de comunicación con el servicio Coordinador de agentes DPM en \<ServerName>. | **Si no funciona la acción recomendada que se muestra en el producto, siga los pasos siguientes**: <ul><li> Si está conectando un equipo desde un dominio que no es de confianza, siga [estos pasos](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains?view=sc-dpm-2019). <br> O BIEN </li><li> Si está conectando un equipo desde un dominio de confianza, solucione el problema mediante los pasos descritos en [este blog](https://techcommunity.microsoft.com/t5/system-center-blog/data-protection-manager-agent-network-troubleshooting/ba-p/344726). <br>O BIEN</li><li> Pruebe a deshabilitar el antivirus como un paso para la solución de problemas. Si resuelve el problema, modifique la configuración del antivirus como se sugiere en [este artículo](/system-center/dpm/run-antivirus-server?view=sc-dpm-2019).</li></ul> |
+| Insertar agentes en servidores protegidos | Error en la operación del agente debido a un error de comunicación con el servicio Coordinador de agentes DPM en \<ServerName>. | **Si no funciona la acción recomendada que se muestra en el producto, siga los pasos siguientes**: <ul><li> Si va a conectar un equipo desde un dominio que no es de confianza, siga [estos pasos](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains?view=sc-dpm-2019). <br> O BIEN </li><li> Si va a conectar un equipo desde un dominio de confianza, solucione el problema mediante los pasos descritos en [este blog](https://techcommunity.microsoft.com/t5/system-center-blog/data-protection-manager-agent-network-troubleshooting/ba-p/344726). <br>O BIEN</li><li> Pruebe a deshabilitar el antivirus como un paso para la solución de problemas. Si resuelve el problema, modifique la configuración del antivirus como se sugiere en [este artículo](/system-center/dpm/run-antivirus-server?view=sc-dpm-2019).</li></ul> |
 
 ## <a name="setup-could-not-update-registry-metadata"></a>El programa de instalación no pudo actualizar los metadatos del Registro
 
@@ -86,7 +119,7 @@ Antes de empezar a solucionar problemas de Microsoft Azure Backup Server (MABS),
 | Configurar grupos de protección | DPM no pudo enumerar el componente de la aplicación en el equipo protegido (nombre del equipo protegido). | Seleccione **Actualizar** en la pantalla de interfaz de usuario para configurar el grupo de protección en el nivel de origen de datos o el componente correspondiente. |
 | Configurar grupos de protección | No se puede configurar la protección. | Si el servidor protegido es un servidor SQL Server, compruebe si se han proporcionado permisos de rol sysadmin para la cuenta del sistema (NTAuthority\System) en el equipo protegido, tal como se describe en [este artículo](/system-center/dpm/back-up-sql-server?view=sc-dpm-2019).
 | Configurar grupos de protección | No hay suficiente espacio disponible en el grupo de almacenamiento para este grupo de protección. | Los discos que se agregan al grupo de almacenamiento [no deben contener ninguna partición](/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019). Elimine los volúmenes existentes en los discos. A continuación, agréguelos al grupo de almacenamiento.|
-| Cambio de directiva |No se ha podido modificar la directiva de copia de seguridad. Error: No se pudo realizar la operación actual debido a un error de servicio interno [0x29834]. Vuelva a intentar la operación más tarde. Si el problema persiste, póngase en contacto con el servicio de soporte técnico de Microsoft. | **Causa:**<br/>Este error se produce bajo tres condiciones: cuando está habilitada la configuración de seguridad, cuando intenta reducir la duración de retención por debajo de los valores mínimos especificados anteriormente y cuando se encuentra en una versión no admitida. (Las versiones no admitidas son las anteriores a la versión 2.0.9052 de Microsoft Azure Backup Server y a la actualización 1 de Azure Backup Server.) <br/>**Acción recomendada:**<br/> Para continuar con las actualizaciones relacionadas con la directiva, establezca el período de retención por encima del período mínimo especificado. (El período de retención mínimo es de siete días para diario, cuatro semanas para semanal, tres semanas para mensual o un año para anual.) <br><br>Si lo desea, otro enfoque preferido sería actualizar el agente de copia de seguridad y Azure Backup Server para aprovechar todas las actualizaciones de seguridad. |
+| Cambio de directiva |No se ha podido modificar la directiva de copia de seguridad. Error: No se pudo realizar la operación actual debido a un error de servicio interno [0x29834]. Vuelva a intentar la operación más tarde. Si el problema persiste, póngase en contacto con el servicio de soporte técnico de Microsoft. | **Causa:**<br/>Este error se produce bajo tres condiciones: cuando está habilitada la configuración de seguridad, cuando se intenta reducir el período de retención por debajo de los valores mínimos especificados anteriormente y cuando se utiliza una versión no admitida. Las versiones no admitidas son las anteriores a la versión 2.0.9052 de Microsoft Azure Backup Server y a la actualización 1 de Azure Backup Server. <br/>**Acción recomendada:**<br/> Para continuar con las actualizaciones relacionadas con la directiva, establezca el período de retención por encima del período mínimo especificado. (El período de retención mínimo es de siete días para diario, cuatro semanas para semanal, tres semanas para mensual o un año para anual.) <br><br>Si lo desea, otro enfoque preferido sería actualizar el agente de copia de seguridad y Azure Backup Server para aprovechar todas las actualizaciones de seguridad. |
 
 ## <a name="backup"></a>Copia de seguridad
 
@@ -102,14 +135,14 @@ Antes de empezar a solucionar problemas de Microsoft Azure Backup Server (MABS),
 
 | Operación | Detalles del error | Solución alternativa |
 | --- | --- | --- |
-| Cambiar la frase de contraseña |El PIN de seguridad escrito no es correcto. Proporcione el PIN de seguridad correcto para completar esta operación. |**Causa:**<br/> Este error se produce cuando se escribe un PIN de seguridad no válido o expirado al realizar una operación crítica (por ejemplo, la modificación de una frase de contraseña). <br/>**Acción recomendada:**<br/> Para completar la operación, debe escribir un PIN de seguridad válido. Para obtener el PIN, inicie sesión en Azure Portal y vaya al almacén de Recovery Services. A continuación, vaya a **Configuración** > **Propiedades** > **Generar PIN de seguridad**. Use este código PIN para cambiar la frase de contraseña. |
+| Cambiar la frase de contraseña |El PIN de seguridad escrito no es correcto. Proporcione el PIN de seguridad correcto para completar esta operación. |**Causa:**<br/> Este error se produce al especificar un PIN de seguridad que no es válido o que ha expirado mientras se realiza una operación crítica (por ejemplo, modificar una frase de contraseña). <br/>**Acción recomendada:**<br/> Para completar la operación, debe escribir un PIN de seguridad válido. Para obtener el PIN, inicie sesión en Azure Portal y vaya al almacén de Recovery Services. A continuación, vaya a **Configuración** > **Propiedades** > **Generar PIN de seguridad**. Use este código PIN para cambiar la frase de contraseña. |
 | Cambiar la frase de contraseña |No se pudo realizar la operación. Id.: 120002 |**Causa:**<br/>Este error se produce cuando se habilita la configuración de seguridad, o al intentar cambiar la frase de contraseña usando una versión no compatible.<br/>**Acción recomendada:**<br/> Para cambiar la frase de contraseña, primero debe actualizar el agente de copia de seguridad a la versión mínima, que es 2.0.9052. También debe actualizar Azure Backup Server a la actualización 1 como mínimo y, después, escribir un PIN de seguridad válido. Para obtener el PIN, inicie sesión en Azure Portal y vaya al almacén de Recovery Services. A continuación, vaya a **Configuración** > **Propiedades** > **Generar PIN de seguridad**. Use este código PIN para cambiar la frase de contraseña. |
 
 ## <a name="configure-email-notifications"></a>Configuración de notificaciones de correo electrónico
 
 | Operación | Detalles del error | Solución alternativa |
 | --- | --- | --- |
-| Configurar notificaciones por correo electrónico con una cuenta de Office 365 |Id. del error: 2013| **Causa:**<br> Intentar usar la cuenta de Office 365 <br>**Acción recomendada:**<ol><li> En primer lugar, hay que asegurarse de que la opción para permitir la retransmisión anónima en un conector de recepción del servidor DPM esté establecida en Exchange. Para más información sobre cómo configurarla, consulte [Permitir la retransmisión anónima en un conector de recepción](/exchange/mail-flow/connectors/allow-anonymous-relay?view=exchserver-2019).</li> <li> Si no puede usar una retransmisión SMTP interna y necesita configurarla con un servidor Office 365, puede configurar IIS para que actúe como retransmisión. Configure el servidor DPM para [retransmitir el protocolo SMTP a Office 365 con IIS](/exchange/mail-flow/test-smtp-with-telnet?view=exchserver-2019).<br><br>  Asegúrese de usar el formato user\@domain.com y *no* domain\user.<br><br><li>Apunte a DMP para usar el nombre del servidor local como servidor SMTP, puerto 587. A continuación, apunte al correo electrónico del usuario del que deberían provenir los correos electrónicos.<li> El nombre de usuario y la contraseña en la página de configuración SMTP de DPM deben ser para una cuenta de dominio en la que el dominio DPM está habilitado. </li><br> si modifica la dirección del servidor SMTP, realice el cambio en la nueva configuración, cierre el cuadro de configuración y vuelva a abrirlo para asegurarse de que refleja el nuevo valor.  No basta con cambiar y probar para que la nueva configuración entre en vigor, de modo que se recomienda realizar esta prueba.<br><br>En cualquier momento durante este proceso, puede borrar esta configuración cerrando la consola de DPM y modificando las siguientes claves del Registro: **HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> Elimine las claves SMTPPassword y SMTPUserName**. Puede agregarlas de nuevo en la interfaz de usuario cuando la inicie otra vez.
+| Configurar notificaciones por correo electrónico con una cuenta de Office 365 |Id. del error: 2013| **Causa:**<br> Intentar usar la cuenta de Office 365 <br>**Acción recomendada:**<ol><li> En primer lugar, hay que asegurarse de que la opción para permitir la retransmisión anónima en un conector de recepción del servidor DPM esté establecida en Exchange. Para más información sobre cómo configurarla, consulte [Permitir la retransmisión anónima en un conector de recepción](/exchange/mail-flow/connectors/allow-anonymous-relay?view=exchserver-2019).</li> <li> Si no puede usar una retransmisión SMTP interna y necesita configurarla con un servidor Office 365, puede configurar IIS para que actúe como retransmisión. Configure el servidor DPM para [retransmitir el protocolo SMTP a Office 365 con IIS](/exchange/mail-flow/test-smtp-with-telnet?view=exchserver-2019).<br><br>  Asegúrese de usar el formato user\@domain.com y *no* domain\user.<br><br><li>Apunte a DMP para usar el nombre del servidor local como servidor SMTP, puerto 587. A continuación, apunte al correo electrónico del usuario del que deberían provenir los correos electrónicos.<li> El nombre de usuario y la contraseña en la página de configuración SMTP de DPM deben ser para una cuenta de dominio en la que el dominio DPM está habilitado. </li><br> Si va a modificar la dirección del servidor SMTP, realice el cambio en la nueva configuración, cierre el cuadro de configuración y, a continuación, vuelva a abrirlo para asegurarse de que refleja el nuevo valor.  No basta con cambiar y probar para que la nueva configuración entre en vigor, de modo que se recomienda realizar esta prueba.<br><br>En cualquier momento durante este proceso, puede borrar esta configuración cerrando la consola de DPM y modificando las siguientes claves del Registro: **HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> Elimine las claves SMTPPassword y SMTPUserName**. Puede agregarlas de nuevo en la interfaz de usuario cuando la inicie otra vez.
 
 ## <a name="common-issues"></a>Problemas comunes
 

@@ -6,15 +6,16 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 08/20/2020
+ms.subservice: billing
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: dacae693020fea2f77a80b5b8bad44a07e471367
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ee059bc69a671d0623d4d43990e694b87bf177ff
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79237928"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690806"
 ---
 # <a name="view-and-download-tax-documents-for-your-azure-invoice"></a>Visualización y descarga de los documentos fiscales de la factura de Azure
 

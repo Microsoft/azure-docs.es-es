@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 2992324a1080b75a98264958f56ea28e93b54651
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 21b09e6b7a2be6b87288d973b40c566fb6217841
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534590"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849988"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Uso de Azure Data Lake Storage Gen2 con clústeres de Azure HDInsight
 
@@ -106,6 +106,7 @@ Puede [descargar un archivo de plantilla de muestra](https://github.com/Azure-Sa
 | `<RESOURCEGROUPNAME>` | El grupo de recursos donde quiere crear el nuevo clúster y la cuenta de almacenamiento. |
 | `<MANAGEDIDENTITYNAME>` | El nombre de la identidad administrada a la que se concederán permisos en la cuenta de Azure Data Lake Storage Gen2. |
 | `<STORAGEACCOUNTNAME>` | La nueva cuenta de Azure Data Lake Storage Gen2 que se creará. |
+| `<FILESYSTEMNAME>`  | Nombre del sistema de archivos que este clúster debe usar en la cuenta de almacenamiento. |
 | `<CLUSTERNAME>` | El nombre del clúster de HDInsight. |
 | `<PASSWORD>` | La contraseña elegida para iniciar sesión en el clúster mediante SSH y el panel de Ambari. |
 
@@ -138,7 +139,8 @@ az storage account create --name <STORAGEACCOUNTNAME> \
 
 Después, inicie sesión en el portal. Agregue la nueva identidad administrada asignada por el usuario al rol **Colaborador de datos de blobs de almacenamiento** en la cuenta de almacenamiento. Este paso se describe en el paso 3, en [Uso de Azure Portal](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
-Después de haber asignado el rol para la identidad administrada asignada por el usuario, implemente la plantilla mediante el siguiente fragmento de código.
+ > [!IMPORTANT]
+ > Asegúrese de que la cuenta de almacenamiento tenga la identidad asignada por el usuario con permisos de rol **Colaborador de datos de blobs de almacenamiento**; de lo contrario, se producirá un error en la creación del clúster.
 
 ```azurecli
 az group deployment create --name HDInsightADLSGen2Deployment \

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca08b81a71cd61e727b11bbeb88c0c235d25c5e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31374b851d90e43e7380024923c3ad025859b7a0
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554899"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923737"
 ---
 # <a name="azure-ad-joined-devices"></a>Dispositivos unidos a Azure AD
 
@@ -28,7 +28,8 @@ La unión a Azure AD está pensaba para las organizaciones en las que la nube e
 | **Público principal** | Adecuado tanto para organizaciones híbridas como para las que solo están en la nube. |
 |   | Se aplica a todos los usuarios de una organización. |
 | **Propiedad del dispositivo** | Organización |
-| **Sistemas operativos** | Todos los dispositivos de Windows 10 |
+| **Sistemas operativos** | Todos los dispositivos con Windows 10, excepto Windows 10 Home |
+|   | [Máquinas virtuales Windows Server 2019 que se ejecutan en Azure](howto-vm-sign-in-azure-ad-windows.md) (No se admite Server Core) |
 | **Aprovisionamiento** | Autoservicio: OOBE o Configuración de Windows |
 |   | Inscripción masiva |
 |   | Windows Autopilot |
@@ -61,7 +62,7 @@ Aunque la unión a Azure AD esté pensada principalmente para aquellas organizac
 - Desea administrar un grupo de usuarios en Azure AD en lugar de en Active Directory. Este escenario se puede aplicar, por ejemplo, a los trabajadores temporales, contratistas o alumnos.
 - Desea proporcionar capacidades de unión a los trabajadores de sucursales remotas con infraestructura local limitada.
 
-Puede configurar dispositivos unidos a Azure AD para dispositivos Windows 10.
+Puede configurar dispositivos Unidos a Azure AD para todos los dispositivos con Windows 10, con la excepción de Windows 10 Home.
 
 El objetivo de los dispositivos unidos a Azure AD es simplificar:
 

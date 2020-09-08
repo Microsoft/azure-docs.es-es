@@ -10,15 +10,15 @@
     - name: Aplicación web Python con Docker y PostgreSQL
       href: ../app-service/tutorial-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
     - name: 'Integración y entrega continuas con Docker, Jenkins y Linux'
-      href: /azure/jenkins/tutorial-jenkins-github-docker-cicd
+      href: /azure/developer/jenkins/pipeline-with-github-and-docker
 - name: Guías paso a paso
   items:
     - name: Extensión de máquina virtual de Docker
-      href: /azure/virtual-machines/linux/dockerextension
+      href: 'https://github.com/Azure/azure-docker-extension/blob/master/README.md'
     - name: Máquina de Docker
-      href: /azure/virtual-machines/linux/docker-machine
+      href: ../virtual-machines/linux/docker-machine.md
     - name: Registro de contenedor de Docker
-      href: /azure/container-registry/container-registry-get-started-portal
+      href: ../container-registry/container-registry-get-started-portal.md
 - name: Recursos
   items:
     - name: Azure Roadmap

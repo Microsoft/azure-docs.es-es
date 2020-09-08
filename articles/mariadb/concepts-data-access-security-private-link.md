@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 6f2043b91f8345a638d6fc773230cd182fb0fead
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 20add4859b272b6d121666cde9c56296119d41e4
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84508852"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836537"
 ---
 # <a name="private-link-for-azure-database-for-mariadb"></a>Private Link para Azure Database for MariaDB
 
@@ -20,7 +20,7 @@ Private Link le permite crear puntos de conexión privados para Azure Database f
 Para una lista de los servicios PaaS que admiten la funcionalidad Private Link, consulte la página de [documentación](https://docs.microsoft.com/azure/private-link/index) de Private Link. Un punto de conexión privado es una dirección IP privada dentro de una [red virtual](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) y una subred específicas.
 
 > [!NOTE]
-> Esta característica está disponible en todas las regiones de Azure donde Azure Database for MariaDB admite los planes de tarifa De uso general y Optimizada para memoria.
+> La característica de vínculo privado solo está disponible para servidores de Azure Database for MariaDB en los planes de tarifa De uso general u Optimizado para memoria. Asegúrese de que el servidor de bases de datos esté incluido en uno de estos planes de tarifa.
 
 ## <a name="data-exfiltration-prevention"></a>Prevención de la filtración de datos
 
@@ -49,7 +49,7 @@ Con Private Link, puede habilitar el acceso entre locales al punto de conexión 
 
 > [!NOTE]
 > En algunos casos, Azure Database for MariaDB y la subred de red virtual se encuentran en distintas suscripciones. En estos casos debe garantizar las siguientes configuraciones:
-> - Asegúrese de que ambas suscripciones tengan el proveedor de recursos **Microsoft.DBforMariaDB** registrado. Para más información, consulte [resource-manager-registration][resource-manager-portal].
+> - Asegúrese de que ambas suscripciones tengan registrado el proveedor de recursos **Microsoft.DBforMariaDB**. Para más información, consulte [resource-manager-registration][resource-manager-portal].
 
 ## <a name="configure-private-link-for-azure-database-for-mariadb"></a>Configuración de Private Link para Azure Database for MariaDB
 

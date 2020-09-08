@@ -8,12 +8,13 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: dineshm
-ms.openlocfilehash: 71700efecfc173392562327f6d150d79d1a9c84f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 8e782dc632fe4100194015c3e0adb4ceb1ac30a6
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292681"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011470"
 ---
 # <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>Inicio rápido: Uso del SDK de Azure Storage v11 para .NET para administrar una cola
 

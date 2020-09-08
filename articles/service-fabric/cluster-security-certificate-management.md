@@ -4,12 +4,12 @@ description: Obtenga información sobre la administración de certificados en un
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev
-ms.openlocfilehash: fb5d19e1cceacfeabc4bc670de98e56d3fbc2596
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: aba681157d71f94914462b8d9fc13b90d4d6b153
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246714"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653671"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Administración de certificados en clústeres de Service Fabric
 
@@ -91,7 +91,7 @@ En este momento, existe un certificado en el almacén, listo para su consumo. Ah
 Mencionamos un "agente de aprovisionamiento", que es una entidad que recupera el certificado, incluida su clave privada, del almacén y lo instala en cada uno de los hosts del clúster. (Recuerde que Service Fabric no aprovisiona los certificados). En nuestro contexto, el clúster se hospedará en una colección de VM de Azure o en conjuntos de escalado de máquinas virtuales. En Azure, el aprovisionamiento de un certificado desde un almacén hacia una VM/VMSS se puede lograr con los siguientes mecanismos: suponiendo que, como se indica anteriormente, el propietario del almacén ha concedido previamente los permisos "get" al agente de aprovisionamiento en el almacén: 
   - Ad hoc: un operador recupera el certificado del almacén (como PFX/PKCS12 o PEM) y lo instala en cada nodo.
   - Como "secreto" del conjunto de escalado de máquinas virtuales durante la implementación: el servicio Compute recupera, usando la identidad de su primera entidad en nombre del operador, el certificado de un almacén habilitado para la implementación de plantillas y lo instala en cada nodo del conjunto de escalado de máquinas virtuales ([de este modo](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#certificates)); tenga en cuenta que esto permite el aprovisionamiento solo de secretos con versión.
-  - Mediante la [extensión de VM de Key Vault](../virtual-machines/extensions/key-vault-windows.md); esto permite el aprovisionamiento de certificados con declaraciones sin versión, con una actualización periódica de los certificados observados. En este caso, se espera que la VM/VMSS tenga una [identidad administrada](../virtual-machines/windows/security-policy.md#managed-identities-for-azure-resources), una identidad a la que se le ha concedido acceso a los almacenes que contienen los certificados observados.
+  - Mediante la [extensión de VM de Key Vault](../virtual-machines/extensions/key-vault-windows.md); esto permite el aprovisionamiento de certificados con declaraciones sin versión, con una actualización periódica de los certificados observados. En este caso, se espera que la VM/VMSS tenga una [identidad administrada](../virtual-machines/security-policy.md#managed-identities-for-azure-resources), una identidad a la que se le ha concedido acceso a los almacenes que contienen los certificados observados.
 
 No se recomienda el mecanismo ad hoc por varios motivos, desde la seguridad hasta la disponibilidad, por lo que no se tratará más en adelante; para obtener más información, consulte [certificados en conjuntos de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#certificates).
 

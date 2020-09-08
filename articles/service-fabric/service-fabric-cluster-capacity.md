@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: f2af8dcb2460e4e95d29bd81e6994d145ac61a48
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 28a01bbc54f752ffc1f25b57dcf2eca566aa635a
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247786"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718108"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Consideraciones de planeación de capacidad del clúster de Service Fabric
 
@@ -56,7 +56,7 @@ El número de tipos de nodos iniciales depende del propósito de su clúster y d
 
     Service Fabric admite clústeres que abarcan [Availability Zones](../availability-zones/az-overview.md) con la implementación de tipos de nodo anclados a zonas específicas, lo que garantiza una alta disponibilidad de las aplicaciones. Availability Zones requiere planeación de tipo de nodo adicional y requisitos mínimos. Para más información, consulte [Topología recomendada para el tipo de nodo principal de clústeres de Service Fabric que se distribuyen en Availability Zones](service-fabric-cross-availability-zones.md#recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones). 
 
-A la hora de determinar el número y las propiedades de los tipos de nodo para la creación inicial del clúster, tenga en cuenta que siempre se pueden agregar, modificar o quitar tipos de nodo (no principales) una vez implementado el clúster. [Los tipos de nodo principal también se pueden modificar](service-fabric-scale-up-node-type.md) en clústeres en ejecución (aunque tales operaciones requieren una gran cantidad de planeación y precaución en entornos de producción).
+A la hora de determinar el número y las propiedades de los tipos de nodo para la creación inicial del clúster, tenga en cuenta que siempre se pueden agregar, modificar o quitar tipos de nodo (no principales) una vez implementado el clúster. [Los tipos de nodo principal también se pueden modificar](service-fabric-scale-up-primary-node-type.md) en clústeres en ejecución (aunque tales operaciones requieren una gran cantidad de planeación y precaución en entornos de producción).
 
 Una consideración más detallada para las propiedades de tipo de nodo es el nivel de durabilidad, que determina los privilegios que tienen las máquinas virtuales de un tipo de nodo dentro de la infraestructura de Azure. Use el tamaño de las máquinas virtuales que elija para el clúster y el recuento de instancias que asigna para los tipos de nodo individuales para ayudar a determinar el nivel de durabilidad adecuado para cada uno de los tipos de nodo, tal y como se describe enseguida.
 
@@ -105,7 +105,7 @@ Use la durabilidad Plata u Oro para todos los tipos de nodo que hospedan servici
 Siga estas recomendaciones para administrar tipos de nodo con durabilidad Plata u Oro:
 
 * Mantenga el clúster y las aplicaciones en buen estado en todo momento, y asegúrese de que las aplicaciones responden a todos los [eventos de los ciclos de vida de las réplicas del servicio](service-fabric-reliable-services-lifecycle.md) (como que la réplica en compilación está bloqueada) en el momento adecuado.
-* Adopte formas más seguras de cambiar el tamaño de una máquina virtual (escalar o reducir verticalmente). Cambiar el tamaño de la máquina virtual de un conjunto de escalado de máquinas virtuales requiere una cuidadosa planeación y precaución. Para más información, consulte [Escalado vertical de un tipo de nodo de Azure Service Fabric](service-fabric-scale-up-node-type.md)
+* Adopte formas más seguras de cambiar el tamaño de una máquina virtual (escalar o reducir verticalmente). Cambiar el tamaño de la máquina virtual de un conjunto de escalado de máquinas virtuales requiere una cuidadosa planeación y precaución. Para más información, consulte [Escalado vertical de un tipo de nodo de Azure Service Fabric](service-fabric-scale-up-primary-node-type.md)
 * Mantenga un mínimo de cinco nodos en todos los conjuntos de escalado de máquinas virtuales que tengan habilitados los niveles de durabilidad Gold o Silver. El clúster entrará en estado de error si escala por debajo de este umbral y deberá limpiar manualmente el estado (`Remove-ServiceFabricNodeState`) de los nodos eliminados.
 * Cada conjunto de escalado de máquinas virtuales con el nivel de durabilidad Silver o Gold tiene que asignarse a su propio tipo de nodo en el clúster de Service Fabric. La asignación de varios conjuntos de escalado de máquinas virtuales a un único tipo de nodo impedirá que la coordinación entre el clúster de Service Fabric y la infraestructura de Azure funcione correctamente.
 * No elimine instancias de máquina virtual aleatorias, use siempre la característica de reducción horizontal del conjunto de escalado de máquinas virtuales. La eliminación de instancias de máquina virtual aleatorias tiene la posibilidad de crear desequilibrios en la instancia de máquina virtual distribuida en [dominios de actualización](service-fabric-cluster-resource-manager-cluster-description.md#upgrade-domains) y [dominios de error](service-fabric-cluster-resource-manager-cluster-description.md#fault-domains). Este desequilibrio puede afectar negativamente a la capacidad de los sistemas de equilibrar la carga correctamente entre las instancias de servicio o las réplicas de servicio.
@@ -155,7 +155,7 @@ Las necesidades de capacidad del clúster se determinarán según sus requisitos
 
 #### <a name="virtual-machine-sizing"></a>Tamaño de la máquina virtual
 
-**En las cargas de trabajo de producción, el tamaño de máquina virtual recomendado (SKU) es estándar D2_V2 (o equivalente) con un mínimo de 50 GB de SSD local.** Se recomienda un mínimo de 50 GB de SSD local, pero algunas cargas de trabajo (como las que ejecutan contenedores de Windows) requerirán discos de mayor tamaño. Al elegir otros [tamaños de máquina virtual](../virtual-machines/sizes-general.md) para cargas de trabajo de producción, tenga en cuenta las siguientes restricciones:
+**En las cargas de trabajo de producción, el tamaño de máquina virtual recomendado (SKU) es [Standard D2_V2](../virtual-machines/dv2-dsv2-series.md) (o equivalente) con un mínimo de 50 GB de SSD local, 2 núcleos y 4 GiB de memoria.** Se recomienda un mínimo de 50 GB de SSD local, pero algunas cargas de trabajo (como las que ejecutan contenedores de Windows) requerirán discos de mayor tamaño. Al elegir otros [tamaños de máquina virtual](../virtual-machines/sizes-general.md) para cargas de trabajo de producción, tenga en cuenta las siguientes restricciones:
 
 - No se admiten tamaños de máquina virtual de base parcial como A0 estándar.
 - *La serie A* de tamaños de máquina virtual no se admiten por motivos de rendimiento.

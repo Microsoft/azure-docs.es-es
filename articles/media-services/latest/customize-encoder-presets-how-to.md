@@ -3,23 +3,25 @@ title: Codificación de una transformación personalizada mediante Media Service
 description: En este tema se explica cómo usar Azure Media Services v3 para codificar una transformación personalizada mediante .NET.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
-ms.date: 05/03/2019
-ms.author: juliako
+ms.topic: how-to
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 28525c198bb6863e942f5ff33d17226769efdc21
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b5bb505df3cad7856e0b08f04949c2e56ccec1ca
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001152"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295621"
 ---
 # <a name="how-to-encode-with-a-custom-transform---net"></a>Procedimiento de codificación con una transformación personalizada - .NET
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Al codificar con Azure Media Services, puede empezar a trabajar rápidamente con cualquiera de los valores preestablecidos integrados recomendados basados en los procedimientos recomendados del sector, como se muestra en el tutorial [Transmisión de archivos](stream-files-tutorial-with-api.md). También puede compilar un valor preestablecido personalizado para sus requisitos específicos de escenario o dispositivo.
 

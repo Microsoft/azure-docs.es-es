@@ -4,18 +4,18 @@ description: Conozca cómo Azure App Service actualiza el sistema operativo y lo
 ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: 93716ab36bc475b092542d1eef40cfe9d75ad819
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 831ba5f055b70e2f46cb8c6a941c0401df347dd5
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87414945"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961523"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Aplicación de revisiones al sistema operativo y al entorno de tiempo de ejecución en Azure App Service
 
 En este artículo se explica cómo obtener información de versión determinada sobre el sistema operativo o el software en [App Service](overview.md). 
 
-App Service es una plataforma como servicio, lo que significa que Azure administra en nombre del usuario el sistema operativo y la pila de aplicaciones; el usuario solo se encarga de administrar la aplicación y sus datos. Se puede encontrar más información sobre la administración del sistema operativo y de la pila de aplicaciones en [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/). Teniendo en cuenta esto, no obstante, es importante, como usuario de App Service, que conozca más información, como:
+App Service es una plataforma como servicio, lo que significa que Azure administra en nombre del usuario el sistema operativo y la pila de aplicaciones; el usuario solo se encarga de administrar la aplicación y sus datos. Se puede encontrar más información sobre la administración del sistema operativo y de la pila de aplicaciones en [Azure Virtual Machines](../virtual-machines/index.yml). Teniendo en cuenta esto, no obstante, es importante, como usuario de App Service, que conozca más información, como:
 
 -   ¿Cómo y cuándo se aplican las actualizaciones del sistema operativo?
 -   ¿Cómo se aplican las revisiones de App Service frente a vulnerabilidades importantes (por ejemplo, día cero)?
@@ -25,7 +25,7 @@ Por motivos de seguridad, no se publican determinados detalles específicos sobr
 
 ## <a name="how-and-when-are-os-updates-applied"></a>¿Cómo y cuándo se aplican las actualizaciones del sistema operativo?
 
-Azure administra la aplicación de revisiones del sistema operativo a dos niveles, es decir, los servidores físicos y las máquinas virtuales invitadas que ejecutan los recursos de App Service. Ambos se actualizan mensualmente, de tal forma que se produce una alineación con el programa [Patch Tuesday](https://technet.microsoft.com/security/bulletins.aspx) mensual. Estas actualizaciones se aplican automáticamente, de una forma que garantiza el SLA de Servicios de Azure de alta disponibilidad. 
+Azure administra la aplicación de revisiones del sistema operativo a dos niveles, es decir, los servidores físicos y las máquinas virtuales invitadas que ejecutan los recursos de App Service. Ambos se actualizan mensualmente, de tal forma que se produce una alineación con el programa [Patch Tuesday](/security-updates/) mensual. Estas actualizaciones se aplican automáticamente, de una forma que garantiza el SLA de Servicios de Azure de alta disponibilidad. 
 
 Para obtener información detallada sobre cómo se aplican las actualizaciones, consulte [Demystifying the magic behind App Service OS updates](https://azure.github.io/AppService/2018/01/18/Demystifying-the-magic-behind-App-Service-OS-updates.html) (Desmitificar la magia que hay detrás de las actualizaciones del sistema operativo de App Service).
 
@@ -55,7 +55,7 @@ Las actualizaciones de .NET, PHP, el SDK de Java o la versión de Tomcat/Jetty s
 
 ### <a name="new-major-and-minor-versions"></a>Nuevas versiones principales y secundarias
 
-Cuando se agrega una nueva versión principal o secundaria, se instala en paralelo con las versiones existentes. Puede actualizar manualmente la aplicación a la nueva versión. Si configuró la versión en tiempo de ejecución en un archivo de configuración (como `web.config` y `package.json`), debe actualizarla con el mismo método. Si usó algún ajuste de App Service para configurar la versión en tiempo de ejecución, puede cambiarla en [Azure Portal](https://portal.azure.com) o mediante la ejecución de un comando de la [CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) en [Cloud Shell](../cloud-shell/overview.md), como se muestra en los ejemplos siguientes:
+Cuando se agrega una nueva versión principal o secundaria, se instala en paralelo con las versiones existentes. Puede actualizar manualmente la aplicación a la nueva versión. Si configuró la versión en tiempo de ejecución en un archivo de configuración (como `web.config` y `package.json`), debe actualizarla con el mismo método. Si usó algún ajuste de App Service para configurar la versión en tiempo de ejecución, puede cambiarla en [Azure Portal](https://portal.azure.com) o mediante la ejecución de un comando de la [CLI de Azure](/cli/azure/get-started-with-azure-cli) en [Cloud Shell](../cloud-shell/overview.md), como se muestra en los ejemplos siguientes:
 
 ```azurecli-interactive
 az webapp config set --net-framework-version v4.7 --resource-group <groupname> --name <appname>
@@ -86,7 +86,7 @@ En la tabla siguiente se muestra cómo consultar las versiones de Windows y del 
 | Versión de Java | En `https://<appname>.scm.azurewebsites.net/DebugConsole`, ejecute el siguiente comando en el símbolo del sistema: <br> `java -version` |  
 
 > [!NOTE]  
-> El acceso a la ubicación del registro `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, donde se almacena la información sobre las [revisiones "KB"](https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins), está bloqueado.
+> El acceso a la ubicación del registro `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, donde se almacena la información sobre las [revisiones "KB"](/security-updates/SecurityBulletins/securitybulletins), está bloqueado.
 >
 >
 

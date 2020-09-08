@@ -1,19 +1,19 @@
 ---
 title: 'Inicio rápido: Protección del centro de conectividad virtual mediante Azure Firewall Manager (plantilla de Resource Manager)'
-description: Aprenda a proteger su centro de conectividad virtual mediante Azure Firewall Manager.
+description: En este inicio rápido, aprenderá a proteger un centro virtual mediante Azure Firewall Manager.
 services: firewall-manager
 author: vhorne
-ms.service: firewall
+ms.service: firewall-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 06/30/2020
+ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: 1917bed7727b97de27e560a0f2d8032a8ae08996
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 050dfa737ad04127f8c72158fbecb2e8e70e05c1
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242022"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89075348"
 ---
 # <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---arm-template"></a>Inicio rápido: Protección de un centro virtual mediante Azure Firewall Manager: plantilla de Resource Manager
 
@@ -37,7 +37,7 @@ Esta plantilla crea un centro virtual protegido mediante Azure Firewall Manager,
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/fwm-docs-qs/).
 
-:::code language="json" source="~/quickstart-templates/fwm-docs-qs/azuredeploy.json" range="001-477" highlight="47-76":::
+:::code language="json" source="~/quickstart-templates/fwm-docs-qs/azuredeploy.json":::
 
 En la plantilla se definen varios recursos de Azure:
 

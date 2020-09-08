@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: bcb4563f7106161920b89897b706b05d2f819938
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f4bf3974cd561626c280dc65aa5fc78d0c9a159b
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282456"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056506"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transferencia de datos con AzCopy y Blob Storage
 
@@ -283,7 +283,7 @@ Estos ejemplos también funcionan con las cuentas que tienen un espacio de nombr
 >
 > |Escenario|Marca|
 > |---|---|
-> |Copiar los archivos como blobs en anexos o blobs en páginas.|**--blob-type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
+> |Copie blobs como blobs en bloques, en páginas o en anexos.|**--blob-type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
 > |Copiar en un nivel de acceso específico (como el nivel de archivo).|**--block-blob-tier**=\[None\|Hot\|Cool\|Archive\]|
 > |Descomprimir archivos automáticamente.|**--decompress**=\[gzip\|deflate\]|
 > 

@@ -9,19 +9,19 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 824ba9e1f9b4325c1e0974ed1c22b465ec4b85a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a0b2afa8b566ec82fc638291c43f3e0419f654c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298963"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400694"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Uso de la extensión Diagnostics de Linux para supervisar métricas y registros
 
 En este documento se describen las versiones 3.0 y posteriores de la extensión Diagnostics de Linux.
 
 > [!IMPORTANT]
-> Para obtener información sobre las versiones 2.3 y anteriores, consulte [este documento](../linux/classic/diagnostic-extension-v2.md).
+> Para obtener información sobre las versiones 2.3 y anteriores, consulte [este documento](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
 
 ## <a name="introduction"></a>Introducción
 
@@ -67,10 +67,10 @@ Distribuciones y versiones admitidas:
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-* **Versión 2.2.0 o posterior del agente Linux de Azure**. La mayoría de las imágenes de la galería de máquina virtual Linux de Azure incluyen la versión 2.2.7 o posterior. Ejecute `/usr/sbin/waagent -version` para confirmar la versión instalada en la máquina virtual. Si la máquina virtual está ejecutando una versión anterior del agente invitado, siga [estas instrucciones](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) para actualizarla.
-* **Azure CLI**. [Instale el entorno de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) en la máquina.
+* **Versión 2.2.0 o posterior del agente Linux de Azure**. La mayoría de las imágenes de la galería de máquina virtual Linux de Azure incluyen la versión 2.2.7 o posterior. Ejecute `/usr/sbin/waagent -version` para confirmar la versión instalada en la máquina virtual. Si la máquina virtual está ejecutando una versión anterior del agente invitado, siga [estas instrucciones](./update-linux-agent.md) para actualizarla.
+* **Azure CLI**. [Instale el entorno de la CLI de Azure](/cli/azure/install-azure-cli) en la máquina.
 * El comando wget, si aún no lo tiene: Ejecute `sudo apt-get install wget`.
-* Una suscripción a Azure existente con una cuenta de almacenamiento para almacenar los datos.
+* Una suscripción a Azure existente y una cuenta de almacenamiento de uso general existente para almacenar los datos.  Las cuentas de almacenamiento de uso general admiten el almacenamiento en tablas, que es necesario.  Una cuenta de Blob Storage no funcionará.
 
 ### <a name="sample-installation"></a>Instalación de ejemplo
 
@@ -128,7 +128,7 @@ $publicSettings = $publicSettings.Replace('__VM_RESOURCE_ID__', $vm.Id)
 # If you have your own customized public settings, you can inline those rather than using the template above: $publicSettings = '{"ladCfg":  { ... },}'
 
 # Generate a SAS token for the agent to use to authenticate with the storage account
-$sasToken = New-AzStorageAccountSASToken -Service Blob,Table -ResourceType Service,Container,Object -Permission "racwdlup" -Context (Get-AzStorageAccount -ResourceGroupName $storageAccountResourceGroup -AccountName $storageAccountName).Context
+$sasToken = New-AzStorageAccountSASToken -Service Blob,Table -ResourceType Service,Container,Object -Permission "racwdlup" -Context (Get-AzStorageAccount -ResourceGroupName $storageAccountResourceGroup -AccountName $storageAccountName).Context -ExpiryTime $([System.DateTime]::Now.AddYears(10))
 
 # Build the protected settings (storage account SAS token)
 $protectedSettings="{'storageAccountName': '$storageAccountName', 'storageAccountSasToken': '$sasToken'}"
@@ -243,7 +243,7 @@ Si creó una SAS válida hasta la medianoche en horario UTC del 1 de enero de 20
 https://contosohub.servicebus.windows.net/syslogmsgs?sr=contosohub.servicebus.windows.net%2fsyslogmsgs&sig=xxxxxxxxxxxxxxxxxxxxxxxxx&se=1514764800&skn=writer
 ```
 
-Para obtener más información sobre la generación y recuperación de información sobre tokens de SAS para Event Hubs, consulte [esta página web](https://docs.microsoft.com/rest/api/eventhub/generate-sas-token#powershell).
+Para obtener más información sobre la generación y recuperación de información sobre tokens de SAS para Event Hubs, consulte [esta página web](/rest/api/eventhub/generate-sas-token#powershell).
 
 #### <a name="the-jsonblob-sink"></a>El receptor de Json BLOB
 
@@ -580,7 +580,7 @@ Si suponemos que la configuración protegida se encuentra en el archivo Protecte
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
 ```
 
-El comando supone que se está usando el modo de Administración de recursos de Azure (ARM) de la CLI de Azure. Para configura LAD para máquinas virtuales con el modelo de implementación clásica (ASM), cambie al modo "asm" (`azure config mode asm`) y omita el nombre del grupo de recursos en el comando. Para obtener más información, consulte la [documentación de la CLI multiplataforma](https://docs.microsoft.com/azure/xplat-cli-connect).
+El comando supone que se está usando el modo de Administración de recursos de Azure de la CLI de Azure. Para configura LAD para máquinas virtuales con el modelo de implementación clásica (ASM), cambie al modo "asm" (`azure config mode asm`) y omita el nombre del grupo de recursos en el comando. Para obtener más información, consulte la [documentación de la CLI multiplataforma](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
 ### <a name="powershell"></a>PowerShell
 
@@ -763,10 +763,10 @@ Esta instantánea de una sesión del Explorador de Microsoft Azure Storage muest
 
 ![imagen](./media/diagnostics-linux/stg_explorer.png)
 
-Consulte los [documentos de EventHubs](../../event-hubs/event-hubs-what-is-event-hubs.md) pertinentes para obtener información sobre cómo consumir mensajes publicados en un punto de conexión de EventHubs.
+Consulte los [documentos de EventHubs](../../event-hubs/event-hubs-about.md) pertinentes para obtener información sobre cómo consumir mensajes publicados en un punto de conexión de EventHubs.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Cree alertas de métricas de [Azure Monitor](../../monitoring-and-diagnostics/insights-alerts-portal.md) para las métricas que recopile.
-* Cree [gráficos de supervisión](../../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para las métricas.
+* Cree alertas de métricas de [Azure Monitor](../../azure-monitor/platform/alerts-classic-portal.md) para las métricas que recopile.
+* Cree [gráficos de supervisión](../../azure-monitor/platform/data-platform.md) para las métricas.
 * Obtenga información sobre cómo [crear un conjunto de escalado de máquinas virtuales](../linux/tutorial-create-vmss.md) con sus propias métricas para controlar el escalado automático.

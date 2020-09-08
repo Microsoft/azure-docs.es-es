@@ -5,13 +5,13 @@ keywords: servicio de aplicación de Azure, aplicación web, configuración de l
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
-ms.custom: seodec18
-ms.openlocfilehash: e4ebb33333dc59432fd269c4847abdeab91d935c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp, seodec18
+ms.openlocfilehash: 4990862bacbf2afe2d4b5f39c2b9d31a7c48b78e
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389789"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962900"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurar una aplicación de App Service en Azure Portal
 
@@ -33,18 +33,18 @@ Para los desarrolladores de ASP.NET y ASP.NET Core, la configuración de las opc
 
 Del mismo modo, otras pilas de lenguaje obtienen la configuración de la aplicación como variables de entorno en tiempo de ejecución. Para obtener pasos específicos de la pila de lenguaje, consulte:
 
-- [ASP.NET Core](containers/configure-language-dotnetcore.md#access-environment-variables)
-- [Node.js](containers/configure-language-nodejs.md#access-environment-variables)
-- [PHP](containers/configure-language-php.md#access-environment-variables)
-- [Python](containers/how-to-configure-python.md#access-environment-variables)
-- [Java](containers/configure-language-java.md#data-sources)
-- [Ruby](containers/configure-language-ruby.md#access-environment-variables)
-- [Contenedores personalizados](containers/configure-custom-container.md#configure-environment-variables)
+- [ASP.NET Core](configure-language-dotnetcore.md#access-environment-variables)
+- [Node.js](configure-language-nodejs.md#access-environment-variables)
+- [PHP](configure-language-php.md#access-environment-variables)
+- [Python](configure-language-python.md#access-environment-variables)
+- [Java](configure-language-java.md#data-sources)
+- [Ruby](configure-language-ruby.md#access-environment-variables)
+- [Contenedores personalizados](configure-custom-container.md#configure-environment-variables)
 
 La configuración de la aplicación siempre se cifra cuando se almacena (cifrado en reposo).
 
 > [!NOTE]
-> La configuración de la aplicación también se puede resolver desde [Key Vault](/azure/key-vault/) mediante las [referencias de Key Vault](app-service-key-vault-references.md).
+> La configuración de la aplicación también se puede resolver desde [Key Vault](../key-vault/index.yml) mediante las [referencias de Key Vault](app-service-key-vault-references.md).
 
 ### <a name="show-hidden-values"></a>Mostrar valores ocultos
 
@@ -104,18 +104,18 @@ En tiempo de ejecución, las cadenas de conexión están disponibles como variab
 
 Por ejemplo, se puede obtener acceso a una cadena de conexión de MySQL denominada *connectionstring1* como la variable de entorno `MYSQLCONNSTR_connectionString1`. Para obtener pasos específicos de la pila de lenguaje, consulte:
 
-- [ASP.NET Core](containers/configure-language-dotnetcore.md#access-environment-variables)
-- [Node.js](containers/configure-language-nodejs.md#access-environment-variables)
-- [PHP](containers/configure-language-php.md#access-environment-variables)
-- [Python](containers/how-to-configure-python.md#access-environment-variables)
-- [Java](containers/configure-language-java.md#data-sources)
-- [Ruby](containers/configure-language-ruby.md#access-environment-variables)
-- [Contenedores personalizados](containers/configure-custom-container.md#configure-environment-variables)
+- [ASP.NET Core](configure-language-dotnetcore.md#access-environment-variables)
+- [Node.js](configure-language-nodejs.md#access-environment-variables)
+- [PHP](configure-language-php.md#access-environment-variables)
+- [Python](configure-language-python.md#access-environment-variables)
+- [Java](configure-language-java.md#data-sources)
+- [Ruby](configure-language-ruby.md#access-environment-variables)
+- [Contenedores personalizados](configure-custom-container.md#configure-environment-variables)
 
 Las cadenas de conexión siempre se cifran cuando se almacenan (cifrado en reposo).
 
 > [!NOTE]
-> Las cadenas de conexión se pueden resolver desde [Key Vault](/azure/key-vault/) mediante las [referencias de Key Vault](app-service-key-vault-references.md).
+> Las cadenas de conexión se pueden resolver desde [Key Vault](../key-vault/index.yml) mediante las [referencias de Key Vault](app-service-key-vault-references.md).
 
 ### <a name="show-hidden-values"></a>Mostrar valores ocultos
 
@@ -176,7 +176,7 @@ En este caso, puede configurar algunas opciones comunes para la aplicación. Alg
     > [!NOTE]
     > Los exploradores más modernos admiten el protocolo HTTP/2 sobre TLS únicamente, mientras que el tráfico no cifrado sigue usando HTTP/1.1. Para asegurarse de que los exploradores del cliente se conectan a la aplicación con HTTP/2, proteja el nombre DNS personalizado. Para más información, consulte [Protección de un nombre DNS personalizado con un enlace TLS/SSL en Azure App Service](configure-ssl-bindings.md).
     - **Afinidad ARR**: en una implementación de varias instancias, asegúrese de que el cliente esté enrutado a la misma instancia de la vida de la sesión. Puede establecer esta opción en **Desactivada** para las aplicaciones sin estado.
-- **Depuración**: habilite la depuración remota para las aplicaciones [ASP.NET](troubleshoot-dotnet-visual-studio.md#remotedebug), [ASP.NET Core](/visualstudio/debugger/remote-debugging-azure) o [Node.js](containers/configure-language-nodejs.md#debug-remotely). Esta opción se desactiva automáticamente después de 48 horas.
+- **Depuración**: habilite la depuración remota para las aplicaciones [ASP.NET](troubleshoot-dotnet-visual-studio.md#remotedebug), [ASP.NET Core](/visualstudio/debugger/remote-debugging-azure) o [Node.js](configure-language-nodejs.md#debug-remotely). Esta opción se desactiva automáticamente después de 48 horas.
 - **Certificados de cliente entrantes**: requiera certificados de cliente en [autenticación mutua](app-service-web-configure-tls-mutual-auth.md).
 
 ## <a name="configure-default-documents"></a>Configurar documentos predeterminados
@@ -215,7 +215,7 @@ Para configurar las aplicaciones y los directorios virtuales, especifique cada d
 
 ### <a name="containerized-apps"></a>Aplicaciones en contenedores
 
-También puede [agregar almacenamiento personalizado para la aplicación en contenedor](containers/how-to-serve-content-from-azure-storage.md). Las aplicaciones en contenedores incluyen todas las aplicaciones de Linux y también los contenedores personalizados de Windows y Linux que se ejecutan en App Service. Haga clic en **Nuevo montaje de Azure Storage** y configure el almacenamiento personalizado como sigue:
+También puede [agregar almacenamiento personalizado para la aplicación en contenedor](configure-connect-to-azure-storage.md). Las aplicaciones en contenedores incluyen todas las aplicaciones de Linux y también los contenedores personalizados de Windows y Linux que se ejecutan en App Service. Haga clic en **Nuevo montaje de Azure Storage** y configure el almacenamiento personalizado como sigue:
 
 - **Name**: El nombre para mostrar.
 - **Opciones de configuración**: **Básica** o **Avanzada**.
@@ -228,22 +228,22 @@ También puede [agregar almacenamiento personalizado para la aplicación en cont
 - **Clave de acceso**: para la configuración avanzada, la clave de acceso.
 - **Ruta de acceso de montaje**: La ruta de acceso absoluta en el contenedor para montar el almacenamiento personalizado.
 
-Para obtener más información consulte [Servicio de contenido desde Azure Storage en App Service en Linux](containers/how-to-serve-content-from-azure-storage.md).
+Para obtener más información, consulte [Configuración de Azure Files en un contenedor de Windows en App Service](configure-connect-to-azure-storage.md).
 
 ## <a name="configure-language-stack-settings"></a>Configurar las opciones de pila de lenguaje
 
 Para las aplicaciones de Linux, consulte:
 
-- [ASP.NET Core](containers/configure-language-dotnetcore.md)
-- [Node.js](containers/configure-language-nodejs.md)
-- [PHP](containers/configure-language-php.md)
-- [Python](containers/how-to-configure-python.md)
-- [Java](containers/configure-language-java.md)
-- [Ruby](containers/configure-language-ruby.md)
+- [ASP.NET Core](configure-language-dotnetcore.md)
+- [Node.js](configure-language-nodejs.md)
+- [PHP](configure-language-php.md)
+- [Python](configure-language-python.md)
+- [Java](configure-language-java.md)
+- [Ruby](configure-language-ruby.md)
 
 ## <a name="configure-custom-containers"></a>Configurar contenedores personalizados
 
-Consulte [Configuración de un contenedor de Linux personalizado para Azure App Service](containers/configure-custom-container.md).
+Consulte [Configuración de un contenedor de Linux personalizado para Azure App Service](configure-custom-container.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

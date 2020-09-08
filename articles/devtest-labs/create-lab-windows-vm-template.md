@@ -4,12 +4,12 @@ description: En este inicio rápido, creará un laboratorio en Azure DevTest Lab
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/26/2020
-ms.openlocfilehash: 8688b8265a8ca00a36a569ff4e067c9f36834c6d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 93bc4cf91b228de72c217c61ec03d61e87046dd3
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537554"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653960"
 ---
 # <a name="quickstart-set-up-a-lab-by-using-azure-devtest-labs-arm-template"></a>Inicio rápido: Configuración de un laboratorio mediante una plantilla de ARM de Azure DevTest Labs
 En este inicio rápido, creará un laboratorio con una máquina virtual Windows Server 2019 Datacenter mediante el uso de una plantilla de Azure Resource Manager (ARM). 
@@ -36,7 +36,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-dtl-create-lab-windows-vm/).
 
-:::code language="json" source="~/quickstart-templates/101-dtl-create-lab-windows-vm/azuredeploy.json" range="1-97" highlight="51-85":::
+:::code language="json" source="~/quickstart-templates/101-dtl-create-lab-windows-vm/azuredeploy.json":::
 
 Los recursos definidos en la plantilla incluyen:
 

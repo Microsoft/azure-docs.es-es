@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: a5d002532adb043fa5196231964d5b6e2c81417c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a04f4879bbd06c2fa6c1af921d7adafdef9417d6
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706382"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871452"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Conexión de la aplicación a Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -42,7 +42,7 @@ Conectar una aplicación cuando reside en una red virtual diferente a la de Inst
 
 Para conectar redes virtuales hay dos opciones:
 
-- [Emparejamiento de VPN de Azure](../../virtual-network/virtual-network-peering-overview.md)
+- [Emparejamiento de VNet de Azure](../../virtual-network/virtual-network-peering-overview.md)
 - Puerta de enlace VPN de red virtual a red virtual ([Azure Portal](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [CLI de Azure](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md))
 
 El emparejamiento es la opción preferida porque se usa la red troncal de Microsoft y, por lo tanto, desde la perspectiva de la conectividad, no hay diferencias notables de latencia entre las máquinas virtuales de la red virtual emparejada y la propia. El emparejamiento de red virtual está restringido a las redes de la misma región.  

@@ -5,17 +5,20 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 11/27/2018
-ms.openlocfilehash: 913f1f2a7a03c1abb83d8daa6d4b0c3f6e77e309
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: c1915d108bf9465d3e5b8d6a55053b583ee4f580
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133754"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184625"
 ---
 # <a name="troubleshoot-azure-vm-extension-issues"></a>Solución de problemas de la extensión de máquina virtual de Azure
 
 En este artículo se proporcionan pasos de solución de problemas que pueden ayudar a resolver errores de Azure Site Recovery relacionados con el agente y la extensión de máquina virtual.
 
+## <a name="low-system-resources"></a>Recursos del sistema bajos
+
+Este problema se produce cuando el sistema tiene poca memoria disponible y no puede asignar memoria para la instalación del servicio Mobility. Asegúrese de que se ha liberado suficiente memoria para que la instalación continúe y se complete correctamente.
 
 ## <a name="azure-site-recovery-extension-time-out"></a>Tiempo de espera de la extensión de Azure Site Recovery  
 

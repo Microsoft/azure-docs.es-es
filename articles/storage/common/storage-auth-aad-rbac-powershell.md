@@ -1,5 +1,5 @@
 ---
-title: Uso de PowerShell para asignar un rol de RBAC para el acceso a datos
+title: Uso de PowerShell para asignar un rol de Azure para el acceso a datos
 titleSuffix: Azure Storage
 description: Aprenda a usar PowerShell para asignar permisos a una entidad de seguridad de Azure Active Directory con el control de acceso basado en rol (RBAC). Azure Storage admite roles integrados y personalizados de Azure para la autenticación mediante Azure AD.
 services: storage
@@ -10,24 +10,25 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: c090343e6f63a71b639e5c2f0e9c9fbd0f3e0c2d
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 28f5be6d48b673f3148f05e14a92cf906aca4d81
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87370485"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077048"
 ---
-# <a name="use-powershell-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Uso de PowerShell para asignar un rol de RBAC para el acceso a datos de blobs y colas
+# <a name="use-powershell-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Uso de PowerShell para asignar un rol de Azure para el acceso a datos de blobs y colas
 
-Azure Active Directory (Azure AD) autoriza derechos de acceso a los recursos protegidos mediante el [control de acceso basado en rol (RBAC)](../../role-based-access-control/overview.md). Azure Storage define un conjunto de roles integrados de Azure que abarcan conjuntos comunes de permisos utilizados para acceder a los contenedores o las colas.
+Azure Active Directory (Azure AD) autoriza derechos de acceso a recursos protegidos mediante el [control de acceso basado en rol de Azure (RBAC de Azure)](../../role-based-access-control/overview.md). Azure Storage define un conjunto de roles integrados de Azure que abarcan conjuntos comunes de permisos utilizados para acceder a los contenedores o las colas.
 
-Cuando un rol RBAC se asigna a una entidad de seguridad de Azure AD, Azure concede acceso a esos recursos a esa entidad de seguridad. El acceso se puede limitar al nivel de la suscripción, el grupo de recursos, la cuenta de almacenamiento o un contenedor individual o una cola. Una entidad de seguridad de Azure AD puede ser un usuario, un grupo, una entidad de servicio de aplicación o una [identidad de servicio administrada para recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+Cuando un rol de Azure se asigna a una entidad de seguridad de Azure AD, Azure concede a esa entidad de seguridad acceso a esos recursos. El acceso se puede limitar al nivel de la suscripción, el grupo de recursos, la cuenta de almacenamiento o un contenedor individual o una cola. Una entidad de seguridad de Azure AD puede ser un usuario, un grupo, una entidad de servicio de aplicación o una [identidad de servicio administrada para recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
 En este artículo se describe cómo usar Azure PowerShell para mostrar los roles integrados de Azure y asignarlos a usuarios. Para obtener más información sobre cómo usar Azure PowerShell, vea [Introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="rbac-roles-for-blobs-and-queues"></a>Roles RBAC para blobs y colas
+## <a name="azure-roles-for-blobs-and-queues"></a>Roles de Azure para blobs y colas
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
@@ -35,7 +36,7 @@ En este artículo se describe cómo usar Azure PowerShell para mostrar los roles
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 
-## <a name="list-available-rbac-roles"></a>Mostrar los roles RBAC disponibles
+## <a name="list-available-azure-roles"></a>Lista de roles de Azure disponibles
 
 Para obtener una lista de los roles integrados de Azure disponibles con Azure PowerShell, use el comando [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition):
 
@@ -55,9 +56,9 @@ Storage Queue Data Message Sender         Allows for sending of Azure Storage qu
 Storage Queue Data Reader                 Allows for read access to Azure Storage queues and queue messages
 ```
 
-## <a name="assign-an-rbac-role-to-a-security-principal"></a>Asignación de un rol RBAC a una entidad de seguridad
+## <a name="assign-an-azure-role-to-a-security-principal"></a>Asignación de un rol de Azure a una entidad de seguridad
 
-Para asignar un rol RBAC a una entidad de seguridad, use el comando [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). El formato del comando puede variar en función del ámbito de la asignación. Para ejecutar el comando, debe tener asignado el rol de propietario o colaborador en el ámbito correspondiente. Los ejemplos siguientes muestran cómo asignar un rol a un usuario en varios ámbitos, pero puede usar el mismo comando para asignar un rol a cualquier entidad de seguridad.
+Para asignar un rol de Azure a una entidad de seguridad, use el comando [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). El formato del comando puede variar en función del ámbito de la asignación. Para ejecutar el comando, debe tener asignado el rol de propietario o colaborador en el ámbito correspondiente. Los ejemplos siguientes muestran cómo asignar un rol a un usuario en varios ámbitos, pero puede usar el mismo comando para asignar un rol a cualquier entidad de seguridad.
 
 ### <a name="container-scope"></a>Ámbito de contenedor
 

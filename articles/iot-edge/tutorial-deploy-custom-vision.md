@@ -9,12 +9,12 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5d4b87c14422744fd62d42a4d8e5b1ca0f34ffac
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: 07945926600163a3fca228ef6d848b50efc4318d
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439729"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042809"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutorial: Clasificación de imágenes en el perímetro con Custom Vision Service
 
@@ -433,9 +433,9 @@ Desde el dispositivo, puede ver los registros del módulo cameraCapture para ver
 En Visual Studio Code, haga clic con el botón derecho en el nombre del dispositivo IoT Edge y seleccione **Start Monitoring Built-in Event Endpoint** (Iniciar supervisión del punto de conexión del evento integrado). 
 
 > [!NOTE]
-> Al principio es posible que vea ciertos errores de conexión en la salida del módulo cameraCapture. Esto se debe al retraso que se produce entre la implementación y el inicio de los módulos.
+> Al principio, es posible que vea ciertos errores de conexión en la salida del módulo cameraCapture. Esto se debe al retraso que se produce entre la implementación y el inicio de los módulos.
 >
-> El módulo cameraCapture reintentará automáticamente la conexión hasta que se realice correctamente. Después, debería empezar a ver los mensajes de clasificación de imágenes esperados que se describen a continuación.
+> El módulo cameraCapture reintentará automáticamente la conexión hasta que se realice correctamente. Después de conectarse de forma correcta, verá los mensajes de clasificación de imágenes esperados que se describen a continuación.
 
 Los resultados del módulo de Custom Vision, que se envían como mensajes desde el módulo cameraCapture, incluyen la probabilidad de que la imagen sea de un abeto o un cerezo. Dado que la imagen es un abeto, debería ver la probabilidad como 1,0.
 

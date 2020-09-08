@@ -3,20 +3,20 @@ title: 'Azure Front Door: seguimiento de estado de back-end | Microsoft Docs'
 description: Este artículo le ayuda a comprender cómo Azure Front Door supervisa el estado de los servidores back-end.
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: e2e656c395f1a31c1f5ebbd46d5a18a046f854f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: duau
+ms.openlocfilehash: c96dac55df2cdc15b7d3699e947c851a9fe69b02
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471581"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399640"
 ---
 # <a name="health-probes"></a>Sondeos de estado
 

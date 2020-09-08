@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único de Azure AD con F5 | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y F5.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 39382eab-05fe-4dc2-8792-62d742dfb4e1
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d64774bd76a88c2ee8c1981fb3509c7265f4736
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b48b8c1282f90788846b9dc3b64a5ea1ee018a3c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87017455"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88535992"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con F5
 

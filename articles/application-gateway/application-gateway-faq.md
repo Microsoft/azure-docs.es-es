@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: d76506141b2563b3ae8d5779e774ad564022494d
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: a5825cf5461213e3440893597059c84dcdc9ad33
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810010"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236121"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Preguntas más frecuentes sobre Application Gateway
 
@@ -259,7 +259,7 @@ Ejemplo de configuración de NSG para acceso de IP privada solamente: ![Configur
 
 ### <a name="what-certificates-does-application-gateway-support"></a>¿Qué certificados admite Application Gateway?
 
-Application Gateway admite certificados autofirmados, certificados de entidad de certificación (CA), certificados de validación extendida (EV) y certificados comodín.
+Application Gateway admite certificados autofirmados, certificados de entidad de certificación (CA), certificados de validación extendida (EV), certificados de varios dominios (SAN) y certificados comodín.
 
 ### <a name="what-cipher-suites-does-application-gateway-support"></a>¿Qué conjuntos de cifrado admite Application Gateway?
 

@@ -1,20 +1,19 @@
 ---
 title: 'Tutorial: Creación de una definición de trabajo de Apache Spark en Synapse Studio'
 description: 'Tutorial: Uso de Azure Synapse Analytics para crear definiciones de trabajos de Spark y enviarlas a un grupo de Apache Spark para Azure Synapse Analytics.'
-author: hrasheed-msft
+author: Jejiang
 ms.author: jejiang
 ms.reviewer: jasonh
-ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: ''
 ms.date: 04/15/2020
-ms.openlocfilehash: ac3e163ffefcb7b164860b0c4fa42edc866227e3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 38678c795b0ce7534de0ca8602c1198bc35f0e05
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065621"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206191"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>Tutorial: Creación de una definición de trabajo de Apache Spark en Synapse Studio
 

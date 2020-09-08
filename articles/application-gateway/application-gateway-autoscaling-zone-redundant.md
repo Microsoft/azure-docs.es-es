@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: f10bb1f4065f3bdb517fcad4f3eb6caa331c5233
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: dc3daf28a4e8dd4ebf1fcedddd1a46986ac80cc4
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87273208"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400609"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Escalabilidad automática y Application Gateway con redundancia de zona v2 
 
@@ -47,87 +47,7 @@ Con la SKU v2, el modelo de precios está orientado al consumo y ya no está aso
 
 Cada unidad de capacidad se compone a lo sumo de: 1 unidad de proceso, 2500 conexiones persistentes y rendimiento de 2,22 Mbps.
 
-Orientación para la unidad de proceso:
-
-- **Standard_v2**: cada unidad de proceso tiene capacidad para aproximadamente 50 conexiones por segundo con el certificado TLS de la clave RSA de 2048 bits.
-- **WAF_v2**: cada unidad de proceso puede admitir aproximadamente 10 solicitudes simultáneas por segundo para una combinación de tráfico del 70-30 %, con el 70 % de solicitudes de menos de 2 KB de GET/POST y el resto más. El rendimiento de WAF no se ve afectado por el tamaño de respuesta actualmente.
-
-> [!NOTE]
-> Cada instancia ahora puede admitir aproximadamente 10 unidades de capacidad.
-> El número de solicitudes que puede controlar una unidad de proceso depende de varios criterios, como el tamaño de la clave del certificado TLS, el algoritmo de intercambio de claves, la reescritura de encabezados y, en el caso de WAF, el tamaño de la solicitud entrante. Le recomendamos que realice pruebas de aplicación para determinar la tasa de solicitudes por unidad de proceso. Tanto la unidad de capacidad como la unidad de proceso estarán disponibles como una métrica antes de que comience la facturación.
-
-La siguiente tabla muestra precios de ejemplo y solo tiene fines ilustrativos.
-
-**Precio en el Este de EE. UU.** :
-
-|              Nombre de SKU                             | Precio fijo ($/h)  | Precio de unidad de capacidad ($/unidad de capacidad-h)   |
-| ------------------------------------------------- | ------------------- | ------------------------------- |
-| Standard_v2                                       |    0,20             | 0,0080                          |
-| WAF_v2                                            |    0,36             | 0,0144                          |
-
-Para obtener mas información de precios, consulte la [página de precios](https://azure.microsoft.com/pricing/details/application-gateway/). 
-
-**Ejemplo 1**
-
-Un servicio de Application Gateway Standard_v2 se aprovisiona sin escalado automático en modo de escalado manual con capacidad fija de cinco instancias.
-
-Precio fijo = 744(horas) * 0,20 $ = 148,8 $ <br>
-Unidades de capacidad = 744 (horas) * 10 unidades de capacidad por cada instancia * 5 instancias * 0,008 $ por hora de unidad de capacidad = 297,6 $
-
-Precio total: 148,8 $ + 297,6 $ = 446,4 $
-
-**Ejemplo 2**
-
-Se aprovisiona un servicio de Application Gateway Standard_v2 durante un mes, con un mínimo de cero instancias, y en este tiempo recibe 25 nuevas conexiones TLS por segundo, un promedio de transferencia de datos de 8,88 Mbps. Suponiendo que las conexiones tienen una duración breve, el precio sería:
-
-Precio fijo = 744(horas) * 0,20 $ = 148,8 $
-
-Precio de unidad de capacidad = 744(horas) * Máx (unidad de proceso de 25/50 para conexiones por segundo, unidad de capacidad de 8,88/2,22 para rendimiento) * 0,008 $ = 744 * 4 * 0,008 = 23,81 $.
-
-Precio total = 148,8 $ + 23,81 = 172,61 $
-
-Como puede ver, solo se le facturarán cuatro unidades de capacidad, no toda la instancia. 
-
-> [!NOTE]
-> La función Max devuelve el valor más grande en un par de valores.
-
-
-**Ejemplo 3**
-
-Se aprovisiona un servicio de Application Gateway Standard_v2 durante un mes, con un mínimo de cinco instancias. Suponiendo que no haya tráfico y las conexiones tengan una duración breve, el precio sería:
-
-Precio fijo = 744(horas) * 0,20 $ = 148,8 $
-
-Precio de unidad de capacidad = 744(horas) * Máx (unidad de proceso de 0/50 para conexiones por segundo, unidad de capacidad de 0/2,22 para rendimiento) * 0,008 $ = 744 * 50 * 0,008 = 297,60 $.
-
-Precio total = 148,80 $ + 297,60 = 446,4 $
-
-En este caso, se le facturará la totalidad de las cinco instancias, aunque no haya tráfico.
-
-**Ejemplo 4**
-
-Se aprovisiona un servicio de Application Gateway Standard_v2 durante un mes, con un mínimo de cinco instancias, pero esta vez hay un promedio de transferencia de datos de 125 Mbps y 25 conexiones TLS por segundo. Suponiendo que no haya tráfico y las conexiones tengan una duración breve, el precio sería:
-
-Precio fijo = 744(horas) * 0,20 $ = 148,8 $
-
-Precio de unidad de capacidad = 744(horas) * Máx (unidad de proceso de 25/50 para conexiones por segundo, unidad de capacidad de 125/2,22 para rendimiento) * 0,008 $ = 744 * 57 * 0,008 = 339,26 $.
-
-Precio total = 148,80 $ + 339,26 $ = 488,06 $
-
-En este caso, se le facturarán las cinco instancias completas, además de siete unidades de capacidad (que corresponde a 7/10 de una instancia).  
-
-**Ejemplo 5**
-
-Se aprovisiona un servicio Application Gateway WAF_v2 durante un mes. En este tiempo, recibe 25 nuevas conexiones TLS por segundo, un promedio de transferencia de datos de 8,88 mbps, y realiza 80 solicitudes por segundo. Suponiendo que las conexiones son de corta duración, y que el cálculo de unidad de proceso para la aplicación admite 10 solicitudes por segundo por unidad de proceso, el precio sería:
-
-Precio fijo = 744(horas) * 0,36 $ = 267,84 $
-
-Precio de unidad de capacidad = 744(horas) * Máx (unidad de proceso máx [25/50 para conexiones por segundo, solicitudes por segundo de WAF de 80/10], unidad de capacidad de 8,88/2,22 para rendimiento) * 0.0144 $ = 744 * 8 * 0,0144 = 85.71 $.
-
-Precio total = 267,84 $ + 85,71 $ = 353,55 $
-
-> [!NOTE]
-> La función Max devuelve el valor más grande en un par de valores.
+Para obtener más información, consulte [Explicación de los precios](understanding-pricing.md).
 
 ## <a name="scaling-application-gateway-and-waf-v2"></a>Escalado de Application Gateway y WAF v2
 

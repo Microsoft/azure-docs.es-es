@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: a57232853284dad6f363797c009b1c38738d5b37
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 26be48e7968345863799191539bd668ea6d9a4a2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519786"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929574"
 ---
 # <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Indexación de documentos en Azure Blob Storage con Azure Cognitive Search
 
@@ -25,8 +25,8 @@ En este artículo se muestra cómo usar Azure Cognitive Search para indexar dato
 Puede configurar un indexador de Azure Table Storage mediante estos recursos:
 
 * [Azure Portal](https://ms.portal.azure.com)
-* [API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) de Azure Cognitive Search
-* [SDK para .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search) de Azure Cognitive Search
+* [API REST](/rest/api/searchservice/Indexer-operations) de Azure Cognitive Search
+* [SDK para .NET](/dotnet/api/overview/azure/search) de Azure Cognitive Search
 
 En este caso, demostramos el flujo mediante la API de REST. 
 
@@ -62,7 +62,7 @@ Para crear un origen de datos:
     }   
 ```
 
-Para más información sobre la API de creación de origen de datos, consulte [Create Datasource](https://docs.microsoft.com/rest/api/searchservice/create-data-source) (Creación de origen de datos).
+Para más información sobre la API de creación de origen de datos, consulte [Create Datasource](/rest/api/searchservice/create-data-source) (Creación de origen de datos).
 
 <a name="Credentials"></a>
 #### <a name="ways-to-specify-credentials"></a>Formas de especificar las credenciales ####
@@ -73,7 +73,7 @@ Puede proporcionar las credenciales para la tabla de una de estas maneras:
 - **Cadena de conexión de la firma de acceso compartido de la cuenta de almacenamiento**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` La firma de acceso compartido debe tener permisos de enumeración y lectura sobre los contenedores (en este caso, tablas) y objetos (filas de tabla).
 -  **Firma de acceso compartido de tabla**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` La firma de acceso compartido debería tener permisos de consulta (lectura) en la tabla.
 
-Para más información sobre las firmas de acceso compartido de almacenamiento, consulte [Uso de firmas de acceso compartido (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Para más información sobre las firmas de acceso compartido de almacenamiento, consulte [Uso de firmas de acceso compartido (SAS)](../storage/common/storage-sas-overview.md).
 
 > [!NOTE]
 > Si usa credenciales de firma de acceso compartido, deberá actualizar las credenciales del origen de datos periódicamente con firmas renovadas para evitar que expiren. Si las credenciales de firma de acceso compartido expiran, el indexador produce un error con un mensaje parecido a este: "Las credenciales proporcionadas en la cadena de conexión no son válidas o han expirado".  
@@ -97,7 +97,7 @@ Para crear un índice:
     }
 ```
 
-Para más información sobre la creación de índices, consulte [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) (Creación de un índice).
+Para más información sobre la creación de índices, consulte [Create Index](/rest/api/searchservice/create-index) (Creación de un índice).
 
 ### <a name="step-3-create-an-indexer"></a>Paso 3: Creación de un indexador
 Un indexador conecta un origen de datos con un índice de búsqueda de destino y proporciona una programación para automatizar la actualización de datos. 
@@ -119,7 +119,7 @@ Después de crear el origen de datos y el índice, ya puede crear el indexador:
 
 Este indexador se ejecuta cada dos horas. (El intervalo de programación se establece en "PT2H"). Para ejecutar un indizador cada 30 minutos, establézcalo en PT30M. El intervalo más breve que se admite es de cinco minutos. La programación es opcional: si se omite, el indexador solo se ejecuta una vez cuando se crea. Sin embargo, puede ejecutarlo a petición en cualquier momento.   
 
-Para más información sobre la API de creación de indexador, consulte [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer) (Creación de un indexador).
+Para más información sobre la API de creación de indexador, consulte [Create Indexer](/rest/api/searchservice/create-indexer) (Creación de un indexador).
 
 Para más información sobre cómo definir las programaciones del indexador, consulte [Programación de indexadores para Azure Cognitive Search](search-howto-schedule-indexers.md).
 
@@ -170,7 +170,7 @@ Aquí hay dos posibles enfoques para mejorar el rendimiento de la indexación de
 
 - Si los datos se dividen por tiempo (por ejemplo, se crea una nueva partición cada día o semana), considere el siguiente enfoque: 
     - Utilice una consulta con el formato: `(PartitionKey ge <TimeStamp>) and (other filters)`. 
-    - Supervise el progreso del indexador mediante la [API de obtención del estado del indexador](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) y actualice periódicamente la condición `<TimeStamp>` de la consulta según el valor alto correcto de la marca de agua más reciente. 
+    - Supervise el progreso del indexador mediante la [API de obtención del estado del indexador](/rest/api/searchservice/get-indexer-status) y actualice periódicamente la condición `<TimeStamp>` de la consulta según el valor alto correcto de la marca de agua más reciente. 
     - Con este enfoque, si tiene que desencadenar un reindexado completo, tendrá que restablecer la consulta del origen de datos, además de restablecer el indexador. 
 
 

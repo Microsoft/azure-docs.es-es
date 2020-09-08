@@ -3,12 +3,12 @@ title: Respuestas a preguntas comunes
 description: 'Respuestas a preguntas comunes sobre las características de Azure Backup, incluidos los almacenes de Recovery Services, las copias de seguridad que puede realizar, cómo funciona, el cifrado y los límites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 95d515e65e31304dd4839f851736be6926a5a29f
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: ea4cc792100edf59188a9be99c384747267dc0d8
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553094"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892769"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Preguntas más frecuentes de Azure Backup
 
@@ -26,7 +26,7 @@ Puede registrar hasta 1000 máquinas virtuales de Azure por almacén. Si usa el 
 
 ### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>¿Cuántos orígenes de datos o elementos se pueden proteger en un almacén?
 
-Puede proteger hasta 2 000 orígenes de datos o elementos entre todas las cargas de trabajo (máquina virtual de IaaS, SQL, AFS, etc.) en un almacén.
+Puede proteger hasta 2000 orígenes de datos o elementos para todas las cargas de trabajo (por ejemplo, máquina virtual de IaaS, SQL, AFS, etc.) de un almacén.
 Por ejemplo, si ya ha protegido 500 máquinas virtuales y 400 recursos compartidos de Azure Files en el almacén, no puede proteger más de 1 100 bases de datos SQL en él.
 
 ### <a name="how-many-policies-can-i-create-per-vault"></a>¿Cuántas directivas se pueden crear por almacén?
@@ -222,7 +222,7 @@ La clave de cifrado usada por el agente de Microsoft Azure Recovery Services (MA
 
 ### <a name="what-happens-if-i-misplace-the-encryption-key-can-i-recover-the-data-can-microsoft-recover-the-data"></a>¿Qué sucede si pierdo la clave de cifrado? ¿Puedo recuperar los datos? ¿Microsoft puede recuperar los datos?
 
-La clave usada para cifrar los datos de copia de seguridad solo está presente en el sitio. Microsoft no mantiene una copia en Azure y no tiene acceso a la clave. Si la clave se pierde, Microsoft no puede recuperar los datos de copia de seguridad.
+La clave usada para cifrar los datos de copia de seguridad solo está presente en el sitio. Microsoft no conserva una copia en Azure y no tiene acceso a la clave. Si la clave se pierde, Microsoft no puede recuperar los datos de copia de seguridad.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

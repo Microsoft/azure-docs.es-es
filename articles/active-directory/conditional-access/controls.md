@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/18/2020
+ms.date: 08/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d926d027b59a225d76f6a73ab3ee4ec09b595e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 147c6016c56d45fadca4f4b8e583bce54006ef07
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253314"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922124"
 ---
 # <a name="custom-controls-preview"></a>Controles personalizados (versión preliminar)
 
@@ -33,11 +33,11 @@ Copie los datos JSON y, a continuación, péguelos en el cuadro de texto relacio
 
 La opción para crear un control personalizado está en la sección **Administrar** de la página **Acceso condicional**.
 
-![Control](./media/controls/82.png)
+![Interfaz de controles personalizados en el acceso condicional](./media/controls/custom-controls-conditional-access.png)
 
 Al hacer clic en **Nuevo control personalizado** se abre una hoja con un cuadro de texto para los datos JSON del control.  
 
-![Control](./media/controls/81.png)
+![Nuevo control personalizado](./media/controls/new-custom-controls-conditional-access.png)
 
 ## <a name="deleting-custom-controls"></a>Eliminación de controles personalizados
 
@@ -53,7 +53,7 @@ Para editar un control personalizado, debe eliminar el control actual y crear un
 
 ## <a name="known-limitations"></a>Restricciones conocidas
 
-Los controles personalizados no se pueden usar con la automatización de Identity Protection, que requiere Azure Multi-Factor Authentication, el autoservicio de restablecimiento de contraseña (SSPR) de Azure AD, para satisfacer los requisitos de notificaciones multifactor o para elevar roles en Privileged Identity Manager (PIM).
+Los controles personalizados no se pueden usar con la automatización de Identity Protection, que requiere Azure Multi-Factor Authentication, el autoservicio de restablecimiento de contraseña (SSPR) de Azure AD, para satisfacer los requisitos de notificaciones multifactor o para elevar roles en Privileged Identity Manager (PIM), o como parte de la inscripción de dispositivos de Intune.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

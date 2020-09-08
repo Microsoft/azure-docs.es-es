@@ -12,12 +12,12 @@ metadata:
   ms.author: iainfou
   ms.date: 02/11/2020
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: d06cc6f3c2d0d5033777a2f988d12ba7edb7be9c
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 8262c7e0e5e092a9ea8602a4e575cdc402e7ef8b
+  ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "77484101"
+  ms.lasthandoff: 08/21/2020
+  ms.locfileid: "88717309"
 landingContent:
 - title: Acerca de la autenticación
   linkLists:
@@ -80,7 +80,7 @@ landingContent:
   - linkListType: get-started
     links:
     - text: Configuración de la lista de contraseñas prohibidas
-      url: howto-password-ban-bad-configure.md
+      url: ./tutorial-configure-custom-password-protection.md
   - linkListType: how-to-guide
     links:
     - text: Implementación de la protección de contraseñas de Azure AD

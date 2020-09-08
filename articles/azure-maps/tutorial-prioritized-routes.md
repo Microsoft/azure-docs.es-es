@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Búsqueda de varias rutas por forma de viajar | Microsoft Azure Maps'
-description: En este tutorial aprenderá a buscar rutas para distintas formas de viajar mediante Microsoft Azure Maps.
+description: Obtenga información acerca de cómo usar Azure Maps para encontrar rutas para modos de viaje específicos a puntos de interés. Obtenga información sobre cómo mostrar varias rutas en los mapas.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 01/14/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 0cb3c1eadae426cef59b7aad8821343c23e76d79
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7d17b9474edef245f7db16f33c72d722f356f712
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289535"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037599"
 ---
 # <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>Tutorial: Búsqueda de rutas para diferentes modos de desplazamiento mediante Azure Maps
 

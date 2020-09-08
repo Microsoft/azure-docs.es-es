@@ -10,18 +10,18 @@ ms.date: 06/10/2020
 ms.service: machine-learning
 ms.subservice: data-science-vm
 ms.topic: quickstart
-ms.openlocfilehash: 675ddf073393afde6ac8d08a65b40da11d90d3ea
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 9b89c0a4135bf595991439dd47e57a870ea2b0d1
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026668"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855060"
 ---
 # <a name="quickstart-create-an-ubuntu-data-science-virtual-machine-using-an-arm-template"></a>Inicio rápido: Creación de una instancia de Data Science Virtual Machine de Ubuntu mediante una plantilla de Resource Manager
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-En este inicio rápido se muestra cómo crear una instancia de Data Science Virtual Machine de Ubuntu 18.04 mediante una plantilla de Azure Resource Manager. Las instancias de Data Science Virtual Machine son máquinas virtuales basadas en la nube precargadas con un conjunto de herramientas y marcos de ciencia de datos y aprendizaje automático. Cuando se implementan en recursos de proceso con tecnología GPU, todas las herramientas y bibliotecas se configuran para usar este tipo de procesador. 
+En este inicio rápido se muestra cómo crear una instancia de Data Science Virtual Machine de Ubuntu 18.04 mediante una plantilla de Azure Resource Manager. Las instancias de Data Science Virtual Machine son máquinas virtuales basadas en la nube precargadas con un conjunto de herramientas y marcos de ciencia de datos y aprendizaje automático. Cuando se implementan en recursos de proceso con tecnología GPU, todas las herramientas y bibliotecas se configuran para usar este tipo de procesador.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -37,12 +37,17 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-vm-ubuntu-DSVM-GPU-or-CPU/). La plantilla completa de este artículo es demasiado larga para mostrarse aquí. Para ver la plantilla completa, examine el archivo [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json). La parte que define los detalles de la instancia de Data Science Virtual Machine se muestra aquí:
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-vm-ubuntu-DSVM-GPU-or-CPU/).
 
-:::code language="json" source="~/quickstart-templates/101-vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json" range="235-276":::
+:::code language="json" source="~/quickstart-templates/101-vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json":::
 
 Los recursos siguientes se definen en la plantilla:
 
+* [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces)
+* [Microsoft.Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups)
+* [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
+* [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
+* [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
 * [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines): Cree una máquina virtual basada en la nube. En esta plantilla, la máquina virtual está configurada como una instancia de Data Science Virtual Machine que ejecuta Ubuntu 18.04.
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
@@ -74,7 +79,7 @@ Cuando ejecute el comando anterior, escriba:
 
 Para ver la instancia de Data Science Virtual Machine:
 
-1. Ir a https://portal.azure.com.
+1. Vaya a [Azure Portal](https://portal.azure.com).
 1. Inicie sesión.
 1. Elija el grupo de recursos que acaba de crear.
 

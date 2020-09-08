@@ -9,14 +9,17 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 543644495a99bacd40edc3f2d9151e4c15808c50
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: fe4d42fd74b4efd67a01f32611bd170862ec84d0
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038434"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007135"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Transformaciones y asignaciones de campos mediante indexadores de Azure Cognitive Search
+
+![Fases del indexador](./media/search-indexer-field-mappings/indexer-stages-field-mappings.png "fases del indexador")
 
 Al usar indexadores de Azure Cognitive Search, habrá ocasiones en que observará que los datos de entrada no coinciden demasiado con el esquema del índice de destino. En esos casos, puede usar **asignaciones de campos** para modificar los datos durante el proceso de indexación.
 
@@ -28,7 +31,7 @@ Algunas situaciones donde las asignaciones de campos son útiles:
 * Necesita codificar o descodificar sus datos con Base64. Las asignaciones de campos admiten varias **funciones de asignación**, incluidas las funciones de codificación y descodificación Base64.
 
 > [!NOTE]
-> Las asignaciones de campos en los indexadores son una manera sencilla de asignar campos de datos a campos de índice, con cierta capacidad para la conversión de datos ligeros. Los datos más complejos pueden requerir un procesamiento previo para transformarlos en un formato que favorezca la indexación. Una opción que se puede considerar es [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/).
+> Las asignaciones de campos en los indexadores son una manera sencilla de asignar campos de datos a campos de índice, con cierta capacidad para la conversión de datos ligeros. Los datos más complejos pueden requerir un procesamiento previo para transformarlos en un formato que favorezca la indexación. Una opción que se puede considerar es [Azure Data Factory](../data-factory/index.yml).
 
 ## <a name="set-up-field-mappings"></a>Configuración de asignaciones de campos
 
@@ -45,7 +48,7 @@ Las asignaciones de campos se agregan a la matriz `fieldMappings` de la definici
 
 ## <a name="map-fields-using-the-rest-api"></a>Asignación de campos usando la API de REST
 
-Puede agregar asignaciones de campos al crear un indexador con la solicitud API para [crear un indexador](https://docs.microsoft.com/rest/api/searchservice/create-Indexer). Puede administrar las asignaciones de campos de un indexador existente con la solicitud API para [actualizar un indexador](https://docs.microsoft.com/rest/api/searchservice/update-indexer).
+Puede agregar asignaciones de campos al crear un indexador con la solicitud API para [crear un indexador](/rest/api/searchservice/create-Indexer). Puede administrar las asignaciones de campos de un indexador existente con la solicitud API para [actualizar un indexador](/rest/api/searchservice/update-indexer).
 
 Por ejemplo, aquí se describe cómo asignar un campo de origen a un campo de destino con un nombre diferente:
 
@@ -78,7 +81,7 @@ Se puede hacer referencia a un campo de origen en varias asignaciones de campos.
 
 ## <a name="map-fields-using-the-net-sdk"></a>Asignación de campos usando el SDK de .NET
 
-Las asignaciones de campos en el SDK de .NET se definen con la clase [FieldMapping](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.fieldmapping), que tiene las propiedades `SourceFieldName` y `TargetFieldName` y una referencia a `MappingFunction` opcional.
+Las asignaciones de campos en el SDK de .NET se definen con la clase [FieldMapping](/dotnet/api/microsoft.azure.search.models.fieldmapping), que tiene las propiedades `SourceFieldName` y `TargetFieldName` y una referencia a `MappingFunction` opcional.
 
 Se pueden especificar asignaciones de campos al crear el indexador o posteriormente estableciendo directamente la propiedad `Indexer.FieldMappings`.
 
@@ -123,7 +126,7 @@ Realiza una codificación Base64 *segura para direcciones URL* de la cadena de e
 
 #### <a name="example---document-key-lookup"></a>Ejemplo: búsqueda de clave de documento
 
-Solo pueden aparecer caracteres seguros para direcciones URL en una clave de documento de Azure Cognitive Search (porque los clientes deben poder enviar el documento con la [API de búsqueda](https://docs.microsoft.com/rest/api/searchservice/lookup-document)). Si el campo de origen de la clave contiene caracteres de dirección URL no seguros, puede usar la función `base64Encode` para convertirlo en el momento de la indexación. Sin embargo, una clave de documento (tanto antes como después de la conversión) no puede tener más de 1024 caracteres.
+Solo pueden aparecer caracteres seguros para direcciones URL en una clave de documento de Azure Cognitive Search (porque los clientes deben poder enviar el documento con la [API de búsqueda](/rest/api/searchservice/lookup-document)). Si el campo de origen de la clave contiene caracteres de dirección URL no seguros, puede usar la función `base64Encode` para convertirlo en el momento de la indexación. Sin embargo, una clave de documento (tanto antes como después de la conversión) no puede tener más de 1024 caracteres.
 
 Al recuperar la clave codificada en el tiempo de búsqueda, puede usar la función `base64Decode` para obtener el valor de clave original y usarlo para recuperar el documento de origen.
 
@@ -198,10 +201,10 @@ Azure Cognitive Search admite dos codificaciones Base64 distintas. Debe usar los
 
 Azure Cognitive Search admite la codificación Base64 de seguridad de direcciones URL y la codificación Base64 normal. Una cadena codificada con Base64 durante la indexación se debe descodificar más adelante con las mismas opciones de codificación o, de lo contrario, el resultado no coincidirá con el original.
 
-Si los parámetros `useHttpServerUtilityUrlTokenEncode` o `useHttpServerUtilityUrlTokenDecode` para codificar y descodificar respectivamente se establecen en `true`, `base64Encode` se comporta como [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) y `base64Decode` se comporta como [HttpServerUtility.UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
+Si los parámetros `useHttpServerUtilityUrlTokenEncode` o `useHttpServerUtilityUrlTokenDecode` para codificar y descodificar respectivamente se establecen en `true`, `base64Encode` se comporta como [HttpServerUtility.UrlTokenEncode](/dotnet/api/system.web.httpserverutility.urltokenencode?view=netframework-4.8) y `base64Decode` se comporta como [HttpServerUtility.UrlTokenDecode](/dotnet/api/system.web.httpserverutility.urltokendecode?view=netframework-4.8).
 
 > [!WARNING]
-> Si se utiliza `base64Encode` para generar valores de clave, `useHttpServerUtilityUrlTokenEncode` debe establecerse en true. Solo se puede usar la codificación Base64 de seguridad de direcciones URL para los valores de clave. Consulte [Reglas de nomenclatura &#40;Azure Cognitive Search&#41;](https://docs.microsoft.com/rest/api/searchservice/naming-rules) para obtener el conjunto completo de restricciones sobre los caracteres de los valores de clave.
+> Si se utiliza `base64Encode` para generar valores de clave, `useHttpServerUtilityUrlTokenEncode` debe establecerse en true. Solo se puede usar la codificación Base64 de seguridad de direcciones URL para los valores de clave. Consulte [Reglas de nomenclatura &#40;Azure Cognitive Search&#41;](/rest/api/searchservice/naming-rules) para obtener el conjunto completo de restricciones sobre los caracteres de los valores de clave.
 
 Las bibliotecas .NET de Azure Cognitive Search asumen .NET Framework completo, que proporciona codificación integrada. Las opciones `useHttpServerUtilityUrlTokenEncode` y `useHttpServerUtilityUrlTokenDecode` aprovechan esta funcionalidad integrada. Si usa .NET Core u otro marco, se recomienda establecer esas opciones en `false` y llamar directamente a las funciones de codificación y descodificación de su marco de trabajo.
 

@@ -7,26 +7,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/25/2020
 ms.author: pafarley
-ms.openlocfilehash: cedc400ac6659cf2b2d0e9c499bf8789a6311e32
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 6118f8109f44081c797cb09a6157abaf4044965e
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141898"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377819"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Entrenamiento de un modelo de Form Recognizer con etiquetas mediante la herramienta de etiquetado de ejemplo
 
 En este inicio rápido, usará la API REST de Form Recognizer con la herramienta de etiquetado de ejemplo para entrenar un modelo personalizado con datos etiquetados manualmente. Consulte la sección [Entrenamiento con etiquetas](../overview.md#train-with-labels) de la introducción para más información acerca de esta característica.
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+> [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este inicio rápido, debe cumplir los siguientes requisitos:
 
-- Un conjunto de al menos seis formularios del mismo tipo. Usará estos datos para entrenar el modelo y probar un formulario. En este inicio rápido puede usar un [conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2090451). Cargue los archivos de entrenamiento en la raíz de un contenedor de almacenamiento de blobs de una cuenta de Azure Storage.
+* Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services)
+* Una vez que tenga la suscripción de Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="cree un recurso de Form Recognizer"  target="_blank">create a Form Recognizer resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
+    * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación a Form Recognizer API. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente.
+    * Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
+* Un conjunto de al menos seis formularios del mismo tipo. Usará estos datos para entrenar el modelo y probar un formulario. En este inicio rápido puede usar un [conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2090451). Cargue los archivos de entrenamiento en la raíz de un contenedor de almacenamiento de blobs de una cuenta de Azure Storage de nivel de rendimiento estándar.
 
 ## <a name="create-a-form-recognizer-resource"></a>Creación de un recurso de Form Recognizer
 
@@ -52,14 +56,35 @@ Usará el motor de Docker para ejecutar la herramienta de etiquetado de ejemplo.
    * [macOS](https://docs.docker.com/docker-for-mac/)
    * [Linux](https://docs.docker.com/install/)
 
+
+
+
+
 1. Obtenga el contenedor de la herramienta de etiquetado de ejemplo con el comando `docker pull`.
+
+    # <a name="v20"></a>[v2.0](#tab/v2-0)    
     ```
     docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
     ```
+    # <a name="v21-preview"></a>[Versión preliminar v2.1](#tab/v2-1)    
+    ```
+    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview
+    ```
+
+    ---
+
 1. Ahora ya está listo para ejecutar el contenedor con `docker run`.
+
+    # <a name="v20"></a>[v2.0](#tab/v2-0)    
     ```
     docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
     ```
+    # <a name="v21-preview"></a>[Versión preliminar v2.1](#tab/v2-1)    
+    ```
+    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview eula=accept    
+    ```
+
+    --- 
 
    Este comando hará que la herramienta de etiquetado de ejemplo esté disponible mediante un explorador web. Ir a `http://localhost:3000`.
 
@@ -97,7 +122,8 @@ Rellene los campos con los siguientes valores:
 * **Descripción**: la descripción del proyecto.
 * **Dirección URL de SAS**: la dirección URL de la firma de acceso compartido (SAS) del contenedor de Azure Blob Storage. Para recuperar la dirección URL de SAS, abra el Explorador de Microsoft Azure Storage, haga clic con el botón derecho en el contenedor y seleccione **Get shared access signature** (Obtener firma de acceso compartido). Establezca la hora de expiración en alguna hora posterior a la hora en la que utilizará el servicio. Asegúrese de que están seleccionados los permisos de **lectura**, **escritura**, **eliminación** y **enumeración** y haga clic en **Crear**. A continuación, copie el valor en la sección **URL**. Debe tener el formato `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
-![Valores de conexión de la herramienta de etiquetado de ejemplo](../media/label-tool/connections.png)
+:::image type="content" source="../media/label-tool/connections.png" alt-text="Configuración de la conexión de la herramienta de etiquetado de ejemplo.":::
+
 
 ## <a name="create-a-new-project"></a>Creación de un nuevo proyecto
 
@@ -111,7 +137,7 @@ En la herramienta de etiquetado de ejemplo, los proyectos almacenan las configur
 * **Clave de API**: la clave de suscripción de Form Recognizer.
 * **Descripción** (opcional): descripción del proyecto.
 
-![Página de nuevo proyecto en la herramienta de etiquetado de ejemplo](../media/label-tool/new-project.png)
+:::image type="content" source="../media/label-tool/new-project.png" alt-text="Página Nuevo proyecto en la herramienta de etiquetado de ejemplo.":::
 
 ## <a name="label-your-forms"></a>Etiquetado de formularios
 
@@ -125,15 +151,20 @@ Al crear o abrir un proyecto, se abrirá la ventana principal del editor de etiq
 
 Haga clic en **Run OCR on all files** (Ejecutar OCR en todos los archivos) en el panel izquierdo para obtener la información de diseño del texto de cada documento. La herramienta de etiquetado dibujará los cuadros de límite alrededor de cada elemento de texto.
 
+También se mostrarán las tablas que se hayan extraído automáticamente. Haga clic en el icono de tabla o cuadrícula en la parte izquierda del documento para ver la tabla extraída. En esta guía de inicio rápido, dado que el contenido de la tabla se extrae automáticamente, este no se etiquetará, sino que se basará en la extracción automatizada.
+
+:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Visualización de tablas mediante la herramienta de etiquetado de ejemplo.":::
+
 ### <a name="apply-labels-to-text"></a>Aplicación de etiquetas a texto
 
 A continuación, creará etiquetas y las aplicará a los elementos de texto que desea que reconozca el modelo.
 
+# <a name="v20"></a>[v2.0](#tab/v2-0)  
 1. Primero, use el panel del editor de etiquetas para crear las etiquetas que le gustaría identificar.
    1. Haga clic en **+** para crear una nueva etiqueta.
    1. Escriba el nombre de la etiqueta.
    1. Presione Entrar para guardar la etiqueta.
-1. En el editor principal, haga clic y arrastre para seleccionar una o varias palabras de los elementos de texto resaltados.
+1. En el editor principal, haga clic para seleccionar las palabras en los elementos de texto resaltados.
 1. Haga clic en la etiqueta que desea aplicar o presione la tecla correspondiente del teclado. Las teclas numéricas se asignan como teclas de acceso rápido para las diez primeras etiquetas. Puede volver a ordenar las etiquetas con los iconos de flecha arriba y abajo del panel del editor de etiquetas.
     > [!Tip]
     > Tenga en cuenta las siguientes sugerencias cuando vaya a etiquetar los formularios.
@@ -146,7 +177,30 @@ A continuación, creará etiquetas y las aplicará a los elementos de texto que 
     > * Use los botones situados a la derecha de **+** para buscar, reordenar y eliminar las etiquetas, así como cambiarles el nombre.
     > * Para quitar una etiqueta aplicada sin eliminar la etiqueta en sí, seleccione el rectángulo etiquetado en la vista de documento y presione la tecla Supr.
 
-![Ventana principal del editor de la herramienta de etiquetado de ejemplo](../media/label-tool/main-editor.png)
+
+# <a name="v21-preview"></a>[Versión preliminar v2.1](#tab/v2-1) 
+1. Primero, use el panel del editor de etiquetas para crear las etiquetas que le gustaría identificar.
+   1. Haga clic en **+** para crear una nueva etiqueta.
+   1. Escriba el nombre de la etiqueta.
+   1. Presione Entrar para guardar la etiqueta.
+1. En el editor principal, haga clic para seleccionar las palabras en los elementos de texto resaltados. En la _versión preliminar v2.1_, también puede hacer clic para seleccionar _marcas de selección_ como botones de radio y casillas de verificación como pares clave-valor. Form Recognizer identificará si la marca de selección está "activada" o "desactivada" como el valor.
+1. Haga clic en la etiqueta que desea aplicar o presione la tecla correspondiente del teclado. Las teclas numéricas se asignan como teclas de acceso rápido para las diez primeras etiquetas. Puede volver a ordenar las etiquetas con los iconos de flecha arriba y abajo del panel del editor de etiquetas.
+    > [!Tip]
+    > Tenga en cuenta las siguientes sugerencias cuando vaya a etiquetar los formularios.
+    > * Solo se puede aplicar una etiqueta a cada elemento de texto seleccionado.
+    > * Cada etiqueta solo se puede aplicar una vez por página. Si un valor aparece varias veces en el mismo formulario, cree etiquetas diferentes para cada instancia. Por ejemplo, "factura n.º 1", "factura n.º 2", etc.
+    > * Las etiquetas no pueden abarcar varias páginas.
+    > * Etiquete los valores tal como aparecen en el formulario; no intente dividir un valor en dos partes con dos etiquetas diferentes. Por ejemplo, un campo de dirección debe etiquetarse con una sola etiqueta incluso si abarca varias líneas.
+    > * No incluya claves en los campos etiquetados, solo los valores.
+    > * Los datos de la tabla se deben detectar automáticamente y estarán disponibles en el archivo JSON de salida final. Sin embargo, si el modelo no detecta todos los datos de la tabla, también puede etiquetar manualmente estos campos. Etiquete cada celda de la tabla con una etiqueta diferente. Si los formularios tienen tablas con un número variable de filas, asegúrese de etiquetar al menos un formulario con la tabla más grande posible.
+    > * Use los botones situados a la derecha de **+** para buscar, reordenar y eliminar las etiquetas, así como cambiarles el nombre.
+    > * Para quitar una etiqueta aplicada sin eliminar la etiqueta en sí, seleccione el rectángulo etiquetado en la vista de documento y presione la tecla Supr.
+
+
+---
+
+:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Ventana principal del editor de la herramienta de etiquetado de ejemplo.":::
+
 
 Siga los pasos anteriores para etiquetar al menos cinco de sus formularios.
 
@@ -166,6 +220,7 @@ Actualmente se admiten los siguientes tipos de valor y variaciones:
     * predeterminado, `dmy`, `mdy`, `ymd`
 * `time`
 * `integer`
+* `selectionMark`: _nuevo en v2.1-preview.1!_
 
 > [!NOTE]
 > Consulte estas reglas para el formato de fecha:
@@ -192,18 +247,35 @@ Actualmente se admiten los siguientes tipos de valor y variaciones:
 
 Haga clic en el icono Train (Entrenar) en el panel izquierdo para abrir la página de entrenamiento. A continuación, haga clic en el botón **Entrenar** para empezar a entrenar el modelo. Una vez completado el proceso de entrenamiento, verá la siguiente información:
 
-* **Id. del modelo**: el identificador del modelo que se ha creado y entrenado. Cada llamada de entrenamiento crea un nuevo modelo con su propio identificador. Copie esta cadena en una ubicación segura; la necesitará si desea realizar llamadas de predicción mediante la API REST.
+* **Id. del modelo**: el identificador del modelo que se ha creado y entrenado. Cada llamada de entrenamiento crea un nuevo modelo con su propio identificador. Copie esta cadena en una ubicación segura; la necesitará si desea realizar llamadas de predicción mediante la [API REST](./curl-train-extract.md) o la [biblioteca cliente](./client-library.md).
 * **Precisión media**: el promedio de precisión del modelo. Puede mejorar la precisión del modelo mediante el etiquetado de formularios adicionales y el entrenamiento de nuevo para crear un nuevo modelo. Se recomienda empezar por etiquetar cinco formularios y agregar más formularios según sea necesario.
 * La lista de etiquetas y la precisión estimada por etiqueta.
 
-![Vista de entrenamiento](../media/label-tool/train-screen.png)
+
+:::image type="content" source="../media/label-tool/train-screen.png" alt-text="Vista de entrenamiento.":::
 
 Una vez finalizado el entrenamiento, examine el valor de **Precisión media**. Si es bajo, debe agregar más documentos de entrada y repetir los pasos anteriores. Los documentos que ya ha etiquetado permanecerán en el índice del proyecto.
 
 > [!TIP]
 > También puede ejecutar el proceso de entrenamiento con una llamada a la API REST. Para aprender a hacerlo, consulte [Entrenamiento con etiquetas mediante Python](./python-labeled-data.md).
 
-## <a name="analyze-a-form"></a>Análisis de un formulario
+## <a name="compose-trained-models"></a>Creación de modelos entrenados
+
+# <a name="v20"></a>[v2.0](#tab/v2-0)  
+
+Esta característica está disponible actualmente en la versión preliminar v2.1. 
+
+# <a name="v21-preview"></a>[Versión preliminar v2.1](#tab/v2-1) 
+
+Con el modelo Compose, puede crear hasta 100 modelos en un único identificador de modelo. Cuando llame a Analyze con este identificador de modelo compuesto, Form Recognizer clasificará primero el formulario que envió, lo hará coincidir con el mejor modelo de coincidencia y, a continuación, devolverá los resultados de ese modelo. Esto resulta útil cuando los formularios de entrada pueden pertenecer a una de varias plantillas.
+
+Para crear modelos en la herramienta de etiquetado de ejemplo, haga clic en el icono de composición de modelo (flecha de combinación) de la izquierda. A la izquierda, seleccione los modelos que desee unir. Los modelos con el icono de flechas ya son modelos compuestos. Haga clic en el botón "Compose" (Redactar). En el elemento emergente, asigne un nombre al nuevo modelo compuesto y haga clic en "Compose" (Redactar). Una vez finalizada la operación, el nuevo modelo compuesto debe aparecer en la lista. 
+
+:::image type="content" source="../media/label-tool/model-compose.png" alt-text="Vista de experiencia de usuario para la creación de modelos.":::
+
+---
+
+## <a name="analyze-a-form"></a>Análisis de un formulario 
 
 Haga clic en el icono Predict (Predecir) (bombilla) de la izquierda para probar el modelo. Cargue un documento de formulario que no haya utilizado en el proceso de entrenamiento. A continuación, haga clic en el botón **Predecir** de la derecha para obtener las predicciones de clave y valor del formulario. La herramienta aplicará etiquetas en los cuadros de límite e informará de la confianza de cada etiqueta.
 
@@ -228,7 +300,7 @@ Si desea reanudar el proyecto, primero debe crear una conexión al mismo contene
 
 ### <a name="resume-a-project"></a>Reanudación de un proyecto
 
-Por último, vaya a la página principal (icono de casa) y haga clic en Open Cloud Project (Abrir proyecto en la nube). Después, seleccione la conexión a Blob Storage y seleccione el archivo *.vott* del proyecto. La aplicación cargará todos los valores del proyecto ya que tiene el token de seguridad.
+Por último, vaya a la página principal (icono de casa) y haga clic en Open Cloud Project (Abrir proyecto en la nube). Después, seleccione la conexión al almacenamiento de blobs y seleccione el archivo *.fott* del proyecto. La aplicación cargará todos los valores del proyecto ya que tiene el token de seguridad.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

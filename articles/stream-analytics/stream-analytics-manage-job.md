@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
 ms.openlocfilehash: 577a80f04ad186ab1575fa78db3fa59402d6058f
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "83697385"
 ---
 # <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Tutorial: Analizar los datos de llamadas de teléfono con Stream Analytics y visualizar los resultados en un panel de Power BI
@@ -52,7 +52,7 @@ Siga estos pasos para crear una instancia de Event Hub y enviar datos de la llam
    |**Configuración**  |**Valor sugerido** |**Descripción**  |
    |---------|---------|---------|
    |Nombre     | myEventHubsNS        |  Un nombre único para identificar el espacio de nombres del centro de eventos.       |
-   |Subscription     |   \<Su suscripción\>      |   Seleccione una suscripción de Azure donde quiere crear el centro de eventos.      |
+   |Subscription     |   \<Your subscription\>      |   Seleccione una suscripción de Azure donde quiere crear el centro de eventos.      |
    |Resource group     |   MyASADemoRG      |  Seleccione **Crear nuevo** y escriba un nuevo nombre de grupo de recursos para la cuenta.       |
    |Location     |   Oeste de EE. UU. 2      |    Ubicación donde se puede implementar el espacio de nombres del centro de eventos.     |
 
@@ -135,7 +135,7 @@ Ahora que tiene un flujo de eventos de llamada, puede crear un trabajo de Stream
    |**Configuración**  |**Valor sugerido**  |**Descripción**  |
    |---------|---------|---------|
    |Nombre del trabajo     |  ASATutorial       |   Un nombre único para identificar el espacio de nombres del centro de eventos.      |
-   |Subscription    |  \<Su suscripción\>   |   Seleccione una suscripción de Azure donde desea crear el trabajo.       |
+   |Suscripción    |  \<Your subscription\>   |   Seleccione una suscripción de Azure donde desea crear el trabajo.       |
    |Resource group   |   MyASADemoRG      |   Seleccione **Use existing** (Usar existente) y, después, escriba un nuevo nombre de grupo de recursos para la cuenta.      |
    |Location   |    Oeste de EE. UU. 2     |      Ubicación donde se puede implementar el trabajo. Es conveniente colocar el trabajo y el centro de eventos en la misma región para obtener el mejor rendimiento y no pagar por transferir datos de una región a otra.      |
    |Entorno de hospedaje    | Nube        |     Los trabajos de Stream Analytics se pueden implementar en la nube o en dispositivos perimetrales. Si elige la nube, podrá implementar en la nube de Azure y, si elige implementar en un dispositivo perimetral, podrá hacerlo en un dispositivo de IoT Edge.    |
@@ -158,7 +158,7 @@ El siguiente paso es definir un origen de entrada para que el trabajo lea los da
    |**Configuración**  |**Valor sugerido**  |**Descripción**  |
    |---------|---------|---------|
    |Alias de entrada     |  CallStream       |  Proporcione un nombre descriptivo para identificar la entrada. El alias de entrada debe tener una longitud de entre 3 y 63 caracteres, y solo puede incluir caracteres alfanuméricos, guiones y guiones bajos.       |
-   |Subscription    |   \<Su suscripción\>      |   Seleccione la suscripción de Azure en la que creó el centro de eventos. El centro de eventos puede estar en la misma suscripción que el trabajo de Stream Analytics, o en otra diferente.       |
+   |Suscripción    |   \<Your subscription\>      |   Seleccione la suscripción de Azure en la que creó el centro de eventos. El centro de eventos puede estar en la misma suscripción que el trabajo de Stream Analytics, o en otra diferente.       |
    |Espacio de nombres del centro de eventos    |  myEventHubsNS       |  Seleccione el espacio de nombres del centro de eventos que creó en la sección anterior. Todos los espacios de nombres del centro de eventos disponibles en su suscripción actual se muestran en la lista desplegable.       |
    |Nombre del centro de eventos    |   MyEventHub      |  Seleccione el centro de eventos que creó en la sección anterior. Todos los centros de eventos disponibles en la suscripción actual se muestran en la lista desplegable.       |
    |Nombre de la directiva del centro de eventos   |  MyPolicy       |  Seleccione la directiva de acceso compartido del centro de eventos que creó en la sección anterior. Todas las directivas de los centros de eventos disponibles en la suscripción actual se muestran en la lista desplegable.       |

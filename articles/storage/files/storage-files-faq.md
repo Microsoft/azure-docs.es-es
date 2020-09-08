@@ -1,18 +1,18 @@
 ---
 title: Preguntas más frecuentes (P+F) sobre Azure Files | Microsoft Docs
-description: Obtenga respuestas a algunas preguntas frecuentes sobre Azure Files.
+description: Obtenga respuestas a las preguntas frecuentes de Azure Files. Los recursos compartidos de archivos de Azure se pueden montar de manera simultánea en implementaciones de Windows, Linux y macOS locales o en la nube.
 author: roygara
 ms.service: storage
 ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 87c1aa4d65b313f4c068ef11c9d2209e9318ef02
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eca9596666b318b71bb1deec64e3a7d037e8fa0d
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482877"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654334"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Preguntas más frecuentes (P+F) sobre Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede acceder mediante el [protocolo de bloque de mensajes del servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) estándar. Los recursos compartidos de archivos de Azure se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. También puede almacenar en caché recursos compartidos de archivos de Azure en máquinas con Windows Server mediante Azure File Sync para tener un acceso rápido cerca de donde se usan los datos.
@@ -54,7 +54,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 
     Un enfoque para obtener lo mejor tanto de Azure Files como de un servidor de archivos hospedado en máquinas virtuales de Azure (además de usar Azure Disks como almacenamiento de back-end) consiste en instalar Azure File Sync en un servidor de archivos hospedado en máquina virtual en la nube. Si el recurso compartido de archivos de Azure se encuentra en la misma región que el servidor de archivos, puede habilitar los niveles en la nube y establecer un porcentaje de espacio libre en el volumen al máximo (99 %). Esto garantiza la duplicación mínima de datos. También puede usar todas las aplicaciones que quiera con los servidores de archivos, como aplicaciones que requieren compatibilidad con el protocolo NFS.
 
-    Para obtener más información sobre una opción para configurar un elevado rendimiento y un servidor de archivos que tenga una alta disponibilidad en Azure, vea [Deploying IaaS VM guest clusters in Microsoft Azure](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/) (Implementación de clústeres invitados de máquinas virtuales de IaaS en Microsoft Azure). Para obtener una explicación más detallada sobre las diferencias entre Azure Files y Azure Disks, vea [Introducción a los servicios principales de Azure Storage](../common/storage-introduction.md). Para obtener más información sobre Azure Disks, vea [Introducción a Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md).
+    Para obtener más información sobre una opción para configurar un elevado rendimiento y un servidor de archivos que tenga una alta disponibilidad en Azure, vea [Deploying IaaS VM guest clusters in Microsoft Azure](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/) (Implementación de clústeres invitados de máquinas virtuales de IaaS en Microsoft Azure). Para obtener una explicación más detallada sobre las diferencias entre Azure Files y Azure Disks, vea [Introducción a los servicios principales de Azure Storage](../common/storage-introduction.md). Para obtener más información sobre Azure Disks, vea [Introducción a Azure Managed Disks](../../virtual-machines/managed-disks-overview.md).
 
 * <a id="get-started"></a>
    **¿Cómo puedo empezar a usar Azure Files?**  
@@ -77,13 +77,14 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
     > [!NOTE]
     > No se pueden crear recursos compartidos de archivos de Azure desde cuentas de almacenamiento de blobs ni desde cuentas de almacenamiento *Premium* de uso general (GPv1 o GPv2). Los recursos compartidos de archivos de Azure estándar deben crearse solo en cuentas de uso general *estándar* y los recursos compartido de archivos de Azure Premium solo deben crearse en cuentas de almacenamiento FileStorage. Las cuentas de almacenamiento *Premium* de uso general (GPv1 y GPv2) son para blobs en páginas Premium solamente. 
 
+* <a id="file-locking"></a>
+   **¿Admite Azure Files el bloqueo de archivos?**  
+    Sí, Azure Files admite el bloqueo de archivos de estilo SMB o Windows, [consulte los detalles](https://docs.microsoft.com/rest/api/storageservices/managing-file-locks).
+
 * <a id="give-us-feedback"></a>
   **Me gustaría que se agregara una característica específica a Azure Files. ¿Pueden agregarla?**  
     El equipo de Azure Files está interesado en conocer todos los comentarios que tenga sobre nuestro servicio. Vote en las solicitudes de características en [UserVoice de Azure Files](https://feedback.azure.com/forums/217298-storage/category/180670-files). Estamos deseando entusiasmarle con muchas características nuevas.
 
-  **¿Azure Files admite el bloqueo de archivos?**  
-    Sí, Azure Files admite el bloqueo de archivos de estilo SMB o Windows, [consulte los detalles](https://docs.microsoft.com/rest/api/storageservices/managing-file-locks). 
-    
 ## <a name="azure-file-sync"></a>Azure File Sync
 
 * <a id="afs-region-availability"></a>
@@ -208,6 +209,13 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
  **¿Qué directivas de cumplimiento de datos admite Azure Files?**  
 
    Azure Files se ejecuta sobre la misma arquitectura de almacenamiento que se usa en otros servicios de almacenamiento de Azure Storage. Azure Files aplica las mismas directivas de cumplimiento de datos que se usan en otros servicios de Azure Storage. Para obtener más información sobre el cumplimiento de datos de Azure Storage, puede consultar [Ofertas de cumplimiento de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings) e ir al [Centro de confianza de Microsoft](https://microsoft.com/trustcenter/default.aspx).
+
+* <a id="file-auditing"></a>
+ **¿Cómo se pueden auditar tanto el acceso a los archivos como los cambios que se realicen en ellos en Azure Files?**
+
+  Hay dos opciones que proporcionan la funcionalidad de auditoría a Azure Files:
+  - Si los usuarios acceden directamente al recurso compartido de archivos de Azure, se pueden usar los [registros de Azure Storage (versión preliminar)](https://docs.microsoft.com/azure/storage/common/monitor-storage?tabs=azure-powershell#logs-in-azure-monitor-preview) para realizar un seguimiento tanto de los cambios en los archivos como del acceso de los usuarios. Estos registros se pueden usar para solucionar problemas y las solicitudes se registran dentro de lo posible.
+  - Si los usuarios acceden al recurso compartido de archivos de Azure a través de un servidor de Windows Server que tiene instalado el agente de Azure File Sync, use una [directiva de auditoría ](https://docs.microsoft.com/windows/security/threat-protection/auditing/apply-a-basic-audit-policy-on-a-file-or-folder) o un producto de terceros para realizar el seguimiento de los cambios en los archivos y el acceso de los usuarios en el servidor de Windows Server. 
    
 ### <a name="ad-ds--azure-ad-ds-authentication"></a>AD DS y autenticación de Azure AD DS
 * <a id="ad-support-devices"></a>
@@ -274,7 +282,6 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
  **¿Hay API REST que admitan las operaciones para obtener, establecer o copiar listas ACL de Windows en directorios o archivos?**
 
     Sí, se admiten las API REST que obtengan, establezcan o copien las listas de control de acceso con formato NTFS para directorios o archivos al usar la API REST de [2019-07-07](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (o posterior). También se admiten listas ACL de Windows persistentes en herramientas basadas en REST: [AzCopy versión 10.4+](https://github.com/Azure/azure-storage-azcopy/releases).
-
 
 ## <a name="on-premises-access"></a>Acceso local
 

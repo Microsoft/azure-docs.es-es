@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con GreenOrbit | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y GreenOrbit.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 93d37c7a-9322-4024-8eec-d57e0317eb10
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/17/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 248b5cf554b743e86f3580174190a93cca1aa8d9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7fc9aeadcfff06d6fa498e838d09dfa9f4bd8054
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67101454"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550034"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-greenorbit"></a>Tutorial: Integración de Azure Active Directory con GreenOrbit
 

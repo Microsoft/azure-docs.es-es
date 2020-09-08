@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/29/2019
 ms.author: memildin
-ms.openlocfilehash: 4d65b43dad80cb130d582132d21e2d10bd8051dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6363100c844d071a3bb47521cec6ff7e988f6af8
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791391"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263242"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Recomendaciones de seguridad en el Centro de seguridad de Azure 
 En este tema se explica cómo ver y entender las recomendaciones de Azure Security Center para ayudar a proteger los recursos de Azure.
@@ -31,14 +31,13 @@ En este tema se explica cómo ver y entender las recomendaciones de Azure Securi
 
 Las recomendaciones son acciones que se deben llevar a cabo para proteger los recursos.
 
-Security Center analiza periódicamente el estado de seguridad de los recursos de Azure para identificar posibles vulnerabilidades de seguridad. A continuación, proporciona recomendaciones sobre cómo quitarlas.
+Security Center analiza periódicamente el estado de seguridad de los recursos de Azure para identificar posibles puntos vulnerables de la seguridad. A continuación, se proporcionan recomendaciones sobre cómo corregir dichos puntos vulnerables.
 
 Cada recomendación le proporciona:
 
-- Una breve descripción de lo que se recomienda.
-- Los pasos de corrección que se deben llevar a cabo para implementar la recomendación. <!-- In some cases, Quick Fix remediation is available. -->
-- Los recursos necesarios para realizar la acción recomendada.
-- El **impacto de la puntuación segura**, que es la cantidad que aumentará la puntuación de seguridad si se implementa esta recomendación.
+- Descripción breve de la regla.
+- Los pasos de corrección que se deben llevar a cabo para implementar la recomendación.
+- Recursos afectados.
 
 ## <a name="monitor-recommendations"></a>Supervisión de recomendaciones<a name="monitor-recommendations"></a>
 
@@ -48,26 +47,28 @@ Security Center analiza el estado de seguridad de los recursos para identificar 
 
 1. Seleccione el **icono de Recomendaciones** en **Información general**. Se abre la lista **Recomendaciones**.
 
-      ![Ver recomendaciones](./media/security-center-recommendations/view-recommendations.png)
+1. Las recomendaciones se agrupan en controles de seguridad.
 
-    Puede filtrar las recomendaciones. Para ello, seleccione **Filtro** en la hoja **Recomendaciones**. Se abrirá la hoja **Filtro** , donde podrá seleccionar los valores de gravedad y de estado que quiera ver.
+      ![Recomendaciones agrupadas por control de seguridad](./media/security-center-recommendations/view-recommendations.png)
 
-   * **RECOMENDACIONES**: la recomendación.
-   * **IMPACTO DE LA PUNTUACIÓN SEGURA**: puntuación que genera Security Center mediante sus recomendaciones de seguridad y la aplicación de algoritmos avanzados para determinar la importancia de cada recomendación. Para obtener más información, consulte [Cálculo de Puntuación segura](secure-score-security-controls.md#how-your-secure-score-is-calculated).
-   * **RECURSO**: enumera los recursos a los que se aplica la recomendación.
-   * **BARRAS DE ESTADO**:  describe la gravedad de una recomendación concreta:
-       * **Alta (rojo)** : existe una vulnerabilidad en un recurso importante (como una aplicación, una máquina virtual o un grupo de seguridad de red) y requiere atención.
-       * **Media (naranja)** : existe una vulnerabilidad y se requieren pasos adicionales o no críticos para eliminarla o completar un proceso.
-       * **Baja (azul)** : existe una vulnerabilidad que se debe abordar, pero no requiere una atención inmediata. (De manera predeterminada no se muestran las recomendaciones bajas, pero si desea verlas, puede filtrar por ellas). 
-       * **Correcto (verde)** :
-       * **No disponible (gris)** :
+1. Expanda un control y seleccione una recomendación concreta para ver la página de recomendaciones.
 
-1. Para ver los detalles de cada recomendación, haga clic en la recomendación.
+    :::image type="content" source="./media/security-center-recommendations/recommendation-details-page.png" alt-text="Página de detalles de recomendación" lightbox="./media/security-center-recommendations/recommendation-details-page.png":::
 
-    ![Detalles de recomendación](./media/security-center-recommendations/recommendation-details.png)
+    La página incluye:
 
->[!NOTE] 
-> Consulte los [modelos de implementación clásico y de Resource Manager](../azure-classic-rm.md) de los recursos de Azure.
+    - **Indicador de gravedad**
+    - **Intervalo de actualización** (si procede) 
+    - **Descripción**: una breve descripción del problema
+    - **Pasos de corrección**: una descripción de los pasos manuales necesarios para corregir el problema de seguridad en los recursos afectados Para obtener recomendaciones con "corrección rápida", puede seleccionar **Ver lógica de corrección** antes de aplicar la corrección sugerida a los recursos. 
+    - **Recursos afectados**: los recursos se agrupan en pestañas:
+        - **Recursos con estado correcto**: recursos relevantes que no se ven afectados o en los que ya se ha corregido el problema.
+        - **Recursos con estado incorrecto**: recursos que todavía se ven afectados por el problema identificado.
+        - **Recursos no aplicables**: recursos para los que la recomendación no puede dar una respuesta definitiva. La pestaña no aplicable también incluye las razones de cada recurso. 
+
+            :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="Los recursos no aplicables con motivos":::.
+
+
  
 ## <a name="next-steps"></a>Pasos siguientes
 

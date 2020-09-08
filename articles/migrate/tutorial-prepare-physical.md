@@ -4,12 +4,12 @@ description: Aprenda a prepararse para la evaluación y migración de servidores
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 55e6039e5844c575808210cde7ee348f658b40ec
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: aba1608c9219e7e8dffe66344b04fa3f085b06f3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420794"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927381"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Preparación de la evaluación y migración de servidores físicos a Azure
 
@@ -40,6 +40,7 @@ Configure Azure para que funcione con Azure Migrate.
 **Crear un proyecto de Azure Migrate** | La cuenta de Azure necesita permisos de colaborador o propietario para crear un proyecto. 
 **Registro de proveedores de recursos (solo evaluación)** | Azure Migrate usa un dispositivo ligero propio para detectar y evaluar máquinas con Azure Migrate Server Assessment.<br/><br/> Durante el registro de la aplicación, los proveedores de recursos se registran con la suscripción elegida en la aplicación. [Más información](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Para registrar los proveedores de recursos debe tener el rol colaborador o propietario de la suscripción.
 **Creación de aplicaciones de Azure AD (solo evaluación)** | Al registrar el dispositivo, Azure Migrate crea una aplicación de Azure Active Directory (Azure AD) que se usa para la comunicación entre los agentes que se ejecutan en el dispositivo con sus respectivos servicios que se ejecutan en Azure. [Más información](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Para crear aplicaciones de Azure AD, se necesitan permisos (disponibles en el Desarrollador de aplicaciones).
+**Crear un almacén de claves** | La instancia de Key Vault se crea como parte del registro del dispositivo y se usa para la administración del certificado que se descargó en el dispositivo durante su configuración.<br/><br/>Para permitir que Azure Migrate cree la instancia de Key Vault, la cuenta de Azure necesita permisos de colaborador en el grupo de recursos en el que reside el proyecto de Azure Migrate.
 
 
 ### <a name="assign-permissions-to-create-project"></a>Asignación de permisos para crear un proyecto 

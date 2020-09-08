@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 9213ef03f383dec7109652246411fac154b4a7f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 74d07076fb322214348d52fe65dbc98bdff3cd44
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78302515"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798268"
 ---
 # <a name="log-azure-cosmos-db"></a>LOG (Azure Cosmos DB)
  Devuelve el algoritmo natural de la expresión numérica especificada.  
@@ -41,7 +41,9 @@ LOG (<numeric_expr> [, <base>])
   
   El logaritmo natural es el logaritmo en base **e**, donde **e** es una constante irracional aproximadamente igual a 2,718281828.  
   
-  El logaritmo natural del valor exponencial de un número es el mismo número: LOG (EXP [n]) = n. Y el valor exponencial del logaritmo natural de un número es el mismo número: EXP (LOG [n]) = n.  
+  El logaritmo natural del valor exponencial de un número es el mismo número: LOG (EXP [n]) = n. Y el valor exponencial del logaritmo natural de un número es el mismo número: EXP (LOG [n]) = n.
+
+  Esta función del sistema no usará el índice.
   
 ## <a name="examples"></a>Ejemplos
   
@@ -68,10 +70,6 @@ SELECT EXP(LOG(10)) AS expLog
 ```json
 [{expLog: 10.000000000000002}]  
 ```  
-
-## <a name="remarks"></a>Observaciones
-
-Esta función del sistema no usará el índice.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

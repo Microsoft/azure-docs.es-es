@@ -10,12 +10,13 @@ ms.date: 05/15/2019
 ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: a8c53dd2755f239763ff572e34dbdf7f73caa8a4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+- devx-track-csharp
+ms.openlocfilehash: a451e13b39aea27b4f1e23f9faa30f4b11c1cff1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327725"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021245"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Uso del enrutamiento de mensajes de IoT Hub para enviar mensajes del dispositivo a la nube a distintos puntos de conexión
 
@@ -37,7 +38,6 @@ Un centro de IoT tiene un punto de conexión integrado predeterminado (**mensaje
 
 Cada mensaje se enruta a todos los puntos de conexión cuyas consultas se correspondan con el mensaje. En otras palabras, un mensaje se puede enrutar a varios puntos de conexión.
 
-
 Si el punto de conexión personalizado tiene configuraciones de firewall, considere la posibilidad de usar excepciones propias de confianza de Microsoft, para conceder a su IoT Hub acceso al punto de conexión específico: [Azure Storage](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing), [Azure Event Hubs](./virtual-network-support.md#egress-connectivity-to-event-hubs-endpoints-for-routing) y [Azure Service Bus](./virtual-network-support.md#egress-connectivity-to-service-bus-endpoints-for-routing). Esto está disponible en disponibles en las regiones seleccionadas para centros de IoT con [identidad de servicio administrada](./virtual-network-support.md).
 
 IoT Hub admite actualmente los siguientes puntos de conexión:
@@ -47,19 +47,23 @@ IoT Hub admite actualmente los siguientes puntos de conexión:
  - Colas de Service Bus y temas de Service Bus
  - Event Hubs
 
-### <a name="built-in-endpoint"></a>Punto de conexión integrado
+## <a name="built-in-endpoint-as-a-routing-endpoint"></a>Punto de conexión integrado como punto de conexión de enrutamiento
 
 Puede usar la [integración y los SDK de Event Hubs](iot-hub-devguide-messages-read-builtin.md) estándar para recibir mensajes del dispositivo a la nube desde el punto de conexión integrado (**mensajes y eventos**). Una vez que se crea una ruta, los datos dejan de fluir al punto de conexión integrado, a menos que se cree una ruta a ese punto de conexión.
 
-### <a name="azure-storage"></a>Azure Storage
+## <a name="azure-storage-as-a-routing-endpoint"></a>Azure Storage como punto de conexión de enrutamiento
 
 Hay dos servicios de almacenamiento a los que IoT Hub puede enrutar mensajes: a cuentas de [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) y [Azure Data Lake Storage Gen2 ](../storage/blobs/data-lake-storage-introduction.md) (ADLS Gen2). Las cuentas de Azure Data Lake Storage son cuentas de almacenamiento habilitadas para [espacios de nombres jerárquicos](../storage/blobs/data-lake-storage-namespace.md) que se basan en Blob Storage. Ambas usan blobs para su almacenamiento.
 
-IoT Hub admite la escritura de datos en Azure Storage con los formatos [Apache Avro](https://avro.apache.org/) y JSON. El valor predeterminado es AVRO. El formato de codificación solo se puede establecer cuando se configura el punto de conexión de Blob Storage. El formato no se puede editar para un punto de conexión existente. Cuando se usa la codificación JSON, debe establecer contentType en **application/json** y contentEncoding en **UTF-8** en las [propiedades del sistema](iot-hub-devguide-routing-query-syntax.md#system-properties) del mensaje. Ambos valores no distinguen mayúsculas de minúsculas. Si no está establecida la codificación del contenido, IoT Hub escribirá los mensajes en formato codificado de base 64. Puede seleccionar el formato de codificación mediante la API REST Crear o actualizar de IoT Hub, específicamente [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure Portal, la [CLI de Azure](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest) o [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint). En el siguiente diagrama se muestra cómo seleccionar el formato de codificación en Azure Portal.
+IoT Hub admite la escritura de datos en Azure Storage con los formatos [Apache Avro](https://avro.apache.org/) y JSON. El valor predeterminado es AVRO. Cuando se usa la codificación JSON, debe establecer contentType en **application/json** y contentEncoding en **UTF-8** en las [propiedades del sistema](iot-hub-devguide-routing-query-syntax.md#system-properties) del mensaje. Ambos valores no distinguen mayúsculas de minúsculas. Si no está establecida la codificación del contenido, IoT Hub escribirá los mensajes en formato codificado de base 64.
+
+El formato de codificación solo se puede establecer cuando se configura el punto de conexión de Blob Storage. No se puede editar desde un punto de conexión existente. Para cambiar los formatos de codificación de un punto de conexión existente, debe eliminar y volver a crear el punto de conexión personalizado con el formato que quiera. Una estrategia útil podría ser crear un nuevo punto de conexión personalizado con el formato de codificación deseado y agregar una ruta paralela a ese punto de conexión. De esta manera, puede comprobar los datos antes de eliminar el punto de conexión existente.
+
+Puede seleccionar el formato de codificación mediante la API REST Crear o actualizar de IoT Hub, específicamente [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure Portal, la [CLI de Azure](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest) o [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint). En la siguiente imagen se muestra cómo seleccionar el formato de codificación en Azure Portal.
 
 ![Codificación de puntos de conexión de Blob Storage](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
-IoT Hub agrupa los mensajes por lotes y escribe los datos en un almacenamiento cuando el lote llega a cierto tamaño o después de transcurrir cierta cantidad de tiempo. IoT Hub asume como valor predeterminado la convención de nomenclatura de archivos siguiente: 
+IoT Hub agrupa los mensajes por lotes y escribe los datos en un almacenamiento cuando el lote llega a cierto tamaño o después de transcurrir cierta cantidad de tiempo. IoT Hub asume como valor predeterminado la convención de nomenclatura de archivos siguiente:
 
 ```
 {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
@@ -89,12 +93,11 @@ Para crear una cuenta de almacenamiento compatible con Azure Data Lake Gen2, cre
 
 ![Seleccione el almacenamiento de Azure Date Lake Gen2.](./media/iot-hub-devguide-messages-d2c/selectadls2storage.png)
 
-
-### <a name="service-bus-queues-and-service-bus-topics"></a>Colas de Service Bus y temas de Service Bus
+## <a name="service-bus-queues-and-service-bus-topics-as-a-routing-endpoint"></a>Colas y temas de Service Bus como punto de conexión de enrutamiento
 
 Las colas y los temas de Service Bus usados como puntos de conexión de IoT Hub no deben tener habilitadas las opciones **Sesiones** o **Detección de duplicados**. Si cualquiera de estas opciones está habilitada, el punto de conexión aparece como **Inaccesible** en Azure Portal.
 
-### <a name="event-hubs"></a>Event Hubs
+## <a name="event-hubs-as-a-routing-endpoint"></a>Event Hubs como punto de conexión de enrutamiento
 
 Aparte del punto de conexión compatible con Event Hubs integrado, también puede enrutar los datos a puntos de conexión personalizados de tipo Event Hubs. 
 

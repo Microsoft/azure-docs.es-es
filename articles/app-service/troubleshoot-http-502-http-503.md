@@ -7,12 +7,12 @@ ms.assetid: 51cd331a-a3fa-438f-90ef-385e755e50d5
 ms.topic: article
 ms.date: 07/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 9cb672f2ada88b1fc67bcd8f022c5faeeac6dddf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a41c5912ec285094c1f47540caf3744ddd4d469
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84170807"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958333"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>Solucionar los errores HTTP de "502 Puerta de enlace no válida" y "503 Servicio no disponible" en Azure App Service
 "502 Puerta de enlace no válida" y "503 Servicio no disponible" son errores comunes de su aplicación hospedada en [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Este artículo le ayuda a solucionar estos errores.
@@ -42,7 +42,7 @@ El procedimiento de solución de problemas se puede dividir en tres tareas disti
 
 ### <a name="1-observe-and-monitor-application-behavior"></a>1. Observación y supervisión del comportamiento de la aplicación
 #### <a name="track-service-health"></a>Seguimiento del estado del servicio
-Cada vez que hay una interrupción del servicio o una degradación del rendimiento, Microsoft Azure lo anuncia. Puede realizar un seguimiento del estado del servicio en el [Azure Portal](https://portal.azure.com/). Para más información, consulte [Track service health](../monitoring-and-diagnostics/insights-service-health.md) (Seguimiento del estado del servicio).
+Cada vez que hay una interrupción del servicio o una degradación del rendimiento, Microsoft Azure lo anuncia. Puede realizar un seguimiento del estado del servicio en el [Azure Portal](https://portal.azure.com/). Para más información, consulte [Track service health](../service-health/service-notifications.md) (Seguimiento del estado del servicio).
 
 #### <a name="monitor-your-app"></a>Supervise la aplicación
 Esta opción le permite averiguar si la aplicación tiene problemas. En la hoja de la aplicación, haga clic en el icono **Solicitudes y errores**. La hoja **Métrica** mostrará todas las métricas que puede agregar.
@@ -60,7 +60,7 @@ Algunas de las métricas que podría querer supervisar para su aplicación son:
 Para más información, consulte:
 
 * [Supervisión de aplicaciones en Azure App Service](web-sites-monitor.md)
-* [Recibir notificaciones de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
+* [Recibir notificaciones de alerta](../azure-monitor/platform/alerts-overview.md)
 
 <a name="collect"></a>
 
@@ -108,5 +108,4 @@ Suele ser la manera más sencilla de recuperarse de problemas que solo tienen lu
 
  ![reiniciar la aplicación para solucionar los errores HTTP de 502 Puerta de enlace no válida y 503 Servicio no disponible](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
-También puede administrar la aplicación con Azure Powershell. Para obtener más información, vea [Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md).
-
+También puede administrar la aplicación con Azure Powershell. Para obtener más información, vea [Uso de Azure PowerShell con el Administrador de recursos de Azure](../azure-resource-manager/management/manage-resources-powershell.md).

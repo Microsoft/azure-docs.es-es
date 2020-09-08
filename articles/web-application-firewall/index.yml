@@ -9,15 +9,15 @@ metadata:
   ms.topic: landing-page
   author: vhorne
   ms.author: victorh
-  ms.date: 03/27/2020
-  ms.openlocfilehash: 023755687ccee87a3e08cb3a089ad56f196bcbff
-  ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+  ms.date: 09/02/2020
+  ms.openlocfilehash: 31896c34c8bfc265dd16b5b6d317e211b310260f
+  ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 04/16/2020
-  ms.locfileid: "81536563"
+  ms.lasthandoff: 09/02/2020
+  ms.locfileid: "89396750"
 landingContent:
-- title: Información general
+- title: Acerca del firewall de aplicaciones web
   linkLists:
   - linkListType: overview
     links:
@@ -29,6 +29,14 @@ landingContent:
       url: ./afds/afds-overview.md
     - text: Firewall de aplicaciones web en Azure CDN
       url: ./cdn/cdn-overview.md
+  - linkListType: concept
+    links:
+    - text: 'Preguntas frecuentes: Application Gateway'
+      url: ./ag/application-gateway-waf-faq.md
+    - text: 'Preguntas frecuentes: Front Door'
+      url: ./afds/waf-faq.md
+    - text: Novedades
+      url: https://azure.microsoft.com/updates/?category=networking&query=Web%20Application%20Firewall
 - title: Introducción
   linkLists:
   - linkListType: tutorial

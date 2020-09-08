@@ -15,14 +15,18 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: xpouyat
 ms.reviewer: anilmur;juliako
-ms.openlocfilehash: 4a51a67200ec411f0f9362bc92bf7926f221b1f2
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 36a1a198f4bd2279a9d9b8b9700b1ddd038a0900
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056810"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89256674"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Uso del codificador Premium con varios archivos de entrada y propiedades de los componentes
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## <a name="overview"></a>Información general
 Hay escenarios en los que podría ser necesario personalizar las propiedades de los componentes, especificar el contenido XML de lista de clips o enviar varios archivos de entrada al enviar una tarea con el procesador de multimedia del **flujo de trabajo de Codificador multimedia Premium** . Ejemplos:
 

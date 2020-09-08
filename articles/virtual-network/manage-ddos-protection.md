@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: ed311e9c8031f8586762d2adc4c104545e323bc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73036ba1a72d657fd07a826bbee8651781f70e9b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711517"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88931971"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Administración de Protección contra DDoS de Azure estándar mediante Azure Portal
 
@@ -61,7 +61,7 @@ En la mayoría de las organizaciones, no es necesario crear más de un plan. Un 
     | Subscription    | Seleccione su suscripción.                                    |
     | Resource group  | Seleccione **Usar existente** y, luego, seleccione **myResourceGroup** |
     | Location        | Este de EE. UU.                                                      |
-    | Protección contra DDOS | Seleccione **Estándar** y, luego, en **Protección contra DDoS**, seleccione **myDdosProtectionPlan**. El plan que selecciona puede estar en la misma suscripción que la red virtual, o una suscripción distinta, pero ambas suscripciones deben estar asociadas al mismo inquilino de Azure Active Directory.|
+    | DDoS Protection Standard | Seleccione **Habilitar**. El plan que selecciona puede estar en la misma suscripción que la red virtual, o una suscripción distinta, pero ambas suscripciones deben estar asociadas al mismo inquilino de Azure Active Directory.|
 
 No puede mover una red virtual a otro grupo de recursos ni a otra suscripción si DDoS Standard está habilitado para la red virtual. Si tiene que mover una red virtual que tenga habilitado DDoS Standard, primero deshabilítelo, mueva la red virtual y, luego, habilite DDoS Standard. Después de eso, se restablecen los umbrales de directiva ajustados automáticamente para todas las direcciones IP públicas protegidas en la red virtual.
 
@@ -81,8 +81,7 @@ No puede mover una red virtual a otro grupo de recursos ni a otra suscripción s
 ## <a name="disable-ddos-for-a-virtual-network"></a>Deshabilitación de DDoS para una red virtual
 
 1. Escriba el nombre de la red virtual para la que desea deshabilitar DDoS Protection Standard en el cuadro **Buscar recursos, servicios y documentos** en la parte superior del portal. Seleccione el nombre de la red virtual cuando aparezca en los resultados de la búsqueda.
-2. Seleccione **Protección DDoS** en **CONFIGURACIÓN**.
-3. Seleccione **Básico** en **Plan de protección contra DDoS** y, luego, seleccione **Guardar**.
+2. Seleccione **En DDoS Protection estándar**, seleccione **Deshabilitar**.
 
 **Comandos** 
 - CLI de Azure: [az network ddos-protection delete](https://docs.microsoft.com/cli/azure/network/ddos-protection?view=azure-cli-latest#az-network-ddos-protection-delete)

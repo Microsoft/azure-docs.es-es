@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con EFI Digital StoreFront | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y EFI Digital StoreFront.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 33c148fc-d490-4bb9-90c1-d5933679ce4e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 270b3e7059ffa1de6c53af2ece1ee5b44300af5a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 336e6cf5e9538dd9e95116d20e285e0443ad0540
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73158367"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544356"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-efi-digital-storefront"></a>Tutorial: Integración de Azure Active Directory con EFI Digital StoreFront
 

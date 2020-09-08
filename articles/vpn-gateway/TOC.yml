@@ -2,7 +2,7 @@
   href: index.yml
 - name: Información general
   items:
-    - name: Acerca de VPN Gateway
+    - name: ¿Qué es VPN Gateway?
       href: vpn-gateway-about-vpngateways.md
 - name: Tutoriales
   items:

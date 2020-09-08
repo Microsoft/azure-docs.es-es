@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: b49669dac2b28dac631f71b9cd07c0851ff8df05
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 42ec5a661bd7b42ba5de5bfa99b3898291cc60fa
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448850"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935609"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Registros de Azure Monitor para el equilibrador de carga básica público
 
@@ -29,7 +29,7 @@ Puede usar diferentes tipos de registros en Azure para administrar y solucionar 
 * **Registro de sondeo de estado:** puede utilizar este registro para ver los problemas detectados por el sondeo de estado, como el número de instancias en el grupo back-end que no reciben las solicitudes del equilibrador de carga debido a errores de sondeo de estado. Este registro se escribe cuando se produce un cambio en el estatus del sondeo de estado.
 
 > [!IMPORTANT]
-> **Los registros de eventos de sondeo de estado no funcionan en la actualidad y aparecen listados en los [problemas conocidos de Azure Load Balancer](whats-new.md#known-issues).** Los registros de Azure Monitor solo funcionan con los equilibradores de carga públicos. Los registros solo están disponibles para los recursos implementados en el modelo de implementación del Administrador de recursos. No puede usar los registros de recursos del modelo de implementación clásica. Para más información sobre estos modelos de implementación, consulte [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/management/deployment-models.md) (Descripción de la implementación de Resource Manager y la implementación clásica).
+> **Los registros de eventos de sondeo de estado no funcionan en la actualidad y aparecen listados en los [problemas conocidos de Azure Load Balancer](whats-new.md#known-issues).** Los registros solo están disponibles para los recursos implementados en el modelo de implementación del Administrador de recursos. No puede usar los registros de recursos del modelo de implementación clásica. Para más información sobre estos modelos de implementación, consulte [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/management/deployment-models.md) (Descripción de la implementación de Resource Manager y la implementación clásica).
 
 ## <a name="enable-logging"></a>Habilitar registro
 

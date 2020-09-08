@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: cc270ebb12b27c6461b00a4f7042bc3c829d02ef
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: ecd402c30fee63ad594fff5e4fdc3b1610fe7e4e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87812260"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003888"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Solución de problemas de Azure Digital Twins: Métricas
 
@@ -24,7 +24,7 @@ Las métricas están habilitadas de forma predeterminada. Puede ver las métrica
 
 1. Cree una instancia de Azure Digital Twins. Puede encontrar instrucciones sobre cómo configurar una instancia de Azure Digital Twins en [*Procedimiento: Configuración de una instancia y autenticación*](how-to-set-up-instance-scripted.md).
 
-2. Busque la instancia de Azure Digital Twins en [Azure Portal](https:/portal.azure.com) (puede abrir la página correspondiente escribiendo su nombre en la barra de búsqueda del portal). 
+2. Busque la instancia de Azure Digital Twins en [Azure Portal](https://portal.azure.com) (puede abrir la página correspondiente escribiendo su nombre en la barra de búsqueda del portal). 
 
     En el menú de la instancia, seleccione **Métricas**.
    
@@ -32,9 +32,14 @@ Las métricas están habilitadas de forma predeterminada. Puede ver las métrica
 
     En esta página se muestran las métricas de la instancia de Azure Digital Twins. También puede crear vistas personalizadas de las métricas seleccionando las que quiera ver en la lista.
     
-3. Puede elegir entre enviar los datos de las métricas a un punto de conexión de Event Hubs o a una cuenta de Azure Storage haciendo clic en **Configuración de diagnóstico** en el menú y luego en **Agregar configuración de diagnóstico**.
+3. Para elegir entre enviar los datos de las métricas a un punto de conexión de Event Hubs o a una cuenta de Azure Storage, seleccione **Configuración de diagnóstico** en el menú y, luego, **Agregar configuración de diagnóstico**.
 
-    :::image type="content" source="media/troubleshoot-metrics/diagnostic-settings.png" alt-text="Captura de pantalla que muestra la página de configuración de diagnóstico y el botón para agregarla":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Captura de pantalla que muestra la página de configuración de diagnóstico y el botón para agregarla":::
+
+    Para más información sobre este proceso, consulte [*Solución de problemas: Configuración de diagnósticos*](troubleshoot-diagnostics.md).
+
+4. Para optar por configurar alertas para los datos de métricas, seleccione **Alertas** en el menú y, a continuación, **+ Nueva regla de alerta**.
+    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Captura de pantalla que muestra la página Alertas y el botón para agregar":::
 
     Para más información sobre este proceso, consulte [*Solución de problemas: Configuración de diagnósticos*](troubleshoot-diagnostics.md).
 
@@ -83,9 +88,9 @@ Métricas relacionadas con el enrutamiento:
 
 | Métrica | Nombre para mostrar de la métrica | Unidad | Tipo de agregación| Descripción | Dimensions |
 | --- | --- | --- | --- | --- | --- |
-| MessagesRouted | Mensajes enrutados (versión preliminar) | Count | Total | Número de mensajes que se enrutan a un servicio de Azure de punto de conexión, como Event Hubs, Service Bus o Event Grid. | Operación, <br>Resultado |
-| RoutingFailureRate | Frecuencia de errores de enrutamiento (versión preliminar) | Percent | Average | Porcentaje de eventos que producen un error a medida que se enrutan desde Azure Digital Twins a un servicio de Azure de punto de conexión, como Event Hubs, Service Bus o Event Grid. | Operación, <br>Resultado |
-| RoutingLatency | Latencia de enrutamiento (versión preliminar) | Milisegundos | Average | Tiempo transcurrido entre el enrutamiento de un evento desde Azure Digital Twins hasta su publicación en el servicio de Azure de punto de conexión, como Event Hubs, Service Bus o Event Grid. | Operación, <br>Resultado |
+| MessagesRouted | Mensajes enrutados (versión preliminar) | Count | Total | Número de mensajes que se enrutan a un servicio de Azure de punto de conexión, como Event Hubs, Service Bus o Event Grid. | Tipo de punto de conexión <br>Resultado |
+| RoutingFailureRate | Frecuencia de errores de enrutamiento (versión preliminar) | Percent | Average | Porcentaje de eventos que producen un error a medida que se enrutan desde Azure Digital Twins a un servicio de Azure de punto de conexión, como Event Hubs, Service Bus o Event Grid. | Tipo de punto de conexión <br>Resultado |
+| RoutingLatency | Latencia de enrutamiento (versión preliminar) | Milisegundos | Average | Tiempo transcurrido entre el enrutamiento de un evento desde Azure Digital Twins hasta su publicación en el servicio de Azure de punto de conexión, como Event Hubs, Service Bus o Event Grid. | Tipo de punto de conexión <br>Resultado |
 
 ## <a name="dimensions"></a>Dimensions
 
@@ -95,7 +100,7 @@ Las dimensiones ayudan a identificar más detalles sobre las métricas. Algunas 
 | --- | --- |
 | Autenticación | OAuth |
 | Operación (para las solicitudes de API) | Microsoft.DigitalTwins/digitaltwins/delete, <br>Microsoft.DigitalTwins/digitaltwins/write, <br>Microsoft.DigitalTwins/digitaltwins/read, <br>Microsoft.DigitalTwins/eventroutes/read, <br>Microsoft.DigitalTwins/eventroutes/write, <br>Microsoft.DigitalTwins/eventroutes/delete, <br>Microsoft.DigitalTwins/models/read, <br>Microsoft.DigitalTwins/models/write, <br>Microsoft.DigitalTwins/models/delete, <br>Microsoft.DigitalTwins/query/action |
-| Operación (para el enrutamiento) | Event Grid, <br>Event Hub, <br>Service Bus |
+| Tipo de punto de conexión | Event Grid, <br>Event Hub, <br>Service Bus |
 | Protocolo | HTTPS |
 | Resultado | Correcto, <br>Error |
 | Código de estado | 200, 404, 500, etc. |

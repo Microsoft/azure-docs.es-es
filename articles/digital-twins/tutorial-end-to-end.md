@@ -1,5 +1,5 @@
 ---
-title: Conexión de una solución de un extremo a otro
+title: 'Tutorial: Conexión de una solución de un extremo a otro.'
 titleSuffix: Azure Digital Twins
 description: Tutorial para crear soluciones de Azure Digital Twins de un extremo a otro controladas por los datos de los dispositivos.
 author: baanders
@@ -7,22 +7,23 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: aae1797f7f1a252a4f094ee9f1b079fb60ba72f3
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: b22505d5152b005a054d36fafb965006d04b201e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131759"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401782"
 ---
-# <a name="build-out-an-end-to-end-solution"></a>Creación de soluciones de un extremo a otro
+# <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Creación de soluciones de un extremo a otro
 
 Para configurar una solución de un extremo a otro controlada por los datos en directo de su entorno, puede conectar su instancia de Azure Digital Twins a otros servicios de Azure para la administración tanto de los dispositivos como de los datos.
 
 En este tutorial:
-* Configurará una instancia de Azure Digital Twins.
-* Obtendrá información acerca del escenario del edificio de ejemplo y creará instancias de los componentes que se han escrito previamente.
-* Usará una aplicación de [Azure Functions](../azure-functions/functions-overview.md) para enrutar los datos de telemetría simulados de un dispositivo de [IoT Hub](../iot-hub/about-iot-hub.md) en las propiedades de gemelos digitales.
-* Propagará los cambios con el **grafo de gemelos**, mediante el procesamiento de las notificaciones de los gemelos digitales con Azure Functions, puntos de conexión y rutas.
+> [!div class="checklist"]
+> * Configurará una instancia de Azure Digital Twins.
+> * Obtendrá información acerca del escenario del edificio de ejemplo y creará instancias de los componentes que se han escrito previamente.
+> * Usará una aplicación de [Azure Functions](../azure-functions/functions-overview.md) para enrutar los datos de telemetría simulados de un dispositivo de [IoT Hub](../iot-hub/about-iot-hub.md) en las propiedades de gemelos digitales.
+> * Propagará los cambios con el **grafo de gemelos**, mediante el procesamiento de las notificaciones de los gemelos digitales con Azure Functions, puntos de conexión y rutas.
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
@@ -95,6 +96,20 @@ El siguiente paso es configurar una [aplicación de Azure Functions](../azure-fu
 
 En esta sección, publicará la aplicación de funciones previamente escrita y se asegurará de que esta pueda acceder a Azure Digital Twins, asignándole una identidad de Azure Active Directory (Azure AD). Si se realizan estos pasos, el resto del tutorial podrá usar las funciones dentro de la aplicación de funciones. 
 
+De vuelta en la ventana de Visual Studio en la que está abierto el proyecto _**AdtE2ESample**_ la aplicación de funciones se encuentra en el archivo del proyecto _**SampleFunctionsApp**_. Puede verla en el panel *Explorador de soluciones*.
+
+### <a name="update-dependencies"></a>Actualización de las dependencias
+
+Antes de publicar la aplicación, se recomienda asegurarse de que las dependencias están actualizadas y de que tiene la versión más reciente de todos los paquetes incluidos.
+
+En el panel *Explorador de soluciones*, expanda *SampleFunctionsApp > Dependencias*. Haga clic con el botón derecho en *Paquetes* y elija *Administrar paquetes NuGet...* .
+
+:::image type="content" source="media/tutorial-end-to-end/update-dependencies-1.png" alt-text="Visual Studio: Administrar paquetes NuGet para el proyecto SampleFunctionsApp" border="false":::
+
+Se abrirá el Administrador de paquetes NuGet. Seleccione la pestaña *Actualizaciones* y, si hay paquetes que actualizar, active la casilla *Seleccionar todos los paquetes*. A continuación, pulse *Actualizar*.
+
+:::image type="content" source="media/tutorial-end-to-end/update-dependencies-2.png" alt-text="Visual Studio: Seleccionar la actualización de todos los paquetes en el Administrador de paquetes NuGet":::
+
 ### <a name="publish-the-app"></a>Publicación de la aplicación
 
 De vuelta a la ventana de Visual Studio en la que el proyecto _**AdtE2ESample**_ está abierto, en el *Explorador de soluciones*, seleccione con el botón derecho el archivo del proyecto _**SampleFunctionsApp**_ y pulse **Publicar**.
@@ -134,19 +149,21 @@ En el panel *Publish* (Publicar) que se abre en la ventana principal de Visual 
 :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-6.png" alt-text="Publicar una función de Azure en Visual Studio: publicar":::
 
 > [!NOTE]
-> Puede ver un elemento desplegable como este: :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Publicar una función de Azure en Visual Studio: publicar credenciales" border="false":::
-> En ese caso, seleccione **Attempt to retrieve credentials from Azure** (Intentar recuperar credenciales de Azure) y **Save** (Guardar).
+> Si ve un elemento emergente similar al siguiente: :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Publicar una función de Azure en Visual Studio: publicar credenciales" border="false":::
+> Seleccione **Attempt to retrieve credentials from Azure** (Intentar recuperar credenciales de Azure) y **Save** (Guardar).
 >
-> Si ve una advertencia en la que se indica que *la versión del entorno de ejecución de Functions no coincide con la versión que se ejecuta en Azure*, siga las indicaciones para actualizar a la última versión del entorno de ejecución de Azure Functions. Este problema puede producirse si usa una versión de Visual Studio anterior a la recomendada en la sección *Requisitos previos* al principio de este tutorial.
+> Si ve una advertencia en la que se indica que *actualice la versión de Functions en Azure* o que *la versión del entorno de ejecución de Functions no coincide con la versión que se ejecuta en Azure*:
+>
+> siga las indicaciones para actualizar a la versión más reciente del entorno de ejecución de Azure Functions. Este problema puede producirse si usa una versión de Visual Studio anterior a la recomendada en la sección *Requisitos previos* al principio de este tutorial.
 
 ### <a name="assign-permissions-to-the-function-app"></a>Asignación de permisos a la aplicación de funciones
 
-Para habilitar la aplicación de funciones para acceder a Azure Digital Twins, el siguiente paso es configurar el valor de una aplicación, asignar a la aplicación una identidad de Azure AD administrada por el sistema y dar al *propietario* de esta identidad permisos en la instancia de Azure Digital Twins.
+Para permitir que la aplicación de funciones acceda a Azure Digital Twins, el siguiente paso es establecer una configuración de la aplicación, asignar a la aplicación una identidad de Azure AD administrada por el sistema y asignar a esta identidad el rol *Propietario de Azure Digital Twins (versión preliminar)* en la instancia de Azure Digital Twins. Este rol es necesario para cualquier usuario o función que desee realizar muchas actividades en el plano de datos en la instancia. Más información sobre la seguridad y las asignaciones de roles en [*Conceptos: Seguridad para las soluciones de Azure Digital Twins*](concepts-security.md).
 
-En Azure Cloud Shell, use el siguiente comando para establecer una configuración de la aplicación que la aplicación de funciones usará para hacer referencia a la instancia de los gemelos digitales.
+En Azure Cloud Shell, use el siguiente comando para establecer una configuración de la aplicación que la aplicación de funciones usará para hacer referencia a la instancia de Azure Digital Twins.
 
 ```azurecli-interactive
-az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-digital-twin-instance-URL>"
+az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
 ```
 
 Use el siguiente comando para crear la identidad administrada por el sistema. Anote el valor del campo *principalId* de la salida.
@@ -155,7 +172,7 @@ Use el siguiente comando para crear la identidad administrada por el sistema. An
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
-Use el valor de *principalId* en el siguiente comando para asignar la identidad de la aplicación de funciones al rol *Propietario* de su instancia de Azure Digital Twins:
+Use el valor de *principalId* de la salida en el siguiente comando para asignar la identidad de la aplicación de funciones al rol *Propietario de Azure Digital Twins (versión preliminar)* en la instancia de Azure Digital Twins:
 
 ```azurecli
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
@@ -339,7 +356,7 @@ También puede comprobar que la creación del punto de conexión se ha realizado
 az dt endpoint show --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> 
 ```
 
-Busque el campo `provisioningState` en la salida y compruebe que el valor es "Succeeded" (Correcto).
+Busque el campo `provisioningState` en la salida y compruebe que el valor es "Succeeded" (Correcto). El valor también puede ser "Provisioning" (En aprovisionamiento), lo que significa que el punto de conexión todavía se está creando. En este caso, espere unos segundos y vuelva a ejecutar el comando para comprobar que se ha completado correctamente.
 
 :::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="Resultado de la consulta del punto de conexión que muestra el punto de conexión con un provisioningState de Succeeded":::
 
@@ -349,11 +366,16 @@ Guarde los nombres que dio tanto al tema de Event Grid como al punto de conexió
 
 A continuación, cree una ruta de Azure Digital Twins que envíe eventos al punto de conexión de Azure Digital Twins que acaba de crear.
 
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
+
 ```azurecli
 az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> --route-name <name-for-your-Azure-Digital-Twins-route>
 ```
 
 La salida de este comando es información sobre la ruta que ha creado.
+
+>[!NOTE]
+>Los puntos de conexión (del paso anterior) deben finalizar el aprovisionamiento antes de poder configurar una ruta de eventos que los use. Si se produce un error en la creación de la ruta porque los puntos de conexión no están listos, espere unos minutos y vuelva a intentarlo.
 
 #### <a name="connect-the-function-to-event-grid"></a>Conexión de la función a Event Grid
 
@@ -414,7 +436,7 @@ Esta es una revisión del escenario que se ha creado en este tutorial.
 
 Cuando ya no necesite los recursos creados en este tutorial, siga estos pasos para eliminarlos. 
 
-Con Azure Cloud Shell, puede eliminar todos los recursos de Azure de un grupo mediante el comando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). Así se quitan el grupo de recursos, la instancia de Azure Digital Twins, el centro de IoT y el registro del dispositivo del centro, el tema de Event Grid y las suscripciones asociadas, así como ambas aplicaciones de Azure Functions, incluidos los recursos asociados, como el almacenamiento.
+Con [Azure Cloud Shell](https://shell.azure.com), puede eliminar todos los recursos de Azure de un grupo mediante el comando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). Así se quitan el grupo de recursos, la instancia de Azure Digital Twins, el centro de IoT y el registro del dispositivo del centro, el tema de Event Grid y las suscripciones asociadas, así como la aplicación de Azure Functions, incluidas las funciones y los recursos asociados, como el almacenamiento.
 
 > [!IMPORTANT]
 > La eliminación de un grupo de recursos es irreversible. El grupo de recursos y todos los recursos contenidos en él se eliminan permanentemente. Asegúrese de no eliminar por accidente el grupo de recursos o los recursos equivocados. 
@@ -429,14 +451,13 @@ A continuación, use este comando para eliminar el registro de aplicación de Az
 az ad app delete --id <your-application-ID>
 ```
 
-Por último, elimine la carpeta de ejemplo del proyecto que descargó de la máquina local.
+Por último, elimine la carpeta de ejemplo del proyecto que descargó en la máquina local.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha creado un escenario de un extremo a otro que muestra la forma en que los datos de dispositivos activos controlan Azure Digital Twins.
 
 A continuación, consulte la documentación sobre conceptos para más información sobre los elementos con los que ha trabajado en el tutorial:
-* [*Conceptos: Modelos personalizados*](concepts-models.md)
 
-O bien, consulte los artículos de procedimientos para profundizar en los procesos de este tutorial:
-* [*Procedimiento: Uso de la CLI de Azure Digital Twins*](how-to-use-cli.md).
+> [!div class="nextstepaction"]
+> [*Conceptos: Modelos personalizados*](concepts-models.md)

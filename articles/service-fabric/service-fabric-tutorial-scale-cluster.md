@@ -4,12 +4,12 @@ description: En este tutorial, aprenderá a escalar y reducir horizontalmente un
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 05fd29f874d59601942216f907010b94bb7c4058
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d9699103f5e13301cce408d2e54f0e15780e0a35
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86257111"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716901"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutorial: Escalado de un clúster de Service Fabric en Azure
 
@@ -833,7 +833,7 @@ Foreach($node in $nodes)
 ```
 
 ## <a name="increase-node-resources"></a>Aumento de los recursos de nodo 
-Después de crear un clúster de Service Fabric, puede escalar el tipo de nodo del clúster verticalmente (cambiar los recursos de los nodos) o actualizar el sistema operativo de las máquinas virtuales del tipo de nodo reemplazando el tipo de nodo original por uno nuevo (con la SKU de la máquina virtual o la imagen del sistema operativo actualizadas). Para más información, consulte [Escalado vertical de un tipo de nodo de Azure Service Fabric](service-fabric-scale-up-node-type.md).
+Después de crear un clúster de Service Fabric, puede escalar el tipo de nodo del clúster verticalmente (cambiar los recursos de los nodos) o actualizar el sistema operativo de las máquinas virtuales del tipo de nodo reemplazando el tipo de nodo original por uno nuevo (con la SKU de la máquina virtual o la imagen del sistema operativo actualizadas). Para más información, consulte [Escalado vertical de un tipo de nodo de Azure Service Fabric](service-fabric-scale-up-primary-node-type.md).
 
 > [!IMPORTANT]
 > No intente nunca realizar un cambio en contexto de la SKU de la máquina virtual o de la imagen del sistema operativo ya que es una operación peligrosa y no se admite.

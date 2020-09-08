@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Google Cloud (G Suite) Connector | Microsoft Docs'
 description: Obtenga información sobre cómo configurar el inicio de sesión único entre Azure Active Directory y Google Cloud (G Suite) Connector.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 38a6ca75-7fd0-4cdc-9b9f-fae080c5a016
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 091129d1fbca4141e9841af6a9991d44a6663801
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: d20d527c35eac422efdc3719f153b6d7e8f4ef07
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85799197"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017550"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-google-cloud-g-suite-connector"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Google Cloud (G Suite) Connector
 
@@ -229,15 +225,18 @@ En esta sección, permitirá que B.Simon acceda a Google Cloud (G Suite) Connect
 
     b. En el campo **Dirección URL de la página de inicio de sesión** de Google Cloud (G Suite) Connector, pegue el valor de la **URL de inicio de sesión** que copió de Azure Portal.
 
-    c. En el campo **Dirección URL de la página de cierre de sesión** de Google Cloud (G Suite) Connector, pegue el valor de la **URL de cierre de sesión** que copió de Azure Portal.
+    c. En el campo **Dirección URL de la página de cierre de sesión** de Google Cloud (G Suite) Connector, pegue el valor de la **URL de inicio de sesión** que copió de Azure Portal.
 
-    d. En el campo **Cambiar URL de contraseña** de Google Cloud (G Suite) Connector, pegue el valor de **Cambiar URL de contraseña** que copió de Azure Portal.
+    > [!NOTE]
+    > Google Cloud (G Suite) se basa en el protocolo de cierre de sesión de SAML. Por lo tanto, en el campo **Dirección URL de la página de cierre de sesión** debe usar la dirección URL de cierre de sesión de SAML; es decir, la dirección URL de inicio de sesión como valor para el mismo.
 
-    e. En Google Cloud (G Suite) Connector, para el **certificado de verificación**, cargue el certificado que descargó de Azure Portal.
+    d. En Google Cloud (G Suite) Connector, para el **certificado de verificación**, cargue el certificado que descargó de Azure Portal.   
 
-    f. Active o desactive la opción **Use a domain specific issuer** (Usar un emisor de dominio específico) según la nota mencionada en la sección **Configuración básica de SAML** anterior en Azure AD.
+    e. Active o desactive la opción **Use a domain specific issuer** (Usar un emisor de dominio específico) según la nota mencionada en la sección **Configuración básica de SAML** anterior en Azure AD.
 
-    g. Haga clic en **Guardar cambios**.
+    f. En el campo **Cambiar URL de contraseña** de Google Cloud (G Suite) Connector, pegue el valor de **Cambiar URL de contraseña** que copió de Azure Portal.
+
+    g. Haga clic en **Save**(Guardar).
 
 ### <a name="create-google-cloud-g-suite-connector-test-user"></a>Creación de un usuario de prueba de Google Cloud (G Suite) Connector
 

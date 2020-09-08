@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1945dc3b9fa03354ef447f813d95b6040a4b7b91
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: ad1567a3a6cba2c2fbc519ffe5d384aba25ab51d
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833341"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648996"
 ---
 # <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>Carga de trabajo de SAP en escenarios admitidos en máquinas virtuales de Azure
 El diseño de la arquitectura de los sistemas SAP NetWeaver, Business One, `Hybris` o S/4HANA en Azure abre muchas oportunidades diferentes para las distintas arquitecturas y herramientas que se pueden usar para obtener una implementación escalable, eficiente y de alta disponibilidad. Aunque depende del sistema operativo o DBMS utilizado, existen restricciones. Además, no todos los escenarios que se admiten de forma local se admiten de la misma manera en Azure. Este documento le guiará a través de las configuraciones admitidas que no son de alta disponibilidad y las configuraciones y arquitecturas de alta disponibilidad que usan máquinas virtuales de Azure de forma exclusiva. En el caso de los escenarios compatibles con [instancias grandes de HANA](./hana-overview-architecture.md), consulte el artículo [Escenarios admitidos para instancias grandes de HANA](./hana-supported-scenario.md). 
@@ -215,7 +215,7 @@ Un clúster de varios SID con el servidor de replicación en cola tiene esquemá
 Los escenarios de escalado horizontal de SAP HANA se admiten para un subconjunto de máquinas virtuales de Azure con certificación de HANA, tal como se muestra en el directorio de [hardware de SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Todas las máquinas virtuales marcadas con "Sí" en la columna "Agrupación en clústeres" se pueden usar para el escalado horizontal de OLAP o S/4HANA. Las configuraciones sin modo de espera se admiten con los tipos Azure Storage siguientes: 
 
 - Azure Premium Storage, incluido el acelerador de escritura de Azure para el volumen /hana/log.
-- [Disco Ultra](../../linux/disks-enable-ultra-ssd.md)
+- [Disco Ultra](../../disks-enable-ultra-ssd.md)
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) 
 
 Las configuraciones de escalado horizontal de SAP HANA para OLAP o S/4HANA con nodos en espera se admiten exclusivamente con NFS compartido hospedado en Azure NetApp Files.

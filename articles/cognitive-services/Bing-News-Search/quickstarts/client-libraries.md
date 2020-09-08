@@ -11,13 +11,13 @@ ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 03/12/2020
 ms.author: aahi
-ms.custom: devx-track-python, devx-track-javascript
-ms.openlocfilehash: dc116ce44c9c69efa8c1a6f15d56e86167e02a8b
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 113c1e367fccbbc6c6db2d963b35896675a0d635
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87851807"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936850"
 ---
 # <a name="quickstart-use-the-bing-news-search-client-library"></a>Inicio rápido: Uso de la biblioteca cliente de Bing News Search
 

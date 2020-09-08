@@ -25,9 +25,6 @@
       href: powershell-samples.md
     - name: Soluciones para aplicaciones administradas
       href: sample-projects.md
-    - name: Elementos integrados de Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceptos
   items:
     - name: Ver definición de artefacto
@@ -107,6 +104,8 @@
               href: microsoft-common-checkbox.md
             - name: DropDown
               href: microsoft-common-dropdown.md
+            - name: EditableGrid
+              href: microsoft-common-editablegrid.md
             - name: FileUpload
               href: microsoft-common-fileupload.md
             - name: InfoBox
@@ -155,6 +154,9 @@
               href: microsoft-storage-multistorageaccountcombo.md
             - name: StorageAccountSelector
               href: microsoft-storage-storageaccountselector.md
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Azure Roadmap

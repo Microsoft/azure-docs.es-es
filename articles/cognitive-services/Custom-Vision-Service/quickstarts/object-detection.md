@@ -1,20 +1,20 @@
 ---
-title: 'Inicio rápido: Creación de la detección de objetos con el SDK de Custom Vision'
-description: 'Inicio rápido: Creación y entrenamiento de un proyecto, adición de etiquetas, carga de imágenes y detección de objetos mediante el SDK de Custom Vision'
+title: 'Inicio rápido: Creación de la detección de objetos con la biblioteca cliente de Custom Vision'
+description: 'Inicio rápido: Creación y entrenamiento de un proyecto, adición de etiquetas, carga de imágenes y detección de objetos mediante la biblioteca cliente de Custom Vision.'
 author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 04/27/2020
-ms.custom: devx-track-python, devx-track-javascript
+ms.date: 08/17/2020
+ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 9febd3a242834a930beae5130a33d230e9e83b6b
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 404e76ec8fe4d874695c77ee18542c7db6665796
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875973"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919342"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-sdk"></a>Inicio rápido: Creación de un proyecto de detección de objetos con el SDK de Custom Vision
 

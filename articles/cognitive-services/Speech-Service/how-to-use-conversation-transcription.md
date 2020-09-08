@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: weixu
-ms.openlocfilehash: fc22dea201ccd19c4e7bee92a1092b4ff50117db
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a425c75dfd57f0d5f9c98b73d8b351972b70703a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134945"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918662"
 ---
 # <a name="real-time-conversation-transcription-preview"></a>Transcripción de conversaciones en tiempo real (versión preliminar)
 
@@ -37,7 +38,7 @@ El SDK de dispositivos de voz proporciona código de ejemplo en Java para la cap
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Una suscripción al servicio de voz. Puede [obtener una suscripción de prueba a Voz](https://azure.microsoft.com/try/cognitive-services/) si no la tiene.
+Una suscripción al servicio de voz. Puede crear una [cuenta gratuita de Azure](https://azure.microsoft.com/free/cognitive-services/) si no tiene ninguna.
 
 ## <a name="create-voice-signatures"></a>Creación de firmas de voz
 

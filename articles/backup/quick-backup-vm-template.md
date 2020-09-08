@@ -5,16 +5,16 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/14/2019
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 7aef0e7e48bfd3f56bd1c3718b1a547bea66cbe8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e64aa10d8ddadd367d04b2b480770a99f3ece1dc
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054483"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826538"
 ---
 # <a name="quickstart-back-up-a-virtual-machine-in-azure-with-an-arm-template"></a>Inicio rápido: Copia de seguridad de una máquina virtual en Azure con una plantilla de Resource Manager
 
-[Azure Backup](backup-overview.md) puede hacer copias de seguridad de máquinas locales, aplicaciones y máquinas virtuales de Azure. En este artículo se muestra cómo realizar una copia de seguridad de una máquina virtual de Azure con una plantilla de Azure Resource Manager y Azure PowerShell. Este inicio rápido se centra en el proceso de implementar una plantilla de Resource Manager para crear un almacén de Recovery Services. Para más información sobre el desarrollo de plantillas de Resource Manager, consulte la [documentación de Azure Resource Manager](../azure-resource-manager/index.yml) y la [referencia de plantilla](/azure/templates/microsoft.recoveryservices/allversions).
+[Azure Backup](backup-overview.md) puede hacer copias de seguridad de máquinas locales, aplicaciones y máquinas virtuales de Azure. En este artículo se muestra cómo realizar una copia de seguridad de una máquina virtual de Azure con una plantilla de Azure Resource Manager y Azure PowerShell. Este inicio rápido se centra en el proceso de implementación de una plantilla de ARM para crear un almacén de Recovery Services. Para más información sobre el desarrollo de plantillas de Resource Manager, consulte la [documentación de Azure Resource Manager](../azure-resource-manager/index.yml) y la [referencia de plantilla](/azure/templates/microsoft.recoveryservices/allversions).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -28,7 +28,7 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/). Esta plantilla le permite implementar una máquina virtual de Windows y un almacén de Recovery Services sencillos configurados con la directiva de protección predeterminada.
 
-:::code language="json" source="~/quickstart-templates/101-recovery-services-create-vm-and-configure-backup/azuredeploy.json" range="1-247" highlight="221-245":::
+:::code language="json" source="~/quickstart-templates/101-recovery-services-create-vm-and-configure-backup/azuredeploy.json":::
 
 Los recursos definidos en la plantilla son los siguientes:
 
@@ -47,7 +47,7 @@ Para implementar la plantilla, seleccione **Probar** para abrir Azure Cloud Shel
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name (limited to eight characters) that is used to generate Azure resource names"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+$location = Read-Host -Prompt "Enter the location (for example, centralus)"
 $adminUsername = Read-Host -Prompt "Enter the administrator username for the virtual machine"
 $adminPassword = Read-Host -Prompt "Enter the administrator password for the virtual machine" -AsSecureString
 $dnsPrefix = Read-Host -Prompt "Enter the unique DNS Name for the Public IP used to access the virtual machine"

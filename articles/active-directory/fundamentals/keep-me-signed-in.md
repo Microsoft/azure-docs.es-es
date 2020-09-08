@@ -12,12 +12,12 @@ ms.date: 06/05/2020
 ms.author: celested
 ms.reviewer: asteen, jlu, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd24e6847dbf02bc7efe5d9e6ea02043879f720b
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: bed6bc43dfc15abf2bdf9f38a5de2240d348d6fb
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054719"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320263"
 ---
 # <a name="configure-the-stay-signed-in-prompt-for-azure-ad-accounts"></a>Configuración del mensaje "¿Quiere mantener la sesión iniciada?" para las cuentas de Azure AD
 
@@ -57,7 +57,7 @@ Los detalles sobre el error de inicio de sesión son los siguientes y se resalta
 
 Para evitar que los usuarios vean la interrupción, establezca **Mostrar la opción para mantener la sesión iniciada** en **No** en la configuración de personalización de marca avanzada. Esta acción deshabilita el mensaje de KMSI para todos los usuarios del directorio de Azure AD.
 
-También puede usar los controles de sesión del explorador persistentes en el acceso condicional para impedir que los usuarios vean el mensaje de KMSI. Esta opción le permite deshabilitar el mensaje de KMSI para un grupo de usuarios seleccionado (por ejemplo, los administradores globales) sin que ello afecte al comportamiento de inicio de sesión del resto de usuarios del directorio. Para más información, consulte [Frecuencia de inicio de sesión de usuario](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime). 
+También puede usar los controles de sesión del explorador persistentes en el acceso condicional para impedir que los usuarios vean el mensaje de KMSI. Esta opción le permite deshabilitar el mensaje de KMSI para un grupo de usuarios seleccionado (por ejemplo, los administradores globales) sin que ello afecte al comportamiento de inicio de sesión del resto de usuarios del directorio. Para más información, consulte [Frecuencia de inicio de sesión de usuario](../conditional-access/howto-conditional-access-session-lifetime.md). 
 
 Para asegurar que el aviso de KMSI se muestre sólo cuando pueda beneficiar al usuario, el aviso de KMSI no se muestra intencionadamente en los siguientes escenarios:
 
@@ -72,6 +72,6 @@ Para asegurar que el aviso de KMSI se muestre sólo cuando pueda beneficiar al u
 
 Obtenga información sobre otras opciones que afectan al tiempo de expiración de la sesión de inicio de sesión:
 
-* Microsoft 365: [tiempo de expiración de sesión inactiva](https://docs.microsoft.com/sharepoint/sign-out-inactive-users)
-* Acceso condicional de Azure AD: [frecuencia de inicio de sesión de usuario](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime)
-* Azure Portal: [tiempo de expiración de inactividad de nivel de directorio](https://docs.microsoft.com/azure/azure-portal/admin-timeout)
+* Microsoft 365: [tiempo de expiración de sesión inactiva](/sharepoint/sign-out-inactive-users)
+* Acceso condicional de Azure AD: [frecuencia de inicio de sesión de usuario](../conditional-access/howto-conditional-access-session-lifetime.md)
+* Azure Portal: [tiempo de expiración de inactividad de nivel de directorio](../../azure-portal/set-preferences.md#change-the-directory-timeout-setting-admin)

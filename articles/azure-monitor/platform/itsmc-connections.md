@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: 2df7d8273b2b25cd0171b38e5cc0ada557ea9a2d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: bf1721b45ff63c225c378e50bff9040948820c8b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325362"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035032"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Conectar productos o servicios de ITSM con el Conector de Administración de servicios de TI
 En este artículo se proporciona información sobre cómo configurar la conexión entre los productos y servicios de ITSM y el Conector de Administración de servicios de TI (ITSMC) en Log Analytics para administrar de forma centralizada los elementos de trabajo. Para obtener más información sobre ITSMC, vea [Información general](./itsmc-overview.md).
@@ -179,13 +179,14 @@ En las secciones siguientes se proporcionan detalles sobre cómo conectar su pro
 ### <a name="prerequisites"></a>Prerrequisitos
 Asegúrese de que se cumplen los siguientes requisitos previos:
 - ITSMC instalado Más información: [Agregar la solución IT Service Management Connector](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Versiones compatibles con ServiceNow: Nueva York, Madrid, Londres, Kingston, Yakarta, Estambul, Helsinki, Ginebra.
+- Versiones compatibles con ServiceNow: Orlando, Nueva York, Madrid, Londres, Kingston, Yakarta, Estambul, Helsinki, Ginebra.
 > [!NOTE]
 > ITSMC admite solo la oferta de SaaS oficial de ServiceNow. No se admiten implementaciones privadas de ServiceNow. 
 
 **Los administradores de ServiceNow deben realizar lo siguiente en la instancia de ServiceNow:** :
 - Generar el identificador y el secreto del cliente para el producto de ServiceNow. Para más información sobre cómo generar el identificador y el secreto de cliente, consulte la siguiente información según sea necesario:
 
+    - [Configuración de OAuth para Orlando](https://docs.servicenow.com/bundle/orlando-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configuración de OAuth para Nueva York](https://docs.servicenow.com/bundle/newyork-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configuración de OAuth para Madrid](https://docs.servicenow.com/bundle/madrid-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configuración de OAuth para Londres](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)

@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Darwinbox | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Darwinbox.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 3614b11f-e3de-4abf-8e29-22a3c4971ee8
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91b1be75b06b4281ee5d03675d9d33db00a5aaf7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6773805fac9a23ca918a1bf6e4889d3e1a3bb336
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "70013800"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550119"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-darwinbox"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Darwinbox
 
@@ -30,7 +25,6 @@ En este tutorial, aprenderá a integrar Darwinbox con Azure Active Directory (
 * Controlar en Azure AD quién tiene acceso a Darwinbox.
 * Permitir que los usuarios puedan iniciar sesión automáticamente en Darwinbox con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
-
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 ## <a name="prerequisites"></a>Prerrequisitos
@@ -39,6 +33,9 @@ Para empezar, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
 * Una suscripción habilitada para el inicio de sesión único (SSO) en Darwinbox.
+> [!NOTE]
+> Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
+
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
@@ -67,8 +64,8 @@ Para configurar y probar el inicio de sesión único de Azure AD con Darwinbox,
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
-1. **[Configuración del inicio de sesión único en Darwinbox](#configure-darwinbox-sso)** , para configurar los valores de Inicio de sesión único en la aplicación.
-    1. **[Creación de un usuario de prueba de Darwinbox](#create-darwinbox-test-user)** , para tener un homólogo de B. Simon en Darwinbox que esté vinculado a la representación del usuario en Azure AD.
+1. **[Configuración del inicio de sesión único en Darwinbox](#configure-darwinbox-sso)**, para configurar los valores de Inicio de sesión único en la aplicación.
+    1. **[Creación de un usuario de prueba de Darwinbox](#create-darwinbox-test-user)**, para tener un homólogo de B. Simon en Darwinbox que esté vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
@@ -83,12 +80,12 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.darwinbox.in/`
+   1. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.darwinbox.in/`
 
-    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.darwinbox.in/adfs/module.php/saml/sp/metadata.php/<CUSTOMID>`
+   1. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.darwinbox.in/adfs/module.php/saml/sp/metadata.php/<CUSTOMID>`
 
-    > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Darwinbox](https://darwinbox.com/contact-us.php) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+      > [!NOTE]
+      > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Darwinbox](https://darwinbox.com/contact-us.php) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 
@@ -141,6 +138,28 @@ En esta sección, creará un usuario llamado B. Simon en Darwinbox. Trabaje con
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Darwinbox en el panel de acceso y debería iniciar sesión automáticamente en la versión de Darwinbox para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+## <a name="test-sso-for-darwinbox-mobile"></a>Prueba del inicio de sesión único para Darwinbox (para dispositivos móviles)
+
+1. Abra la aplicación para dispositivos móviles Darwinbox. Haga clic en **Enter Organization URL** (Escribir URL de la organización) y escriba la dirección URL de la organización en el cuadro de texto y haga clic en el botón de flecha.
+
+    ![Aplicación móvil Darwinbox](media/darwinbox-tutorial/DarwinboxMobile01.jpg)
+
+1. Si tiene varios dominios, haga clic en el suyo.
+
+    ![Aplicación móvil Darwinbox](media/darwinbox-tutorial/DarwinboxMobile02.jpg)
+
+1. Escriba el correo electrónico de Azure AD en la aplicación Darwinbox y haga clic en **Next** (Siguiente).
+
+    ![Aplicación móvil Darwinbox](media/darwinbox-tutorial/DarwinboxMobile03.jpg)
+
+1. Escriba la contraseña de Azure AD en la aplicación Darwinbox y haga clic en **Sign in** (Iniciar sesión).
+
+    ![Aplicación móvil Darwinbox](media/darwinbox-tutorial/DarwinboxMobile04.jpg)
+
+1. Finalmente, después de iniciar sesión correctamente, aparecerá la página principal de la aplicación.
+
+    ![Aplicación móvil Darwinbox](media/darwinbox-tutorial/DarwinboxMobile05.jpg)
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

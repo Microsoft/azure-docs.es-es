@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariac
 ms.custom: seodec18
-ms.openlocfilehash: ded812d5d7a0440466e7284b56c90965ea00406e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a25ae41a5f4ed73148f629799ca4865d756a769
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75768493"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962458"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Procedimientos recomendados para Azure App Service
 En este artículo se resumen los procedimientos recomendados para usar el [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -67,7 +67,7 @@ La configuración predeterminada de Azure App Service para las aplicaciones Node
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre los procedimientos recomendados, visite [Diagnósticos de App Service](https://docs.microsoft.com/azure/app-service/overview-diagnostics) para obtener información sobre los procedimientos recomendados viables específicos para el recurso.
+Para obtener más información sobre los procedimientos recomendados, visite [Diagnósticos de App Service](./overview-diagnostics.md) para obtener información sobre los procedimientos recomendados viables específicos para el recurso.
 
 - Vaya a la aplicación web en [Azure Portal](https://portal.azure.com).
 - En el panel izquierdo, haga clic en **Diagnosticar y solucionar problemas** para abrir la página Diagnósticos de App Service.

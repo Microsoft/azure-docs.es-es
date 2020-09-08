@@ -2,24 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con OpsGenie | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y OpsGenie.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 41b59b22-a61d-4fe6-ab0d-6c3991d1375f
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: jeedes
-ms.openlocfilehash: 8cf82827258b3888f4c30ad39a395d697a518a32
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 0ebcb746e10ae910c695e52fb053fc5d0b316e70
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261112"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543914"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-opsgenie"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con OpsGenie
 

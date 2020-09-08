@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0f4d9811dc288222c0a2190805a8b052cb1ae47b
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: b88d017110f4d7b9859f2d801c5405ecee1589c5
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563932"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297474"
 ---
 # <a name="manage-digital-twins"></a>Administración de Digital Twins
 
@@ -37,18 +37,22 @@ Para crear un gemelo digital, debe proporcionar lo siguiente:
 
 Opcionalmente, puede proporcionar los valores iniciales de todas las propiedades del gemelo digital. 
 
-Los valores de las propiedades del modelo e iniciales se proporcionan a través del parámetro `initData`, que es una cadena JSON que contiene los datos pertinentes.
+Los valores de las propiedades del modelo e iniciales se proporcionan a través del parámetro `initData`, que es una cadena JSON que contiene los datos pertinentes. Para más información sobre cómo estructurar este objeto, vaya a la sección siguiente.
 
 > [!TIP]
 > Después de crear o actualizar un gemelo, puede haber una latencia de hasta 10 segundos antes de que los cambios se reflejen en las [consultas](how-to-query-graph.md). La API de `GetDigitalTwin` (que se describe [más adelante en este artículo](#get-data-for-a-digital-twin)) no experimenta este retraso, por lo que debe usar la llamada API en lugar de realizar una consulta para ver los gemelos recién creados si necesita una respuesta instantánea. 
 
-### <a name="initialize-properties"></a>Inicialización de propiedades
+### <a name="initialize-model-and-properties"></a>Inicialización del modelo y las propiedades
 
-La API de creación de gemelos acepta un objeto que se puede serializar en una descripción JSON válida de las propiedades gemelas. Consulte [*Conceptos: Gemelos digitales y el grafo de gemelos*](concepts-twins-graph.md) para obtener una descripción del formato JSON de un gemelo.
+La API de creación de gemelos acepta un objeto serializado en una descripción JSON válida de las propiedades gemelas. Consulte [*Conceptos: Gemelos digitales y el grafo de gemelos*](concepts-twins-graph.md) para obtener una descripción del formato JSON de un gemelo. 
+
+Primero, creará un objeto de datos para representar el gemelo y sus datos de propiedad. A continuación, puede usar `JsonSerializer` para pasar una versión serializada de este a la llamada API para el parámetro `initdata`.
 
 Puede crear un objeto de parámetro manualmente o mediante una clase auxiliar proporcionada. A continuación se muestra un ejemplo de cada opción.
 
 #### <a name="create-twins-using-manually-created-data"></a>Creación de gemelos con datos creados manualmente
+
+Sin el uso de ninguna clase auxiliar personalizada, puede representar las propiedades de un gemelo en un elemento `Dictionary<string, object>`, donde `string` es el nombre de la propiedad y `object` es un objeto que representa la propiedad y su valor.
 
 ```csharp
 // Define the model type for the twin to be created
@@ -68,6 +72,8 @@ client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<Dictionary<stri
 
 #### <a name="create-twins-with-the-helper-class"></a>Creación de gemelos con la clase auxiliar
 
+La clase auxiliar `BasicDigitalTwin` permite almacenar los campos de propiedades en un objeto "gemelo" más directamente. Aún puede crear la lista de propiedades mediante un elemento `Dictionary<string, object>`, que luego se puede agregar al objeto gemelo como su `CustomProperties` directamente.
+
 ```csharp
 BasicDigitalTwin twin = new BasicDigitalTwin();
 twin.Metadata = new DigitalTwinMetadata();
@@ -81,6 +87,13 @@ twin.CustomProperties = props;
 client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<BasicDigitalTwin>(twin));
 ```
 
+>[!NOTE]
+> Los objetos `BasicDigitalTwin` contienen un campo `Id`. Puede dejar este campo vacío, pero si agrega un valor de id., debe coincidir con el parámetro de id. pasado a la llamada `CreateDigitalTwin`. Para el ejemplo anterior, sería:
+>
+>```csharp
+>twin.Id = "myNewRoomID";
+>```
+
 ## <a name="get-data-for-a-digital-twin"></a>Obtención de datos para un gemelo digital
 
 Puede acceder a los datos completos de cualquier gemelo digital mediante una llamada a:
@@ -91,8 +104,10 @@ object result = await client.GetDigitalTwin(id);
 
 Esta llamada devuelve los datos de gemelos como una cadena JSON. 
 
-> [!TIP]
-> Solo se devuelven las propiedades que se han establecido al menos una vez cuando se recupera un gemelo con `GetDigitalTwin`.
+Solo se devuelven las propiedades que se han establecido al menos una vez cuando se recupera un gemelo con `GetDigitalTwin`.
+
+>[!TIP]
+>El `displayName` para un gemelo es parte de sus metadatos del modelo, por lo que no se mostrará al obtener los datos de la instancia gemela. Para ver este valor, puede [recuperarlo del modelo](how-to-manage-model.md#retrieve-models).
 
 Para recuperar varios gemelos mediante una única llamada API, consulte los ejemplos de la API de consulta en [*Procedimiento: Consulta del grafo de gemelos*](how-to-query-graph.md).
 
@@ -181,6 +196,8 @@ Para actualizar las propiedades de un gemelo digital, escriba la información qu
 await client.UpdateDigitalTwin(id, patch);
 ```
 
+Una llamada de revisión puede actualizar tantas propiedades de un solo gemelo como se quiera (incluso todas ellas). Si necesita actualizar las propiedades en varios gemelos, necesitará una llamada de actualización independiente para cada uno.
+
 > [!TIP]
 > Después de crear o actualizar un gemelo, puede haber una latencia de hasta 10 segundos antes de que los cambios se reflejen en las [consultas](how-to-query-graph.md). La API de `GetDigitalTwin` (que se describe [anteriormente en este artículo](#get-data-for-a-digital-twin)) no experimenta este retraso, por lo que debe usar la llamada API en lugar de realizar una consulta para ver los gemelos recién actualizados si necesita una respuesta instantánea. 
 
@@ -204,6 +221,7 @@ Este es un ejemplo de código de revisión de JSON. En este documento se reempla
 Puede crear revisiones manualmente o mediante una clase auxiliar de serialización en el [SDK](how-to-use-apis-sdks.md). A continuación se muestra un ejemplo de cada opción.
 
 #### <a name="create-patches-manually"></a>Creación manual de revisiones
+
 ```csharp
 List<object> twinData = new List<object>();
 twinData.Add(new Dictionary<string, object>() {
@@ -279,6 +297,19 @@ La revisión para esta situación debe actualizar tanto el modelo como la propie
 ]
 ```
 
+### <a name="handle-conflicting-update-calls"></a>Control de las llamadas de actualización en conflicto
+
+Azure Digital Twins garantiza que todas las solicitudes entrantes se procesan una tras otra. Esto significa que, incluso para el caso de que varias funciones intenten actualizar la misma propiedad en un gemelo al mismo tiempo, **no es necesario** que escriba código de bloqueo explícito para controlar el conflicto.
+
+Este comportamiento se basa en cada gemelo. 
+
+Por ejemplo, imagine un escenario en el que llegan estas tres llamadas al mismo tiempo: 
+*   Escribir propiedad A en *Gemelo1*
+*   Escribir propiedad B en *Gemelo1*
+*   Escribir propiedad A en *Gemelo2*
+
+Las dos llamadas que modifican *Gemelo1* se ejecutan una tras otra, y se generan mensajes para cada cambio. La llamada para modificar *Gemelo2* puede ejecutarse simultáneamente sin ningún conflicto, en cuanto llega.
+
 ## <a name="delete-a-digital-twin"></a>Eliminación de un gemelo digital
 
 Puede eliminar gemelos con `DeleteDigitalTwin(ID)`. Sin embargo, solo puede eliminar un gemelo si este no tiene más relaciones. Primero debe eliminar todas las relaciones. 
@@ -350,6 +381,8 @@ Para obtener un ejemplo de cómo eliminar todos los gemelos a la vez, descargue 
 ## <a name="manage-twins-with-cli"></a>Administración de gemelos con la CLI
 
 Los gemelos también se pueden administrar con la CLI de Azure Digital Twins. Los comandos se pueden encontrar en [*Procedimiento: Uso de la CLI de Azure Digital Twins*](how-to-use-cli.md).
+
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

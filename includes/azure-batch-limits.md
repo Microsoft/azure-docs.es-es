@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2020
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: 8d23da1c3a45ed12193dfd4c1fc2ede453fc6ac7
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 2a35180e4c5ca26d53be135718e345f9657af6a2
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323896"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88655148"
 ---
 | **Recurso** | **Límite predeterminado** | **Límite máximo** |
 | --- | --- | --- |
@@ -32,4 +32,4 @@ ms.locfileid: "84323896"
 > Los límites predeterminados varían según el tipo de suscripción que se use para crear una cuenta de Batch. Las cuotas de núcleos mostradas son para las cuentas de Batch del modo de servicio Batch. [Vea las cuotas de su cuenta de Batch](../articles/batch/batch-quota-limit.md#view-batch-quotas).
 
 > [!IMPORTANT]
-> Para ayudarnos a administrar mejor la capacidad durante la pandemia sanitaria global, las cuotas de núcleo predeterminadas para las nuevas cuentas de Batch en algunas regiones y para algunos tipos de suscripción se han reducido con respecto al intervalo de valores anterior, en algunos casos a cero núcleos. Al crear una nueva cuenta de Batch, debe [comprobar la cuota de núcleos](../articles/batch/batch-quota-limit.md#view-batch-quotas) y [solicitar un aumento de la cuota de núcleos](../articles/batch/batch-quota-limit.md#increase-a-quota) si es necesario. 
+> Para ayudarnos a administrar mejor la capacidad durante la pandemia sanitaria global, las cuotas de núcleo predeterminadas para las nuevas cuentas de Batch en algunas regiones y para algunos tipos de suscripción se han reducido con respecto al intervalo de valores anterior, en algunos casos a cero núcleos. Al crear una nueva cuenta de Batch, debe [comprobar la cuota de núcleos](../articles/batch/batch-quota-limit.md#view-batch-quotas) y [solicitar un aumento de la cuota de núcleos](../articles/batch/batch-quota-limit.md#increase-a-quota) si es necesario. Como alternativa, considere la posibilidad de volver a usar aquellas cuentas de Batch que ya tengan suficiente cuota. 

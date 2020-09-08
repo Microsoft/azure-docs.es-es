@@ -4,14 +4,14 @@ description: Aprenda a elegir entre el rendimiento aprovisionado estándar (manu
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 08/19/2020
 ms.author: dech
-ms.openlocfilehash: 94022b9959b6a7f2bc30e31f918f2f5a916ccd8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbe17d75ad809c54939624b1409e281b2f62a037
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85116815"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605204"
 ---
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>Cómo elegir entre el rendimiento aprovisionado estándar (manual) y el de escalabilidad automática 
 
@@ -37,7 +37,10 @@ En la tabla siguiente se muestra una comparación de alto nivel entre el rendimi
 ## <a name="understand-your-traffic-patterns"></a>Comprensión de los patrones de tráfico
 
 ### <a name="new-applications"></a>Aplicaciones nuevas ###
-Si va a crear una nueva aplicación y no conoce el patrón de tráfico todavía, es recomendable empezar con el valor de punto de entrada de RU/s (o el mínimo) para evitar el aprovisionamiento excesivo al principio. O bien, si tiene una pequeña aplicación que no necesita una gran escala, puede que quiera aprovisionar solo el valor de RU/s del punto de entrada mínimo para optimizar el costo. En ambos casos, tanto la opción estándar (manual) como la de escalabilidad automática son adecuadas. Esto es lo que debe tener en cuenta:
+
+Si va a crear una nueva aplicación y no conoce el patrón de tráfico todavía, es recomendable empezar con el valor de punto de entrada de RU/s (o el mínimo) para evitar el aprovisionamiento excesivo al principio. O bien, si tiene una pequeña aplicación que no necesita una gran escala, puede que quiera aprovisionar solo el valor de RU/s del punto de entrada mínimo para optimizar el costo. En el caso de las aplicaciones pequeñas con poco tráfico previsto, también puede tener en cuenta el modo de capacidad [sin servidor](throughput-serverless.md).
+
+Si tiene previsto usar el valor estándar (manual) o la escalabilidad automática, esto es lo que debe tener en cuenta:
 
 Si aprovisiona el valor de RU/s estándar (manual) del punto de entrada de 400 RU/s, no podrá consumir más de 400 RU/s, a menos que cambie manualmente el rendimiento. Se le facturará por 400 RU/s con la tarifa de rendimiento aprovisionado estándar (manual), por hora.
 

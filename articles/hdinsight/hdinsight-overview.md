@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
-ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
-ms.date: 02/27/2020
-ms.openlocfilehash: 31e8506067133304144614ff58974ee21e9680be
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.custom: contperfq1
+ms.date: 08/21/2020
+ms.openlocfilehash: 676d287969933d4815260f040b164753ec5803e1
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84709239"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88754878"
 ---
 # <a name="what-is-azure-hdinsight"></a>¿Qué es Azure HDInsight?
 
@@ -132,3 +132,6 @@ Las herramientas de Business Intelligence (BI) habituales recuperan, analizan y 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Create Apache Hadoop cluster in HDInsight](./hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md) (Creación de un clúster de Apache Hadoop en HDInsight)
+* [Creación de un clúster de Apache Spark: Portal](./spark/apache-spark-jupyter-spark-sql-use-portal.md)
+* [Planificación de una red virtual para Azure HDInsight](hdinsight-plan-virtual-network-deployment.md)
+* [Seguridad empresarial en Azure HDInsight](./domain-joined/hdinsight-security-overview.md)

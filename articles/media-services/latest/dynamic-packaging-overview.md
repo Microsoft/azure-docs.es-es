@@ -2,7 +2,7 @@
 title: Empaquetado dinámico en Azure Media Services v3
 titleSuffix: Azure Media Services
 description: En este artículo se proporciona información general sobre el empaquetado dinámico en Azure Media Services.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -11,17 +11,19 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: overview
-ms.date: 07/31/2020
-ms.author: juliako
-ms.openlocfilehash: 032a3c719610d658ec32492033a04a610117643d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: dfa87921bc6a5a6c34b4dec33f4aae1907507730
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489782"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291626"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Empaquetado dinámico en Media Services v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Microsoft Azure Media Services se puede usar para codificar muchos formatos de archivos de origen multimedia. Los entrega a través de diferentes protocolos de streaming, con o sin protección de contenido, para llegar a todos los dispositivos principales (como dispositivos iOS y Android). Estos clientes entienden los distintos protocolos. Por ejemplo, iOS requiere que los flujos se entreguen en formato HTTP Live Streaming (HLS) mientras que los dispositivos Android admiten HLS y MPEG DASH.
 
@@ -80,8 +82,10 @@ El cliente de streaming puede especificar los siguientes formatos de Smooth Stre
 
 En los pasos siguientes se muestra un flujo de trabajo común de streaming de Media Services en el que se usa el empaquetado dinámico junto con el codificador estándar en Azure Media Services.
 
-1. Cargue un archivo de entrada, como un archivo QuickTime/MOV o MXF. Este archivo también se conoce como archivo de origen o intermedio. Para la lista de formatos admitidos, consulte [Códecs y formatos de Standard Encoder](media-encoder-standard-formats.md).
+1. [Cargue un archivo de entrada](job-input-from-http-how-to.md), como por ejemplo MP4, QuickTime/MOV, o cualquier otro formato de archivo compatible. Este archivo también se conoce como archivo de origen o intermedio. Para la lista de formatos admitidos, consulte [Códecs y formatos de Standard Encoder](media-encoder-standard-formats.md).
 1. [Codifique](#encode-to-adaptive-bitrate-mp4s) el archivo intermedio en un conjunto de archivos MP4 de velocidad de bits adaptable H.264/AAC.
+
+    Si ya ha codificado los archivos y solo quiere copiar y transmitir los archivos, use: [CopyVideo API](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyvideo) y [CopyAudio API](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyaudio). Como resultado, se creará un archivo MP4 con un manifiesto de streaming (archivo .ism).
 1. Publicar el recurso de salida que contiene el conjunto de MP4 de velocidad de bits adaptable. Publicar mediante la creación de un [localizador de streaming](streaming-locators-concept.md).
 1. Generar direcciones URL que tienen como destino diferentes formatos (HLS, MPEG-DASH y Smooth Streaming). El *punto de conexión de streaming* se encarga de atender el manifiesto correcto y las solicitudes de todos estos formatos.
     

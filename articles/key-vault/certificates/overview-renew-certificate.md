@@ -1,61 +1,82 @@
 ---
 title: Acerca de la renovación de certificados de Azure Key Vault
-description: Acerca de la renovación de certificados de Azure Key Vault
+description: En este artículo se describe cómo renovar los certificados de Azure Key Vault.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: c6999b67a5c0a0f4ca7cb943ae8de3afd8b6a11e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3809fa9e1ce17a5a0c3cf333ac20ef543db4b5a7
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095229"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88588810"
 ---
-# <a name="about-azure-key-vault-certificate-renewal"></a>Acerca de la renovación de certificados de Azure Key Vault
+# <a name="renew-your-azure-key-vault-certificates"></a>Renovación de los certificados de Azure Key Vault
 
-Azure Key Vault permite aprovisionar, administrar e implementar fácilmente certificados digitales para una red y habilitar las comunicaciones seguras para las aplicaciones. Para más información general acerca de los certificados, consulte [Certificados de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates).
+Con Azure Key Vault puede aprovisionar, administrar e implementar fácilmente certificados digitales para una red y habilitar comunicaciones seguras para las aplicaciones. Para más información acerca de los certificados, consulte [Acerca de los certificados de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates).
 
-Tener certificados de corta duración o aumentar la frecuencia de la rotación de certificados limita el ámbito de los daños de roles no admitidos.
+Mediante el uso de certificados de corta duración o el aumento de la frecuencia de rotación de estos, puede evitar el acceso a las aplicaciones por parte de usuarios no autorizados.
 
-Hay tres categorías de creación de certificados en el almacén de claves. Esta guía le ayudará a entender cómo se puede realizar la renovación de certificados.
--   Certificados creados con CA integradas (DigiCert o GlobalSign)
--   Certificados creados con una CA no integrada
+En este artículo se describe cómo renovar los certificados de Azure Key Vault.
+
+## <a name="get-notified-about-certificate-expirations"></a>Obtención de notificaciones sobre expiraciones de certificados
+Para recibir una notificación cuando los certificados estén a punto de expirar, haga lo siguiente:
+
+En primer lugar, agregue un contacto de certificado al almacén de claves mediante el cmdlet [Add-AzureKeyVaultCertificateContact](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact?view=azurermps-6.13.0) de PowerShell.
+
+En segundo lugar, configure cuándo desea recibir una notificación sobre la expiración del certificado. Para configurar los atributos del ciclo de vida del certificado, consulte [Configuración de la rotación automática de certificados en Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-rotate-certificates#update-lifecycle-attributes-of-a-stored-certificate).
+
+En Key Vault, hay tres categorías de certificados:
+-   Certificados que se crean con una entidad de certificación integrada, como DigiCert o GlobalSign
+-   Certificados que se crean con una entidad de certificación no integrada
 -   Certificados autofirmados
 
-## <a name="renewal-of-integrated-ca-certificate"></a>Renovación del certificado con CA integrada 
-¡Buenas noticias! Azure Key Vault se encarga del mantenimiento integral de los certificados que emiten las entidades de certificación de confianza de Microsoft; es decir, DigiCert y GlobalSign. Obtenga información sobre cómo [integrar una CA de confianza con Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/how-to-integrate-certificate-authority).
+## <a name="renew-an-integrated-ca-certificate"></a>Renovación del certificado de una entidad de certificación integrada 
+Azure Key Vault se encarga del mantenimiento integral de los certificados que emiten las entidades de certificación de confianza de Microsoft; es decir, DigiCert y GlobalSign. Aprenda a [integrar una entidad de certificación de confianza con Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/how-to-integrate-certificate-authority).
 
-## <a name="renewal-of-non-integrated-ca-certificate"></a>Renovación del certificado con CA no integrada 
-Azure Key Vault proporciona a sus usuarios la ventaja de importar certificados de cualquier CA para que los usuarios puedan integrarlos con varios recursos de Azure y facilitar su implementación. Si le preocupa no saber exactamente cuándo expirará su certificado o ha descubierto que el certificado ya ha expirado, Key Vault puede ayudarle a mantenerse al día. En el caso de los certificados de CA no integrada, Key Vault permite que los usuarios configuren notificaciones por correo electrónico acerca de un vencimiento próximo. Estas notificaciones también se pueden configurar para varios usuarios.
+## <a name="renew-a-nonintegrated-ca-certificate"></a>Renovación del certificado de una entidad de certificación no integrada 
+Mediante Azure Key Vault, puede importar certificados de cualquier entidad de certificación, una ventaja que le permite la integración con varios recursos de Azure y facilita la implementación. Si le preocupa no saber exactamente cuándo expirará su certificado o, peor aún, ha descubierto que el certificado ya ha expirado, Key Vault puede ayudarle a mantenerse al día. En el caso de los certificados de una entidad de certificación no integrada, Key Vault le permite configurar notificaciones de correo electrónico que le avisan de una próxima expiración. Estas notificaciones también se pueden configurar para varios usuarios.
 
-Para renovar un certificado es importante comprender que un certificado de Azure Key Vault es un objeto con versiones. Si la versión actual expira, deberá crear una nueva versión. En términos conceptuales, cada nueva versión sería un certificado completamente nuevo compuesto por una clave y un blob que une esa clave a una identidad. Cuando use una CA no asociada, Key Vault generará un par clave-valor y devolverá la solicitud de firma de certificado.
+> [!IMPORTANT]
+> Un certificado es un objeto con versiones. Si la versión actual expira, debe crear una nueva versión. En términos conceptuales, cada nueva versión es un certificado nuevo compuesto por una clave y un blob que une esa clave a una identidad. Cuando se usa una entidad de certificación no asociada, Key Vault genera un par clave-valor y devuelve una solicitud de firma de certificado (CSR).
 
-**Pasos que se deben seguir en Azure Portal:**
-1.  Abra el certificado que quiere renovar.
-2.  Seleccione el botón **+ Nueva versión** en la pantalla Certificado.
-3.  Seleccione **Operación de certificados**.
-4.  Seleccionar **Descargar CSR**. Se descargará un archivo .csr en la unidad local.
-5.  Lleve la CSR a la CA de su elección para firmar la solicitud.
-6.  Recupere la solicitud firmada y seleccione **Merge CSR** (Fusionar CSR) en la misma pantalla Operación de certificados.
+Para renovar un certificado de una entidad de certificación no integrada, haga lo siguiente:
+
+1. Inicie sesión en Azure Portal y, a continuación, abra el certificado que desea renovar.
+1. En el panel Certificado, seleccione el botón **+ Nueva versión**.
+1. Seleccione **Operación de certificados**.
+1. Seleccione **Descargar CSR** para descargar un archivo CSR en la unidad local.
+1. Envíe el archivo CSR a la entidad de certificación de su elección para firmar la solicitud.
+1. Recupere la solicitud firmada y seleccione **Merge CSR** (Fusionar CSR) en el mismo panel Operación de certificados.
 
 > [!NOTE]
-> Es importante que fusione la CSR firmada con la misma solicitud CSR que se creó; de lo contrario, la clave no coincidiría.
+> Es importante fusionar el CSR firmado con la misma solicitud de CSR que creó. De lo contrario, la clave no coincidirá.
 
-Los pasos son similares a la creación de un certificado nuevo y se documentan de forma más detallada [aquí]( https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-signing-request#azure-portal).
+Para más información sobre la creación de un CSR, consulte [Creación y Combinación de un CSR en Key Vault]( https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-signing-request#azure-portal).
 
-## <a name="renewal-of-self-signed-certificate"></a>Renovación de un certificado autofirmado
+## <a name="renew-a-self-signed-certificate"></a>Renovación de un certificado autofirmado
 
-¡Más buenas noticias! Las instancias de Azure Key Vault también se encargarán de la renovación automática de los certificados autofirmados para sus usuarios. Para obtener más información sobre cómo cambiar la directiva de emisión y cómo actualizar los atributos de acción de la duración del certificado, consulte [este artículo](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-rotate-certificates#update-lifecycle-attributes-of-a-stored-certificate).
+Azure Key Vault también administra la renovación automática de certificados autofirmados. Para más información sobre el cambio de la directiva de emisión y la actualización de los atributos del ciclo de vida de un certificado, consulte [Configuración de la rotación automática de certificados en Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-rotate-certificates#update-lifecycle-attributes-of-a-stored-certificate).
 
-### <a name="troubleshoot"></a>Solución de problemas
-Si el certificado emitido se encuentra en el estado "deshabilitado" en Azure Portal, consulte la pantalla Operación de certificados y revise el mensaje de error sobre ese certificado.
+## <a name="troubleshoot"></a>Solución de problemas
+Si el certificado emitido se encuentra en el estado *deshabilitado* en Azure Portal, vaya a **Operación de certificados** y revise el mensaje de error de ese certificado.
 
-### <a name="see-also"></a>Consulte también
+## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
+
+**¿Cómo se puede probar la característica de rotación automática del certificado?**
+
+Cree un certificado con una validez de **1 mes** y, a continuación, establezca la acción de duración para la rotación en **1%** . Esta configuración rotará el certificado cada 7,2 horas.
+  
+**¿Se replicarán las etiquetas después de la renovación automática del certificado?**
+
+Sí, las etiquetas se replican después de la renovación automática.
+
+## <a name="next-steps"></a>Pasos siguientes
 *   [Integración de Key Vault con la entidad de certificación DigiCert](how-to-integrate-certificate-authority.md)
 *   [Tutorial: Configuración de la rotación automática de certificados en Key Vault](tutorial-rotate-certificates.md)

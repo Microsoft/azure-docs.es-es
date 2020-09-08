@@ -6,18 +6,18 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, contperfq1
 ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 18eecdfeca58bc04c77dd0e39658a51fe56d0e68
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: ae8dcc02618220750e2d15d815da4b36ea64da2d
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513101"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782199"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Creación de conjuntos de datos de Azure Machine Learning
 
@@ -25,17 +25,15 @@ ms.locfileid: "87513101"
 
 En este artículo aprenderá a crear conjuntos de datos de Azure Machine Learning para acceder a los datos de los experimentos locales o remotos. Para comprender el lugar de los almacenes de datos en el flujo de trabajo global de acceso a datos de Azure Machine Learning, consulte el artículo [Acceso seguro a los datos](concept-data.md#data-workflow).
 
-Mediante la creación de un conjunto de datos, puede crear una referencia a la ubicación del origen de datos, junto con una copia de sus metadatos. Dado que los datos permanecen en su ubicación existente, no incurre en ningún costo de almacenamiento adicional ni arriesga la integridad de los orígenes de datos. Además, los conjuntos de recursos se evalúan de forma diferida, lo que contribuye a la velocidad del rendimiento del flujo de trabajo.
+Mediante la creación de un conjunto de datos, puede crear una referencia a la ubicación del origen de datos, junto con una copia de sus metadatos. Dado que los datos permanecen en su ubicación existente, no incurre en ningún costo de almacenamiento adicional ni arriesga la integridad de los orígenes de datos. Además, los conjuntos de datos se evalúan de forma diferida, lo que contribuye a la velocidad del rendimiento del flujo de trabajo. Puede crear conjuntos de datos a partir de almacenes de datos, direcciones URL públicas y [Azure Open Datasets](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md).
 
 Con los conjuntos de datos de Azure Machine Learning, puede:
 
 * Mantener una copia de datos única en el almacenamiento, a la que hacen referencia los conjuntos de datos.
 
-* Acceder sin problemas a los datos durante el entrenamiento de un modelo, sin preocuparse por la ruta de acceso a los datos ni por las cadenas de conexión.
+* Acceda sin problemas a los datos durante el entrenamiento del modelo sin preocuparse por las cadenas de conexión o las rutas de acceso a datos.[Más información sobre cómo entrenar con conjuntos de datos](how-to-train-with-datasets.md).
 
 * Compartir datos y colaborar con otros usuarios.
-
-[Obtenga más información sobre cómo entrenar con conjuntos de datos](how-to-train-with-datasets.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -46,6 +44,12 @@ Para crear y trabajar con conjuntos de datos, necesita:
 * Un [área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 
 * El [SDK de Azure Machine Learning para Python instalado](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), que incluye el paquete azureml-datasets.
+
+    * Cree una [instancia de proceso de Azure Machine Learning](concept-compute-instance.md#managing-a-compute-instance) que sea un entorno de desarrollo completamente configurado y administrado que incluya cuadernos integrados y el SDK ya instalado.
+
+    **OR**
+
+    * Trabaje en su propio cuaderno de Jupyter Notebook e instale el SDK con [estas instrucciones](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
 > [!NOTE]
 > Algunas clases de conjunto de tipos tienen dependencias en el paquete [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py), que solo es compatible con Python de 64 bits. Para los usuarios de Linux, estas clases solo se admiten en las siguientes distribuciones:  Red Hat Enterprise Linux (7, 8), Ubuntu (14.04, 16.04, 18.04), Fedora (27, 28), Debian (8, 9) y CentOS (7).
@@ -224,50 +228,15 @@ Para crear un conjunto de datos en el estudio:
 1. Seleccione **Siguiente** para revisar el formulario **Confirmar detalles**. Compruebe sus selecciones y cree un perfil de datos opcional para el conjunto de datos. Más información acerca de la [generación de perfiles de datos](how-to-use-automated-ml-for-ml-models.md#profile). 
 1. Seleccione **Crear** para completar la creación del conjunto de datos.
 
+## <a name="create-datasets-with-azure-open-datasets"></a>Creación de conjuntos de datos con Azure Open Datasets
+
+[Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) son conjuntos de datos públicos mantenidos que puede usar para agregar características de escenarios específicos a soluciones de aprendizaje automático a fin de obtener modelos más precisos. Los conjuntos de datos incluyen datos de dominio público para el clima, censos, días festivos, seguridad pública y ubicación, que le ayudarán a entrenar los modelos de Machine Learning y enriquecer las soluciones predictivas. Los conjuntos de datos abiertos se encuentran en la nube en Microsoft Azure y se incluyen en el SDK y en Studio.
+
+Aprenda a crear [conjuntos de datos de Azure Machine Learning en Azure Open Datasets](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md). 
+
 ## <a name="train-with-datasets"></a>Entrenamiento con conjuntos de datos
 
 Use sus conjuntos de datos en los experimentos de aprendizaje automático para entrenar modelos de aprendizaje automático. [Más información sobre cómo entrenar con conjuntos de datos](how-to-train-with-datasets.md).
-
-## <a name="create-datasets-with-azure-open-datasets"></a>Creación de conjuntos de datos con Azure Open Datasets
-
-[Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) son conjuntos de datos públicos mantenidos que puede usar para agregar características de escenarios específicos a soluciones de aprendizaje automático a fin de obtener modelos más precisos. Los conjuntos de datos incluyen datos de dominio público para el clima, censos, días festivos, seguridad pública y ubicación, que le ayudarán a entrenar los modelos de Machine Learning y enriquecer las soluciones predictivas. Open Datasets se encuentra en la nube en Microsoft Azure y se incluye en el SDK y en la interfaz de usuario del área de trabajo.
-
-### <a name="use-the-sdk"></a>Uso del SDK
-
-Para crear conjuntos de datos con Azure Open Datasets desde el SDK, asegúrese de que ha instalado el paquete con `pip install azureml-opendatasets`. Cada conjunto de datos discretos se representa mediante su propia clase en el SDK y ciertas clases están disponibles como `TabularDataset`, `FileDataset`, o ambos. Consulte la [documentación de referencia](https://docs.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py) para obtener una lista completa de clases.
-
-Puede recuperar ciertas clases como `TabularDataset` o `FileDataset`, lo que le permite manipular y descargar los archivos directamente. Otras clases **solo** pueden obtener un conjunto de datos mediante las funciones `get_tabular_dataset()` o `get_file_dataset()`. En el ejemplo de código siguiente se muestran algunos ejemplos de estos tipos de clases.
-
-```python
-from azureml.opendatasets import MNIST
-
-# MNIST class can return either TabularDataset or FileDataset
-tabular_dataset = MNIST.get_tabular_dataset()
-file_dataset = MNIST.get_file_dataset()
-
-from azureml.opendatasets import Diabetes
-
-# Diabetes class can return ONLY TabularDataset and must be called from the static function
-diabetes_tabular = Diabetes.get_tabular_dataset()
-```
-
-Cuando se registra un conjunto de datos creado desde Open Datasets, los datos no se descargan inmediatamente, pero se tendrá acceso a ellos más adelante cuando se soliciten (durante el entrenamiento, por ejemplo) desde una ubicación de almacenamiento central.
-
-### <a name="use-the-ui"></a>Uso de la interfaz de usuario
-
-También puede crear conjuntos de datos a partir de clases Open Datasets mediante la interfaz de usuario. En el área de trabajo, seleccione la pestaña **Conjunto de datos** en **Recursos**. En el menú desplegable **Crear conjunto de datos**, seleccione **From Open Datasets** (Desde Open Datasets).
-
-![Abrir un conjunto de datos con la interfaz de usuario](./media/how-to-create-register-datasets/open-datasets-1.png)
-
-Seleccione un conjunto de datos seleccionando su icono (tiene la opción de filtrar mediante la barra de búsqueda). Seleccione **Next** (Siguiente).
-
-![Elegir conjunto de datos](./media/how-to-create-register-datasets/open-datasets-2.png)
-
-Elija el nombre con que va a registrar el conjunto de datos y, opcionalmente, filtre los datos mediante los filtros disponibles. En este caso, para el conjunto de datos de días festivos público, filtre el período a un año y el código de país a solo EE. UU. Seleccione **Crear**.
-
-![Establecer parámetros del conjunto de datos y crear conjunto de datos](./media/how-to-create-register-datasets/open-datasets-3.png)
-
-El conjunto de valores ahora está disponible en su área de trabajo, en **Conjunto de datos**. Puede usarlo de la misma manera que otros conjuntos de valores que haya creado.
 
 ## <a name="version-datasets"></a>Conjuntos de datos de versión
 
@@ -288,5 +257,5 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga más información sobre [cómo entrenar con conjuntos de datos](how-to-train-with-datasets.md).
-* Use el aprendizaje automático automatizado para [entrenar con TabularDatasets](https://aka.ms/automl-dataset).
-* Para ver más ejemplos de entrenamiento de conjuntos de datos, consulte los [cuadernos de ejemplo](https://aka.ms/dataset-tutorial).
+* Use el aprendizaje automático automatizado para [entrenar con TabularDatasets](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb).
+* Para ver más ejemplos de entrenamiento de conjuntos de datos, consulte los [cuadernos de ejemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/).

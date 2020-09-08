@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: be80c0d5999ed06bcc505ec5737e7e416d28b981
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c51b5c4d9cd7362aeda0a0998d8031d0ba358ce1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050693"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012354"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Directivas de soporte técnico para Azure Kubernetes Service
 
@@ -20,7 +20,7 @@ En este artículo se proporcionan detalles sobre las directivas de soporte técn
 ## <a name="service-updates-and-releases"></a>Actualizaciones de servicio y versiones
 
 * Para información sobre la versión, consulte las [notas de la versión de AKS](https://github.com/Azure/AKS/releases).
-* Para información sobre las características en versión preliminar, consulte [AKS preview features and related projects](https://github.com/Azure/AKS/blob/master/previews.md) (Características en versión preliminar y proyectos relacionados de AKS).
+* Para información sobre las características en versión preliminar, consulte [AKS preview features and related projects](https://awesomeopensource.com/projects/aks?categoryPage=11) (Características en versión preliminar y proyectos relacionados de AKS).
 
 ## <a name="managed-features-in-aks"></a>Características administradas en AKS
 
@@ -149,7 +149,7 @@ Dentro del proyecto de Kubernetes ascendente, AKS solo admite características e
 En dos escenarios, las características alfa o beta se podrían introducir antes de que tengan disponibilidad general:
 
 * Los clientes hayan conocido a los equipos de producto de AKS, soporte técnico o ingeniería, y que les hayan pedido que prueben las nuevas características.
-* Estas características han sido [habilitadas por una marca de característica](https://github.com/Azure/AKS/blob/master/previews.md). Los clientes deben participar explícitamente para usar estas características.
+* Estas características han sido [habilitadas por una marca de característica](https://awesomeopensource.com/projects/aks?categoryPage=11). Los clientes deben participar explícitamente para usar estas características.
 
 ## <a name="preview-features-or-feature-flags"></a>Características en versión preliminar o marcas de característica
 

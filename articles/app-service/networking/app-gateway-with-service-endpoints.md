@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 2bedd8d9ab0b879886042de3dc2fcff7f7b36f2f
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: fdb502685259a5e12bf0182c36aa6c73ec7c1dd5
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080939"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958940"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>Integración de Application Gateway con puntos de conexión de servicio
 Hay tres variaciones de App Service que requieren una configuración ligeramente diferente de la integración con Azure Application Gateway. Por ejemplo, la versión normal de App Service, también conocida como "multiinquilino", el equilibrador de carga interno (ILB) y el ASE externo. En este artículo se explica cómo configurarlo con App Service (multiinquilino) y se explican las consideraciones sobre ILB y el ASE externo.
@@ -84,6 +84,6 @@ az webapp config access-restriction add --resource-group myRG --name myWebApp --
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre App Service Environment, consulte la [documentación de App Service Environment](https://docs.microsoft.com/azure/app-service/environment).
+Para obtener más información sobre App Service Environment, consulte la [documentación de App Service Environment](/azure/app-service/environment).
 
 Para proteger aún más la aplicación web, puede encontrar información sobre el Firewall de aplicaciones web en Application Gateway en la [documentación del Firewall de aplicaciones web de Azure](../../web-application-firewall/ag/ag-overview.md).

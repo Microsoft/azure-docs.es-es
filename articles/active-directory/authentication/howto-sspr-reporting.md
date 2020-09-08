@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e3425407fdb131fb1499b2cd085fbe6d427804a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9c8557457e3a1dc7d0ed1e50da3070360b1fd76f
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035305"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717734"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opciones de creación de informes para la administración de contraseñas de Azure AD
 
@@ -53,7 +53,7 @@ En la experiencia de Azure Portal, se ha mejorado la visualización de la activi
 
 ### <a name="combined-registration"></a>Registro combinado
 
-Si ha habilitado el [registro combinado](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined), la información relativa a la actividad del usuario en los registros de auditoría se encontrará en **Seguridad** > **Métodos de autenticación**.
+Si ha habilitado el [registro combinado](./concept-registration-mfa-sspr-combined.md), la información relativa a la actividad del usuario en los registros de auditoría se encontrará en **Seguridad** > **Métodos de autenticación**.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Descripción de las columnas de informe en Azure Portal
 
@@ -179,7 +179,7 @@ En la lista siguiente se explica en detalle esta actividad:
 * [¿Qué datos usa SSPR y cuáles se deben rellenar en lugar de los usuarios?](howto-sspr-authenticationdata.md)
 * [¿Qué métodos de autenticación están disponibles para los usuarios?](concept-sspr-howitworks.md#authentication-methods)
 * [¿Cuáles son las opciones de directiva con SSPR?](concept-sspr-policy.md)
-* [¿Qué es la escritura diferida de contraseñas y por qué nos interesa?](howto-sspr-writeback.md)
+* [¿Qué es la escritura diferida de contraseñas y por qué nos interesa?](./tutorial-enable-sspr-writeback.md)
 * [¿Cuáles son todas las opciones en SSPR y qué significan?](concept-sspr-howitworks.md)
 * [Creo que algo se ha roto. ¿Cómo se solucionan problemas en SSPR?](active-directory-passwords-troubleshoot.md)
 * [Tengo una pregunta que no se ha comentado en ningún otro sitio](active-directory-passwords-faq.md)

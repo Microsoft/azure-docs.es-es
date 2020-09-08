@@ -3,14 +3,14 @@ title: Creación de la primera función en Azure mediante Visual Studio Code
 description: Cree y publique en Azure una función simple desencadenada por HTTP mediante la extensión de Azure Functions de Visual Studio Code.
 ms.topic: quickstart
 ms.date: 01/10/2020
-ms.custom: mvc, devcenter, seo, devx-track-python
+ms.custom: devx-track-csharp, mvc, devcenter, seo, devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 085f5137816e53dee3442e2891e4b234dc71545b
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: db5b28ae0bffa16b17cb63471b8d5ba6b5ac94ed
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849954"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146579"
 ---
 # <a name="quickstart-create-a-function-in-azure-using-visual-studio-code"></a>Inicio rápido: Creación de un función en Azure mediante Visual Studio Code
 
@@ -52,35 +52,35 @@ Antes de empezar, asegúrese de que cumple los siguientes requisitos:
 ::: zone pivot="programming-language-csharp,programming-language-powershell,programming-language-python"  
 + [Node.js](https://nodejs.org/), requerido por Windows para npm. Solo las [versiones Active LTS y Maintenance LTS ](https://nodejs.org/about/releases/). Use el comando `node --version` para comprobar la versión.
     No se requiere para el desarrollo local en macOS y Linux.   
-::: zone-end  
+::: zone-end   
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-+ Node.js [, las versiones Active LTS](https://nodejs.org/) y Maintenance LTS (se recomienda la 10.14.1). Use el comando `node --version` para comprobar la versión.
-::: zone-end 
++ Node.js [, las versiones Active LTS](https://nodejs.org/) y Maintenance LTS (se recomienda la 10.14.1). Use el comando `node --version` para comprobar la versión.  
+::: zone-end  
 ::: zone pivot="programming-language-python"
 + Azure Functions (x64) admite [Python 3.8](https://www.python.org/downloads/release/python-381/), [Python 3.7](https://www.python.org/downloads/release/python-375/) y [Python 3.6](https://www.python.org/downloads/release/python-368/).
 ::: zone-end   
 ::: zone pivot="programming-language-powershell"
-+ [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows)
++ [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-+ El [SDK de .NET Core 2.2+](https://www.microsoft.com/net/download)  
++ [.NET Core 3.1](https://www.microsoft.com/net/download) y [.NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.2)  
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
 + [Kit para desarrolladores de Java](https://aka.ms/azure-jdks), versión 8.
 
 + [Apache Maven](https://maven.apache.org), versión 3.0 o posterior.
 ::: zone-end  
-+ [Visual Studio Code](https://code.visualstudio.com/) en una de las [plataformas admitidas](https://code.visualstudio.com/docs/supporting/requirements#_platforms).  
++ [Visual Studio Code](https://code.visualstudio.com/) en una de las [plataformas admitidas](https://code.visualstudio.com/docs/supporting/requirements#_platforms).    
 ::: zone pivot="programming-language-csharp"  
 + La [extensión de C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) para Visual Studio Code.  
 ::: zone-end  
-::: zone pivot="programming-language-python"
+::: zone pivot="programming-language-python"  
 + La [extensión de Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) para Visual Studio Code  
 ::: zone-end  
-::: zone pivot="programming-language-powershell"
-+ La [extensión de PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell) para Visual Studio Code 
+::: zone pivot="programming-language-powershell"  
++ La [extensión de PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell) para Visual Studio Code  
 ::: zone-end  
-::: zone pivot="programming-language-java"  
-+ [Paquete de la extensión de Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
+::: zone pivot="programming-language-java"   
++ [Paquete de la extensión de Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)  
 ::: zone-end  
 
 + La [extensión de Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) para Visual Studio Code. 
@@ -120,6 +120,8 @@ En esta sección se usa Visual Studio Code para crear un proyecto local en Azur
 
     ::: zone pivot="programming-language-java"  
     + **Seleccione un lenguaje para el proyecto de funciones**: Elija `Java`.
+
+    + **Seleccione una versión de Java**: Elija `Java 8` o `Java 11 (preview)`, donde las funciones se ejecuten en Azure. Elija una versión de Java que haya comprobado localmente.
 
     + **Proporcione un identificador de grupo**: Elija `com.function`.
 

@@ -4,13 +4,13 @@ description: En esta guía de inicio rápido, aprenderá a realizar copias de se
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 04/16/2019
-ms.custom: mvc
-ms.openlocfilehash: fa190c670c5bdcae8bcb31d2b8d5d9bd011acae9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 4a97a084b11b34f97e0c020f367ec730d8dfb079
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538605"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89075739"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Copia de seguridad de una máquina virtual en Azure con PowerShell
 

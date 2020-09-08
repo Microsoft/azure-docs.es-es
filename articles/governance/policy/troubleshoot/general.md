@@ -1,14 +1,14 @@
 ---
 title: Solución de errores comunes
 description: Aprenda a solucionar problemas relacionados con la creación de definiciones de directivas, los diversos SDK y el complemento de Kubernetes.
-ms.date: 05/22/2020
+ms.date: 08/17/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 6d23a148521506adf0c0fc16913a32aab5eb7a30
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d4ede1703df922196c89a4c1ca4f37cbc95a6297
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135568"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545546"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Solución de problemas mediante Azure Policy
 
@@ -77,7 +77,7 @@ Un recurso en el que se espera que actúe Azure Policy no existe y no hay ningun
 
 #### <a name="cause"></a>Causa
 
-La asignación de directivas se ha configurado para un valor de [enforcementMode](../concepts/assignment-structure.md#enforcement-mode) de _Deshabilitado_. Aunque el modo de cumplimiento está deshabilitado, el efecto de la directiva no se aplica y no hay ninguna entrada en el registro de actividad.
+La asignación de directivas se ha configurado para un valor de [enforcementMode](../concepts/assignment-structure.md#enforcement-mode) de _Deshabilitado_. Aunque el modo de cumplimiento esté deshabilitado, el efecto de la directiva no se aplica y no hay ninguna entrada en el registro de actividad.
 
 #### <a name="resolution"></a>Resolución
 

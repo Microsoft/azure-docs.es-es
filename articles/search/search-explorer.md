@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 19d46c034d56c1c54f8a00f08a7e3e72e758984f
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: 8f004ff8118829ebf2d245a136cf22cdde23accc
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488212"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929795"
 ---
 # <a name="quickstart-use-search-explorer-to-run-queries-in-the-portal"></a>Inicio rápido: Uso del Explorador de búsqueda para ejecutar consultas en el portal
 
 El **Explorador de búsqueda** es una herramienta de consulta integrada que se usa para ejecutar consultas en un índice de búsqueda en Azure Cognitive Search. Esta herramienta facilita aprender la sintaxis de las consultas, probar una expresión de consulta o filtro, o verificar si existe contenido nuevo en el índice para confirmar la actualización de datos.
 
-En esta guía de inicio rápido se usa un índice existente para hacer una demostración del Explorador de búsqueda. Las solicitudes se formulan mediante la [API de REST de Search](https://docs.microsoft.com/rest/api/searchservice/), donde las respuestas se devuelven como documentos JSON.
+En esta guía de inicio rápido se usa un índice existente para hacer una demostración del Explorador de búsqueda. Las solicitudes se formulan mediante la [API de REST de Search](/rest/api/searchservice/), donde las respuestas se devuelven como documentos JSON.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -133,7 +133,7 @@ Agregue [ **$orderby**](search-query-odata-orderby.md) para ordenar los resultad
 
    ![Expresión OrderBy](./media/search-explorer/search-explorer-example-ordery.png "Cambio del criterio de ordenación")
 
-Ambas expresiones, **$filter** y **$orderby** son construcciones de OData. Para más información, consulte la [sintaxis de filtro de OData](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+Ambas expresiones, **$filter** y **$orderby** son construcciones de OData. Para más información, consulte la [sintaxis de filtro de OData](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 <a name="start-search-explorer"></a>
 
@@ -147,7 +147,7 @@ En esta guía de inicio rápido, ha usado el **Explorador de búsqueda** para co
 
 + Las consultas de forma libre, similares a las que se pueden escribir en un explorador web comercial, resultan útiles para probar una experiencia de usuario final. Por ejemplo, si partimos del índice realestate de ejemplo integrado, podría escribir "Apartamentos Seattle Lake Washington" y luego usar Ctrl-F para buscar términos dentro de los resultados de búsqueda. 
 
-+ Las expresiones de consulta y de filtro se articulan en una sintaxis admitida por Azure Cognitive Search. El valor predeterminado es una [sintaxis simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), pero también puede usar la sintaxis de [Lucene completa](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) para realizar consultas más eficaces. Las [expresiones de filtro](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) son una sintaxis de OData.
++ Las expresiones de consulta y de filtro se articulan en una sintaxis admitida por Azure Cognitive Search. El valor predeterminado es una [sintaxis simple](/rest/api/searchservice/simple-query-syntax-in-azure-search), pero también puede usar la sintaxis de [Lucene completa](/rest/api/searchservice/lucene-query-syntax-in-azure-search) para realizar consultas más eficaces. Las [expresiones de filtro](/rest/api/searchservice/odata-expression-syntax-for-azure-search) son una sintaxis de OData.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -159,7 +159,7 @@ Si está usando un servicio gratuito, recuerde que está limitado a tres índice
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre las estructuras y la sintaxis de consulta, use Postman o una herramienta equivalente para crear expresiones de consulta que aprovechen más partes de la API. La [API de REST de Search](https://docs.microsoft.com/rest/api/searchservice/) es especialmente útil para el aprendizaje y la exploración.
+Para obtener más información sobre las estructuras y la sintaxis de consulta, use Postman o una herramienta equivalente para crear expresiones de consulta que aprovechen más partes de la API. La [API de REST de Search](/rest/api/searchservice/) es especialmente útil para el aprendizaje y la exploración.
 
 > [!div class="nextstepaction"]
 > [Creación de una consulta básica en Postman](search-query-simple-examples.md)

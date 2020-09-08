@@ -1,20 +1,20 @@
 ---
-title: 'Preguntas más frecuentes: Custom Translator'
+title: Preguntas más frecuentes - Traductor personalizado
 titleSuffix: Azure Cognitive Services
 description: En este artículo se incluyen respuestas a preguntas frecuentes sobre Custom Translator de Azure Cognitive Services.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 05/26/2020
+ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: reference
-ms.openlocfilehash: 2edc5e9e255af321a30521ba1e707eea30d81f73
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 06caafe75682a2375a8023787f9905ca1e8117c9
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957603"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507236"
 ---
 # <a name="custom-translator-frequently-asked-questions"></a>Traductor personalizado: preguntas más frecuentes
 
@@ -41,7 +41,7 @@ La implementación normalmente tarda menos de una hora.
 
 ## <a name="how-do-you-access-a-deployed-system"></a>¿Cómo se tiene acceso a un sistema implementado?
 
-Se puede acceder a los sistemas implementados a través de Microsoft Translator especificando el valor del id. de categoría. Puede encontrar más información sobre Traductor en la página web de [referencia de API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference).
+Se puede acceder a los sistemas implementados a través de Microsoft Translator Text API V3 especificando el valor del id. de categoría. Puede encontrar más información sobre Translator Text API en la página web de [referencia de API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference).
 
 ## <a name="how-do-i-skip-alignment-and-sentence-breaking-if-my-data-is-already-sentence-aligned"></a>¿Cómo omito la alineación y la separación de oraciones si mis datos ya están alineados por oración?
 
@@ -49,6 +49,7 @@ Custom Translator omite la alineación de oraciones y la separación de oracione
 
 Si el número de oraciones extraídas no coincide con los dos archivos del mismo nombre base, Custom Translator ejecutará el proceso de alineación de oraciones en los archivos `.align` de todos modos.
 
-## <a name="i-tried-uploading-my-tmx-but-it-says-document-processing-failed"></a>He intentado cargar mi TMX, pero recibo el mensaje "Error de procesamiento de documento".
+## <a name="i-tried-uploading-my-tmx-but-it-says-document-processing-failed"></a>He intentado cargar mi TMX, pero recibo el mensaje "Error de procesamiento de documento"
+
 
 Asegúrese de que el TMX se ajusta a las especificaciones TMX 1.4b en <https://www.gala-global.org/tmx-14b>.

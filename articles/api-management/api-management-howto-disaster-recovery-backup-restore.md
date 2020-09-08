@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: 4c6f4bbae180184c13041863a85e2a7025f06a6e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 826f47115d15b9c46476af711eddc5499afab419
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250471"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830264"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Procedimiento para implementar la recuperación ante desastres mediante copias de seguridad y restauración del servicio en Azure API Management
 
@@ -169,19 +169,24 @@ Establezca el valor del encabezado de solicitud `Content-Type` en `application/j
 
 La creación de una copia de seguridad es una operación de larga ejecución que puede tardar más de un minuto en completarse. Si la solicitud se realizó correctamente y empezó el proceso de copia de seguridad, recibirá un código de estado de respuesta `202 Accepted` con un encabezado `Location`. Realice solicitudes "GET" en la URL del encabezado `Location` para averiguar el estado de la operación. Mientras se crea la copia de seguridad, recibirá el código de estado "202 Aceptado". El código de respuesta `200 OK` indica que la operación de copia de seguridad se ha completado correctamente.
 
-Tenga en cuenta las siguientes restricciones al realizar una solicitud de copia de seguridad o restauración:
+#### <a name="constraints-when-making-backup-or-restore-request"></a>Restricciones al realizar una solicitud de copia de seguridad o restauración
 
 -   El **contenedor** que se especifique en el cuerpo de la solicitud **debe ser real**.
 -   Mientras la copia de seguridad esté en curso, **evite hacer cambios de administración en el servicio**, como una actualización o un cambio a una versión anterior de una SKU, el cambio en un nombre de dominio, etc.
 -   La restauración de una **copia de seguridad se garantiza solo durante 30 días** a partir del momento en que esta se crea.
--   Los **datos de uso** con los que se crean informes de análisis **no se incluyen** en la copia de seguridad. La [API de REST de Azure API Management][azure api management rest api] permite recibir de forma periódica informes de análisis para guardarlos en un lugar seguro.
--   Además, los elementos siguientes no forman parte de los datos de copia de seguridad: certificados TLS/SSL de dominio personalizado y cualquier certificado intermedio o raíz cargado por el cliente, el contenido del portal para desarrolladores y la configuración de integración de Virtual Network.
--   La frecuencia con la que se crean las copias de seguridad afecta al objetivo de punto de recuperación. Para minimizarlo, se recomienda implementar copias de seguridad habituales y realizar copias de seguridad a petición después de hacer cambios en el servicio API Management.
 -   Es posible que los **cambios** que se realicen en la configuración del servicio (por ejemplo, las API, las directivas y la apariencia del portal para desarrolladores) mientras se está realizando la operación de copia de seguridad **no se incluyan en la copia de seguridad y se pierdan**.
--   **Permita** el acceso desde el plano de control a la cuenta de Azure Storage si tiene el [firewall][azure-storage-ip-firewall] habilitado. El cliente debe abrir el conjunto de [direcciones IP del plano de control de Azure API Management][control-plane-ip-address] en su cuenta de almacenamiento para la copia de seguridad o la restauración. 
+-   **Permita** el acceso desde el plano de control a la cuenta de Azure Storage si tiene el [firewall][azure-storage-ip-firewall] habilitado. El cliente debe abrir el conjunto de [direcciones IP del plano de control de Azure API Management][control-plane-ip-address] en su cuenta de almacenamiento para la copia de seguridad o la restauración. Esto se debe a que a las solicitudes a Azure Storage no se les aplica SNAT a una dirección IP pública desde Compute > (plano de control de Azure API Management). Se aplicará SNAT a la solicitud de almacenamiento entre regiones.
 
-> [!NOTE]
-> Si intenta realizar una copia de seguridad o una restauración desde o a un servicio de API Management usando una cuenta de almacenamiento que tiene el [firewall][azure-storage-ip-firewall] habilitado, en la misma región de Azure, esto no funcionará. Esto se debe a que a las solicitudes a Azure Storage no se les aplica SNAT a una dirección IP pública desde Compute > (plano de control de Azure API Management). Se aplicará SNAT a la solicitud de almacenamiento entre regiones.
+#### <a name="what-is-not-backed-up"></a>De lo que no se hace una copia de seguridad
+-   Los **datos de uso** con los que se crean informes de análisis **no se incluyen** en la copia de seguridad. La [API de REST de Azure API Management][azure api management rest api] permite recibir de forma periódica informes de análisis para guardarlos en un lugar seguro.
+-   Certificados [TLS/SSL de dominio personalizado](configure-custom-domain.md)
+-   [Certificado de entidad de certificación personalizado](api-management-howto-ca-certificates.md), que incluye certificados raíz o intermedios cargados por el cliente
+-   Configuración de integración de [red virtual](api-management-using-with-vnet.md).
+-   Configuración de [identidad administrada](api-management-howto-use-managed-service-identity.md).
+-   Configuración de [diagnóstico de Azure Monitor](api-management-howto-use-azure-monitor.md).
+-   Configuración de [protocolos y cifrado](api-management-howto-manage-protocols-ciphers.md).
+
+La frecuencia con la que se crean las copias de seguridad afecta al objetivo de punto de recuperación. Para minimizarlo, se recomienda implementar copias de seguridad habituales y realizar copias de seguridad a petición después de hacer cambios en el servicio API Management.
 
 ### <a name="restore-an-api-management-service"></a><a name="step2"> </a>Restaurar el servicio API Management
 

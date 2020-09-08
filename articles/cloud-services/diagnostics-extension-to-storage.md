@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 08/01/2016
 ms.author: bwren
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 17430330d068fb55b45f073afecb8ba348286cb5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9e16d77c36f382e72d5e9902b07afbbec50b6876
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77473216"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723264"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Almacenamiento y visualización de los datos de diagnóstico en Azure Storage
-Los datos de diagnóstico no se almacenan de forma permanente a menos que se transfieran al emulador de almacenamiento de Microsoft Azure o a Almacenamiento de Azure. Una vez que se encuentren almacenados, los datos se pueden ver con una de las diversas herramientas disponibles.
+Los datos de diagnóstico no se almacenan de forma permanente a menos que se transfieran al emulador de Microsoft Azure Storage o a Azure Storage. Una vez que se encuentren almacenados, los datos se pueden ver con una de las diversas herramientas disponibles.
 
 ## <a name="specify-a-storage-account"></a>Especificación de una cuenta de almacenamiento
 Especifique la cuenta de almacenamiento que desea usar en el archivo ServiceConfiguration.cscfg. La información de cuenta se define como una cadena de conexión en un valor de configuración. En el ejemplo siguiente se muestra la cadena de conexión predeterminada creada para un nuevo proyecto de servicio en la nube en Visual Studio:

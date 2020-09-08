@@ -10,13 +10,13 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 4/26/2019
 ms.author: scottwhi
-ms.custom: devx-track-python, devx-track-javascript
-ms.openlocfilehash: 49daf816c4075820c9efc93611f33c4854a6042d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: d82445499ffa42b1e3a0e949d95eadf61dfdd4c1
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849580"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88925086"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Uso de un token de información para obtener los detalles de una imagen
 

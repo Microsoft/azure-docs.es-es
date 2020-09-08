@@ -3,34 +3,41 @@ title: 'Versión preliminar: creación de una versión de imagen cifrada con cla
 description: Cree una versión de imagen en una galería de imágenes compartidas mediante claves de cifrado administradas por el cliente.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 05/06/2020
+ms.date: 08/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 469e225a1cc40dc2ecc45339d9355484e87c4af2
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 21e6dc5a975f43456a077559eebafd975cea66a1
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223591"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816497"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Vista previa: uso de claves administradas por el cliente para el cifrado de imágenes
 
 Las imágenes de la galería se almacenan como discos administrados, por lo que se cifran de forma automática mediante cifrado del lado servidor. El cifrado del lado servidor usa el [cifrado AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, uno de los cifrados de bloques más seguros que existen, compatible con FIPS 140-2. Para más información sobre de los módulos criptográficos subyacentes en los discos administrados de Azure, consulte [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal)
 
-Puede confiar en las claves administradas por la plataforma para el cifrado de las imágenes, o bien puede administrar el cifrado mediante claves propias. Si opta por administrar el cifrado con claves propias, puede especificar una *clave administrada por el cliente* que se usará para cifrar y descifrar todos los discos de las imágenes. 
+Puede confiar en las claves administradas por la plataforma para el cifrado de las imágenes, usar sus propias claves o usar ambas conjuntamente, para un cifrado doble. Si opta por administrar el cifrado con claves propias, puede especificar una *clave administrada por el cliente* que se usará para cifrar y descifrar todos los discos de las imágenes. 
 
 El cifrado del lado servidor mediante claves administradas por el cliente usa Azure Key Vault. Puede importar [las claves RSA](../key-vault/keys/hsm-protected-keys.md) a su instancia de Key Vault o generar nuevas claves RSA en Azure Key Vault.
 
-Para usar claves administradas por el cliente para las imágenes, primero necesita una instancia de Azure Key Vault. Después, tendrá que crear un conjunto de cifrado de disco. El conjunto de cifrado de disco se usa luego al crear las versiones de la imagen.
+## <a name="prerequisites"></a>Requisitos previos
 
-Para obtener más información sobre la creación y el uso de conjuntos de cifrado de disco, vea [Claves administradas por el cliente](./windows/disk-encryption.md#customer-managed-keys).
+Para este artículo, es necesario que ya disponga de un conjunto de cifrado de disco para su imagen.
+
+- Para usar solo una clave administrada por el cliente, consulte **Habilitación de claves administradas por el cliente con el cifrado del lado servidor** mediante [Azure Portal](./disks-enable-customer-managed-keys-portal.md) o [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
+
+- Para usar las claves administradas por la plataforma y las administradas por el cliente (para el cifrado doble), consulte **Habilitación del cifrado doble en reposo** mediante [Azure Portal](./disks-enable-double-encryption-at-rest-portal.md) o [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
+    > [!IMPORTANT]
+    > Debe usar este vínculo [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) para tener acceso a Azure Portal. El cifrado doble en reposo no está visible actualmente en Azure Portal público sin usar el vínculo.
 
 ## <a name="limitations"></a>Limitaciones
 
 Hay varias limitaciones al usar claves administradas por el cliente para cifrar imágenes de la galería de imágenes compartidas:  
 
-- Los conjuntos de cifrado de disco deben estar en la misma suscripción y región que la imagen.
+- Los conjuntos de claves de cifrado deben estar en la misma suscripción y región que la imagen.
 
 - No se pueden compartir imágenes que usan claves administradas por el cliente. 
 
@@ -90,7 +97,7 @@ $encryption1 = @{OSDiskImage=$osDiskImageEncryption;DataDiskImages=$dataDiskImag
 
 $region1 = @{Name='West US';ReplicaCount=1;StorageAccountType=Standard_LRS;Encryption=$encryption1}
 
-$targetRegion = @{$region1}
+$targetRegion = @($region1)
 
 
 # Create the image
@@ -150,6 +157,7 @@ Si el origen del disco del sistema operativo es un disco administrado o una máq
 az sig image-version create \
    -g MyResourceGroup \
    --gallery-image-version 1.0.0 \
+   --location westus \
    --target-regions westus=2=standard_lrs \
    --target-region-encryption DiskEncryptionSet1,0,DiskEncryptionSet2 \
    --gallery-name MyGallery \
@@ -165,11 +173,12 @@ En este ejemplo, los orígenes son instantáneas de disco. Hay un disco del sist
 az sig image-version create \
    -g MyResourceGroup \
    --gallery-image-version 1.0.0 \
+   --location westus\
    --target-regions westus=2=standard_lrs \
    --target-region-encryption DiskEncryptionSet1,0,DiskEncryptionSet2 \
-   --os-snapshot "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/myOSSnapshot"
-   --data-snapshot-luns 0
-   --data-snapshots "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/myDDSnapshot"
+   --os-snapshot "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/myOSSnapshot" \
+   --data-snapshot-luns 0 \
+   --data-snapshots "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/myDDSnapshot" \
    --gallery-name MyGallery \
    --gallery-image-definition MyImage 
    
@@ -182,15 +191,19 @@ Puede crear una máquina virtual a partir de una galería de imágenes compartid
 
 ## <a name="portal"></a>Portal
 
-Al crear la versión de la imagen en el portal, puede usar la pestaña **Cifrado** para escribir la información sobre los conjuntos de cifrado de almacenamiento.
+Al crear la versión de la imagen en el portal, puede usar la pestaña **Cifrado** para especificar la información sobre los conjuntos de cifrado de almacenamiento.
+
+> [!IMPORTANT]
+> Para usar el cifrado doble, debe usar este vínculo [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) para tener acceso a Azure Portal. El cifrado doble en reposo no está visible actualmente en Azure Portal público sin usar el vínculo.
+
 
 1. En la página **Crear una versión de imagen**, seleccione la pestaña **Cifrado**.
-2. En la pestaña **Tipo de cifrado**, seleccione **Cifrado en reposo con una clave administrada por el cliente**. 
+2. En **Tipo de cifrado**, seleccione **Cifrado en reposo con una clave administrada por el cliente** o **Cifrado doble con claves administradas por el cliente y la plataforma**. 
 3. En cada disco de la imagen, seleccione en la lista desplegable el **conjunto de cifrado de disco** que se va a usar. 
 
 ### <a name="create-the-vm"></a>Creación de la máquina virtual
 
-Puede crear una máquina virtual a partir de una galería de imágenes compartidas y usar claves administradas por el cliente para cifrar los discos. Al crear la máquina virtual en el portal, en la pestaña **Discos**, seleccione **Cifrado en reposo con claves administradas por el cliente** para **Tipo de cifrado**. Después puede seleccionar el conjunto de cifrado en la lista desplegable.
+Puede crear una máquina virtual a partir de una versión de imagen y usar claves administradas por el cliente para cifrar los discos. Al crear la máquina virtual en el portal, en la pestaña **Discos**, seleccione **Cifrado en reposo con claves administradas por el cliente** o **Cifrado doble con claves administradas por el cliente y la plataforma** para **Tipo de cifrado**. Después puede seleccionar el conjunto de cifrado en la lista desplegable.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

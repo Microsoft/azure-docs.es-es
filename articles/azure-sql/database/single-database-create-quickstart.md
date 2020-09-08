@@ -11,18 +11,18 @@ author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein, vanto
 ms.date: 04/19/2020
-ms.openlocfilehash: 20f8a08cfe31534abe24c7af1055e0945e021643
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6572f2e71b794f9f147278970b3f5f29fceb29d7
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081594"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962696"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>Inicio rápido: Creación de una base de datos única de Azure SQL Database
 
 En este inicio rápido, usará Azure Portal, un script de PowerShell o un script de la CLI de Azure para crear una base de datos única en Azure SQL Database. A continuación, realizará una consulta de la base de datos mediante el **editor de consultas** en Azure Portal.
 
-Una [base de datos única](single-database-overview.md) es la opción más rápida y sencilla para Azure SQL Database. Puede administrar una base de datos única dentro de un [servidor](logical-servers.md), que se encuentre dentro de un [grupo de recursos de Azure](../../active-directory-b2c/overview.md) en una región de Azure especificada. En este inicio rápido, se crea un grupo de recursos y un servidor para la nueva base de datos.
+Una [base de datos única](single-database-overview.md) es la opción más rápida y sencilla para Azure SQL Database. Puede administrar una base de datos única dentro de un [servidor](logical-servers.md), que se encuentre dentro de un [grupo de recursos de Azure](../../azure-resource-manager/management/manage-resource-groups-portal.md) en una región de Azure especificada. En este inicio rápido, se crea un grupo de recursos y un servidor para la nueva base de datos.
 
 Se puede crear una base de datos única en el nivel de proceso *aprovisionado* o *sin servidor*. Una base de datos aprovisionada tiene asignada previamente una cantidad fija de recursos de proceso, que incluyen memoria y CPU, y utiliza uno o dos [modelos de compra](purchasing-models.md). En este inicio rápido se crea una base de datos aprovisionada mediante el modelo de compra [basado en núcleo virtual](service-tiers-vcore.md), pero también puede elegir un modelo [basado en DTU](service-tiers-dtu.md).
 

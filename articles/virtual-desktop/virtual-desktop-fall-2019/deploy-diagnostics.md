@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c456f7e82bb605909f31b35cdd838145900396e2
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 61c31b24b01b40da4d73a308a4f304f6ff242e41
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009195"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691418"
 ---
 # <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Implementación de la herramienta de diagnósticos para Windows Virtual Desktop (clásico)
 
@@ -196,7 +196,7 @@ Para establecer el URI de redirección:
    > [!div class="mx-imgBorder"]
    > ![Página de redirección de URI](../media/redirect-uri-page.png)
 
-8. Ahora, vaya a los recursos de Azure, seleccione el recurso de Azure App Services con el nombre proporcionado en la plantilla y vaya a la dirección URL asociada a él. (Por ejemplo, si el nombre de la aplicación que usó en la plantilla era `contosoapp45`, la dirección URL asociada es <https://contosoapp45.azurewebsites.net>).
+8. Ahora, vaya a los recursos de Azure, seleccione el recurso de Azure App Services con el nombre proporcionado en la plantilla y vaya a la dirección URL asociada a él. (Por ejemplo, si el nombre de la aplicación que usó en la plantilla era `contosoapp45`, la dirección URL asociada es <http://contoso.azurewebsites.net>).
 9. Inicie sesión con la cuenta de usuario de Azure Active Directory adecuada.
 10.   Seleccione **Aceptar**.
 

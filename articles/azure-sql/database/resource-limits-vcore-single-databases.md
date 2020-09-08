@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 07/21/2020
-ms.openlocfilehash: 64a21c0d0edcd035bdf42c3b17c5f2c0131dabfa
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: bb69d48fe4e65d0fc27db027aecab0f1a745e8d5
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117022"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566189"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Límites de recursos para bases de datos únicas que utilizan el modelo de compra en núcleos virtuales
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -97,7 +97,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|
 |Tamaño máximo de datos (GB)|3072|3072|4096|4096|4096|
-|Tamaño máximo de registro (GB)|922|922|1229|1229|1229|
+|Tamaño máximo de registro (GB)|922|922|1024|1024|1024|
 |Tamaño máximo de datos de TempDB (GB)|576|640|768|1024|1280|
 |Tipo de almacenamiento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
@@ -323,7 +323,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamaño máximo de datos (GB)|3072|3072|3072|4096|4096|4096|4096|
-|Tamaño máximo de registro (GB)|922|922|922|1229|1229|1229|1229|
+|Tamaño máximo de registro (GB)|922|922|922|1024|1024|1024|1024|
 |Tamaño máximo de datos de TempDB (GB)|512|576|640|768|1024|1280|2560|
 |Tipo de almacenamiento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
@@ -487,7 +487,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|15,77|18,14|20.51|25,25|37,94|52,23|131,64|
 |Tamaño máximo de datos (GB)|3072|3072|3072|4096|4096|4096|4096|
-|Tamaño máximo de registro (GB)|922|922|922|1229|1229|1229|1229|
+|Tamaño máximo de registro (GB)|922|922|922|1024|1024|1024|1024|
 |Tamaño máximo de datos de TempDB (GB)|512|576|640|768|1024|1280|2560|
 |Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|

@@ -16,12 +16,12 @@ author: billmath
 ms.custom: seohack1
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1983b5090604516265ea8e041ac68200ca2dc7b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 451b50e70b98849dfc4654566d09a5a961abe451
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359592"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279914"
 ---
 # <a name="update-the-tlsssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Actualización del certificado TLS/SSL de una granja de Servicios de federación de Active Directory (AD FS)
 
@@ -34,7 +34,7 @@ Puede realizar toda la operación de actualización del certificado TLS/SSL de l
 
 
 >[!NOTE]
->Para obtener más información sobre los certificados usados por AD FS, consulte el artículo [Descripción de los certificados usados por AD FS](https://technet.microsoft.com/library/cc730660.aspx).
+>Para obtener más información sobre los certificados usados por AD FS, consulte el artículo [Descripción de los certificados usados por AD FS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc730660(v=ws.11)).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -109,4 +109,3 @@ Una vez completada la configuración, Azure AD Connect muestra el mensaje que in
 
 - [Azure AD Connect y la federación](how-to-connect-fed-whatis.md)
 - [Servicios de federación de Active Directory y personalización con Azure AD Connect](how-to-connect-fed-management.md)
-

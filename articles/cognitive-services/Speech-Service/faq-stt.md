@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/4/2019
+ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: 2c84b291aad5ec2da2946e40075b23cc4496ef65
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: a14ac8089aa29a592164168e6ccfc4fd2342f68c
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921021"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661527"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Preguntas más frecuentes sobre el servicio Speech to Text
 
@@ -75,7 +75,7 @@ Si ha adaptado e implementado un modelo con la línea de base V1.0, esa implemen
 
 **P: ¿Están limitadas mis solicitudes?**
 
-**R.** : La API REST limita las solicitudes a 25 cada 5 segundos. Encontrará los detalles en nuestras páginas de [Speech to Text](speech-to-text.md).
+**R.** : Consulte [Cuotas y límites de los servicios de Voz](speech-services-quotas-and-limits.md).
 
 **P: ¿Cómo se cobra el audio de canal doble?**
 
@@ -85,52 +85,14 @@ Si ha adaptado e implementado un modelo con la línea de base V1.0, esa implemen
 > Si tiene más dudas sobre la privacidad que le impidan usar el servicio Habla personalizada, póngase en contacto con uno de los canales de soporte técnico.
 
 ## <a name="increasing-concurrency"></a>Aumento de la simultaneidad
+Consulte [Cuotas y límites de los servicios de Voz](speech-services-quotas-and-limits.md).
 
-**P: ¿Qué sucede si necesito una mayor simultaneidad para el modelo implementado de la que se ofrece en el portal?**
-
-**R.** : Se puede escalar verticalmente el modelo en incrementos de 20 solicitudes simultáneas.
-
-Con la información necesaria, cree una solicitud de soporte técnico en el [portal de soporte técnico de Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). No publique la información en ninguno de los canales públicos (GitHub, Stackoverflow, etc.) que se mencionan en la [página de soporte técnico](support.md).
-
-Para aumentar la simultaneidad de un ***modelo personalizado***, se necesita la siguiente información:
-
-- La región donde se implementa el modelo,
-- el identificador del punto de conexión del modelo implementado:
-  - Inicie sesión en el [portal de Habla personalizada](https://aka.ms/customspeech),
-  - inicie sesión (si es necesario),
-  - seleccione el proyecto y la implementación,
-  - seleccione el punto de conexión para el que necesita el aumento de simultaneidad,
-  - copie el `Endpoint ID`.
-
-Para aumentar la simultaneidad de un ***modelo base***, se necesita la siguiente información:
-
-- La región del servicio
-
-y bien
-
-- un token de acceso para la suscripción (consulte [aquí](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)),
-
-or
-
-- el identificador del recurso de la suscripción:
-  - Vaya a [Azure Portal](https://portal.azure.com),
-  - seleccione `Cognitive Services` en el cuadro de búsqueda,
-  - en los servicios mostrados, seleccione el servicio de voz para el que desea aumentar la simultaneidad,
-  - muestre `Properties` de este servicio,
-  - copie el `Resource ID`completo.
-  
-**P: ¿El aumento del límite de simultaneidad aumenta el costo?**
-
-**R.** : No, el costo se basa en el uso. Al aumentar la simultaneidad no se generan costos más elevados. Vea la [página de precios](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) para obtener más detalles sobre el costo. 
-  
->[!NOTE]
->Los [contenedores](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-container-howto) no requieren aumentos en los límites de simultaneidad, ya que solo están restringidos por las CPU del hardware en el que se hospedan.
 
 ## <a name="importing-data"></a>Importar datos
 
 **P: ¿Cuál es el límite de tamaño de un conjunto de datos, y por qué existe?**
 
-**R.** : El límite actual de un conjunto de datos es de 2 GB. El límite se debe a la restricción del tamaño de un archivo para la carga HTTP.
+**R.** : El límite se debe a la restricción del tamaño de un archivo para la carga HTTP. Consulte [Cuotas y límites de los servicios de Voz](speech-services-quotas-and-limits.md) para conocer el límite real.
 
 **P: ¿Puedo comprimir mis archivos de texto para cargar un archivo de texto mayor?**
 
@@ -198,7 +160,7 @@ or
 
 **P: ¿Qué experiencias de voz mejora el modelo de inquilino?**
 
-**R:** Cuando el modelo de inquilino se habilita, se crea y se publica, se usa para mejorar el reconocimiento de las aplicaciones empresariales compiladas con el servicio de voz, que también pasan un token de AAD de usuario que indica la pertenencia a la empresa.
+**R:** Cuando el modelo de inquilino se habilita, se crea y se publica, se usa para mejorar el reconocimiento de las aplicaciones empresariales compiladas con el servicio de Voz, que también pasan un token de Azure AD de usuario que indica la pertenencia a la empresa.
 
 Las experiencias de voz integradas en Office 365, como el Dictado y los subtítulos de PowerPoint, no cambian cuando se crea un modelo de inquilino para las aplicaciones del servicio de voz.
 

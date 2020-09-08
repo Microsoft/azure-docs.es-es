@@ -1,6 +1,6 @@
 ---
 title: Tutorial sobre el desempaquetado, la conexión y el desbloqueo de Azure Data Box Disk| Microsoft Docs
-description: Use este tutorial para saber cómo configurar Azure Data Box Disk
+description: En este tutorial, aprenderá a desempaquetar un dispositivo Azure Data Box Disk, a conectarse a discos, a obtener la clave de paso y a desbloquear discos de clientes de Windows y Linux.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/04/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 1fbd99e8233b068efda4d0fb87e87788f49835cf
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 570653d620c5e314db9e6a0bc56d731f8acf9296
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79214367"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925658"
 ---
 ::: zone target="docs"
 

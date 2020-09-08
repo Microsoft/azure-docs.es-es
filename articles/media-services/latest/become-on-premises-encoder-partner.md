@@ -5,17 +5,19 @@ services: media-services
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 03/02/2020
-ms.topic: article
+ms.date: 08/31/2020
+ms.topic: how-to
 ms.service: media-services
-ms.openlocfilehash: f98d9942f8c30f06b0144503b056c1e8a393ae52
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1383b6afac9ad2332169328ef71981e23e86bdcc
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79298638"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297457"
 ---
 # <a name="how-to-verify-your-on-premises-live-streaming-encoder"></a>Cómo comprobar su codificador de streaming en vivo local
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Como asociado de codificador local de Azure Media Services, Media Services promueve su producto al recomendar su codificador a clientes empresariales. Para convertirse en un asociado de codificador local, debe comprobar la compatibilidad del codificador local con Media Services. Para ello, complete las comprobaciones siguientes:
 

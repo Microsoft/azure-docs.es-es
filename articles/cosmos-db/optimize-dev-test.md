@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: ea5d975b73afcf03ad97bafd1c6f68f2b55263c2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/19/2020
+ms.openlocfilehash: 9390f8a2ab9372927b434ea94d7545c9ec540c58
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084728"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606254"
 ---
 # <a name="optimize-development-and-testing-cost-in-azure-cosmos-db"></a>Optimización del coste de desarrollo y pruebas en Azure Cosmos DB
 
@@ -25,6 +25,9 @@ El [emulador de Azure Cosmos DB](local-emulator.md) es una versión que se puede
 
 El nivel Gratis de Azure Cosmos DB facilita la introducción, el desarrollo y la prueba de las aplicaciones, o incluso la ejecución de pequeñas cargas de trabajo de producción de forma gratuita. Cuando el nivel Gratis esté habilitado en una cuenta, obtendrá las primeras 400 RU/s y 5 GB de almacenamiento de la cuenta gratis. También puede crear una base de datos de rendimiento compartida con 25 contenedores que compartan 400 RU/s en el nivel de base de datos, todo ello incluido en el nivel Gratis (limitar cinco bases de datos de rendimiento compartido en una cuenta de nivel Gratis). Al usar el nivel gratis, si aprovisiona una base de datos compartida con un rendimiento mínimo de 400 RU/s, todos los contenedores de esa base de datos pueden compartir el rendimiento. Las bases de datos nuevas con rendimiento compartido o los contenedores con un rendimiento dedicado se facturan según los precios normales.
 
+> [!NOTE]
+> El nivel Gratis solo está disponible en modo de rendimiento aprovisionado.
+
 El nivel Gratis se mantiene indefinidamente durante la vigencia de la cuenta e incluye todas las [ventajas y características](introduction.md#key-benefits) de una cuenta de Azure Cosmos DB normal, incluidos el almacenamiento ilimitado y el rendimiento (RU/s), los Acuerdos de Nivel de Servicio, la alta disponibilidad, la distribución global llave en mano en todas las regiones de Azure y mucho más. Puede tener una cuenta de nivel Gratis por cada suscripción de Azure y debe optar por tenerla al crear la cuenta. Para empezar, [cree una cuenta en Azure Portal con el nivel gratis habilitado](create-cosmosdb-resources-portal.md) o use una [plantilla de ARM](manage-sql-with-resource-manager.md#free-tier). Consulte la [página de precios](https://azure.microsoft.com/pricing/details/cosmos-db/) para más información.
 
 ## <a name="try-azure-cosmos-db-for-free"></a>Pruebe gratis Azure Cosmos DB
@@ -34,6 +37,10 @@ La opción para [probar Azure Cosmos DB gratis](https://azure.microsoft.com/try/
 ## <a name="azure-free-account"></a>Cuenta gratuita de Azure
 
 Azure Cosmos DB se incluye en la [cuenta gratuita de Azure](https://azure.microsoft.com/free), que ofrece créditos y recursos de Azure de forma gratuita durante un período de tiempo determinado. Específicamente para Azure Cosmos DB, esta cuenta gratuita ofrece 5 GB de almacenamiento y 400 RU de rendimiento aprovisionado para todo el año. Esta experiencia permite a cualquier desarrollador probar fácilmente las características de Azure Cosmos DB o integrarlo con otros servicios de Azure sin ningún costo. Junto con la cuenta gratuita de Azure obtendrá un saldo de 200 USD para gastar durante los primeros 30 días. No se le cobrará nada hasta que decida actualizar la suscripción; incluso si comienza a usar los servicios. Para comenzar, visite la página de la [cuenta gratuita de Azure](https://azure.microsoft.com/free).
+
+## <a name="azure-cosmos-db-serverless"></a>Azure Cosmos DB sin servidor
+
+[Azure Cosmos DB sin servidor](serverless.md) le permite usar su cuenta de Azure Cosmos en un modo basado en el consumo, donde solo se cobran las unidades de solicitud que las operaciones de base de datos consumen y el almacenamiento consumido por los datos. No existe un cargo mínimo en el uso de Azure Cosmos DB en modo sin servidor. Dado que elimina el concepto de capacidad aprovisionada, es más adecuado para las actividades de desarrollo o pruebas específicamente cuando la base de datos está inactiva en la mayoría de los casos.
 
 ## <a name="use-shared-throughput-databases"></a>Uso de bases de datos de rendimiento compartido
 
@@ -45,8 +52,8 @@ Por ejemplo, supongamos que la cuenta de desarrollo o de prueba tiene cuatro con
 
 Puede comenzar a usar el emulador o las cuentas gratuitas de Azure Cosmos DB con los siguientes artículos:
 
-* Obtenga más información sobre la [optimización para desarrollo y pruebas](optimize-dev-test.md).
 * Obtenga más información sobre [la factura de Azure Cosmos DB](understand-your-bill.md).
+* Obtenga más información sobre [Azure Cosmos DB sin servidor](serverless.md).
 * Obtenga más información sobre la [optimización del costo de la capacidad del rendimiento](optimize-cost-throughput.md).
 * Obtenga más información sobre la [optimización del costo del almacenamiento](optimize-cost-storage.md).
 * Obtenga más información sobre la [optimización del costo de la lectura y la escritura](optimize-cost-reads-writes.md).

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 81ee07eb41df6d8d663510913572b829feffd995
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b603776ce19bca8d6fefa7c3c85366ebe3b7b01f
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133795"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653807"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Introducción a los servicios principales de Azure Storage
 
@@ -33,7 +33,7 @@ La plataforma de Azure Storage incluye los servicios de datos siguientes:
 - [Azure Files](../files/storage-files-introduction.md): recursos compartidos de archivos administrados para implementaciones locales y en la nube.
 - [Colas de Azure](../queues/storage-queues-introduction.md): un almacén de mensajería para mensajería confiable entre componentes de aplicación.
 - [Tablas de Azure](../tables/table-storage-overview.md): un almacén NoSQL para el almacenamiento sin esquema de datos estructurados.
-- [Azure Disks](../../virtual-machines/windows/managed-disks-overview.md): volúmenes de almacenamiento en el nivel de bloque para máquinas virtuales de Azure.
+- [Azure Disks](../../virtual-machines/managed-disks-overview.md): volúmenes de almacenamiento en el nivel de bloque para máquinas virtuales de Azure.
 
 Para acceder a cada servicio se usa una cuenta de almacenamiento. Para comenzar, consulte [Crear una cuenta de almacenamiento](storage-account-create.md).
 
@@ -101,7 +101,7 @@ Para más información sobre Table Storage, consulte [Introducción a Azure Tabl
 
 Un disco administrado de Azure es un disco duro virtual (VHD). Se puede considerar como un disco físico en un servidor en el entorno local, pero virtualizado. Los discos administrados de Azure se almacenan como blobs en páginas, que son un objeto de almacenamiento de E/S aleatorio en Azure. A estos discos los denominamos "administrados", ya que son una abstracción sobre los blobs en páginas, los contenedores de blobs y las cuentas de almacenamiento de Azure. Con los discos administrados, lo único que debe hacer es aprovisionar el disco y Azure se encarga del resto.
 
-Para más información sobre discos administrados, consulte [Introducción a los discos administrados de Azure](../../virtual-machines/windows/managed-disks-overview.md).
+Para más información sobre discos administrados, consulte [Introducción a los discos administrados de Azure](../../virtual-machines/managed-disks-overview.md).
 
 ## <a name="types-of-storage-accounts"></a>Tipos de cuentas de almacenamiento
 

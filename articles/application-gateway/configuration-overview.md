@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/30/2020
 ms.author: absha
-ms.openlocfilehash: 9315884db30c053d86c889ff3b45aaea17d48b17
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: 32809c33e1c365d8d333bb89a5c2f773b311c2ff
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87438921"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511089"
 ---
 # <a name="application-gateway-configuration-overview"></a>Introducción a la configuración de Application Gateway
 
@@ -38,11 +38,13 @@ Una puerta de enlace de aplicaciones es una implementación dedicada en su red v
 
 Application Gateway usa una dirección IP privada por instancia, más otra dirección IP privada si se configura una dirección IP de front-end privada.
 
-Además, Azure se reserva cinco direcciones IP en cada subred para uso interno: las cuatro primeras direcciones IP y la última. Por ejemplo, suponga que hay 15 instancias de Application Gateway sin ninguna dirección IP de front-end privada. Necesita al menos 20 direcciones IP para esta subred: cinco para uso interno y 15 para las instancias de Application Gateway. Por lo tanto, necesita una subred de tamaño /27 o superior.
+Además, Azure se reserva cinco direcciones IP en cada subred para uso interno: las cuatro primeras direcciones IP y la última. Por ejemplo, suponga que hay 15 instancias de Application Gateway sin ninguna dirección IP de front-end privada. Necesita al menos 20 direcciones IP para esta subred: cinco para uso interno y 15 para las instancias de Application Gateway.
 
-Ahora imagine una subred que tiene 27 instancias de Application Gateway y una dirección IP de front-end privada. En este caso, necesita 33 direcciones IP: 27 para las instancias de Application Gateway, una para el front-end privado y cinco para uso interno. Por lo tanto, necesita una subred de tamaño /26 o superior.
+Ahora imagine una subred que tiene 27 instancias de Application Gateway y una dirección IP de front-end privada. En este caso, necesita 33 direcciones IP: 27 para las instancias de Application Gateway, una para el front-end privado y cinco para uso interno.
 
-Se recomienda que utilice un tamaño /28 como mínimo. Este tamaño le ofrece 11 direcciones IP utilizables. Si la carga de la aplicación requiere más de 10 instancias de Application Gateway, considere la posibilidad de usar un tamaño de subred /27 o /26.
+La SKU de Application Gateway (Estándar o WAF) puede admitir hasta 32 instancias (32 instancias de direcciones IP + 1 dirección IP de front-end privada + 5 instancias reservadas de Azure), por lo que se recomienda un tamaño de subred mínimo de /26.
+
+Application Gateway (SKU Standard_v2 o WAF_v2) puede admitir hasta 125 instancias (125 instancias de direcciones IP + 1 dirección IP de front-end privada + 5 instancias reservadas de Azure), por lo que se recomienda un tamaño de subred mínimo de /24.
 
 #### <a name="network-security-groups-on-the-application-gateway-subnet"></a>Grupos de seguridad de red en la subred de Application Gateway
 

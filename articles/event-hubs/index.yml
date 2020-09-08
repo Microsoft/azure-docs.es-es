@@ -12,12 +12,12 @@ metadata:
   author: spelluru
   ms.author: spelluru
   ms.date: 06/23/2020
-  ms.openlocfilehash: 15f484665a74b7960908d2b430210fe921c33d5d
-  ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+  ms.openlocfilehash: 06cce3f999b329d41c7ef7e5f381f55fdaee8054
+  ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/06/2020
-  ms.locfileid: "87836792"
+  ms.lasthandoff: 08/26/2020
+  ms.locfileid: "88933756"
 landingContent:
 - title: Acerca de Event Hubs
   linkLists:
@@ -35,7 +35,7 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Azure portal
+    - text: Portal de Azure
       url: event-hubs-create.md
     - text: Azure CLI
       url: event-hubs-quickstart-cli.md
@@ -84,13 +84,13 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: .NET Core
-      url: get-started-dotnet-standard-send-v2.md
+      url: event-hubs-dotnet-standard-getstarted-send.md
     - text: Java
       url: event-hubs-java-get-started-send.md
     - text: Python
-      url: get-started-python-send-v2.md
+      url: event-hubs-python-get-started-send.md
     - text: JavaScript
-      url: get-started-node-send-v2.md
+      url: event-hubs-node-get-started-send.md
     - text: Apache Kafka
       url: event-hubs-quickstart-kafka-enabled-event-hubs.md#send-and-receive-messages-with-kafka-in-event-hubs
     - text: Apache Storm (solo recibir)
@@ -132,7 +132,7 @@ landingContent:
     - text: Uso de plantillas de Resource Manager
       url: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
     - text: Habilitación de la captura desde una aplicación Python
-      url: get-started-capture-python-v2.md
+      url: event-hubs-capture-python.md
 - title: Proceso de eventos
   linkLists:
   - linkListType: tutorial

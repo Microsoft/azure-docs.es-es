@@ -3,20 +3,21 @@ title: Localizadores de streaming en Azure Media Services | Microsoft Docs
 description: En este artículo se explica qué son los localizadores de streaming y cómo los usa Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/04/2020
-ms.author: juliako
-ms.openlocfilehash: ed58919c47da13a8a0707a344a389126c6feb6c3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: inhenkel
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 68df5256949db44b2b347002570c64d1aa0d55ea
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091970"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297967"
 ---
 # <a name="streaming-locators"></a>Localizadores de streaming
 

@@ -5,12 +5,12 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 118e83016a0c27383a1f138d27397a01f7cd3916
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 8a9ca656ec102a101df9aafb87652680a1001f31
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246629"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826286"
 ---
 # <a name="service-fabric-releases"></a>Versiones de Service Fabric
 
@@ -51,9 +51,9 @@ Nos complace anunciar la siguiente versión de Service Fabric. Esta versión inc
 ### <a name="improve-application-life-cycle-experience"></a>Mejora de la experiencia del ciclo de vida de la aplicación
 
 - **[Versión preliminar: solicitar purga](./service-fabric-application-upgrade-advanced.md#avoid-connection-drops-during-stateless-service-planned-downtime)** : durante un mantenimiento de servicio planeado, como las actualizaciones del servicio o la desactivación de nodos, desea permitir que los servicios purguen las conexiones. Esta característica agrega la duración del retraso del cierre de una instancia en la configuración del servicio. Durante las operaciones planeadas, Service Fabric eliminará la dirección del servicio de la detección y, después, esperará este tiempo antes de apagar el servicio.
-- **[Equilibrado y detección automáticos de subclústeres](/azure/service-fabric/cluster-resource-manager-subclustering )** : La agrupación en subclústeres se produce cuando los servicios con restricciones de selección de ubicación diferentes tienen una [métrica de carga](./service-fabric-cluster-resource-manager-metrics.md)común. Si la carga en los diferentes conjuntos de nodos difieren considerablemente, Cluster Resource Manager de Service Fabric cree que el clúster no está equilibrado, ni siquiera cuando tenga el mejor equilibrio posible debido a las restricciones de selección de ubicación. En consecuencia, intenta volver a equilibrar el clúster, lo que puede provocar movimientos innecesarios de servicios (dado que el "desequilibrio" no se puede mejorar sustancialmente). Si se empieza con esta versión, Cluster Resource Manager ahora intentará detectar automáticamente estos tipos de configuraciones y saber cuándo se puede solucionar el desequilibrio a través del movimiento, y cuándo hay que dejar todo tal cual está, ya que no de puede realizar ninguna mejora sustancial.  
+- **[Equilibrado y detección automáticos de subclústeres](./cluster-resource-manager-subclustering.md)** : La agrupación en subclústeres se produce cuando los servicios con restricciones de selección de ubicación diferentes tienen una [métrica de carga](./service-fabric-cluster-resource-manager-metrics.md)común. Si la carga en los diferentes conjuntos de nodos difieren considerablemente, Cluster Resource Manager de Service Fabric cree que el clúster no está equilibrado, ni siquiera cuando tenga el mejor equilibrio posible debido a las restricciones de selección de ubicación. En consecuencia, intenta volver a equilibrar el clúster, lo que puede provocar movimientos innecesarios de servicios (dado que el "desequilibrio" no se puede mejorar sustancialmente). Si se empieza con esta versión, Cluster Resource Manager ahora intentará detectar automáticamente estos tipos de configuraciones y saber cuándo se puede solucionar el desequilibrio a través del movimiento, y cuándo hay que dejar todo tal cual está, ya que no de puede realizar ninguna mejora sustancial.  
 - [**Diferente costo de movimiento para las réplicas secundarias**](./service-fabric-cluster-resource-manager-movement-cost.md): Hemos introducido el nuevo valor de costo de movimiento VeryHigh, que proporciona mayor flexibilidad en algunos escenarios para definir si se debe usar un costo de movimiento independiente para las réplicas secundarias.
-- Mecanismo del [**sondeo de ejecución**](/azure/service-fabric/probes-codepackage ) para aplicaciones en contenedores. El sondeo de ejecución ayuda a anunciar la vivacidad de aplicaciones en contenedores y, cuando no responden a tiempo, se producirá un reinicio.
+- Mecanismo del [**sondeo de ejecución**](./probes-codepackage.md) para aplicaciones en contenedores. El sondeo de ejecución ayuda a anunciar la vivacidad de aplicaciones en contenedores y, cuando no responden a tiempo, se producirá un reinicio.
 - [**Ejecutar los servicios hasta la finalización o una vez**](./run-to-completion.md)**
 
 ### <a name="image-store-improvements"></a>Mejoras del Almacén de imágenes
@@ -72,6 +72,8 @@ Nos complace anunciar la siguiente versión de Service Fabric. Esta versión inc
 | Fecha de la versión | Release | Más información |
 |---|---|---|
 | 20 de abril de 2020 | [Azure Service Fabric 7.1](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-1-release/ba-p/1311373)  | [Notas de la versión](https://github.com/microsoft/service-fabric/tree/master/release_notes/Service-Fabric-71-releasenotes.md)|
+| 16 de junio de 2020 | [Primera actualización de Microsoft Azure Service Fabric 7.1](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-1-first-refresh-release/ba-p/1466517) | [Notas de la versión](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-71CU1-releasenotes.md)
+| 20 de julio de 2020 | [Segunda actualización de Microsoft Azure Service Fabric 7.1](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-1-second-refresh-release/ba-p/1534246) | [Notas de la versión](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-71CU2-releasenotes.md)
 
 
 ### <a name="service-fabric-70"></a>Service Fabric 7.0

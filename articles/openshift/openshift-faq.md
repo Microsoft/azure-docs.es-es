@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 07/31/2020
-ms.openlocfilehash: 93507bae3f817f92cfa427ceca10f651352a46bc
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a8b5ec48b64341ad9eabd087d7ee20bb703198c6
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497586"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816242"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Preguntas más frecuentes de Red Hat OpenShift en Azure
 
@@ -65,25 +65,9 @@ En los clústeres de Red Hat OpenShift en Azure 4.x, los nodos de infraestructu
 
 En los clústeres de Red Hat OpenShift en Azure 3.11, los nodos de infraestructura están incluidos de forma predeterminada.
 
-## <a name="upgrades"></a>Actualizaciones
+## <a name="how-do-i-handle-cluster-upgrades"></a>¿Cómo administrar las actualizaciones del clúster?
 
-###  <a name="what-is-the-general-upgrade-process"></a>¿Cuál es el proceso de actualización general?
-
-Las revisiones se aplican automáticamente al clúster. No es necesario hacer nada para recibir actualizaciones de revisiones en el clúster.
-
-La ejecución de una actualización es un proceso seguro y no debe interrumpir los servicios de clúster. El equipo conjunto Microsoft-Red Hat puede desencadenar el proceso de actualización cuando haya versiones nuevas disponibles o estén pendientes los Puntos vulnerables y exposiciones comunes. Las actualizaciones disponibles se prueban en un entorno de ensayo y, después, se aplican a los clústeres de producción. Los procedimientos recomendados siguientes ayudan a garantizar un tiempo de inactividad mínimo.
-
-El mantenimiento planeado no está programado de antemano con el cliente. Las notificaciones relacionadas con el mantenimiento se pueden enviar por correo electrónico.
-
-### <a name="what-is-the-azure-red-hat-openshift-maintenance-process"></a>¿Cuál es el proceso de mantenimiento de Red Hat OpenShift en Azure?
-
-Hay dos tipos de mantenimiento para Red Hat OpenShift en Azure: actualizaciones y mantenimiento iniciado por el proveedor de nube.
-- Entre las actualizaciones se incluyen las de software y las de Puntos vulnerables y exposiciones comunes.
-- El mantenimiento iniciado por el proveedor de nube incluye la red, el almacenamiento y las interrupciones regionales. El mantenimiento depende del proveedor de nube y se basa en las actualizaciones proporcionadas por el proveedor.
-
-### <a name="what-about-emergency-vs-planned-maintenance-windows"></a>¿Qué ocurre con las ventanas de mantenimiento planeado y emergencia?
-
-No se distingue entre los dos tipos de mantenimiento. Nuestros equipos están disponibles de manera ininterrumpida y no usan las ventanas de mantenimiento "fuera de horas" programadas tradicionales.
+Para información sobre las actualizaciones, el mantenimiento y las versiones admitidas, consulte la [guía del ciclo de vida de soporte técnico](support-lifecycle.md).
 
 ### <a name="how-will-the-host-operating-system-and-openshift-software-be-updated"></a>¿Cómo se actualizará el sistema operativo host y el software OpenShift?
 

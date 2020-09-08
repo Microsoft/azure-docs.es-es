@@ -4,16 +4,17 @@ description: Obtenga información para resolver los problemas que podría tener 
 author: bandersmsft
 ms.reviewer: amberb
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.topic: troubleshooting
-ms.date: 06/05/2019
+ms.date: 08/20/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: d96a2ed9f0aab03a0073519e08cf03d43d7ac2b7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bd7f1ff20189b971ba32e5c4b40b380fc22611b2
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503164"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88686860"
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Solución de problemas de vistas de costos empresariales
 

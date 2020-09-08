@@ -72,6 +72,8 @@
           href: ./samples/azure-security-benchmark.md
         - name: "CIS Microsoft Azure Foundations Benchmark\_1.1.0"
           href: ./samples/cis-azure-1-1-0.md
+        - name: "HIPAA/HITRUST\_9.2"
+          href: ./samples/hipaa-hitrust-9-2.md
         - name: "NIST\_SP\_800-53\_R4"
           href: ./samples/nist-sp-800-53-r4.md
         - name: "NIST\_SP\_800-171\_R2"
@@ -93,6 +95,9 @@
     - name: Evaluación del impacto de una nueva directiva
       displayName: 'audit, enforcementmode, compliance'
       href: ./concepts/evaluate-impact.md
+    - name: Directivas recomendadas
+      displayName: 'VMs, virtual machines'
+      href: ./concepts/recommended-policies.md
     - name: Cumplimiento normativo
       displayName: 'standards, domains, controls'
       href: ./concepts/regulatory-compliance.md
@@ -167,10 +172,14 @@
           displayName: 'monitor, insights, log analytics, builtin'
           href: ../../azure-monitor/insights/vminsights-enable-policy.md?bc=%2fazure%2fgovernance%2fpolicy%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fgovernance%2fpolicy%2ftoc.json
 - name: Solución de problemas
-  href: ./troubleshoot/general.md
+  items:
+    - name: Problemas comunes
+      href: ./troubleshoot/general.md
+    - name: Problemas conocidos
+      href: 'https://github.com/azure/azure-policy#known-issues'
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/policy
     - name: Azure PowerShell
       items:
@@ -189,9 +198,9 @@
     - name: SDK de Azure para Java
       items:
         - name: Assignments
-          href: /java/api/com.microsoft.azure.management.resources.policyassignment?view=azure-java-stable
+          href: /java/api/com.microsoft.azure.management.resources.policyassignment
         - name: Definiciones de directiva
-          href: /java/api/com.microsoft.azure.management.resources.PolicyDefinitions?view=azure-java-stable
+          href: /java/api/com.microsoft.azure.management.resources.PolicyDefinitions
     - name: SDK de Azure para JavaScript
       items:
         - name: Directiva
@@ -234,31 +243,45 @@
           href: /azure/templates/microsoft.authorization/policysetdefinitions
 - name: Recursos
   items:
-    - name: Problemas conocidos
-      href: 'https://github.com/azure/azure-policy#known-issues'
     - name: 'GitHub: Ejemplos de Azure Policy'
       href: 'https://github.com/Azure/azure-policy'
-    - name: 'GitHub: repositorio de directivas de la comunidad'
-      href: 'https://github.com/Azure/Community-Policy'
-    - name: Preguntas y respuestas de Microsoft para Azure Policy
-      href: /answers/topics/azure-policy.html
-    - name: Canal de YouTube de gobernanza
-      href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
-    - name: Vídeos de configuración de invitado
+    - name: Herramientas de la comunidad
       items:
-        - name: Introducción
-          href: 'https://www.youtube.com/watch?v=mjJw9_EIyHo'
-        - name: Descripción de iniciativas
-          href: 'https://www.youtube.com/watch?v=4JZH3kuG8bI'
-        - name: Asignar directiva
-          href: 'https://www.youtube.com/watch?v=fbZBaxcjA-Y'
-        - name: Tarea de corrección
-          href: 'https://www.youtube.com/watch?v=URE4DUYMgmg'
-    - name: "Video: Ignite\_2019"
-      href: 'https://myignite.techcommunity.microsoft.com/sessions/81584?source=sessions'
+        - name: 'GitHub: repositorio de directivas de la comunidad'
+          href: 'https://github.com/Azure/Community-Policy'
+        - name: Examen de cumplimiento de acción de GitHub para Azure Policy
+          href: 'https://github.com/marketplace/actions/azure-policy-compliance-scan'
+        - name: Panel de gobernanza de Azure en CCO
+          href: 'https://github.com/Azure/ccodashboard/blob/master/README.md#cco-azure-governance-dashboard-report-pages'
+        - name: AzAdvertizer
+          href: 'https://www.azadvertizer.net/'
+        - name: Azure Governance Visualizer
+          href: 'https://github.com/julianhayward/azure-mg-sub-governance-reporting'
+    - name: Comentarios y soporte técnico
+      items:
+        - name: Preguntas y respuestas de Microsoft para Azure Policy
+          href: /answers/topics/azure-policy.html
+        - name: Incidencia de soporte técnico de Azure
+          href: 'https://azure.microsoft.com/support/create-ticket/'
+        - name: UserVoice
+          href: 'https://feedback.azure.com/forums/915958-azure-governance?category_id=345055'
+    - name: Vídeos
+      items:
+        - name: Canal de YouTube de gobernanza
+          href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
+        - name: "Video: Ignite\_2019"
+          href: 'https://myignite.techcommunity.microsoft.com/sessions/81584?source=sessions'
+        - name: Vídeos de configuración de invitado
+          items:
+            - name: Introducción
+              href: 'https://www.youtube.com/watch?v=mjJw9_EIyHo'
+            - name: Descripción de iniciativas
+              href: 'https://www.youtube.com/watch?v=4JZH3kuG8bI'
+            - name: Asignar directiva
+              href: 'https://www.youtube.com/watch?v=fbZBaxcjA-Y'
+            - name: Tarea de corrección
+              href: 'https://www.youtube.com/watch?v=URE4DUYMgmg'
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Calculadora de precios
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: UserVoice
-      href: 'https://feedback.azure.com/forums/915958-azure-governance?category_id=345055'

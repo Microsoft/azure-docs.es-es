@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 8a0b3a91d9af119191717aa63a2dedf0797159fd
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: f2231b74034ba6cea672a7bbf68f506fce423d45
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745793"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826147"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: Preguntas más frecuentes
 
@@ -56,8 +56,25 @@ A.  Para ver dónde están disponibles actualmente las instancias de Data Box Di
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>Q. ¿En qué regiones puedo almacenar datos con los discos de Data Box?
 A. Data Box Disk se admite en todas las regiones de Estados Unidos, Canadá, Australia, Oeste de Europa y Norte de Europa, Corea y Japón. Solo se admiten las regiones con nube pública de Azure. Azure Government u otras nubes soberanas no se admiten.
 
-### <a name="q-will-my-data-box-disk-cross-countryregion-borders-during-shipping"></a>Q. ¿Mi unidad de Data Box Disk atravesará fronteras internacionales o regionales durante el envío?
-A. Las unidades de Data Box Disk se envían desde el mismo país o región de destino y no cruzan ninguna frontera internacional. La única excepción es en el caso de los pedidos dentro de la Unión Europea (UE), donde los discos se pueden enviar desde y hasta cualquier país o región de la UE.
+### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>Q. ¿En qué regiones puedo almacenar datos con los discos de Data Box?
+A. Data Box Disk se admite en todas las regiones de Estados Unidos, Canadá, Australia, Oeste de Europa y Norte de Europa, Corea y Japón. Solo se admiten las regiones con nube pública de Azure. Azure Government u otras nubes soberanas no se admiten.
+
+### <a name="q-how-can-i-import-source-data-present-at-my-location-in-one-countryregion-to-an-azure-region-in-a-different-country"></a>Q. ¿Cómo puedo importar datos de origen presentes en mi ubicación de un país o región a una región de Azure en un país diferente?
+A. Data Box Disk es compatible con la ingesta de datos solo dentro del mismo país o región de destino y no cruzará ninguna frontera internacional. La única excepción es en el caso de los pedidos dentro de la Unión Europea (UE), donde los discos Data Box Disk se pueden enviar desde y hasta cualquier país o región de la UE.
+
+Por ejemplo, si quisiera mover datos de su ubicación en Canadá a una cuenta de almacenamiento de Azure WestUS, podría conseguirlo de la siguiente manera:
+
+### <a name="option-1"></a>Opción 1: 
+
+Envíe un [disco compatible](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements?toc=/azure/storage/blobs/toc.json#supported-disks) que contenga datos mediante el [servicio Azure Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) desde la ubicación de origen en Canadá hasta el centro de datos de Azure WestUS.
+
+### <a name="option-2"></a>Opción 2:
+
+1. Pida un disco Data Box Disk en Canadá al seleccionar una cuenta de almacenamiento en Centro de Canadá. Los discos SSD se envían desde un centro de datos de Azure en Centro de Canadá a la dirección de envío (en Canadá) proporcionada durante la creación del pedido.
+
+2. Después de copiar los datos del servidor local en los discos, devuélvalos al centro de datos de Azure en Canadá con las etiquetas de devolución proporcionadas por Microsoft. Los datos presentes en los discos Data Box Disk se cargarán en la cuenta de almacenamiento de destino en la región de Azure canadiense elegida durante la creación del pedido.
+
+3. Después, puede usar una herramienta como AzCopy para copiar los datos en una cuenta de almacenamiento en la región WestUS. Este paso incurre en [almacenamiento estándar](https://azure.microsoft.com/pricing/details/storage/) y [cargos de ancho de banda](https://azure.microsoft.com/pricing/details/bandwidth/) que no se incluyen en la facturación de Data Box Disk.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>Q. ¿Con quién debo ponerme en contacto si surge algún problemas con los discos de Data Box?
 A. Si surge algún problema con Data Box Disk, póngase en contacto con el [Soporte técnico de Microsoft](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).

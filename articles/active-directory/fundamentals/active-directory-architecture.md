@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5599ce6f086ca9c3dcbf7ac406306b6198d3080a
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 476cf8013f5dc8b5d54efb573cf305d81fc690b1
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797621"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319158"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>¿Qué es la arquitectura de Azure Active Directory?
 
@@ -123,4 +123,4 @@ Mediante el uso de controles operativos, como Multi-Factor Authentication (MFA) 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Guía del desarrollador de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop)
+[Guía del desarrollador de Azure Active Directory](../develop/index.yml)

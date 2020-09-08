@@ -2,26 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Captive Portal de Palo Alto Networks | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Captive Portal de Palo Alto Networks.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: 67a0b476-2305-4157-8658-2ec3625850d5
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f926741bde3bdcc69cb4ea30f54daca79606047e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1dad0ecc80302ae6b48d420664723a3a03fc9ea5
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73160167"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88554033"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Tutorial: Integración de Azure Active Directory con Captive Portal de Palo Alto Networks
 
@@ -159,7 +154,7 @@ A continuación creará un usuario de prueba llamado *Britta Simon* en Azure Por
 
     1. En **Nombre**, escriba **BrittaSimon**.
   
-    2. En **nombre de usuario**, escriba **BrittaSimon\@\<dominio_de_su_empresa\>** . Por ejemplo, **BrittaSimon\@contoso.com**.
+    2. En **Nombre de usuario**, escriba **BrittaSimon\@\<your_company_domain\>** . Por ejemplo, **BrittaSimon\@contoso.com**.
 
     3. En **Contraseña**, escriba una contraseña. Se recomienda conservar una copia de la contraseña que se escriba. Puede seleccionar la casilla **Mostrar contraseña** para ver la contraseña.
 

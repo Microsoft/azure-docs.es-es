@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 0ed0009bce18e2b0970b425c31d2f38cef387187
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7e6afd40266d280ae872d24b1828b6feadbee17e
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008326"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007920"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Procedimientos recomendados para Azure Cache for Redis 
 Si sigue estos procedimientos recomendados, puede maximizar el rendimiento y rentabilizar el uso de la instancia de Azure Cache for Redis.
@@ -73,13 +73,13 @@ Si desea probar cómo funciona el código en condiciones de error, considere la 
  * El cliente para pruebas de VM debe estar en la **misma región** que la instancia de caché de Redis.
  * **Se recomienda usar la serie de VM Dv2** para su cliente, ya que tiene mejor hardware y logrará los mejores resultados.
  * Asegúrese de que la VM del cliente que use tenga **al menos tantos procesos y ancho de banda* como la memoria caché que se está probando. 
- * **Habilite VRSS** en el equipo cliente si usa Windows.  [Haga clic aquí para obtener información detallada](https://technet.microsoft.com/library/dn383582(v=ws.11).aspx).  Script de PowerShell de ejemplo:
+ * **Habilite VRSS** en el equipo cliente si usa Windows.  [Haga clic aquí para obtener información detallada](https://technet.microsoft.com/library/dn383582(v=ws.11).aspx).  Ejemplo de script de PowerShell:
      >PowerShell -ExecutionPolicy Unrestricted Enable-NetAdapterRSS -Name (    Get-NetAdapter).Name 
      
  * **Use instancias de Redis de nivel Premium**.  Los tamaños de la caché tendrán mejor latencia de red y rendimiento porque se ejecutan en un hardware mejor de CPU y red.
  
      > [!NOTE]
-     > Los resultados de rendimiento observados se [publicarán aquí](cache-faq.md#azure-cache-for-redis-performance) para que los tenga como referencia.   Además, tenga en cuenta que SSL/TLS agrega cierta sobrecarga, por lo que puede obtener diferentes latencias o rendimiento si está usando el cifrado de transporte.
+     > Los resultados de rendimiento observados se [publicarán aquí](cache-planning-faq.md#azure-cache-for-redis-performance) para que los tenga como referencia.   Además, tenga en cuenta que SSL/TLS agrega cierta sobrecarga, por lo que puede obtener diferentes latencias o rendimiento si está usando el cifrado de transporte.
  
 ### <a name="redis-benchmark-examples"></a>Ejemplos del banco de pruebas de Redis
 **El programa de configuración de la prueba previa**: Prepare la instancia de caché con los datos necesarios para los comandos de prueba de latencia y rendimiento que se enumeran a continuación.

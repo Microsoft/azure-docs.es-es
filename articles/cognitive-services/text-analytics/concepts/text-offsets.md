@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: aahi
 ms.reviewer: jdesousa
-ms.openlocfilehash: 6e404c710a244f06676edf50c3f5c95a7d681e35
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 14fd7c2b034077d818d1a1224d3c4c12a7fc07bc
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218530"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855641"
 ---
 # <a name="text-offsets-in-the-text-analytics-api-output"></a>Desplazamientos de texto en la salida de Text Analytics API
 
@@ -39,6 +39,16 @@ Los desplazamientos pueden causar problemas al usar métodos substring basados e
 En .NET, tenga en cuenta el uso de la clase [StringInfo](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8), que le permite trabajar con una cadena como una serie de elementos textuales, en lugar de objetos de caracteres individuales. También puede buscar bibliotecas del separador de grafemas en su entorno de software preferido. 
 
 Text Analytics API devuelve estos elementos textuales también, por motivos de comodidad.
+
+## <a name="offsets-in-api-version-31-preview"></a>Desplazamientos en la API versión 3.1-preview
+
+A partir de la API versión 3.1-preview.1, todos los puntos de conexión de Text Analytics API que devuelven un desplazamiento serán compatibles con el parámetro `stringIndexType`. Este parámetro ajusta los atributos `offset` y `length` en la salida de la API para que coincidan con el esquema solicitado de iteración de cadena. Actualmente, se admiten tres tipos:
+
+1. `textElement_v8` (valor predeterminado): itera por los grafemas, tal y como se define en [Unicode Standard 8.0.0](https://unicode.org/versions/Unicode8.0.0).
+2. `unicodeCodePoint`: itera por los [puntos de código Unicode](http://www.unicode.org/versions/Unicode13.0.0/ch02.pdf#G25564), el esquema predeterminado para Python 3.
+3. `utf16CodeUnit`: itera por las [unidades de código UTF-16](https://unicode.org/faq/utf_bom.html#UTF16), el esquema predeterminado para JavaScript, Java y .NET.
+
+Si el elemento `stringIndexType` solicitado coincide con el entorno de programación de su elección, la extracción de subcadenas se puede realizar mediante los métodos estándar substring o Slice. 
 
 ## <a name="see-also"></a>Consulte también
 

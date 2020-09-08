@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
-ms.custom: cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 4abe3a46c854e0856e4db9a60fa7cd6fc9f8b3c8
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
+ms.openlocfilehash: 01021530c491fd25a199f32475c031a0e7f6cd0b
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844905"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376645"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Desencadenador de Azure Queue Storage para Azure Functions
 
@@ -388,7 +388,7 @@ El algoritmo utiliza la siguiente lógica:
 - Cuando se encuentra un mensaje, el entorno de ejecución espera dos segundos y, a continuación, busca otro mensaje.
 - Si no encuentra ningún mensaje, espera unos cuatro segundos antes de volver a intentarlo.
 - Después de varios intentos fallidos para obtener un mensaje de la cola, el tiempo de espera sigue aumentando hasta que alcanza el tiempo de espera máximo, predeterminado en un minuto.
-- El tiempo de espera máximo se configura mediante la propiedad `maxPollingInterval` en el [archivo host.json](functions-host-json.md#queues).
+- El tiempo de espera máximo se configura mediante la propiedad `maxPollingInterval` en el [archivo host.json](functions-host-json-v1.md#queues).
 
 En el desarrollo local, el intervalo máximo de sondeo predeterminado es de dos segundos.
 
@@ -400,7 +400,7 @@ Cuando hay varios mensajes en cola en espera, el desencadenador de cola recupera
 
 El tamaño de lote y el umbral para obtener un lote nuevo se configuran en el [archivo host.json](functions-host-json.md#queues). Si quiere minimizar la ejecución en paralelo para las funciones desencadenadas por la cola en una aplicación de función, puede establecer el tamaño de lote en 1. Este valor solo elimina la simultaneidad siempre y cuando la aplicación de función se ejecute en una única máquina virtual (VM). 
 
-El desencadenador de la cola automáticamente impide que una función procese un mensaje de cola varias veces; las funciones no tienen que escribirse para que sean idempotentes.
+El desencadenador de cola impide automáticamente que una función procese un mensaje de cola varias veces al mismo tiempo.
 
 ## <a name="hostjson-properties"></a>Propiedades de host.json
 
@@ -408,7 +408,7 @@ El archivo [host.json](functions-host-json.md#queues) contiene opciones de confi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Escritura de mensajes de Queue Storage (enlace de salida)](./functions-bindings-storage-blob-output.md)
+- [Escritura de mensajes de Blob Storage (enlace de salida)](./functions-bindings-storage-blob-output.md)
 
 <!-- LINKS -->
 

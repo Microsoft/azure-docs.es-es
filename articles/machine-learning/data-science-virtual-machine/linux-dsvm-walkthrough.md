@@ -8,19 +8,17 @@ ms.subservice: data-science-vm
 author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
-ms.date: 04/02/2020
-ms.openlocfilehash: ed552a57e51ce9249f84bab6bb72bfe783e43edb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/17/2020
+ms.openlocfilehash: ca3cfa44bd4f757c6fbb0dd2c84d7a843f9bff36
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078104"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816225"
 ---
-# <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Ciencia de datos con una instancia de Data Science Virtual Machine de Linux en Azure
+# <a name="data-science-with-an-ubuntu-data-science-virtual-machine-in-azure"></a>Ciencia de datos con una instancia de Data Science Virtual Machine de Ubuntu en Azure
 
-En este tutorial se muestra cómo completar varias tareas comunes de ciencia de datos mediante Data Science Virtual Machine (DSMV) de Linux. DSVM de Linux es una imagen de máquina virtual disponible en Azure que viene preinstalada con una colección de herramientas usadas normalmente en el análisis de datos y el aprendizaje automático. Los componentes de software principales se detallan en el tema [Aprovisionamiento de una instancia de Data Science Virtual Machine de Linux](linux-dsvm-intro.md). La imagen de DSMV permite comenzar a trabajar fácilmente con la ciencia de los datos en cuestión de minutos, sin tener que instalar ni configurar cada una de las herramientas de forma individual. Fácilmente puede escalar verticalmente DSVM si es necesario y puede detenerlo cuando no esté en uso. El recurso de DSVM es tanto elástico como rentable.
-
-En las tareas de ciencias de datos que se demuestran en este tutorial se siguen los pasos descritos en [¿Qué es el Proceso de ciencia de datos en equipo (TDSP)?](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview). El Proceso de ciencia de datos en equipo es un enfoque sistemático sobre la ciencia de datos que ayuda a los equipos de científicos de datos colaborar de manera efectiva durante el ciclo de vida de creación de aplicaciones inteligentes. El proceso de ciencia de los datos también proporciona un marco iterativo para la ciencia de los datos que pueden seguir los individuos.
+En este tutorial se muestra cómo realizar varias tareas comunes de ciencia de datos mediante Data Science Virtual Machine (DSMV) de Ubuntu. DSVM de Ubuntu es una imagen de máquina virtual disponible en Azure que viene preinstalada con una colección de herramientas usadas normalmente en el análisis de datos y el aprendizaje automático. Los componentes de software principales se detallan en el tema [Aprovisionamiento de una instancia de Data Science Virtual Machine de Ubuntu](./dsvm-ubuntu-intro.md). La imagen de DSMV permite comenzar a trabajar fácilmente con la ciencia de los datos en cuestión de minutos, sin tener que instalar ni configurar cada una de las herramientas de forma individual. Fácilmente puede escalar verticalmente DSVM si es necesario y puede detenerlo cuando no esté en uso. El recurso de DSVM es tanto elástico como rentable.
 
 En este tutorial analizamos el conjunto de datos [spambase](https://archive.ics.uci.edu/ml/datasets/spambase). Spambase es un conjunto de correos electrónicos que se marcan como correo no deseado o ham (no es correo no deseado). Spambase también contiene algunas estadísticas sobre el contenido de los correos electrónicos. Hablaremos sobre las estadísticas más adelante en el tutorial.
 
@@ -29,10 +27,10 @@ En este tutorial analizamos el conjunto de datos [spambase](https://archive.ics.
 Antes de usar una instancia de DSVM de Linux, debe cumplir los siguientes requisitos previos:
 
 * **Suscripción de Azure**. Para obtener una suscripción a Azure, consulte [Cree su cuenta gratuita de Azure hoy mismo](https://azure.microsoft.com/free/).
-* [**Data Science Virtual Machine de Linux**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Para más información sobre el aprovisionamiento de esta máquina virtual, consulte [Aprovisionamiento de una instancia de Data Science Virtual Machine de Linux](linux-dsvm-intro.md).
-* [**X2Go**](https://wiki.x2go.org/doku.php) instalado en su equipo con una sesión abierta de XFCE. Para más información, consulte [Instalación y configuración del cliente X2Go](dsvm-ubuntu-intro.md#x2go).
+
+* [**Data Science Virtual Machine para Ubuntu**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) Para más información sobre el aprovisionamiento de la máquina virtual, consulte [Aprovisionamiento de una instancia de Data Science Virtual Machine de Ubuntu](linux-dsvm-intro.md).
+* [**X2Go**](https://wiki.x2go.org/doku.php) instalado en su equipo con una sesión abierta de XFCE. Para más información, consulte [Instalación y configuración del cliente X2Go](linux-dsvm-intro.md#x2go).
 * Para obtener una experiencia de desplazamiento más fluida, en el explorador web de Firefox de DSVM, alterne la marca `gfx.xrender.enabled` en `about:config`. [Más información](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Considere también la posibilidad de establecer `mousewheel.enable_pixel_scrolling` en `False`. [Más información](https://support.mozilla.org/questions/981140).
-* **Cuenta de Azure Machine Learning**. Si aún no tiene una, regístrese para obtener una cuenta nueva en la [página principal de Azure Machine Learning](https://azure.microsoft.com/free/services/machine-learning//).
 
 ## <a name="download-the-spambase-dataset"></a>Descarga del conjunto de datos spambase
 
@@ -228,7 +226,7 @@ En las secciones restantes se muestra cómo usar algunas de las herramientas ins
 * JupyterHub
 * Rattle
 * PostgreSQL y SQuirreL SQL
-* SQL Server Data Warehouse
+* Azure Synapse Analytics (anteriormente SQL DW)
 
 ### <a name="xgboost"></a>XGBoost
 
@@ -286,31 +284,6 @@ clf = svm.SVC()
 clf.fit(X, y)
 ```
 
-Para publicar el modelo en Azure Machine Learning:
-
-```Python
-# Publish the model.
-workspace_id = "<workspace-id>"
-workspace_token = "<workspace-token>"
-from azureml import services
-@services.publish(workspace_id, workspace_token)
-@services.types(char_freq_dollar = float, word_freq_remove = float, word_freq_hp = float)
-@services.returns(int) # 0 or 1
-def predictSpam(char_freq_dollar, word_freq_remove, word_freq_hp):
-    inputArray = [char_freq_dollar, word_freq_remove, word_freq_hp]
-    return clf.predict(inputArray)
-
-# Get some info about the resulting model.
-predictSpam.service.url
-predictSpam.service.api_key
-
-# Call the model
-predictSpam.service(1, 1, 1)
-```
-
-> [!NOTE]
-> Esta opción solo está disponible para Python 2.7. Todavía no se admite en Python 3.5. Para ejecutarla, use **/anaconda/bin/python2.7**.
-
 ### <a name="jupyterhub"></a>JupyterHub
 
 La distribución Anaconda en DSVM viene con Jupyter Notebook, un entorno multiplataforma para compartir código y análisis de Python, R o Julia. Se accede a Jupyter Notebook mediante JupyterHub. Inicie sesión con el nombre de usuario y la contraseña de Linux local en https://\<DSVM DNS name or IP address\>:8000/. Todos los archivos de configuración de JupyterHub se encuentran en /etc/jupyterhub.
@@ -334,7 +307,6 @@ Hay varios cuadernos de muestra ya instalados en DSVM:
 
 * Cuadernos de Python de ejemplo:
   * [IntroToJupyterPython.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IntroToJupyterPython.ipynb)
-  * [IrisClassifierPyMLWebService](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IrisClassifierPyMLWebService.ipynb)
 * Cuaderno de R de ejemplo:
   * [IntroTutorialinR](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IntroTutorialinR.ipynb) 
 
@@ -532,9 +504,9 @@ La mayoría de los mensajes de correo electrónico que tienen una gran repetici�
 
 Si quiere realizar aprendizaje automático con datos almacenados en una base de datos de PostgreSQL, puede usar [MADlib](https://madlib.incubator.apache.org/).
 
-### <a name="sql-data-warehouse"></a>SQL Data Warehouse
+### <a name="azure-synapse-analytics-formerly-sql-dw"></a>Azure Synapse Analytics (anteriormente SQL DW)
 
-Azure SQL Data Warehouse es una base de datos de escalado horizontal y basada en la nube que puede procesar volúmenes masivos de datos (tanto relacionales como no relacionales). Para más información, consulte [¿Qué es Azure SQL Data Warehouse?](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+Azure Synapse Analytics es una base de datos de escalado horizontal y basada en la nube que puede procesar volúmenes masivos de datos, tanto relacionales como no relacionales. Para más información, consulte [¿Qué es Azure Synapse Analytics?](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
 Para conectarse al almacén de datos y crear la tabla, ejecute el siguiente comando desde un símbolo del sistema:
 
@@ -567,8 +539,4 @@ GO
 
 También puede consultar mediante SQuirreL SQL. Siga los pasos similares a PostgreSQL mediante el uso del controlador JDBC de SQL Server. El controlador JDBC está en la carpeta /usr/share/java/jdbcdrivers/sqljdbc42.jar.
 
-## <a name="next-steps"></a>Pasos siguientes
 
-Para ver una introducción de los artículos que lo guiarán por las tareas que componen el proceso de ciencia de datos en Azure, consulte [¿Qué es el Proceso de ciencia de datos en equipo (TDSP)?](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview).
-
-Para ver una descripción de otros tutoriales completos que demuestren los pasos del proceso de ciencia de datos en equipo en escenarios concretos, consulte [Tutoriales para ejecutar el proceso de ciencia de datos en equipo en Azure](../team-data-science-process/walkthroughs.md). En los tutoriales también se muestra cómo combinar servicios y herramientas en la nube y locales en un flujo de trabajo o una canalización con el fin de crear una aplicación inteligente.

@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0db710385448ed3cdd54e3cbe692ea8b610741af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b48bebe6aa5f9862d5f51fea257c4b7f3057639b
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84732249"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794465"
 ---
 # <a name="azure-ad-administrative-units-troubleshooting-and-faq"></a>Unidades administrativas de Azure AD: Solución de problemas y preguntas frecuentes
 
-Para obtener un control administrativo más específico en Azure Active Directory (Azure AD), puede asignar usuarios a un rol de Azure AD con un ámbito limitado a una o más unidades administrativas. Para obtener scripts de PowerShell de ejemplo para tareas comunes, consulte [Uso de unidades administrativas para trabajar](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0).
+Para obtener un control administrativo más específico en Azure Active Directory (Azure AD), puede asignar usuarios a un rol de Azure AD con un ámbito limitado a una o más unidades administrativas. Para obtener scripts de PowerShell de ejemplo para tareas comunes, consulte [Uso de unidades administrativas para trabajar](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0).
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
@@ -67,9 +67,9 @@ Para evitar una elevación de privilegios, un administrador con ámbito de unida
 
 **P: ¿Las unidades administrativas son compatibles con PowerShell y Graph API?**
 
-**R:** Sí. Puede encontrar la compatibilidad con las unidades administrativas en la [documentación de cmdlets de PowerShell](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0-preview) y los [scripts de ejemplo](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0-preview). 
+**R:** Sí. Puede encontrar la compatibilidad con las unidades administrativas en la [documentación de cmdlets de PowerShell](/powershell/module/Azuread/?view=azureadps-2.0-preview) y los [scripts de ejemplo](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0-preview). 
 
-La compatibilidad con el [tipo de recurso administrativeUnit](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/administrativeunit) puede encontrarla en Microsoft Graph.
+La compatibilidad con el [tipo de recurso administrativeUnit](/graph/api/resources/administrativeunit?view=graph-rest-beta) puede encontrarla en Microsoft Graph.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

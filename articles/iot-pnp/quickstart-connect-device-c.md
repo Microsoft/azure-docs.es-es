@@ -7,12 +7,12 @@ ms.date: 07/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 9011c56096d61e50ae3655a76a396ec3f2dd97c5
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 65b35c30d796f733e91c71e569634b61f9f7c52b
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352685"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959296"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-linux-or-windows-to-iot-hub-c"></a>Inicio rápido: Conexión de una aplicación de dispositivo de ejemplo de la versión preliminar de IoT Plug and Play en Linux o Windows a IoT Hub (C)
 
@@ -117,7 +117,10 @@ Para compilar el código de ejemplo incluido, se usa el SDK del dispositivo:
 
 Ejecute la aplicación de ejemplo en el SDK que simula un dispositivo IoT Plug and Play que envía telemetría a su centro de IoT:
 
-Cree una variable de entorno denominada **IOTHUB_DEVICE_CONNECTION_STRING** para almacenar la cadena de conexión del dispositivo que anotó anteriormente.
+Cree dos variables de entorno para configurar el ejemplo para que use una cadena de conexión para establecer la conexión con su centro de IoT:
+
+- **IOTHUB_DEVICE_SECURITY_TYPE** con el valor `"connectionString"`
+- **IOTHUB_DEVICE_CONNECTION_STRING** para almacenar la cadena de conexión del dispositivo que anotó anteriormente.
 
 Desde la carpeta _cmake_, navegue hasta la carpeta que contiene el archivo ejecutable y ejecute lo siguiente:
 

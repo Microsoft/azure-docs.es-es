@@ -5,12 +5,12 @@ author: gundarev
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: dd5eb8acb76fe5901149d90a6d551d8d14d363cc
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 8a253723367681d947a9bd94c1505ab4cc156c08
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007783"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612646"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configuración de la aceleración por la unidad de procesamiento gráfico (GPU) para Windows Virtual Desktop
 
@@ -51,7 +51,7 @@ De forma predeterminada, las aplicaciones y los escritorios que se ejecutan en c
 1. Conéctese al escritorio de la máquina virtual mediante una cuenta con privilegios de administrador local.
 2. Abra el menú Inicio y escriba "gpedit.msc" para abrir el Editor de directivas de grupo.
 3. Desplácese por el árbol hasta **Configuración del equipo** > **Plantillas administrativas** > **Componentes de Windows** > **Servicios de escritorio remoto** > **Host de sesión de escritorio remoto** > **Entorno de sesión remota**.
-4. Seleccione la directiva **Utilizar el adaptador de gráficos de hardware predeterminado para todas las sesiones de Servicios de Escritorio remoto** y establezca esta directiva en **Habilitada** para habilitar la representación mediante GPU en la sesión remota.
+4. Seleccione la directiva **Utilizar los adaptadores de gráficos de hardware para todas las sesiones de Servicios de Escritorio remoto** y establezca esta directiva en **Habilitada** para habilitar la representación mediante GPU en la sesión remota.
 
 ## <a name="configure-gpu-accelerated-frame-encoding"></a>Configuración de la codificación de marcos de aceleración por GPU
 

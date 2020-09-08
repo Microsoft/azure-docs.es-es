@@ -8,13 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 07/15/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 244809db8efac00124a11ab5c163bfefc9ea7dd2
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 1afeca4f627236c5172dd07a44751015c16d2f58
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420607"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462028"
 ---
 # <a name="tutorial-add-autocomplete-and-suggestions-using-the-net-sdk"></a>Tutorial: Incorporación de la función Autocompletar y sugerencias mediante el SDK de .NET
 
@@ -31,7 +31,7 @@ En este tutorial, aprenderá a:
 
 Este tutorial forma parte de una serie y se basa en el proyecto de paginación creado en [Tutorial de C#: Paginación de los resultados de la búsqueda: Azure Cognitive Search](tutorial-csharp-paging.md).
 
-Como alternativa, puede descargar y ejecutar la solución para este tutorial específico: [3-add-typeahead](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/3-add-typeahead).
+Como alternativa, puede descargar y ejecutar la solución para este tutorial específico: [3-add-typeahead](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead).
 
 ## <a name="add-suggestions"></a>Adición de sugerencias
 
@@ -145,7 +145,7 @@ Comencemos con el caso más simple de la oferta de alternativas para el usuario:
  
     ![Escriba "pa" con el parámetro fuzzy establecido en true](./media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png)
 
-    Si está interesado, la [sintaxis de consulta de Lucene en Azure Cognitive Search](https://docs.microsoft.com/azure/search/query-lucene-syntax) describe la lógica utilizada en las búsquedas aproximadas en detalle.
+    Si está interesado, la [sintaxis de consulta de Lucene en Azure Cognitive Search](./query-lucene-syntax.md) describe la lógica utilizada en las búsquedas aproximadas en detalle.
 
 ## <a name="add-highlighting-to-the-suggestions"></a>Agregar resaltado para las sugerencias
 
@@ -244,7 +244,7 @@ Otra variación, que es ligeramente diferente de las sugerencias, es la función
 
     Tenga en cuenta que estamos usando la misma función de *proveedor de sugerencias*, denominada "sg", en la búsqueda de autocompletar que cuando obtuvimos la sugerencias (por lo que intentamos solo para autocompletar los nombres de hotel).
 
-    Hay diversas opciones de **AutocompleteMode** y estamos usando **OneTermWithContext**. Consulte [Autocomplete API](https://docs.microsoft.com/rest/api/searchservice/autocomplete) para obtener una descripción de las opciones adicionales.
+    Hay diversas opciones de **AutocompleteMode** y estamos usando **OneTermWithContext**. Consulte [Autocomplete API](/rest/api/searchservice/autocomplete) para obtener una descripción de las opciones adicionales.
 
 4. Ejecute la aplicación. Observe cómo la variedad de opciones que se muestra en la lista desplegable son las palabras individuales. Pruebe a escribir palabras que empiezan por "re". Tenga en cuenta cómo se reduce el número de opciones a medida que se escriben más letras.
 
@@ -464,5 +464,3 @@ En el siguiente tutorial, echaremos un vistazo a otra manera de mejorar la exper
 
 > [!div class="nextstepaction"]
 > [Tutorial de C#: Uso de facetas para facilitar la navegación en Azure Cognitive Search](tutorial-csharp-facets.md)
-
-

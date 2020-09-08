@@ -3,12 +3,12 @@ title: Modelo de datos para eventos de diagnóstico de Azure Backup
 description: Este modelo de datos es en referencia al modo específico del recurso de enviar eventos de diagnóstico a Log Analytics (LA).
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 46d40694da4eb025afc11da0f14b28691bf13bb8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8cc671152485bc2781a80f96e48b81263dea221b
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538877"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892531"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Modelo de datos para eventos de diagnóstico de Azure Backup
 
@@ -53,7 +53,7 @@ En esta tabla se proporciona información sobre las entidades de copia de seguri
 | ProtectedContainerWorkloadType    | Texto          | Tipo de la copia de seguridad del contenedor protegido. Por ejemplo, IaaSVMContainer |
 | ProtectionGroupName               | Texto          | Nombre del grupo de protección en el que está protegido el elemento de copia de seguridad, para SC DPM y MABS, si procede. |
 | ResourceGroupName                 | Texto          | Grupo de recursos correspondiente al recurso (por ejemplo, el almacén de Recovery Services) de los datos que se recopilan. |
-| SchemaVersion                     | Texto          | Este campo indica la versión actual del esquema; es **V2**. |
+| SchemaVersion                     | Texto          | Este campo indica la versión actual del esquema. Es **V2**. |
 | SecondaryBackupProtectionState    | Texto          | Si está habilitada la protección secundaria para el elemento de copia de seguridad.  |
 | State                             | Texto          | Estado del objeto del elemento de copia de seguridad. Por ejemplo, Activo o Eliminado |
 | StorageReplicationType            | Texto          | Tipo de replicación de almacenamiento para el almacén. Por ejemplo, GeoRedundant |
@@ -165,12 +165,12 @@ Esta tabla proporciona detalles acerca de los campos relacionados con las direct
 | DiffBackupTime                  | Time           | Tiempo para copias de seguridad diferenciales de SQL en la copia de seguridad de máquinas virtuales de Azure.     |
 | LogBackupFrequency              | Decimal Number | Frecuencia de las copias de seguridad de registros de SQL.                            |
 | LogBackupRetentionDuration      | Decimal Number | Duración de retención de las copias de seguridad de registro de SQL en la copia de seguridad de máquinas virtuales de Azure. |
-| MonthlyRetentionDaysOfTheMonth  | Texto           | Semanas del mes en que se configura la retención mensual.  Por ejemplo, First, Last, etc. |
+| MonthlyRetentionDaysOfTheMonth  | Texto           | Semanas del mes en que se configura la retención mensual.  Por ejemplo, la primera o la última. |
 | MonthlyRetentionDaysOfTheWeek   | Texto           | Días de la semana seleccionados para la retención mensual              |
 | MonthlyRetentionDuration        | Texto           | Duración de retención total de las copias de seguridad configuradas, en meses    |
 | MonthlyRetentionFormat          | Texto           | Tipo de configuración para la retención mensual. Por ejemplo, daily si se hace por días o weekly si se hace por semanas. |
 | MonthlyRetentionTimes           | Texto           | Fecha y hora en que se ha configurado la retención mensual           |
-| MonthlyRetentionWeeksOfTheMonth | Texto           | Semanas del mes en que se configura la retención mensual.   Por ejemplo, First, Last, etc. |
+| MonthlyRetentionWeeksOfTheMonth | Texto           | Semanas del mes en que se configura la retención mensual.   Por ejemplo, la primera o la última. |
 | PolicyName                      | Texto           | Nombre de la directiva definida                                   |
 | PolicyUniqueId                  | Texto           | Identificador único que identifica la directiva.                             |
 | PolicyTimeZone                  | Texto           | Zona horaria en la que se especifican los campos de hora de directiva en los registros. |

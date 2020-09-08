@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 08/12/2020
-ms.openlocfilehash: 33521a5aed38cacbc7ce87b4a2a917ade866e378
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 62dfa3214b86139a8f836b3d9bd72585653b7fa2
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142441"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88189943"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Alta disponibilidad para Azure SQL Database e Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -117,4 +117,5 @@ Azure SQL Database e Instancia administrada de SQL presentan una solución de al
 - Obtener más información acerca de las [zonas de disponibilidad de Azure](../../availability-zones/az-overview.md).
 - Obtener más información sobre [Service Fabric](../../service-fabric/service-fabric-overview.md).
 - Obtener más información acerca de [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md).
+- Aprenda [cómo iniciar una conmutación por error manual en SQL Managed Instance](../managed-instance/user-initiated-failover.md).
 - Para conocer más opciones de alta disponibilidad y recuperación ante desastres, consulte [Continuidad del negocio](business-continuity-high-availability-disaster-recover-hadr-overview.md).

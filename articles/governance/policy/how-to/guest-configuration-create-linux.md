@@ -1,14 +1,15 @@
 ---
 title: Creación de directivas de Configuración de invitado para Linux
 description: Aprenda a crear una directiva de Configuración de invitado de Azure Policy para Linux.
-ms.date: 03/20/2020
+ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 5ce6dce034c9479924901e5a20b38c343dd8bac6
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 4f49732aa2be50b0d8be6f1f3af974121dc9f363
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026719"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89076368"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Creación de directivas de Configuración de invitado para Linux
 
@@ -25,9 +26,7 @@ Use las siguientes acciones para crear su propia configuración para validar el 
 > [!IMPORTANT]
 > Las directivas personalizadas con la configuración de invitados son una característica en vista previa (GB).
 >
-> La extensión de configuración de invitado es necesaria para realizar auditorías en las máquinas virtuales de Azure.
-> Para implementar la extensión a gran escala, en todas las máquinas Linux asigne las siguientes definiciones de directiva:
->   - [Implemente los requisitos previos para habilitar la directiva de configuración de invitado en VM de Linux.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
+> La extensión de configuración de invitado es necesaria para realizar auditorías en las máquinas virtuales de Azure. Para implementar la extensión a gran escala en todas las máquinas Linux, asigne las siguientes definiciones de directiva: `Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`
 
 ## <a name="install-the-powershell-module"></a>Instalación del módulo de PowerShell
 
@@ -51,11 +50,14 @@ Sistemas operativos donde se puede instalar el módulo:
 - macOS
 - Windows
 
+> [!NOTE]
+> El cmdlet "test-GuestConfigurationPackage" requiere OpenSSL versión 1.0, debido a una dependencia en OMI. Esto produce un error en cualquier entorno con OpenSSL 1.1 o posterior.
+
 El módulo de recursos de configuración de invitados requiere el siguiente software:
 
 - PowerShell 6.2 o posterior. Si todavía no está instalado, siga [estas instrucciones](/powershell/scripting/install/installing-powershell).
 - Azure PowerShell 1.5.0 o posterior. Si todavía no está instalado, siga [estas instrucciones](/powershell/azure/install-az-ps).
-  - Solo se requieren los módulos de AZ "Az.Accounts" y "Az.Resources".
+  - Solo se requieren los módulos Az "Az.Accounts" y "Az.Resources".
 
 ### <a name="install-the-module"></a>Instalación del módulo
 
@@ -77,7 +79,8 @@ Para instalar el módulo **GuestConfiguration** en PowerShell:
 
 ## <a name="guest-configuration-artifacts-and-policy-for-linux"></a>Artefactos y directivas de Configuración de invitado para Linux
 
-Incluso en entornos de Linux, Configuración de invitado usa Desired State Configuration como abstracción de lenguaje. La implementación se basa en código nativo (C++), por lo que no es necesario cargar PowerShell. Sin embargo, sí requiere un MOF de configuración que describa los detalles sobre el entorno. DSC actúa como contenedor de InSpec para normalizar cómo se ejecuta, cómo se proporcionan los parámetros y cómo se devuelve el resultado al servicio. Se requieren pocos conocimientos de DSC al trabajar con contenido personalizado de InSpec.
+Incluso en entornos de Linux, Configuración de invitado usa Desired State Configuration como abstracción de lenguaje. La implementación se basa en código nativo (C++), por lo que no es necesario cargar PowerShell. Sin embargo, sí requiere un MOF de configuración que describa los detalles sobre el entorno.
+DSC actúa como contenedor de InSpec para normalizar cómo se ejecuta, cómo se proporcionan los parámetros y cómo se devuelve el resultado al servicio. Se requieren pocos conocimientos de DSC al trabajar con contenido personalizado de InSpec.
 
 #### <a name="configuration-requirements"></a>Requisitos de configuración
 
@@ -137,8 +140,6 @@ AuditFilePathExists -out ./Config
 Guarde este archivo con el nombre `config.ps1` en la carpeta del proyecto. Ejecútelo en PowerShell mediante la ejecución de `./config.ps1` en el terminal. Se creará un nuevo archivo MOF.
 
 El comando `Node AuditFilePathExists` no es técnicamente necesario, pero genera un archivo denominado `AuditFilePathExists.mof`, en lugar del valor predeterminado, `localhost.mof`. El hecho de que el nombre de archivo. mof siga la configuración facilita la organización de muchos archivos cuando se trabaja a escala.
-
-
 
 Ahora debería tener una estructura de proyecto como la siguiente:
 
@@ -260,6 +261,8 @@ Parámetros del cmdlet `New-GuestConfigurationPolicy`:
 - **Versión**: Versión de la directiva.
 - **Ruta de acceso**: Ruta de acceso de destino donde se crean las definiciones de directiva.
 - **Plataforma**: Plataforma de destino (Windows/Linux) para la directiva de configuración de invitados y el paquete de contenido.
+- **Tag** agrega uno o varios filtros de etiquetas a la definición de directiva.
+- **Category** establece el campo de metadatos de categoría en la definición de directiva.
 
 En el ejemplo siguiente se crean las definiciones de directivas en una ruta de acceso especificada desde un paquete de directivas personalizado:
 
@@ -282,16 +285,7 @@ New-GuestConfigurationPolicy `
 
 La salida del cmdlet devuelve un objeto que contiene el nombre para mostrar de la iniciativa y la ruta de acceso de los archivos de directiva.
 
-> [!Note]
-> El módulo Configuración de invitado más reciente incluye parámetros nuevos:
-> - **Tag** agrega uno o varios filtros de etiquetas a la definición de directiva.
->   - Vea la sección [Filtrado de directivas de Configuración de invitado mediante etiquetas](#filtering-guest-configuration-policies-using-tags).
-> - **Category** establece el campo de metadatos de categoría en la definición de directiva.
->   - Si no se incluye el parámetro, la categoría tiene como valor predeterminado Configuración de invitado.
-> Estas características se encuentran actualmente en versión preliminar y requieren la versión 1.20.1 del módulo Configuración de invitado, que se puede instalar mediante `Install-Module GuestConfiguration -AllowPrerelease`.
-
-Por último, publique las definiciones de directivas con el cmdlet `Publish-GuestConfigurationPolicy`.
-El cmdlet solo tiene el parámetro **Path** que apunta a la ubicación de los archivos JSON que creó `New-GuestConfigurationPolicy`.
+Por último, publique las definiciones de directivas con el cmdlet `Publish-GuestConfigurationPolicy`. El cmdlet solo tiene el parámetro **Path** que apunta a la ubicación de los archivos JSON que creó `New-GuestConfigurationPolicy`.
 
 Para ejecutar el comando Publish, necesita acceso para crear directivas en Azure. Los requisitos de autorización específicos se documentan en la página [Información general de Azure Policy](../overview.md). El mejor rol integrado es **Colaborador de la directiva de recursos**.
 
@@ -405,9 +399,6 @@ La manera más fácil de publicar un paquete actualizado es repetir el proceso q
 
 ### <a name="filtering-guest-configuration-policies-using-tags"></a>Filtrado de directivas de Configuración de invitado mediante etiquetas
 
-> [!Note]
-> Esta característica se encuentra actualmente en versión preliminar y requiere la versión 1.20.1 del módulo Configuración de invitado, que se puede instalar mediante `Install-Module GuestConfiguration -AllowPrerelease`.
-
 De forma opcional, las definiciones de directiva que crean los cmdlets en el módulo Configuración de invitado pueden incluir un filtro para las etiquetas. El parámetro **Tag** de `New-GuestConfigurationPolicy` admite una matriz de tablas hash que contiene entradas de etiquetas individuales. Las etiquetas se agregan a la sección `If` de la definición de directiva y no se pueden modificar mediante una asignación de directiva.
 
 A continuación se muestra un fragmento de código de ejemplo de una definición de directiva que filtra por etiquetas.
@@ -464,5 +455,5 @@ Para más información sobre los cmdlets de esta herramienta, use el comando Get
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga información sobre la auditoría de VM con la [configuración de invitados](../concepts/guest-configuration.md).
-- Obtenga información acerca de cómo se pueden [crear directivas mediante programación](programmatically-create.md).
-- Obtenga información sobre cómo [obtener datos de cumplimiento](get-compliance-data.md).
+- Obtenga información acerca de cómo se pueden [crear directivas mediante programación](./programmatically-create.md).
+- Obtenga información sobre cómo [obtener datos de cumplimiento](./get-compliance-data.md).

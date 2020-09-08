@@ -3,29 +3,30 @@ title: Creación de una entrada de trabajo de Azure Media Services desde un arch
 description: En este artículo se muestra cómo crear una entrada de trabajo de Azure Media Services desde un archivo local.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
-ms.date: 03/26/2020
-ms.author: juliako
-ms.openlocfilehash: a635a75a64db59fc56c6890f79af967a58735853
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: how-to
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 02aaae89f7544392765b46361b1617e0fd7dae8c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001135"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296814"
 ---
 # <a name="create-a-job-input-from-a-local-file"></a>Creación de una entrada de trabajo a partir de un archivo local
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 En Media Services v3, cuando se envían trabajos para procesar los vídeos, es necesario indicar a Media Services dónde encontrar el vídeo de entrada. El vídeo de entrada se puede almacenar como un recurso de Media Services, en cuyo caso se crea un recurso de entrada basado en un archivo (almacenado localmente o en Azure Blob Storage). En este tema se muestra cómo crear una entrada de trabajo a partir de un archivo local. Para un ejemplo completo, consulte este [ejemplo de GitHub](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs).
 
 ## <a name="prerequisites"></a>Prerrequisitos 
 
 * [Cree una cuenta de Media Services](./create-account-howto.md).
-* Revise la [administración de recursos](manage-asset-concept.md).
 
 ## <a name="net-sample"></a>Ejemplo de .NET
 

@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 07/31/2020
-ms.openlocfilehash: 5aa6b3717925146607f3785ad5ea5fb940e8c236
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b3919cbbe0ba7a796a21ae566afb8e2d9fa784db
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503412"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716680"
 ---
 # <a name="transform-json-and-xml-using-liquid-templates-as-maps-in-azure-logic-apps"></a>Transformación de JSON y XML usando plantillas de Liquid como asignaciones en Azure Logic Apps
 
@@ -39,7 +39,7 @@ En este artículo se muestra cómo completar estas tareas:
 * Conocimientos básicos sobre el [lenguaje de plantilla de Liquid](https://shopify.github.io/liquid/)
 
   > [!NOTE]
-  > La acción **Transform JSON to JSON - Liquid** (Transformar de JSON a JSON: Liquid) sigue la [implementación DotLiquid para Liquid](https://github.com/dotliquid/dotliquid), que, en determinados casos, difiere de la [implementación Shopify para Liquid](https://shopify.github.io/liquid). Para más información, consulte [Consideraciones sobre las plantillas de Liquid](#template-considerations).
+  > La acción **Transform JSON to JSON - Liquid** (Transformar de JSON a JSON: Liquid) sigue la [implementación DotLiquid para Liquid](https://github.com/dotliquid/dotliquid), que, en determinados casos, difiere de la [implementación Shopify para Liquid](https://shopify.github.io/liquid). Para más información, consulte [Consideraciones sobre las plantillas de Liquid](#liquid-template-considerations).
 
 ## <a name="create-the-template"></a>Creación de la plantilla
 

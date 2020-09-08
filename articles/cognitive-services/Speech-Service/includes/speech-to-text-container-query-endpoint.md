@@ -4,17 +4,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 04/29/2020
+ms.date: 08/18/2020
 ms.author: aahi
-ms.openlocfilehash: e5f38da6a18e8a4c59bea77f4ddd5a68db1e1902
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 54ccaebd84c6af308ddcfa956add7f84b6e55832
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610756"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321058"
 ---
-### <a name="speech-to-text-or-custom-speech-to-text"></a>Conversión de voz a texto o Conversión de voz a texto personalizada
-
 El contenedor proporciona las API de punto de conexión de consulta basadas en WebSocket, a las que se accede mediante el [SDK de Voz](../index.yml). De forma predeterminada, el SDK de Voz usa servicios de voz en línea. Para usar el contenedor, deberá cambiar el método de inicialización.
 
 > [!TIP]

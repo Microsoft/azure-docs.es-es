@@ -1,27 +1,25 @@
 ---
-title: Rendimiento y unidades de solicitud en Azure Cosmos DB
+title: Unidades de solicitud como moneda de rendimiento en Azure Cosmos DB
 description: Obtenga información sobre cómo especificar y estimar los requisitos de las unidades de solicitud en Azure Cosmos DB.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/24/2020
-ms.openlocfilehash: f1f203d17de9fb0fc9fe8bb0f6de80fe2b93ba8b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/19/2020
+ms.openlocfilehash: 6831cb3f39c25eb69d16300156f456980cf57fa0
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327810"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604841"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades de solicitud en Azure Cosmos DB
 
-Con Azure Cosmos DB, paga por el rendimiento que aprovisiona y el almacenamiento que consume cada hora. Se debe aprovisionar el rendimiento para garantizar que haya disponible suficientes recursos del sistema para la base de datos de Azure Cosmos en todo momento. Necesita los recursos suficientes para cumplir o superar los [acuerdos de nivel de servicio de Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/).
-
 Azure Cosmos DB admite varias API, como SQL, MongoDB, Cassandra, Gremlin y Table. Cada API tiene su propio conjunto de operaciones de base de datos. Estas abarcan desde sencillas lecturas y escrituras de punto hasta consultas complejas. Cada operación de base de datos consume recursos del sistema en función de la complejidad de la operación.
 
-Azure Cosmos DB se encarga de normalizar el costo de todas las operaciones de base de datos y se expresa en términos de *unidades de solicitud* (RU en su forma abreviada). RU/segundo se puede considerar como la moneda del rendimiento. RU/s es una moneda basada en la velocidad, que abstrae los recursos del sistema, como CPU, IOPS y memoria, necesarios para realizar las operaciones de base de datos compatibles con Azure Cosmos DB. Se requiere un mínimo de 10 RU/s para almacenar cada GB de datos.
+Azure Cosmos DB se encarga de normalizar el costo de todas las operaciones de base de datos y se expresa en términos de *unidades de solicitud* (RU en su forma abreviada). Puede considerar que las unidades de solicitud son como una moneda de rendimiento, que resume los recursos del sistema, como CPU, IOPS y memoria, necesarios para realizar las operaciones de base de datos compatibles con Azure Cosmos DB.
 
-El costo de hacer una lectura puntual de un elemento de 1 KB es una unidad de solicitud (o 1 RU). A todas las demás operaciones de base de datos se les asigna de forma similar un costo en términos de unidades de solicitud. Con independencia de qué API utilice para interactuar con el contenedor de Azure Cosmos, los costos siempre se miden por RU. Si la operación de base de datos es una escritura, lectura puntual o consulta, los costos siempre se miden en RU.
+El costo de hacer una lectura puntual (es decir, capturar un solo elemento por su identificador y valor de clave de partición) para un elemento de 1 KB es 1 unidad de solicitud (o 1 RU). A todas las demás operaciones de base de datos se les asigna de forma similar un costo en términos de unidades de solicitud. Con independencia de qué API utilice para interactuar con el contenedor de Azure Cosmos, los costos siempre se miden por RU. Si la operación de base de datos es una escritura, lectura puntual o consulta, los costos siempre se miden en RU.
 
 En la siguiente imagen se muestra el concepto de unidades de solicitud a grandes rasgos:
 
@@ -29,16 +27,16 @@ En la siguiente imagen se muestra el concepto de unidades de solicitud a grandes
 
 Para administrar y planear la capacidad, Azure Cosmos DB garantiza que el número de RU para una operación de base de datos determinada en un conjunto de datos concreto sea determinista. Puede examinar el encabezado de respuesta para realizar un seguimiento del número de RU consumidas por cualquier operación de base de datos. Una vez comprendidos los [factores que afectan a los cargos de unidad de solicitud](request-units.md#request-unit-considerations) y los requisitos de rendimiento de la aplicación, se puede ejecutar la aplicación de forma rentable.
 
-El aprovisionamiento del número de RU para la aplicación se realiza por segundos en incrementos de 100 RU/segundo. Para escalar el rendimiento aprovisionado para la aplicación, puede aumentar o disminuir el número de RU en cualquier momento. Se puede escalar en incrementos o disminuciones de 100 RU. Puede realizar los cambios mediante programación o en Azure Portal. Se factura por hora.
+El tipo de cuenta de Azure Cosmos que está utilizando determina el modo en que se cobrarán los RU consumidos:
 
-Puede aprovisionar el rendimiento en dos granularidades diferentes:
-
-* **Contenedores**: Para obtener más información, consulte [la manera de aprovisionar el rendimiento en un contenedor de Azure Cosmos](how-to-provision-container-throughput.md).
-* **Bases de datos**: Para obtener más información, consulte [la manera de aprovisionar el rendimiento en una base de datos de Azure Cosmos](how-to-provision-database-throughput.md).
+- En el modo [rendimiento aprovisionado](set-throughput.md), el aprovisionamiento del número de RU para la aplicación se realiza por segundos en incrementos de 100 RU/segundo. Para escalar el rendimiento aprovisionado para la aplicación, puede aumentar o disminuir el número de RU en cualquier momento, en incrementos o decrementos de 100 RU. Puede realizar los cambios mediante programación o en Azure Portal. Se le facturará cada hora por la cantidad de RU por segundo que haya aprovisionado. Puede aprovisionar el rendimiento en dos granularidades diferentes:
+  - **Contenedores**: Para obtener más información, consulte [la manera de aprovisionar el rendimiento en un contenedor de Azure Cosmos](how-to-provision-container-throughput.md).
+  - **Bases de datos**: Para obtener más información, consulte [la manera de aprovisionar el rendimiento en una base de datos de Azure Cosmos](how-to-provision-database-throughput.md).
+- En el modo [sin servidor](serverless.md), no tiene que aprovisionar ningún rendimiento al crear recursos en la cuenta de Azure Cosmos. Al final del período de facturación, se le factura el número de unidades de solicitud consumidas por las operaciones de base de datos.
 
 ## <a name="request-unit-considerations"></a>Consideraciones de la unidad de solicitud
 
-Al calcular el número de RU por segundo para aprovisionar, tenga en cuenta los siguientes factores:
+Al calcular el número de RU por segundo consumidos por su carga, tenga en cuenta los siguientes factores:
 
 * **Tamaño del elemento**: a medida que el tamaño de un elemento aumenta, el número de unidades de solicitud consumidas para leer o escribir el elemento también aumenta.
 
@@ -69,6 +67,7 @@ Al calcular el número de RU por segundo para aprovisionar, tenga en cuenta los 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga más información sobre el [aprovisionamiento del rendimiento de contenedores y bases de datos de Azure Cosmos](set-throughput.md).
+* Más información sobre [Azure Cosmos DB sin servidor](serverless.md).
 * Más información sobre las [particiones lógicas](partition-data.md).
 * Obtenga más información sobre el [escalado global del rendimiento aprovisionado](scaling-throughput.md).
 * Obtenga más información sobre el [aprovisionamiento del rendimiento de un contenedor de Azure Cosmos](how-to-provision-container-throughput.md).

@@ -16,10 +16,10 @@ ms.date: 03/11/2019
 ms.author: allensu
 ms.custom: seodec18
 ms.openlocfilehash: 8961a50490bdbf8b456e87e1c00577c2c8afd050
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "80240361"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Tutorial: Equilibrio de carga del tráfico de Internet en máquinas virtuales mediante Azure Portal
@@ -122,11 +122,11 @@ En los pasos de esta sección, tendrá que reemplazar los siguientes parámetros
 
 | Parámetro                   | Value                |
 |-----------------------------|----------------------|
-| **\<nombre-de-grupo-recursos>**  | myResourceGroupSLB (seleccione el grupo de recursos existente) |
-| **\<nombre-de-red-virtual>** | myVNet          |
+| **\<resource-group-name>**  | myResourceGroupSLB (seleccione el grupo de recursos existente) |
+| **\<virtual-network-name>** | myVNet          |
 | **\<region-name>**          | Oeste de Europa      |
-| **\<espacio-de-direcciones-IPv4>**   | 10.1.0.0/16          |
-| **\<nombre-de-subred>**          | mySubnet        |
+| **\<IPv4-address-space>**   | 10.1.0.0/16          |
+| **\<subnet-name>**          | mySubnet        |
 | **\<subnet-address-range>** | 10.1.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
@@ -162,7 +162,7 @@ La instancia de Standard Load Balancer solo admite las máquinas virtuales con d
 1. Seleccione la pestaña **Administración** o seleccione **Siguiente** > **Administración**. En **Supervisión**, establezca **Diagnósticos de arranque** en **Desactivado**. 
 1. Seleccione **Revisar + crear**.   
 1. Revise la configuración y, a continuación, seleccione **Crear**.
-1. Siga los pasos para crear dos máquinas virtuales adicionales, *myVM2* y *myVM3*, con una dirección IP pública de SKU estándar en **zona de disponibilidad** de **2** y **3**, respectivamente, y todos los demás valores iguales que *myVM1*.  
+1. Siga los pasos para crear dos máquinas virtuales adicionales, *myVM2* y *myVM3*, con una dirección IP pública de SKU estándar en **zona de disponibilidad de ** **2** y **3**, respectivamente, y todos los demás valores iguales que *myVM1*.  
 
 ### <a name="create-network-security-group-rule"></a>Creación de una regla de grupo de seguridad de red
 

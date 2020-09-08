@@ -70,25 +70,25 @@
             - name: Máquina virtual a partir de carga de VHD
               href: ./../scripts/virtual-machines-windows-powershell-upload-generalized-script.md
             - name: Conexión de un disco de sistema operativo
-              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md
+              href: ./../scripts/virtual-machines-powershell-sample-create-vm-from-managed-os-disks.md
             - name: Máquina virtual a partir de instantánea
               href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md
         - name: Administración del almacenamiento
           items:
             - name: Creación de un disco administrado a partir de un VHD
-              href: ../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md
+              href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md
             - name: Creación de un disco administrado a partir de una instantánea
-              href: ../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md
+              href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md
             - name: Copia de un disco administrado
-              href: ../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md
+              href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md
             - name: Exportación de una instantánea como VHD a una cuenta de almacenamiento
-              href: ../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md
+              href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md
             - name: Exportación del disco duro virtual de un disco administrado a una cuenta de almacenamiento
-              href: ../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd.md
+              href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md
             - name: Creación de una instantánea a partir de un disco duro virtual
-              href: ../scripts/virtual-machines-windows-powershell-sample-create-snapshot-from-vhd.md
+              href: ../scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd.md
             - name: Copia de una instantánea
-              href: ../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-same-or-different-subscription.md
+              href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription.md
         - name: Seguridad
           items:
             - name: Cifrado de una máquina virtual y sus discos de datos
@@ -118,17 +118,17 @@
         - name: Administración del almacenamiento
           items:
             - name: Creación de un disco administrado desde un disco duro virtual
-              href: ../scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-vhd.md
+              href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd.md
             - name: Creación de un disco administrado a partir de una instantánea
-              href: ../scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-snapshot.md
+              href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot.md
             - name: Copia de un disco administrado
-              href: ../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-to-same-or-different-subscription.md
+              href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription.md
             - name: Exportación de una instantánea como un disco duro virtual a una cuenta de almacenamiento
-              href: ../scripts/virtual-machines-windows-cli-sample-copy-snapshot-to-storage-account.md
+              href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account.md
             - name: Exportación del disco duro virtual de un disco administrado a una cuenta de almacenamiento
-              href: ../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-vhd.md
+              href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md
             - name: Copia de una instantánea
-              href: ../scripts/virtual-machines-windows-cli-sample-copy-snapshot-to-same-or-different-subscription.md
+              href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-same-or-different-subscription.md
         - name: Red
           items:
             - name: Protección del tráfico de red entre máquinas virtuales
@@ -141,9 +141,6 @@
           items:
             - name: Azure Monitor
               href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md
-    - name: Elementos integrados de Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ../policy-samples.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
 - name: Conceptos
   items:
     - name: Imágenes
@@ -175,7 +172,7 @@
         - name: Tamaños de VM
           href: ../sizes.md
         - name: Máquinas virtuales de segunda generación
-          href: generation-2.md
+          href: ../generation-2.md
         - name: Uso general
           items:
             - name: Información general
@@ -222,7 +219,7 @@
             - name: Serie Mv2
               href: ../mv2-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: VCPU restringidas
-              href: constrained-vcpu.md
+              href: ../constrained-vcpu.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Almacenamiento optimizado
           items:
             - name: Información general
@@ -279,10 +276,10 @@
             - name: ¿Qué son las reservas de Azure?
               href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md?toc=/azure/virtual-machines/windows/toc.json
             - name: Flexibilidad de tamaño de instancia de máquina virtual
-              href: reserved-vm-instance-size-flexibility.md
+              href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Máquinas virtuales de Spot
           displayName: 'pre-empt, preempt'
-          href: spot-vms.md
+          href: ../spot-vms.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Máquinas virtuales de Azure sin disco temporal
           href: ../azure-vms-no-temp-disk.md
         - name: Convenciones de nomenclatura de tamaños de máquina virtual de Azure
@@ -305,7 +302,7 @@
             - name: ¿Qué son las reservas de Azure?
               href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md
             - name: Flexibilidad de tamaño de instancia de máquina virtual
-              href: reserved-vm-instance-size-flexibility.md
+              href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Hosts dedicados
       href: dedicated-hosts.md
     - name: Mantenimiento y actualizaciones
@@ -313,21 +310,21 @@
     - name: Disk Storage
       items:
         - name: Introducción a los discos administrados
-          href: managed-disks-overview.md
+          href: ../managed-disks-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Selección de un tipo de disco para máquinas virtuales de IaaS
-          href: disks-types.md
+          href: ../disks-types.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Cifrado
           href: disk-encryption.md
         - name: Reservas de Disk Storage
           href: ../../cost-management-billing/reservations/understand-disk-reservations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Diseño para alto rendimiento
-          href: premium-storage-performance.md
+          href: ../premium-storage-performance.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Seguridad de disco
           href: disk-bursting.md
         - name: Objetivos de escalabilidad para discos
           href: disk-scalability-targets.md
         - name: Copia de seguridad y recuperación ante desastres para discos
-          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+          href: ../backup-and-disaster-recovery-for-azure-iaas-disks.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Discos compartidos
           href: disks-shared.md
         - name: Discos de sistema operativo efímero
@@ -341,7 +338,7 @@
     - name: Seguridad
       items:
         - name: Seguridad y directivas
-          href: security-policy.md
+          href: ../security-policy.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Azure Disk Encryption
           href: disk-encryption-overview.md
         - name: Controles de seguridad de Azure Policy
@@ -354,7 +351,7 @@
         - name: Bastion
           href: ../../bastion/bastion-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Estados y ciclo de vida
-      href: ../states-lifecycle.md
+      href: ../states-lifecycle.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Supervisión
       href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Diagnósticos de arranque
@@ -423,7 +420,7 @@
         - name: Información general sobre la migración
           href: migration-classic-resource-manager-overview.md
         - name: Análisis a fondo de la migración
-          href: migration-classic-resource-manager-deep-dive.md
+          href: ../migration-classic-resource-manager-deep-dive.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Planear la migración
           href: migration-classic-resource-manager-plan.md
         - name: Migrar mediante PowerShell
@@ -433,7 +430,7 @@
         - name: Herramientas de la comunidad para la migración
           href: migration-classic-resource-manager-community-tools.md
         - name: Preguntas más frecuentes
-          href: migration-classic-resource-manager-faq.md
+          href: ../migration-classic-resource-manager-faq.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Uso de imágenes
       displayName: 'SIG, AMI, image'
       items:
@@ -624,7 +621,7 @@
     - name: Administración de máquinas virtuales
       items:
         - name: Uso de máquinas virtuales
-          href: vm-usage.md
+          href: ../vm-usage.md
         - name: Tareas comunes de PowerShell
           href: ps-common-ref.md
         - name: Cambio del tamaño de máquina virtual
@@ -657,6 +654,8 @@
           href: instance-metadata-service.md
         - name: Habilitar virtualización anidada
           href: nested-virtualization.md
+        - name: Aplicación de revisiones automáticas a los invitados de la máquina virtual (versión preliminar)
+          href: automatic-vm-guest-patching.md
     - name: Mantenimiento de la plataforma
       items:
         - name: Notificaciones de mantenimiento
@@ -847,15 +846,15 @@
           items:
             - name: Azure PowerShell
               href: attach-disk-ps.md
-            - name: Azure portal
+            - name: Portal de Azure
               href: attach-managed-disk-portal.md
         - name: Desconexión de un disco
           href: detach-disk.md
         - name: Implementación de discos con plantilla de Resource Manager
           displayName: Azure Resource Manager
-          href: using-managed-disks-template-deployments.md
+          href: ../using-managed-disks-template-deployments.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Habilitación de discos compartidos
-          href: disks-shared-enable.md
+          href: ../disks-shared-enable.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: 'Cargar un disco duro virtual en un disco: PowerShell'
           href: disks-upload-vhd-to-managed-disk-powershell.md
         - name: 'Importación y exportación de discos de forma segura: Azure Portal'
@@ -863,11 +862,11 @@
         - name: Cambio del tamaño de un disco
           href: expand-os-disk.md
         - name: Uso del Explorador de Storage para administrar discos
-          href: disks-use-storage-explorer-managed-disks.md
+          href: ../disks-use-storage-explorer-managed-disks.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Instantánea de un disco
           href: snapshot-copy-managed-disk.md
         - name: Reserva de Disk Storage
-          href: disks-reserved-capacity.md
+          href: ../disks-reserved-capacity.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: 'Creación de una instantánea incremental: PowerShell'
           href: disks-incremental-snapshots.md
         - name: 'Creación de una instantánea incremental: Portal'
@@ -879,15 +878,15 @@
             - name: 'Habilitación del cifrado en el host: PowerShell'
               href: disks-enable-host-based-encryption-powershell.md
             - name: 'Habilitación del cifrado en el host: Azure Portal'
-              href: disks-enable-host-based-encryption-portal.md
+              href: ../disks-enable-host-based-encryption-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: 'Habilitación de claves administradas por el cliente: PowerShell'
               href: disks-enable-customer-managed-keys-powershell.md
             - name: 'Habilitación de claves administradas por el cliente: Portal'
-              href: disks-enable-customer-managed-keys-portal.md
+              href: ../disks-enable-customer-managed-keys-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Habilitación del cifrado en reposo doble
               href: disks-enable-double-encryption-at-rest-powershell.md
             - name: 'Habilitación del cifrado doble en reposo: Azure Portal'
-              href: disks-enable-double-encryption-at-rest-portal.md
+              href: ../disks-enable-double-encryption-at-rest-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Migración y conversión
           items:
             - name: Conversión de disco entre Estándar y Premium
@@ -901,9 +900,9 @@
         - name: Rendimiento
           items:
             - name: Habilitar el acelerador de escritura
-              href: how-to-enable-write-accelerator.md
+              href: ../how-to-enable-write-accelerator.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Uso de Ultra Disks
-              href: disks-enable-ultra-ssd.md
+              href: ../disks-enable-ultra-ssd.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Realización de pruebas comparativas de un disco
               href: disks-benchmarks.md
         - name: 'Búsqueda de discos sin conectar: PowerShell'
@@ -911,7 +910,7 @@
         - name: 'Búsqueda de discos sin conectar: Azure Portal'
           href: ../disks-find-unattached-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Preguntas más frecuentes de discos
-          href: faq-for-disks.md
+          href: ../faq-for-disks.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Administración de redes
       href: ps-common-network-ref.md
       items:
@@ -919,7 +918,7 @@
           href: ../../virtual-network/quick-create-portal.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
         - name: Apertura de puertos a una máquina virtual
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: nsg-quickstart-portal.md
             - name: Azure PowerShell
               href: nsg-quickstart-powershell.md
@@ -1045,6 +1044,9 @@
     - name: Plantilla de Resource Manager
       displayName: ARM
       href: /azure/templates/microsoft.compute/allversions
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ../policy-reference.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
 - name: Recursos
   items:
     - name: Preguntas y respuestas

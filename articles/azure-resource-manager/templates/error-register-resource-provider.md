@@ -3,13 +3,13 @@ title: Errores de registro del proveedor de recursos
 description: Describe cómo resolver errores de registro del proveedor de recursos al implementar recursos con Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 02/15/2019
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 19b3fa661f25f72e80b4ecc5b8423d1931ce5e5c
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 143cf03a33739f43a29af94fc2f8a336fb3aef8f
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499932"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89076674"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Resolución de errores del registro del proveedor de recursos
 

@@ -3,7 +3,7 @@ title: Introducción a la autenticación de Azure AD
 description: Obtenga información sobre cómo acceder a la autenticación de Azure Active Directory (Azure AD) para usar la API de Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,16 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/21/2020
-ms.author: juliako
-ms.openlocfilehash: 33c762e2f2a9bed90991f7b85e0fb83fbb43765c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 00808c25ac84da852cce6169fb210767ee2b56cf
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090168"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265888"
 ---
-# <a name="get-credentials-to-access-media-services-api"></a>Obtención de credenciales para acceder a la API de Media Services  
+# <a name="get-credentials-to-access-media-services-api"></a>Obtención de credenciales para acceder a la API de Media Services
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Al utilizar la autenticación de Azure AD para acceder a Azure Media Services API, tiene dos opciones de autenticación:
 
@@ -38,14 +40,14 @@ En este artículo se describen los pasos para obtener las credenciales para acce
 - Una cuenta de Azure. Si no tiene cuenta, comience con una [evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Una cuenta de Media Services. Para más información, vea [Creación de una cuenta de Azure Media Services mediante Azure Portal](create-account-howto.md).
 
-## <a name="use-the-azure-portal"></a>Uso de Azure Portal
+## <a name="portal"></a>[Portal](#tab/portal/)
 
-### <a name="api-access"></a>Acceso de API 
+### <a name="api-access"></a>Acceso de API
 
 La página **Acceso de API** le permite seleccionar el método de autenticación que desee usar para conectarse a la API. La página también proporciona los valores que necesita para conectarse a la API.
 
 1. En [Azure Portal](https://portal.azure.com/), seleccione la cuenta de Media Services.
-2. Seleccione cómo conectarse a la API de Media Services.
+2. Seleccione la hoja **API access (new)** (Acceso a API [nuevo]) en la barra de navegación izquierda.
 3. En **Conectar con la API de Media Services**, seleccione la versión de Media Services API a la que desea conectarse (la versión 3 es la más reciente del servicio).
 
 ### <a name="service-principal-authentication--recommended"></a>Autenticación de la entidad de servicio (recomendada)
@@ -70,7 +72,7 @@ Esta opción puede usarse para autenticar a un empleado o miembro de una instanc
 
 Copie sus credenciales para conectar la aplicación de usuario desde la sección **Conectar con la API de Media Services**. Puede obtener valores de texto o copiar los bloques JSON o XML.
 
-[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
+## <a name="cli"></a>[CLI](#tab/cli/)
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 

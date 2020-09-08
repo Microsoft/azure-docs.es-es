@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: be124bdde4427113d56f44f0c1fa19c600bd768e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f9277842339d7c4fa74e2e0f1febcf5916d86f4a
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496059"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180786"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>¿Qué es Azure Synapse Analytics (versión preliminar para área de trabajo)?
 
@@ -24,7 +24,7 @@ Hoy en día, el análisis empresarial requiere un funcionamiento a gran escala e
 
 Soluciones como esta son difíciles de compilar, configurar, proteger y mantener, lo que retrasa la extracción rápida de la información inteligente.
 
-**Azure Synapse** es un servicio de análisis integrado que acelera el tiempo para obtener información de todos los datos a cualquier escala, entre los almacenamientos de datos y los sistemas de análisis de macrodatos. Reúne lo mejor de las tecnologías **SQL** que se usan en el almacenamiento de datos de empresa, las tecnologías **Spark** usadas en el análisis de macrodatos y las **canalizaciones** para orquestar las actividades y el movimiento de datos.
+**Azure Synapse** es un servicio de análisis integrado que acelera el tiempo para obtener información de todos los datos a cualquier escala, entre los almacenamientos de datos y los sistemas de análisis de macrodatos. Reúne lo mejor de las tecnologías **SQL** que se usan en el almacenamiento de datos de empresa, las tecnologías **Spark** que se utilizan en el análisis de macrodatos y **Pipelines** para la integración de datos y la extracción, transformación y carga de datos.
 
 Azure Synapse incluye una experiencia de usuario web nativa de **Studio** que proporciona una experiencia y un modelo únicos de administración, supervisión, codificación y seguridad.
 
@@ -59,13 +59,13 @@ Azure Synapse elimina las barreras de la tecnología tradicionales entre el uso 
 * SQL y Spark pueden explorar y analizar directamente los archivos Parquet, CSV, TSV y JSON almacenados en el lago de datos.
 * Carga y descarga rápida y escalable para los datos que fluyen entre las bases de datos SQL y Spark
 
-### <a name="built-in-orchestration-via-pipelines"></a>Orquestación integrada mediante canalizaciones
+### <a name="built-in-data-integration-via-pipelines"></a>Integración de datos integrada a través de canalizaciones
 
-Azure Synapse incluye el mismo motor de integración de datos y experiencias que Azure Data Factory, lo que le permite crear canalizaciones de datos enriquecidas sin usar un motor de orquestación independiente.
+Azure Synapse incluye el mismo motor de integración de datos y experiencias que Azure Data Factory, lo que permite crear canalizaciones de ELT a escala enriquecidas sin tener que salir de Synapse Analytics.
 
-* Movimiento de datos entre Azure Synapse y más de 90 orígenes de datos locales
-* Organización de cuadernos, canalizaciones, trabajos de Spark, scripts SQL y procedimientos almacenados
+* Ingesta de datos de más de 90 orígenes de datos
 * ETL sin código con actividades de flujo de datos
+* Orquestación de cuadernos, trabajos de Spark, procedimientos almacenados, scripts de SQL, etc
 
 ### <a name="unified-management-monitoring-and-security"></a>Administración, supervisión y seguridad unificadas
 

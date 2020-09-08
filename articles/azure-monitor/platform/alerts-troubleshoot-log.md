@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 10/29/2018
-ms.openlocfilehash: a66cb190309fb9e966392f57a251eff746bfa315
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d61e052b10b7255cac37531f889324075d596f3c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321112"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828462"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Solución de problemas de alertas de registro en Azure Monitor  
 
@@ -190,7 +190,7 @@ Cada regla de alertas de registro creada en Azure Monitor como parte de su confi
 
 ## <a name="alert-rule-quota-was-reached"></a>Se alcanzó la cuota de la regla de alerta
 
-El número de reglas de alertas de búsqueda de registros por suscripción y recurso está sujeto a los límites de cuota descritos [en este artículo](https://docs.microsoft.com/azure/azure-monitor/service-limits).
+El número de reglas de alertas de búsqueda de registros por suscripción y recurso está sujeto a los límites de cuota descritos [en este artículo](../service-limits.md).
 
 ### <a name="recommended-steps"></a>Pasos recomendados
     
@@ -226,4 +226,3 @@ Si ha alcanzado el límite de cuota, los siguientes pasos pueden ayudar a resolv
 - Más información sobre las [alertas de registro en Azure](./alerts-unified-log.md).
 - Más información sobre [Application Insights](../log-query/log-query-overview.md).
 - Obtenga más información sobre las [consultas de registro](../log-query/log-query-overview.md).
-

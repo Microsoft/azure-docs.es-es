@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c2ae9e7654fa468d499ca6ef8543b98b1e372ca
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 5c07500ec432d176b2cf74aa95f0a1c943348f9f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85481398"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229523"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>¿Qué son los informes de Azure Active Directory?
 
@@ -44,9 +44,9 @@ La arquitectura de informes se basa en dos pilares principales:
 
 Los informes de seguridad ayudan a proteger las identidades de su organización. Hay dos tipos de informes de seguridad:
 
-- **Usuarios marcados en riesgo**: en el [informe de seguridad de usuarios marcados en riesgo](concept-user-at-risk.md) puede obtener una visión general de las cuentas de usuario que pueden haber estado en peligro.
+- **Usuarios marcados en riesgo**: en el [informe de seguridad de usuarios marcados en riesgo](../identity-protection/overview-identity-protection.md) puede obtener una visión general de las cuentas de usuario que pueden haber estado en peligro.
 
-- **Inicios de sesión de riesgo**: en el [informe de seguridad de inicios de sesión de riesgo](concept-risky-sign-ins.md) puede obtener un indicador de un intento de inicio de sesión que puede haber realizado alguien que no es el propietario legítimo de una cuenta de usuario. 
+- **Inicios de sesión de riesgo**: en el [informe de seguridad de inicios de sesión de riesgo](../identity-protection/overview-identity-protection.md) puede obtener un indicador de un intento de inicio de sesión que puede haber realizado alguien que no es el propietario legítimo de una cuenta de usuario. 
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-a-security-report"></a>¿Qué licencia de Azure AD se necesita para acceder a un informe de seguridad?  
 
@@ -81,7 +81,7 @@ Los [informes de registros de auditoría](concept-audit-logs.md) le proporcionan
 
 #### <a name="what-azure-ad-license-do-you-need-to-access-the-audit-logs-report"></a>¿Qué licencia de Azure AD se necesita para acceder al informe de registros de auditoría?  
 
-El informe de registros de auditoría está disponible para aquellas características para las que dispone de licencia. Si tiene una licencia para una característica determinada, también tiene acceso a la información del registro de auditoría de dicha característica. Para ver una comparación detallada de las características según los [diferentes tipos de licencias](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#what-are-the-azure-ad-licenses), consulte la [página de precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Para más información, consulte [Características y funcionalidades de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#which-features-work-in-azure-ad).
+El informe de registros de auditoría está disponible para aquellas características para las que dispone de licencia. Si tiene una licencia para una característica determinada, también tiene acceso a la información del registro de auditoría de dicha característica. Para ver una comparación detallada de las características según los [diferentes tipos de licencias](../fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses), consulte la [página de precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Para más información, consulte [Características y funcionalidades de Azure Active Directory](../fundamentals/active-directory-whatis.md#which-features-work-in-azure-ad).
 
 ### <a name="sign-ins-report"></a>Informe de inicios de sesión
 
@@ -101,6 +101,6 @@ Además de la interfaz de usuario, Azure AD también proporciona [acceso mediant
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Informe de inicios de sesión de riesgo](concept-risky-sign-ins.md)
+- [Informe de inicios de sesión de riesgo](../identity-protection/overview-identity-protection.md)
 - [Informe de registros de auditoría](concept-audit-logs.md)
 - [Informe de registros de inicios de sesión](concept-sign-ins.md)

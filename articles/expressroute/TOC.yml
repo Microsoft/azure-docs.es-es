@@ -4,6 +4,10 @@
   items:
     - name: ¿Qué es ExpressRoute?
       href: expressroute-introduction.md
+- name: Guía de inicio rápido
+  items:
+    - name: 'Creación de un circuito de ExpressRoute: plantilla de Resource Manager'
+      href: quickstart-create-expressroute-vnet-template.md
 - name: Tutoriales
   items:
     - name: Creación y modificación de un circuito
@@ -30,7 +34,7 @@
           href: expressroute-locations-providers.md
         - name: Ubicaciones por proveedor
           href: expressroute-locations.md
-    - name: Requisitos previos
+    - name: Prerrequisitos
       href: expressroute-prerequisites.md
     - name: Workflows
       href: expressroute-workflows.md

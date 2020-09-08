@@ -1,24 +1,24 @@
 ---
-title: Autorización del acceso a los datos de blobs o colas con la CLI de Azure
+title: Elección de cómo autorizar el acceso a los datos de blobs o colas con la CLI de Azure
 titleSuffix: Azure Storage
 description: Especifique cómo se autorizan las operaciones de datos en datos de blobs o colas con la CLI de Azure. Puede autorizar las operaciones de datos con las credenciales de Azure AD, con la clave de acceso de la cuenta o con un token de firma de acceso compartido (SAS).
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/26/2020
+ms.date: 08/18/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a656ccc56d198943c8631077466115eb6411a64a
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: a089ffb7631ded7bd36a4eee5fb862ced3fd2ad0
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534896"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589069"
 ---
-# <a name="authorize-access-to-blob-or-queue-data-with-azure-cli"></a>Autorización del acceso a los datos de blobs o colas con la CLI de Azure
+# <a name="choose-how-to-authorize-access-to-blob-or-queue-data-with-azure-cli"></a>Elección de cómo autorizar el acceso a los datos de blobs o colas con la CLI de Azure
 
 Azure Storage proporciona extensiones para la CLI de Azure que permiten especificar el modo de autorizar las operaciones en los datos de blobs o colas. Puede autorizar las operaciones de datos de las siguientes maneras:
 

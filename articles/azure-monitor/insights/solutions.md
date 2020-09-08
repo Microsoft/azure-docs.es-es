@@ -5,28 +5,28 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/12/2020
-ms.openlocfilehash: a2ece33974e5bb4d8cb6257d3ca68a258f9b8c81
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/07/2020
+ms.openlocfilehash: 04f2d11b9fc8bbd61319a057c091cddbf140b9db
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326008"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135543"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluciones de supervisión en Azure Monitor
 
-Las soluciones de supervisión aprovechan los servicios de Azure para proporcionar análisis adicional del funcionamiento de una aplicación o servicio determinados. En este artículo se proporciona una breve descripción de las soluciones de supervisión en Azure y los detalles sobre su uso e instalación. Puede agregar soluciones de supervisión a su instancia de Azure Monitor para todas las aplicaciones y los servicios que use. Normalmente están disponibles sin costo, excepto la recopilación de datos que podría suponer cargos por uso.
+Las soluciones de supervisión de Azure Monitor proporcionan análisis del funcionamiento de un servicio o una aplicación de Azure en particular. En este artículo se proporciona una breve descripción de las soluciones de supervisión en Azure y los detalles sobre su uso e instalación. Puede agregar soluciones de supervisión a su instancia de Azure Monitor para todas las aplicaciones y los servicios que use. Normalmente están disponibles sin costo, excepto la recopilación de datos que podría suponer cargos por uso.
 
 ## <a name="use-monitoring-solutions"></a>Uso de soluciones de supervisión
 
-Abra la página **Introducción** en Azure Monitor para mostrar un icono para cada solución instalada en el área de trabajo.
+La página de **información general** de soluciones de Azure Monitor muestra un icono para cada solución instalada en un área de trabajo de Log Analytics. Para abrir esta página, vaya a **Azure Monitor** en [Azure Portal](https://ms.portal.azure.com). En el menú **Conclusiones**, seleccione **Más** para abrir el **Centro de conclusiones** y haga clic en **Áreas de trabajo de Log Analytics**.
 
-1. Vaya a [Azure Portal](https://ms.portal.azure.com). Busque y seleccione **Monitor**.
-1. En el menú **Insights**, seleccione **Más**.
-1. Use los cuadros de lista desplegable en la parte superior de la pantalla para cambiar el área de trabajo o el intervalo de tiempo usado para los iconos.
-1. Haga clic en el icono de una solución para abrir la vista que incluye un análisis más detallado de los datos recopilados.
+[![Centro de conclusiones](media/solutions/insights-hub.png)](media/solutions/insights-hub.png#lightbox)
 
-![Información general](media/solutions/overview.png)
+
+Use los cuadros de lista desplegable en la parte superior de la pantalla para cambiar el área de trabajo o el intervalo de tiempo usado para los iconos. Haga clic en el icono de una solución para abrir la vista que incluye un análisis más detallado de los datos recopilados.
+
+[![Información general](media/solutions/overview.png)](media/solutions/overview.png#lightbox)
 
 Las soluciones de supervisión pueden contener varios tipos de recursos de Azure; puede ver todos los recursos que incluyen las soluciones igual que cualquier otro recurso. Por ejemplo, las consultas de registro incluidas en la solución se enumeran en **Consultas de solución** de [Explorador de consultas](../log-query/get-started-portal.md#load-queries). Puede usar esas consultas al llevar a cabo análisis ad hoc con [consultas de registro](../log-query/log-query-overview.md).
 
@@ -192,7 +192,6 @@ az monitor log-analytics solution delete --name
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga un [lista de soluciones de supervisión de Microsoft](/azure/azure-monitor/monitor-reference).
+* Obtenga un [lista de soluciones de supervisión de Microsoft](../monitor-reference.md).
 * Aprenda a [crear consultas](../log-query/log-query-overview.md) para analizar los datos recopilados por las soluciones de supervisión.
 * Consulte todos los [comandos de la CLI de Azure para Azure Monitor](/cli/azure/azure-cli-reference-for-monitor).
-

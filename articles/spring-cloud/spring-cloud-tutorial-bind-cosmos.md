@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 881005c2597eadc3b3b0be9a01fbf9d82d35d050
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7fb1f88ab5eaf22047f5a696ec9cb021981cdd5e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070773"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297185"
 ---
 # <a name="bind-an-azure-cosmos-db-database-to-your-azure-spring-cloud-application"></a>Enlace de una base de datos de Azure Cosmos DB a una aplicación de Azure Spring Cloud
 
@@ -20,7 +20,7 @@ En lugar de configurar manualmente las aplicaciones de Spring Boot, puede enlaza
 
 Requisitos previos:
 
-* Una instancia de Azure Spring Cloud implementada. Para comenzar, siga nuestro [inicio rápido sobre la implementación mediante la CLI de Azure](spring-cloud-quickstart-launch-app-cli.md).
+* Una instancia de Azure Spring Cloud implementada. Para comenzar, siga nuestro [inicio rápido sobre la implementación mediante la CLI de Azure](spring-cloud-quickstart.md).
 * Una cuenta de Azure Cosmos DB con un nivel mínimo de permisos de colaborador.
 
 ## <a name="bind-azure-cosmos-db"></a>Enlace de Azure Cosmos DB

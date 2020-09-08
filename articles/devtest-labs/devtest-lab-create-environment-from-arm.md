@@ -2,13 +2,13 @@
 title: Creación de entornos de varias máquinas virtuales y recursos PaaS con plantillas
 description: Obtenga información acerca de cómo crear entornos de varias máquinas virtuales y recursos de PaaS en Azure DevTest Labs a partir de una plantilla de Azure Resource Manager
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: bab107257a6233543cecfb664b3a6d313dd0e538
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/12/2020
+ms.openlocfilehash: 97659d4ab95fdbe75460161d0ceed71a1cb5cf82
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481432"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182415"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Creación de entornos de varias máquinas virtuales y recursos de PaaS con plantillas de Azure Resource Manager
 
@@ -203,10 +203,10 @@ En el siguiente script de ejemplo se crea un entorno en el laboratorio. Los come
    Set-AzContext -SubscriptionId $SubscriptionId | Out-Null
 
    # Get information about the user, specifically the user ID, which is used later in the script.  
-   $UserId = $((Get-AzADUser -UserPrincipalName (Get-AzContext).Account).Id.Guid)
+   $UserId = $((Get-AzADUser -UserPrincipalName ((Get-AzContext).Account).Id).Id)
 
    # Get information about the lab, such as lab location.
-   $lab = Get-AzResource -ResourceType "Microsoft.DevTestLab/labs" -Name $LabName -ResourceGroupName $ResourceGroupName
+   $lab = Get-AzResource -ResourceType "Microsoft.DevTestLab/labs" -Name $LabName
    if ($lab -eq $null) { throw "Unable to find lab $LabName in subscription $SubscriptionId." }
 
    # Get information about the repository in the lab.
