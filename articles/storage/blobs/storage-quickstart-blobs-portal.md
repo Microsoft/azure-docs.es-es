@@ -63,7 +63,7 @@ Puede descargar un blob en bloques para mostrarlo en el explorador o guardarlo e
 
 ## <a name="delete-a-block-blob"></a>Eliminación de un blob en bloques
 
-Puede descargar un blob en bloques para mostrarlo en el explorador o guardarlo en el sistema de archivos local. Para descargar un blob en bloques, siga estos pasos:
+Puede eliminar un blob en bloques. Para eliminar un blob en bloques, siga estos pasos:
 
 1. Vaya a la lista de blobs que cargó en la sección anterior.
 1. Seleccione los blobs que desea eliminar y seleccione **Eliminar** en la barra de acciones superior.
